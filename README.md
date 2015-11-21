@@ -20,3 +20,4 @@ LINUX 32 BIT:
 easy_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/Linux-32-bit/LightPipes-1.0.0-py2.7-linux-i686.egg
 
 Test by running (one of) the examples.
+![alt tag](https://raw.github.com/FredvanGoor/LightPipes-for-Python/Examples/twoholes.png
