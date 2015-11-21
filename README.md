@@ -21,4 +21,4 @@ easy_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/Lig
 
 Test by running (one of) the examples.
 
-![](Examples/twoholes.png)
+![](Examples/twoholes.png)![](Examples/twoholesPattern.png)
