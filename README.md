@@ -7,7 +7,7 @@ The first step in Python is to import the *LightPipes for Python* library:
 	
 If the *LightPipes for Python* library is successful installed on your computer Python can proceed with the next step:
 
-You probally want to plot the results, so import *matplotlib*:
+You probably want to plot the results, so import *matplotlib*:
 ![](img/twoholes2.png)
 
 Install LightPipes for Python by opening a terminal window and type at the prompt:
