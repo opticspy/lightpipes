@@ -4,6 +4,16 @@
 The *LightPipes for Python* routines are modifications of the LightPipes C routines written by Gleb Vdovin for Unix, Linux, DOS and OS2 workstations.
 The first step in Python is to import the *LightPipes for Python* library:
 
+try:
+	import LightPipes
+except ImportError:
+	print "LightPipes not present"
+	exit()
+	
+If the *LightPipes for Python* library is successful installed on your computer Python can proceed with the next step:
+
+You probally want to plot the results, so import *matplotlib*:
+
 
 Install LightPipes for Python by opening a terminal window and type at the prompt:
 
