@@ -26,6 +26,7 @@ We have to initiate *LightPipes for Python*. This is done with the following com
 ![](img/twoholes4.png)
 
 Next we define some variables: a wavelength of 20 micrometer , a 30 x 30 mm2 square grid with 250 x 250 pixels.
+
 ![](img/twoholes5.png)
 
 Now we are ready to start the simulation. The *Begin* command generates a field with amplitude 1.0 and phase zero, a plane wave. So, all the 250 x 250 elements of array, F, contain the complex number: 1.0 + j0.0.
