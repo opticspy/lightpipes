@@ -14,12 +14,13 @@ You probably want to plot the results, so import *matplotlib*:
 I like to work with units. So define them:
 ![](img/twoholes3.png)
 
-Next we define some variables: a wavelength of 20 micrometer , a 30 x 30 mm2 square grid with 250 x 250 pixels:
+We have to initiate LightPipes for Python. This is done with the following command:
 ![](img/twoholes4.png)
 
-Now we are ready to start the simulation. The Begin command generates a field with amplitude 1 and phase zero, a plane wave. So, all the 250 x 250 elements of array, F, contain the complex number: 1.0 + j*0.0.
+Next we define some variables: a wavelength of 20 micrometer , a 30 x 30 mm2 square grid with 250 x 250 pixels.
 ![](img/twoholes5.png)
 
+Now we are ready to start the simulation. The Begin command generates a field with amplitude 1 and phase zero, a plane wave. So, all the 250 x 250 elements of array, F, contain the complex number: 1.0 + j*0.0.
 The next commands generate two waves, F1 and F2, which are apertured by the two circular apertures and combined (simply added) by the BeamMix command. The combined wavefront is propagated a distance z=30 cm by the Fresnel command. After that the intensity is caculated and normalized to 255 (2 -> 255, 1 -> 1.0, 0 -> not normalized) by the Intensity command.
 ![](img/twoholes6.png)
 
