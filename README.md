@@ -4,6 +4,14 @@
 The *LightPipes for Python* routines are modifications of the LightPipes C routines written by Gleb Vdovin for Unix, Linux, DOS and OS2 workstations.
 
 ##Example: Young interferometer
+A plane wave is diffracted by two small holes, separated a distance, d. So two more or less spherical waves will propagate from these holes.
+
+![](img/twoholesSetUp.png)
+
+The resulting interference pattern on a screen at distance z looks like:
+![](img/twoholesPattern.png)
+
+### The Python program, ![Young.py](Examples/Young.py), described in detail.
 The first step in *Python* is to import the *LightPipes for Python* library:
 ![](img/twoholes1.png)
 	
@@ -44,12 +52,3 @@ easy_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/Lig
 ###LINUX 32 BIT:
 
 easy_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/Linux-32-bit/LightPipes-1.0.0-py2.7-linux-i686.egg
-
-###Test by running (one of) the examples.
-For example the Young interferometer ![Young.py](Examples/Young.py).
-
-A plane wave is diffracted by two holes.
-![](img/twoholesSetUp.png)
-
-The resulting interference pattern on a screen at distance z looks like:
-![](img/twoholesPattern.png)
