@@ -11,7 +11,7 @@ A plane wave is diffracted by two small holes, separated a distance, d. So two m
 The resulting interference pattern on a screen at distance z looks like:
 ![](img/twoholesPattern.png)
 
-### The Python program, ![Young.py](Examples/Young.py), described in detail.
+### The Python program, [Young.py](Examples/Young.py), described in detail.
 The first step in *Python* is to import the *LightPipes for Python* library:
 ![](img/twoholes1.png)
 	
