@@ -137,7 +137,7 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 
 3.	After a few seconds a window with the output appears:
 
-![](img/TwoHolesPattern.png)
+![](img/twoholesPattern.png)
 
 ###6. Explanation of the commands
 
