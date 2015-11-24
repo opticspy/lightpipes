@@ -17,15 +17,13 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 
 	to leave it.
 
-<<<<<<< HEAD
+
 ##2. Installation of Python packages:
-=======
-##1.2. Installation of Python packages:
->>>>>>> origin/master
+
 1.	The installation of some packages requires a c++ compiler. [Download command line compiler VCForPython27](http://aka.ms/vcpython27)
 2.	Execute ‘VCForPython27.msi’ to install the compiler
 3.	Modify the Path: right-click ‘Start, Computer’, ‘Properties’, ‘Advanced system settings’, ‘Environment Variables…’. Add to the Path variable: ‘C:\Python27\;C:Python27\Lib\site-packages\;’ and restart the computer.
-4.	[Download from: https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools) *ez\_setup.py* (Save the python script displayed by: [https://bootstrap.pypa.io/ez_setup.py](https://bootstrap.pypa.io/ez_setup.py) in a text- file called *ez\_setup.py*)
+4.	[Download from: https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools) *ez_setup.py* (Save the python script displayed by: [https://bootstrap.pypa.io/ez_setup.py](https://bootstrap.pypa.io/ez_setup.py) in a text- file called *ez\_setup.py*)
 5.	Open command window (cmd.exe).  Type:
 	
 	**cd C:\Python27\Scripts**
@@ -138,6 +136,7 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 3.	After a few seconds a window with the output appears:
 
 ![](../../img/twoholesPattern.png)
+
 
 ###6. Explanation of the commands
 
