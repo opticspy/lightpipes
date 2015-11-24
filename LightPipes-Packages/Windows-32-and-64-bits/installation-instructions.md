@@ -45,7 +45,7 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 	
 	**pip install numpy** (takes a while…)
 
-	The *VCForPython27* compiler needs the *.NET Framework 3.5*. A window should pop-up to invite you to install it. If it does not, you must install it by hand.
+	The *VCForPython27* compiler needs the [*.NET Framework 3.5*](https://www.microsoft.com/en-us/download/details.aspx?id=21). A window should pop-up to invite you to install it. If it does not, you must install it by hand.
 10.	Install *matplotlib* by typing at the windows prompt:
 
 	**pip install matplotlib**
