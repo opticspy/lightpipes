@@ -1,9 +1,12 @@
-
 #Installation of LightPipes for Python on a Windows PC.
+
 Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 
 ##1. Installation of Python:
-1.	[Download Python version 2 from: http://www.python.org/downloads/](http://www.python.org/downloads/) **Not version 3!**
+
+1.	[Download Python version 2 from: http://www.python.org/downloads/](http://www.python.org/downloads/)
+
+	**Not version 3!**
 2.	Execute: ‘python-2.x.x.msi’
 3.	Choose default directory: ‘C:\Python27’
 4.	Choose: ‘*Add Python.exe to Path*’ and restart the computer
@@ -24,7 +27,7 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 2.	Execute ‘VCForPython27.msi’ to install the compiler
 3.	Modify the Path: right-click ‘Start, Computer’, ‘Properties’, ‘Advanced system settings’, ‘Environment Variables…’. Add to the Path variable: ‘C:\Python27\;C:Python27\Lib\site-packages\;’ and restart the computer.
 4.	[Download from: https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools) *ez_setup.py* (Save the python script displayed by: [https://bootstrap.pypa.io/ez_setup.py](https://bootstrap.pypa.io/ez_setup.py) in a text- file called *ez\_setup.py*)
-5.	Open command window (cmd.exe).  Type:
+5.	Open command window (*cmd.exe*).  Type:
 	
 	**cd C:\Python27\Scripts**
 6.	Type at the windows prompt:
@@ -53,6 +56,7 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 10.	Install *matplotlib* by typing at the windows prompt:
 
 	**pip install matplotlib**
+
 11.	Check the installed packages again: Type:
 
 	**pip list**
@@ -67,9 +71,11 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 		pytz(2014.7)
 		setuptools(7.0)
 		six(1.8.0)
+
 12.	Your system is now ready for *LightPipes for Python*.
 
 ##3.	Install LightPipes for Python:
+
 1.	To install LightPipes for Python, version 1.0.0., Open the windows command window and type (copy/paste) at the windows prompt:
 
 	**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/Windows-32-and-64-bits/LightPipes-1.0.0-py2.7-win32.egg**
@@ -94,12 +100,14 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 	**pip uninstall LightPipes**
 
 ##4.	Installation of a very nice editor ‘Geany’:
+
 1.	Geany is a very useful editor for editing program files including *Python* scripts.
 2.	Download from: [http://www.geany.org/Download/Releases](http://www.geany.org/Download/Releases) geany-1.2.6setup.exe.
 3.	Execute: geany-1.2.6setup.exe.
 4.	Choose the default settings- and install directory.
 
 ##5.	Make your first LightPipes script file.
+
 1.	Start *Geany*, open a new document and type (or copy/paste)  the following script:
 
 		import LightPipes
