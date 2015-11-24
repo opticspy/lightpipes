@@ -15,6 +15,7 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 	**quit()**
 
 	to leave it.
+
 ##1.2. Installation of Python packages:
 1.	The installation of some packages requires a c++ compiler. [Download command line compiler VCForPython27](http://aka.ms/vcpython27)
 2.	Execute ‘VCForPython27.msi’ to install the compiler
