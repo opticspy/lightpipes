@@ -42,14 +42,24 @@ Tested 32 and a 64 bit machines with linux MINT 17.
 ##3.	Install LightPipes for Python:
 
 1.	Open a terminal and type (copy/paste) at the prompt:
-**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7- linux-x86_64.egg** for the 64-bits version or:
-**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7- linux-i686.egg** for the 32-bits version.
+
+	**easy_install LightPipes**
+
+	(newest version)
+
+	**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7- linux-x86_64.egg**
+
+	for the 64-bits version or:
+
+	**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7- linux-i686.egg**
+
+	for the 32-bits version.
 2. This will download the installation and installs *LightPipes for Python*.
 3. Type:
 
 	**pip list**
 
-4.	*LightPipes(1.0.0)* should be in the list now.
+4.	*LightPipes(1.0.0)* or similar should be in the list now.
 5.	You could uninstall LightPipes by typing:
 
 	**pip uninstall LightPipes**

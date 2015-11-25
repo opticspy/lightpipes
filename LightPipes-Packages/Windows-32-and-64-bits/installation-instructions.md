@@ -78,6 +78,13 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 
 1.	To install LightPipes for Python, version 1.0.0., Open the windows command window and type (copy/paste) at the windows prompt:
 
+	**easy_install LightPipes**
+
+	(newest version)
+
+	or, from GitHub:
+
+
 	**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/Windows-32-and-64-bits/LightPipes-1.0.0-py2.7-win32.egg**
 	
 	or, from the downloaded and extracted zip-file:
@@ -86,12 +93,12 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 
 	where install\_directory is the directory in which you put the zip-file.
 
-2.	This will download the installation and installs LightPipes for Python.
+2.	This will download the installation and installs 	LightPipes for Python.
 3.	Check by typing:
 
 	**pip list**
 
-	The list should now contain:
+	The list should now contain something like:
 
 		lightpipes (1.0.0).
 
