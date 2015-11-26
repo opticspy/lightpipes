@@ -79,3 +79,11 @@ or:
 
 **easy_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7-linux-i686.egg**
 
+####[MACINTOSH:](LightPipes-Packages)
+
+
+**easy_install LightPipes**
+
+or:
+
+**easy_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7-macosx-10.6-intel.egg**
