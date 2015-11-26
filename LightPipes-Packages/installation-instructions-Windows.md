@@ -85,15 +85,15 @@ Tested on Windows 7, 8.1, and 10, on 64- and 32 bits machines.
 	or, from GitHub:
 
 
-	**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/Windows-32-and-64-bits/LightPipes-1.0.0-py2.7-win32.egg**
+	**easy\_install https://github.com/FredvanGoor/LightPipes-for-Python/raw/master/LightPipes-Packages/LightPipes-1.0.0-py2.7-win32.egg**
 	
 	or, from the downloaded and extracted zip-file:
 
-	**easy_install install\_directory\LightPipes-Packages\Windows-32-and-64-bits\LightPipes-1.0.0-py2.7-win32.egg**
+	**easy_install install\_directory\LightPipes-Packages\LightPipes-1.0.0-py2.7-win32.egg**
 
 	where install\_directory is the directory in which you put the zip-file.
 
-2.	This will download the installation and installs 	LightPipes for Python.
+2.	This will download the installation and installs LightPipes for Python.
 3.	Check by typing:
 
 	**pip list**
