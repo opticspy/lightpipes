@@ -108,7 +108,7 @@ Tested 32 and a 64 bit machines with linux MINT 17.
 
 3.	After a few seconds a window with the output appears:
 
-![](../../img/twoholesPattern.png)
+![](../img/twoholesPattern.png)
 
 
 ###6. Explanation of the commands
