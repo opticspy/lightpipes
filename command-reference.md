@@ -28,6 +28,10 @@ circular screen.
 ###Convert(*Field*)
 converts the *field* from a spherical grid to a normal grid.
 
+###CylLens(fx, fy, x\_shift, y\_shift, Field)
+Cylinder lens. *fx, fy = focallengths in x- and y direction. x\_shift, y\_shift = shift from centre.
+*
+
 ###Forvard(*z*, *Field*)
 propagates the *field* a distance *z* using FFT.
 
@@ -50,7 +54,10 @@ Gauss aperture.
 *T*= centre transmission
 
 ###GaussHermite(*n*, *m*, *A*, *w0*, *Field*)
-substitutes a TEMm,n mode with waist *w0* and amplitude *A* into the *field*.
+substitutes a TEMm,n Gauss Hermite mode with waist *w0* and amplitude *A* into the *Field*
+
+###GaussLaguerre(*p*, *m*, *A*, *w0*, *Field*)
+substitutes a TEMp,m Gauss Laguerre mode with waist *w0* and amplitude *A* into the *Field*
 
 ###GaussScreen(*R*, *x\_shift*, *y\_shift*, *T*, *Field*)
 Gauss screen. 
@@ -110,10 +117,8 @@ Performs a Fourier transform to the *Field*.
 *Direction* = 1: Forward transform;
 *Direction* = -1: Inverse transform
 
-###Polarizer(*Phi*, *Fx*, *Fy*)
-Polarizer. Ouputs a linear polarized field.
-*Phi*=polarizer angle,
-*Fx*, *Fy*=input fields of horizontal and vertical components. 
+###Power(*Field*)
+get the total power of the *Field*
 
 ###RandomIntensity(*seed*, *Field*)
 Random intensity mask.
@@ -136,16 +141,6 @@ rectangular screen.
 *x\_shift*, *y\_shift*: shift from centre; 
 *phi*: rotation angle.
 
-###ReflectMultiLayer(*P*, *N0*, *Ns*, *N*, *d*, *Th*, *F*)
-MultiLayer Reflector. Reflection of the *field* by a multi-layer mirror. 
-*P*=0: s-Polarization; P=1: p-Polarization; 
-*N0*=refractive index of incident medium (must be real); 
-*Ns*=refractive index of substrate; 
-*N*= array with (complex) index of the layers; 
-*d*= array with the geometrical thicknesses of the layers; 
-*Th*= angle of incidence at first layer; 
-*F*= the input field
-
 ###Steps(*z*, *N\_steps*, *Refract[N, N]*, *Field*)
 Propagates '*Field*' a distance *z* in '*N\_steps*' steps in a medium with a complex refractive index stored in the NxN matrix '*Refract*'. '*N*' is the grid dimension.
 
@@ -161,17 +156,34 @@ substitutes a phase profile into the field.The phase profile must be stored in t
 ###Tilt(*tx*, *ty*, *Field*)
 introduces tilt in to the *field* distribution. *tx*, *ty* = tilt components in radians.
 
-###TransmitMultiLayer(*P*, *N0*, *Ns*, *N*, *d*, *Th*, *F*)
-MultiLayer Transmission. Transmission of the *field* through a multi-layer coated substrate. 
-*P*=0: s-Polarization; P=1: p-Polarization; 
-*N0*=refractive index of incident medium (must be real); 
-*Ns*=refractive index of substrate; 
-*N*= array with (complex) index of the layers; 
-*d*= array with the geometrical thicknesses of the layers; 
-*Th*= angle of incidence at first layer; 
-*F*= the input field
-
 ###Zernike(*n*, *m*, *R*, *A*, *Field*)
 Introduces arbitrary Zernike aberration into the *field*. 
 *n* and *m* are the integer orders, (See Born and Wolf, 6th edition p.465, Pergamon 1993). 
 *R* is the radius at which the phase amplitude reaches *A* (in radians)
+
+###version()
+output the version of LightPipes
+
+###description()
+get a short description of LightPipes()
+
+###getGridSize()
+get the current grid size
+
+###setGridSize(newSize)
+set the grid size to *newSize*
+
+###getWavelength()
+get the current wavelength
+
+###setWavelength(newWavelength)
+set the wavelength to *newWavelength*
+
+###getDridDimensio()
+get the grid dimension
+
+###Help()
+output help
+
+###Example()
+output the Young interferometer example
