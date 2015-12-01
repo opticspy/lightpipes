@@ -179,7 +179,7 @@ get the current wavelength
 ###setWavelength(newWavelength)
 set the wavelength to *newWavelength*
 
-###getDridDimension()
+###getGridDimension()
 get the grid dimension
 
 ###Help()
