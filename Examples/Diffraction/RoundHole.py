@@ -21,7 +21,6 @@ try:
 	#F=LP.Forvard(10*cm,F)
 	#F=LP.Interpol(size*2,N/2,0,0,0,1,F)
 	I=LP.Intensity(2,F)
-	#print I
 	#plt.plot(I[N/2][:N])
 	plt.imshow(I)
 	plt.show()
