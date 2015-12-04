@@ -69,10 +69,15 @@ Tested on a MAC with a 64 bit Intel processor and Yosemite 10.6 OSX.
 	**pip uninstall LightPipes**
 
 ###4. Installation of a very nice editor Geany:
-Not available for the mac. Use ‘IDLE’ for editing python documents.
+Geany is a very useful editor for editing program files including Python scripts.
+Download and install from: [http://www.geany.org/Download/Releases](http://www.geany.org/Download/Releases):
+
+		geany-1.26_osx.dmg
+
+
 
 ###5. Make your first LightPipes script file:
-1.	Start IDLE, open a new document and type (or copy/paste)  the following script: 
+1.	Start *Geany*, open a new document and type (or copy/paste)  the following script: 
 
 		import LightPipes
 		import matplotlib.pyplot as plt
@@ -101,11 +106,9 @@ Not available for the mac. Use ‘IDLE’ for editing python documents.
 		finally:
 		   del LightPipes
 
-2.	Save the document as Young.py, open a terminal window and type at the prompt:
+2.	Save the document as ‘Young.py’, and push in *Geany* the execute button or open a terminal window and type at the prompt:
 
 	**python Young.py**
-
-	Or still in IDLE, do ‘Run’, ‘Run Module’. Or push the F5 button.
 
 3.	After a few seconds a window with the output appears:
 
