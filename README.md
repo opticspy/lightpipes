@@ -56,7 +56,17 @@ Finally it is good practice to clean up:
 
 ###Install LightPipes for Python by opening a terminal window and type at the prompt:
 
+LightPipes is on [PyPi](https://pypi.python.org/pypi/LightPipes/), so
+For Windows win32 and win64 and Macintosh OSX simply type: **(sudo) pip install LightPipes**
+
+For LINUX '*wheels*' are not (yet) accepted by *PyPi*, you must use *easy\_install*. (see below, *easy_install* also works for Windows and OSX) 
+
 ####[WINDOWS 32 AND 64 BIT:](LightPipes-Packages)
+
+**pip install LightPipes**
+
+or:
+
 
 **easy_install LightPipes**
 
@@ -84,6 +94,9 @@ or:
 
 ####[MACINTOSH:](LightPipes-Packages)
 
+**pip install LightPipes**
+
+or:
 
 **easy_install LightPipes**
 
