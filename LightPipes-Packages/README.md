@@ -6,6 +6,6 @@
 #Compile LightPipes sources to library
 in terminal type:
 
-for python 3.x:       py -3 setup.py build_ext --inplace
+for python 3.x:       "py -3 setup.py build_ext --inplace"
 
-for python 2.x:       py -2 setup.py build_ext --inplace
+for python 2.x:       "py -2 setup.py build_ext --inplace"
