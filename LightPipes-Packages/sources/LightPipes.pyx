@@ -5,7 +5,6 @@ cimport numpy as np
 from libcpp.vector cimport vector
 import webbrowser
 
-
 cdef extern from "lpspy.h" namespace "std":
     cdef cppclass lpspy:
         LightPipes() except +
@@ -490,7 +489,7 @@ cdef class Init:
         self.thisptr.setGridSize(newSize)
     def getWavelength(self):
         return self.thisptr.getWavelength()
-    def setGridWavelength(self, newWavelength):
+    def setWavelength(self, newWavelength):
         self.thisptr.setWavelength(newWavelength)
     def getGridDimension(self):
         return self.thisptr.getGridDimension()

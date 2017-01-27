@@ -763,7 +763,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "LightPipes.pyx":55
+/* "LightPipes.pyx":54
  *         int getGridDimension()
  * 
  * cdef class Init:             # <<<<<<<<<<<<<<
@@ -1338,7 +1338,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_78help(CYTHON_UNUSED struct __pyx_o
 static PyObject *__pyx_pf_10LightPipes_4Init_80getGridSize(struct __pyx_obj_10LightPipes_Init *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_10LightPipes_4Init_82setGridSize(struct __pyx_obj_10LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_newSize); /* proto */
 static PyObject *__pyx_pf_10LightPipes_4Init_84getWavelength(struct __pyx_obj_10LightPipes_Init *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10LightPipes_4Init_86setGridWavelength(struct __pyx_obj_10LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_newWavelength); /* proto */
+static PyObject *__pyx_pf_10LightPipes_4Init_86setWavelength(struct __pyx_obj_10LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_newWavelength); /* proto */
 static PyObject *__pyx_pf_10LightPipes_4Init_88getGridDimension(struct __pyx_obj_10LightPipes_Init *__pyx_v_self); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
@@ -1351,7 +1351,7 @@ static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 
-/* "LightPipes.pyx":75
+/* "LightPipes.pyx":74
  * 
  *     cdef lpspy *thisptr      # hold a C++ instance which we're wrapping
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1384,7 +1384,7 @@ static int __pyx_pf_10LightPipes_4Init___cinit__(struct __pyx_obj_10LightPipes_I
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "LightPipes.pyx":76
+  /* "LightPipes.pyx":75
  *     cdef lpspy *thisptr      # hold a C++ instance which we're wrapping
  *     def __cinit__(self):
  *         self.thisptr = new lpspy()             # <<<<<<<<<<<<<<
@@ -1395,11 +1395,11 @@ static int __pyx_pf_10LightPipes_4Init___cinit__(struct __pyx_obj_10LightPipes_I
     __pyx_t_1 = new std::lpspy();
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 75; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __pyx_v_self->thisptr = __pyx_t_1;
 
-  /* "LightPipes.pyx":75
+  /* "LightPipes.pyx":74
  * 
  *     cdef lpspy *thisptr      # hold a C++ instance which we're wrapping
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -1418,7 +1418,7 @@ static int __pyx_pf_10LightPipes_4Init___cinit__(struct __pyx_obj_10LightPipes_I
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":77
+/* "LightPipes.pyx":76
  *     def __cinit__(self):
  *         self.thisptr = new lpspy()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1441,7 +1441,7 @@ static void __pyx_pf_10LightPipes_4Init_2__dealloc__(struct __pyx_obj_10LightPip
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "LightPipes.pyx":78
+  /* "LightPipes.pyx":77
  *         self.thisptr = new lpspy()
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
@@ -1450,7 +1450,7 @@ static void __pyx_pf_10LightPipes_4Init_2__dealloc__(struct __pyx_obj_10LightPip
  */
   delete __pyx_v_self->thisptr;
 
-  /* "LightPipes.pyx":77
+  /* "LightPipes.pyx":76
  *     def __cinit__(self):
  *         self.thisptr = new lpspy()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -1462,7 +1462,7 @@ static void __pyx_pf_10LightPipes_4Init_2__dealloc__(struct __pyx_obj_10LightPip
   __Pyx_RefNannyFinishContext();
 }
 
-/* "LightPipes.pyx":79
+/* "LightPipes.pyx":78
  *     def __dealloc__(self):
  *         del self.thisptr
  *     def Axicon(self, phi, n1, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -1508,26 +1508,26 @@ static PyObject *__pyx_pw_10LightPipes_4Init_5Axicon(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Axicon") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Axicon") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -1546,7 +1546,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_5Axicon(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Axicon", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 78; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Axicon", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1573,7 +1573,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_4Axicon(struct __pyx_obj_10LightPip
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Axicon", 0);
 
-  /* "LightPipes.pyx":100
+  /* "LightPipes.pyx":99
  * 
  *         """
  *         return self.thisptr.Axicon(phi, n1, x_shift, y_shift, Fin)             # <<<<<<<<<<<<<<
@@ -1581,18 +1581,18 @@ static PyObject *__pyx_pf_10LightPipes_4Init_4Axicon(struct __pyx_obj_10LightPip
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_phi); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_n1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Axicon(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_phi); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_n1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Axicon(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":79
+  /* "LightPipes.pyx":78
  *     def __dealloc__(self):
  *         del self.thisptr
  *     def Axicon(self, phi, n1, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -1611,7 +1611,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_4Axicon(struct __pyx_obj_10LightPip
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":101
+/* "LightPipes.pyx":100
  *         """
  *         return self.thisptr.Axicon(phi, n1, x_shift, y_shift, Fin)
  *     def BeamMix(self, Fin1, Fin2):             # <<<<<<<<<<<<<<
@@ -1651,11 +1651,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_7BeamMix(PyObject *__pyx_v_self, Py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("BeamMix", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("BeamMix", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "BeamMix") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "BeamMix") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1668,7 +1668,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_7BeamMix(PyObject *__pyx_v_self, Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("BeamMix", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("BeamMix", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.BeamMix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1692,7 +1692,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_6BeamMix(struct __pyx_obj_10LightPi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("BeamMix", 0);
 
-  /* "LightPipes.pyx":119
+  /* "LightPipes.pyx":118
  * 
  *         """
  *         return self.thisptr.BeamMix(Fin1, Fin2)             # <<<<<<<<<<<<<<
@@ -1700,15 +1700,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_6BeamMix(struct __pyx_obj_10LightPi
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin1); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin2); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->BeamMix(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin1); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin2); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->BeamMix(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":101
+  /* "LightPipes.pyx":100
  *         """
  *         return self.thisptr.Axicon(phi, n1, x_shift, y_shift, Fin)
  *     def BeamMix(self, Fin1, Fin2):             # <<<<<<<<<<<<<<
@@ -1727,7 +1727,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_6BeamMix(struct __pyx_obj_10LightPi
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":120
+/* "LightPipes.pyx":119
  *         """
  *         return self.thisptr.BeamMix(Fin1, Fin2)
  *     def Begin(self,size,labda,N):             # <<<<<<<<<<<<<<
@@ -1769,16 +1769,16 @@ static PyObject *__pyx_pw_10LightPipes_4Init_9Begin(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_labda)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Begin", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Begin", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_N)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Begin", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Begin", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Begin") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Begin") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1793,7 +1793,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_9Begin(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Begin", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Begin", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 119; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Begin", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1818,7 +1818,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_8Begin(struct __pyx_obj_10LightPipe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Begin", 0);
 
-  /* "LightPipes.pyx":140
+  /* "LightPipes.pyx":139
  * 
  *         """
  *         return self.thisptr.Begin(size, labda, N)             # <<<<<<<<<<<<<<
@@ -1826,16 +1826,16 @@ static PyObject *__pyx_pf_10LightPipes_4Init_8Begin(struct __pyx_obj_10LightPipe
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_size); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_labda); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_N); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Begin(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_size); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_labda); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_N); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Begin(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":120
+  /* "LightPipes.pyx":119
  *         """
  *         return self.thisptr.BeamMix(Fin1, Fin2)
  *     def Begin(self,size,labda,N):             # <<<<<<<<<<<<<<
@@ -1854,7 +1854,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_8Begin(struct __pyx_obj_10LightPipe
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":141
+/* "LightPipes.pyx":140
  *         """
  *         return self.thisptr.Begin(size, labda, N)
  *     def CircAperture(self, R, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -1898,21 +1898,21 @@ static PyObject *__pyx_pw_10LightPipes_4Init_11CircAperture(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CircAperture") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CircAperture") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -1929,7 +1929,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_11CircAperture(PyObject *__pyx_v_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 141; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("CircAperture", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.CircAperture", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1955,7 +1955,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_10CircAperture(struct __pyx_obj_10L
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("CircAperture", 0);
 
-  /* "LightPipes.pyx":161
+  /* "LightPipes.pyx":160
  * 
  *         """
  *         return self.thisptr.CircAperture(R, x_shift, y_shift, Fin)             # <<<<<<<<<<<<<<
@@ -1963,17 +1963,17 @@ static PyObject *__pyx_pf_10LightPipes_4Init_10CircAperture(struct __pyx_obj_10L
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->CircAperture(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->CircAperture(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":141
+  /* "LightPipes.pyx":140
  *         """
  *         return self.thisptr.Begin(size, labda, N)
  *     def CircAperture(self, R, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -1992,7 +1992,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_10CircAperture(struct __pyx_obj_10L
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":162
+/* "LightPipes.pyx":161
  *         """
  *         return self.thisptr.CircAperture(R, x_shift, y_shift, Fin)
  *     def CircScreen(self, R, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -2036,21 +2036,21 @@ static PyObject *__pyx_pw_10LightPipes_4Init_13CircScreen(PyObject *__pyx_v_self
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CircScreen") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "CircScreen") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -2067,7 +2067,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_13CircScreen(PyObject *__pyx_v_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 162; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("CircScreen", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.CircScreen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2093,7 +2093,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_12CircScreen(struct __pyx_obj_10Lig
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("CircScreen", 0);
 
-  /* "LightPipes.pyx":182
+  /* "LightPipes.pyx":181
  * 
  *         """
  *         return self.thisptr.CircScreen(R, x_shift, y_shift, Fin)             # <<<<<<<<<<<<<<
@@ -2101,17 +2101,17 @@ static PyObject *__pyx_pf_10LightPipes_4Init_12CircScreen(struct __pyx_obj_10Lig
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->CircScreen(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 182; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->CircScreen(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 181; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":162
+  /* "LightPipes.pyx":161
  *         """
  *         return self.thisptr.CircAperture(R, x_shift, y_shift, Fin)
  *     def CircScreen(self, R, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -2130,7 +2130,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_12CircScreen(struct __pyx_obj_10Lig
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":183
+/* "LightPipes.pyx":182
  *         """
  *         return self.thisptr.CircScreen(R, x_shift, y_shift, Fin)
  *     def Convert(self, Fin):             # <<<<<<<<<<<<<<
@@ -2162,7 +2162,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_14Convert(struct __pyx_obj_10LightP
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Convert", 0);
 
-  /* "LightPipes.pyx":201
+  /* "LightPipes.pyx":200
  * 
  *         """
  *         return self.thisptr.Convert( Fin)             # <<<<<<<<<<<<<<
@@ -2170,14 +2170,14 @@ static PyObject *__pyx_pf_10LightPipes_4Init_14Convert(struct __pyx_obj_10LightP
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Convert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 200; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Convert(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 200; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":183
+  /* "LightPipes.pyx":182
  *         """
  *         return self.thisptr.CircScreen(R, x_shift, y_shift, Fin)
  *     def Convert(self, Fin):             # <<<<<<<<<<<<<<
@@ -2196,7 +2196,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_14Convert(struct __pyx_obj_10LightP
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":202
+/* "LightPipes.pyx":201
  *         """
  *         return self.thisptr.Convert( Fin)
  *     def Forvard(self, z, Fin):             # <<<<<<<<<<<<<<
@@ -2236,11 +2236,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_17Forvard(PyObject *__pyx_v_self, P
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Forvard", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Forvard", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Forvard") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Forvard") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2253,7 +2253,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_17Forvard(PyObject *__pyx_v_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Forvard", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 202; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Forvard", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Forvard", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2277,7 +2277,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_16Forvard(struct __pyx_obj_10LightP
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Forvard", 0);
 
-  /* "LightPipes.pyx":221
+  /* "LightPipes.pyx":220
  * 
  *         """
  *         return self.thisptr.Forvard(z, Fin)             # <<<<<<<<<<<<<<
@@ -2285,15 +2285,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_16Forvard(struct __pyx_obj_10LightP
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Forvard(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Forvard(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":202
+  /* "LightPipes.pyx":201
  *         """
  *         return self.thisptr.Convert( Fin)
  *     def Forvard(self, z, Fin):             # <<<<<<<<<<<<<<
@@ -2312,7 +2312,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_16Forvard(struct __pyx_obj_10LightP
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":222
+/* "LightPipes.pyx":221
  *         """
  *         return self.thisptr.Forvard(z, Fin)
  *     def Fresnel(self, z, Fin):             # <<<<<<<<<<<<<<
@@ -2352,11 +2352,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_19Fresnel(PyObject *__pyx_v_self, P
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Fresnel", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Fresnel", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Fresnel") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Fresnel") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2369,7 +2369,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_19Fresnel(PyObject *__pyx_v_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Fresnel", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 222; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Fresnel", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 221; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Fresnel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2393,7 +2393,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_18Fresnel(struct __pyx_obj_10LightP
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Fresnel", 0);
 
-  /* "LightPipes.pyx":241
+  /* "LightPipes.pyx":240
  * 
  *         """
  *         return self.thisptr.Fresnel(z, Fin)             # <<<<<<<<<<<<<<
@@ -2401,15 +2401,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_18Fresnel(struct __pyx_obj_10LightP
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Fresnel(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Fresnel(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":222
+  /* "LightPipes.pyx":221
  *         """
  *         return self.thisptr.Forvard(z, Fin)
  *     def Fresnel(self, z, Fin):             # <<<<<<<<<<<<<<
@@ -2428,7 +2428,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_18Fresnel(struct __pyx_obj_10LightP
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":242
+/* "LightPipes.pyx":241
  *         """
  *         return self.thisptr.Fresnel(z, Fin)
  *     def Gain(self, Isat, alpha0, Lgain, Fin):             # <<<<<<<<<<<<<<
@@ -2472,21 +2472,21 @@ static PyObject *__pyx_pw_10LightPipes_4Init_21Gain(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_alpha0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 242; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Lgain)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 242; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 242; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Gain") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 242; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Gain") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -2503,7 +2503,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_21Gain(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 242; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Gain", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Gain", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2529,7 +2529,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_20Gain(struct __pyx_obj_10LightPipe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Gain", 0);
 
-  /* "LightPipes.pyx":279
+  /* "LightPipes.pyx":278
  * 
  *         """
  *         return self.thisptr.Gain(Isat, alpha0, Lgain, Fin)             # <<<<<<<<<<<<<<
@@ -2537,17 +2537,17 @@ static PyObject *__pyx_pf_10LightPipes_4Init_20Gain(struct __pyx_obj_10LightPipe
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_Isat); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_alpha0); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_Lgain); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Gain(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_Isat); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_alpha0); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_Lgain); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Gain(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":242
+  /* "LightPipes.pyx":241
  *         """
  *         return self.thisptr.Fresnel(z, Fin)
  *     def Gain(self, Isat, alpha0, Lgain, Fin):             # <<<<<<<<<<<<<<
@@ -2566,7 +2566,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_20Gain(struct __pyx_obj_10LightPipe
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":280
+/* "LightPipes.pyx":279
  *         """
  *         return self.thisptr.Gain(Isat, alpha0, Lgain, Fin)
  *     def GaussAperture(self, w, x_shift, y_shift, T, Fin):             # <<<<<<<<<<<<<<
@@ -2612,26 +2612,26 @@ static PyObject *__pyx_pw_10LightPipes_4Init_23GaussAperture(PyObject *__pyx_v_s
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_T)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussAperture") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussAperture") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -2650,7 +2650,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_23GaussAperture(PyObject *__pyx_v_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("GaussAperture", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 279; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.GaussAperture", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2677,7 +2677,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_22GaussAperture(struct __pyx_obj_10
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("GaussAperture", 0);
 
-  /* "LightPipes.pyx":298
+  /* "LightPipes.pyx":297
  * 
  *         """
  *         return self.thisptr.GaussAperture( w, x_shift, y_shift, T, Fin)             # <<<<<<<<<<<<<<
@@ -2685,18 +2685,18 @@ static PyObject *__pyx_pf_10LightPipes_4Init_22GaussAperture(struct __pyx_obj_10
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_w); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_T); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussAperture(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_w); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_T); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussAperture(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 297; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":280
+  /* "LightPipes.pyx":279
  *         """
  *         return self.thisptr.Gain(Isat, alpha0, Lgain, Fin)
  *     def GaussAperture(self, w, x_shift, y_shift, T, Fin):             # <<<<<<<<<<<<<<
@@ -2715,7 +2715,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_22GaussAperture(struct __pyx_obj_10
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":299
+/* "LightPipes.pyx":298
  *         """
  *         return self.thisptr.GaussAperture( w, x_shift, y_shift, T, Fin)
  *     def GaussScreen(self, w, x_shift, y_shift, T, Fin):             # <<<<<<<<<<<<<<
@@ -2761,26 +2761,26 @@ static PyObject *__pyx_pw_10LightPipes_4Init_25GaussScreen(PyObject *__pyx_v_sel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_T)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussScreen") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussScreen") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -2799,7 +2799,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_25GaussScreen(PyObject *__pyx_v_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("GaussScreen", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 298; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.GaussScreen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2826,7 +2826,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_24GaussScreen(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("GaussScreen", 0);
 
-  /* "LightPipes.pyx":317
+  /* "LightPipes.pyx":316
  * 
  *         """
  *         return self.thisptr.GaussScreen( w, x_shift, y_shift, T, Fin)             # <<<<<<<<<<<<<<
@@ -2834,18 +2834,18 @@ static PyObject *__pyx_pf_10LightPipes_4Init_24GaussScreen(struct __pyx_obj_10Li
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_w); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_T); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussScreen(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_w); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 316; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 316; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 316; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_T); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 316; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 316; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussScreen(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 316; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":299
+  /* "LightPipes.pyx":298
  *         """
  *         return self.thisptr.GaussAperture( w, x_shift, y_shift, T, Fin)
  *     def GaussScreen(self, w, x_shift, y_shift, T, Fin):             # <<<<<<<<<<<<<<
@@ -2864,7 +2864,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_24GaussScreen(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":318
+/* "LightPipes.pyx":317
  *         """
  *         return self.thisptr.GaussScreen( w, x_shift, y_shift, T, Fin)
  *     def GaussHermite(self, m, n, A, w0, Fin):             # <<<<<<<<<<<<<<
@@ -2910,26 +2910,26 @@ static PyObject *__pyx_pw_10LightPipes_4Init_27GaussHermite(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_w0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussHermite") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussHermite") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -2948,7 +2948,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_27GaussHermite(PyObject *__pyx_v_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("GaussHermite", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.GaussHermite", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2975,7 +2975,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_26GaussHermite(struct __pyx_obj_10L
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("GaussHermite", 0);
 
-  /* "LightPipes.pyx":339
+  /* "LightPipes.pyx":338
  *             A. Siegman, "Lasers", p. 642
  *         """
  *         return self.thisptr.GaussHermite( m, n, A, w0, Fin)             # <<<<<<<<<<<<<<
@@ -2983,18 +2983,18 @@ static PyObject *__pyx_pf_10LightPipes_4Init_26GaussHermite(struct __pyx_obj_10L
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_w0); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussHermite(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_w0); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussHermite(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":318
+  /* "LightPipes.pyx":317
  *         """
  *         return self.thisptr.GaussScreen( w, x_shift, y_shift, T, Fin)
  *     def GaussHermite(self, m, n, A, w0, Fin):             # <<<<<<<<<<<<<<
@@ -3013,7 +3013,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_26GaussHermite(struct __pyx_obj_10L
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":340
+/* "LightPipes.pyx":339
  *         """
  *         return self.thisptr.GaussHermite( m, n, A, w0, Fin)
  *     def GaussLaguerre(self, p, m, A, w0, Fin):             # <<<<<<<<<<<<<<
@@ -3059,26 +3059,26 @@ static PyObject *__pyx_pw_10LightPipes_4Init_29GaussLaguerre(PyObject *__pyx_v_s
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_w0)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussLaguerre") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "GaussLaguerre") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -3097,7 +3097,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_29GaussLaguerre(PyObject *__pyx_v_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 340; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("GaussLaguerre", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.GaussLaguerre", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3124,7 +3124,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_28GaussLaguerre(struct __pyx_obj_10
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("GaussLaguerre", 0);
 
-  /* "LightPipes.pyx":364
+  /* "LightPipes.pyx":363
  *         """
  * 
  *         return self.thisptr.GaussLaguerre( p, m, A, w0, Fin)             # <<<<<<<<<<<<<<
@@ -3132,18 +3132,18 @@ static PyObject *__pyx_pf_10LightPipes_4Init_28GaussLaguerre(struct __pyx_obj_10
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_p); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_w0); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussLaguerre(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_p); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 363; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 363; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 363; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_w0); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 363; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 363; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->GaussLaguerre(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 363; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":340
+  /* "LightPipes.pyx":339
  *         """
  *         return self.thisptr.GaussHermite( m, n, A, w0, Fin)
  *     def GaussLaguerre(self, p, m, A, w0, Fin):             # <<<<<<<<<<<<<<
@@ -3162,7 +3162,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_28GaussLaguerre(struct __pyx_obj_10
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":365
+/* "LightPipes.pyx":364
  * 
  *         return self.thisptr.GaussLaguerre( p, m, A, w0, Fin)
  *     def IntAttenuator(self, att, Fin):             # <<<<<<<<<<<<<<
@@ -3202,11 +3202,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_31IntAttenuator(PyObject *__pyx_v_s
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("IntAttenuator", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 365; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("IntAttenuator", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "IntAttenuator") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 365; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "IntAttenuator") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3219,7 +3219,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_31IntAttenuator(PyObject *__pyx_v_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("IntAttenuator", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 365; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("IntAttenuator", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 364; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.IntAttenuator", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3243,7 +3243,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_30IntAttenuator(struct __pyx_obj_10
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("IntAttenuator", 0);
 
-  /* "LightPipes.pyx":381
+  /* "LightPipes.pyx":380
  *             Fout: output field (N x N square array of complex numbers).
  *         """
  *         return self.thisptr.IntAttenuator( att, Fin)             # <<<<<<<<<<<<<<
@@ -3251,15 +3251,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_30IntAttenuator(struct __pyx_obj_10
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_att); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->IntAttenuator(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_att); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->IntAttenuator(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 380; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":365
+  /* "LightPipes.pyx":364
  * 
  *         return self.thisptr.GaussLaguerre( p, m, A, w0, Fin)
  *     def IntAttenuator(self, att, Fin):             # <<<<<<<<<<<<<<
@@ -3278,7 +3278,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_30IntAttenuator(struct __pyx_obj_10
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":382
+/* "LightPipes.pyx":381
  *         """
  *         return self.thisptr.IntAttenuator( att, Fin)
  *     def Lens(self, f, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -3322,21 +3322,21 @@ static PyObject *__pyx_pw_10LightPipes_4Init_33Lens(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Lens") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Lens") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -3353,7 +3353,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_33Lens(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 382; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Lens", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3379,7 +3379,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_32Lens(struct __pyx_obj_10LightPipe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Lens", 0);
 
-  /* "LightPipes.pyx":398
+  /* "LightPipes.pyx":397
  *             Fout: output field (N x N square array of complex numbers).
  *         """
  *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)             # <<<<<<<<<<<<<<
@@ -3387,17 +3387,17 @@ static PyObject *__pyx_pf_10LightPipes_4Init_32Lens(struct __pyx_obj_10LightPipe
  *         return self.thisptr.LensForvard(f, z, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Lens(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 397; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 397; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 397; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 397; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Lens(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 397; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":382
+  /* "LightPipes.pyx":381
  *         """
  *         return self.thisptr.IntAttenuator( att, Fin)
  *     def Lens(self, f, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
@@ -3416,7 +3416,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_32Lens(struct __pyx_obj_10LightPipe
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":399
+/* "LightPipes.pyx":398
  *         """
  *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
  *     def LensForvard(self, f, z, Fin):             # <<<<<<<<<<<<<<
@@ -3457,16 +3457,16 @@ static PyObject *__pyx_pw_10LightPipes_4Init_35LensForvard(PyObject *__pyx_v_sel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensForvard") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensForvard") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3481,7 +3481,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_35LensForvard(PyObject *__pyx_v_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 398; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.LensForvard", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3506,7 +3506,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_34LensForvard(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("LensForvard", 0);
 
-  /* "LightPipes.pyx":400
+  /* "LightPipes.pyx":399
  *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
  *     def LensForvard(self, f, z, Fin):
  *         return self.thisptr.LensForvard(f, z, Fin)             # <<<<<<<<<<<<<<
@@ -3514,16 +3514,16 @@ static PyObject *__pyx_pf_10LightPipes_4Init_34LensForvard(struct __pyx_obj_10Li
  *         return self.thisptr.LensFresnel(f, z, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensForvard(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensForvard(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":399
+  /* "LightPipes.pyx":398
  *         """
  *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
  *     def LensForvard(self, f, z, Fin):             # <<<<<<<<<<<<<<
@@ -3542,7 +3542,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_34LensForvard(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":401
+/* "LightPipes.pyx":400
  *     def LensForvard(self, f, z, Fin):
  *         return self.thisptr.LensForvard(f, z, Fin)
  *     def LensFresnel(self, f, z, Fin):             # <<<<<<<<<<<<<<
@@ -3583,16 +3583,16 @@ static PyObject *__pyx_pw_10LightPipes_4Init_37LensFresnel(PyObject *__pyx_v_sel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensFresnel") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensFresnel") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3607,7 +3607,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_37LensFresnel(PyObject *__pyx_v_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.LensFresnel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3632,7 +3632,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_36LensFresnel(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("LensFresnel", 0);
 
-  /* "LightPipes.pyx":402
+  /* "LightPipes.pyx":401
  *         return self.thisptr.LensForvard(f, z, Fin)
  *     def LensFresnel(self, f, z, Fin):
  *         return self.thisptr.LensFresnel(f, z, Fin)             # <<<<<<<<<<<<<<
@@ -3640,16 +3640,16 @@ static PyObject *__pyx_pf_10LightPipes_4Init_36LensFresnel(struct __pyx_obj_10Li
  *         return self.thisptr.MultIntensity( Intens, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensFresnel(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensFresnel(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":401
+  /* "LightPipes.pyx":400
  *     def LensForvard(self, f, z, Fin):
  *         return self.thisptr.LensForvard(f, z, Fin)
  *     def LensFresnel(self, f, z, Fin):             # <<<<<<<<<<<<<<
@@ -3668,7 +3668,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_36LensFresnel(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":403
+/* "LightPipes.pyx":402
  *     def LensFresnel(self, f, z, Fin):
  *         return self.thisptr.LensFresnel(f, z, Fin)
  *     def MultIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
@@ -3707,11 +3707,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_39MultIntensity(PyObject *__pyx_v_s
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultIntensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultIntensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3724,7 +3724,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_39MultIntensity(PyObject *__pyx_v_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 402; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.MultIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3748,7 +3748,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_38MultIntensity(struct __pyx_obj_10
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("MultIntensity", 0);
 
-  /* "LightPipes.pyx":404
+  /* "LightPipes.pyx":403
  *         return self.thisptr.LensFresnel(f, z, Fin)
  *     def MultIntensity(self, Intens, Fin):
  *         return self.thisptr.MultIntensity( Intens, Fin)             # <<<<<<<<<<<<<<
@@ -3756,15 +3756,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_38MultIntensity(struct __pyx_obj_10
  *         return self.thisptr.MultPhase( Phase, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":403
+  /* "LightPipes.pyx":402
  *     def LensFresnel(self, f, z, Fin):
  *         return self.thisptr.LensFresnel(f, z, Fin)
  *     def MultIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
@@ -3783,7 +3783,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_38MultIntensity(struct __pyx_obj_10
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":405
+/* "LightPipes.pyx":404
  *     def MultIntensity(self, Intens, Fin):
  *         return self.thisptr.MultIntensity( Intens, Fin)
  *     def MultPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
@@ -3822,11 +3822,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_41MultPhase(PyObject *__pyx_v_self,
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultPhase") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultPhase") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3839,7 +3839,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_41MultPhase(PyObject *__pyx_v_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.MultPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3863,7 +3863,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_40MultPhase(struct __pyx_obj_10Ligh
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("MultPhase", 0);
 
-  /* "LightPipes.pyx":406
+  /* "LightPipes.pyx":405
  *         return self.thisptr.MultIntensity( Intens, Fin)
  *     def MultPhase(self, Phase, Fin):
  *         return self.thisptr.MultPhase( Phase, Fin)             # <<<<<<<<<<<<<<
@@ -3871,15 +3871,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_40MultPhase(struct __pyx_obj_10Ligh
  *         return self.thisptr.Normal(Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":405
+  /* "LightPipes.pyx":404
  *     def MultIntensity(self, Intens, Fin):
  *         return self.thisptr.MultIntensity( Intens, Fin)
  *     def MultPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
@@ -3898,7 +3898,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_40MultPhase(struct __pyx_obj_10Ligh
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":407
+/* "LightPipes.pyx":406
  *     def MultPhase(self, Phase, Fin):
  *         return self.thisptr.MultPhase( Phase, Fin)
  *     def Normal(self, Fin):             # <<<<<<<<<<<<<<
@@ -3929,7 +3929,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_42Normal(struct __pyx_obj_10LightPi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Normal", 0);
 
-  /* "LightPipes.pyx":408
+  /* "LightPipes.pyx":407
  *         return self.thisptr.MultPhase( Phase, Fin)
  *     def Normal(self, Fin):
  *         return self.thisptr.Normal(Fin)             # <<<<<<<<<<<<<<
@@ -3937,14 +3937,14 @@ static PyObject *__pyx_pf_10LightPipes_4Init_42Normal(struct __pyx_obj_10LightPi
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Normal(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 407; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Normal(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 407; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":407
+  /* "LightPipes.pyx":406
  *     def MultPhase(self, Phase, Fin):
  *         return self.thisptr.MultPhase( Phase, Fin)
  *     def Normal(self, Fin):             # <<<<<<<<<<<<<<
@@ -3963,7 +3963,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_42Normal(struct __pyx_obj_10LightPi
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":409
+/* "LightPipes.pyx":408
  *     def Normal(self, Fin):
  *         return self.thisptr.Normal(Fin)
  *     def Intensity(self,flag,Fin):             # <<<<<<<<<<<<<<
@@ -4003,11 +4003,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_45Intensity(PyObject *__pyx_v_self,
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Intensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Intensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4020,7 +4020,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_45Intensity(PyObject *__pyx_v_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Intensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4044,7 +4044,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_44Intensity(struct __pyx_obj_10Ligh
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Intensity", 0);
 
-  /* "LightPipes.pyx":425
+  /* "LightPipes.pyx":424
  *             I: intensity distribution (N x N square array of doubles)
  *         """
  *         return self.thisptr.Intensity(flag,Fin)             # <<<<<<<<<<<<<<
@@ -4052,15 +4052,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_44Intensity(struct __pyx_obj_10Ligh
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->Intensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 424; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 424; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->Intensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 424; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":409
+  /* "LightPipes.pyx":408
  *     def Normal(self, Fin):
  *         return self.thisptr.Normal(Fin)
  *     def Intensity(self,flag,Fin):             # <<<<<<<<<<<<<<
@@ -4079,7 +4079,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_44Intensity(struct __pyx_obj_10Ligh
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":426
+/* "LightPipes.pyx":425
  *         """
  *         return self.thisptr.Intensity(flag,Fin)
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):             # <<<<<<<<<<<<<<
@@ -4128,36 +4128,36 @@ static PyObject *__pyx_pw_10LightPipes_4Init_47Interpol(PyObject *__pyx_v_self, 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_new_number)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_angle)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_magnif)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 6); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 6); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Interpol") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Interpol") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
@@ -4180,7 +4180,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_47Interpol(PyObject *__pyx_v_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Interpol", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4209,7 +4209,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_46Interpol(struct __pyx_obj_10Light
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Interpol", 0);
 
-  /* "LightPipes.pyx":427
+  /* "LightPipes.pyx":426
  *         return self.thisptr.Intensity(flag,Fin)
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)             # <<<<<<<<<<<<<<
@@ -4217,20 +4217,20 @@ static PyObject *__pyx_pf_10LightPipes_4Init_46Interpol(struct __pyx_obj_10Light
  *         return self.thisptr.Phase(Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_new_size); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_new_number); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_magnif); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_7 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_8 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Interpol(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7)); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_new_size); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_new_number); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_magnif); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_8 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Interpol(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7)); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_r = __pyx_t_8;
   __pyx_t_8 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":426
+  /* "LightPipes.pyx":425
  *         """
  *         return self.thisptr.Intensity(flag,Fin)
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):             # <<<<<<<<<<<<<<
@@ -4249,7 +4249,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_46Interpol(struct __pyx_obj_10Light
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":428
+/* "LightPipes.pyx":427
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
  *     def Phase(self,Fin):             # <<<<<<<<<<<<<<
@@ -4280,7 +4280,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_48Phase(struct __pyx_obj_10LightPip
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Phase", 0);
 
-  /* "LightPipes.pyx":429
+  /* "LightPipes.pyx":428
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
  *     def Phase(self,Fin):
  *         return self.thisptr.Phase(Fin)             # <<<<<<<<<<<<<<
@@ -4288,14 +4288,14 @@ static PyObject *__pyx_pf_10LightPipes_4Init_48Phase(struct __pyx_obj_10LightPip
  *         return self.thisptr.PhaseUnwrap(Phi)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->Phase(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 428; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->Phase(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 428; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":428
+  /* "LightPipes.pyx":427
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
  *     def Phase(self,Fin):             # <<<<<<<<<<<<<<
@@ -4314,7 +4314,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_48Phase(struct __pyx_obj_10LightPip
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":430
+/* "LightPipes.pyx":429
  *     def Phase(self,Fin):
  *         return self.thisptr.Phase(Fin)
  *     def PhaseUnwrap(self,Phi):             # <<<<<<<<<<<<<<
@@ -4345,7 +4345,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_50PhaseUnwrap(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PhaseUnwrap", 0);
 
-  /* "LightPipes.pyx":431
+  /* "LightPipes.pyx":430
  *         return self.thisptr.Phase(Fin)
  *     def PhaseUnwrap(self,Phi):
  *         return self.thisptr.PhaseUnwrap(Phi)             # <<<<<<<<<<<<<<
@@ -4353,14 +4353,14 @@ static PyObject *__pyx_pf_10LightPipes_4Init_50PhaseUnwrap(struct __pyx_obj_10Li
  *         return self.thisptr.PipFFT(index, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phi); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 431; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->PhaseUnwrap(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 431; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phi); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 430; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->PhaseUnwrap(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 430; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":430
+  /* "LightPipes.pyx":429
  *     def Phase(self,Fin):
  *         return self.thisptr.Phase(Fin)
  *     def PhaseUnwrap(self,Phi):             # <<<<<<<<<<<<<<
@@ -4379,7 +4379,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_50PhaseUnwrap(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":432
+/* "LightPipes.pyx":431
  *     def PhaseUnwrap(self,Phi):
  *         return self.thisptr.PhaseUnwrap(Phi)
  *     def PipFFT(self, index, Fin):             # <<<<<<<<<<<<<<
@@ -4418,11 +4418,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_53PipFFT(PyObject *__pyx_v_self, Py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("PipFFT", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("PipFFT", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 431; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "PipFFT") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "PipFFT") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 431; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4435,7 +4435,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_53PipFFT(PyObject *__pyx_v_self, Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("PipFFT", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("PipFFT", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 431; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.PipFFT", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4459,7 +4459,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_52PipFFT(struct __pyx_obj_10LightPi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("PipFFT", 0);
 
-  /* "LightPipes.pyx":433
+  /* "LightPipes.pyx":432
  *         return self.thisptr.PhaseUnwrap(Phi)
  *     def PipFFT(self, index, Fin):
  *         return self.thisptr.PipFFT(index, Fin)             # <<<<<<<<<<<<<<
@@ -4467,15 +4467,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_52PipFFT(struct __pyx_obj_10LightPi
  *         return self.thisptr.Power(Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_index); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 433; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 433; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->PipFFT(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 433; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_index); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->PipFFT(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":432
+  /* "LightPipes.pyx":431
  *     def PhaseUnwrap(self,Phi):
  *         return self.thisptr.PhaseUnwrap(Phi)
  *     def PipFFT(self, index, Fin):             # <<<<<<<<<<<<<<
@@ -4494,7 +4494,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_52PipFFT(struct __pyx_obj_10LightPi
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":434
+/* "LightPipes.pyx":433
  *     def PipFFT(self, index, Fin):
  *         return self.thisptr.PipFFT(index, Fin)
  *     def Power(self, Fin):             # <<<<<<<<<<<<<<
@@ -4525,7 +4525,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_54Power(struct __pyx_obj_10LightPip
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Power", 0);
 
-  /* "LightPipes.pyx":435
+  /* "LightPipes.pyx":434
  *         return self.thisptr.PipFFT(index, Fin)
  *     def Power(self, Fin):
  *         return self.thisptr.Power(Fin)             # <<<<<<<<<<<<<<
@@ -4533,14 +4533,14 @@ static PyObject *__pyx_pf_10LightPipes_4Init_54Power(struct __pyx_obj_10LightPip
  *         return self.thisptr.RandomIntensity(seed, noise, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->Power(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 434; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->Power(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 434; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":434
+  /* "LightPipes.pyx":433
  *     def PipFFT(self, index, Fin):
  *         return self.thisptr.PipFFT(index, Fin)
  *     def Power(self, Fin):             # <<<<<<<<<<<<<<
@@ -4559,7 +4559,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_54Power(struct __pyx_obj_10LightPip
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":436
+/* "LightPipes.pyx":435
  *     def Power(self, Fin):
  *         return self.thisptr.Power(Fin)
  *     def RandomIntensity(self, seed, noise, Fin):             # <<<<<<<<<<<<<<
@@ -4600,16 +4600,16 @@ static PyObject *__pyx_pw_10LightPipes_4Init_57RandomIntensity(PyObject *__pyx_v
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_noise)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RandomIntensity", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RandomIntensity", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RandomIntensity", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RandomIntensity", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RandomIntensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RandomIntensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4624,7 +4624,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_57RandomIntensity(PyObject *__pyx_v
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("RandomIntensity", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("RandomIntensity", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.RandomIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4649,7 +4649,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_56RandomIntensity(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("RandomIntensity", 0);
 
-  /* "LightPipes.pyx":437
+  /* "LightPipes.pyx":436
  *         return self.thisptr.Power(Fin)
  *     def RandomIntensity(self, seed, noise, Fin):
  *         return self.thisptr.RandomIntensity(seed, noise, Fin)             # <<<<<<<<<<<<<<
@@ -4657,16 +4657,16 @@ static PyObject *__pyx_pf_10LightPipes_4Init_56RandomIntensity(struct __pyx_obj_
  *         return self.thisptr.RandomPhase(seed, maxPhase, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_seed); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_noise); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RandomIntensity(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_seed); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_noise); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RandomIntensity(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":436
+  /* "LightPipes.pyx":435
  *     def Power(self, Fin):
  *         return self.thisptr.Power(Fin)
  *     def RandomIntensity(self, seed, noise, Fin):             # <<<<<<<<<<<<<<
@@ -4685,7 +4685,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_56RandomIntensity(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":438
+/* "LightPipes.pyx":437
  *     def RandomIntensity(self, seed, noise, Fin):
  *         return self.thisptr.RandomIntensity(seed, noise, Fin)
  *     def RandomPhase(self, seed, maxPhase, Fin):             # <<<<<<<<<<<<<<
@@ -4726,16 +4726,16 @@ static PyObject *__pyx_pw_10LightPipes_4Init_59RandomPhase(PyObject *__pyx_v_sel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_maxPhase)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RandomPhase", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RandomPhase", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RandomPhase", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RandomPhase", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RandomPhase") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RandomPhase") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4750,7 +4750,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_59RandomPhase(PyObject *__pyx_v_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("RandomPhase", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("RandomPhase", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.RandomPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4775,7 +4775,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_58RandomPhase(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("RandomPhase", 0);
 
-  /* "LightPipes.pyx":439
+  /* "LightPipes.pyx":438
  *         return self.thisptr.RandomIntensity(seed, noise, Fin)
  *     def RandomPhase(self, seed, maxPhase, Fin):
  *         return self.thisptr.RandomPhase(seed, maxPhase, Fin)             # <<<<<<<<<<<<<<
@@ -4783,16 +4783,16 @@ static PyObject *__pyx_pf_10LightPipes_4Init_58RandomPhase(struct __pyx_obj_10Li
  *         return self.thisptr.RectAperture(sx, sy, x_shift, y_shift, angle, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_seed); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_maxPhase); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RandomPhase(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_seed); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_maxPhase); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RandomPhase(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":438
+  /* "LightPipes.pyx":437
  *     def RandomIntensity(self, seed, noise, Fin):
  *         return self.thisptr.RandomIntensity(seed, noise, Fin)
  *     def RandomPhase(self, seed, maxPhase, Fin):             # <<<<<<<<<<<<<<
@@ -4811,7 +4811,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_58RandomPhase(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":440
+/* "LightPipes.pyx":439
  *     def RandomPhase(self, seed, maxPhase, Fin):
  *         return self.thisptr.RandomPhase(seed, maxPhase, Fin)
  *     def RectAperture(self, sx, sy, x_shift, y_shift, angle, Fin):             # <<<<<<<<<<<<<<
@@ -4858,31 +4858,31 @@ static PyObject *__pyx_pw_10LightPipes_4Init_61RectAperture(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_angle)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RectAperture") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RectAperture") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -4903,7 +4903,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_61RectAperture(PyObject *__pyx_v_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("RectAperture", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.RectAperture", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4931,7 +4931,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_60RectAperture(struct __pyx_obj_10L
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("RectAperture", 0);
 
-  /* "LightPipes.pyx":441
+  /* "LightPipes.pyx":440
  *         return self.thisptr.RandomPhase(seed, maxPhase, Fin)
  *     def RectAperture(self, sx, sy, x_shift, y_shift, angle, Fin):
  *         return self.thisptr.RectAperture(sx, sy, x_shift, y_shift, angle, Fin)             # <<<<<<<<<<<<<<
@@ -4939,19 +4939,19 @@ static PyObject *__pyx_pf_10LightPipes_4Init_60RectAperture(struct __pyx_obj_10L
  *         return self.thisptr.RectScreen(sx, sy, x_shift, y_shift, angle, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_sx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_sy); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_7 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RectAperture(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_sx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_sy); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RectAperture(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_r = __pyx_t_7;
   __pyx_t_7 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":440
+  /* "LightPipes.pyx":439
  *     def RandomPhase(self, seed, maxPhase, Fin):
  *         return self.thisptr.RandomPhase(seed, maxPhase, Fin)
  *     def RectAperture(self, sx, sy, x_shift, y_shift, angle, Fin):             # <<<<<<<<<<<<<<
@@ -4970,7 +4970,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_60RectAperture(struct __pyx_obj_10L
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":442
+/* "LightPipes.pyx":441
  *     def RectAperture(self, sx, sy, x_shift, y_shift, angle, Fin):
  *         return self.thisptr.RectAperture(sx, sy, x_shift, y_shift, angle, Fin)
  *     def RectScreen(self, sx, sy, x_shift, y_shift, angle, Fin):             # <<<<<<<<<<<<<<
@@ -5017,31 +5017,31 @@ static PyObject *__pyx_pw_10LightPipes_4Init_63RectScreen(PyObject *__pyx_v_self
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_sy)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_angle)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, 5); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RectScreen") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "RectScreen") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -5062,7 +5062,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_63RectScreen(PyObject *__pyx_v_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("RectScreen", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.RectScreen", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5090,7 +5090,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_62RectScreen(struct __pyx_obj_10Lig
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("RectScreen", 0);
 
-  /* "LightPipes.pyx":443
+  /* "LightPipes.pyx":442
  *         return self.thisptr.RectAperture(sx, sy, x_shift, y_shift, angle, Fin)
  *     def RectScreen(self, sx, sy, x_shift, y_shift, angle, Fin):
  *         return self.thisptr.RectScreen(sx, sy, x_shift, y_shift, angle, Fin)             # <<<<<<<<<<<<<<
@@ -5098,19 +5098,19 @@ static PyObject *__pyx_pf_10LightPipes_4Init_62RectScreen(struct __pyx_obj_10Lig
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_sx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_sy); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_7 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RectScreen(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_sx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_sy); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->RectScreen(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_r = __pyx_t_7;
   __pyx_t_7 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":442
+  /* "LightPipes.pyx":441
  *     def RectAperture(self, sx, sy, x_shift, y_shift, angle, Fin):
  *         return self.thisptr.RectAperture(sx, sy, x_shift, y_shift, angle, Fin)
  *     def RectScreen(self, sx, sy, x_shift, y_shift, angle, Fin):             # <<<<<<<<<<<<<<
@@ -5129,7 +5129,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_62RectScreen(struct __pyx_obj_10Lig
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":444
+/* "LightPipes.pyx":443
  *     def RectScreen(self, sx, sy, x_shift, y_shift, angle, Fin):
  *         return self.thisptr.RectScreen(sx, sy, x_shift, y_shift, angle, Fin)
  *     def Steps(self, z, nstep, refr, Fin):             # <<<<<<<<<<<<<<
@@ -5173,21 +5173,21 @@ static PyObject *__pyx_pw_10LightPipes_4Init_65Steps(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_nstep)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_refr)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Steps") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Steps") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -5204,7 +5204,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_65Steps(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Steps", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Steps", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5230,7 +5230,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_64Steps(struct __pyx_obj_10LightPip
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Steps", 0);
 
-  /* "LightPipes.pyx":467
+  /* "LightPipes.pyx":466
  * 
  *         """
  *         return self.thisptr.Steps(z, nstep, refr, Fin)             # <<<<<<<<<<<<<<
@@ -5238,17 +5238,17 @@ static PyObject *__pyx_pf_10LightPipes_4Init_64Steps(struct __pyx_obj_10LightPip
  *         return self.thisptr.Strehl(Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 467; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nstep); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 467; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_refr); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 467; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 467; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Steps(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 467; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nstep); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_refr); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Steps(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":444
+  /* "LightPipes.pyx":443
  *     def RectScreen(self, sx, sy, x_shift, y_shift, angle, Fin):
  *         return self.thisptr.RectScreen(sx, sy, x_shift, y_shift, angle, Fin)
  *     def Steps(self, z, nstep, refr, Fin):             # <<<<<<<<<<<<<<
@@ -5267,7 +5267,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_64Steps(struct __pyx_obj_10LightPip
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":468
+/* "LightPipes.pyx":467
  *         """
  *         return self.thisptr.Steps(z, nstep, refr, Fin)
  *     def Strehl(self, Fin):             # <<<<<<<<<<<<<<
@@ -5298,7 +5298,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_66Strehl(struct __pyx_obj_10LightPi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Strehl", 0);
 
-  /* "LightPipes.pyx":469
+  /* "LightPipes.pyx":468
  *         return self.thisptr.Steps(z, nstep, refr, Fin)
  *     def Strehl(self, Fin):
  *         return self.thisptr.Strehl(Fin)             # <<<<<<<<<<<<<<
@@ -5306,14 +5306,14 @@ static PyObject *__pyx_pf_10LightPipes_4Init_66Strehl(struct __pyx_obj_10LightPi
  *         return self.thisptr.SubIntensity( Intens, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 469; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->Strehl(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 469; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 468; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->Strehl(__pyx_t_1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 468; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":468
+  /* "LightPipes.pyx":467
  *         """
  *         return self.thisptr.Steps(z, nstep, refr, Fin)
  *     def Strehl(self, Fin):             # <<<<<<<<<<<<<<
@@ -5332,7 +5332,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_66Strehl(struct __pyx_obj_10LightPi
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":470
+/* "LightPipes.pyx":469
  *     def Strehl(self, Fin):
  *         return self.thisptr.Strehl(Fin)
  *     def SubIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
@@ -5371,11 +5371,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_69SubIntensity(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 469; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubIntensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubIntensity") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 469; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5388,7 +5388,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_69SubIntensity(PyObject *__pyx_v_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 469; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.SubIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5412,7 +5412,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_68SubIntensity(struct __pyx_obj_10L
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SubIntensity", 0);
 
-  /* "LightPipes.pyx":471
+  /* "LightPipes.pyx":470
  *         return self.thisptr.Strehl(Fin)
  *     def SubIntensity(self, Intens, Fin):
  *         return self.thisptr.SubIntensity( Intens, Fin)             # <<<<<<<<<<<<<<
@@ -5420,15 +5420,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_68SubIntensity(struct __pyx_obj_10L
  *         return self.thisptr.SubPhase( Phase, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 470; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":470
+  /* "LightPipes.pyx":469
  *     def Strehl(self, Fin):
  *         return self.thisptr.Strehl(Fin)
  *     def SubIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
@@ -5447,7 +5447,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_68SubIntensity(struct __pyx_obj_10L
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":472
+/* "LightPipes.pyx":471
  *     def SubIntensity(self, Intens, Fin):
  *         return self.thisptr.SubIntensity( Intens, Fin)
  *     def SubPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
@@ -5486,11 +5486,11 @@ static PyObject *__pyx_pw_10LightPipes_4Init_71SubPhase(PyObject *__pyx_v_self, 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubPhase") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubPhase") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5503,7 +5503,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_71SubPhase(PyObject *__pyx_v_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.SubPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5527,7 +5527,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_70SubPhase(struct __pyx_obj_10Light
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("SubPhase", 0);
 
-  /* "LightPipes.pyx":473
+  /* "LightPipes.pyx":472
  *         return self.thisptr.SubIntensity( Intens, Fin)
  *     def SubPhase(self, Phase, Fin):
  *         return self.thisptr.SubPhase( Phase, Fin)             # <<<<<<<<<<<<<<
@@ -5535,15 +5535,15 @@ static PyObject *__pyx_pf_10LightPipes_4Init_70SubPhase(struct __pyx_obj_10Light
  *         return self.thisptr.Tilt( tx, ty, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":472
+  /* "LightPipes.pyx":471
  *     def SubIntensity(self, Intens, Fin):
  *         return self.thisptr.SubIntensity( Intens, Fin)
  *     def SubPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
@@ -5562,7 +5562,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_70SubPhase(struct __pyx_obj_10Light
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":474
+/* "LightPipes.pyx":473
  *     def SubPhase(self, Phase, Fin):
  *         return self.thisptr.SubPhase( Phase, Fin)
  *     def Tilt(self, tx, ty, Fin):             # <<<<<<<<<<<<<<
@@ -5603,16 +5603,16 @@ static PyObject *__pyx_pw_10LightPipes_4Init_73Tilt(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ty)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Tilt") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Tilt") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -5627,7 +5627,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_73Tilt(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 473; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Tilt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5652,7 +5652,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_72Tilt(struct __pyx_obj_10LightPipe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Tilt", 0);
 
-  /* "LightPipes.pyx":475
+  /* "LightPipes.pyx":474
  *         return self.thisptr.SubPhase( Phase, Fin)
  *     def Tilt(self, tx, ty, Fin):
  *         return self.thisptr.Tilt( tx, ty, Fin)             # <<<<<<<<<<<<<<
@@ -5660,16 +5660,16 @@ static PyObject *__pyx_pf_10LightPipes_4Init_72Tilt(struct __pyx_obj_10LightPipe
  *         return self.thisptr.Zernike(n, m, R, A, Fin)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_tx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_ty); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Tilt(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_tx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_ty); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Tilt(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":474
+  /* "LightPipes.pyx":473
  *     def SubPhase(self, Phase, Fin):
  *         return self.thisptr.SubPhase( Phase, Fin)
  *     def Tilt(self, tx, ty, Fin):             # <<<<<<<<<<<<<<
@@ -5688,7 +5688,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_72Tilt(struct __pyx_obj_10LightPipe
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":476
+/* "LightPipes.pyx":475
  *     def Tilt(self, tx, ty, Fin):
  *         return self.thisptr.Tilt( tx, ty, Fin)
  *     def Zernike(self, n, m, R, A, Fin):             # <<<<<<<<<<<<<<
@@ -5733,26 +5733,26 @@ static PyObject *__pyx_pw_10LightPipes_4Init_75Zernike(PyObject *__pyx_v_self, P
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_R)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 3); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 4); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Zernike") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Zernike") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -5771,7 +5771,7 @@ static PyObject *__pyx_pw_10LightPipes_4Init_75Zernike(PyObject *__pyx_v_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 475; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes.Init.Zernike", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5798,7 +5798,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_74Zernike(struct __pyx_obj_10LightP
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Zernike", 0);
 
-  /* "LightPipes.pyx":477
+  /* "LightPipes.pyx":476
  *         return self.thisptr.Tilt( tx, ty, Fin)
  *     def Zernike(self, n, m, R, A, Fin):
  *         return self.thisptr.Zernike(n, m, R, A, Fin)             # <<<<<<<<<<<<<<
@@ -5806,18 +5806,18 @@ static PyObject *__pyx_pf_10LightPipes_4Init_74Zernike(struct __pyx_obj_10LightP
  *         self.thisptr.version()
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Zernike(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Zernike(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":476
+  /* "LightPipes.pyx":475
  *     def Tilt(self, tx, ty, Fin):
  *         return self.thisptr.Tilt( tx, ty, Fin)
  *     def Zernike(self, n, m, R, A, Fin):             # <<<<<<<<<<<<<<
@@ -5836,7 +5836,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_74Zernike(struct __pyx_obj_10LightP
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":478
+/* "LightPipes.pyx":477
  *     def Zernike(self, n, m, R, A, Fin):
  *         return self.thisptr.Zernike(n, m, R, A, Fin)
  *     def version(self):             # <<<<<<<<<<<<<<
@@ -5862,7 +5862,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_76version(struct __pyx_obj_10LightP
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("version", 0);
 
-  /* "LightPipes.pyx":479
+  /* "LightPipes.pyx":478
  *         return self.thisptr.Zernike(n, m, R, A, Fin)
  *     def version(self):
  *         self.thisptr.version()             # <<<<<<<<<<<<<<
@@ -5871,7 +5871,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_76version(struct __pyx_obj_10LightP
  */
   __pyx_v_self->thisptr->version();
 
-  /* "LightPipes.pyx":478
+  /* "LightPipes.pyx":477
  *     def Zernike(self, n, m, R, A, Fin):
  *         return self.thisptr.Zernike(n, m, R, A, Fin)
  *     def version(self):             # <<<<<<<<<<<<<<
@@ -5886,7 +5886,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_76version(struct __pyx_obj_10LightP
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":480
+/* "LightPipes.pyx":479
  *     def version(self):
  *         self.thisptr.version()
  *     def help(self):             # <<<<<<<<<<<<<<
@@ -5918,24 +5918,24 @@ static PyObject *__pyx_pf_10LightPipes_4Init_78help(CYTHON_UNUSED struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("help", 0);
 
-  /* "LightPipes.pyx":486
+  /* "LightPipes.pyx":485
  *         http://pythonhosted.org/LightPipes/
  *         """
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")             # <<<<<<<<<<<<<<
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_webbrowser); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 486; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_webbrowser); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_open_new); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 486; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_open_new); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 486; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "LightPipes.pyx":480
+  /* "LightPipes.pyx":479
  *     def version(self):
  *         self.thisptr.version()
  *     def help(self):             # <<<<<<<<<<<<<<
@@ -5957,7 +5957,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_78help(CYTHON_UNUSED struct __pyx_o
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":487
+/* "LightPipes.pyx":486
  *         """
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
  *     def getGridSize(self):             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_80getGridSize(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getGridSize", 0);
 
-  /* "LightPipes.pyx":488
+  /* "LightPipes.pyx":487
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()             # <<<<<<<<<<<<<<
@@ -5995,13 +5995,13 @@ static PyObject *__pyx_pf_10LightPipes_4Init_80getGridSize(struct __pyx_obj_10Li
  *         self.thisptr.setGridSize(newSize)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getGridSize()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 488; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getGridSize()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 487; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":487
+  /* "LightPipes.pyx":486
  *         """
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
  *     def getGridSize(self):             # <<<<<<<<<<<<<<
@@ -6020,7 +6020,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_80getGridSize(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":489
+/* "LightPipes.pyx":488
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):             # <<<<<<<<<<<<<<
@@ -6050,17 +6050,17 @@ static PyObject *__pyx_pf_10LightPipes_4Init_82setGridSize(struct __pyx_obj_10Li
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("setGridSize", 0);
 
-  /* "LightPipes.pyx":490
+  /* "LightPipes.pyx":489
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)             # <<<<<<<<<<<<<<
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newSize); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 490; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newSize); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 489; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_self->thisptr->setGridSize(__pyx_t_1);
 
-  /* "LightPipes.pyx":489
+  /* "LightPipes.pyx":488
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):             # <<<<<<<<<<<<<<
@@ -6080,12 +6080,12 @@ static PyObject *__pyx_pf_10LightPipes_4Init_82setGridSize(struct __pyx_obj_10Li
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":491
+/* "LightPipes.pyx":490
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.getWavelength()
- *     def setGridWavelength(self, newWavelength):
+ *     def setWavelength(self, newWavelength):
  */
 
 /* Python wrapper */
@@ -6110,26 +6110,26 @@ static PyObject *__pyx_pf_10LightPipes_4Init_84getWavelength(struct __pyx_obj_10
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getWavelength", 0);
 
-  /* "LightPipes.pyx":492
+  /* "LightPipes.pyx":491
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()             # <<<<<<<<<<<<<<
- *     def setGridWavelength(self, newWavelength):
+ *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getWavelength()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 492; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getWavelength()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 491; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":491
+  /* "LightPipes.pyx":490
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.getWavelength()
- *     def setGridWavelength(self, newWavelength):
+ *     def setWavelength(self, newWavelength):
  */
 
   /* function exit code */
@@ -6143,50 +6143,50 @@ static PyObject *__pyx_pf_10LightPipes_4Init_84getWavelength(struct __pyx_obj_10
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":493
+/* "LightPipes.pyx":492
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()
- *     def setGridWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
+ *     def setWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_4Init_87setGridWavelength(PyObject *__pyx_v_self, PyObject *__pyx_v_newWavelength); /*proto*/
-static PyObject *__pyx_pw_10LightPipes_4Init_87setGridWavelength(PyObject *__pyx_v_self, PyObject *__pyx_v_newWavelength) {
+static PyObject *__pyx_pw_10LightPipes_4Init_87setWavelength(PyObject *__pyx_v_self, PyObject *__pyx_v_newWavelength); /*proto*/
+static PyObject *__pyx_pw_10LightPipes_4Init_87setWavelength(PyObject *__pyx_v_self, PyObject *__pyx_v_newWavelength) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("setGridWavelength (wrapper)", 0);
-  __pyx_r = __pyx_pf_10LightPipes_4Init_86setGridWavelength(((struct __pyx_obj_10LightPipes_Init *)__pyx_v_self), ((PyObject *)__pyx_v_newWavelength));
+  __Pyx_RefNannySetupContext("setWavelength (wrapper)", 0);
+  __pyx_r = __pyx_pf_10LightPipes_4Init_86setWavelength(((struct __pyx_obj_10LightPipes_Init *)__pyx_v_self), ((PyObject *)__pyx_v_newWavelength));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10LightPipes_4Init_86setGridWavelength(struct __pyx_obj_10LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_newWavelength) {
+static PyObject *__pyx_pf_10LightPipes_4Init_86setWavelength(struct __pyx_obj_10LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_newWavelength) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("setGridWavelength", 0);
+  __Pyx_RefNannySetupContext("setWavelength", 0);
 
-  /* "LightPipes.pyx":494
+  /* "LightPipes.pyx":493
  *         return self.thisptr.getWavelength()
- *     def setGridWavelength(self, newWavelength):
+ *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)             # <<<<<<<<<<<<<<
  *     def getGridDimension(self):
  *         return self.thisptr.getGridDimension()
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newWavelength); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 494; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newWavelength); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 493; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_self->thisptr->setWavelength(__pyx_t_1);
 
-  /* "LightPipes.pyx":493
+  /* "LightPipes.pyx":492
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()
- *     def setGridWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
+ *     def setWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):
  */
@@ -6195,7 +6195,7 @@ static PyObject *__pyx_pf_10LightPipes_4Init_86setGridWavelength(struct __pyx_ob
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("LightPipes.Init.setGridWavelength", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("LightPipes.Init.setWavelength", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6203,8 +6203,8 @@ static PyObject *__pyx_pf_10LightPipes_4Init_86setGridWavelength(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "LightPipes.pyx":495
- *     def setGridWavelength(self, newWavelength):
+/* "LightPipes.pyx":494
+ *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.getGridDimension()
@@ -6232,20 +6232,20 @@ static PyObject *__pyx_pf_10LightPipes_4Init_88getGridDimension(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("getGridDimension", 0);
 
-  /* "LightPipes.pyx":496
+  /* "LightPipes.pyx":495
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):
  *         return self.thisptr.getGridDimension()             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getGridDimension()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 496; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getGridDimension()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes.pyx":495
- *     def setGridWavelength(self, newWavelength):
+  /* "LightPipes.pyx":494
+ *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.getGridDimension()
@@ -9190,7 +9190,7 @@ static PyMethodDef __pyx_methods_10LightPipes_Init[] = {
   {"getGridSize", (PyCFunction)__pyx_pw_10LightPipes_4Init_81getGridSize, METH_NOARGS, 0},
   {"setGridSize", (PyCFunction)__pyx_pw_10LightPipes_4Init_83setGridSize, METH_O, 0},
   {"getWavelength", (PyCFunction)__pyx_pw_10LightPipes_4Init_85getWavelength, METH_NOARGS, 0},
-  {"setGridWavelength", (PyCFunction)__pyx_pw_10LightPipes_4Init_87setGridWavelength, METH_O, 0},
+  {"setWavelength", (PyCFunction)__pyx_pw_10LightPipes_4Init_87setWavelength, METH_O, 0},
   {"getGridDimension", (PyCFunction)__pyx_pw_10LightPipes_4Init_89getGridDimension, METH_NOARGS, 0},
   {0, 0, 0, 0}
 };
@@ -9349,14 +9349,14 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "LightPipes.pyx":486
+  /* "LightPipes.pyx":485
  *         http://pythonhosted.org/LightPipes/
  *         """
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")             # <<<<<<<<<<<<<<
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_https_pythonhosted_org_LightPipe); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 486; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_https_pythonhosted_org_LightPipe); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
@@ -9525,9 +9525,9 @@ PyMODINIT_FUNC PyInit_LightPipes(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_10LightPipes_Init) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_10LightPipes_Init) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_10LightPipes_Init.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Init", (PyObject *)&__pyx_type_10LightPipes_Init) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 55; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Init", (PyObject *)&__pyx_type_10LightPipes_Init) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_10LightPipes_Init = &__pyx_type_10LightPipes_Init;
   /*--- Type import code ---*/
   __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "type", 
@@ -9566,7 +9566,7 @@ PyMODINIT_FUNC PyInit_LightPipes(void)
  * from libcpp.vector cimport vector
  * import webbrowser             # <<<<<<<<<<<<<<
  * 
- * 
+ * cdef extern from "lpspy.h" namespace "std":
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_webbrowser, 0, -1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 6; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
