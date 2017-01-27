@@ -27,7 +27,7 @@ try:
     F1=LP.CircAperture(0.15*mm, -0.6*mm,0, F)
     F2=LP.CircAperture(0.15*mm, 0.6*mm,0, F)    
     F=LP.BeamMix(F1,F2)
-    F=LP.Forvard(10*cm,F)
+    F=LP.Fresnel(10*cm,F)
     I=LP.Intensity(2,F)
     print("Execution time: --- %4.2f seconds ---" % (time.time() - start_time))   
     #plt.imshow(I);

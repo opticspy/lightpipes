@@ -210,8 +210,6 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
     ii=ij=1;
     for (int i=0;i<N; i++){    
         for (int j=0;j<N; j++ ){
-            //Field(i,j) = ((double) in_out[ik][0]*ii*ij * cokz - (double) in_out[ik][1]*ii*ij * sikz + \
-            //  ((double) in_out[ik][1]*ii*ij * cokz + (double) in_out[ik][0]*ii*ij * sikz)*1i)/n_grid/n_grid;
             Field.at(i).at(j) = complex<double>((in_out[ik][0]*ii*ij * cokz - in_out[ik][1]*ii*ij * sikz)/N/N,\
                                                ( in_out[ik][1]*ii*ij * cokz + in_out[ik][0]*ii*ij * sikz)/N/N );
             ij=-ij;
@@ -226,7 +224,7 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
     return Field;
     }
 CMPLXVEC lpspy::Fresnel(double z, CMPLXVEC Field ){
-    int i,j,fn2, fn22,io,jo,no2,dum,ii,ij,iiij;
+    int i,j,fn2, fn22,io,jo,no2,ii,ij,iiij;
     long ik, ik1, ik2, ik3, ik4;
     double  RR, dx, pi2, kz, cokz, sikz, FR, FI;
     double cc, fc1, fs1, fc2, fs2, fc3, fs3, fc4, fs4, R1, R2, R3, R4;
@@ -277,10 +275,10 @@ CMPLXVEC lpspy::Fresnel(double z, CMPLXVEC Field ){
           /* Fresnel staff  */
           R2=RR*(jo - .5 + sh);
           R4=RR*(jo + .5 + sh);
-          dum=fresnl(R1,&fs1, &fc1);
-          dum=fresnl(R2,&fs2, &fc2);
-          dum=fresnl(R3,&fs3, &fc3);
-          dum=fresnl(R4,&fs4, &fc4);
+          fresnl(R1,&fs1, &fc1);
+          fresnl(R2,&fs2, &fc2);
+          fresnl(R3,&fs3, &fc3);
+          fresnl(R4,&fs4, &fc4);
 
           c4c1=fc4*fc1;
           c2s3=fc2*fs3;
@@ -867,7 +865,7 @@ CMPLXVEC lpspy::RandomPhase(double seed, double max, CMPLXVEC Field ){
 CMPLXVEC lpspy::Steps(double z, int nstep, CMPLXVEC refr, CMPLXVEC Field ){
     double  delta, delta2, Pi4lz, AA, band_pow, K, dist, fi,i_left, i_right;
     std::complex<double> uij, uij1, uij_1, ui1j, ui_1j, medium;
-    size_t i, j, jj, ii;
+    int i, j, jj, ii;
     int  istep;
     vectors v; //the structure vectors is used to pass a lot of variables to function elim
     if (doub1 !=0.){
@@ -1104,7 +1102,7 @@ double lpspy::Strehl( CMPLXVEC Field ){
 }
 CMPLXVEC lpspy::SubIntensity( vector<vector<double> > Intens, CMPLXVEC Field ){
     double Intens2, phi;
-    if ((unsigned long)Intens.at(0).size() != N || (unsigned long)Intens.size() != N){
+    if ((int)Intens.at(0).size() != N || (int)Intens.size() != N){
         printf( "Error in SubIntensity(Intens, Fin): array 'Intens' must be square and must have %d x %d elements\n",N,N);
         exit(1);
     }
@@ -1119,7 +1117,7 @@ CMPLXVEC lpspy::SubIntensity( vector<vector<double> > Intens, CMPLXVEC Field ){
 }
 CMPLXVEC lpspy::SubPhase( vector<vector<double> > Phase, CMPLXVEC Field ){
     double Intens2, phi;
-    if ((unsigned long)Phase.at(0).size() != N || (unsigned long)Phase.size() != N){
+    if ((int)Phase.at(0).size() != N || (int)Phase.size() != N){
         printf( "Error in SubPhase(Phase, Fin): array 'Phase' must be square and must have %d x %d elements\n",N,N);
         exit(1);
     }

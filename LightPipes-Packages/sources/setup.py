@@ -1,6 +1,7 @@
 from setuptools import setup
 from setuptools.extension import Extension
 import numpy
+from sys import platform
 
 # Test if Cython is available
 try:
@@ -21,17 +22,29 @@ sources = [
            'subs.cpp',
            'lpspy.cpp'
            ]
-
-extensions = [
-               Extension(
-                        'LightPipes',
-                        sources,
-                        #extra_compile_args = [''],
-                        include_dirs = [ numpy.get_include()],
-                        libraries = ['libfftw3-3'],
-                        language = "c++",
-                        )
-             ]
+           
+if (platform == "linux"):
+    extensions = [
+                   Extension(
+                            'LightPipes',
+                            sources,
+                            #extra_compile_args = [''],
+                            include_dirs = [ numpy.get_include()],
+                            extra_objects = ['libfftw3.a'], #static
+                            language = "c++",
+                            )
+                 ]
+elif (platform == "win32"):
+    extensions = [
+                   Extension(
+                            'LightPipes',
+                            sources,
+                            #extra_compile_args = [''],
+                            include_dirs = [ numpy.get_include()],
+                            libraries = ['libfftw3-3'],
+                            language = "c++",
+                            )
+                 ]
  
 # Select Extension
 if USE_CYTHON:

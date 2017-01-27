@@ -120,7 +120,7 @@ The implementation have not been optimized for speed.
 double zernike(int n, int m, double rho, double phi){
 	int s, int_sign, mm;
     double sum, product, Factorial(int nn);
-    mm=(int) abs(m);
+    mm=(int) std::abs(m);
     sum=0;
 	product = 1.0;
     int_sign=1;
