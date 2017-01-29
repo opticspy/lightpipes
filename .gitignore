@@ -1,3 +1,11 @@
+# wheels
+wheelhouse
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
