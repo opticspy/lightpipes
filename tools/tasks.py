@@ -6,7 +6,6 @@ PYTHON_PATH = '/opt/python/{}/bin/python'
 PIP_PATH = '/opt/python/{}/bin/pip'
 SUPPORTED_CPYTHON = [
     'cp27-cp27m', 'cp27-cp27mu',
-    'cp33-cp33m',
     'cp34-cp34m',
     'cp35-cp35m',
     'cp36-cp36m',
@@ -21,7 +20,7 @@ def build(ctx, version):
     Args:
         version: one of supported cpython
     """
-
+    python = PYTHON_PATH.format(version)
     pip = PIP_PATH.format(version)
     ctx.run(f'{pip} install cython numpy')
     # build wheel

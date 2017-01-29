@@ -24,8 +24,8 @@ sources = [
     'subs.cpp',
     'lpspy.cpp'
 ]
-
-if (platform == "linux"):
+print(platform)
+if ("linux" in platform):  # platform is linux in python3 or linux in python2.7
     extensions = [
         Extension(
             'LightPipes',
