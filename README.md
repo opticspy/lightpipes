@@ -1,6 +1,6 @@
 <a href="http://pythonhosted.org/LightPipes/" target="_blank"><h1><font color= "#4169E1"> LightPipes for Python</font></h1></a>
 
-###Simulations of optical phenomena where diffraction is essential
+### Simulations of optical phenomena where diffraction is essential
 
 [![travis-ci](https://api.travis-ci.org/opticspy/lightpipes.svg)](https://travis-ci.org/opticspy/lightpipes)
 
