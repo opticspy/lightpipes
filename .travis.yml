@@ -5,9 +5,6 @@ language: python
 services:
   - docker
  
-before_install:
-- docker build -t lightpipes-linux-x64 -f tools/linux-x64.Dockerfile .
-
 script:
-- docker run --rm -ti -v `pwd`:/io lightpipes-linux-x64
-- ls -lh wheelhouse/
+- bash build-linux-x32.sh
+- bash build-linux-x64.sh
