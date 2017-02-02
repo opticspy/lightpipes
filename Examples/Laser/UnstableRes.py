@@ -12,7 +12,7 @@ else:
 try:
 	import LightPipes
 except ImportError:
-	print "LightPipes not present"
+	print("LightPipes not present")
 	exit()
 root = Tk.Tk()
 root.wm_title("Young's experiment")

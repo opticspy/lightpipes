@@ -2,7 +2,7 @@
 try:
 	import LightPipes
 except ImportError:
-	print "LightPipes not present"
+	print ("LightPipes not present")
 	exit()
 
 import matplotlib.pyplot as plt
@@ -17,7 +17,7 @@ try:
 
 	wavelength=500*nm
 	size=8.0*mm
-	N=400
+	N=1000
 	R=300*mm
 	d1=340*mm
 	d2=340*mm

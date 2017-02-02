@@ -6,16 +6,18 @@ import math
 import time
 import numpy as np
 import sys
-from Tkinter import *
 
 if sys.version_info[0] < 3:
+    from Tkinter import *
     import Tkinter as Tk
 else:
+    from tkinter import *
     import tkinter as Tk
+
 try:
 	import LightPipes
 except ImportError:
-	print "LightPipes not present"
+	print ("LightPipes not present")
 	exit()
 root = Tk.Tk()
 root.wm_title("Laser with stable resonator")
@@ -33,7 +35,7 @@ mW=1e-3*W
 LP=LightPipes.Init()
 wavelength=10600*nm;
 size=20*mm;
-N=120;
+N=100; N2=int(N/2)
 Isat=131*W/cm/cm; alpha=0.0067/cm; Lgain=30*cm;
 
 f1=2.0*m
@@ -49,14 +51,14 @@ ty=0.00*mrad;
 xwire=10.0*mm
 ywire=10.0*mm
 
-f = Figure(figsize = (5,5), dpi=N)
+f = Figure(figsize = (10,5), dpi=N)
 canvas = FigureCanvasTkAgg(f, master=root)
 canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 plt = f.add_subplot(211,navigate=False )
 plt2=f.add_subplot(212,navigate=False )
 
 F=LP.Begin(size,wavelength,N);
-x=range(-N/2,N/2)
+x=range(-N2,N2)
 x=np.asarray(x)*size/N/mm
 def TheExample():
 	global F,f1,f2,L,w0
@@ -83,7 +85,7 @@ def TheExample():
 	F=LP.IntAttenuator(Reflect,F)
 	P=LP.Power(F)*(1-Reflect)*size/N*size/N  
 	#I=LP.Intensity(0,F)
-	y=np.asarray(Iw[N/2])
+	y=np.asarray(Iw[N2])
 	#Iout=Isat*(alpha*Lgain-0.5*math.log(1/Reflect))*math.pi*w0*w0
 	plt.clear()
 	plt2.clear()
@@ -94,7 +96,6 @@ def TheExample():
 	plt.text(150,-5,"g1=%5.3f"% g1)
 	plt.text(150,15,"g2=%5.3f"% g2)
 	plt.text(150,35,"g=%5.3f"% g)
-	#plt.text(150,55,"Iout=%5.3f W"% Iout)
 	plt.imshow(Iw); plt.axis('off')
 	plt2.plot(x,y)
 	canvas.show()

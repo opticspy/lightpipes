@@ -2,7 +2,7 @@
 try:
 	import LightPipes
 except ImportError:
-	print "LightPipes not present"
+	print ("LightPipes not present")
 	exit()
 
 import matplotlib.pyplot as plt
@@ -26,7 +26,7 @@ try:
 	z3=3*cm # distance laser to beamsplitter
 	z4=5*cm # distance beamsplitter to screen
 	Rbs=0.5 # reflection beam splitter
-	ty=1*mrad; tx=0.0*mrad # tilt of mirror 1
+	tx=1*mrad; ty=0.0*mrad # tilt of mirror 1
 	f=50*cm # focal length of positive lens
 
 
