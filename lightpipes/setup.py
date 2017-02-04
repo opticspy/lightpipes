@@ -61,6 +61,7 @@ else:
 setup(
     name='LightPipes',
     package_data={"LightPipes": ["libfftw3-3.dll"]},
+    install_requires=["numpy>=1.7.1"],
     include_package_data=True,
     version='1.1.0',
     description='LightPipes for Python optical toolbox',
