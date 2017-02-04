@@ -15,4 +15,4 @@ matrix:
     - env: TARGET=linux-x64
 
 script:
-- "bash build-linux-x64.sh"
+- "bash build-${TARGET}.sh"
