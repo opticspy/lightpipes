@@ -5,9 +5,9 @@ language: python
 services:
   - docker
 
-# cache:
-#   directories:
-#     - .cache/pip
+cache:
+  directories:
+    - .cache/pip
 
 matrix:
   include:
