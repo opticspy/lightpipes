@@ -3,7 +3,7 @@ from glob import glob
 from invoke import task
 
 PYTHON_PATH = '/opt/python/{}/bin/python'
-PIP_PATH = '/opt/python/{}/bin/pip'
+PIP_PATH = '/opt/python/{}/bin/pip --cache-dir=/io/.cache/pip'
 DIST_DIR = '/io/wheelhouse'
 TMP_DIR = '/io/wheelhouse/tmp'
 SUPPORTED_CPYTHON = [
@@ -15,6 +15,11 @@ SUPPORTED_CPYTHON = [
 
 
 @task
+def setup(ctx):
+    ctx.run('mkdir -p /io/.cache/pip')
+
+
+@task(pre=[setup])
 def build(ctx, version):
     """
     Build wheel
@@ -43,7 +48,7 @@ def find_whl(version):
     return whl[0]
 
 
-@task
+@task(pre=[setup])
 def build_all(ctx):
     for version in SUPPORTED_CPYTHON:
         build(ctx, version)

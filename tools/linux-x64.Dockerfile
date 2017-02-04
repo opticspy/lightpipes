@@ -14,5 +14,4 @@ RUN ./configure --enable-shared && make && make install
 VOLUME /io/
 WORKDIR /io/tools
 RUN /opt/python/cp36-cp36m/bin/pip install invoke
-ENTRYPOINT ["/opt/python/cp36-cp36m/bin/inv"]
-CMD ["build_all"]
+CMD ["/opt/python/cp36-cp36m/bin/inv", "build_all"]

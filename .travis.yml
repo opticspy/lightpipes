@@ -4,7 +4,11 @@ language: python
 
 services:
   - docker
- 
+
+cache:
+  directories:
+    - .cache/pip
+
 script:
 - bash build-linux-x32.sh
 - bash build-linux-x64.sh
