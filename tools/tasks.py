@@ -1,13 +1,15 @@
 import os
+import shutil
 from glob import glob
 
 from invoke import task
 
 TARGET = os.getenv('TARGET', 'tmp')
 PYTHON_PATH = '/opt/python/{}/bin/python'
-PIP_PATH = '/opt/python/{}/bin/pip --cache-dir=/io/.cache/pip'
+PIP_CACHE = '/io/.cache/pip'
+PIP_PATH = '/opt/python/{}/bin/pip --cache-dir=' + PIP_CACHE
 DIST_DIR = '/io/wheelhouse'
-TMP_DIR = '/io/wheelhouse/{}'.format(TARGET)
+TMP_DIR = '/io/wheelhouse/' + TARGET
 SUPPORTED_CPYTHON = [
     'cp27-cp27m', 'cp27-cp27mu',
     'cp34-cp34m',
@@ -19,9 +21,16 @@ SUPPORTED_CPYTHON = [
 @task
 def setup(ctx):
     try:
-        os.makedirs('/io/.cache/pip')
+        os.makedirs(PIP_CACHE)
     except OSError as e:
-        print(e)
+        print(f'Create {PIP_CACHE}: {e}')
+    # fix: The directory '/io/.cache/pip/http' or its parent directory
+    # is not owned by the current user and the cache has been disabled.
+    ctx.run(f'chown -R root {PIP_CACHE}')
+
+
+def clean_tmpdir():
+    shutil.rmtree(TMP_DIR, ignore_errors=True)
 
 
 @task(pre=[setup])
@@ -32,7 +41,7 @@ def build(ctx, version):
     Args:
         version: one of supported cpython
     """
-    ctx.run(f'rm -rf {TMP_DIR}')
+    clean_tmpdir()
     python = PYTHON_PATH.format(version)
     pip = PIP_PATH.format(version)
     ctx.run(f'{pip} install -r requires.txt')
@@ -43,7 +52,7 @@ def build(ctx, version):
     # install and test
     ctx.run(f'{pip} install lightpipes --no-index -f {DIST_DIR}')
     ctx.run(f'{python} -c "import LightPipes;LightPipes.Init().version()"')
-    ctx.run(f'rm -rf {TMP_DIR}')
+    clean_tmpdir()
 
 
 def find_whl(version):

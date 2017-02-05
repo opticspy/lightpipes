@@ -4,8 +4,8 @@ import platform
 
 
 def pkginfo():
-    for pkg in ['setuptools', 'pip', 'wheel',
-                'virtualenv', 'distutils', 'cython']:
+    for pkg in ['setuptools', 'pip', 'wheel', 'virtualenv',
+                'distutils', 'cython', 'numpy']:
         try:
             version = getattr(__import__(pkg), '__version__', 'Unknown')
             print('{} = {}'.format(pkg, version))
