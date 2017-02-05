@@ -9,11 +9,10 @@ cache:
   directories:
     - .cache/pip
 
-# matrix:
-#   include:
-#     - env: TARGET=linux-x32
-#     - env: TARGET=linux-x64
+matrix:
+  include:
+    - env: TARGET_XXXXXX=linux-x32
+    - env: TARGET_XXXXXX=linux-x64
 
 script:
-  # - "bash build-${TARGET}.sh"
-  - "bash build-linux-x64.sh"
+  - "bash build-${TARGET_XXXXXX}.sh"
