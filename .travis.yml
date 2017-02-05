@@ -5,14 +5,15 @@ language: python
 services:
   - docker
 
-cache:
-  directories:
-    - .cache/pip
-
-matrix:
-  include:
-    - env: TARGET=linux-x32
-    - env: TARGET=linux-x64
+# cache:
+#   directories:
+#     - .cache/pip
+# 
+# matrix:
+#   include:
+#     - env: TARGET=linux-x32
+#     - env: TARGET=linux-x64
 
 script:
-- "bash build-${TARGET}.sh"
+  # - "bash build-${TARGET}.sh"
+  - "bash build-linux-x64.sh"
