@@ -1,11 +1,13 @@
+import os
 from glob import glob
 
 from invoke import task
 
+TARGET = os.getenv('TARGET', 'tmp')
 PYTHON_PATH = '/opt/python/{}/bin/python'
 PIP_PATH = '/opt/python/{}/bin/pip --cache-dir=/io/.cache/pip'
 DIST_DIR = '/io/wheelhouse'
-TMP_DIR = '/io/wheelhouse/tmp'
+TMP_DIR = '/io/wheelhouse/{}'.format(TARGET)
 SUPPORTED_CPYTHON = [
     'cp27-cp27m', 'cp27-cp27mu',
     'cp34-cp34m',
@@ -16,7 +18,10 @@ SUPPORTED_CPYTHON = [
 
 @task
 def setup(ctx):
-    ctx.run('mkdir -p /io/.cache/pip')
+    try:
+        os.makedirs('/io/.cache/pip')
+    except OSError as e:
+        print(e)
 
 
 @task(pre=[setup])
