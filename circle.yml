@@ -1,12 +1,6 @@
-# see: https://github.com/thewtex/dockcross/blob/mingwpy/circle.yml
 machine:
-  # XXX: btrfs circleCI fix, see: https://github.com/docker/docker/issues/9939 and https://github.com/Sabayon/docker-stage3-base-amd64/commit/8c1bf737113a278dd2f
-  pre:
-    - sudo curl -L -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.0-circleci'
-    - sudo chmod 0755 /usr/bin/docker
   services:
     - docker
-
 test:
-  override:
+  post:
     - bash build-linux-x64.sh
