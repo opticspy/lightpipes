@@ -5,6 +5,7 @@ cimport numpy as np
 from libcpp.vector cimport vector
 import webbrowser
 
+
 cdef extern from "lpspy.h" namespace "std":
     cdef cppclass lpspy:
         LightPipes() except +
