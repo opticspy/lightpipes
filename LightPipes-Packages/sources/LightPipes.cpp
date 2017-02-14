@@ -8,12 +8,15 @@
             "C:\\Python27\\lib\\site-packages\\numpy\\core\\include\\numpy\\ufuncobject.h", 
             "lpspy.h"
         ], 
+        "extra_compile_args": [
+            "/EHsc"
+        ], 
         "include_dirs": [
             "C:\\Python27\\lib\\site-packages\\numpy\\core\\include"
         ], 
         "language": "c++", 
         "libraries": [
-            "./fftw3-win64/libfftw3-3"
+            "./fftw3_win32/libfftw3-3"
         ], 
         "sources": [
             "lpspy.cpp", 
