@@ -56,7 +56,7 @@ def _quit():
 	root.quit()		# stops mainloop
 	root.destroy()	# this is necessary on Windows to prevent
 					# Fatal Python Error: PyEval_RestoreThread: NULL tstate
-					
+
 #toolbar = NavigationToolbar2TkAgg( canvas, root )
 #toolbar.set_message ('PIPO')
 
