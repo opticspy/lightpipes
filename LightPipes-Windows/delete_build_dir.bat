@@ -1,2 +1,0 @@
-rmdir .\build /S /Q
-
