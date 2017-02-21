@@ -14,4 +14,4 @@ env:
   - TARGET=linux-x64
 
 script:
-  - "bash build-${TARGET}.sh"
+  - "(cd tools/linux/ && bash build-${TARGET}.sh)"
