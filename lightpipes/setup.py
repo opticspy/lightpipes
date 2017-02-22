@@ -34,15 +34,7 @@ sources = [
 
 
 data_files = None
-if SYSTEM == 'Linux':
-    ext = Extension(
-        'LightPipes', sources,
-        include_dirs=[numpy.get_include()],
-        library_dirs=['/usr/local/lib/'],
-        libraries=['fftw3'],
-        language="c++",
-    )
-elif SYSTEM == 'Windows':
+if SYSTEM == 'Windows':
     bits = struct.calcsize("P")*8
     if bits == 32:
         fftw3dir = 'fftw3_win32'
@@ -56,10 +48,30 @@ elif SYSTEM == 'Windows':
         libraries=['libfftw3-3'],
         language="c++",
     )
+elif SYSTEM == 'Linux':
+    ext = Extension(
+        'LightPipes', sources,
+        include_dirs=[numpy.get_include()],
+        library_dirs=['/usr/local/lib/'],
+        libraries=['fftw3'],
+        language="c++",
+    )
 elif SYSTEM == 'Darwin':
-    pass
+    ext = Extension(
+        'LightPipes', sources,
+        include_dirs=[numpy.get_include()],
+        libraries=['fftw3'],
+        language="c++",
+    )
 else:
-    pass
+    # unknown platform
+    ext = Extension(
+        'LightPipes', sources,
+        include_dirs=[numpy.get_include()],
+        library_dirs=['/usr/local/lib/'],
+        libraries=['fftw3'],
+        language="c++",
+    )
 
 
 if USE_CYTHON:
