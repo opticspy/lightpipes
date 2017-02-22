@@ -32,7 +32,7 @@ def conda_path(bit):
 
 
 DIST = project_path('wheelhouse')
-SOURCE = project_path('LightPipes-Windows')
+SOURCE = project_path('lightpipes')
 REQUIRES = project_path('tools', 'requires.txt')
 CACHE = project_path('.cache', 'pip')
 DIAGNOSE = project_path('tools', 'diagnose.py')
@@ -85,11 +85,7 @@ class Builder:
         ))
 
     def pip_wheel(self):
-        # self.run(r'cd {source} && {python} setup.py bdist_wheel'.format(
-        #     python=self.python,
-        #     source=SOURCE
-        # ))
-        self.run(r'{pip} wheel -w {dist} {source}'.format(
+        self.run(r'{pip} wheel --no-deps -w {dist} {source}'.format(
             pip=self.pip,
             dist=DIST,
             source=SOURCE
@@ -102,10 +98,12 @@ class Builder:
         ))
 
     def test(self):
-        self.run('{pip} install lightpipes --upgrade --force-reinstall --no-index -f {dist}'
-                 .format(pip=self.pip, dist=DIST))
-        self.run('{python} -c "import LightPipes;LightPipes.Init().version()"'
-                 .format(python=self.python))
+        INSTALL = '{pip} install lightpipes --upgrade --force-reinstall --no-index -f {dist}'
+        if self.index_url:
+            INSTALL = INSTALL + " -i " + self.index_url
+        self.run(INSTALL.format(pip=self.pip, dist=DIST))
+        TEST = '{python} -c "import LightPipes;LightPipes.Init().version()"'
+        self.run(TEST.format(python=self.python))
 
     def build(self):
         print('build for {}'.format(self.name).center(60, '-'))
@@ -121,15 +119,22 @@ class Builder:
 
 @task
 def build(ctx,  bit, version, index_url=None):
-    builder = Builder(ctx, bit, version, index_url=index_url)
-    builder.build()
+    Builder(ctx, bit, version, index_url=index_url).build()
 
 
 @task
 def build_all(ctx, index_url=None):
+    result = []
     for bit in SUPPORTED_BIT:
         for version in SUPPORTED_CPYTHON:
+            builder = Builder(ctx, bit, version, index_url=index_url)
             try:
-                build(ctx, bit, version, index_url=index_url)
+                builder.build()
+                result.append((builder.name, True))
             except:
+                result.append((builder.name, False))
                 traceback.print_exc()
+    print('-'*60)
+    for name, ok in result:
+        status = 'OK' if ok else 'Failed'
+        print('{}  {}'.format(name, status))

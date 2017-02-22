@@ -1,7 +1,7 @@
 #include "lpspy.h"
 #define Pi		3.141592654
 
-#define vs "1.1.0"
+#define vs "1.1.1"
 // 16 January 2017
 // changes: added     fftw_free(in_out); in Forvard, Fresnel and PipFFT
 // To prevent memory leaks!!

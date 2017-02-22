@@ -44,7 +44,7 @@ def build(ctx, version):
     clean_tmpdir()
     python = PYTHON_PATH.format(version)
     pip = PIP_PATH.format(version)
-    ctx.run(f'{pip} install -r requires.txt')
+    ctx.run(f'{pip} install -r ../requires.txt')
     # build wheel
     ctx.run(f'{pip} wheel /io/lightpipes --no-deps -w {TMP_DIR}')
     whl = find_whl(version)

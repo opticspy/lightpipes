@@ -1,2 +1,0 @@
-rmdir .\dist /S /Q
-
