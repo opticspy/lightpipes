@@ -1,0 +1,37 @@
+import LightPipes
+import matplotlib.pyplot as plt
+#from scipy import misc
+import matplotlib.image as mpimg
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+m=1
+nm=1e-9*m
+um=1e-6*m
+mm=1e-3*m
+cm=1e-2*m
+pi=3.1415
+try:
+	LP=LightPipes.Init()
+	wavelength=1*um
+	size=5.0*mm
+	dz=10*mm
+	N=202
+	n=(1.0 + 0.1j)*np.ones((N,N))   
+	Icross=np.zeros((N,N))
+	mask=2*pi*mpimg.imread('zone.PNG')[:,:,0]
+	plt.plot(mask[101][:N])
+	plt.imshow(mask)
+	F=LP.Begin(size,wavelength,N)
+	F=LP.SubPhase(mask/2,F)
+	#for i in range(0,100):
+		#F=LP.Steps(dz,1,n,F);
+        #I=LP.Intensity(0,F);
+        #Icross[i][:N]=I[N/2][:N]
+	F=LP.Fresnel(0.5*m,F)
+	I=LP.Intensity(2,F)
+	#print I[N/2][N/2]
+	fig = plt.figure()
+	plt.imshow(I)
+	plt.show()
+finally:
+	del LightPipes

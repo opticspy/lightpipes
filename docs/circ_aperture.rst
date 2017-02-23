@@ -1,0 +1,52 @@
+.. _circ_aperture:
+
+.. Index::
+    Forvard
+    CircAperture
+    Begin
+    Intensity
+    Fresnel diffraction
+
+-------------------------------------
+Diffraction from a circular aperture.
+-------------------------------------
+
+:download:`Download Python script <./examples/Diffraction.py.txt>` [#f1]_
+
+.. code-block:: python
+
+    #Diffraction from a circular aperture.
+    import LightPipes
+    import matplotlib.pyplot as plt
+    
+    m=1
+    nm=1e-9*m
+    um=1e-6*m
+    mm=1e-3*m
+    cm=1e-2*m
+    pi=3.1415
+    
+    try:
+        LP=LightPipes.Init()
+        wavelength=500*nm
+        size=50*mm
+        N=1500
+        w=5*mm
+        z=5*m
+        F=LP.Begin(size,wavelength,N)
+        F=LP.CircAperture(w,0,0,F)
+        F=LP.Forvard(z,F)
+        I=LP.Intensity(2,F)
+        plt.imshow(I)
+        plt.show()
+    finally:
+        del LightPipes
+
+.. figure:: figures/Diffraction.png
+    :align:   center
+    
+    Fresnel diffraction from a circular aperture.
+
+.. rubric:: Footnotes
+
+.. [#f1] ´.txt´ has been added to the file name to avoid download problems. Remove ´.txt´ before running the script.

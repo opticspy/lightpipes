@@ -1,0 +1,27 @@
+#LightPipes for Python
+#Demo for LPTurbulence module -- atmospheric turbulence generation
+#Generates a series of realization for several values of r0 parameter
+import LightPipes
+import matplotlib.pyplot as plt
+
+m=1
+nm=1e-9*m
+um=1e-6*m
+mm=1e-3*m
+cm=1e-2*m
+
+size=10;
+wavelength=632.8*nm;
+N=512;
+M=4;
+LP=LightPipes.Init()
+
+for i in range(1,11):
+	r0=i*0.2
+	F=LP.Begin(size,wavelength,N);
+	F=LP.Turbulence(r0,F);
+	phi=LP.Phase(F);
+	plt.subplot(2,5,i);
+	plt.title('r0= %3.1f'% r0);plt.axis('off')
+	plt.imshow(phi);
+plt.show()

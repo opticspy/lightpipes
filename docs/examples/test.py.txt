@@ -1,0 +1,15 @@
+import platform
+print ('uname:', platform.uname())
+print (platform.system())
+print ('Version      :', platform.python_version())
+print ('Version tuple:', platform.python_version_tuple())
+print ('Compiler     :', platform.python_compiler())
+print ('Build        :', platform.python_build())
+print ('Platform     :', platform.platform())
+
+print (platform.python_implementation())
+import LightPipes
+lp=LightPipes.Init()
+print(lp.Help());
+
+
