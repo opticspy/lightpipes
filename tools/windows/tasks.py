@@ -2,13 +2,15 @@
 import os
 import sys
 import traceback
+from getpass import getuser
 from os.path import abspath, dirname, exists, join
 
 from invoke import task
 from invoke.platform import WINDOWS
 
-CONDA_32 = r'C:\Users\kk\Miniconda3-32bit\Scripts\conda.exe'
-CONDA_64 = r'C:\Users\kk\Miniconda3-64bit\Scripts\conda.exe'
+CONDA_32 = r'C:\Users\{}\Miniconda32\Scripts\conda.exe'.format(getuser())
+CONDA_64 = r'C:\Users\{}\Miniconda64\Scripts\conda.exe'.format(getuser())
+
 
 SHELL = r'C:\Windows\system32\cmd.exe'
 if WINDOWS:

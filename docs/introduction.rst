@@ -16,7 +16,7 @@ There are also versions of LightPipes for Matlab, Octave and Mathcad. These can 
         
 `Flexible Optical <http://www.okotech.com>`_, Rijswijk, The Netherlands.
  
-.. figure::  figures\\OKO_logo_new.png
+.. figure::  _static/OKO_logo_new.png
                :align:   center
 
 Example:

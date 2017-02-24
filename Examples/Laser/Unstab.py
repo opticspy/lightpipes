@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-m=1; nm=1e-9*m; um=1e-6*m; mm=1e-3*m; cm=1e-2*m
+m=1.0; nm=1e-9*m; um=1e-6*m; mm=1e-3*m; cm=1e-2*m
 
 LP=LightPipes.Init()
 
@@ -45,7 +45,7 @@ X, Y=np.meshgrid(i,j)
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 surf = ax.plot_surface(X, Y, I, rstride=2, cstride=2, cmap='rainbow', linewidth=0.0)
-plt.axis('off')
+plt.axis('off'); plt.title('Near-field intensity distribution')
 
 fig = plt.figure()
 x=np.arange(1,1,Nrndtrips+1);
@@ -53,7 +53,7 @@ plt.plot(SR[1:Nrndtrips+1])
 plt.title('Strehl ratio')
 
 #Far-field calculation:
-z=1*m; f=40*m;
+z=1.0*m; f=40.0*m;
 ff=z*f/(f-z);
 F2=LP.Lens(f,0,0,F2);
 F2=LP.LensFresnel(ff,z,F2);
@@ -62,7 +62,6 @@ I2=LP.Intensity(1,F2);
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 surf = ax.plot_surface(X, Y, I2, rstride=1, cstride=1, cmap='rainbow', linewidth=0.0)
-plt.axis('off')
+plt.axis('off'); plt.title('Far-field intensity distribution')
 
-plt.show() 
-del LightPipes
+plt.show()

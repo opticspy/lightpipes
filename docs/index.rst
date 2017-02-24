@@ -6,14 +6,24 @@
 LightPipes for Python
 =====================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
    
    introduction
    install
    support
-   examples
    command-reference
    indices-and-tables
+   
+Examples:
+---------
+
+.. toctree::
+   :maxdepth: 2  
+
+   interference
+   besselbeam
+   laser
+   foclens
+   diffraction
+

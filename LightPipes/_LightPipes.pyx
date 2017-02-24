@@ -3,6 +3,7 @@ cimport numpy as np
 from libcpp.vector cimport vector
 import webbrowser
 
+
 cdef extern from "lpspy.h" namespace "std":
     cdef cppclass lpspy:
         LightPipes() except +
@@ -280,6 +281,7 @@ cdef class Init:
             Inserts an aperture with a Gaussian shape in the field.
 
             :math:`F_{out}(x,y)= \\sqrt{T}e^{ -\\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)`
+
         Args::
 
             w: 1/e intensity width
@@ -299,7 +301,8 @@ cdef class Init:
             Inserts an screen with a Gaussian shape in the field.
 
             :math:`F_{out}(x,y)= \\sqrt{1-(1-T)e^{ -\\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)`
-        Args::
+
+       Args::
 
             w: 1/e intensity width
             x_shift, y_shift: shift from center
@@ -318,6 +321,7 @@ cdef class Init:
             Substitutes a Gauss-Hermite :math:`TEM_{m,n}` mode (beam waist) in the field.
 
             :math:`F_{m,n}(x,y,z=0) = A H_m\\left(\\dfrac{\\sqrt{2}x}{w_0}\\right)H_n\\left(\\dfrac{\\sqrt{2}y}{w_0}\\right)e^{-\\frac{x^2+y^2}{w_0^2}}`
+
         Args::
 
             m, n: mode indices
@@ -332,6 +336,7 @@ cdef class Init:
         Reference::
 
             A. Siegman, "Lasers", p. 642
+
         """
         return self.thisptr.GaussHermite( m, n, A, w0, Fin)
     def GaussLaguerre(self, p, m, A, w0, Fin):
@@ -342,6 +347,7 @@ cdef class Init:
             :math:`F_{p,m}(x,y,z=0) = A \\left(\\frac{\\rho}{2}\\right)^{\\frac{|m|}{2} }L^p_m\\left(\\rho\\right)e^{-\\frac{\\rho}{2}}\\cos(m\\theta)`,
 
             with :math:`\\rho=\\frac{2(x^2+y^2)}{w_0^2}`
+
         Args::
 
             p, m: mode indices
@@ -356,6 +362,7 @@ cdef class Init:
         Reference::
 
             A. Siegman, "Lasers", p. 642
+
         """
 
         return self.thisptr.GaussLaguerre( p, m, A, w0, Fin)
@@ -374,6 +381,7 @@ cdef class Init:
         Returns::
 
             Fout: output field (N x N square array of complex numbers).
+
         """
         return self.thisptr.IntAttenuator( att, Fin)
     def Lens(self, f, x_shift, y_shift, Fin):
@@ -382,7 +390,8 @@ cdef class Init:
             Propagates the field through an ideal, thin lens.
             It adds a phase given by:
             :math:`F_{out}(x,y)=e^{-j\\frac{2\\pi}{\\lambda}\\left(\\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\\right)}F_{in}(x,y)`
-        Args::
+
+       Args::
 
             f: focal length
             x_shift, y_shift: shift from center
@@ -391,6 +400,7 @@ cdef class Init:
         Returns::
 
             Fout: output field (N x N square array of complex numbers).
+
         """
         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
     def LensForvard(self, f, z, Fin):
@@ -418,6 +428,7 @@ cdef class Init:
         Returns::
 
             I: intensity distribution (N x N square array of doubles)
+
         """
         return self.thisptr.Intensity(flag,Fin)
     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
@@ -479,6 +490,7 @@ cdef class Init:
         Go to the LightPipes documentation website on:
 
         http://pythonhosted.org/LightPipes/
+
         """
         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
     def getGridSize(self):

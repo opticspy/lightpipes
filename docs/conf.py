@@ -19,7 +19,7 @@ import os
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('../lightpipes'))
 
 # -- General configuration ------------------------------------------------
 
@@ -32,6 +32,7 @@ import os
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
+    'matplotlib.sphinxext.plot_directive',
 #    'sphinxcontrib.fulltoc',
 ]
 
@@ -51,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'LightPipes for Python'
-copyright = '2016, Fred van Goor'
+copyright = '2017, Fred van Goor'
 author = 'Fred van Goor'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -135,7 +136,7 @@ html_theme = "sphinxdoc"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = './figures/Unstab_2.png'
+html_logo = '_static/Unstab_2.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

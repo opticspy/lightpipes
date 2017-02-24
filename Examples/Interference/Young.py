@@ -3,7 +3,8 @@ try:
 except ImportError:
 	print ("LightPipes not present")
 	exit()
-
+import sys
+print(sys.path)
 import matplotlib.pyplot as plt
 m=1
 nm=1e-9*m
