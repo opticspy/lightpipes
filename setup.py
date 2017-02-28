@@ -7,7 +7,7 @@ from setuptools import setup
 from setuptools.extension import Extension
 
 SYSTEM = platform.system()
-print('SYSTEM={}'.format(SYSTEM))
+print('SYSTEM = {}'.format(SYSTEM))
 
 
 try:
@@ -15,7 +15,7 @@ try:
     USE_CYTHON = True
 except ImportError:
     USE_CYTHON = False
-print("USE_CYTHON={}".format(USE_CYTHON))
+print("USE_CYTHON = {}".format(USE_CYTHON))
 
 
 def _lpfile(*path):
@@ -69,8 +69,8 @@ else:
 setup(
     name='LightPipes',
     packages=['LightPipes'],
-    install_requires=["numpy>=1.7.1"],
-    version='1.1.0',
+    install_requires=["numpy>=1.11.3"],
+    version='1.1.1',
     description='LightPipes for Python optical toolbox',
     author='Fred van Goor',
     author_email='Fred511949@gmail.com',
