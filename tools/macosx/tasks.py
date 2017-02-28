@@ -111,7 +111,7 @@ class Builder:
         ))
 
     def test(self):
-        INSTALL = '{pip} install lightpipes --ignore-installed -f {dist}'
+        INSTALL = '{pip} install lightpipes --no-index -f {dist}'
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
