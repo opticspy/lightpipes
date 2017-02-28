@@ -46,7 +46,7 @@ def build(ctx, version):
     pip = PIP_PATH.format(version)
     ctx.run(f'{pip} install -r ../requires.txt')
     # build wheel
-    ctx.run(f'{pip} wheel /io/lightpipes --no-deps -w {TMP_DIR}')
+    ctx.run(f'{pip} wheel /io --no-deps -w {TMP_DIR}')
     whl = find_whl(version)
     ctx.run(f'auditwheel repair {whl} -w {DIST_DIR}')
     # install and test
