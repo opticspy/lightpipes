@@ -1,5 +1,7 @@
 import os
 import shutil
+import sys
+import traceback
 from glob import glob
 
 from invoke import task
@@ -41,6 +43,7 @@ def build(ctx, version):
     Args:
         version: one of supported cpython
     """
+    print('build for {}'.format(version).center(60, '-'))
     clean_tmpdir()
     python = PYTHON_PATH.format(version)
     pip = PIP_PATH.format(version)
@@ -64,5 +67,17 @@ def find_whl(version):
 
 @task(pre=[setup])
 def build_all(ctx):
+    result = []
     for version in SUPPORTED_CPYTHON:
-        build(ctx, version)
+        try:
+            build(ctx, version)
+        except:
+            result.append((version, False))
+            traceback.print_exc()
+    print('-'*60)
+    for name, ok in result:
+        status = 'OK' if ok else 'Failed'
+        print('{}  {}'.format(name, status))
+    all_ok = all(x[1] for x in result)
+    if not all_ok:
+        sys.exit(1)
