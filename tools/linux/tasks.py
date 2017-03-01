@@ -1,5 +1,7 @@
 import os
 import shutil
+import sys
+import traceback
 from glob import glob
 
 from invoke import task
@@ -41,12 +43,13 @@ def build(ctx, version):
     Args:
         version: one of supported cpython
     """
+    print('build for {}'.format(version).center(60, '-'))
     clean_tmpdir()
     python = PYTHON_PATH.format(version)
     pip = PIP_PATH.format(version)
     ctx.run(f'{pip} install -r ../requires.txt')
     # build wheel
-    ctx.run(f'{pip} wheel /io/lightpipes --no-deps -w {TMP_DIR}')
+    ctx.run(f'{pip} wheel /io --no-deps -w {TMP_DIR}')
     whl = find_whl(version)
     ctx.run(f'auditwheel repair {whl} -w {DIST_DIR}')
     # install and test
@@ -56,7 +59,7 @@ def build(ctx, version):
 
 
 def find_whl(version):
-    whl = glob(f'{TMP_DIR}/*{version}*')
+    whl = glob(f'{TMP_DIR}/*{version}*linux*')
     if not whl:
         raise RuntimeError(f'.whl for {version} not build')
     return whl[0]
@@ -64,5 +67,18 @@ def find_whl(version):
 
 @task(pre=[setup])
 def build_all(ctx):
+    result = []
     for version in SUPPORTED_CPYTHON:
-        build(ctx, version)
+        try:
+            build(ctx, version)
+            result.append((version, True))
+        except:
+            result.append((version, False))
+            traceback.print_exc()
+    print('-'*60)
+    for name, ok in result:
+        status = 'OK' if ok else 'Failed'
+        print('{}  {}'.format(name, status))
+    all_ok = all(x[1] for x in result)
+    if not all_ok:
+        sys.exit(1)

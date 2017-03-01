@@ -2,18 +2,15 @@
 import os
 import sys
 import traceback
+from getpass import getuser
+from glob import glob
 from os.path import abspath, dirname, exists, join
 
 from invoke import task
-from invoke.platform import WINDOWS
+from invoke.exceptions import UnexpectedExit
 
-CONDA_32 = r'C:\Users\kk\Miniconda3-32bit\Scripts\conda.exe'
-CONDA_64 = r'C:\Users\kk\Miniconda3-64bit\Scripts\conda.exe'
-
-SHELL = r'C:\Windows\system32\cmd.exe'
-if WINDOWS:
-    os.environ['INVOKE_RUN_SHELL'] = SHELL
-
+os.environ['INVOKE_RUN_ECHO'] = '1'
+CONDA = '/Users/{user}/miniconda3/bin/conda'.format(user=getuser())
 PROJECT = abspath(join(dirname(__file__), '..', '..'))
 
 
@@ -21,25 +18,12 @@ def project_path(*path):
     return join(PROJECT, *path)
 
 
-def conda_path(bit):
-    if bit == '32':
-        return CONDA_32
-    elif bit == '64':
-        return CONDA_64
-    else:
-        raise ValueError(
-            "unknown bit '{}', please choose one of {}"
-            .format(bit, SUPPORTED_BIT)
-        )
-
-
 DIST = project_path('wheelhouse')
-SOURCE = project_path('lightpipes')
+SOURCE = project_path()
 REQUIRES = project_path('tools', 'requires.txt')
 CACHE = project_path('.cache', 'pip')
 DIAGNOSE = project_path('tools', 'diagnose.py')
 
-SUPPORTED_BIT = ['32', '64']
 SUPPORTED_CPYTHON = [
     '27',
     '34',
@@ -48,36 +32,58 @@ SUPPORTED_CPYTHON = [
 ]
 
 
+def find_whl(version):
+    whl = glob('{dist}/*{version}*macosx*'.format(dist=DIST, version=version))
+    if not whl:
+        raise RuntimeError(f'.whl for {version} not build')
+    return whl[0]
+
+
+@task
+def check_before_build(ctx):
+    if not exists(CONDA):
+        raise RuntimeError(
+            "'Miniconda3' is required for build wheels, "
+            "but it not exists in '{conda}', "
+            "see https://conda.io/miniconda.html for installation.".format(conda=CONDA)
+        )
+    try:
+        ctx.run('which delocate-wheel')
+    except UnexpectedExit:
+        raise RuntimeError(
+            "'delocate' is required for build wheels, "
+            "try install it via `pip install delocate`, "
+            "see also https://github.com/matthew-brett/delocate."
+        ) from None
+
+
 class Builder:
 
-    def __init__(self, ctx, bit, version, index_url=None):
+    def __init__(self, ctx, version, index_url=None):
         if version not in SUPPORTED_CPYTHON:
             raise ValueError(
                 "unknown version '{}', please choose one of {}"
                 .format(version, SUPPORTED_CPYTHON)
             )
         self.run = ctx.run
-        self.bit = bit
         self.version = version
         self.index_url = index_url
-        self.conda = conda_path(bit)
         self.dot_version = version[0] + '.' + version[1]
-        self.name = 'py{} {}bit'.format(version, bit)
-        self.python_dir = project_path(
-            'tools', 'windows', 'envs', bit+'bit', 'py'+version)
-        self.python = join(self.python_dir, 'python.exe')
-        self.pip = join(self.python_dir, 'Scripts', 'pip.exe')
+        self.name = 'py'+version
+        self.python_dir = project_path('tools', 'macosx', 'envs', 'py'+version)
+        self.python = join(self.python_dir, 'bin', 'python')
+        self.pip = join(self.python_dir, 'bin', 'pip')
 
     def conda_create(self):
         CREATE = '{conda} create -y -p {python_dir} python={dot_version}'
         self.run(CREATE.format(
-            conda=self.conda,
+            conda=CONDA,
             python_dir=self.python_dir,
             dot_version=self.dot_version
         ))
 
     def pip_install(self):
-        INSTALL = r'{pip} install -r {requires} --cache-dir={cache}'
+        INSTALL = '{pip} install -r {requires} --cache-dir={cache}'
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(
@@ -87,20 +93,26 @@ class Builder:
         ))
 
     def pip_wheel(self):
-        self.run(r'{pip} wheel --no-deps -w {dist} {source}'.format(
+        self.run('{pip} wheel --no-deps -w {dist} {source}'.format(
             pip=self.pip,
             dist=DIST,
             source=SOURCE
         ))
 
     def diagnose(self):
-        self.run(r'{python} {diagnose}'.format(
+        self.run('{python} {diagnose}'.format(
             python=self.python,
             diagnose=DIAGNOSE
         ))
 
+    def fix_wheel(self):
+        self.run('delocate-wheel -v -w {dist} {whl}'.format(
+            dist=DIST,
+            whl=find_whl(self.version)
+        ))
+
     def test(self):
-        INSTALL = '{pip} install lightpipes --upgrade --force-reinstall --no-index -f {dist}'
+        INSTALL = '{pip} install lightpipes --no-index -f {dist}'
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
@@ -108,6 +120,7 @@ class Builder:
         self.run(TEST.format(python=self.python))
 
     def build(self):
+
         print('build for {}'.format(self.name).center(60, '-'))
         if exists(self.python_dir):
             print('{} already exists, skip creating'.format(self.python_dir))
@@ -116,26 +129,26 @@ class Builder:
         self.pip_install()
         self.diagnose()
         self.pip_wheel()
+        self.fix_wheel()
         self.test()
 
 
-@task
-def build(ctx,  bit, version, index_url=None):
-    Builder(ctx, bit, version, index_url=index_url).build()
+@task(pre=[check_before_build])
+def build(ctx, version, index_url=None):
+    Builder(ctx, version, index_url=index_url).build()
 
 
-@task
+@task(pre=[check_before_build])
 def build_all(ctx, index_url=None):
     result = []
-    for bit in SUPPORTED_BIT:
-        for version in SUPPORTED_CPYTHON:
-            builder = Builder(ctx, bit, version, index_url=index_url)
-            try:
-                builder.build()
-                result.append((builder.name, True))
-            except:
-                result.append((builder.name, False))
-                traceback.print_exc()
+    for version in SUPPORTED_CPYTHON:
+        builder = Builder(ctx, version, index_url=index_url)
+        try:
+            builder.build()
+            result.append((builder.name, True))
+        except:
+            result.append((builder.name, False))
+            traceback.print_exc()
     print('-'*60)
     for name, ok in result:
         status = 'OK' if ok else 'Failed'
