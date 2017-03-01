@@ -1,5 +1,6 @@
 # coding:utf-8
 import os
+import sys
 import traceback
 from getpass import getuser
 from glob import glob
@@ -32,7 +33,7 @@ SUPPORTED_CPYTHON = [
 
 
 def find_whl(version):
-    whl = glob('{dist}/*{version}*'.format(dist=DIST, version=version))
+    whl = glob('{dist}/*{version}*macosx*'.format(dist=DIST, version=version))
     if not whl:
         raise RuntimeError(f'.whl for {version} not build')
     return whl[0]
@@ -152,3 +153,6 @@ def build_all(ctx, index_url=None):
     for name, ok in result:
         status = 'OK' if ok else 'Failed'
         print('{}  {}'.format(name, status))
+    all_ok = all(x[1] for x in result)
+    if not all_ok:
+        sys.exit(1)

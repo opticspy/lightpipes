@@ -1,9 +1,11 @@
 # coding:utf-8
 import os
+import sys
 import traceback
+from os.path import abspath, dirname, exists, join
+
 from invoke import task
 from invoke.platform import WINDOWS
-from os.path import join, abspath, dirname, exists
 
 CONDA_32 = r'C:\Users\kk\Miniconda2-32bit\Scripts\conda.exe'
 CONDA_64 = r'C:\Users\kk\Miniconda3\Scripts\conda.exe'
@@ -138,3 +140,6 @@ def build_all(ctx, index_url=None):
     for name, ok in result:
         status = 'OK' if ok else 'Failed'
         print('{}  {}'.format(name, status))
+    all_ok = all(x[1] for x in result)
+    if not all_ok:
+        sys.exit(1)

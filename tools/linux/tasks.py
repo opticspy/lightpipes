@@ -59,7 +59,7 @@ def build(ctx, version):
 
 
 def find_whl(version):
-    whl = glob(f'{TMP_DIR}/*{version}*')
+    whl = glob(f'{TMP_DIR}/*{version}*linux*')
     if not whl:
         raise RuntimeError(f'.whl for {version} not build')
     return whl[0]
@@ -71,6 +71,7 @@ def build_all(ctx):
     for version in SUPPORTED_CPYTHON:
         try:
             build(ctx, version)
+            result.append((version, True))
         except:
             result.append((version, False))
             traceback.print_exc()
