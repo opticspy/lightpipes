@@ -6,30 +6,18 @@ import numpy
 from setuptools import setup
 from setuptools.extension import Extension
 
+from Cython.Build import cythonize
+
 SYSTEM = platform.system()
 print('SYSTEM = {}'.format(SYSTEM))
-
-
-try:
-    import Cython.Distutils  # noqa
-    USE_CYTHON = True
-except ImportError:
-    USE_CYTHON = False
-print("USE_CYTHON = {}".format(USE_CYTHON))
 
 
 def _lpfile(*path):
     return join('LightPipes', *path)
 
 
-if USE_CYTHON:
-    LIGHTPIPES = '_LightPipes.pyx'
-else:
-    # assume a 'LightPipes.cpp' compiled with:
-    # 'cython -t --cplus LightPipes.pyx'
-    LIGHTPIPES = '_LightPipes.cpp'
 sources = [
-    _lpfile(LIGHTPIPES),
+    _lpfile('_LightPipes.pyx'),
     _lpfile('fresnl.cpp'),
     _lpfile('subs.cpp'),
     _lpfile('lpspy.cpp')
@@ -57,13 +45,7 @@ ext = Extension(
     libraries=libraries,
     language="c++",
 )
-
-
-if USE_CYTHON:
-    from Cython.Build import cythonize
-    extensions = cythonize([ext])
-else:
-    extensions = [ext]
+extensions = cythonize([ext])
 
 
 setup(
