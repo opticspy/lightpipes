@@ -1,16 +1,6 @@
-try:
-	import LightPipes
-except ImportError:
-	print ("LightPipes not present")
-	exit()
-import sys
-print(sys.path)
+import LightPipes
 import matplotlib.pyplot as plt
-m=1
-nm=1e-9*m
-um=1e-6*m
-mm=1e-3*m
-cm=1e-2*m
+from LightPipes import cm, m, mm, nm, um
 
 LP=LightPipes.Init()
 
@@ -20,7 +10,7 @@ N=500
 
 F=LP.Begin(size,wavelength,N)
 F1=LP.CircAperture(0.15*mm,-0.6*mm, 0, F)
-F2=LP.CircAperture(0.15*mm, 0.6*mm, 0, F)    
+F2=LP.CircAperture(0.15*mm, 0.6*mm, 0, F)
 F=LP.BeamMix(F1,F2)
 F=LP.Fresnel(50*cm,F)
 I=LP.Intensity(2,F)

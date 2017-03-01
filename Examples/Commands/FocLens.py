@@ -3,8 +3,7 @@ import LightPipes as lp
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-
-m=1; nm=1e-9*m; um=1e-6*m; mm=1e-3*m; cm=1e-2*m
+from LightPipes import cm, m, mm, nm, um
 
 LP=lp.Init()
 wavelength=632.8*nm;
@@ -20,13 +19,13 @@ X=range(N)
 Z=range(100)
 X, Z=np.meshgrid(X,Z)
 F=LP.Begin(size,wavelength,N);
-F=LP.CircAperture(R,0,0,F);        
+F=LP.CircAperture(R,0,0,F);
 F=LP.Lens(f,0,0,F);
 for i in range(0,100):
   F=LP.Steps(dz,1,n,F);
   I=LP.Intensity(0,F);
   Icross[i][:N]=I[N2][:N]
-  
+
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 ax.plot_surface(X, Z,

@@ -9,9 +9,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import LightPipes
-
-#define some units
-m=1; mm=1e-3*m; nm=1e-9*m;
+from LightPipes import cm, m, mm, nm, um
 
 #Parameters used for the experiment:
 size=11*mm; #The CCD-sensor has an area of size x size (NB LightPipes needs square grids!)

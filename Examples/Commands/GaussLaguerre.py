@@ -1,27 +1,20 @@
 import LightPipes as lp
 import matplotlib.pyplot as plt
-m=1
-nm=1e-9*m
-um=1e-6*m
-mm=1e-3*m
-cm=1e-2*m
+from LightPipes import cm, m, mm, nm, um
 
-try:
-	LP=lp.Init()
 
-	wavelength=500*nm
-	size=10.0*mm
-	N=500
-	w0=0.2*mm
-	A=1
-	z=1*m
+LP=lp.Init()
 
-	F=LP.Begin(size,wavelength,N)
-	F=LP.GaussLaguerre(1,4,A,w0,F)
-	F=LP.Forvard(z,F)
-	I=LP.Intensity(2,F)
-	plt.imshow(I)
-	plt.show()
+wavelength=500*nm
+size=10.0*mm
+N=500
+w0=0.2*mm
+A=1
+z=1*m
 
-finally:
-	del lp
+F=LP.Begin(size,wavelength,N)
+F=LP.GaussLaguerre(1,4,A,w0,F)
+F=LP.Forvard(z,F)
+I=LP.Intensity(2,F)
+plt.imshow(I)
+plt.show()

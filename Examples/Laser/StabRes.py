@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 import math
@@ -14,19 +13,12 @@ else:
     from tkinter import *
     import tkinter as Tk
 
-try:
-	import LightPipes
-except ImportError:
-	print ("LightPipes not present")
-	exit()
+import LightPipes
+from LightPipes import cm, m, mm, nm, um
+
 root = Tk.Tk()
 root.wm_title("Laser with stable resonator")
 
-m=1
-nm=1e-9*m
-um=1e-6*m
-mm=1e-3*m
-cm=1e-2*m
 rad=1;
 mrad=1e-3*rad;
 W=1
@@ -68,10 +60,10 @@ def TheExample():
 	f1=float(scale_f1.get()*cm)/2
 	f2=float(scale_f2.get()*cm)/2
 	L=float(scale_L.get())*cm
-	Reflect=float(scale_Reflect.get())	
+	Reflect=float(scale_Reflect.get())
 	tx=float(scale_tx.get())*mrad
 	ty=float(scale_ty.get())*mrad
-	
+
 	F=LP.RandomIntensity(time.time(),1e-8,F)
 	F=LP.CircAperture(w0,0,0,F)
 	F=LP.RectScreen(size,0.2*mm,0.0,ywire,0.0,F)
@@ -83,7 +75,7 @@ def TheExample():
 	F=LP.Tilt(tx,ty,F)
 	F=LP.Fresnel(L,F); F=LP.Gain(Isat,alpha,Lgain,F);
 	F=LP.IntAttenuator(Reflect,F)
-	P=LP.Power(F)*(1-Reflect)*size/N*size/N  
+	P=LP.Power(F)*(1-Reflect)*size/N*size/N
 	#I=LP.Intensity(0,F)
 	y=np.asarray(Iw[N2])
 	#Iout=Isat*(alpha*Lgain-0.5*math.log(1/Reflect))*math.pi*w0*w0
@@ -117,7 +109,7 @@ def _eigenmode():
 	mode_n=int(order_n.get())
 	F=LP.GaussHermite(mode_m,mode_n,1,w0,F);
 	#F=LP.GaussLaguerre(2,3,1,w0,F);
-	F=LP.Forvard(z2,F);	
+	F=LP.Forvard(z2,F);
 
 frame2=Frame(root)
 frame2.pack(side=Tk.BOTTOM)
@@ -184,4 +176,3 @@ root.after(1, task)
 root.mainloop()
 # If you put root.destroy() here, it will cause an error if
 # the window is closed with the window manager.
-

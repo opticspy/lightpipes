@@ -4,8 +4,8 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 import time
+from LightPipes import cm, m, mm, nm, um
 
-m=1.0; nm=1e-9*m; um=1e-6*m; mm=1e-3*m; cm=1e-2*m
 
 LP=LightPipes.Init()
 

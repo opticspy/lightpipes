@@ -1,7 +1,8 @@
 #spot of Poisson
 import LightPipes
 import matplotlib.pyplot as plt
-m=1; nm=1e-9*m; um=1e-6*m; mm=1e-3*m; cm=1e-2*m
+from LightPipes import cm, m, mm, nm, um
+
 pi=3.1415
 
 LP=LightPipes.Init()

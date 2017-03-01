@@ -7,12 +7,8 @@ This example demonstrates the Zernike command.
 
 import LightPipes
 import matplotlib.pyplot as plt
+from LightPipes import cm, m, mm, nm, um
 
-m=1
-nm=1e-9*m
-um=1e-6*m
-mm=1e-3*m
-cm=1e-2*m
 pi=3.1415
 
 LP=LightPipes.Init()
@@ -20,7 +16,7 @@ wavelength=500*nm
 size=2.0*mm
 N=200
 
-#Zernike 
+#Zernike
 mz=-3 #azimuthal order
 nz=5 #radial order
 
@@ -32,4 +28,3 @@ plt.imshow(Phi)
 s='Zernike Polynomial: $Z^{'+repr(mz)+'}_{'+repr(nz)+'}$'
 plt.title(s);plt.axis('off')
 plt.show()
-
