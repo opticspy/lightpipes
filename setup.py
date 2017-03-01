@@ -74,7 +74,7 @@ setup(
     description='LightPipes for Python optical toolbox',
     author='Fred van Goor',
     author_email='Fred511949@gmail.com',
-    license='MIT',
+    license='BSD-3-Clause',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Programming Language :: Python :: 2.7',
