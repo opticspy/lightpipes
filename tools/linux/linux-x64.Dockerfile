@@ -8,7 +8,7 @@ ADD fftw-3.3.6-pl1.tar.gz /tmp/fftw3/
 WORKDIR /tmp/fftw3/fftw-3.3.6-pl1
 # TODO: optimize build params
 # https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/fftw#n34
-RUN ./configure --enable-shared && make && make install
+RUN ./configure --enable-shared && make > /dev/null && make install
 
 # build wheel
 RUN /opt/python/cp36-cp36m/bin/pip install invoke
