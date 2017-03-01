@@ -98,6 +98,24 @@ plt.title('intensity pattern')
 plt.show()
 ```
 
-## Build from source
+## Build wheels
 
-TODO
+### Linux
+
+1. install docker from https://www.docker.com/products/docker
+2. `cd tools/linux`
+3. build for linux 32bit: `bash build-linux-x32.sh`
+4. build for linux 64bit: `bash build-linux-x64.sh`
+
+### MacOS
+
+1. install Miniconda3 from https://conda.io/miniconda.html
+2. install fftw: `brew install fftw`
+3. install invoke and delocate: `pip install invoke delocate`
+4. `cd tools/macos` then `inv build_all`
+
+### Windows
+
+1. install Miniconda3 32bit(name it `Miniconda3-32bit`) and Miniconda3 64 bit(name it `Miniconda3-64bit`), they can be downloaded from https://conda.io/miniconda.html
+2. install invoke: `pip install invoke`
+3. `cd tools/windows` then `inv build_all`
