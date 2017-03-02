@@ -9,21 +9,12 @@ if sys.version_info[0] < 3:
     import Tkinter as Tk
 else:
     import tkinter as Tk
-try:
-	import LightPipes
-except ImportError:
-	print("LightPipes not present")
-	exit()
+
+from LightPipes import *
+
 root = Tk.Tk()
-root.wm_title("Young's experiment")
+root.wm_title("Unstable resonator")
 
-m=1
-nm=1e-9*m
-um=1e-6*m
-mm=1e-3*m
-cm=1e-2*m
-
-LP=LightPipes.Init()
 wavelength = 308*nm
 size=14*mm
 N=100
@@ -35,19 +26,19 @@ f = Figure(figsize = (3,3), dpi=75)
 canvas = FigureCanvasTkAgg(f, master=root)
 canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
-F=LP.Begin(size,wavelength,N);
-F=LP.RandomIntensity(2,1,F)
-F=LP.RandomPhase(5,1,F);
+F=Begin(size,wavelength,N);
+F=RandomIntensity(2,1,F)
+F=RandomPhase(5,1,F);
 def TheExample():
 	global F
 	w=float(scale_w.get())*mm
-	F=LP.RectAperture(w,w,0,0,0,F);   F=LP.Gain(Isat,alpha,Lgain,F);
-	F=LP.LensFresnel(f1,L,F);   F=LP.Gain(Isat,alpha,Lgain,F);
-	F=LP.LensFresnel(f2,L,F);
-	F=LP.Tilt(tx,ty,F);
-	F=LP.Interpol(size,N,0,0,0,1,F);
-	F2=LP.RectScreen(w,w,0,0,0,F);
-	I=LP.Intensity(0,F2)
+	F=RectAperture(w,w,0,0,0,F);   F=Gain(Isat,alpha,Lgain,F);
+	F=LensFresnel(f1,L,F);   F=Gain(Isat,alpha,Lgain,F);
+	F=LensFresnel(f2,L,F);
+	F=Tilt(tx,ty,F);
+	F=Interpol(size,N,0,0,0,1,F);
+	F2=RectScreen(w,w,0,0,0,F);
+	I=Intensity(0,F2)
 	plt = f.add_subplot(111,navigate=False )
 	plt.imshow(I); plt.axis('off')
 	canvas.show()

@@ -39,10 +39,11 @@ if SYSTEM == 'Windows':
     bits = struct.calcsize("P")*8
     if bits == 32:
         fftw3dir = 'fftw3_win32'
+        libraries = ['./LightPipes/fftw3_win32/libfftw3-3']
     else:
         fftw3dir = 'fftw3_win64'
-    data_files = [('lib/site-packages', [_lpfile(fftw3dir, 'libfftw3-3.dll')])]
-    libraries = ['libfftw3-3']
+        libraries = ['./LightPipes/fftw3_win64/libfftw3-3']
+    data_files = [('lib/site-packages/LightPipes', [_lpfile(fftw3dir, 'libfftw3-3.dll')])]
     library_dirs = [fftw3dir]
 else:  # Linux, Darwin
     data_files = None
@@ -69,7 +70,7 @@ else:
 setup(
     name='LightPipes',
     packages=['LightPipes'],
-    install_requires=["numpy>=1.11.3"],
+    #install_requires=["numpy>=1.11.3"],
     version='1.1.1',
     description='LightPipes for Python optical toolbox',
     author='Fred van Goor',

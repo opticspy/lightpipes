@@ -7,8 +7,8 @@ from os.path import abspath, dirname, exists, join
 from invoke import task
 from invoke.platform import WINDOWS
 
-CONDA_32 = r'C:\Users\kk\Miniconda3-32bit\Scripts\conda.exe'
-CONDA_64 = r'C:\Users\kk\Miniconda3-64bit\Scripts\conda.exe'
+CONDA_32 = r'C:\Users\Fred\Miniconda32\Scripts\conda.exe'
+CONDA_64 = r'C:\Users\Fred\Miniconda64\Scripts\conda.exe'
 
 SHELL = r'C:\Windows\system32\cmd.exe'
 if WINDOWS:
@@ -34,15 +34,15 @@ def conda_path(bit):
 
 
 DIST = project_path('wheelhouse')
-SOURCE = project_path('lightpipes')
+SOURCE = project_path('.')
 REQUIRES = project_path('tools', 'requires.txt')
 CACHE = project_path('.cache', 'pip')
 DIAGNOSE = project_path('tools', 'diagnose.py')
 
-SUPPORTED_BIT = ['32', '64']
+SUPPORTED_BIT = ['32','64']
 SUPPORTED_CPYTHON = [
     '27',
-    '34',
+#    '34',
     '35',
     '36',
 ]
@@ -104,7 +104,7 @@ class Builder:
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
-        TEST = '{python} -c "import LightPipes;LightPipes.Init().version()"'
+        TEST = '{python} -c "from LightPipes import *;version()"'
         self.run(TEST.format(python=self.python))
 
     def build(self):
