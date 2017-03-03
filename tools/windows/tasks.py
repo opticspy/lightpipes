@@ -2,13 +2,14 @@
 import os
 import sys
 import traceback
+from getpass import getuser
 from os.path import abspath, dirname, exists, join
 
 from invoke import task
 from invoke.platform import WINDOWS
 
-CONDA_32 = r'C:\Users\Fred\Miniconda32\Scripts\conda.exe'
-CONDA_64 = r'C:\Users\Fred\Miniconda64\Scripts\conda.exe'
+CONDA_32 = r'C:\Users\{}\Miniconda32\Scripts\conda.exe'.format(getuser())
+CONDA_64 = r'C:\Users\{}\Miniconda64\Scripts\conda.exe'.format(getuser())
 
 SHELL = r'C:\Windows\system32\cmd.exe'
 if WINDOWS:
@@ -104,7 +105,7 @@ class Builder:
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
-        TEST = '{python} -c "from LightPipes import *;version()"'
+        TEST = '{python} -c "from LightPipes import *;LPversion()"'
         self.run(TEST.format(python=self.python))
 
     def build(self):

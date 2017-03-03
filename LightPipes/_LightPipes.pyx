@@ -472,9 +472,9 @@ cdef class Init:
         return self.thisptr.Tilt( tx, ty, Fin)
     def Zernike(self, n, m, R, A, Fin):
         return self.thisptr.Zernike(n, m, R, A, Fin)
-    def version(self):
+    def LPversion(self):
         self.thisptr.version()
-    def help(self):
+    def LPhelp(self):
         """
         Go to the LightPipes documentation website on:
 
