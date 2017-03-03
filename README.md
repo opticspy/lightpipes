@@ -116,6 +116,6 @@ plt.show()
 
 ### Windows
 
-1. install Miniconda3 32bit(name it `Miniconda3-32bit`) and Miniconda3 64 bit(name it `Miniconda3-64bit`), they can be downloaded from https://conda.io/miniconda.html
+1. install Miniconda3 32bit(name it `Miniconda32`) and Miniconda3 64 bit(name it `Miniconda64`), they can be downloaded from https://conda.io/miniconda.html
 2. install invoke: `pip install invoke`
 3. `cd tools/windows` then `inv build_all`

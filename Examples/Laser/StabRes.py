@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 import math
@@ -13,7 +12,6 @@ if sys.version_info[0] < 3:
 else:
     from tkinter import *
     import tkinter as Tk
-
 
 from LightPipes import *
 
@@ -55,7 +53,7 @@ def TheExample():
 	f1=float(scale_f1.get()*cm)/2
 	f2=float(scale_f2.get()*cm)/2
 	L=float(scale_L.get())*cm
-	Reflect=float(scale_Reflect.get())	
+	Reflect=float(scale_Reflect.get())
 	tx=float(scale_tx.get())*mrad
 	ty=float(scale_ty.get())*mrad
 	
@@ -102,6 +100,7 @@ def _eigenmode():
 		w0=math.sqrt(wavelength*L/math.pi)*(g1*g2*(1-g1*g2)/(g1+g2-2*g1*g2)**2)**0.25;
 	mode_m=int(order_m.get())
 	mode_n=int(order_n.get())
+
 	F=GaussHermite(mode_m,mode_n,1,w0,F);
 	#F=GaussLaguerre(2,3,1,w0,F);
 	F=Forvard(z2,F);	
@@ -171,4 +170,3 @@ root.after(1, task)
 root.mainloop()
 # If you put root.destroy() here, it will cause an error if
 # the window is closed with the window manager.
-

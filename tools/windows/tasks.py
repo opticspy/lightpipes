@@ -43,7 +43,7 @@ DIAGNOSE = project_path('tools', 'diagnose.py')
 SUPPORTED_BIT = ['32','64']
 SUPPORTED_CPYTHON = [
     '27',
-#    '34',
+    '34',
     '35',
     '36',
 ]

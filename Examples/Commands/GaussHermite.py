@@ -14,4 +14,3 @@ F=Fresnel(z,F)
 I=Intensity(2,F)
 plt.imshow(I)
 plt.show()
-
