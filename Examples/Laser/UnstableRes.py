@@ -2,6 +2,7 @@
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
+from LightPipes import cm, m, mm, nm, um
 
 
 import sys

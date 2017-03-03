@@ -22,4 +22,3 @@ I=Intensity(2,F)
 fig = plt.figure()
 plt.imshow(I)
 plt.show()
-
