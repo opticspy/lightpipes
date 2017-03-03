@@ -1,10 +1,6 @@
-import LightPipes as lp
+from LightPipes import *
 import matplotlib.pyplot as plt
 import numpy as np
-from LightPipes import cm, m, mm, nm, um
-
-
-LP=lp.Init()
 
 wavelength=500*nm
 size=5.0*mm
@@ -15,17 +11,17 @@ f=1*m
 dx=0*mm
 dy=0*mm
 
-F=LP.Begin(size,wavelength,N)
-F=LP.CircAperture(R, 0, 0, F)
-F=LP.Lens(f,dx,dy,F)
+F=Begin(size,wavelength,N)
+F=CircAperture(R, 0, 0, F)
+F=Lens(f,dx,dy,F)
 
 
 II=np.zeros((100,100))
-F=LP.MultPhase(II,F)
-F=LP.Forvard(z,F)
+F=MultPhase(II,F)   
+F=Forvard(z,F)
 
 
-I=LP.Intensity(2,F)
+I=Intensity(2,F)
 #plt.imshow(I)
-plt.plot(I[N/2][:N])
+plt.plot(I[int(N/2)][:N])
 plt.show()

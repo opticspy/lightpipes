@@ -13,18 +13,11 @@ else:
     from tkinter import *
     import tkinter as Tk
 
-import LightPipes
-from LightPipes import cm, m, mm, nm, um
+from LightPipes import *
 
 root = Tk.Tk()
 root.wm_title("Laser with stable resonator")
 
-rad=1;
-mrad=1e-3*rad;
-W=1
-mW=1e-3*W
-
-LP=LightPipes.Init()
 wavelength=10600*nm;
 size=20*mm;
 N=100; N2=int(N/2)
@@ -49,7 +42,7 @@ canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 plt = f.add_subplot(211,navigate=False )
 plt2=f.add_subplot(212,navigate=False )
 
-F=LP.Begin(size,wavelength,N);
+F=Begin(size,wavelength,N);
 x=range(-N2,N2)
 x=np.asarray(x)*size/N/mm
 def TheExample():
@@ -63,19 +56,19 @@ def TheExample():
 	Reflect=float(scale_Reflect.get())
 	tx=float(scale_tx.get())*mrad
 	ty=float(scale_ty.get())*mrad
-
-	F=LP.RandomIntensity(time.time(),1e-8,F)
-	F=LP.CircAperture(w0,0,0,F)
-	F=LP.RectScreen(size,0.2*mm,0.0,ywire,0.0,F)
-	F=LP.RectScreen(0.2*mm,size,xwire,0.0,0.0,F)
-	Iw=LP.Intensity(0,F)
-	F=LP.Lens(f2,0,0,F);
-	F=LP.Fresnel(L,F); F=LP.Gain(Isat,alpha,Lgain,F);
-	F=LP.Lens(f1,0,0,F);
-	F=LP.Tilt(tx,ty,F)
-	F=LP.Fresnel(L,F); F=LP.Gain(Isat,alpha,Lgain,F);
-	F=LP.IntAttenuator(Reflect,F)
-	P=LP.Power(F)*(1-Reflect)*size/N*size/N
+	
+	F=RandomIntensity(time.time(),1e-8,F)
+	F=CircAperture(w0,0,0,F)
+	F=RectScreen(size,0.2*mm,0.0,ywire,0.0,F)
+	F=RectScreen(0.2*mm,size,xwire,0.0,0.0,F)
+	Iw=Intensity(0,F)
+	F=Lens(f2,0,0,F);
+	F=Fresnel(L,F); F=Gain(Isat,alpha,Lgain,F);
+	F=Lens(f1,0,0,F);
+	F=Tilt(tx,ty,F)
+	F=Fresnel(L,F); F=Gain(Isat,alpha,Lgain,F);
+	F=IntAttenuator(Reflect,F)
+	P=Power(F)*(1-Reflect)*size/N*size/N  
 	#I=LP.Intensity(0,F)
 	y=np.asarray(Iw[N2])
 	#Iout=Isat*(alpha*Lgain-0.5*math.log(1/Reflect))*math.pi*w0*w0
@@ -107,9 +100,10 @@ def _eigenmode():
 		w0=math.sqrt(wavelength*L/math.pi)*(g1*g2*(1-g1*g2)/(g1+g2-2*g1*g2)**2)**0.25;
 	mode_m=int(order_m.get())
 	mode_n=int(order_n.get())
-	F=LP.GaussHermite(mode_m,mode_n,1,w0,F);
-	#F=LP.GaussLaguerre(2,3,1,w0,F);
-	F=LP.Forvard(z2,F);
+
+	F=GaussHermite(mode_m,mode_n,1,w0,F);
+	#F=GaussLaguerre(2,3,1,w0,F);
+	F=Forvard(z2,F);	
 
 frame2=Frame(root)
 frame2.pack(side=Tk.BOTTOM)

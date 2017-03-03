@@ -11,7 +11,6 @@ from invoke.platform import WINDOWS
 CONDA_32 = r'C:\Users\{}\Miniconda32\Scripts\conda.exe'.format(getuser())
 CONDA_64 = r'C:\Users\{}\Miniconda64\Scripts\conda.exe'.format(getuser())
 
-
 SHELL = r'C:\Windows\system32\cmd.exe'
 if WINDOWS:
     os.environ['INVOKE_RUN_SHELL'] = SHELL
@@ -36,12 +35,12 @@ def conda_path(bit):
 
 
 DIST = project_path('wheelhouse')
-SOURCE = project_path('lightpipes')
+SOURCE = project_path('.')
 REQUIRES = project_path('tools', 'requires.txt')
 CACHE = project_path('.cache', 'pip')
 DIAGNOSE = project_path('tools', 'diagnose.py')
 
-SUPPORTED_BIT = ['32', '64']
+SUPPORTED_BIT = ['32','64']
 SUPPORTED_CPYTHON = [
     '27',
     '34',
@@ -106,7 +105,7 @@ class Builder:
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
-        TEST = '{python} -c "import LightPipes;LightPipes.Init().version()"'
+        TEST = '{python} -c "from LightPipes import *;version()"'
         self.run(TEST.format(python=self.python))
 
     def build(self):

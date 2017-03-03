@@ -1,21 +1,14 @@
-#spot of Poisson
-import LightPipes
+from LightPipes import *
 import matplotlib.pyplot as plt
-from LightPipes import cm, m, mm, nm, um
 
-pi=3.1415
+wavelength=5*um
+size=25.0*mm
+N=500
 
-LP=LightPipes.Init()
-wavelength=500*nm
-size=10*mm
-N=1500
-w=1*mm
-z=1*m
-F=LP.Begin(size,wavelength,N)
-F=LP.CircScreen(w,0,0,F)
-F=LP.Forvard(z,F)
-I=LP.Intensity(2,F)
-plt.imshow(I)
-plt.title('the spot of Poisson')
-plt.axis('off')
+F=Begin(size,wavelength,N)
+F=GaussHermite(0,0,1,size/3,F)
+F=CircScreen(3*mm,0*mm,0*mm,F)
+F=Fresnel(20*cm,F)
+I=Intensity(2,F)
+plt.imshow(I); plt.axis('off'); plt.title("Poisson's spot")
 plt.show()
