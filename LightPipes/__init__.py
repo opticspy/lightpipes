@@ -1,5 +1,54 @@
 # fix: https://github.com/matthew-brett/delocate/issues/15
-from ._LightPipes import * # noqa
+from ._LightPipes import *  # noqa
+
+__all__ = [
+    'Axicon',
+    'BeamMix',
+    'Begin',
+    'CircAperture',
+    'CircScreen',
+    'Convert',
+    'Forvard',
+    'Fresnel',
+    'Gain',
+    'GaussAperture',
+    'GaussScreen',
+    'GaussHermite',
+    'GaussLaguerre',
+    'IntAttenuator',
+    'Lens',
+    'LensForvard',
+    'LensFresnel',
+    'MultIntensity',
+    'MultPhase',
+    'Normal',
+    'Intensity',
+    'Interpol',
+    'Phase',
+    'PhaseUnwrap',
+    'PipFFT',
+    'Power',
+    'RandomIntensity',
+    'RandomPhase',
+    'RectAperture',
+    'RectScreen',
+    'Steps',
+    'Strehl',
+    'SubIntensity',
+    'SubPhase',
+    'Tilt',
+    'Zernike',
+    'getGridSize',
+    'setGridSize',
+    'getWavelength',
+    'setWavelength',
+    'getGridDimension',
+]
+
+LP = Init() # noqa
+for name in __all__:
+    locals[name] = getattr(LP, name)
+
 
 # define some units
 m = 1.0
@@ -12,51 +61,10 @@ mrad = 1e-3*rad
 W = 1.0
 mW = 1e-3*W
 
-LP = _LightPipes.Init()
-Axicon = LP.Axicon
-BeamMix = LP.BeamMix
-Begin = LP.Begin
-CircAperture = LP.CircAperture
-CircScreen = LP.CircScreen
-Convert = LP.Convert
-Forvard = LP.Forvard
-Fresnel = LP.Fresnel
-Gain = LP.Gain
-GaussAperture = LP.GaussAperture
-GaussScreen = LP.GaussScreen
-GaussHermite = LP.GaussHermite
-GaussLaguerre = LP.GaussLaguerre
-IntAttenuator = LP.IntAttenuator
-Lens = LP.Lens
-LensForvard = LP.LensForvard
-LensFresnel = LP.LensFresnel
-MultIntensity = LP.MultIntensity
-MultPhase = LP.MultPhase
-Normal = LP.Normal
-Intensity = LP.Intensity
-Interpol = LP.Interpol
-Phase = LP.Phase
-PhaseUnwrap = LP.PhaseUnwrap
-PipFFT = LP.PipFFT
-Power = LP.Power
-RandomIntensity = LP.RandomIntensity
-RandomPhase = LP.RandomPhase
-RectAperture = LP.RectAperture
-RectScreen = LP.RectScreen
-Steps = LP.Steps
-Strehl = LP.Strehl
-SubIntensity = LP.SubIntensity
-SubPhase = LP.SubPhase
-Tilt = LP.Tilt
-Zernike = LP.Zernike
-LPversion = LP.LPversion
-LPhelp = LP.LPhelp
-LPDoc = LP.LPhelp
-LPweb = LP.LPhelp
-getGridSize = LP.getGridSize
-setGridSize = LP.setGridSize
-getWavelength = LP.getWavelength
-setWavelength = LP.setWavelength
-getGridDimension = LP.getGridDimension
+__all__.extend([
+    'm', 'cm', 'mm', 'um', 'nm',
+    'rad', 'mrad', 'W', 'mW',
+])
 
-
+# avoid modified
+__all__ = tuple(__all__)
