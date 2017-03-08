@@ -13,8 +13,7 @@ LightPipes for Python
    install
    support
    command-reference
-   indices-and-tables
-   
+
 Examples:
 ---------
 
@@ -26,4 +25,5 @@ Examples:
    laser
    foclens
    diffraction
+   zernike
 

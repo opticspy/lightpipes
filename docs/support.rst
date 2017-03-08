@@ -4,19 +4,17 @@ Support
 
 You can get help with LightPipes for Python in several ways:
 Visit our Github_ site
-               
 
-Help for a specific `command` can be obtained at the Python prompt by typing:
+.. _Github: https://github.com/opticspy/lightpipes
 
-.. code-block:: bash
-            
-    >>> help(LightPipes.Init.command)
-            
-For example, to display the help for the Begin command, type:
+Help for a specific `command` can be obtained at the Python prompt and from the command reference.
 
-    >>> import LightPipes
-    >>> LP=LightPipes.Init()
-    >>> help(LP.Begin)
+
+For example, to display the help for the `Begin` command, type at the Pythom prompt:
+
+    >>> from LightPipes import *
+    >>> help(Begin)
+    
 
 The response is:
 
@@ -24,29 +22,32 @@ The response is:
 
     Help on built-in function Begin:
 
-    Begin(...) method of LightPipes.Init instance
-        F = Begin(GridSize, Wavelength, N)
-            Creates a plane wave (phase = 0.0, amplitude = 1.0)
+    Begin(...) method of LightPipes._LightPipes.Init instance
+    F = Begin(GridSize, Wavelength, N)
+        Creates a plane wave (phase = 0.0, amplitude = 1.0)
 
-        Args::
+    Args::
 
-            GridSize: size of the grid
-            Wavelength: wavelength of the field
-            N: N x N grid points (N must be even)
+        GridSize: size of the grid
+        Wavelength: wavelength of the field
+        N: N x N grid points (N must be even)
 
-        Returns::
+    Returns::
 
-            F: N x N square array of complex numbers (1+0j).
+        F: N x N square array of complex numbers (1+0j).
 
-        Example::
+    Example:
 
-            >>> import LightPipes
-            >>> LP = LightPipes.Init()
-            >>> F = LP.Begin(0.03,500e-9,4)
-            >>> print(F)
-            [[(1+0j), (1+0j), (1+0j), (1+0j)],
-             [(1+0j), (1+0j), (1+0j), (1+0j)],
-             [(1+0j), (1+0j), (1+0j), (1+0j)],
-             [(1+0j), (1+0j), (1+0j), (1+0j)]]
+    :ref:`Diffraction from a circular aperture <Diffraction>`
 
-.. _Github: https://github.com/FredvanGoor/LightPipes-for-Python
+Example::
+
+    >>> from LightPipes import *
+    >>> F = Begin(0.03,500e-9,4)
+    >>> print(F)
+    [[(1+0j), (1+0j), (1+0j), (1+0j)],
+    [(1+0j), (1+0j), (1+0j), (1+0j)],
+    [(1+0j), (1+0j), (1+0j), (1+0j)],
+    [(1+0j), (1+0j), (1+0j), (1+0j)]]
+
+

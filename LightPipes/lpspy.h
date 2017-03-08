@@ -3,6 +3,7 @@
 #include <complex>
 #include <vector>
 #include "fftw3.h"
+
 #define CMPLXVEC vector<vector<complex<double> > >
 
 namespace std {
@@ -49,7 +50,7 @@ class lpspy {
         CMPLXVEC SubPhase( vector<vector<double> > Phase, CMPLXVEC Fin );
         CMPLXVEC Tilt(double tx, double ty, CMPLXVEC Fin );
         CMPLXVEC Zernike(int n, int m, double R, double A, CMPLXVEC Fin );
-        void     version();
+        void     test();
         double   getGridSize();
         void     setGridSize(double newSize);
         double   getWavelength();

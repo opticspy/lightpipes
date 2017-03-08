@@ -2,16 +2,13 @@
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
-from LightPipes import cm, m, mm, nm, um
-
+from LightPipes import *
 
 import sys
 if sys.version_info[0] < 3:
     import Tkinter as Tk
 else:
     import tkinter as Tk
-
-from LightPipes import *
 
 root = Tk.Tk()
 root.wm_title("Unstable resonator")
@@ -31,26 +28,23 @@ F=Begin(size,wavelength,N);
 F=RandomIntensity(2,1,F)
 F=RandomPhase(5,1,F);
 def TheExample():
-	global F
-	w=float(scale_w.get())*mm
-	F=RectAperture(w,w,0,0,0,F);   F=Gain(Isat,alpha,Lgain,F);
-	F=LensFresnel(f1,L,F);   F=Gain(Isat,alpha,Lgain,F);
-	F=LensFresnel(f2,L,F);
-	F=Tilt(tx,ty,F);
-	F=Interpol(size,N,0,0,0,1,F);
-	F2=RectScreen(w,w,0,0,0,F);
-	I=Intensity(0,F2)
-	plt = f.add_subplot(111,navigate=False )
-	plt.imshow(I); plt.axis('off')
-	canvas.show()
-
+    global F
+    w=float(scale_w.get())*mm
+    F=RectAperture(w,w,0,0,0,F);   F=Gain(Isat,alpha,Lgain,F);
+    F=LensFresnel(f1,L,F);   F=Gain(Isat,alpha,Lgain,F);
+    F=LensFresnel(f2,L,F);
+    F=Tilt(tx,ty,F);
+    F=Interpol(size,N,0,0,0,1,F);
+    F2=RectScreen(w,w,0,0,0,F);
+    I=Intensity(0,F2)
+    plt = f.add_subplot(111,navigate=False )
+    plt.imshow(I); plt.axis('off')
+    canvas.show()
+    
 def _quit():
-	root.quit()		# stops mainloop
-	root.destroy()	# this is necessary on Windows to prevent
-					# Fatal Python Error: PyEval_RestoreThread: NULL tstate
-
-#toolbar = NavigationToolbar2TkAgg( canvas, root )
-#toolbar.set_message ('PIPO')
+    root.quit()     # stops mainloop
+    root.destroy()  # this is necessary on Windows to prevent
+                    #Fatal Python Error: PyEval_RestoreThread: NULL tstate
 
 scale_w = Tk.Scale(orient='horizontal', label = 'w/mm', length = 300, from_=1.0, to=8.0, resolution = 0.1, var = w)
 

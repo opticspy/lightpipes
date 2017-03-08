@@ -47,13 +47,14 @@ ext = Extension(
     language="c++",
 )
 extensions = cythonize([ext])
-
+exec(open('./LightPipes/_version.py').read())
 
 setup(
     name='LightPipes',
     packages=['LightPipes'],
     #install_requires=["numpy>=1.11.3"],
-    version='1.1.1',
+    #version='1.1.2',
+    version = __version__,
     description='LightPipes for Python optical toolbox',
     author='Fred van Goor',
     author_email='Fred511949@gmail.com',

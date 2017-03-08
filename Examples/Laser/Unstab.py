@@ -1,13 +1,9 @@
 #Unstable resonator.
-import LightPipes
+from LightPipes import *
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 import time
-from LightPipes import cm, m, mm, nm, um
-
-
-LP=LightPipes.Init()
 
 wavelength = 308*nm
 size=14*mm
@@ -16,24 +12,25 @@ w=5.48*mm
 f1=-10*m; f2=20*m; L=10*m; Isat=1.0; alpha=1e-4; Lgain=1e4;
 tx=0.0; ty=0.00000;
 Nrndtrips=20
+
 X=np.zeros(N)
 Y=np.zeros(N)
 SR=np.zeros(Nrndtrips+1)
-F=LP.Begin(size,wavelength,N);
-F=LP.RandomIntensity(time.time(),1000,F)
-F=LP.RandomPhase(time.time(),10,F);
+F=Begin(size,wavelength,N);
+F=RandomIntensity(time.time(),1000,F)
+F=RandomPhase(time.time(),10,F);
 
 for k in range(1,Nrndtrips+1):
-   F=LP.RectAperture(w,w,0,0,0,F);
-   F=LP.Gain(Isat,alpha,2*Lgain,F);
-   F=LP.LensFresnel(f1,L,F);
-   F=LP.LensFresnel(f2,L,F);
-   F=LP.Tilt(tx,ty,F);
-   SR[k]=LP.Strehl(F);
-   F=LP.Interpol(size,N,0,0,0,1,F);
+   F=RectAperture(w,w,0,0,0,F);
+   F=Gain(Isat,alpha,2*Lgain,F);
+   F=LensFresnel(f1,L,F);
+   F=LensFresnel(f2,L,F);
+   F=Tilt(tx,ty,F);
+   SR[k]=Strehl(F);
+   F=Interpol(size,N,0,0,0,1,F);
    print ('Round trip ',k,' Strehl ratio= ',SR[k],'\n');
-   F2=LP.RectScreen(w,w,0,0,0,F);
-   I=LP.Intensity(2,F2);
+   F2=RectScreen(w,w,0,0,0,F);
+   I=Intensity(2,F2);
    plt.subplot(2,Nrndtrips/2,k)
    plt.title(k)
    plt.axis('off')
@@ -55,10 +52,10 @@ plt.title('Strehl ratio')
 #Far-field calculation:
 z=1.0*m; f=40.0*m;
 ff=z*f/(f-z);
-F2=LP.Lens(f,0,0,F2);
-F2=LP.LensFresnel(ff,z,F2);
-F2=LP.Convert(F2);
-I2=LP.Intensity(1,F2);
+F2=Lens(f,0,0,F2);
+F2=LensFresnel(ff,z,F2);
+F2=Convert(F2);
+I2=Intensity(1,F2);
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 surf = ax.plot_surface(X, Y, I2, rstride=1, cstride=1, cmap='rainbow', linewidth=0.0)

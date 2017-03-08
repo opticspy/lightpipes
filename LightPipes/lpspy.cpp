@@ -1,7 +1,8 @@
 #include "lpspy.h"
 #define Pi		3.141592654
 
-#define vs "1.1.1"
+#define test_string "LightPipes for Python: test passed."
+
 // 16 January 2017
 // changes: added     fftw_free(in_out); in Forvard, Fresnel and PipFFT
 // To prevent memory leaks!!
@@ -9,6 +10,10 @@
 // 18 January 2017
 // Repaired error in LensForvard, FieldTmp is needed if z1>0.
 // Thanks to  guyskk@qq.com
+//
+// 27 February 2017
+// Implemneted 2-D PhaseUnwrap
+// 
 
 using namespace std;
 complex<double> _j (0.0 , 1.0);
@@ -689,15 +694,42 @@ vector<vector<double> > lpspy::Phase(CMPLXVEC Field ){
     for (int  i=0; i<N; i++)
     {
         for (int  j=0;j<N; j++)
-        {	
-            Phi.at(i).at(j)=arg(Field.at(j).at(i));		
+        {
+            Phi.at(i).at(j)=arg(Field.at(j).at(i));
         }
     }
     return Phi;
 }
 vector<vector<double> > lpspy::PhaseUnwrap(vector<vector<double> > Phi ){
-    //phaseunwrap( &Phi.at(0).at(0),&Phi.at(0).at(0),0,N);
-    cout << "PhaseUnwrap is not implemented" << endl;
+    double *x, *y;
+    x=(double*)calloc(N*N,sizeof(double));
+	if (x == NULL){
+        printf("Error in 'PhaseUnwrap(Phi)': unsufficient memory!");
+		return Phi;
+    }
+    y=(double*)calloc(N*N,sizeof(double));
+	if (y == NULL){
+        printf("Error in 'PhaseUnwrap(Phi)': unsufficient memory!");
+        free(x);
+		return Phi;
+    }    
+    int ik=0;
+	for(int i=0; i<N; i++){
+		for (int j=0; j<N; j++){
+		  x[ik]=Phi[i][j];
+		  ik++;
+		}
+	}
+	phaseunwrap(x, y ,N, N);
+	ik=0;
+	for(int i=0; i<N; i++){
+		for (int j=0; j<N; j++){
+		  Phi[i][j]=y[ik];
+		  ik++;
+		}
+	}
+    free(x);
+    free(y);
     return Phi;
 }
 CMPLXVEC lpspy::PipFFT( int ind, CMPLXVEC Field ){
@@ -1153,10 +1185,10 @@ CMPLXVEC lpspy::Zernike(int n, int m, double R, double A, CMPLXVEC Field ){
     for(ncheck=n; ncheck >= -n; ncheck -= 2)
     if (ncheck == m ) ind=1;
     if (ind == 0){
-        cout << "error in 'Zernike(n ,m, R, A, Fin)': n must be larger than zero."<<endl;
-        exit(1);
+        cout << "error in 'Zernike(n ,m, R, A, Fin)': n must be larger than zero, |m| <= n and n-|m| must be even."<<endl;
+        return Field;
     }
-    K=Pi*2./lambda;
+    K=2*Pi/lambda;
     n2=N/2;
     dx=size/N;
     if (m == 0) Nnm=sqrt((double)n+1);
@@ -1166,16 +1198,18 @@ CMPLXVEC lpspy::Zernike(int n, int m, double R, double A, CMPLXVEC Field ){
         for (int j=0;j< N; j++){
             y=(j-n2)*dx;
             rho=sqrt((x*x+y*y)/(R*R));
-            phi=phase(y,x);
-            fi= -K*A*Nnm*zernike(n,m,rho,phi);
+            phi=phase(y,x) + Pi;
+            fi= -A*K*Nnm*zernike(n,m,rho,phi);
             Field.at(i).at(j) *= exp(_j * fi);
         }
     }
     return Field;
 }
-void lpspy::version(){
-    cout << "version = " << vs << endl;
+void lpspy::test(){
+    cout << test_string << endl;
 }
+
+
 double lpspy::getGridSize(){
     return size;
 }

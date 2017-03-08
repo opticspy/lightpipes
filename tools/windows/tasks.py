@@ -43,7 +43,7 @@ DIAGNOSE = project_path('tools', 'diagnose.py')
 SUPPORTED_BIT = ['32','64']
 SUPPORTED_CPYTHON = [
     '27',
-    '34',
+#    '34',
     '35',
     '36',
 ]
@@ -105,7 +105,7 @@ class Builder:
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
-        TEST = '{python} -c "from LightPipes import *;LPversion()"'
+        TEST = '{python} -c "from LightPipes import *;LPtest()"'
         self.run(TEST.format(python=self.python))
 
     def build(self):

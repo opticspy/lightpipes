@@ -36,7 +36,7 @@ ty=0.00*mrad;
 xwire=10.0*mm
 ywire=10.0*mm
 
-f = Figure(figsize = (10,5), dpi=N)
+f = Figure(figsize = (10,4), dpi=N)
 canvas = FigureCanvasTkAgg(f, master=root)
 canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 plt = f.add_subplot(211,navigate=False )
@@ -46,64 +46,64 @@ F=Begin(size,wavelength,N);
 x=range(-N2,N2)
 x=np.asarray(x)*size/N/mm
 def TheExample():
-	global F,f1,f2,L,w0
-	w0=float(scale_w0.get())*mm/2
-	xwire=float(scalexwire.get())*mm
-	ywire=float(scaleywire.get())*mm
-	f1=float(scale_f1.get()*cm)/2
-	f2=float(scale_f2.get()*cm)/2
-	L=float(scale_L.get())*cm
-	Reflect=float(scale_Reflect.get())
-	tx=float(scale_tx.get())*mrad
-	ty=float(scale_ty.get())*mrad
-	
-	F=RandomIntensity(time.time(),1e-8,F)
-	F=CircAperture(w0,0,0,F)
-	F=RectScreen(size,0.2*mm,0.0,ywire,0.0,F)
-	F=RectScreen(0.2*mm,size,xwire,0.0,0.0,F)
-	Iw=Intensity(0,F)
-	F=Lens(f2,0,0,F);
-	F=Fresnel(L,F); F=Gain(Isat,alpha,Lgain,F);
-	F=Lens(f1,0,0,F);
-	F=Tilt(tx,ty,F)
-	F=Fresnel(L,F); F=Gain(Isat,alpha,Lgain,F);
-	F=IntAttenuator(Reflect,F)
-	P=Power(F)*(1-Reflect)*size/N*size/N  
-	#I=LP.Intensity(0,F)
-	y=np.asarray(Iw[N2])
-	#Iout=Isat*(alpha*Lgain-0.5*math.log(1/Reflect))*math.pi*w0*w0
-	plt.clear()
-	plt2.clear()
-	g1=1-L/(2*f1);
-	g2=1-L/(2*f2);
-	g=g1*g2
-	plt.text(0,-5,"Power=%5.3f W"% P)
-	plt.text(150,-5,"g1=%5.3f"% g1)
-	plt.text(150,15,"g2=%5.3f"% g2)
-	plt.text(150,35,"g=%5.3f"% g)
-	plt.imshow(Iw); plt.axis('off')
-	plt2.plot(x,y)
-	canvas.show()
+    global F,f1,f2,L,w0
+    w0=float(scale_w0.get())*mm/2
+    xwire=float(scalexwire.get())*mm
+    ywire=float(scaleywire.get())*mm
+    f1=float(scale_f1.get()*cm)/2
+    f2=float(scale_f2.get()*cm)/2
+    L=float(scale_L.get())*cm
+    Reflect=float(scale_Reflect.get())
+    tx=-float(scale_tx.get())*mrad
+    ty=float(scale_ty.get())*mrad
+    
+    F=RandomIntensity(time.time(),1e-8,F)
+    F=CircAperture(w0,0,0,F)
+    F=RectScreen(size,0.2*mm,0.0,ywire,0.0,F)
+    F=RectScreen(0.2*mm,size,xwire,0.0,0.0,F)
+    Iw=Intensity(0,F)
+    F=Lens(f2,0,0,F);
+    F=Fresnel(L,F); F=Gain(Isat,alpha,Lgain,F);
+    F=Lens(f1,0,0,F);
+    F=Tilt(tx,ty,F)
+    F=Fresnel(L,F); F=Gain(Isat,alpha,Lgain,F);
+    F=IntAttenuator(Reflect,F)
+    P=Power(F)*(1-Reflect)*size/N*size/N  
+    #I=LP.Intensity(0,F)
+    y=np.asarray(Iw[N2])
+    #Iout=Isat*(alpha*Lgain-0.5*math.log(1/Reflect))*math.pi*w0*w0
+    plt.clear()
+    plt2.clear()
+    g1=1-L/(2*f1);
+    g2=1-L/(2*f2);
+    g=g1*g2
+    plt.text(0,-5,"Power=%5.3f W"% P)
+    plt.text(150,-5,"g1=%5.3f"% g1)
+    plt.text(150,15,"g2=%5.3f"% g2)
+    plt.text(150,35,"g=%5.3f"% g)
+    plt.imshow(Iw); plt.axis('off')
+    plt2.plot(x,y)
+    canvas.show()
 
 def _quit():
-	root.quit()		# stops mainloop
-	root.destroy()	# this is necessary on Windows to prevent
-					# Fatal Python Error: PyEval_RestoreThread: NULL tstat
+    root.quit()     # stops mainloop
+    root.destroy()  # this is necessary on Windows to prevent
+                    # Fatal Python Error: PyEval_RestoreThread: NULL tstat
 def _eigenmode():
-	global F,f1,f2,L,w0
-	g1=1-L/(2*f1);
-	g2=1-L/(2*f2);
-	g=g1*g2
-	z1=L*g2*(1-g1)/(g1+g2-2*g1*g2);
-	z2=L-z1;
-	if (g>0):
-		w0=math.sqrt(wavelength*L/math.pi)*(g1*g2*(1-g1*g2)/(g1+g2-2*g1*g2)**2)**0.25;
-	mode_m=int(order_m.get())
-	mode_n=int(order_n.get())
-
-	F=GaussHermite(mode_m,mode_n,1,w0,F);
-	#F=GaussLaguerre(2,3,1,w0,F);
-	F=Forvard(z2,F);	
+    global F,f1,f2,L,w0
+    g1=1-L/(2*f1);
+    g2=1-L/(2*f2);
+    g=g1*g2
+    z1=L*g2*(1-g1)/(g1+g2-2*g1*g2);
+    z2=L-z1;
+    if (g>0):
+        w0=math.sqrt(wavelength*L/math.pi)*(g1*g2*(1-g1*g2)/(g1+g2-2*g1*g2)**2)**0.25;
+    mode_m=int(order_m.get())
+    mode_n=int(order_n.get())
+    
+    F=GaussHermite(mode_m,mode_n,1,w0,F);
+    #F=GaussLaguerre(2,3,1,w0,F);
+    F=Forvard(z2,F);
 
 frame2=Frame(root)
 frame2.pack(side=Tk.BOTTOM)
@@ -122,7 +122,7 @@ scaleywire = Tk.Scale(root, orient='horizontal', label = 'y-wire position [mm]',
 scaleywire.pack(side = Tk.LEFT)
 scaleywire.set(ywire/mm)
 
-scale_w0 = Tk.Scale(frame2, orient='horizontal', label = 'aperture diameter [mm]', length = 200, from_=0.0, to=size/mm, resolution = 0.01)
+scale_w0 = Tk.Scale(frame2, orient='horizontal', label = 'aperture diameter [mm]', length = 300, from_=0.0, to=size/mm, resolution = 0.01)
 scale_w0.pack(side = Tk.LEFT)
 scale_w0.set(2*w0/mm)
 

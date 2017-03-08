@@ -1,5 +1,8 @@
 # fix: https://github.com/matthew-brett/delocate/issues/15
 from ._LightPipes import * # noqa
+from ._version import __version__
+
+LPversion=_version.__version__
 
 # define some units
 m = 1.0
@@ -49,7 +52,10 @@ SubIntensity = LP.SubIntensity
 SubPhase = LP.SubPhase
 Tilt = LP.Tilt
 Zernike = LP.Zernike
-LPversion = LP.LPversion
+noll_to_zern=LP.noll_to_zern
+ZernikeName=LP.ZernikeName
+ZernikeNolltoMN=LP.ZernikeNolltoMN
+LPtest = LP.LPtest
 LPhelp = LP.LPhelp
 LPDoc = LP.LPhelp
 LPweb = LP.LPhelp
