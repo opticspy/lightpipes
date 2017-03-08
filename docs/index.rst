@@ -26,4 +26,5 @@ Examples:
    foclens
    diffraction
    zernike
+   phaserecovery
 
