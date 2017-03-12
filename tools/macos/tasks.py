@@ -13,7 +13,6 @@ os.environ['INVOKE_RUN_ECHO'] = '1'
 CONDA = '/Users/{user}/miniconda3/bin/conda'.format(user=getuser())
 PROJECT = abspath(join(dirname(__file__), '..', '..'))
 
-
 def project_path(*path):
     return join(PROJECT, *path)
 
@@ -116,7 +115,8 @@ class Builder:
         if self.index_url:
             INSTALL = INSTALL + " -i " + self.index_url
         self.run(INSTALL.format(pip=self.pip, dist=DIST))
-        TEST = '{python} -c "import LightPipes;LightPipes.Init().version()"'
+        #TEST = '{python} -c "import LightPipes;LightPipes.Init().version()"'
+        TEST = '{python} -c "from LightPipes import *;LPtest()"'
         self.run(TEST.format(python=self.python))
 
     def build(self):
