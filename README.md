@@ -95,9 +95,8 @@ plt.show()
 ### MacOS
 
 1. install Miniconda3 from https://conda.io/miniconda.html
-2. install fftw: `brew install fftw`
-3. install invoke and delocate: `pip install invoke delocate`
-4. `cd tools/macos` then `inv build_all`
+2. install invoke and delocate: `pip install invoke delocate`
+3. `cd tools/macos` then `inv build_all`
 
 ### Windows
 
