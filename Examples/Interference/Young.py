@@ -13,10 +13,10 @@ N=500
 z=50*cm
 R=0.3*mm
 d=1.2*mm
-print(abspath(join(dirname(__file__), '..', '..')))
+
 img=mpimg.imread('twoholes.jpg')
 plt.imshow(img); plt.axis('off');plt.title('Two holes interferometer, Young\'s experiment')
-#plt.show()
+plt.show()
 
 F=Begin(size,wavelength,N)
 F1=CircAperture(R/2.0,-d/2.0, 0, F)
@@ -25,4 +25,4 @@ F=BeamMix(F1,F2)
 F=Fresnel(z,F)
 I=Intensity(2,F)
 plt.imshow(I); plt.axis('off');plt.title('intensity pattern')
-#plt.show()
+plt.show()
