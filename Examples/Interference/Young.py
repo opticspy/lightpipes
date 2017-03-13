@@ -7,6 +7,7 @@ from os.path import abspath, dirname, exists, join
     Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern
     at a distance, z, behind the screen is calculated.
 """
+print(locals())
 wavelength=5*um
 size=20.0*mm
 N=500
