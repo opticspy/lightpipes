@@ -54,7 +54,7 @@ def build(ctx, version):
     ctx.run(f'auditwheel repair {whl} -w {DIST_DIR}')
     # install and test
     ctx.run(f'{pip} install lightpipes --no-index -f {DIST_DIR}')
-    ctx.run(f'{python} -c "import LightPipes;LightPipes.Init().version()"')
+    ctx.run(f'{python} -c "from LightPipes import *;LPtest()"')
     clean_tmpdir()
 
 
