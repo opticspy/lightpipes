@@ -17,7 +17,7 @@ A=wavelength/(2*math.pi)
 
 plt.figure(figsize=(15,8)) 
 for Noll in range (1,22):
-    (nz,mz)=LP.noll_to_zern(Noll)
+    (nz,mz)=noll_to_zern(Noll)
     S=ZernikeName(Noll)
     F=Begin(size,wavelength,N)
     F=Zernike(nz,mz,size/2,A,F)

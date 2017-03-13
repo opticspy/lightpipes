@@ -1,3 +1,3 @@
-call make clean
-call make html
+make clean
+make html
 

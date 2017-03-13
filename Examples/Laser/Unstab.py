@@ -35,7 +35,7 @@ for k in range(1,Nrndtrips+1):
    plt.title(k)
    plt.axis('off')
    plt.imshow(I)
-F2=LP.Convert(F2);
+F2=Convert(F2);
 i=range(N)
 j=i
 X, Y=np.meshgrid(i,j)
