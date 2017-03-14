@@ -5,7 +5,7 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
-set BUILDDIR=_build
+set BUILDDIR=..\docs
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% .
 set I18NSPHINXOPTS=%SPHINXOPTS% .
 if NOT "%PAPER%" == "" (
@@ -46,7 +46,11 @@ if "%1" == "clean" (
 	del /q /s %BUILDDIR%\*
 	goto end
 )
-
+::if "%1" == "clean" (
+	::for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
+	::del /q /s %BUILDDIR%\*
+	::goto end
+)
 
 REM Check if sphinx-build is available and fallback to Python version if any
 %SPHINXBUILD% 1>NUL 2>NUL
@@ -73,11 +77,11 @@ if errorlevel 9009 (
 
 
 if "%1" == "html" (
-	%SPHINXBUILD% -b html %ALLSPHINXOPTS% %BUILDDIR%/html
+	%SPHINXBUILD% -b html %ALLSPHINXOPTS% %BUILDDIR%
 	if errorlevel 1 exit /b 1
 	echo.
-	echo.Build finished. The HTML pages are in %BUILDDIR%/html.
-    start %BUILDDIR%/html/index.html
+	echo.Build finished. The HTML pages are in %BUILDDIR%.
+    start %BUILDDIR%/index.html
 	goto end
 )
 

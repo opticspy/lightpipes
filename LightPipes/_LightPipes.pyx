@@ -601,6 +601,7 @@ cdef class Init:
 
         """
         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
+        #webbrowser.open_new("https://opticspy.github.io/lightpipes/")
     def getGridSize(self):
         return self.thisptr.getGridSize()        
     def setGridSize(self, newSize):

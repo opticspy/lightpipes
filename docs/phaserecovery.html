@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Phase recovery &#8212; LightPipes for Python 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Zernike aberration" href="zernike.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="zernike.html" title="Zernike aberration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="phase-recovery">
+<span id="phaserecovery"></span><h1>Phase recovery<a class="headerlink" href="#phase-recovery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="phase-recovery-using-gerchberg-saxton-iteration">
+<span id="index-0"></span><h2>Phase recovery using Gerchberg Saxton iteration<a class="headerlink" href="#phase-recovery-using-gerchberg-saxton-iteration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Phase recovery from two measured intensity distributions using Gerchberg Saxton.</span>
+
+<span class="sd">..  :copyright: (c) 2017 by Fred van Goor.</span>
+<span class="sd">    :license: MIT, see License for more details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1">#Parameters used for the experiment:</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">11</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span> <span class="c1">#The CCD-sensor has an area of size x size (NB LightPipes needs square grids!)</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span><span class="p">;</span> <span class="c1">#wavelength of the HeNe laser used</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">;</span> <span class="c1">#propagation distance from near to far field</span>
+<span class="n">N_iterations</span><span class="o">=</span><span class="mi">300</span> <span class="c1">#number of iterations</span>
+
+<span class="c1">#Read near and far field (at a distance of z=2 m) from disk:</span>
+<span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Inear.prn&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+<span class="n">Inear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asfarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Ifar.prn&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+<span class="n">Ifar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asfarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Inear</span><span class="p">)</span>
+<span class="n">N_new</span><span class="o">=</span><span class="mi">256</span><span class="p">;</span><span class="n">size_new</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Inear</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measured Intensity near field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Ifar</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measured Intensity far field&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+
+<span class="c1">#Define a field with uniform amplitude- (=1) and phase (=0) distribution</span>
+<span class="c1">#(= plane wave)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+
+<span class="c1">#The iteration:</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">SubIntensity</span><span class="p">(</span><span class="n">Ifar</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#Substitute the measured far field into the field</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Interpol</span><span class="p">(</span><span class="n">size_new</span><span class="p">,</span><span class="n">N_new</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">);</span><span class="c1">#interpolate to a new grid</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#Propagate back to the near field</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Interpol</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#interpolate to the original grid</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">SubIntensity</span><span class="p">(</span><span class="n">Inear</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#Substitute the measured near field into the field</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#Propagate to the far field</span>
+
+<span class="c1">#The recovered far- and near field and their phase- and intensity</span>
+<span class="c1">#distributions (phases are unwrapped (i.e. remove multiples of PI)):</span>
+<span class="n">Ffar_rec</span><span class="o">=</span><span class="n">F</span><span class="p">;</span>
+<span class="n">Ifar_rec</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Ffar_rec</span><span class="p">);</span> <span class="n">Phase_far_rec</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">Ffar_rec</span><span class="p">);</span>
+
+<span class="n">Phase_far_rec</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">Phase_far_rec</span><span class="p">)</span>
+<span class="n">Fnear_rec</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">Inear_rec</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Fnear_rec</span><span class="p">);</span> <span class="n">Phase_near_rec</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">Fnear_rec</span><span class="p">);</span>
+
+<span class="n">Phase_near_rec</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">Phase_near_rec</span><span class="p">)</span>
+<span class="c1">#Plot the recovered intensity- and phase distributions:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Inear_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered Intensity near field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Ifar_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered Intensity far field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phase_near_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered phase near field&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phase_far_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered phase far field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/PhaseRecovery.png" src="_images/PhaseRecovery.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Unstab_2.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">Command Reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="interference.html">Interference examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="besselbeam.html">Bessel beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laser.html">Laser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foclens.html">Focus of a lens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffraction.html">Diffraction examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike aberration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Phase recovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#phase-recovery-using-gerchberg-saxton-iteration">Phase recovery using Gerchberg Saxton iteration</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/phaserecovery.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="zernike.html" title="Zernike aberration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fred van Goor.
+      Last updated on Mar 14, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>

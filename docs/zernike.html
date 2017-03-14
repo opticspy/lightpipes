@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Zernike aberration &#8212; LightPipes for Python 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Phase recovery" href="phaserecovery.html" />
+    <link rel="prev" title="Diffraction examples" href="diffraction.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="phaserecovery.html" title="Phase recovery"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="diffraction.html" title="Diffraction examples"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zernike-aberration">
+<span id="zernike"></span><h1>Zernike aberration<a class="headerlink" href="#zernike-aberration" title="Permalink to this headline">¶</a></h1>
+<p>Any aberration in a circle can be decomposed over a sum of Zernike
+polynomials. The Zernike command accepts four arguments:
+1. The radial order n  2. The
+azimuthal order m. 3. The radius, R 4. The
+amplitude of the aberration.</p>
+<span class="target" id="zernike-polynomial"></span><div class="section" id="zernike-polynomials">
+<span id="index-0"></span><h2>Zernike polynomials<a class="headerlink" href="#zernike-polynomials" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This example demonstrates the Zernike command.</span>
+<span class="sd">..  :copyright: (c) 2017 by Fred van Goor.</span>
+<span class="sd">    :license: MIT, see License for more details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">500</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">200</span>
+<span class="n">A</span><span class="o">=</span><span class="n">wavelength</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">Noll</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">22</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">nz</span><span class="p">,</span><span class="n">mz</span><span class="p">)</span><span class="o">=</span><span class="n">noll_to_zern</span><span class="p">(</span><span class="n">Noll</span><span class="p">)</span>
+    <span class="n">S</span><span class="o">=</span><span class="n">ZernikeName</span><span class="p">(</span><span class="n">Noll</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Zernike</span><span class="p">(</span><span class="n">nz</span><span class="p">,</span><span class="n">mz</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">Phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">Noll</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">=</span><span class="nb">repr</span><span class="p">(</span><span class="n">Noll</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="s1">&#39; $Z^{&#39;</span><span class="o">+</span><span class="nb">repr</span><span class="p">(</span><span class="n">mz</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;}_{&#39;</span><span class="o">+</span><span class="nb">repr</span><span class="p">(</span><span class="n">nz</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;}$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">S</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/Zernike.png" src="_images/Zernike.png" />
+</div>
+</div>
+<div class="section" id="radial-shear-interferometer">
+<h2>Radial shear interferometer<a class="headerlink" href="#radial-shear-interferometer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This example demonstrates a radial shear interferometer.</span>
+<span class="sd">Only a &#39;bare-bone&#39; model, so no propagation and diffraction, is considered.</span>
+<span class="sd">..  :copyright: (c) 2017 by Fred van Goor.</span>
+<span class="sd">    :license: MIT, see License for more details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">pi</span><span class="o">=</span><span class="mf">3.1415</span>
+
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">500</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span><span class="o">=</span><span class="mf">40.0</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">200</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">nz</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">mz</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">Rz</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">Az</span><span class="o">=</span><span class="n">wavelength</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="n">Rbs</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="n">M</span><span class="o">=</span><span class="mf">1.5</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Zernike</span><span class="p">(</span><span class="n">nz</span><span class="p">,</span><span class="n">mz</span><span class="p">,</span><span class="n">Rz</span><span class="p">,</span><span class="n">Az</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;radial shear interferometer&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;phase distribution input beam&#39;</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">F1</span><span class="o">=</span><span class="n">Interpol</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity distribution output beam&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/rad_shear.png" src="_images/rad_shear.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Unstab_2.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">Command Reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="interference.html">Interference examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="besselbeam.html">Bessel beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laser.html">Laser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foclens.html">Focus of a lens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffraction.html">Diffraction examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Zernike aberration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zernike-polynomials">Zernike polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#radial-shear-interferometer">Radial shear interferometer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="phaserecovery.html">Phase recovery</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/zernike.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="phaserecovery.html" title="Phase recovery"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="diffraction.html" title="Diffraction examples"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fred van Goor.
+      Last updated on Mar 14, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>
