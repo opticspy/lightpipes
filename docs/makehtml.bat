@@ -1,3 +1,3 @@
-make clean
+::make clean
 make html
 

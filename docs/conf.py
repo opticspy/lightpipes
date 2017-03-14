@@ -34,6 +34,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
     'matplotlib.sphinxext.plot_directive',
+    'sphinx.ext.githubpages',
 #    'sphinxcontrib.fulltoc',
 ]
 
@@ -182,7 +183,8 @@ html_sidebars = {
 
 # If true, links to the reST sources are added to the pages.
 #html_show_sourcelink = True
-
+plot_html_show_source_link=False
+plot_html_show_formats=False
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 #html_show_sphinx = True
 
