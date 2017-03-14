@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interference examples &#8212; LightPipes for Python 1.1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bessel beam" href="besselbeam.html" />
+    <link rel="prev" title="Command Reference" href="command-reference.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="besselbeam.html" title="Bessel beam"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="command-reference.html" title="Command Reference"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="interference-examples">
+<span id="interference"></span><h1>Interference examples<a class="headerlink" href="#interference-examples" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="young"></span><div class="section" id="young-s-experiment">
+<span id="index-0"></span><h2>Young&#8217;s experiment<a class="headerlink" href="#young-s-experiment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">exists</span><span class="p">,</span> <span class="n">join</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Young&#39;s experiment.</span>
+<span class="sd">    Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern</span>
+<span class="sd">    at a distance, z, behind the screen is calculated.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">um</span>
+<span class="n">size</span><span class="o">=</span><span class="mf">20.0</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">50</span><span class="o">*</span><span class="n">cm</span>
+<span class="n">R</span><span class="o">=</span><span class="mf">0.3</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">d</span><span class="o">=</span><span class="mf">1.2</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;twoholes.jpg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Two holes interferometer, Young</span><span class="se">\&#39;</span><span class="s1">s experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/Young_00_00.png" src="_images/Young_00_00.png" />
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="o">-</span><span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/Young_01_00.png" src="_images/Young_01_00.png" />
+</div>
+</div>
+<div class="section" id="michelson-interferometer">
+<span id="michelson"></span><h2>Michelson interferometer<a class="headerlink" href="#michelson-interferometer" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python" id="index-1"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span> <span class="c1">#wavelength of HeNe laser</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># size of the grid</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">300</span> <span class="c1"># number (NxN) of grid pixels</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># laser beam radius</span>
+<span class="n">z1</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 1</span>
+<span class="n">z2</span><span class="o">=</span><span class="mi">7</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 2</span>
+<span class="n">z3</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance laser to beamsplitter</span>
+<span class="n">z4</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance beamsplitter to screen</span>
+<span class="n">Rbs</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># reflection beam splitter</span>
+<span class="n">tx</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">mrad</span><span class="p">;</span> <span class="n">ty</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span> <span class="c1"># tilt of mirror 1</span>
+<span class="n">f</span><span class="o">=</span><span class="mi">50</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># focal length of positive lens</span>
+
+<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;michelson.jpg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/Michelson_00_00.png" src="_images/Michelson_00_00.png" />
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#Generate a weak converging laser beam using a weak positive lens:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="c1">#Propagate to the beamsplitter:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z3</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="c1">#Split the beam and propagate to mirror #2:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="c1">#Introduce tilt and propagate back to the beamsplitter:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Tilt</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="c1">#Split off the second beam and propagate to- and back from the mirror #1:</span>
+<span class="n">F10</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z1</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">F10</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
+
+<span class="c1">#Recombine the two beams and propagate to the screen:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z4</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="_images/Michelson_01_00.png" src="_images/Michelson_01_00.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/Unstab_2.png" alt="Logo"/>
+            </a></p>
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">Command Reference</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Interference examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#young-s-experiment">Young&#8217;s experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#michelson-interferometer">Michelson interferometer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="besselbeam.html">Bessel beam</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laser.html">Laser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foclens.html">Focus of a lens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffraction.html">Diffraction examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike aberration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phaserecovery.html">Phase recovery</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/interference.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="besselbeam.html" title="Bessel beam"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="command-reference.html" title="Command Reference"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Fred van Goor.
+      Last updated on Mar 14, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>
