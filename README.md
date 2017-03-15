@@ -26,7 +26,7 @@ You can also download packages from [Releases](https://github.com/opticspy/light
 
 ## Document
 
-http://pythonhosted.org/LightPipes/
+https://opticspy.github.io/lightpipes/
 
 ## Example: Young interferometer
 
