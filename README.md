@@ -16,7 +16,7 @@ Visit the website of **Flexible Optical**: [http://www.okotech.com](http://www.o
 
 LightPipes support Windows 32bit and 64bit, Macintosh OSX, Linux 32bit and 64bit. It support python 2.7, 3.4, 3.5, 3.6 currently.
 
-The packages is on [PyPi](https://pypi.python.org/pypi/LightPipes/), so simply open a terminal window and type at the prompt:
+The packages are on [PyPi](https://pypi.python.org/pypi/LightPipes/), so simply open a terminal window and type at the prompt:
 
 ```python
 pip install LightPipes
