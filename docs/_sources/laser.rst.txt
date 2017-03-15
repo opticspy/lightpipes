@@ -17,6 +17,6 @@ Laser
 Unstable laser resonator
 -------------------------------------------
 
-.. plot:: ../Examples/Laser/Unstab.py
+.. plot:: ./Examples/Laser/Unstab.py
    :include-source:
 

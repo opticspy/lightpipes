@@ -11,5 +11,5 @@
 ---------------
 Focus of a lens
 ---------------
-.. plot:: ../Examples/Commands/FocLens.py
+.. plot:: ./Examples/Commands/FocLens.py
    :include-source:

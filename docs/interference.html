@@ -62,13 +62,13 @@
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">abspath</span><span class="p">,</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">exists</span><span class="p">,</span> <span class="n">join</span>
+
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Young&#39;s experiment.</span>
 <span class="sd">    Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern</span>
 <span class="sd">    at a distance, z, behind the screen is calculated.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">locals</span><span class="p">())</span>
+
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">um</span>
 <span class="n">size</span><span class="o">=</span><span class="mf">20.0</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">500</span>
@@ -76,11 +76,12 @@
 <span class="n">R</span><span class="o">=</span><span class="mf">0.3</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">d</span><span class="o">=</span><span class="mf">1.2</span><span class="o">*</span><span class="n">mm</span>
 
-<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;twoholes.jpg&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;Young.png&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Two holes interferometer, Young</span><span class="se">\&#39;</span><span class="s1">s experiment&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/Interference/Young.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.pdf">pdf</a>)</p>
 <div class="figure">
 <img alt="_images/Young_00_00.png" src="_images/Young_00_00.png" />
 </div>
@@ -94,6 +95,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/Interference/Young_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_01_00.pdf">pdf</a>)</p>
 <div class="figure">
 <img alt="_images/Young_01_00.png" src="_images/Young_01_00.png" />
 </div>
@@ -117,11 +119,12 @@
 <span class="n">tx</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">mrad</span><span class="p">;</span> <span class="n">ty</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span> <span class="c1"># tilt of mirror 1</span>
 <span class="n">f</span><span class="o">=</span><span class="mi">50</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># focal length of positive lens</span>
 
-<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;michelson.jpg&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;Michelson.png&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/Interference/Michelson.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.pdf">pdf</a>)</p>
 <div class="figure">
 <img alt="_images/Michelson_00_00.png" src="_images/Michelson_00_00.png" />
 </div>
@@ -156,6 +159,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/Interference/Michelson_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Michelson_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Michelson_01_00.pdf">pdf</a>)</p>
 <div class="figure">
 <img alt="_images/Michelson_01_00.png" src="_images/Michelson_01_00.png" />
 </div>
@@ -233,7 +237,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Mar 14, 2017.
+      Last updated on Mar 15, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
     </div>
   </body>

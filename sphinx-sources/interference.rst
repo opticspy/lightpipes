@@ -18,7 +18,7 @@ Interference examples
 Young's experiment
 ------------------
 
-.. plot:: ../Examples/Interference/Young.py
+.. plot:: ./Examples/Interference/Young.py
    :include-source:
 
 .. _Michelson:
@@ -39,6 +39,6 @@ Michelson interferometer
     Begin
     Intensity
 
-.. plot:: ../Examples/Interference/Michelson.py
+.. plot:: ./Examples/Interference/Michelson.py
    :include-source:
 

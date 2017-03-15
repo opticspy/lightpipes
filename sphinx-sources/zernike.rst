@@ -24,14 +24,14 @@ amplitude of the aberration.
 Zernike polynomials
 -------------------
 
-.. plot:: ../Examples/Zernike/Zernike.py
+.. plot:: ./Examples/Zernike/Zernike.py
    :include-source:
 
 ---------------------------
 Radial shear interferometer
 ---------------------------
 
-.. plot:: ../Examples/Zernike/rad_shear.py
+.. plot:: ./Examples/Zernike/rad_shear.py
    :include-source:
 
 

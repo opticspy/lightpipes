@@ -17,7 +17,7 @@ Diffraction examples
 Diffraction from a circular aperture.
 -------------------------------------
 
-.. plot:: ../Examples/Diffraction/RoundHole.py
+.. plot:: ./Examples/Diffraction/RoundHole.py
    :include-source:
 
 .. _Poisson:
@@ -35,5 +35,5 @@ Diffraction from a circular aperture.
 Spot of Poisson.
 ----------------
 
-.. plot:: ../Examples/Diffraction/Poisson.py
+.. plot:: ./Examples/Diffraction/Poisson.py
    :include-source:

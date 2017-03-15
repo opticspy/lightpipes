@@ -19,5 +19,5 @@ Phase recovery
 Phase recovery using Gerchberg Saxton iteration
 -----------------------------------------------
 
-.. plot:: ../Examples/PhaseRecovery/PhaseRecovery.py
+.. plot:: ./Examples/PhaseRecovery/PhaseRecovery.py
    :include-source:

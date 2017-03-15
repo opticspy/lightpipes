@@ -83,8 +83,71 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/BesselBeam/BesselBeam.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselBeam.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselBeam.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselBeam.pdf">pdf</a>)</p>
 <div class="figure">
 <img alt="_images/BesselBeam.png" src="_images/BesselBeam.png" />
+</div>
+</div>
+<div class="section" id="generation-of-a-bessel-beam-with-an-annular-slit">
+<h2>Generation of a Bessel beam with an annular slit.<a class="headerlink" href="#generation-of-a-bessel-beam-with-an-annular-slit" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1">#wavelength HeNe laser:</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span>
+<span class="c1">#grid size:</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="o">*</span><span class="n">mm</span>
+<span class="c1">#grid dimension:</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">N2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#diameter of the annular slit:</span>
+<span class="n">d</span><span class="o">=</span><span class="mf">2.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="c1">#width of the annular slit:</span>
+<span class="n">deltaD</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="n">um</span>
+<span class="c1">#focal length and diameter of the lens:</span>
+<span class="n">f</span><span class="o">=</span><span class="mf">305.0</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span> <span class="n">R</span><span class="o">=</span><span class="mf">3.5</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+<span class="c1">#distance after the lens where the Bessel beam is calculated:</span>
+<span class="n">z</span><span class="o">=</span><span class="mf">0.001</span><span class="o">*</span><span class="n">cm</span><span class="p">;</span>
+<span class="c1">#definition of a uniform plane wave:</span>
+<span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">N2</span><span class="p">,</span><span class="n">N2</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">size</span><span class="o">/</span><span class="n">N</span><span class="o">/</span><span class="n">mm</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+    <span class="c1">#propagation through the annular slit:</span>
+
+    <span class="n">F</span><span class="o">=</span><span class="n">CircScreen</span><span class="p">((</span><span class="n">d</span><span class="o">-</span><span class="n">deltaD</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span> <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="c1">#calculation of the intensity just after the slit:</span>
+    <span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+
+    <span class="c1">#Propagation to and through the lens:</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="c1">#propagation some distance z:</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+
+    <span class="c1">#calculation of the intensity at z:</span>
+    <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">I</span><span class="p">[</span><span class="mi">250</span><span class="p">][</span><span class="mi">250</span><span class="p">])</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">I</span><span class="p">[</span><span class="n">N2</span><span class="p">])</span>
+    <span class="c1">#plotting the results in figure 1:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1">#s=&#39;z= &#39; + str(z)</span>
+    <span class="c1">#plt.title(s)</span>
+    <span class="c1">#plt.imshow(I,vmin=0,vmax=0.5);</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+    <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">cm</span><span class="p">;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnularSlit.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnularSlit.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnularSlit.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnularSlit.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/BesselAnularSlit.png" src="_images/BesselAnularSlit.png" />
 </div>
 </div>
 </div>
@@ -109,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interference.html">Interference examples</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bessel beam</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#generation-of-a-bessel-beam-with-an-axicon">Generation of a Bessel beam with an axicon.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-of-a-bessel-beam-with-an-annular-slit">Generation of a Bessel beam with an annular slit.</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="laser.html">Laser</a></li>
@@ -159,7 +223,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Mar 14, 2017.
+      Last updated on Mar 15, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
     </div>
   </body>
