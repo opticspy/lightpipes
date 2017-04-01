@@ -1,6 +1,5 @@
-=======
-Support
-=======
+Support.
+********
 
 You can get help with LightPipes for Python in several ways:
 Visit our Github_ site

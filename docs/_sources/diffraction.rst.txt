@@ -1,8 +1,7 @@
 .. _diffraction:
 
-====================
-Diffraction examples
-====================
+Diffraction examples.
+*********************
 
 .. _circ_aperture:
 
@@ -13,7 +12,6 @@ Diffraction examples
     Intensity
     Fresnel diffraction
 
--------------------------------------
 Diffraction from a circular aperture.
 -------------------------------------
 
@@ -31,7 +29,6 @@ Diffraction from a circular aperture.
     Begin
     Intensity
 
-----------------
 Spot of Poisson.
 ----------------
 

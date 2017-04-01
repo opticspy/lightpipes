@@ -8,8 +8,8 @@
     Lens
     Intensity
 
----------------
-Focus of a lens
----------------
+Focus of a lens.
+****************
+
 .. plot:: ./Examples/Commands/FocLens.py
    :include-source:

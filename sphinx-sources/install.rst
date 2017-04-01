@@ -1,6 +1,5 @@
-============
-Installation
-============
+Installation.
+*************
 
 LightPipes for Python can be installed if you have pip:
 

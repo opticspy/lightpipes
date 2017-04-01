@@ -1,6 +1,5 @@
-=================
-Command Reference
-=================
+Command Reference.
+******************
 
 .. automodule:: LightPipes
     :members:

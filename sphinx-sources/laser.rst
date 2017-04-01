@@ -1,8 +1,7 @@
 .. _Unstab:
 
-=====
-Laser
-=====
+Laser examples.
+***************
 
 .. Index::
      laser
@@ -13,10 +12,9 @@ Laser
      Lens
      Intensity
 
--------------------------------------------
-Unstable laser resonator
--------------------------------------------
+Unstable laser resonator.
+-------------------------
 
-.. plot:: ./Examples/Laser/Unstab.py
+.. plot:: ./Examples/Laser/unstable_resonator.py
    :include-source:
 

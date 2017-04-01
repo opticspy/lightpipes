@@ -1,8 +1,8 @@
 .. _interference:
 
-=====================
-Interference examples
-=====================
+Interference examples.
+**********************
+
 .. _Young:
 
 .. Index::
@@ -14,18 +14,16 @@ Interference examples
     Begin
     Intensity
 
-------------------
-Young's experiment
-------------------
+Young's experiment.
+-------------------
 
 .. plot:: ./Examples/Interference/Young.py
    :include-source:
 
 .. _Michelson:
 
-------------------------
-Michelson interferometer
-------------------------
+Michelson interferometer.
+-------------------------
 
 .. Index::
     Michelson

@@ -16,7 +16,7 @@ R=0.3*mm
 d=1.2*mm
 
 img=mpimg.imread('Young.png')
-plt.imshow(img); plt.axis('off');plt.title('Two holes interferometer, Young\'s experiment')
+plt.imshow(img); plt.axis('off')
 plt.show()
 
 F=Begin(size,wavelength,N)

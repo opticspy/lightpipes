@@ -1,8 +1,7 @@
 .. _zernike:
 
-==================
-Zernike aberration
-==================
+Zernike aberration.
+*******************
 
 Any aberration in a circle can be decomposed over a sum of Zernike 
 polynomials. The Zernike command accepts four arguments:
@@ -20,16 +19,14 @@ amplitude of the aberration.
     Begin
     Intensity
 
--------------------
-Zernike polynomials
--------------------
+Zernike polynomials.
+--------------------
 
 .. plot:: ./Examples/Zernike/Zernike.py
    :include-source:
 
----------------------------
-Radial shear interferometer
----------------------------
+Radial shear interferometer.
+----------------------------
 
 .. plot:: ./Examples/Zernike/rad_shear.py
    :include-source:

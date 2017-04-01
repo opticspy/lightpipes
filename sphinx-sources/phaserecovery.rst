@@ -1,12 +1,11 @@
 .. _PhaseRecovery:
 
-=====================
-Phase recovery
-=====================
+
+Phase recovery.
+***************
 
 .. Index::
      phase recovery
-     Axicon
      Begin
      Forvard
      Interpol
@@ -15,9 +14,8 @@ Phase recovery
      PhaseUnwrap
      Intensity
 
------------------------------------------------
-Phase recovery using Gerchberg Saxton iteration
------------------------------------------------
+Phase recovery using Gerchberg Saxton iteration.
+------------------------------------------------
 
 .. plot:: ./Examples/PhaseRecovery/PhaseRecovery.py
    :include-source:
