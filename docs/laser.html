@@ -59,7 +59,24 @@
 <span id="unstab"></span><h1>Laser examples.<a class="headerlink" href="#laser-examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="laser-simulation-stable-laser-resonator">
 <span id="index-0"></span><h2>Laser simulation, stable laser resonator.<a class="headerlink" href="#laser-simulation-stable-laser-resonator" title="Permalink to this headline">¶</a></h2>
-<iframe width="560" height="315" src="./_static/laser.m4v" frameborder="0" allowfullscreen></iframe><div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<p>A typical laser consists of two (concave or convex) mirrors separated some distance and a gain medium mostly based on
+stimulated emission. One (or both) of the mirrors is partly transmissive and when the
+mirrors are well aligned and the losses are below some maximum the radiation field inside the
+resonator will grow starting from noise by spontaneous emission as a function of the number of round trips. The laser intensity will be structured in
+a number of resonator modes depending on the wavelength, the curvatures of and the distance between the mirrors
+and especially the diameter of an intra-cavity aperture.</p>
+<div class="figure" id="id1">
+<img alt="_images/stab_laser.png" src="_images/stab_laser.png" />
+<p class="caption"><span class="caption-text">Laser resonator with gain.</span></p>
+</div>
+<p>In the python script below a number of parameters can be adjusted which allows the study of several
+important features of a laser. In the movie we show Q-switching to generate short high intensity pulses
+by changing the reflectivity of the outcoupling mirror, operation on high-order transversal modes by opening
+the aperture, changing the resonator g-parameters to study the stability criterion,
+injection of a high-order Gauss-Hermite mode and the effect of thin wires inside the resonator.</p>
+<iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe><div class="literal-block-wrapper docutils container" id="laser-simulation">
+<div class="code-block-caption"><span class="caption-text">laser_simulation.py</span><a class="headerlink" href="#laser-simulation" title="Permalink to this code">¶</a></div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">matplotlib.backends.backend_tkagg</span> <span class="k">import</span> <span class="n">FigureCanvasTkAgg</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -263,6 +280,7 @@
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="unstable-laser-resonator">
 <h2>Unstable laser resonator.<a class="headerlink" href="#unstable-laser-resonator" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#Unstable resonator.</span>
@@ -332,19 +350,19 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Laser/unstable_resonator.py">Source code</a>)</p>
-<div class="figure" id="id1">
+<div class="figure" id="id2">
 <img alt="_images/unstable_resonator_00.png" src="_images/unstable_resonator_00.png" />
 <p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_00.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_00.pdf">pdf</a>)</span></p>
 </div>
-<div class="figure" id="id2">
+<div class="figure" id="id3">
 <img alt="_images/unstable_resonator_01.png" src="_images/unstable_resonator_01.png" />
 <p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_01.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_01.pdf">pdf</a>)</span></p>
 </div>
-<div class="figure" id="id3">
+<div class="figure" id="id4">
 <img alt="_images/unstable_resonator_02.png" src="_images/unstable_resonator_02.png" />
 <p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_02.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_02.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_02.pdf">pdf</a>)</span></p>
 </div>
-<div class="figure" id="id4">
+<div class="figure" id="id5">
 <img alt="_images/unstable_resonator_03.png" src="_images/unstable_resonator_03.png" />
 <p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_03.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_03.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_03.pdf">pdf</a>)</span></p>
 </div>
@@ -379,6 +397,9 @@
 <li class="toctree-l1"><a class="reference internal" href="diffraction.html">Diffraction examples.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike aberration.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phaserecovery.html">Phase recovery.</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">Computer practicum.</a></li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -422,7 +443,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 01, 2017.
+      Last updated on Apr 02, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
     </div>
   </body>
