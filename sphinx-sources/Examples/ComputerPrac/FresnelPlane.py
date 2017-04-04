@@ -12,7 +12,7 @@ else:
 from LightPipes import *
 
 root = Tk.Tk()
-root.wm_title("Computer practicum: Fresnel plane wavefront")
+root.wm_title("Computer practical: 6.1 Fresnel plane wavefront")
 root.wm_protocol("WM_DELETE_WINDOW", root.quit)
 
 wavelength=530*nm;
