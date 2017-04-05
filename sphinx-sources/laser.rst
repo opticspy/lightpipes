@@ -1,5 +1,3 @@
-.. _Unstab:
-
 Laser examples.
 ***************
 
@@ -41,6 +39,8 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 .. literalinclude:: ./Examples/Laser/laser_simulation.py
     :caption: laser_simulation.py
     :name: laser-simulation
+
+.. _Unstab:
 
 Unstable laser resonator.
 -------------------------

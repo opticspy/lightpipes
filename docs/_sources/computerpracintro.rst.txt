@@ -31,10 +31,11 @@ The simulations make use of an optical toolbox (`LightPipes <http://www.okotech.
 
 The experiments should be done in the order given below and when possible repeated in the real laboratory.
 
-Experiments:
+Assignments.
 ------------
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    1SphericalWavefront
    2Reflect

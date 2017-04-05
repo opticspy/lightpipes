@@ -28,7 +28,7 @@ Examples:
    zernike
    phaserecovery
 
-Computer practicum:
+Computer practical:
 -------------------
 
 .. toctree::

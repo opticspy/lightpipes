@@ -11,7 +11,7 @@
     Begin
     Intensity
 
-1. Spherical wavefront
+1. Spherical wavefront.
 -----------------------
 
 .. figure:: ./figures/Augustin_Fresnel.jpg
