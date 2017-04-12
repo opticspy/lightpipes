@@ -24,10 +24,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Prepare your computer." href="preparepc.html" />
     <link rel="prev" title="5. Fabry Perot interferometer." href="5FabryPerot.html" /> 
   </head>
   <body role="document">
@@ -41,14 +40,11 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="preparepc.html" title="Prepare your computer."
-             accesskey="N">next</a> |</li>
-        <li class="right" >
           <a href="5FabryPerot.html" title="5. Fabry Perot interferometer."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="computerprac.html" >Computer practical.</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="computerpracintro.html" accesskey="U">Introduction.</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="assignments.html" accesskey="U">Assignments.</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,6 +55,7 @@
             
   <span class="target" id="fresneldiffraction"></span><div class="section" id="fresnel-diffraction">
 <span id="index-0"></span><h1>6. Fresnel diffraction.<a class="headerlink" href="#fresnel-diffraction" title="Permalink to this headline">¶</a></h1>
+<p>Download Python script: <a class="reference download internal" href="_downloads/FresnelPlane.py" download=""><code class="xref download docutils literal"><span class="pre">FresnelPlane.py</span></code></a></p>
 <div class="figure" id="id1">
 <img alt="_images/Augustin_Fresnel.jpg" src="_images/Augustin_Fresnel.jpg" />
 <p class="caption"><span class="caption-text"><em>Auguste Fresnel, (Broglie, 1788 – Ville-d&#8217;Avray, 1827)</em></span></p>
@@ -71,7 +68,10 @@ and also on the diameter, <span class="math">\(d\)</span>, of the hole and the d
 the hole to the screen.</p>
 <p>Here we study the case that <span class="math">\(\frac{A}{\lambda}\)</span> is larger than the distance to
 the screen: <span class="math">\(\frac{A}{\lambda}&gt;z\)</span>, where <span class="math">\(A=\frac{\pi}{4}d^2\)</span> is the area of the hole.
-In this so-called near field- or Fresnel diffraction regime a monochromatic plane or spherical wave that illuminates the hole will produce a diffraction pattern in the form of a set of concentric rings. The irradiance at the optical axis will be a minimum or a maximum when, at constant wavelength and hole diameter, the distance from the hole to the observation screen is reduced from inifinity to zero.</p>
+In this so-called near field- or Fresnel diffraction regime a monochromatic plane or spherical wave
+that illuminates the hole will produce a diffraction pattern in the form of a set of concentric rings.
+The irradiance at the optical axis will be a minimum or a maximum when, at constant wavelength and hole
+diameter, the distance from the hole to the observation screen is reduced from inifinity to zero.</p>
 <p>The rings appear after passing the critical distance
 (also called the Rayleigh length) <span class="math">\(z_R =\frac{A}{\lambda}\)</span>.
 If <span class="math">\(z &gt; z_R\)</span> no rings but a smooth irradiance distribution in the form
@@ -118,10 +118,10 @@ and a spherical wave.</p>
 <p class="caption"><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A plane wave enters a round hole in a screen.</em></span></p>
 </div>
 <div class="figure" id="id3">
-<img alt="_images/FresnelPlane.png" src="_images/FresnelPlane.png" />
-<p class="caption"><span class="caption-text"><em>Screen dump of the Fresnel diffraction experiment with a plane input wave.</em></span></p>
+<img alt="_images/FresnelPlaneScreenShot.png" src="_images/FresnelPlaneScreenShot.png" />
+<p class="caption"><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a plane input wave.</em></span></p>
 </div>
-<p>Download source code: <a class="reference download internal" href="_downloads/FresnelPlane.py" download=""><code class="xref download docutils literal"><span class="pre">FresnelPlane.py</span></code></a></p>
+<p>Download Python script: <a class="reference download internal" href="_downloads/FresnelPlane.py" download=""><code class="xref download docutils literal"><span class="pre">FresnelPlane.py</span></code></a></p>
 <blockquote>
 <div><ol class="arabic">
 <li><p class="first">Show that at the optical axis maximum and minimum irradiances are observed for distances <span class="math">\(z_m\)</span> if:</p>
@@ -146,8 +146,8 @@ and a spherical wave.</p>
 <p class="caption"><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A spherical wave from a point source enters a round hole in a screen.</em></span></p>
 </div>
 <div class="figure" id="id5">
-<img alt="_images/FresnelSpherical.png" src="_images/FresnelSpherical.png" />
-<p class="caption"><span class="caption-text"><em>Screen dump of the Fresnel diffraction experiment with a spherical input wave.</em></span></p>
+<img alt="_images/FresnelSphericalScreenShot.png" src="_images/FresnelSphericalScreenShot.png" />
+<p class="caption"><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a spherical input wave.</em></span></p>
 </div>
 <p>Download source code: <a class="reference download internal" href="_downloads/FresnelSpherical.py" download=""><code class="xref download docutils literal"><span class="pre">FresnelSpherical.py</span></code></a></p>
 <blockquote>
@@ -214,12 +214,7 @@ What is the irradiance on the optical axis when this number is odd and when it i
 <li class="toctree-l1"><a class="reference internal" href="phaserecovery.html">Phase recovery.</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">Computer practical.</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="computerpracintro.html">Introduction.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preparepc.html">Prepare your computer.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="assignments.html">Assignments.</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">Computer practical.</a></li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -246,8 +241,8 @@ What is the irradiance on the optical axis when this number is odd and when it i
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 05, 2017.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Last updated on Apr 12, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>
 </html>

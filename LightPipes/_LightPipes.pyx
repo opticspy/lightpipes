@@ -436,7 +436,7 @@ cdef class Init:
     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
     def Phase(self,Fin):
-        return self.thisptr.Phase(Fin)
+        return self.thisptr.Phase(Fin)    
     def PhaseUnwrap(self,Phi):
         return self.thisptr.PhaseUnwrap(Phi)        
     def PipFFT(self, index, Fin):    

@@ -9,7 +9,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from LightPipes import *
-
+print(LPversion)
 #Parameters used for the experiment:
 size=11*mm; #The CCD-sensor has an area of size x size (NB LightPipes needs square grids!)
 wavelength=632.8*nm; #wavelength of the HeNe laser used

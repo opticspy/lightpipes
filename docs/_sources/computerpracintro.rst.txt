@@ -5,8 +5,8 @@
      computer practical
      computer experiments
 
-Introduction.
-*************
+Introduction to computer practical.
+***********************************
 
 The computer optics laboratory offers a number of experiments that can be done on the computer using simulations of real optical problems. The computer lab is part of the `introduction to optics <https://www.utwente.nl/onderwijs/bachelor/opleidingen/technische-natuurkunde/studieprogramma/tweede-jaar/#module-6-golven-interferentie-en-waarschijnlijkheid>`_ (in Dutch!) course given during the second year `Applied Physics <https://www.utwente.nl/en/education/bachelor/programmes/applied-physics/>`_ (TN) Bachelor study of the faculty of Science and Technology (TNW) of the `University of Twente <http://www.utwente.nl/en/>`_.
 
@@ -17,11 +17,11 @@ Each experiment has a number of exercises to be done and questions to be answere
 
 The simulations make use of an optical toolbox (`LightPipes <http://www.okotech.com/>`_) with several commands for propagation, apertures, lenses, etc. The toolbox is written by Gleb Vdovin and is modified for this purpose by me. The toolbox is linked to each simulation program. It makes use of advanced propagation routines for solving the Fresnel-Kirchoff integral in two dimensions. The result is a very realistic optical simulation program for studying physical optics.
 
-+------------------------------------------------+--------------------------------------------+
-|.. figure:: ./figures/FresnelSphericalSetup.png | .. figure:: ./figures/FresnelSpherical.png |
-+------------------------------------------------+--------------------------------------------+
++------------------------------------------------+------------------------------------------------------+
+|.. figure:: ./figures/FresnelSphericalSetup.png | .. figure:: ./figures/FresnelSphericalScreenShot.png |
++------------------------------------------------+------------------------------------------------------+
 
-*Screen dump of one of the simulation programs (FresnelSpherical.py).*
+*Screenshot of one of the simulation programs (Fresnel diffraction with spherical wavefront as input).*
 
 +--------------------------------------+---------------------------------------+
 |.. figure:: ./figures/FresnelLab1.jpg | .. figure:: ./figures/FresnelLab2.jpg |
@@ -29,20 +29,23 @@ The simulations make use of an optical toolbox (`LightPipes <http://www.okotech.
 
 *Fresnel diffraction pattern as observed in the* `real optics lab <http://edu.tnw.utwente.nl/optprac/>`_
 
+The Python script file of each experiment can be downloaded and executed if you properly prepared your Python installation including the installation of the necessary packages, see: :ref:`Prepare your computer.`
 The experiments should be done in the order given below and when possible repeated in the real laboratory.
 
-Assignments.
-------------
+**Assignments:**
 
-.. toctree::
-   :maxdepth: 1
 
-   1SphericalWavefront
-   2Reflect
-   3TwoHoles
-   4NewtonRings
-   5FabryPerot
-   6FresnelDiffraction
+:ref:`1. Spherical wavefront.`
+
+:ref:`2. Internal reflection and refraction.`
+
+:ref:`3. Two holes interferometer.`
+
+:ref:`4. Newton rings.`
+
+:ref:`5. Fabry Perot interferometer.`
+
+:ref:`6. Fresnel diffraction.`
 
 Enjoy playing with optics!
 

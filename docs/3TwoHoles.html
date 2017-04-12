@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Newton rings." href="4NewtonRings.html" />
@@ -48,7 +48,7 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="computerprac.html" >Computer practical.</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="computerpracintro.html" accesskey="U">Introduction.</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="assignments.html" accesskey="U">Assignments.</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,23 +59,94 @@
             
   <span class="target" id="twoholes"></span><div class="section" id="two-holes-interferometer">
 <span id="index-0"></span><h1>3. Two holes interferometer.<a class="headerlink" href="#two-holes-interferometer" title="Permalink to this headline">¶</a></h1>
-<div class="figure" id="id2">
-<img alt="_images/Augustin_Fresnel.jpg" src="_images/Augustin_Fresnel.jpg" />
-<p class="caption"><span class="caption-text"><em>Auguste Fresnel, (Broglie, 1788 – Ville-d&#8217;Avray, 1827)</em></span></p>
+<p>Download Python script: <a class="reference download internal" href="_downloads/TwoHoles.py" download=""><code class="xref download docutils literal"><span class="pre">TwoHoles.py</span></code></a></p>
+<div class="figure" id="id1">
+<img alt="_images/Young_Thomas_Lawrence.jpg" src="_images/Young_Thomas_Lawrence.jpg" />
+<p class="caption"><span class="caption-text"><em>Thomas Young (Milverton, 1773 – London, 1829)</em></span></p>
 </div>
-<div class="section" id="id1">
-<h2>3.1 Two holes interferometer.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>When a screen with two small holes (or slits) is illuminated by a monochromatic beam
+of light an interference pattern can be observed on a screen some distance from the holes.
+This experiment is also called Young&#8217;s experiment.</p>
+<div class="figure" id="id2">
+<img alt="_images/twoholeslab.jpg" src="_images/twoholeslab.jpg" />
+<p class="caption"><span class="caption-text"><em>Fringes from a Young’s interferometer as observed in the lab. From left to right the distance between the CCD camera and the holes is increased. It can be seen that the two spherical waves emitted from the holes overlap and interfere better at larger distances.</em></span></p>
+</div>
+<p>Two experiments can be performed:</p>
+<div class="section" id="measurement-of-the-wavelength">
+<h2>3.1 Measurement of the wavelength.<a class="headerlink" href="#measurement-of-the-wavelength" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="_images/TwoHoles.png" src="_images/TwoHoles.png" />
+<p class="caption"><span class="caption-text"><em>Screenshot of the two holes experiment.</em></span></p>
+</div>
+<p>Download Python script: <a class="reference download internal" href="_downloads/TwoHoles.py" download=""><code class="xref download docutils literal"><span class="pre">TwoHoles.py</span></code></a></p>
+<div class="figure" id="id4">
+<img alt="_images/twoholessetup.png" src="_images/twoholessetup.png" />
+<p class="caption"><span class="caption-text"><em>Young&#8217;s experiment.</em></span></p>
+<div class="legend">
+<ol class="arabic simple">
+<li>Derive an expression that relates the distance between the fringes that can be observed
+on the screen to the wavelength of the light illuminating the holes,
+the distance to the observation screen, z, and the separation, d, of the two holes.</li>
+<li>Measure the wavelength of the light beam. Vary the values of values of
+d and z for this. Remember to choose values for d and z such that the theory is valid.
+Use the cross-hair that becomes visible when the mouse is positioned above the
+interference pattern. Estimate the experimental error you have to make
+(the main source of experimental errors will be, in this case, the read out of the
+mouse-position on the interference pattern.)</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="measurement-of-the-thickness-of-a-thin-film-that-covers-one-of-the-holes">
+<h2>3.2 Measurement of the thickness of a thin film that covers one of the holes.<a class="headerlink" href="#measurement-of-the-thickness-of-a-thin-film-that-covers-one-of-the-holes" title="Permalink to this headline">¶</a></h2>
+<p>With the second experiment a thin film is positioned in front of one of the holes.
+As depicted in the figure below the lower part of the incoming plane wave will travel
+along a longer optical path and will have a retarded phase compared to the upper part.
+As a consequence the theory of the Young’s interferometer must be modified taking into
+account the extra phase. With the film, maximum and minimum irradiance at the screen will
+now occur at different places and as a result the fringes are shifted. From the shift of
+the fringe pattern the film thickness can be determined if the refractive index of the
+film is known.</p>
+<div class="figure" id="id5">
+<img alt="_images/twoholes_with_filmsetup.png" src="_images/twoholes_with_filmsetup.png" />
+<p class="caption"><span class="caption-text"><em>Young&#8217;s experiment with thin film before one of the holes.</em></span></p>
+<div class="legend">
+<ol class="arabic simple">
+<li>A thin, transparent film with refractive index 1.5 can be positioned before one of the holes.
+Modify the theory to take into account the extra phase shift caused by the film.</li>
+<li>With this experiment you cannot determine the exact thickness of the film,
+but you can find a discrete set of thicknesses the film can have.
+Report the minimum thickness that this film can have.</li>
+<li>What values of the thickness of the film are possible too?</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="section" id="questions">
-<h2>3.2 Questions.<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<h2>3.3 Questions.<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>What happens if the beam of light is not monochromatic but contains
-a large number of wavelengths?</li>
-<li></li>
+<li>What condition must be fulfilled for the distance, <span class="math">\(z\)</span>, to the screen, the wavelength
+of the light, and the size of the holes for the theory that you used?</li>
+<li>What happens to the fringes if the beam of light is not monochromatic but contains a
+large number of wavelengths? How many fringes will be visible for white light?</li>
 </ol>
 </div></blockquote>
-<p><a class="reference external" href="https://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335">Literature: Pedrotti, 3rd ed., chapter 2 and chapter 15-2.</a></p>
+<p>You should be able to answer the following questions at the end of the course (Try to answer
+them now if you can!):</p>
+<blockquote>
+<div><ol class="arabic simple" start="3">
+<li>In relation with question 1: What type of diffraction are we talking about here?</li>
+<li>What will happen with the fringes if the spatial coherency of the beam is poor?
+(This means that there is no relation between the phases of the wavefront just before
+the two holes)</li>
+<li>Suppose that the coherent (laser) light is replaced by quasi monochromatic light
+such as a line from a mercury lamp. How can you prepare this light such that you can observe fringes?</li>
+<li>With the mercury lamp of the previous question, what will happen to the fringes if
+the thin film before one of the holes is replaced by a thick glass plate?</li>
+</ol>
+</div></blockquote>
+<p><a class="reference external" href="https://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335">Literature: Pedrotti, 3rd ed., chapter 7-2.</a></p>
 </div>
 </div>
 
@@ -105,12 +176,7 @@ a large number of wavelengths?</li>
 <li class="toctree-l1"><a class="reference internal" href="phaserecovery.html">Phase recovery.</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">Computer practical.</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="computerpracintro.html">Introduction.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preparepc.html">Prepare your computer.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="assignments.html">Assignments.</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">Computer practical.</a></li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -137,8 +203,8 @@ a large number of wavelengths?</li>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 05, 2017.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Last updated on Apr 12, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>
 </html>

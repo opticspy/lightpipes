@@ -24,11 +24,11 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. Internal reflection and refraction." href="2Reflect.html" />
-    <link rel="prev" title="Introduction." href="computerpracintro.html" /> 
+    <link rel="prev" title="Assignments." href="assignments.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -44,11 +44,11 @@
           <a href="2Reflect.html" title="2. Internal reflection and refraction."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="computerpracintro.html" title="Introduction."
+          <a href="assignments.html" title="Assignments."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="computerprac.html" >Computer practical.</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="computerpracintro.html" accesskey="U">Introduction.</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="assignments.html" accesskey="U">Assignments.</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,23 +59,77 @@
             
   <span class="target" id="sphericalwavefront"></span><div class="section" id="spherical-wavefront">
 <span id="index-0"></span><h1>1. Spherical wavefront.<a class="headerlink" href="#spherical-wavefront" title="Permalink to this headline">¶</a></h1>
+<p>Download Python script: <a class="reference download internal" href="_downloads/SphericalWavefront.py" download=""><code class="xref download docutils literal"><span class="pre">SphericalWavefront.py</span></code></a></p>
 <div class="figure" id="id1">
-<img alt="_images/Augustin_Fresnel.jpg" src="_images/Augustin_Fresnel.jpg" />
-<p class="caption"><span class="caption-text"><em>Auguste Fresnel, (Broglie, 1788 – Ville-d&#8217;Avray, 1827)</em></span></p>
+<img alt="_images/Christiaans_huigens_by_Caspar_Netscher.jpg" src="_images/Christiaans_huigens_by_Caspar_Netscher.jpg" />
+<p class="caption"><span class="caption-text"><em>Christiaan Huygens (Den Haag, 1629 – 1695)</em></span></p>
 </div>
-<div class="section" id="inverse-square-law">
-<h2>1.1 Inverse square law.<a class="headerlink" href="#inverse-square-law" title="Permalink to this headline">¶</a></h2>
+<p>In this experiment a spherical wavefront is made with a screen containing a small hole. If the diameter, <span class="math">\(d\)</span>, of the hole is small enough there will be a spherical wave at some distance behind the screen.</p>
+<p>You can check for a spherical wave by measuring the irradiance at the optical axis as a function of the distance, <span class="math">\(z\)</span>.</p>
+<p>Just behind the hole, the diameter of the spot is about equal to the diameter of the hole. When the distance, <span class="math">\(z\)</span>, increases the spot irradiance distribution will be a set of concentric rings with alternating maximum and minimum irradiance at the axis. At some distance, called the Rayleigh length, the pattern will change into a more uniform distribution. For distances shorter than the Rayleigh length the diffraction is called Fresnel or near-field diffraction and for larger distances Fraunhofer or far-field diffraction.  When <span class="math">\(z\)</span> is much larger than the Rayleigh length, the beam can be approximated near axis as a spherical wave.</p>
+<p>The Rayleigh length is also defined as the distance at which the area of the spot doubles and depends on the hole diameter and the wavelength of the light:</p>
+<div class="math">
+\[Z_R=\frac{{\pi}d^2}{4\lambda}=\frac{A}{\lambda}\]</div>
+<p>with <span class="math">\(A\)</span> the hole area. Another indicator of Fresnel- or Fraunhofer diffraction is the Fresnel number, given by:</p>
+<div class="math">
+\[N_F=\frac{{\pi}d^2}{4{\lambda}z}=\frac{Z_R}{z}\]</div>
+<p>The Fresnel number gives the number of so-called Fresnel half-wavelength zones ‘seen’ by the observer. If the number of zones is even, a minimum irradiance can be observed on axis. A maximum occurs if <span class="math">\(N_F\)</span>  is odd. (The Fresnel and Fraunhofer diffraction theory will be introduced in experiment 6, Fresnel Diffraction. Also see Pedrotti chapter 13). Depending on the required accuracy the minimum distance from the hole must be some factor times <span class="math">\(Z_R\)</span>. A factor 100-200 is often chosen, for this exercise a factor 10 will due.</p>
+<div class="figure" id="id2">
+<img alt="_images/SphericalWavefront2.jpg" src="_images/SphericalWavefront2.jpg" />
+<p class="caption"><span class="caption-text"><em>Fresnel or near-field diffraction</em></span></p>
+</div>
+<div class="figure" id="id3">
+<img alt="_images/SphericalWavefront1.jpg" src="_images/SphericalWavefront1.jpg" />
+<p class="caption"><span class="caption-text"><em>Fraunhofer or far-field diffraction</em></span></p>
+</div>
+<div class="section" id="irradiance-dependency-of-a-spherical-wavefront">
+<h2>1.1 Irradiance dependency of a spherical wavefront.<a class="headerlink" href="#irradiance-dependency-of-a-spherical-wavefront" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<img alt="_images/SphericalWavefrontSetup.gif" src="_images/SphericalWavefrontSetup.gif" />
+<p class="caption"><span class="caption-text"><em>Setup of the experiment. A spherical wave is made by illuminating a small hole in a screen.</em></span></p>
+</div>
+<div class="figure" id="id5">
+<img alt="_images/SphericalWavefrontScreenShot.png" src="_images/SphericalWavefrontScreenShot.png" />
+<p class="caption"><span class="caption-text"><em>Screenshot of the spherical wavefront experiment.</em></span></p>
+</div>
+<p>Download Python script: <a class="reference download internal" href="_downloads/SphericalWavefront.py" download=""><code class="xref download docutils literal"><span class="pre">SphericalWavefront.py</span></code></a></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Write down the expression for the irradiance distribution as a function of
+the propagation distance, <span class="math">\(z\)</span>, for a spherical electro-magnetic wave.</li>
+<li>Measure the irradiance at the optical axis as a function of <span class="math">\(z\)</span> for a
+small (<span class="math">\(d \approx 0.15 mm\)</span>) and a large (<span class="math">\(d \approx 0.65 mm\)</span>) hole diameter.</li>
+<li>Plot the irradiance as a function of <span class="math">\(z\)</span> for both hole diameters. Plot such that
+you obtain a straight line. (In general, the benefit of a straight line is that one can
+easily judge whether or not the theory is valid and also in which range of parameters
+the theory is valid. Furthermore, values of theoretical parameters can, in general,
+be obtained from the slope of the line and the axis-cut)</li>
+<li>Determine, for both cases, the range of <span class="math">\(z\)</span> for which the beam can be considered
+as spherical. Compare this range with the Rayleigh length.</li>
+</ol>
+</div></blockquote>
 </div>
 <div class="section" id="questions">
 <h2>1.2 Questions.<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<p>You should be able to answer the following questions:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>What happens if the beam of light is not monochromatic but contains
-a large number of wavelengths?</li>
-<li></li>
+<li>What happens if the diameter of the hole is too large and/or if the screen is too close to the hole?</li>
+<li>What is the influence of the wavelength?</li>
+<li>Why did you plot your results as a straight line?</li>
 </ol>
 </div></blockquote>
-<p><a class="reference external" href="https://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335">Literature: Pedrotti, 3rd ed., chapter 1-4.</a></p>
+<p>You should be able to answer the questions below at the end of the course (Try it now if you can!)</p>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li>What type of diffraction do you see just behind the hole and what type far away? What kind of diffraction are we dealing with for spherical waves?</li>
+<li>What is meant with the &#8220;Fresnel number&#8221; and “Rayleigh length”. When is the Fresnel number equal to one?</li>
+<li>What are Fresnel half-wavelength zones? What is the relation of these zones with the Fresnel number?</li>
+<li>A diffraction pattern can be considered as an interference phenomena. Why?</li>
+<li>Under some conditions the hole can be used as some kind of camera lens, the so-called pin-hole camera or “camera obscura”. What condition must be fulfilled and what are the advantages and disadvantages of such a camera compared to the common camera with a normal lens.</li>
+</ol>
+</div></blockquote>
+<p><a class="reference external" href="https://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335">Literature: Pedrotti 3rd ed. Chapter 1-4</a></p>
 </div>
 </div>
 
@@ -105,12 +159,7 @@ a large number of wavelengths?</li>
 <li class="toctree-l1"><a class="reference internal" href="phaserecovery.html">Phase recovery.</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">Computer practical.</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="computerpracintro.html">Introduction.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preparepc.html">Prepare your computer.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="assignments.html">Assignments.</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">Computer practical.</a></li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -137,8 +186,8 @@ a large number of wavelengths?</li>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 05, 2017.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+      Last updated on Apr 12, 2017.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>
 </html>

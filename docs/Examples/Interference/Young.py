@@ -17,6 +17,7 @@ d=1.2*mm
 
 img=mpimg.imread('Young.png')
 plt.imshow(img); plt.axis('off')
+
 plt.show()
 
 F=Begin(size,wavelength,N)

@@ -6721,8 +6721,8 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_84LPhelp(CYTHON_UNUSE
  * 
  *         """
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")             # <<<<<<<<<<<<<<
+ *         #webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):
- *         return self.thisptr.getGridSize()
  */
   __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_webbrowser); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 603, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -6756,9 +6756,9 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_84LPhelp(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":604
- *         """
+/* "LightPipes/_LightPipes.pyx":605
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
+ *         #webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):
@@ -6783,23 +6783,23 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_86getGridSize(struct 
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("getGridSize", 0);
 
-  /* "LightPipes/_LightPipes.pyx":605
- *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
+  /* "LightPipes/_LightPipes.pyx":606
+ *         #webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()             # <<<<<<<<<<<<<<
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getGridSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 605, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getGridSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 606, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":604
- *         """
+  /* "LightPipes/_LightPipes.pyx":605
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")
+ *         #webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):             # <<<<<<<<<<<<<<
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):
@@ -6816,7 +6816,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_86getGridSize(struct 
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":606
+/* "LightPipes/_LightPipes.pyx":607
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):             # <<<<<<<<<<<<<<
@@ -6843,17 +6843,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_88setGridSize(struct 
   double __pyx_t_1;
   __Pyx_RefNannySetupContext("setGridSize", 0);
 
-  /* "LightPipes/_LightPipes.pyx":607
+  /* "LightPipes/_LightPipes.pyx":608
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)             # <<<<<<<<<<<<<<
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newSize); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 607, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newSize); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 608, __pyx_L1_error)
   __pyx_v_self->thisptr->setGridSize(__pyx_t_1);
 
-  /* "LightPipes/_LightPipes.pyx":606
+  /* "LightPipes/_LightPipes.pyx":607
  *     def getGridSize(self):
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):             # <<<<<<<<<<<<<<
@@ -6873,7 +6873,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_88setGridSize(struct 
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":608
+/* "LightPipes/_LightPipes.pyx":609
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):             # <<<<<<<<<<<<<<
@@ -6900,7 +6900,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_90getWavelength(struc
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("getWavelength", 0);
 
-  /* "LightPipes/_LightPipes.pyx":609
+  /* "LightPipes/_LightPipes.pyx":610
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()             # <<<<<<<<<<<<<<
@@ -6908,13 +6908,13 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_90getWavelength(struc
  *         self.thisptr.setWavelength(newWavelength)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getWavelength()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 609, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getWavelength()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 610, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":608
+  /* "LightPipes/_LightPipes.pyx":609
  *     def setGridSize(self, newSize):
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):             # <<<<<<<<<<<<<<
@@ -6933,7 +6933,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_90getWavelength(struc
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":610
+/* "LightPipes/_LightPipes.pyx":611
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()
  *     def setWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
@@ -6960,17 +6960,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_92setWavelength(struc
   double __pyx_t_1;
   __Pyx_RefNannySetupContext("setWavelength", 0);
 
-  /* "LightPipes/_LightPipes.pyx":611
+  /* "LightPipes/_LightPipes.pyx":612
  *         return self.thisptr.getWavelength()
  *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)             # <<<<<<<<<<<<<<
  *     def getGridDimension(self):
  *         return self.thisptr.getGridDimension()
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newWavelength); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 611, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newWavelength); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 612, __pyx_L1_error)
   __pyx_v_self->thisptr->setWavelength(__pyx_t_1);
 
-  /* "LightPipes/_LightPipes.pyx":610
+  /* "LightPipes/_LightPipes.pyx":611
  *     def getWavelength(self):
  *         return self.thisptr.getWavelength()
  *     def setWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
@@ -6990,7 +6990,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_92setWavelength(struc
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":612
+/* "LightPipes/_LightPipes.pyx":613
  *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):             # <<<<<<<<<<<<<<
@@ -7016,19 +7016,19 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_94getGridDimension(st
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("getGridDimension", 0);
 
-  /* "LightPipes/_LightPipes.pyx":613
+  /* "LightPipes/_LightPipes.pyx":614
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):
  *         return self.thisptr.getGridDimension()             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getGridDimension()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 613, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getGridDimension()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 614, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":612
+  /* "LightPipes/_LightPipes.pyx":613
  *     def setWavelength(self, newWavelength):
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):             # <<<<<<<<<<<<<<
@@ -10531,8 +10531,8 @@ static int __Pyx_InitCachedConstants(void) {
  * 
  *         """
  *         webbrowser.open_new("https://pythonhosted.org/LightPipes/")             # <<<<<<<<<<<<<<
+ *         #webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):
- *         return self.thisptr.getGridSize()
  */
   __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_https_pythonhosted_org_LightPipe); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 603, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);

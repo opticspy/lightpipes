@@ -11,7 +11,9 @@
     Intensity
 
 6. Fresnel diffraction.
------------------------
+=======================
+
+Download Python script: :download:`FresnelPlane.py <./Examples/ComputerPrac/FresnelPlane.py>`
 
 .. figure:: ./figures/Augustin_Fresnel.jpg
 
@@ -26,7 +28,10 @@ the hole to the screen.
 
 Here we study the case that :math:`\frac{A}{\lambda}` is larger than the distance to
 the screen: :math:`\frac{A}{\lambda}>z`, where :math:`A=\frac{\pi}{4}d^2` is the area of the hole.
-In this so-called near field- or Fresnel diffraction regime a monochromatic plane or spherical wave that illuminates the hole will produce a diffraction pattern in the form of a set of concentric rings. The irradiance at the optical axis will be a minimum or a maximum when, at constant wavelength and hole diameter, the distance from the hole to the observation screen is reduced from inifinity to zero.
+In this so-called near field- or Fresnel diffraction regime a monochromatic plane or spherical wave 
+that illuminates the hole will produce a diffraction pattern in the form of a set of concentric rings. 
+The irradiance at the optical axis will be a minimum or a maximum when, at constant wavelength and hole 
+diameter, the distance from the hole to the observation screen is reduced from inifinity to zero.
 
 The rings appear after passing the critical distance
 (also called the Rayleigh length) :math:`z_R =\frac{A}{\lambda}`.
@@ -65,11 +70,11 @@ and a spherical wave.
 
     *Setup of the Fresnel diffraction experiment. A plane wave enters a round hole in a screen.*
 
-.. figure:: ./figures/FresnelPlane.png
+.. figure:: ./figures/FresnelPlaneScreenShot.png
     
-   *Screen dump of the Fresnel diffraction experiment with a plane input wave.*
+   *Screenshot of the Fresnel diffraction experiment with a plane input wave.*
 
-Download source code: :download:`FresnelPlane.py <./Examples/ComputerPrac/FresnelPlane.py>`
+Download Python script: :download:`FresnelPlane.py <./Examples/ComputerPrac/FresnelPlane.py>`
 
     1. Show that at the optical axis maximum and minimum irradiances are observed for distances :math:`z_m` if:
     
@@ -92,9 +97,9 @@ Download source code: :download:`FresnelPlane.py <./Examples/ComputerPrac/Fresne
 
     *Setup of the Fresnel diffraction experiment. A spherical wave from a point source enters a round hole in a screen.*
 
-.. figure:: ./figures/FresnelSpherical.png
+.. figure:: ./figures/FresnelSphericalScreenShot.png
 
-    *Screen dump of the Fresnel diffraction experiment with a spherical input wave.*
+    *Screenshot of the Fresnel diffraction experiment with a spherical input wave.*
     
 Download source code: :download:`FresnelSpherical.py <./Examples/ComputerPrac/FresnelSpherical.py>`
 
