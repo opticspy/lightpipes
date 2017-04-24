@@ -1,27 +1,32 @@
 from LightPipes import *
 import matplotlib.pyplot as plt
-import numpy as np
 
-wavelength=500*nm
-size=5.0*mm
-N=100
-R=1*mm
-z=1*m
-f=1*m
-dx=0*mm
-dy=0*mm
+size=40*mm
+wavelength=1*um
+N=256
+w=20*mm
+f=8*m
+z=4*m
 
-F=Begin(size,wavelength,N)
-F=CircAperture(R, 0, 0, F)
-F=Lens(f,dx,dy,F)
+Field = Begin(size, wavelength, N)
+Field = RectAperture(w, w, 0, 0, 0, Field)
+Field = Lens(f,0,0,Field)
+I0 = Intensity(0,Field)
+phi0 = Phase(Field)
 
+Field = Forvard(z, Field)
+I1 = Intensity(0,Field)
 
-II=np.zeros((100,100))
-F=MultPhase(II,F)   
-F=Forvard(z,F)
+x=[]
+for i in range(256):
+    x.append((-size/2+i*size/N)/mm)
 
+fig=plt.figure(figsize=(10,6))
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
 
-I=Intensity(2,F)
-#plt.imshow(I)
-plt.plot(I[int(N/2)][:N])
+ax1.plot(x,phi0[int(N/2)]);ax1.set_xlabel('x [mm]');ax1.set_ylabel('Phase [rad]')
+ax2.imshow(I0,cmap='gray'); ax2.axis('off')
+ax3.imshow(I1,cmap='gray'); ax3.axis('off')
 plt.show()

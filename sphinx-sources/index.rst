@@ -14,25 +14,23 @@ LightPipes for Python |release|.
    support
    command-reference
 
-Examples:
----------
+
 
 .. toctree::
-   :maxdepth: 2  
+   :maxdepth: 2
 
-   interference
-   besselbeam
-   laser
-   foclens
-   diffraction
-   zernike
-   phaserecovery
+   description_of_lightpipes_for_python
 
-Computer practical:
--------------------
+
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+
+   examples_of_lightpipes_for_python
+
+
+.. toctree::
+   :maxdepth: 2
     
    computerprac
 

@@ -12,8 +12,11 @@
 // Thanks to  guyskk@qq.com
 //
 // 27 February 2017
-// Implemneted 2-D PhaseUnwrap
+// Implemented 2-D PhaseUnwrap
 // 
+// 14 April 2017
+// repaired error in Convert: changed sign in phase.
+//
 
 using namespace std;
 complex<double> _j (0.0 , 1.0);
@@ -126,12 +129,97 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
         for (int j=0;j< N; j++){ 
             double fi;
             y=(j-n2)*dx;
-            fi=-K*(x2+y*y)/(2.*f);
+            fi=K*(x2+y*y)/(2.*f);
             Field.at(i).at(j) *= exp(_j * fi);
         }
     }
     doub1 = 0.0;
     return Field;
+    }
+    CMPLXVEC lpspy::Forward(double z, double new_size, int new_n, CMPLXVEC Field ){
+    CMPLXVEC FieldNew;
+    FieldNew.resize(new_n, vector<complex<double> >(new_n,1.0));
+    int i_old, i_new, j_old, j_new;
+    int old_n,  on21, nn21;
+    double old_size;
+    double  x_new, y_new, dx_new, dx_old;
+    double  P1, P2, P3, P4, R22, dum; 
+    double fc1, fs1, fc2, fs2, fc3, fs3, fc4, fs4, fr, fi;
+    double c4c1, c2c3, c4s1, s4c1, s2c3, c2s1, s4c3, s2c1, c4s3, s2s3, s2s1, c2s3, s4s1, c4c3, s4s3, c2c1;
+
+    old_size = size;
+    old_n    = N;
+
+    on21     = (int)old_n/2 + 1;
+    nn21     = (int)new_n/2 + 1;
+    dx_new   = new_size/(new_n-1);
+    dx_old   = old_size/(old_n-1);
+
+    R22=sqrt(1./(2.*lambda*z));          
+    fs1=fc1=fs2=fc2=fs3=fc3=fs4=fc4=0.; /* to make the compiler happy */    
+
+    for (i_new = 0; i_new < new_n; i_new++){
+        x_new = (i_new - nn21 + 1) * dx_new; 
+        for (j_new = 0; j_new < new_n; j_new++){
+            y_new = (j_new - nn21 + 1) * dx_new; 
+            FieldNew.at(i_new).at(j_new) = (0.,0.);
+            for (i_old = 0; i_old < old_n; i_old++){
+                int io=i_old-on21+1; /* bug repaired: +1 added to formula */
+                for (j_old = 0; j_old < old_n; j_old++){
+                    int jo=j_old-on21+1; /* bug repaired: +1 added to formula */   
+                    P1=R22*(2*(dx_old*io-x_new)+dx_old);
+                    P2=R22*(2*(dx_old*jo-y_new)-dx_old);
+                    P3=R22*(2*(dx_old*io-x_new)-dx_old);
+                    P4=R22*(2*(dx_old*jo-y_new)+dx_old);
+                    dum=fresnl(P1,&fs1, &fc1);
+                    dum=fresnl(P2,&fs2, &fc2);
+                    dum=fresnl(P3,&fs3, &fc3);
+                    dum=fresnl(P4,&fs4, &fc4);
+                    fr=0.5*real(Field.at(i_old).at(j_old));
+                    fi=0.5*imag(Field.at(i_old).at(j_old));
+                    c4c1=fc4*fc1;
+                    c2s3=fc2*fs3;
+                    c4s1=fc4*fs1;
+                    s4c1=fs4*fc1;
+                    s2c3=fs2*fc3;
+                    c2s1=fc2*fs1;
+                    s4c3=fs4*fc3;
+                    s2c1=fs2*fc1;
+                    c4s3=fc4*fs3;
+                    s2s3=fs2*fs3;
+                    s2s1=fs2*fs1;
+                    c2c3=fc2*fc3;
+                    s4s1=fs4*fs1;
+                    c4c3=fc4*fc3;
+                    c4c1=fc4*fc1;
+                    s4s3=fs4*fs3;
+                    c2c1=fc2*fc1;
+                    FieldNew.at(i_new).at(j_new).real(
+                                                        real(FieldNew.at(i_new).at(j_new)) + 
+                                                        fr*( c2s3+c4s1+s4c1+s2c3-c2s1-s4c3-s2c1-c4s3)
+                                                     );
+                                                     
+                    FieldNew.at(i_new).at(j_new).real(
+                                                        real(FieldNew.at(i_new).at(j_new)) + 
+                                                        fi*(-s2s3+s2s1+c2c3-s4s1-c4c3+c4c1+s4s3-c2c1)
+                                                     );
+                                                     
+                    FieldNew.at(i_new).at(j_new).imag(
+                                                        imag(FieldNew.at(i_new).at(j_new)) + 
+                                                        fr*(-c4c1+s2s3+c4c3-s4s3+c2c1-s2s1+s4s1-c2c3)
+                                                     );
+                                                     
+                    FieldNew.at(i_new).at(j_new).imag(
+                                                        imag(FieldNew.at(i_new).at(j_new)) + 
+                                                        fi*( c2s3+s2c3+c4s1+s4c1-c4s3-s4c3-c2s1-s2c1)
+                                                     ); 
+                }
+            }
+        }
+    }
+    size=new_size;
+    N=new_n;
+    return FieldNew;
     }
     CMPLXVEC lpspy::Forvard(double zz, CMPLXVEC Field ){
     fftw_complex* in_out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * N * N);
@@ -792,7 +880,7 @@ CMPLXVEC lpspy::PipFFT( int ind, CMPLXVEC Field ){
     fftw_destroy_plan(planB);
     fftw_free(in_out);
     fftw_cleanup();
-    return Field;	
+    return Field;
 }
 double lpspy::Power( CMPLXVEC Field ){
     double sum;

@@ -20,6 +20,7 @@ class lpspy {
         CMPLXVEC CircAperture(double R, double x_shift, double y_shift, CMPLXVEC Fin);
         CMPLXVEC CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fin);
         CMPLXVEC Convert( CMPLXVEC Fin );
+        CMPLXVEC Forward(double z, double sizenew, int Nnew, CMPLXVEC Field );
         CMPLXVEC Forvard(double z, CMPLXVEC Fin);
         CMPLXVEC Fresnel(double z, CMPLXVEC Fin);
         CMPLXVEC Gain( double Isat, double gain, double L, CMPLXVEC Fin );

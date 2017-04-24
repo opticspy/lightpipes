@@ -7,6 +7,7 @@ __all__ = [
     'CircAperture',
     'CircScreen',
     'Convert',
+    'Forward',
     'Forvard',
     'Fresnel',
     'Gain',
@@ -59,7 +60,7 @@ for name in __all__:
 
 # define some units
 m = 1.0;mm=1e-3*m; cm=1e-2*m;um=1e-6*m;nm=1e-9*m
-rad=1;mrad=1e-3*rad
+rad=1.0;mrad=1e-3*rad
 W = 1.0;mW = 1e-3*W
 
 __all__.extend([
