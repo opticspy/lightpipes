@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Manual. &#8212; LightPipes for Python 1.1.3 documentation</title>
+    <title>5. Manual. &#8212; LightPipes for Python 1.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Examples." href="examples_of_lightpipes_for_python.html" />
-    <link rel="prev" title="Command Reference." href="command-reference.html" /> 
+    <link rel="next" title="6. Examples." href="examples_of_lightpipes_for_python.html" />
+    <link rel="prev" title="4. Command Reference." href="command-reference.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,10 +41,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="examples_of_lightpipes_for_python.html" title="Examples."
+          <a href="examples_of_lightpipes_for_python.html" title="6. Examples."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="command-reference.html" title="Command Reference."
+          <a href="command-reference.html" title="4. Command Reference."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
       </ul>
@@ -56,11 +56,11 @@
           <div class="body" role="main">
             
   <div class="section" id="manual">
-<h1>Manual.<a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h1>
+<h1>5. Manual.<a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="first-steps">
-<h2>First steps.<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. First steps.<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="starting-the-calculations">
-<span id="begin"></span><h3>Starting the calculations.<a class="headerlink" href="#starting-the-calculations" title="Permalink to this headline">¶</a></h3>
+<span id="begin"></span><h3>5.1.1. Starting the calculations.<a class="headerlink" href="#starting-the-calculations" title="Permalink to this headline">¶</a></h3>
 <p>All the calculations must start with the <em>Begin</em> command. This command defines the size of the square grid, the grid dimension and the wave length of the field.Before any LightPipes commands the LightPipes package must be imported in your Python script. It is very convenient to use units. Units are included in the LightPipes package.</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from LightPipes import *
 &gt;&gt;&gt; <span class="nv">GridSize</span> <span class="o">=</span> <span class="m">30</span>*mm
@@ -76,11 +76,11 @@
 <p>A two dimensional array will be defined containing the complex numbers with the real and imaginary parts equal to one and zero respectively.</p>
 </div>
 <div class="section" id="the-dimensions-of-structures">
-<h3>The dimensions of structures.<a class="headerlink" href="#the-dimensions-of-structures" title="Permalink to this headline">¶</a></h3>
+<h3>5.1.2. The dimensions of structures.<a class="headerlink" href="#the-dimensions-of-structures" title="Permalink to this headline">¶</a></h3>
 <p>The field structures in LightPipes are two dimensional arrays of complex numbers. For example a grid with 256x256 points asks about 1Mb of memory. 512x512 points ask more then 4Mb and 1024x1024 16Mb. Some commands, however need more memory because internal arrays are necessary. Grids up to 2000 x 2000 points are possible with common PC&#8217;s and laptops.</p>
 </div>
 <div class="section" id="apertures-and-screens">
-<span id="gaussscreen"></span><span id="gaussaperture"></span><span id="rectscreen"></span><span id="rectaperture"></span><span id="circscreen"></span><span id="circaperture"></span><h3>Apertures and screens.<a class="headerlink" href="#apertures-and-screens" title="Permalink to this headline">¶</a></h3>
+<span id="gaussscreen"></span><span id="gaussaperture"></span><span id="rectscreen"></span><span id="rectaperture"></span><span id="circscreen"></span><span id="circaperture"></span><h3>5.1.3. Apertures and screens.<a class="headerlink" href="#apertures-and-screens" title="Permalink to this headline">¶</a></h3>
 <p>The simplest component to model is an aperture. There are three different types of apertures:</p>
 <ol class="arabic simple">
 <li>The circular aperture: <em>CircAperture(R, xs, ys, Field)</em></li>
@@ -140,7 +140,7 @@
 <p><em>Fig. 2. The use of screens and apertures.</em></p>
 </div>
 <div class="section" id="graphing-and-visualisation">
-<span id="phaseunwrap"></span><span id="phase"></span><span id="intensity"></span><h3>Graphing and visualisation.<a class="headerlink" href="#graphing-and-visualisation" title="Permalink to this headline">¶</a></h3>
+<span id="phaseunwrap"></span><span id="phase"></span><span id="intensity"></span><h3>5.1.4. Graphing and visualisation.<a class="headerlink" href="#graphing-and-visualisation" title="Permalink to this headline">¶</a></h3>
 <p>In figure 1 and 2 the intensity of the field is calculated after aperturing ‘Field’ with the <em>Intensity</em> command using option 0, which means that no normalization is applied. Alternatives are option 1: normalization to 1 and option 2: normalization to 255 for displaying gray-values (not often needed). Use has been made of the package &#8220;matplotlib&#8221; which can be installed by typing at the python prompt:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
 </pre></div>
@@ -206,10 +206,10 @@
 <span class="target" id="freespacepropagation"></span></div>
 </div>
 <div class="section" id="free-space-propagation">
-<span id="index-0"></span><h2>Free space propagation.<a class="headerlink" href="#free-space-propagation" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2>5.2. Free space propagation.<a class="headerlink" href="#free-space-propagation" title="Permalink to this headline">¶</a></h2>
 <p>There are four different possibilities for modelling the light propagation in LightPipes.</p>
 <div class="section" id="fft-propagation-spectral-method-forvard">
-<span id="forvard"></span><h3>FFT propagation (spectral method) (<em>Forvard</em>).<a class="headerlink" href="#fft-propagation-spectral-method-forvard" title="Permalink to this headline">¶</a></h3>
+<span id="forvard"></span><h3>5.2.1. FFT propagation (spectral method) (<em>Forvard</em>).<a class="headerlink" href="#fft-propagation-spectral-method-forvard" title="Permalink to this headline">¶</a></h3>
 <p>Let us consider the wave function <span class="math">\(U\)</span> in two planes: <span class="math">\(U(x,y,0\)</span>) and <span class="math">\(U(x,y,z)\)</span>. Suppose then that
 <span class="math">\(U(x,y,z)\)</span> is the result of propagation of <span class="math">\(U(x,y,0)\)</span> to the distance <span class="math">\(z\)</span> ,
 with the Fourier transforms of these two (initial and propagated ) wave functions
@@ -325,7 +325,7 @@ or in other words it will reconstruct the initial field from the one diffracted.
 <p><em>Fig. 5. The initial filed, the field propagated to the near field and the field propagated back</em></p>
 </div>
 <div class="section" id="direct-integration-as-a-convolution-fft-approach-fresnel">
-<span id="fresnel"></span><h3>Direct integration as a convolution: FFT approach (<em>Fresnel</em>).<a class="headerlink" href="#direct-integration-as-a-convolution-fft-approach-fresnel" title="Permalink to this headline">¶</a></h3>
+<span id="fresnel"></span><h3>5.2.2. Direct integration as a convolution: FFT approach (<em>Fresnel</em>).<a class="headerlink" href="#direct-integration-as-a-convolution-fft-approach-fresnel" title="Permalink to this headline">¶</a></h3>
 <p>Another possibility of a fast computer implementation of the operator <span class="math">\(L^+\)</span> is free
 from many of the drawbacks of the described spectral algorithm. The operator <span class="math">\(L^+\)</span> may be
 numerically implemented with direct summation of the Fresnel-Kirchoff diffraction integral:</p>
@@ -361,7 +361,7 @@ is comparable with (or less than) the characteristic size of the aperture
 at which the field is diffracted. In this case <em>Forvard</em> or <em>Steps</em> should be used.</p>
 </div>
 <div class="section" id="direct-integration-forward">
-<span id="forward"></span><h3>Direct integration (<em>Forward</em>).<a class="headerlink" href="#direct-integration-forward" title="Permalink to this headline">¶</a></h3>
+<span id="forward"></span><h3>5.2.3. Direct integration (<em>Forward</em>).<a class="headerlink" href="#direct-integration-forward" title="Permalink to this headline">¶</a></h3>
 <p>Direct calculation of the Fresnel-Kirchoff integrals is very inefficient in two-dimensional grids. The number of operations is proportional to <span class="math">\(N^4\)</span> , where <span class="math">\(N\)</span> is the grid sampling. With direct integration we do not have any reflection at the grid boundary, so the size of the grid can just match the cross section of field distribution. LightPipes include a program <em>Forward</em> realizing direct integration. <em>Forward</em> has the following features:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -372,7 +372,7 @@ from a grid containing for example 52 x 52 points corresponding to 4.9 x4 .9 cm 
 </div></blockquote>
 </div>
 <div class="section" id="finite-difference-method-steps">
-<span id="steps"></span><h3>Finite difference method (<em>Steps</em>).<a class="headerlink" href="#finite-difference-method-steps" title="Permalink to this headline">¶</a></h3>
+<span id="steps"></span><h3>5.2.4. Finite difference method (<em>Steps</em>).<a class="headerlink" href="#finite-difference-method-steps" title="Permalink to this headline">¶</a></h3>
 <p>It can be shown that the propagation of the field <span class="math">\(U\)</span> in a medium with complex
 refractive coefficient <span class="math">\(A\)</span>, is described by the differential equation:</p>
 <div class="math" id="equation-8">
@@ -443,7 +443,7 @@ field should be taken into account.</p>
 </div>
 </div>
 <div class="section" id="splitting-and-mixing-beams">
-<span id="beammix"></span><span id="intattenuator"></span><h2>Splitting and mixing beams.<a class="headerlink" href="#splitting-and-mixing-beams" title="Permalink to this headline">¶</a></h2>
+<span id="beammix"></span><span id="intattenuator"></span><h2>5.3. Splitting and mixing beams.<a class="headerlink" href="#splitting-and-mixing-beams" title="Permalink to this headline">¶</a></h2>
 <p>There are two commands in LightPipes which are useful for modelling of interferometers. With <em>IntAttenuator</em> we can split the field structure (amplitude division) - The two obtained fields could be processed separately and then mixed again with the routine <em>BeamMix</em>. In this script we have formed two beams each containing one “shifted” hole. After mixing these two beams we have a screen with two holes: a Young’s interferometer.</p>
 <p>(<a class="reference external" href="./Examples/Interference/Young.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.pdf">pdf</a>)</p>
 <div class="figure">
@@ -479,7 +479,7 @@ field should be taken into account.</p>
 <p>This example uses approximately 25 times less memory than the previous FFT. The calculation may take long execution time to tens of seconds or more, depending on the speed of the computer.</p>
 </div>
 <div class="section" id="interpolation">
-<span id="interpol"></span><h2>Interpolation.<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+<span id="interpol"></span><h2>5.4. Interpolation.<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
 <p>The command <em>Interpol</em> is the tool for manipulating the size and the dimension of the grid and for changing the shift, rotation and the scale of the field distribution. It accepts six command line arguments, the first is the new size of the grid. The second argument gives the new number of points, the third gives the value of transverse shift in the X direction, the fourth gives the shift in the Y direction, the fifth gives the field rotation (first shift and then rotation). The last sixth argument determines the magnification, its action is equivalent to passing the beam through a focal system with magnification M (without diffraction, but preserving the integral intensity). For example if the field was propagated with the FFT algorithm <em>Forvard</em>, then the grid contains empty borders, which is not necessary if we want to propagate the field further with <em>Forward</em>. Other way around, after <em>Forward</em> we have to add some empty borders to continue with <em>Forvard</em>. <em>Interpol</em> is useful for interpolating into a grid with different size and number of points. Of course it is not too wise to interpolate from a grid of 512x512 points into a grid of 8x8, and then back because all information about the field will be lost. The same is true for interpolating the  grid of 1mx1m to 1mmx1mm and back. When interpolating into a grid with larger size, for example from 1x1 to 2x2, the program puts zeros into the new added regions. Figure 11 illustrates the usage of <em>Interpol</em> for the transition from a fine grid used by <em>Forvard</em> (near field) to a coarse grid used by <em>Forward</em> (far field).</p>
 <p>(<a class="reference external" href="./Examples/Commands/Interpol.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.png">png</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.pdf">pdf</a>)</p>
 <div class="figure">
@@ -492,7 +492,7 @@ field should be taken into account.</p>
 <p><em>Fig. 11. Illustration of the usage of Interpol for the transition from a fine grid used by Forvard (near field) to a coarse grid used by Forward (far field).</em></p>
 </div>
 <div class="section" id="phase-and-intensity-filters">
-<span id="axicon"></span><span id="tilt"></span><span id="lens"></span><h2>Phase and intensity filters.<a class="headerlink" href="#phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
+<span id="axicon"></span><span id="tilt"></span><span id="lens"></span><h2>5.5. Phase and intensity filters.<a class="headerlink" href="#phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
 <p>There are four kinds of phase filters available in LightPipes -wave front tilt, the quadratic phase corrector called lens, a general aberration in the form of a Zernike polynomial, and a user defined filter. To illustrate the usage of these filters let’s consider the following examples:</p>
 <p>(<a class="reference external" href="./Examples/Commands/Lens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Lens.png">png</a>, <a class="reference external" href="./Examples/Commands/Lens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Lens.pdf">pdf</a>)</p>
 <div class="figure">
@@ -511,7 +511,7 @@ field should be taken into account.</p>
 <p>In this example the wave front was tilted by <span class="math">\(\alpha = 0.1 mrad\)</span> in X and Y directions, then propagated to the distance <span class="math">\(z=8m\)</span> , so in the output distribution we observe the transversal shift of the whole intensity distribution by <span class="math">\(\alpha Z=0.8mm\)</span> .</p>
 </div>
 <div class="section" id="zernike-polynomials">
-<span id="zernike"></span><h2>Zernike polynomials.<a class="headerlink" href="#zernike-polynomials" title="Permalink to this headline">¶</a></h2>
+<span id="zernike"></span><h2>5.6. Zernike polynomials.<a class="headerlink" href="#zernike-polynomials" title="Permalink to this headline">¶</a></h2>
 <p>Any aberration in a circle can be decomposed over a sum of Zernike polynomials. Formulas given in <a class="footnote-reference" href="#f7" id="id13">[7]</a> have been directly implemented in LightPipes. The command is called <em>Zernike</em> and accepts four command line arguments:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -549,7 +549,7 @@ This index corresponds to the <span class="math">\(n-2m\)</span> given in the th
 <p><em>Fig. 14. The intensity in the input plane and after propagation through a cylindrical system modelled as a combination of Zernike polynomials and free space propagation.</em></p>
 </div>
 <div class="section" id="spherical-coordinates">
-<span id="convert"></span><span id="lensfresnel"></span><span id="lensforvard"></span><span id="sphericalcoordinates"></span><h2>Spherical coordinates.<a class="headerlink" href="#spherical-coordinates" title="Permalink to this headline">¶</a></h2>
+<span id="convert"></span><span id="lensfresnel"></span><span id="lensforvard"></span><span id="sphericalcoordinates"></span><h2>5.7. Spherical coordinates.<a class="headerlink" href="#spherical-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>The principle of beam propagation in the “floating” co-ordinate system (for the case of a lens wave guide) is shown in Figure 15.</p>
 <div class="figure">
 <img alt="_images/spherical_coordinates.png" src="_images/spherical_coordinates.png" />
@@ -617,7 +617,7 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <p><em>Fig 16b. With a stronger lens the straight-forward method requires more grid points.</em></p>
 </div>
 <div class="section" id="user-defined-phase-and-intensity-filters">
-<span id="multphase"></span><span id="multintensity"></span><span id="subphase"></span><span id="subintensity"></span><h2>User defined phase and intensity filters.<a class="headerlink" href="#user-defined-phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
+<span id="multphase"></span><span id="multintensity"></span><span id="subphase"></span><span id="subintensity"></span><h2>5.8. User defined phase and intensity filters.<a class="headerlink" href="#user-defined-phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
 <p>The phase and intensity of the light beam can be manipulated in several ways. The phase and intensity distributions may be produced as shown in the next examples:</p>
 <p>(<a class="reference external" href="./Examples/Commands/subintphase1.py">Source code</a>, <a class="reference external" href="./Examples/Commands/subintphase1.png">png</a>, <a class="reference external" href="./Examples/Commands/subintphase1.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/subintphase1.pdf">pdf</a>)</p>
 <div class="figure">
@@ -632,11 +632,11 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <p><em>Fig. 18. Illustration of importing a bit map from disk.</em></p>
 </div>
 <div class="section" id="random-filters">
-<span id="randomphase"></span><span id="randomintensity"></span><h2>Random filters.<a class="headerlink" href="#random-filters" title="Permalink to this headline">¶</a></h2>
+<span id="randomphase"></span><span id="randomintensity"></span><h2>5.9. Random filters.<a class="headerlink" href="#random-filters" title="Permalink to this headline">¶</a></h2>
 <p>There are two random filters to introduce a random intensity or a random phase distribution in the field. The commands <em>RandomIntensity</em> and <em>RandomPhase</em> need a seed to initiate the random number generator. Use has been made of the standard C function rand. The <em>RandomPhase</em> command needs a maximum phase value (in radians). The <em>RandomIntensity</em> command yields a normalised random intensity distribution. The <em>RandomIntensity</em> and the <em>RandomPhase</em> commands leave the phase and the intensity unchanged respectively.</p>
 </div>
 <div class="section" id="fft-and-spatial-filters">
-<span id="pipfft"></span><h2>FFT and spatial filters.<a class="headerlink" href="#fft-and-spatial-filters" title="Permalink to this headline">¶</a></h2>
+<span id="pipfft"></span><h2>5.10. FFT and spatial filters.<a class="headerlink" href="#fft-and-spatial-filters" title="Permalink to this headline">¶</a></h2>
 <p>LightPipes provide a possibility to perform arbitrary filtering in the Fourier space. There is an operator, performing the Fourier transform of the whole data structure: <em>PipFFT</em>.</p>
 <p>(<a class="reference external" href="./Examples/Commands/PipFFT.py">Source code</a>, <a class="reference external" href="./Examples/Commands/PipFFT.png">png</a>, <a class="reference external" href="./Examples/Commands/PipFFT.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/PipFFT.pdf">pdf</a>)</p>
 <div class="figure">
@@ -646,14 +646,14 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <p>Note, we still can apply all the intensity and phase filters in the Fourier-space. The whole grid size in the angular frequency domain corresponds to <span class="math">\(\frac{2 \pi \lambda}{\Delta x}\)</span>, where <span class="math">\(\Delta x\)</span> is the grid step. One step in the frequency domain corresponds to <span class="math">\(\frac{2 \pi \lambda}{x}\)</span>, where <span class="math">\(x\)</span> is the total size of the grid. LightPipes filters do not know about all these transformations, so the user should take care about setting the proper size (using the relations mentioned) of the filter (still in linear units) in the frequency domain.</p>
 </div>
 <div class="section" id="laser-amplifier">
-<span id="gain"></span><h2>Laser amplifier.<a class="headerlink" href="#laser-amplifier" title="Permalink to this headline">¶</a></h2>
+<span id="gain"></span><h2>5.11. Laser amplifier.<a class="headerlink" href="#laser-amplifier" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Gain</em> command introduces a simple single-layer model of a laser amplifier. The output field is given by:
 <span class="math">\(F_{out}(x,y) = F_{in}(x,y) e^{\alpha L_{gain}}\)</span>, with <span class="math">\(\alpha = \dfrac{\alpha_0}{1 + {2 I(x,y)}/{I_{sat}}}\)</span>. <span class="math">\(2\alpha L_{gain}\)</span> is the net round-trip intensity gain. <span class="math">\(\alpha_0\)</span> is the small-signal intensity gain and <span class="math">\(I_{sat}\)</span> is the saturation intensity of the gain medium with a length <span class="math">\(L_{gain}\)</span>.</p>
 <p>The intensity must be doubled because of the left- and right propagating fields in a normal resonator. (If only one field is propagating in one direction (ring laser) you should double <span class="math">\(I_{sat}\)</span> to remove the factor 2 in the denominator).</p>
 <p>The gain sheet should be at one of the mirrors of a (un)stable laser resonator.</p>
 </div>
 <div class="section" id="diagnostics-strehl-ratio-beam-power">
-<span id="power"></span><span id="normal"></span><span id="strehl"></span><h2>Diagnostics: Strehl ratio, beam power.<a class="headerlink" href="#diagnostics-strehl-ratio-beam-power" title="Permalink to this headline">¶</a></h2>
+<span id="power"></span><span id="normal"></span><span id="strehl"></span><h2>5.12. Diagnostics: Strehl ratio, beam power.<a class="headerlink" href="#diagnostics-strehl-ratio-beam-power" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Strehl</em> command calculates the Strehl ratio of the field, defined as:</p>
 <div class="math">
 \[S= \frac{(\int  \int Re(F_{in}(x,y)dxdy)^2  + (\int  \int Im(F_{in}(x,y)dxdy)^2}{(\int \int |(F_{in}(x,y)|dxdy)^2}\]</div>
@@ -727,15 +727,6 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 </td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="f9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[9]</td><td><ol class="first last upperalpha simple" start="4">
-<li>Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).</li>
-</ol>
-</td></tr>
-</tbody>
-</table>
 </div>
 </div>
 
@@ -746,37 +737,43 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/underconstruction.png" alt="Logo"/>
+              <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
 <h3><a href="index.html">Table Of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">Support.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="command-reference.html">Command Reference.</a></li>
-</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Manual.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#first-steps">First steps.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#free-space-propagation">Free space propagation.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#splitting-and-mixing-beams">Splitting and mixing beams.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#interpolation">Interpolation.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#phase-and-intensity-filters">Phase and intensity filters.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#zernike-polynomials">Zernike polynomials.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#spherical-coordinates">Spherical coordinates.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-defined-phase-and-intensity-filters">User defined phase and intensity filters.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#random-filters">Random filters.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fft-and-spatial-filters">FFT and spatial filters.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#laser-amplifier">Laser amplifier.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#diagnostics-strehl-ratio-beam-power">Diagnostics: Strehl ratio, beam power.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Manual.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-steps">5.1. First steps.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-calculations">5.1.1. Starting the calculations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-dimensions-of-structures">5.1.2. The dimensions of structures.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apertures-and-screens">5.1.3. Apertures and screens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphing-and-visualisation">5.1.4. Graphing and visualisation.</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#free-space-propagation">5.2. Free space propagation.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fft-propagation-spectral-method-forvard">5.2.1. FFT propagation (spectral method) (<em>Forvard</em>).</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#direct-integration-as-a-convolution-fft-approach-fresnel">5.2.2. Direct integration as a convolution: FFT approach (<em>Fresnel</em>).</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#direct-integration-forward">5.2.3. Direct integration (<em>Forward</em>).</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finite-difference-method-steps">5.2.4. Finite difference method (<em>Steps</em>).</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="examples_of_lightpipes_for_python.html">Examples.</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#splitting-and-mixing-beams">5.3. Splitting and mixing beams.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interpolation">5.4. Interpolation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phase-and-intensity-filters">5.5. Phase and intensity filters.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zernike-polynomials">5.6. Zernike polynomials.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spherical-coordinates">5.7. Spherical coordinates.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-defined-phase-and-intensity-filters">5.8. User defined phase and intensity filters.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-filters">5.9. Random filters.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fft-and-spatial-filters">5.10. FFT and spatial filters.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#laser-amplifier">5.11. Laser amplifier.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diagnostics-strehl-ratio-beam-power">5.12. Diagnostics: Strehl ratio, beam power.</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="computerprac.html">Computer practical.</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples_of_lightpipes_for_python.html">6. Examples.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -803,7 +800,7 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 24, 2017.
+      Last updated on Apr 28, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

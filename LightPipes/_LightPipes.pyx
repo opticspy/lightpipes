@@ -421,7 +421,47 @@ cdef class Init:
             Fout: output field (N x N square array of complex numbers).
    
         """    
-        return self.thisptr.IntAttenuator( att, Fin)                          
+        return self.thisptr.IntAttenuator( att, Fin)
+    def Intensity(self,flag,Fin):
+        """
+        I=Intensity(flag,Fin)
+        
+        :ref:`Calculates the intensity of the field. <Intensity>`
+        
+        :math:`I(x,y)=F_{in}(x,y).F_{in}(x,y)^*`
+        
+        Args::
+        
+            flag: 0= no normalization, 1=normalized to 1, 2=normalized to 255 (for bitmaps)
+            Fin: input field
+            
+        Returns::
+        
+            I: intensity distribution (N x N square array of doubles)
+
+        """
+        return self.thisptr.Intensity(flag,Fin)                
+    def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
+        """
+        Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)
+        
+        :ref:`Interpolates the field to a new grid size, grid dimension. <Interpol>`
+        
+        Args::
+        
+            NewSize: the new grid size
+            NewN: the new grid dimension
+            x_shift, y_shift: shift of the field
+            angle: rotation of the field in degrees
+            magnif: magnification of the field amplitude
+            Fin: input field
+            
+        Returns::
+            
+            Fout: output field (Nnew x Nnew square array of complex numbers).
+  
+        """
+        return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)                        
     def Lens(self, f, x_shift, y_shift, Fin):
         """
         Fout = Lens(f, x_shift, y_shift, Fin)
@@ -537,46 +577,6 @@ cdef class Init:
   
         """
         return self.thisptr.Normal(Fin)        
-    def Intensity(self,flag,Fin):
-        """
-        I=Intensity(flag,Fin)
-        
-        :ref:`Calculates the intensity of the field. <Intensity>`
-        
-        :math:`I(x,y)=F_{in}(x,y).F_{in}(x,y)^*`
-        
-        Args::
-        
-            flag: 0= no normalization, 1=normalized to 1, 2=normalized to 255 (for bitmaps)
-            Fin: input field
-            
-        Returns::
-        
-            I: intensity distribution (N x N square array of doubles)
-
-        """
-        return self.thisptr.Intensity(flag,Fin)                
-    def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):
-        """
-        Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)
-
-        :ref:`Interpolates the field to a new grid size, grid dimension. <Interpol>`
-            
-        Args::
-            
-            NewSize: the new grid size
-            NewN: the new grid dimension
-            x_shift, y_shift: shift of the field
-            angle: rotation of the field in degrees
-            magnif: magnification of the field amplitude
-            Fin: input field
-            
-        Returns::
-            
-            Fout: output field (Nnew x Nnew square array of complex numbers).
-  
-        """
-        return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
     def Phase(self,Fin):
         """
         Phi=Phase(Fin)
@@ -739,6 +739,10 @@ cdef class Init:
           
             Fout: ouput field (N x N square array of complex numbers).
             
+        Example:
+        
+        :ref:`Propagation through a lens like medium <lenslikemedium>`
+        
         """
         return self.thisptr.Steps(z, nstep, refr, Fin)  
     def Strehl(self, Fin):
@@ -917,6 +921,18 @@ cdef class Init:
         else:
             return ""
     def LPtest(self):
+        """
+        Performs a test to check if the installation of the LightPipes package was successful.
+        
+        Args::
+        
+            -
+            
+        Returns::
+        
+            "LightPipes for Python: test passed."
+    
+        """
         self.thisptr.test()
     def LPhelp(self):
         """
@@ -927,12 +943,83 @@ cdef class Init:
         """
         webbrowser.open_new("https://opticspy.github.io/lightpipes/")
     def getGridSize(self):
+        """
+        size_grid = getGridSize()
+        
+        Returns the value of the size of the grid in meters.
+        
+        Args::
+            
+            -
+            
+        Returns::
+        
+            size_grid: Size of the grid (real number).
+
+        """
         return self.thisptr.getGridSize()        
     def setGridSize(self, newSize):
+        """
+        setGridSize(newGridSize)
+        
+        Changes the value of the grid size.
+        
+        Args::
+        
+            newGridSize: New size of the grid.
+            
+        Returns::
+        
+            -
+
+        """
         self.thisptr.setGridSize(newSize)
     def getWavelength(self):
+        """
+        wavelength = getWavelength()
+        
+        Returns the value of the wavelength in meters.
+        
+        Args::
+        
+            -
+            
+        Returns::
+        
+            wavelength: Value of the wavelength (real number).
+
+        """
         return self.thisptr.getWavelength()
     def setWavelength(self, newWavelength):
+        """
+        setWavelength(newWavelength)
+        
+        Changes the value of the wavelength.
+        
+        Args::
+        
+            newWavelength: New value of the wavelength.
+            
+        Returns::
+        
+            -
+
+        """ 
         self.thisptr.setWavelength(newWavelength)
     def getGridDimension(self):
+        """
+        grid-dimension = getGridDimension()
+        
+        Returns the value of the grid dimension.
+        The grid dimension cannot be set. Use: :ref:`Interpol. <Interpol>`
+        
+        Args::
+        
+            -
+            
+        Returns::
+        
+            grid-dimension: Value of the dimension of the grid (integer).
+
+        """
         return self.thisptr.getGridDimension()

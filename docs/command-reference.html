@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Command Reference. &#8212; LightPipes for Python 1.1.3 documentation</title>
+    <title>4. Command Reference. &#8212; LightPipes for Python 1.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Manual." href="description_of_lightpipes_for_python.html" />
-    <link rel="prev" title="Support." href="support.html" /> 
+    <link rel="next" title="5. Manual." href="description_of_lightpipes_for_python.html" />
+    <link rel="prev" title="3. Support." href="support.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,10 +41,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="description_of_lightpipes_for_python.html" title="Manual."
+          <a href="description_of_lightpipes_for_python.html" title="5. Manual."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="support.html" title="Support."
+          <a href="support.html" title="3. Support."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
       </ul>
@@ -56,7 +56,7 @@
           <div class="body" role="main">
             
   <div class="section" id="module-LightPipes">
-<span id="command-reference"></span><h1>Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline">¶</a></h1>
+<span id="command-reference"></span><h1>4. Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="LightPipes.Axicon">
 <code class="descname">Axicon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition">¶</a></dt>
@@ -366,6 +366,43 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 </dd></dl>
 
 <dl class="function">
+<dt id="LightPipes.Intensity">
+<code class="descname">Intensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Intensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>I=Intensity(flag,Fin)</p>
+<p><a class="reference internal" href="description_of_lightpipes_for_python.html#intensity"><span class="std std-ref">Calculates the intensity of the field.</span></a></p>
+<p><span class="math">\(I(x,y)=F_{in}(x,y).F_{in}(x,y)^*\)</span></p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">flag</span><span class="p">:</span> <span class="mi">0</span><span class="o">=</span> <span class="n">no</span> <span class="n">normalization</span><span class="p">,</span> <span class="mi">1</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">255</span> <span class="p">(</span><span class="k">for</span> <span class="n">bitmaps</span><span class="p">)</span>
+<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">:</span> <span class="n">intensity</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="LightPipes.Interpol">
+<code class="descname">Interpol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)</p>
+<p><a class="reference internal" href="description_of_lightpipes_for_python.html#interpol"><span class="std std-ref">Interpolates the field to a new grid size, grid dimension.</span></a></p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NewSize</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">size</span>
+<span class="n">NewN</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">dimension</span>
+<span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
+<span class="n">angle</span><span class="p">:</span> <span class="n">rotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">degrees</span>
+<span class="n">magnif</span><span class="p">:</span> <span class="n">magnification</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span> <span class="n">amplitude</span>
+<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">Nnew</span> <span class="n">x</span> <span class="n">Nnew</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="LightPipes.Lens">
 <code class="descname">Lens</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Lens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Lens(f, x_shift, y_shift, Fin)</p>
@@ -470,43 +507,6 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 </dd></dl>
 
 <dl class="function">
-<dt id="LightPipes.Intensity">
-<code class="descname">Intensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Intensity" title="Permalink to this definition">¶</a></dt>
-<dd><p>I=Intensity(flag,Fin)</p>
-<p><a class="reference internal" href="description_of_lightpipes_for_python.html#intensity"><span class="std std-ref">Calculates the intensity of the field.</span></a></p>
-<p><span class="math">\(I(x,y)=F_{in}(x,y).F_{in}(x,y)^*\)</span></p>
-<p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">flag</span><span class="p">:</span> <span class="mi">0</span><span class="o">=</span> <span class="n">no</span> <span class="n">normalization</span><span class="p">,</span> <span class="mi">1</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">255</span> <span class="p">(</span><span class="k">for</span> <span class="n">bitmaps</span><span class="p">)</span>
-<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
-</pre></div>
-</div>
-<p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">:</span> <span class="n">intensity</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
-<dt id="LightPipes.Interpol">
-<code class="descname">Interpol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)</p>
-<p><a class="reference internal" href="description_of_lightpipes_for_python.html#interpol"><span class="std std-ref">Interpolates the field to a new grid size, grid dimension.</span></a></p>
-<p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NewSize</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">size</span>
-<span class="n">NewN</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">dimension</span>
-<span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
-<span class="n">angle</span><span class="p">:</span> <span class="n">rotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">degrees</span>
-<span class="n">magnif</span><span class="p">:</span> <span class="n">magnification</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span> <span class="n">amplitude</span>
-<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
-</pre></div>
-</div>
-<p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">Nnew</span> <span class="n">x</span> <span class="n">Nnew</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="LightPipes.Phase">
 <code class="descname">Phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Phase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Phi=Phase(Fin)</p>
@@ -591,7 +591,7 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#randomphase"><span class="std std-ref">Adds random phase to the field</span></a></p>
 <p>Args:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">seed</span><span class="p">:</span> <span class="n">seed</span> <span class="n">number</span> <span class="k">for</span> <span class="n">the</span> <span class="n">random</span> <span class="n">noise</span> <span class="n">generator</span>
-<span class="n">maxPhase</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">phase</span>
+<span class="n">maxPhase</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">radians</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
@@ -657,6 +657,8 @@ square array refr.</span></a></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">ouput</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
+<p>Example:</p>
+<p><a class="reference internal" href="examples_of_lightpipes_for_python.html#lenslikemedium"><span class="std std-ref">Propagation through a lens like medium</span></a></p>
 </dd></dl>
 
 <dl class="function">
@@ -774,32 +776,90 @@ Thanks to: Tim van Werkhoven, <a class="reference external" href="https://github
 <dl class="function">
 <dt id="LightPipes.getGridSize">
 <code class="descname">getGridSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getGridSize" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>size_grid = getGridSize()</p>
+<p>Returns the value of the size of the grid in meters.</p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">size_grid</span><span class="p">:</span> <span class="n">Size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.setGridSize">
-<code class="descname">setGridSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setGridSize" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">setGridSize</code><span class="sig-paren">(</span><em>newGridSize</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setGridSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the value of the grid size.</p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">newGridSize</span><span class="p">:</span> <span class="n">New</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.getWavelength">
 <code class="descname">getWavelength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getWavelength" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>wavelength = getWavelength()</p>
+<p>Returns the value of the wavelength in meters.</p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="p">:</span> <span class="n">Value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavelength</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.setWavelength">
-<code class="descname">setWavelength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setWavelength" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">setWavelength</code><span class="sig-paren">(</span><em>newWavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setWavelength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the value of the wavelength.</p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">newWavelength</span><span class="p">:</span> <span class="n">New</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavelength</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.getGridDimension">
 <code class="descname">getGridDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getGridDimension" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>grid-dimension = getGridDimension()</p>
+<p>Returns the value of the grid dimension.
+The grid dimension cannot be set. Use: <a class="reference internal" href="description_of_lightpipes_for_python.html#interpol"><span class="std std-ref">Interpol.</span></a></p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">-</span><span class="n">dimension</span><span class="p">:</span> <span class="n">Value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="p">(</span><span class="n">integer</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.LPtest">
 <code class="descname">LPtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPtest" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Performs a test to check if the installation of the LightPipes package was successful.</p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;LightPipes for Python: test passed.&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.LPhelp">
@@ -817,23 +877,17 @@ Thanks to: Tim van Werkhoven, <a class="reference external" href="https://github
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/underconstruction.png" alt="Logo"/>
+              <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">Support.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Reference.</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">Manual.</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="examples_of_lightpipes_for_python.html">Examples.</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="computerprac.html">Computer practical.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">5. Manual.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_of_lightpipes_for_python.html">6. Examples.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
 </ul>
 
   <div role="note" aria-label="source link">
@@ -860,7 +914,7 @@ Thanks to: Tim van Werkhoven, <a class="reference external" href="https://github
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 24, 2017.
+      Last updated on Apr 28, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

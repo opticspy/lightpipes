@@ -139,8 +139,8 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = '_static/Unstab_2.png'
-html_logo = 'figures/underconstruction.png'
+html_logo = '_static/front.png'
+#html_logo = 'figures/underconstruction.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

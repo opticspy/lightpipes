@@ -1474,10 +1474,10 @@ static std::vector<__pyx_t_double_complex>  __pyx_convert_vector_from_py___pyx_t
 static std::vector<std::vector<__pyx_t_double_complex> >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(PyObject *); /*proto*/
 static PyObject *__pyx_convert_vector_to_py___pyx_t_double_complex(const std::vector<__pyx_t_double_complex>  &); /*proto*/
 static PyObject *__pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(const std::vector<std::vector<__pyx_t_double_complex> >  &); /*proto*/
-static std::vector<double>  __pyx_convert_vector_from_py_double(PyObject *); /*proto*/
-static std::vector<std::vector<double> >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(PyObject *); /*proto*/
 static PyObject *__pyx_convert_vector_to_py_double(const std::vector<double>  &); /*proto*/
 static PyObject *__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(const std::vector<std::vector<double> >  &); /*proto*/
+static std::vector<double>  __pyx_convert_vector_from_py_double(PyObject *); /*proto*/
+static std::vector<std::vector<double> >  __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(PyObject *); /*proto*/
 #define __Pyx_MODULE_NAME "LightPipes._LightPipes"
 int __pyx_module_is_main_LightPipes___LightPipes = 0;
 
@@ -1685,14 +1685,14 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_26GaussScreen(struct 
 static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_28GaussHermite(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_m, PyObject *__pyx_v_n, PyObject *__pyx_v_A, PyObject *__pyx_v_w0, PyObject *__pyx_v_Fin); /* proto */
 static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_30GaussLaguerre(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_p, PyObject *__pyx_v_m, PyObject *__pyx_v_A, PyObject *__pyx_v_w0, PyObject *__pyx_v_Fin); /* proto */
 static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_32IntAttenuator(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_att, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_34Lens(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_36LensForvard(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_38LensFresnel(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_40MultIntensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Intens, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_42MultPhase(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Phase, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_44Normal(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_flag, PyObject *__pyx_v_Fin); /* proto */
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_48Interpol(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_new_size, PyObject *__pyx_v_new_number, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_angle, PyObject *__pyx_v_magnif, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_34Intensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_flag, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_36Interpol(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_new_size, PyObject *__pyx_v_new_number, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_angle, PyObject *__pyx_v_magnif, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_38Lens(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_40LensForvard(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_42LensFresnel(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_44MultIntensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Intens, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46MultPhase(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Phase, PyObject *__pyx_v_Fin); /* proto */
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_48Normal(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Fin); /* proto */
 static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_50Phase(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Fin); /* proto */
 static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_52PhaseUnwrap(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Phi); /* proto */
 static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_54PipFFT(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_index, PyObject *__pyx_v_Fin); /* proto */
@@ -3682,7 +3682,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_32IntAttenuator(struc
  * 
  *         """
  *         return self.thisptr.IntAttenuator( att, Fin)             # <<<<<<<<<<<<<<
- *     def Lens(self, f, x_shift, y_shift, Fin):
+ *     def Intensity(self,flag,Fin):
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
@@ -3716,672 +3716,15 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_32IntAttenuator(struc
 /* "LightPipes/_LightPipes.pyx":425
  *         """
  *         return self.thisptr.IntAttenuator( att, Fin)
- *     def Lens(self, f, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = Lens(f, x_shift, y_shift, Fin)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_35Lens(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_34Lens[] = "\n        Fout = Lens(f, x_shift, y_shift, Fin)\n\n        :ref:`Propagates the field through an ideal, thin lens. <Lens>`\n\n        It adds a phase given by:\n        :math:`F_{out}(x,y)=e^{-j\\frac{2\\pi}{\\lambda}\\left(\\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\\right)}F_{in}(x,y)`\n            \n        Args::\n        \n            f: focal length\n            x_shift, y_shift: shift from center\n            Fin: input field\n            \n        Returns::\n        \n            Fout: output field (N x N square array of complex numbers).\n    \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_35Lens(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_f = 0;
-  PyObject *__pyx_v_x_shift = 0;
-  PyObject *__pyx_v_y_shift = 0;
-  PyObject *__pyx_v_Fin = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("Lens (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_x_shift,&__pyx_n_s_y_shift,&__pyx_n_s_Fin,0};
-    PyObject* values[4] = {0,0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 1); __PYX_ERR(0, 425, __pyx_L3_error)
-        }
-        case  2:
-        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 2); __PYX_ERR(0, 425, __pyx_L3_error)
-        }
-        case  3:
-        if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 3); __PYX_ERR(0, 425, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Lens") < 0)) __PYX_ERR(0, 425, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-    }
-    __pyx_v_f = values[0];
-    __pyx_v_x_shift = values[1];
-    __pyx_v_y_shift = values[2];
-    __pyx_v_Fin = values[3];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 425, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.Lens", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_34Lens(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_f, __pyx_v_x_shift, __pyx_v_y_shift, __pyx_v_Fin);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_34Lens(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
-  double __pyx_t_2;
-  double __pyx_t_3;
-  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_4;
-  PyObject *__pyx_t_5 = NULL;
-  __Pyx_RefNannySetupContext("Lens", 0);
-
-  /* "LightPipes/_LightPipes.pyx":445
- * 
- *         """
- *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)             # <<<<<<<<<<<<<<
- *     def LensForvard(self, f, z, Fin):
- *         """
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 445, __pyx_L1_error)
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 445, __pyx_L1_error)
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 445, __pyx_L1_error)
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 445, __pyx_L1_error)
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Lens(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 445, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_r = __pyx_t_5;
-  __pyx_t_5 = 0;
-  goto __pyx_L0;
-
-  /* "LightPipes/_LightPipes.pyx":425
- *         """
- *         return self.thisptr.IntAttenuator( att, Fin)
- *     def Lens(self, f, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = Lens(f, x_shift, y_shift, Fin)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.Lens", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "LightPipes/_LightPipes.pyx":446
- *         """
- *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
- *     def LensForvard(self, f, z, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = LensForvard(f, z, Fin)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_37LensForvard(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_36LensForvard[] = "\n        Fout = LensForvard(f, z, Fin)\n\n        :ref:`Propagates the field in a variable spherical coordinate system. <LensForvard>`\n            \n        Args::\n            \n            f: focal length\n            z: propagation distance\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n            \n        Example:\n            \n        :ref:`Spherical coordinates <SphericalCoordinates>`\n            \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_37LensForvard(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_f = 0;
-  PyObject *__pyx_v_z = 0;
-  PyObject *__pyx_v_Fin = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("LensForvard (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_z,&__pyx_n_s_Fin,0};
-    PyObject* values[3] = {0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 1); __PYX_ERR(0, 446, __pyx_L3_error)
-        }
-        case  2:
-        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 2); __PYX_ERR(0, 446, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensForvard") < 0)) __PYX_ERR(0, 446, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-    }
-    __pyx_v_f = values[0];
-    __pyx_v_z = values[1];
-    __pyx_v_Fin = values[2];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 446, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensForvard", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_36LensForvard(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_f, __pyx_v_z, __pyx_v_Fin);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_36LensForvard(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
-  double __pyx_t_2;
-  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  __Pyx_RefNannySetupContext("LensForvard", 0);
-
-  /* "LightPipes/_LightPipes.pyx":467
- * 
- *         """
- *         return self.thisptr.LensForvard(f, z, Fin)             # <<<<<<<<<<<<<<
- *     def LensFresnel(self, f, z, Fin):
- *         """
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 467, __pyx_L1_error)
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensForvard(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 467, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_r = __pyx_t_4;
-  __pyx_t_4 = 0;
-  goto __pyx_L0;
-
-  /* "LightPipes/_LightPipes.pyx":446
- *         """
- *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
- *     def LensForvard(self, f, z, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = LensForvard(f, z, Fin)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensForvard", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "LightPipes/_LightPipes.pyx":468
- *         """
- *         return self.thisptr.LensForvard(f, z, Fin)
- *     def LensFresnel(self, f, z, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = LensFresnel(f, z, Fin)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_39LensFresnel(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_38LensFresnel[] = "\n        Fout = LensFresnel(f, z, Fin)\n\n        :ref:`Propagates the field in a variable spherical coordinate system. <LensFresnel>`\n            \n        Args::\n            \n            f: focal length\n            z: propagation distance\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n            \n        Example:\n            \n        :ref:`Spherical coordinates <SphericalCoordinates>`\n            \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_39LensFresnel(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_f = 0;
-  PyObject *__pyx_v_z = 0;
-  PyObject *__pyx_v_Fin = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("LensFresnel (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_z,&__pyx_n_s_Fin,0};
-    PyObject* values[3] = {0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 1); __PYX_ERR(0, 468, __pyx_L3_error)
-        }
-        case  2:
-        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 2); __PYX_ERR(0, 468, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensFresnel") < 0)) __PYX_ERR(0, 468, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-    }
-    __pyx_v_f = values[0];
-    __pyx_v_z = values[1];
-    __pyx_v_Fin = values[2];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 468, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensFresnel", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_38LensFresnel(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_f, __pyx_v_z, __pyx_v_Fin);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_38LensFresnel(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
-  double __pyx_t_2;
-  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  __Pyx_RefNannySetupContext("LensFresnel", 0);
-
-  /* "LightPipes/_LightPipes.pyx":489
- * 
- *         """
- *         return self.thisptr.LensFresnel(f, z, Fin)             # <<<<<<<<<<<<<<
- *     def MultIntensity(self, Intens, Fin):
- *         """
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 489, __pyx_L1_error)
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 489, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 489, __pyx_L1_error)
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensFresnel(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 489, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_r = __pyx_t_4;
-  __pyx_t_4 = 0;
-  goto __pyx_L0;
-
-  /* "LightPipes/_LightPipes.pyx":468
- *         """
- *         return self.thisptr.LensForvard(f, z, Fin)
- *     def LensFresnel(self, f, z, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = LensFresnel(f, z, Fin)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensFresnel", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "LightPipes/_LightPipes.pyx":490
- *         """
- *         return self.thisptr.LensFresnel(f, z, Fin)
- *     def MultIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = MultIntensity(Intens, Fin)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_41MultIntensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_40MultIntensity[] = "\n        Fout = MultIntensity(Intens, Fin)\n\n        :ref:`Multiplies the field with a given intensity distribution. <MultIntensity>`\n            \n        Args::\n            \n            Intens: N x N square array of real numbers\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_41MultIntensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_Intens = 0;
-  PyObject *__pyx_v_Fin = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("MultIntensity (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_Intens,&__pyx_n_s_Fin,0};
-    PyObject* values[2] = {0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Intens)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, 1); __PYX_ERR(0, 490, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultIntensity") < 0)) __PYX_ERR(0, 490, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-    }
-    __pyx_v_Intens = values[0];
-    __pyx_v_Fin = values[1];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 490, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_40MultIntensity(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_Intens, __pyx_v_Fin);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_40MultIntensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Intens, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::vector<std::vector<double> >  __pyx_t_1;
-  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  __Pyx_RefNannySetupContext("MultIntensity", 0);
-
-  /* "LightPipes/_LightPipes.pyx":506
- * 
- *         """
- *         return self.thisptr.MultIntensity( Intens, Fin)             # <<<<<<<<<<<<<<
- *     def MultPhase(self, Phase, Fin):
- *         """
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 506, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 506, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 506, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
-  goto __pyx_L0;
-
-  /* "LightPipes/_LightPipes.pyx":490
- *         """
- *         return self.thisptr.LensFresnel(f, z, Fin)
- *     def MultIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = MultIntensity(Intens, Fin)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "LightPipes/_LightPipes.pyx":507
- *         """
- *         return self.thisptr.MultIntensity( Intens, Fin)
- *     def MultPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = MultPhase(Phase, Fin)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_43MultPhase(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_42MultPhase[] = "\n        Fout = MultPhase(Phase, Fin)\n\n        :ref:`Multiplies the field with a given phase distribution. <MultPhase>`\n            \n        Args::\n            \n            Phase: N x N square array of real numbers\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_43MultPhase(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_Phase = 0;
-  PyObject *__pyx_v_Fin = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("MultPhase (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_Phase,&__pyx_n_s_Fin,0};
-    PyObject* values[2] = {0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Phase)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, 1); __PYX_ERR(0, 507, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultPhase") < 0)) __PYX_ERR(0, 507, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-    }
-    __pyx_v_Phase = values[0];
-    __pyx_v_Fin = values[1];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 507, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_42MultPhase(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_Phase, __pyx_v_Fin);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_42MultPhase(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Phase, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::vector<std::vector<double> >  __pyx_t_1;
-  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  __Pyx_RefNannySetupContext("MultPhase", 0);
-
-  /* "LightPipes/_LightPipes.pyx":523
- * 
- *         """
- *         return self.thisptr.MultPhase( Phase, Fin)             # <<<<<<<<<<<<<<
- *     def Normal(self, Fin):
- *         """
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 523, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 523, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 523, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_r = __pyx_t_3;
-  __pyx_t_3 = 0;
-  goto __pyx_L0;
-
-  /* "LightPipes/_LightPipes.pyx":507
- *         """
- *         return self.thisptr.MultIntensity( Intens, Fin)
- *     def MultPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = MultPhase(Phase, Fin)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "LightPipes/_LightPipes.pyx":524
- *         """
- *         return self.thisptr.MultPhase( Phase, Fin)
- *     def Normal(self, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = Normal(Fin)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_45Normal(PyObject *__pyx_v_self, PyObject *__pyx_v_Fin); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_44Normal[] = "\n        Fout = Normal(Fin)\n\n        :ref:`Normalizes the field. <Normal>`\n            \n        Args::\n            \n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_45Normal(PyObject *__pyx_v_self, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("Normal (wrapper)", 0);
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_44Normal(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), ((PyObject *)__pyx_v_Fin));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_44Normal(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Fin) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  __Pyx_RefNannySetupContext("Normal", 0);
-
-  /* "LightPipes/_LightPipes.pyx":539
- * 
- *         """
- *         return self.thisptr.Normal(Fin)             # <<<<<<<<<<<<<<
- *     def Intensity(self,flag,Fin):
- *         """
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 539, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Normal(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 539, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "LightPipes/_LightPipes.pyx":524
- *         """
- *         return self.thisptr.MultPhase( Phase, Fin)
- *     def Normal(self, Fin):             # <<<<<<<<<<<<<<
- *         """
- *         Fout = Normal(Fin)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("LightPipes._LightPipes.Init.Normal", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "LightPipes/_LightPipes.pyx":540
- *         """
- *         return self.thisptr.Normal(Fin)
  *     def Intensity(self,flag,Fin):             # <<<<<<<<<<<<<<
  *         """
  *         I=Intensity(flag,Fin)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_47Intensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_46Intensity[] = "\n        I=Intensity(flag,Fin)\n        \n        :ref:`Calculates the intensity of the field. <Intensity>`\n        \n        :math:`I(x,y)=F_{in}(x,y).F_{in}(x,y)^*`\n        \n        Args::\n        \n            flag: 0= no normalization, 1=normalized to 1, 2=normalized to 255 (for bitmaps)\n            Fin: input field\n            \n        Returns::\n        \n            I: intensity distribution (N x N square array of doubles)\n\n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_47Intensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_35Intensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_34Intensity[] = "\n        I=Intensity(flag,Fin)\n        \n        :ref:`Calculates the intensity of the field. <Intensity>`\n        \n        :math:`I(x,y)=F_{in}(x,y).F_{in}(x,y)^*`\n        \n        Args::\n        \n            flag: 0= no normalization, 1=normalized to 1, 2=normalized to 255 (for bitmaps)\n            Fin: input field\n            \n        Returns::\n        \n            I: intensity distribution (N x N square array of doubles)\n\n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_35Intensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_flag = 0;
   PyObject *__pyx_v_Fin = 0;
   PyObject *__pyx_r = 0;
@@ -4407,11 +3750,11 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_47Intensity(PyObject 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, 1); __PYX_ERR(0, 540, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, 1); __PYX_ERR(0, 425, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Intensity") < 0)) __PYX_ERR(0, 540, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Intensity") < 0)) __PYX_ERR(0, 425, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4424,20 +3767,20 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_47Intensity(PyObject 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 540, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Intensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 425, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes._LightPipes.Init.Intensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_flag, __pyx_v_Fin);
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_34Intensity(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_flag, __pyx_v_Fin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_flag, PyObject *__pyx_v_Fin) {
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_34Intensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_flag, PyObject *__pyx_v_Fin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -4445,7 +3788,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(struct __
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("Intensity", 0);
 
-  /* "LightPipes/_LightPipes.pyx":558
+  /* "LightPipes/_LightPipes.pyx":443
  * 
  *         """
  *         return self.thisptr.Intensity(flag,Fin)             # <<<<<<<<<<<<<<
@@ -4453,17 +3796,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(struct __
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 558, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->Intensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 558, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_flag); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 443, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 443, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_self->thisptr->Intensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 443, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":540
+  /* "LightPipes/_LightPipes.pyx":425
  *         """
- *         return self.thisptr.Normal(Fin)
+ *         return self.thisptr.IntAttenuator( att, Fin)
  *     def Intensity(self,flag,Fin):             # <<<<<<<<<<<<<<
  *         """
  *         I=Intensity(flag,Fin)
@@ -4480,7 +3823,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(struct __
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":559
+/* "LightPipes/_LightPipes.pyx":444
  *         """
  *         return self.thisptr.Intensity(flag,Fin)
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):             # <<<<<<<<<<<<<<
@@ -4489,9 +3832,9 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46Intensity(struct __
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_49Interpol(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_48Interpol[] = "\n        Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)\n\n        :ref:`Interpolates the field to a new grid size, grid dimension. <Interpol>`\n            \n        Args::\n            \n            NewSize: the new grid size\n            NewN: the new grid dimension\n            x_shift, y_shift: shift of the field\n            angle: rotation of the field in degrees\n            magnif: magnification of the field amplitude\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (Nnew x Nnew square array of complex numbers).\n  \n        ";
-static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_49Interpol(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_37Interpol(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_36Interpol[] = "\n        Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)\n        \n        :ref:`Interpolates the field to a new grid size, grid dimension. <Interpol>`\n        \n        Args::\n        \n            NewSize: the new grid size\n            NewN: the new grid dimension\n            x_shift, y_shift: shift of the field\n            angle: rotation of the field in degrees\n            magnif: magnification of the field amplitude\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (Nnew x Nnew square array of complex numbers).\n  \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_37Interpol(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_new_size = 0;
   PyObject *__pyx_v_new_number = 0;
   PyObject *__pyx_v_x_shift = 0;
@@ -4527,36 +3870,36 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_49Interpol(PyObject *
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_new_number)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 1); __PYX_ERR(0, 559, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 1); __PYX_ERR(0, 444, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 2); __PYX_ERR(0, 559, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 2); __PYX_ERR(0, 444, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 3); __PYX_ERR(0, 559, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 3); __PYX_ERR(0, 444, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_angle)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 4); __PYX_ERR(0, 559, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 4); __PYX_ERR(0, 444, __pyx_L3_error)
         }
         case  5:
         if (likely((values[5] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_magnif)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 5); __PYX_ERR(0, 559, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 5); __PYX_ERR(0, 444, __pyx_L3_error)
         }
         case  6:
         if (likely((values[6] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 6); __PYX_ERR(0, 559, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, 6); __PYX_ERR(0, 444, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Interpol") < 0)) __PYX_ERR(0, 559, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Interpol") < 0)) __PYX_ERR(0, 444, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 7) {
       goto __pyx_L5_argtuple_error;
@@ -4579,20 +3922,20 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_49Interpol(PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 559, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Interpol", 1, 7, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 444, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes._LightPipes.Init.Interpol", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_48Interpol(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_new_size, __pyx_v_new_number, __pyx_v_x_shift, __pyx_v_y_shift, __pyx_v_angle, __pyx_v_magnif, __pyx_v_Fin);
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_36Interpol(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_new_size, __pyx_v_new_number, __pyx_v_x_shift, __pyx_v_y_shift, __pyx_v_angle, __pyx_v_magnif, __pyx_v_Fin);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_48Interpol(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_new_size, PyObject *__pyx_v_new_number, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_angle, PyObject *__pyx_v_magnif, PyObject *__pyx_v_Fin) {
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_36Interpol(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_new_size, PyObject *__pyx_v_new_number, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_angle, PyObject *__pyx_v_magnif, PyObject *__pyx_v_Fin) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   double __pyx_t_1;
@@ -4605,28 +3948,28 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_48Interpol(struct __p
   PyObject *__pyx_t_8 = NULL;
   __Pyx_RefNannySetupContext("Interpol", 0);
 
-  /* "LightPipes/_LightPipes.pyx":579
+  /* "LightPipes/_LightPipes.pyx":464
  * 
  *         """
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)             # <<<<<<<<<<<<<<
- *     def Phase(self,Fin):
+ *     def Lens(self, f, x_shift, y_shift, Fin):
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_new_size); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_new_number); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_magnif); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_7 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
-  __pyx_t_8 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Interpol(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_new_size); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_new_number); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_angle); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_magnif); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_7 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_8 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Interpol(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6, __pyx_t_7)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 464, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __pyx_r = __pyx_t_8;
   __pyx_t_8 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":559
+  /* "LightPipes/_LightPipes.pyx":444
  *         """
  *         return self.thisptr.Intensity(flag,Fin)
  *     def Interpol(self, new_size, new_number, x_shift, y_shift, angle, magnif, Fin):             # <<<<<<<<<<<<<<
@@ -4645,9 +3988,666 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_48Interpol(struct __p
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":580
+/* "LightPipes/_LightPipes.pyx":465
  *         """
  *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
+ *     def Lens(self, f, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = Lens(f, x_shift, y_shift, Fin)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_39Lens(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_38Lens[] = "\n        Fout = Lens(f, x_shift, y_shift, Fin)\n\n        :ref:`Propagates the field through an ideal, thin lens. <Lens>`\n\n        It adds a phase given by:\n        :math:`F_{out}(x,y)=e^{-j\\frac{2\\pi}{\\lambda}\\left(\\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\\right)}F_{in}(x,y)`\n            \n        Args::\n        \n            f: focal length\n            x_shift, y_shift: shift from center\n            Fin: input field\n            \n        Returns::\n        \n            Fout: output field (N x N square array of complex numbers).\n    \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_39Lens(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_f = 0;
+  PyObject *__pyx_v_x_shift = 0;
+  PyObject *__pyx_v_y_shift = 0;
+  PyObject *__pyx_v_Fin = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("Lens (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_x_shift,&__pyx_n_s_y_shift,&__pyx_n_s_Fin,0};
+    PyObject* values[4] = {0,0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x_shift)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 1); __PYX_ERR(0, 465, __pyx_L3_error)
+        }
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y_shift)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 2); __PYX_ERR(0, 465, __pyx_L3_error)
+        }
+        case  3:
+        if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, 3); __PYX_ERR(0, 465, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Lens") < 0)) __PYX_ERR(0, 465, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+    }
+    __pyx_v_f = values[0];
+    __pyx_v_x_shift = values[1];
+    __pyx_v_y_shift = values[2];
+    __pyx_v_Fin = values[3];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("Lens", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 465, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.Lens", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_38Lens(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_f, __pyx_v_x_shift, __pyx_v_y_shift, __pyx_v_Fin);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_38Lens(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_x_shift, PyObject *__pyx_v_y_shift, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  double __pyx_t_1;
+  double __pyx_t_2;
+  double __pyx_t_3;
+  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  __Pyx_RefNannySetupContext("Lens", 0);
+
+  /* "LightPipes/_LightPipes.pyx":485
+ * 
+ *         """
+ *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)             # <<<<<<<<<<<<<<
+ *     def LensForvard(self, f, z, Fin):
+ *         """
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 485, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_x_shift); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 485, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_y_shift); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 485, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 485, __pyx_L1_error)
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Lens(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 485, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_r = __pyx_t_5;
+  __pyx_t_5 = 0;
+  goto __pyx_L0;
+
+  /* "LightPipes/_LightPipes.pyx":465
+ *         """
+ *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
+ *     def Lens(self, f, x_shift, y_shift, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = Lens(f, x_shift, y_shift, Fin)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.Lens", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "LightPipes/_LightPipes.pyx":486
+ *         """
+ *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
+ *     def LensForvard(self, f, z, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = LensForvard(f, z, Fin)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_41LensForvard(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_40LensForvard[] = "\n        Fout = LensForvard(f, z, Fin)\n\n        :ref:`Propagates the field in a variable spherical coordinate system. <LensForvard>`\n            \n        Args::\n            \n            f: focal length\n            z: propagation distance\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n            \n        Example:\n            \n        :ref:`Spherical coordinates <SphericalCoordinates>`\n            \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_41LensForvard(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_f = 0;
+  PyObject *__pyx_v_z = 0;
+  PyObject *__pyx_v_Fin = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("LensForvard (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_z,&__pyx_n_s_Fin,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 1); __PYX_ERR(0, 486, __pyx_L3_error)
+        }
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, 2); __PYX_ERR(0, 486, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensForvard") < 0)) __PYX_ERR(0, 486, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_f = values[0];
+    __pyx_v_z = values[1];
+    __pyx_v_Fin = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("LensForvard", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 486, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensForvard", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_40LensForvard(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_f, __pyx_v_z, __pyx_v_Fin);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_40LensForvard(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  double __pyx_t_1;
+  double __pyx_t_2;
+  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("LensForvard", 0);
+
+  /* "LightPipes/_LightPipes.pyx":507
+ * 
+ *         """
+ *         return self.thisptr.LensForvard(f, z, Fin)             # <<<<<<<<<<<<<<
+ *     def LensFresnel(self, f, z, Fin):
+ *         """
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 507, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 507, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 507, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensForvard(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 507, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "LightPipes/_LightPipes.pyx":486
+ *         """
+ *         return self.thisptr.Lens(f, x_shift, y_shift, Fin)
+ *     def LensForvard(self, f, z, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = LensForvard(f, z, Fin)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensForvard", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "LightPipes/_LightPipes.pyx":508
+ *         """
+ *         return self.thisptr.LensForvard(f, z, Fin)
+ *     def LensFresnel(self, f, z, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = LensFresnel(f, z, Fin)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_43LensFresnel(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_42LensFresnel[] = "\n        Fout = LensFresnel(f, z, Fin)\n\n        :ref:`Propagates the field in a variable spherical coordinate system. <LensFresnel>`\n            \n        Args::\n            \n            f: focal length\n            z: propagation distance\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n            \n        Example:\n            \n        :ref:`Spherical coordinates <SphericalCoordinates>`\n            \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_43LensFresnel(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_f = 0;
+  PyObject *__pyx_v_z = 0;
+  PyObject *__pyx_v_Fin = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("LensFresnel (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_f,&__pyx_n_s_z,&__pyx_n_s_Fin,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 1); __PYX_ERR(0, 508, __pyx_L3_error)
+        }
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, 2); __PYX_ERR(0, 508, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "LensFresnel") < 0)) __PYX_ERR(0, 508, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_f = values[0];
+    __pyx_v_z = values[1];
+    __pyx_v_Fin = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("LensFresnel", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 508, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensFresnel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_42LensFresnel(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_f, __pyx_v_z, __pyx_v_Fin);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_42LensFresnel(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_z, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  double __pyx_t_1;
+  double __pyx_t_2;
+  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("LensFresnel", 0);
+
+  /* "LightPipes/_LightPipes.pyx":529
+ * 
+ *         """
+ *         return self.thisptr.LensFresnel(f, z, Fin)             # <<<<<<<<<<<<<<
+ *     def MultIntensity(self, Intens, Fin):
+ *         """
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_f); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 529, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 529, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 529, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->LensFresnel(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 529, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "LightPipes/_LightPipes.pyx":508
+ *         """
+ *         return self.thisptr.LensForvard(f, z, Fin)
+ *     def LensFresnel(self, f, z, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = LensFresnel(f, z, Fin)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.LensFresnel", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "LightPipes/_LightPipes.pyx":530
+ *         """
+ *         return self.thisptr.LensFresnel(f, z, Fin)
+ *     def MultIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = MultIntensity(Intens, Fin)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_45MultIntensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_44MultIntensity[] = "\n        Fout = MultIntensity(Intens, Fin)\n\n        :ref:`Multiplies the field with a given intensity distribution. <MultIntensity>`\n            \n        Args::\n            \n            Intens: N x N square array of real numbers\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_45MultIntensity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_Intens = 0;
+  PyObject *__pyx_v_Fin = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("MultIntensity (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_Intens,&__pyx_n_s_Fin,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Intens)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, 1); __PYX_ERR(0, 530, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultIntensity") < 0)) __PYX_ERR(0, 530, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_Intens = values[0];
+    __pyx_v_Fin = values[1];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("MultIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 530, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_44MultIntensity(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_Intens, __pyx_v_Fin);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_44MultIntensity(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Intens, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::vector<std::vector<double> >  __pyx_t_1;
+  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("MultIntensity", 0);
+
+  /* "LightPipes/_LightPipes.pyx":546
+ * 
+ *         """
+ *         return self.thisptr.MultIntensity( Intens, Fin)             # <<<<<<<<<<<<<<
+ *     def MultPhase(self, Phase, Fin):
+ *         """
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 546, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 546, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 546, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* "LightPipes/_LightPipes.pyx":530
+ *         """
+ *         return self.thisptr.LensFresnel(f, z, Fin)
+ *     def MultIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = MultIntensity(Intens, Fin)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "LightPipes/_LightPipes.pyx":547
+ *         """
+ *         return self.thisptr.MultIntensity( Intens, Fin)
+ *     def MultPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = MultPhase(Phase, Fin)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_47MultPhase(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_46MultPhase[] = "\n        Fout = MultPhase(Phase, Fin)\n\n        :ref:`Multiplies the field with a given phase distribution. <MultPhase>`\n            \n        Args::\n            \n            Phase: N x N square array of real numbers\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_47MultPhase(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_Phase = 0;
+  PyObject *__pyx_v_Fin = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("MultPhase (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_Phase,&__pyx_n_s_Fin,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Phase)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, 1); __PYX_ERR(0, 547, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "MultPhase") < 0)) __PYX_ERR(0, 547, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_Phase = values[0];
+    __pyx_v_Fin = values[1];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("MultPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 547, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_46MultPhase(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), __pyx_v_Phase, __pyx_v_Fin);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_46MultPhase(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Phase, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::vector<std::vector<double> >  __pyx_t_1;
+  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("MultPhase", 0);
+
+  /* "LightPipes/_LightPipes.pyx":563
+ * 
+ *         """
+ *         return self.thisptr.MultPhase( Phase, Fin)             # <<<<<<<<<<<<<<
+ *     def Normal(self, Fin):
+ *         """
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 563, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 563, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->MultPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 563, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_r = __pyx_t_3;
+  __pyx_t_3 = 0;
+  goto __pyx_L0;
+
+  /* "LightPipes/_LightPipes.pyx":547
+ *         """
+ *         return self.thisptr.MultIntensity( Intens, Fin)
+ *     def MultPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = MultPhase(Phase, Fin)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.MultPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "LightPipes/_LightPipes.pyx":564
+ *         """
+ *         return self.thisptr.MultPhase( Phase, Fin)
+ *     def Normal(self, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = Normal(Fin)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_49Normal(PyObject *__pyx_v_self, PyObject *__pyx_v_Fin); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_48Normal[] = "\n        Fout = Normal(Fin)\n\n        :ref:`Normalizes the field. <Normal>`\n            \n        Args::\n            \n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
+static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_49Normal(PyObject *__pyx_v_self, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("Normal (wrapper)", 0);
+  __pyx_r = __pyx_pf_10LightPipes_11_LightPipes_4Init_48Normal(((struct __pyx_obj_10LightPipes_11_LightPipes_Init *)__pyx_v_self), ((PyObject *)__pyx_v_Fin));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_48Normal(struct __pyx_obj_10LightPipes_11_LightPipes_Init *__pyx_v_self, PyObject *__pyx_v_Fin) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::vector<std::vector<__pyx_t_double_complex> >  __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  __Pyx_RefNannySetupContext("Normal", 0);
+
+  /* "LightPipes/_LightPipes.pyx":579
+ * 
+ *         """
+ *         return self.thisptr.Normal(Fin)             # <<<<<<<<<<<<<<
+ *     def Phase(self,Fin):
+ *         """
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 579, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Normal(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 579, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "LightPipes/_LightPipes.pyx":564
+ *         """
+ *         return self.thisptr.MultPhase( Phase, Fin)
+ *     def Normal(self, Fin):             # <<<<<<<<<<<<<<
+ *         """
+ *         Fout = Normal(Fin)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("LightPipes._LightPipes.Init.Normal", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "LightPipes/_LightPipes.pyx":580
+ *         """
+ *         return self.thisptr.Normal(Fin)
  *     def Phase(self,Fin):             # <<<<<<<<<<<<<<
  *         """
  *         Phi=Phase(Fin)
@@ -4691,7 +4691,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_50Phase(struct __pyx_
 
   /* "LightPipes/_LightPipes.pyx":580
  *         """
- *         return self.thisptr.Interpol(new_size, new_number, x_shift, y_shift, angle, magnif, Fin)
+ *         return self.thisptr.Normal(Fin)
  *     def Phase(self,Fin):             # <<<<<<<<<<<<<<
  *         """
  *         Phi=Phase(Fin)
@@ -5075,7 +5075,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_58RandomIntensity(str
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_61RandomPhase(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_60RandomPhase[] = "\n        Fout = RandomPhase(seed, maxPhase, Fin)\n\n        :ref:`Adds random phase to the field <RandomPhase>`\n            \n        Args::\n            \n            seed: seed number for the random noise generator\n            maxPhase: maximum phase\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_60RandomPhase[] = "\n        Fout = RandomPhase(seed, maxPhase, Fin)\n\n        :ref:`Adds random phase to the field <RandomPhase>`\n            \n        Args::\n            \n            seed: seed number for the random noise generator\n            maxPhase: maximum phase in radians\n            Fin: input field\n            \n        Returns::\n            \n            Fout: output field (N x N square array of complex numbers).\n  \n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_61RandomPhase(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_seed = 0;
   PyObject *__pyx_v_maxPhase = 0;
@@ -5504,7 +5504,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_64RectScreen(struct _
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_67Steps(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_10LightPipes_11_LightPipes_4Init_66Steps[] = "\n        Fout = Steps(z, nstep, refr, Fin)\n                     \n        :ref:`Propagates the field a distance, z, in nstep steps in a\n        medium with a complex refractive index stored in the\n        square array refr. <Steps>`\n\n        Args::\n        \n            z: propagation distance\n            nstep: number of steps\n            refr: refractive index (N x N array of complex numbers)\n            Fin: input field\n            \n        Returns::\n          \n            Fout: ouput field (N x N square array of complex numbers).\n            \n        ";
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_66Steps[] = "\n        Fout = Steps(z, nstep, refr, Fin)\n                     \n        :ref:`Propagates the field a distance, z, in nstep steps in a\n        medium with a complex refractive index stored in the\n        square array refr. <Steps>`\n\n        Args::\n        \n            z: propagation distance\n            nstep: number of steps\n            refr: refractive index (N x N array of complex numbers)\n            Fin: input field\n            \n        Returns::\n          \n            Fout: ouput field (N x N square array of complex numbers).\n            \n        Example:\n        \n        :ref:`Propagation through a lens like medium <lenslikemedium>`\n        \n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_67Steps(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_z = 0;
   PyObject *__pyx_v_nstep = 0;
@@ -5589,7 +5589,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_66Steps(struct __pyx_
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("Steps", 0);
 
-  /* "LightPipes/_LightPipes.pyx":743
+  /* "LightPipes/_LightPipes.pyx":747
  * 
  *         """
  *         return self.thisptr.Steps(z, nstep, refr, Fin)             # <<<<<<<<<<<<<<
@@ -5597,11 +5597,11 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_66Steps(struct __pyx_
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nstep); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_refr); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
-  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 743, __pyx_L1_error)
-  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Steps(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 743, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_z); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_nstep); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_refr); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 747, __pyx_L1_error)
+  __pyx_t_5 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Steps(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
@@ -5626,7 +5626,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_66Steps(struct __pyx_
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":744
+/* "LightPipes/_LightPipes.pyx":748
  *         """
  *         return self.thisptr.Steps(z, nstep, refr, Fin)
  *     def Strehl(self, Fin):             # <<<<<<<<<<<<<<
@@ -5655,7 +5655,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_68Strehl(struct __pyx
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("Strehl", 0);
 
-  /* "LightPipes/_LightPipes.pyx":759
+  /* "LightPipes/_LightPipes.pyx":763
  * 
  *         """
  *         return self.thisptr.Strehl(Fin)             # <<<<<<<<<<<<<<
@@ -5663,14 +5663,14 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_68Strehl(struct __pyx
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 759, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->Strehl(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 759, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 763, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->Strehl(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 763, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":744
+  /* "LightPipes/_LightPipes.pyx":748
  *         """
  *         return self.thisptr.Steps(z, nstep, refr, Fin)
  *     def Strehl(self, Fin):             # <<<<<<<<<<<<<<
@@ -5689,7 +5689,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_68Strehl(struct __pyx
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":760
+/* "LightPipes/_LightPipes.pyx":764
  *         """
  *         return self.thisptr.Strehl(Fin)
  *     def SubIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
@@ -5726,11 +5726,11 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_71SubIntensity(PyObje
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, 1); __PYX_ERR(0, 760, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, 1); __PYX_ERR(0, 764, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubIntensity") < 0)) __PYX_ERR(0, 760, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubIntensity") < 0)) __PYX_ERR(0, 764, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5743,7 +5743,7 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_71SubIntensity(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 760, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SubIntensity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 764, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes._LightPipes.Init.SubIntensity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5764,7 +5764,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_70SubIntensity(struct
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("SubIntensity", 0);
 
-  /* "LightPipes/_LightPipes.pyx":776
+  /* "LightPipes/_LightPipes.pyx":780
  * 
  *         """
  *         return self.thisptr.SubIntensity( Intens, Fin)             # <<<<<<<<<<<<<<
@@ -5772,15 +5772,15 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_70SubIntensity(struct
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 776, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 776, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 776, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Intens); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 780, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 780, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubIntensity(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 780, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":760
+  /* "LightPipes/_LightPipes.pyx":764
  *         """
  *         return self.thisptr.Strehl(Fin)
  *     def SubIntensity(self, Intens, Fin):             # <<<<<<<<<<<<<<
@@ -5799,7 +5799,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_70SubIntensity(struct
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":777
+/* "LightPipes/_LightPipes.pyx":781
  *         """
  *         return self.thisptr.SubIntensity( Intens, Fin)
  *     def SubPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
@@ -5836,11 +5836,11 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_73SubPhase(PyObject *
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, 1); __PYX_ERR(0, 777, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, 1); __PYX_ERR(0, 781, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubPhase") < 0)) __PYX_ERR(0, 777, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "SubPhase") < 0)) __PYX_ERR(0, 781, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5853,7 +5853,7 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_73SubPhase(PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 777, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("SubPhase", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 781, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes._LightPipes.Init.SubPhase", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5874,7 +5874,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_72SubPhase(struct __p
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("SubPhase", 0);
 
-  /* "LightPipes/_LightPipes.pyx":793
+  /* "LightPipes/_LightPipes.pyx":797
  * 
  *         """
  *         return self.thisptr.SubPhase( Phase, Fin)             # <<<<<<<<<<<<<<
@@ -5882,15 +5882,15 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_72SubPhase(struct __p
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 793, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 793, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 793, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(__pyx_v_Phase); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 797, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 797, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->SubPhase(__pyx_t_1, __pyx_t_2)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":777
+  /* "LightPipes/_LightPipes.pyx":781
  *         """
  *         return self.thisptr.SubIntensity( Intens, Fin)
  *     def SubPhase(self, Phase, Fin):             # <<<<<<<<<<<<<<
@@ -5909,7 +5909,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_72SubPhase(struct __p
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":794
+/* "LightPipes/_LightPipes.pyx":798
  *         """
  *         return self.thisptr.SubPhase( Phase, Fin)
  *     def Tilt(self, tx, ty, Fin):             # <<<<<<<<<<<<<<
@@ -5948,16 +5948,16 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_75Tilt(PyObject *__py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_ty)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 1); __PYX_ERR(0, 794, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 1); __PYX_ERR(0, 798, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 2); __PYX_ERR(0, 794, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, 2); __PYX_ERR(0, 798, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Tilt") < 0)) __PYX_ERR(0, 794, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Tilt") < 0)) __PYX_ERR(0, 798, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -5972,7 +5972,7 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_75Tilt(PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 794, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Tilt", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 798, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes._LightPipes.Init.Tilt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5994,7 +5994,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_74Tilt(struct __pyx_o
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("Tilt", 0);
 
-  /* "LightPipes/_LightPipes.pyx":810
+  /* "LightPipes/_LightPipes.pyx":814
  * 
  *         """
  *         return self.thisptr.Tilt( tx, ty, Fin)             # <<<<<<<<<<<<<<
@@ -6002,16 +6002,16 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_74Tilt(struct __pyx_o
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_tx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 810, __pyx_L1_error)
-  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_ty); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 810, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 810, __pyx_L1_error)
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Tilt(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 810, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_tx); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 814, __pyx_L1_error)
+  __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_ty); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 814, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 814, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Tilt(__pyx_t_1, __pyx_t_2, __pyx_t_3)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 814, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":794
+  /* "LightPipes/_LightPipes.pyx":798
  *         """
  *         return self.thisptr.SubPhase( Phase, Fin)
  *     def Tilt(self, tx, ty, Fin):             # <<<<<<<<<<<<<<
@@ -6030,7 +6030,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_74Tilt(struct __pyx_o
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":811
+/* "LightPipes/_LightPipes.pyx":815
  *         """
  *         return self.thisptr.Tilt( tx, ty, Fin)
  *     def Zernike(self, n, m, R, A, Fin):             # <<<<<<<<<<<<<<
@@ -6073,26 +6073,26 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_77Zernike(PyObject *_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 1); __PYX_ERR(0, 811, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 1); __PYX_ERR(0, 815, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_R)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 2); __PYX_ERR(0, 811, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 2); __PYX_ERR(0, 815, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_A)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 3); __PYX_ERR(0, 811, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 3); __PYX_ERR(0, 815, __pyx_L3_error)
         }
         case  4:
         if (likely((values[4] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_Fin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 4); __PYX_ERR(0, 811, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, 4); __PYX_ERR(0, 815, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Zernike") < 0)) __PYX_ERR(0, 811, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "Zernike") < 0)) __PYX_ERR(0, 815, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -6111,7 +6111,7 @@ static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_77Zernike(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 811, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("Zernike", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 815, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("LightPipes._LightPipes.Init.Zernike", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6135,7 +6135,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_76Zernike(struct __py
   PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("Zernike", 0);
 
-  /* "LightPipes/_LightPipes.pyx":856
+  /* "LightPipes/_LightPipes.pyx":860
  * 
  *         """
  *         return self.thisptr.Zernike(n, m, R, A, Fin)             # <<<<<<<<<<<<<<
@@ -6143,18 +6143,18 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_76Zernike(struct __py
  *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L1_error)
-  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L1_error)
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L1_error)
-  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 856, __pyx_L1_error)
-  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Zernike(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 856, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_3 = __pyx_PyFloat_AsDouble(__pyx_v_R); if (unlikely((__pyx_t_3 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_A); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_5 = __pyx_convert_vector_from_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_Fin); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 860, __pyx_L1_error)
+  __pyx_t_6 = __pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_complex_3e___(__pyx_v_self->thisptr->Zernike(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, __pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":811
+  /* "LightPipes/_LightPipes.pyx":815
  *         """
  *         return self.thisptr.Tilt( tx, ty, Fin)
  *     def Zernike(self, n, m, R, A, Fin):             # <<<<<<<<<<<<<<
@@ -6173,7 +6173,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_76Zernike(struct __py
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":857
+/* "LightPipes/_LightPipes.pyx":861
  *         """
  *         return self.thisptr.Zernike(n, m, R, A, Fin)
  *     def noll_to_zern(self,j):             # <<<<<<<<<<<<<<
@@ -6208,29 +6208,29 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("noll_to_zern", 0);
 
-  /* "LightPipes/_LightPipes.pyx":867
+  /* "LightPipes/_LightPipes.pyx":871
  *         """
  * 
  *         if (j == 0):             # <<<<<<<<<<<<<<
  *             print("Noll indices start at 1, 0 is invalid.")
  *             return (0,0)
  */
-  __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_v_j, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 867, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_v_j, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 867, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 871, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "LightPipes/_LightPipes.pyx":868
+    /* "LightPipes/_LightPipes.pyx":872
  * 
  *         if (j == 0):
  *             print("Noll indices start at 1, 0 is invalid.")             # <<<<<<<<<<<<<<
  *             return (0,0)
  * 
  */
-    if (__Pyx_PrintOne(0, __pyx_kp_s_Noll_indices_start_at_1_0_is_inv) < 0) __PYX_ERR(0, 868, __pyx_L1_error)
+    if (__Pyx_PrintOne(0, __pyx_kp_s_Noll_indices_start_at_1_0_is_inv) < 0) __PYX_ERR(0, 872, __pyx_L1_error)
 
-    /* "LightPipes/_LightPipes.pyx":869
+    /* "LightPipes/_LightPipes.pyx":873
  *         if (j == 0):
  *             print("Noll indices start at 1, 0 is invalid.")
  *             return (0,0)             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
     __pyx_r = __pyx_tuple_;
     goto __pyx_L0;
 
-    /* "LightPipes/_LightPipes.pyx":867
+    /* "LightPipes/_LightPipes.pyx":871
  *         """
  * 
  *         if (j == 0):             # <<<<<<<<<<<<<<
@@ -6251,7 +6251,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
  */
   }
 
-  /* "LightPipes/_LightPipes.pyx":871
+  /* "LightPipes/_LightPipes.pyx":875
  *             return (0,0)
  * 
  *         n = 0             # <<<<<<<<<<<<<<
@@ -6261,19 +6261,19 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_n = __pyx_int_0;
 
-  /* "LightPipes/_LightPipes.pyx":872
+  /* "LightPipes/_LightPipes.pyx":876
  * 
  *         n = 0
  *         j1 = j-1             # <<<<<<<<<<<<<<
  *         while (j1 > n):
  *             n += 1
  */
-  __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 872, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_j, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 876, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_j1 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "LightPipes/_LightPipes.pyx":873
+  /* "LightPipes/_LightPipes.pyx":877
  *         n = 0
  *         j1 = j-1
  *         while (j1 > n):             # <<<<<<<<<<<<<<
@@ -6281,76 +6281,76 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
  *             j1 -= n
  */
   while (1) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_j1, __pyx_v_n, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 873, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 873, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_j1, __pyx_v_n, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 877, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 877, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (!__pyx_t_2) break;
 
-    /* "LightPipes/_LightPipes.pyx":874
+    /* "LightPipes/_LightPipes.pyx":878
  *         j1 = j-1
  *         while (j1 > n):
  *             n += 1             # <<<<<<<<<<<<<<
  *             j1 -= n
  * 
  */
-    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_n, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 874, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_n, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 878, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_n, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "LightPipes/_LightPipes.pyx":875
+    /* "LightPipes/_LightPipes.pyx":879
  *         while (j1 > n):
  *             n += 1
  *             j1 -= n             # <<<<<<<<<<<<<<
  * 
  *         m = (-1)**j * ((n % 2) + 2 * int((j1+((n+1)%2)) / 2.0 ))
  */
-    __pyx_t_1 = PyNumber_InPlaceSubtract(__pyx_v_j1, __pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 875, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_InPlaceSubtract(__pyx_v_j1, __pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 879, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_j1, __pyx_t_1);
     __pyx_t_1 = 0;
   }
 
-  /* "LightPipes/_LightPipes.pyx":877
+  /* "LightPipes/_LightPipes.pyx":881
  *             j1 -= n
  * 
  *         m = (-1)**j * ((n % 2) + 2 * int((j1+((n+1)%2)) / 2.0 ))             # <<<<<<<<<<<<<<
  *         return (n, m)
  *     def ZernikeNolltoMN(self,Noll):
  */
-  __pyx_t_1 = PyNumber_Power(__pyx_int_neg_1, __pyx_v_j, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Power(__pyx_int_neg_1, __pyx_v_j, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_RemainderObjC(__pyx_v_n, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_RemainderObjC(__pyx_v_n, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_v_n, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_v_n, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyInt_RemainderObjC(__pyx_t_4, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_RemainderObjC(__pyx_t_4, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_Add(__pyx_v_j1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 877, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyFloat_DivideObjC(__pyx_t_4, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 877, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_v_j1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyNumber_Multiply(__pyx_int_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyFloat_DivideObjC(__pyx_t_4, __pyx_float_2_0, 2.0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 881, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = PyNumber_Multiply(__pyx_int_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyNumber_Multiply(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 877, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Multiply(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 881, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_m = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "LightPipes/_LightPipes.pyx":878
+  /* "LightPipes/_LightPipes.pyx":882
  * 
  *         m = (-1)**j * ((n % 2) + 2 * int((j1+((n+1)%2)) / 2.0 ))
  *         return (n, m)             # <<<<<<<<<<<<<<
@@ -6358,7 +6358,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
  *         MN = []
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 878, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 882, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_n);
   __Pyx_GIVEREF(__pyx_v_n);
@@ -6370,7 +6370,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":857
+  /* "LightPipes/_LightPipes.pyx":861
  *         """
  *         return self.thisptr.Zernike(n, m, R, A, Fin)
  *     def noll_to_zern(self,j):             # <<<<<<<<<<<<<<
@@ -6395,7 +6395,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_78noll_to_zern(CYTHON
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":879
+/* "LightPipes/_LightPipes.pyx":883
  *         m = (-1)**j * ((n % 2) + 2 * int((j1+((n+1)%2)) / 2.0 ))
  *         return (n, m)
  *     def ZernikeNolltoMN(self,Noll):             # <<<<<<<<<<<<<<
@@ -6429,19 +6429,19 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_80ZernikeNolltoMN(CYT
   __Pyx_RefNannySetupContext("ZernikeNolltoMN", 0);
   __Pyx_INCREF(__pyx_v_Noll);
 
-  /* "LightPipes/_LightPipes.pyx":880
+  /* "LightPipes/_LightPipes.pyx":884
  *         return (n, m)
  *     def ZernikeNolltoMN(self,Noll):
  *         MN = []             # <<<<<<<<<<<<<<
  *         n = 0
  *         while (Noll > n):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 880, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_MN = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "LightPipes/_LightPipes.pyx":881
+  /* "LightPipes/_LightPipes.pyx":885
  *     def ZernikeNolltoMN(self,Noll):
  *         MN = []
  *         n = 0             # <<<<<<<<<<<<<<
@@ -6451,7 +6451,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_80ZernikeNolltoMN(CYT
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_n = __pyx_int_0;
 
-  /* "LightPipes/_LightPipes.pyx":882
+  /* "LightPipes/_LightPipes.pyx":886
  *         MN = []
  *         n = 0
  *         while (Noll > n):             # <<<<<<<<<<<<<<
@@ -6459,62 +6459,62 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_80ZernikeNolltoMN(CYT
  *             Noll -= n
  */
   while (1) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_Noll, __pyx_v_n, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 882, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 882, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_Noll, __pyx_v_n, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 886, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 886, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (!__pyx_t_2) break;
 
-    /* "LightPipes/_LightPipes.pyx":883
+    /* "LightPipes/_LightPipes.pyx":887
  *         n = 0
  *         while (Noll > n):
  *             n += 1             # <<<<<<<<<<<<<<
  *             Noll -= n
  *         m = -n+2*Noll
  */
-    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_n, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 883, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_n, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 887, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_n, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "LightPipes/_LightPipes.pyx":884
+    /* "LightPipes/_LightPipes.pyx":888
  *         while (Noll > n):
  *             n += 1
  *             Noll -= n             # <<<<<<<<<<<<<<
  *         m = -n+2*Noll
  *         MN=[m,n]
  */
-    __pyx_t_1 = PyNumber_InPlaceSubtract(__pyx_v_Noll, __pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 884, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_InPlaceSubtract(__pyx_v_Noll, __pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 888, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_Noll, __pyx_t_1);
     __pyx_t_1 = 0;
   }
 
-  /* "LightPipes/_LightPipes.pyx":885
+  /* "LightPipes/_LightPipes.pyx":889
  *             n += 1
  *             Noll -= n
  *         m = -n+2*Noll             # <<<<<<<<<<<<<<
  *         MN=[m,n]
  *         return MN
  */
-  __pyx_t_1 = PyNumber_Negative(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Negative(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyNumber_Multiply(__pyx_int_2, __pyx_v_Noll); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_int_2, __pyx_v_Noll); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 885, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_m = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "LightPipes/_LightPipes.pyx":886
+  /* "LightPipes/_LightPipes.pyx":890
  *             Noll -= n
  *         m = -n+2*Noll
  *         MN=[m,n]             # <<<<<<<<<<<<<<
  *         return MN
  *     def ZernikeName(self,Noll):
  */
-  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 886, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 890, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_v_m);
   __Pyx_GIVEREF(__pyx_v_m);
@@ -6525,7 +6525,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_80ZernikeNolltoMN(CYT
   __Pyx_DECREF_SET(__pyx_v_MN, ((PyObject*)__pyx_t_4));
   __pyx_t_4 = 0;
 
-  /* "LightPipes/_LightPipes.pyx":887
+  /* "LightPipes/_LightPipes.pyx":891
  *         m = -n+2*Noll
  *         MN=[m,n]
  *         return MN             # <<<<<<<<<<<<<<
@@ -6537,7 +6537,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_80ZernikeNolltoMN(CYT
   __pyx_r = __pyx_v_MN;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":879
+  /* "LightPipes/_LightPipes.pyx":883
  *         m = (-1)**j * ((n % 2) + 2 * int((j1+((n+1)%2)) / 2.0 ))
  *         return (n, m)
  *     def ZernikeNolltoMN(self,Noll):             # <<<<<<<<<<<<<<
@@ -6562,7 +6562,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_80ZernikeNolltoMN(CYT
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":888
+/* "LightPipes/_LightPipes.pyx":892
  *         MN=[m,n]
  *         return MN
  *     def ZernikeName(self,Noll):             # <<<<<<<<<<<<<<
@@ -6593,36 +6593,36 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("ZernikeName", 0);
 
-  /* "LightPipes/_LightPipes.pyx":889
+  /* "LightPipes/_LightPipes.pyx":893
  *         return MN
  *     def ZernikeName(self,Noll):
  *         if (Noll >= 1 and Noll <= 21):             # <<<<<<<<<<<<<<
  *             name = [
  *                 "piston",
  */
-  __pyx_t_2 = PyObject_RichCompare(__pyx_v_Noll, __pyx_int_1, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 889, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_Noll, __pyx_int_1, Py_GE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
   } else {
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_2 = PyObject_RichCompare(__pyx_v_Noll, __pyx_int_21, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 889, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 889, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_Noll, __pyx_int_21, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 893, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 893, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_1 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "LightPipes/_LightPipes.pyx":890
+    /* "LightPipes/_LightPipes.pyx":894
  *     def ZernikeName(self,Noll):
  *         if (Noll >= 1 and Noll <= 21):
  *             name = [             # <<<<<<<<<<<<<<
  *                 "piston",
  *                 "horizontal tilt",
  */
-    __pyx_t_2 = PyList_New(21); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 890, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(21); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 894, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_n_s_piston);
     __Pyx_GIVEREF(__pyx_n_s_piston);
@@ -6690,7 +6690,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
     __pyx_v_name = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "LightPipes/_LightPipes.pyx":913
+    /* "LightPipes/_LightPipes.pyx":917
  *                 "vertical pentafoil",
  *             ]
  *             return name[Noll-1]             # <<<<<<<<<<<<<<
@@ -6698,16 +6698,16 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
  *             print( "Error in ZernikeName(Noll): argument must be larger than 1")
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_Noll, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 913, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_Noll, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 917, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyObject_GetItem(__pyx_v_name, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 913, __pyx_L1_error)
+    __pyx_t_4 = PyObject_GetItem(__pyx_v_name, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 917, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "LightPipes/_LightPipes.pyx":889
+    /* "LightPipes/_LightPipes.pyx":893
  *         return MN
  *     def ZernikeName(self,Noll):
  *         if (Noll >= 1 and Noll <= 21):             # <<<<<<<<<<<<<<
@@ -6716,28 +6716,28 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
  */
   }
 
-  /* "LightPipes/_LightPipes.pyx":914
+  /* "LightPipes/_LightPipes.pyx":918
  *             ]
  *             return name[Noll-1]
  *         elif Noll < 1:             # <<<<<<<<<<<<<<
  *             print( "Error in ZernikeName(Noll): argument must be larger than 1")
  *             return ""
  */
-  __pyx_t_4 = PyObject_RichCompare(__pyx_v_Noll, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 914, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 914, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_v_Noll, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 918, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 918, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_1) {
 
-    /* "LightPipes/_LightPipes.pyx":915
+    /* "LightPipes/_LightPipes.pyx":919
  *             return name[Noll-1]
  *         elif Noll < 1:
  *             print( "Error in ZernikeName(Noll): argument must be larger than 1")             # <<<<<<<<<<<<<<
  *             return ""
  *         else:
  */
-    if (__Pyx_PrintOne(0, __pyx_kp_s_Error_in_ZernikeName_Noll_argume) < 0) __PYX_ERR(0, 915, __pyx_L1_error)
+    if (__Pyx_PrintOne(0, __pyx_kp_s_Error_in_ZernikeName_Noll_argume) < 0) __PYX_ERR(0, 919, __pyx_L1_error)
 
-    /* "LightPipes/_LightPipes.pyx":916
+    /* "LightPipes/_LightPipes.pyx":920
  *         elif Noll < 1:
  *             print( "Error in ZernikeName(Noll): argument must be larger than 1")
  *             return ""             # <<<<<<<<<<<<<<
@@ -6749,7 +6749,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
     __pyx_r = __pyx_kp_s__2;
     goto __pyx_L0;
 
-    /* "LightPipes/_LightPipes.pyx":914
+    /* "LightPipes/_LightPipes.pyx":918
  *             ]
  *             return name[Noll-1]
  *         elif Noll < 1:             # <<<<<<<<<<<<<<
@@ -6758,12 +6758,12 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
  */
   }
 
-  /* "LightPipes/_LightPipes.pyx":918
+  /* "LightPipes/_LightPipes.pyx":922
  *             return ""
  *         else:
  *             return ""             # <<<<<<<<<<<<<<
  *     def LPtest(self):
- *         self.thisptr.test()
+ *         """
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
@@ -6772,7 +6772,7 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
     goto __pyx_L0;
   }
 
-  /* "LightPipes/_LightPipes.pyx":888
+  /* "LightPipes/_LightPipes.pyx":892
  *         MN=[m,n]
  *         return MN
  *     def ZernikeName(self,Noll):             # <<<<<<<<<<<<<<
@@ -6793,16 +6793,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_82ZernikeName(CYTHON_
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":919
+/* "LightPipes/_LightPipes.pyx":923
  *         else:
  *             return ""
  *     def LPtest(self):             # <<<<<<<<<<<<<<
- *         self.thisptr.test()
- *     def LPhelp(self):
+ *         """
+ *         Performs a test to check if the installation of the LightPipes package was successful.
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_85LPtest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_84LPtest[] = "\n        Performs a test to check if the installation of the LightPipes package was successful.\n        \n        Args::\n        \n            -\n            \n        Returns::\n        \n            \"LightPipes for Python: test passed.\"\n    \n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_85LPtest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -6819,21 +6820,21 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_84LPtest(struct __pyx
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("LPtest", 0);
 
-  /* "LightPipes/_LightPipes.pyx":920
- *             return ""
- *     def LPtest(self):
+  /* "LightPipes/_LightPipes.pyx":936
+ * 
+ *         """
  *         self.thisptr.test()             # <<<<<<<<<<<<<<
  *     def LPhelp(self):
  *         """
  */
   __pyx_v_self->thisptr->test();
 
-  /* "LightPipes/_LightPipes.pyx":919
+  /* "LightPipes/_LightPipes.pyx":923
  *         else:
  *             return ""
  *     def LPtest(self):             # <<<<<<<<<<<<<<
- *         self.thisptr.test()
- *     def LPhelp(self):
+ *         """
+ *         Performs a test to check if the installation of the LightPipes package was successful.
  */
 
   /* function exit code */
@@ -6843,8 +6844,8 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_84LPtest(struct __pyx
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":921
- *     def LPtest(self):
+/* "LightPipes/_LightPipes.pyx":937
+ *         """
  *         self.thisptr.test()
  *     def LPhelp(self):             # <<<<<<<<<<<<<<
  *         """
@@ -6872,25 +6873,25 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_86LPhelp(CYTHON_UNUSE
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("LPhelp", 0);
 
-  /* "LightPipes/_LightPipes.pyx":928
+  /* "LightPipes/_LightPipes.pyx":944
  * 
  *         """
  *         webbrowser.open_new("https://opticspy.github.io/lightpipes/")             # <<<<<<<<<<<<<<
  *     def getGridSize(self):
- *         return self.thisptr.getGridSize()
+ *         """
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_webbrowser); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 928, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_webbrowser); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 944, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_open_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 928, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_open_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 944, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 928, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 944, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "LightPipes/_LightPipes.pyx":921
- *     def LPtest(self):
+  /* "LightPipes/_LightPipes.pyx":937
+ *         """
  *         self.thisptr.test()
  *     def LPhelp(self):             # <<<<<<<<<<<<<<
  *         """
@@ -6911,16 +6912,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_86LPhelp(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":929
+/* "LightPipes/_LightPipes.pyx":945
  *         """
  *         webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getGridSize()
- *     def setGridSize(self, newSize):
+ *         """
+ *         size_grid = getGridSize()
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_89getGridSize(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_88getGridSize[] = "\n        size_grid = getGridSize()\n        \n        Returns the value of the size of the grid in meters.\n        \n        Args::\n            \n            -\n            \n        Returns::\n        \n            size_grid: Size of the grid (real number).\n\n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_89getGridSize(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -6938,26 +6940,26 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_88getGridSize(struct 
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("getGridSize", 0);
 
-  /* "LightPipes/_LightPipes.pyx":930
- *         webbrowser.open_new("https://opticspy.github.io/lightpipes/")
- *     def getGridSize(self):
+  /* "LightPipes/_LightPipes.pyx":960
+ * 
+ *         """
  *         return self.thisptr.getGridSize()             # <<<<<<<<<<<<<<
  *     def setGridSize(self, newSize):
- *         self.thisptr.setGridSize(newSize)
+ *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getGridSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 930, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getGridSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 960, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":929
+  /* "LightPipes/_LightPipes.pyx":945
  *         """
  *         webbrowser.open_new("https://opticspy.github.io/lightpipes/")
  *     def getGridSize(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getGridSize()
- *     def setGridSize(self, newSize):
+ *         """
+ *         size_grid = getGridSize()
  */
 
   /* function exit code */
@@ -6971,16 +6973,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_88getGridSize(struct 
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":931
- *     def getGridSize(self):
+/* "LightPipes/_LightPipes.pyx":961
+ *         """
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):             # <<<<<<<<<<<<<<
- *         self.thisptr.setGridSize(newSize)
- *     def getWavelength(self):
+ *         """
+ *         setGridSize(newGridSize)
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_91setGridSize(PyObject *__pyx_v_self, PyObject *__pyx_v_newSize); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_90setGridSize[] = "\n        setGridSize(newGridSize)\n        \n        Changes the value of the grid size.\n        \n        Args::\n        \n            newGridSize: New size of the grid.\n            \n        Returns::\n        \n            -\n\n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_91setGridSize(PyObject *__pyx_v_self, PyObject *__pyx_v_newSize) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -6998,22 +7001,22 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_90setGridSize(struct 
   double __pyx_t_1;
   __Pyx_RefNannySetupContext("setGridSize", 0);
 
-  /* "LightPipes/_LightPipes.pyx":932
- *         return self.thisptr.getGridSize()
- *     def setGridSize(self, newSize):
+  /* "LightPipes/_LightPipes.pyx":976
+ * 
+ *         """
  *         self.thisptr.setGridSize(newSize)             # <<<<<<<<<<<<<<
  *     def getWavelength(self):
- *         return self.thisptr.getWavelength()
+ *         """
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newSize); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 932, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newSize); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 976, __pyx_L1_error)
   __pyx_v_self->thisptr->setGridSize(__pyx_t_1);
 
-  /* "LightPipes/_LightPipes.pyx":931
- *     def getGridSize(self):
+  /* "LightPipes/_LightPipes.pyx":961
+ *         """
  *         return self.thisptr.getGridSize()
  *     def setGridSize(self, newSize):             # <<<<<<<<<<<<<<
- *         self.thisptr.setGridSize(newSize)
- *     def getWavelength(self):
+ *         """
+ *         setGridSize(newGridSize)
  */
 
   /* function exit code */
@@ -7028,16 +7031,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_90setGridSize(struct 
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":933
- *     def setGridSize(self, newSize):
+/* "LightPipes/_LightPipes.pyx":977
+ *         """
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getWavelength()
- *     def setWavelength(self, newWavelength):
+ *         """
+ *         wavelength = getWavelength()
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_93getWavelength(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_92getWavelength[] = "\n        wavelength = getWavelength()\n        \n        Returns the value of the wavelength in meters.\n        \n        Args::\n        \n            -\n            \n        Returns::\n        \n            wavelength: Value of the wavelength (real number).\n\n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_93getWavelength(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -7055,26 +7059,26 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_92getWavelength(struc
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("getWavelength", 0);
 
-  /* "LightPipes/_LightPipes.pyx":934
- *         self.thisptr.setGridSize(newSize)
- *     def getWavelength(self):
+  /* "LightPipes/_LightPipes.pyx":992
+ * 
+ *         """
  *         return self.thisptr.getWavelength()             # <<<<<<<<<<<<<<
  *     def setWavelength(self, newWavelength):
- *         self.thisptr.setWavelength(newWavelength)
+ *         """
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getWavelength()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 934, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->getWavelength()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":933
- *     def setGridSize(self, newSize):
+  /* "LightPipes/_LightPipes.pyx":977
+ *         """
  *         self.thisptr.setGridSize(newSize)
  *     def getWavelength(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getWavelength()
- *     def setWavelength(self, newWavelength):
+ *         """
+ *         wavelength = getWavelength()
  */
 
   /* function exit code */
@@ -7088,16 +7092,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_92getWavelength(struc
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":935
- *     def getWavelength(self):
+/* "LightPipes/_LightPipes.pyx":993
+ *         """
  *         return self.thisptr.getWavelength()
  *     def setWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
- *         self.thisptr.setWavelength(newWavelength)
- *     def getGridDimension(self):
+ *         """
+ *         setWavelength(newWavelength)
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_95setWavelength(PyObject *__pyx_v_self, PyObject *__pyx_v_newWavelength); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_94setWavelength[] = "\n        setWavelength(newWavelength)\n        \n        Changes the value of the wavelength.\n        \n        Args::\n        \n            newWavelength: New value of the wavelength.\n            \n        Returns::\n        \n            -\n\n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_95setWavelength(PyObject *__pyx_v_self, PyObject *__pyx_v_newWavelength) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -7115,22 +7120,22 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_94setWavelength(struc
   double __pyx_t_1;
   __Pyx_RefNannySetupContext("setWavelength", 0);
 
-  /* "LightPipes/_LightPipes.pyx":936
- *         return self.thisptr.getWavelength()
- *     def setWavelength(self, newWavelength):
+  /* "LightPipes/_LightPipes.pyx":1008
+ * 
+ *         """
  *         self.thisptr.setWavelength(newWavelength)             # <<<<<<<<<<<<<<
  *     def getGridDimension(self):
- *         return self.thisptr.getGridDimension()
+ *         """
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newWavelength); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 936, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_newWavelength); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 1008, __pyx_L1_error)
   __pyx_v_self->thisptr->setWavelength(__pyx_t_1);
 
-  /* "LightPipes/_LightPipes.pyx":935
- *     def getWavelength(self):
+  /* "LightPipes/_LightPipes.pyx":993
+ *         """
  *         return self.thisptr.getWavelength()
  *     def setWavelength(self, newWavelength):             # <<<<<<<<<<<<<<
- *         self.thisptr.setWavelength(newWavelength)
- *     def getGridDimension(self):
+ *         """
+ *         setWavelength(newWavelength)
  */
 
   /* function exit code */
@@ -7145,15 +7150,17 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_94setWavelength(struc
   return __pyx_r;
 }
 
-/* "LightPipes/_LightPipes.pyx":937
- *     def setWavelength(self, newWavelength):
+/* "LightPipes/_LightPipes.pyx":1009
+ *         """
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getGridDimension()
+ *         """
+ *         grid-dimension = getGridDimension()
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_97getGridDimension(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_10LightPipes_11_LightPipes_4Init_96getGridDimension[] = "\n        grid-dimension = getGridDimension()\n        \n        Returns the value of the grid dimension.\n        The grid dimension cannot be set. Use: :ref:`Interpol. <Interpol>`\n        \n        Args::\n        \n            -\n            \n        Returns::\n        \n            grid-dimension: Value of the dimension of the grid (integer).\n\n        ";
 static PyObject *__pyx_pw_10LightPipes_11_LightPipes_4Init_97getGridDimension(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -7171,23 +7178,24 @@ static PyObject *__pyx_pf_10LightPipes_11_LightPipes_4Init_96getGridDimension(st
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("getGridDimension", 0);
 
-  /* "LightPipes/_LightPipes.pyx":938
- *         self.thisptr.setWavelength(newWavelength)
- *     def getGridDimension(self):
+  /* "LightPipes/_LightPipes.pyx":1025
+ * 
+ *         """
  *         return self.thisptr.getGridDimension()             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getGridDimension()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 938, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getGridDimension()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1025, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "LightPipes/_LightPipes.pyx":937
- *     def setWavelength(self, newWavelength):
+  /* "LightPipes/_LightPipes.pyx":1009
+ *         """
  *         self.thisptr.setWavelength(newWavelength)
  *     def getGridDimension(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getGridDimension()
+ *         """
+ *         grid-dimension = getGridDimension()
  */
 
   /* function exit code */
@@ -10055,6 +10063,110 @@ static PyObject *__pyx_convert_vector_to_py_std_3a__3a_vector_3c___pyx_t_double_
   return __pyx_r;
 }
 
+static PyObject *__pyx_convert_vector_to_py_double(const std::vector<double>  &__pyx_v_v) {
+  size_t __pyx_v_i;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  size_t __pyx_t_2;
+  size_t __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_to_py_double", 0);
+
+  /* "vector.to_py":68
+ * @cname("__pyx_convert_vector_to_py_double")
+ * cdef object __pyx_convert_vector_to_py_double(vector[X]& v):
+ *     return [X_to_py(v[i]) for i in range(v.size())]             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 68, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __pyx_v_v.size();
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+    __pyx_t_4 = PyFloat_FromDouble((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 68, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_4))) __PYX_ERR(2, 68, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "vector.to_py":67
+ * 
+ * @cname("__pyx_convert_vector_to_py_double")
+ * cdef object __pyx_convert_vector_to_py_double(vector[X]& v):             # <<<<<<<<<<<<<<
+ *     return [X_to_py(v[i]) for i in range(v.size())]
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("vector.to_py.__pyx_convert_vector_to_py_double", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(const std::vector<std::vector<double> >  &__pyx_v_v) {
+  size_t __pyx_v_i;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  size_t __pyx_t_2;
+  size_t __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___", 0);
+
+  /* "vector.to_py":68
+ * @cname("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___")
+ * cdef object __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(vector[X]& v):
+ *     return [X_to_py(v[i]) for i in range(v.size())]             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 68, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __pyx_v_v.size();
+  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+    __pyx_t_4 = __pyx_convert_vector_to_py_double((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 68, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_4))) __PYX_ERR(2, 68, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "vector.to_py":67
+ * 
+ * @cname("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___")
+ * cdef object __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(vector[X]& v):             # <<<<<<<<<<<<<<
+ *     return [X_to_py(v[i]) for i in range(v.size())]
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("vector.to_py.__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 /* "vector.from_py":49
  * 
  * @cname("__pyx_convert_vector_from_py_double")
@@ -10291,118 +10403,6 @@ static std::vector<std::vector<double> >  __pyx_convert_vector_from_py_std_3a__3
   return __pyx_r;
 }
 
-/* "vector.to_py":67
- * 
- * @cname("__pyx_convert_vector_to_py_double")
- * cdef object __pyx_convert_vector_to_py_double(vector[X]& v):             # <<<<<<<<<<<<<<
- *     return [X_to_py(v[i]) for i in range(v.size())]
- * 
- */
-
-static PyObject *__pyx_convert_vector_to_py_double(const std::vector<double>  &__pyx_v_v) {
-  size_t __pyx_v_i;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  size_t __pyx_t_2;
-  size_t __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_convert_vector_to_py_double", 0);
-
-  /* "vector.to_py":68
- * @cname("__pyx_convert_vector_to_py_double")
- * cdef object __pyx_convert_vector_to_py_double(vector[X]& v):
- *     return [X_to_py(v[i]) for i in range(v.size())]             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 68, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_v_v.size();
-  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
-    __pyx_t_4 = PyFloat_FromDouble((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 68, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_4))) __PYX_ERR(2, 68, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  }
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "vector.to_py":67
- * 
- * @cname("__pyx_convert_vector_to_py_double")
- * cdef object __pyx_convert_vector_to_py_double(vector[X]& v):             # <<<<<<<<<<<<<<
- *     return [X_to_py(v[i]) for i in range(v.size())]
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("vector.to_py.__pyx_convert_vector_to_py_double", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(const std::vector<std::vector<double> >  &__pyx_v_v) {
-  size_t __pyx_v_i;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  size_t __pyx_t_2;
-  size_t __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___", 0);
-
-  /* "vector.to_py":68
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(vector[X]& v):
- *     return [X_to_py(v[i]) for i in range(v.size())]             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 68, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_v_v.size();
-  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
-    __pyx_t_4 = __pyx_convert_vector_to_py_double((__pyx_v_v[__pyx_v_i])); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 68, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_4))) __PYX_ERR(2, 68, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  }
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "vector.to_py":67
- * 
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(vector[X]& v):             # <<<<<<<<<<<<<<
- *     return [X_to_py(v[i]) for i in range(v.size())]
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("vector.to_py.__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
 static PyObject *__pyx_tp_new_10LightPipes_11_LightPipes_Init(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
@@ -10451,14 +10451,14 @@ static PyMethodDef __pyx_methods_10LightPipes_11_LightPipes_Init[] = {
   {"GaussHermite", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_29GaussHermite, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_28GaussHermite},
   {"GaussLaguerre", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_31GaussLaguerre, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_30GaussLaguerre},
   {"IntAttenuator", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_33IntAttenuator, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_32IntAttenuator},
-  {"Lens", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_35Lens, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_34Lens},
-  {"LensForvard", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_37LensForvard, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_36LensForvard},
-  {"LensFresnel", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_39LensFresnel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_38LensFresnel},
-  {"MultIntensity", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_41MultIntensity, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_40MultIntensity},
-  {"MultPhase", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_43MultPhase, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_42MultPhase},
-  {"Normal", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_45Normal, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_44Normal},
-  {"Intensity", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_47Intensity, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_46Intensity},
-  {"Interpol", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_49Interpol, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_48Interpol},
+  {"Intensity", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_35Intensity, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_34Intensity},
+  {"Interpol", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_37Interpol, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_36Interpol},
+  {"Lens", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_39Lens, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_38Lens},
+  {"LensForvard", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_41LensForvard, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_40LensForvard},
+  {"LensFresnel", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_43LensFresnel, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_42LensFresnel},
+  {"MultIntensity", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_45MultIntensity, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_44MultIntensity},
+  {"MultPhase", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_47MultPhase, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_46MultPhase},
+  {"Normal", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_49Normal, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_48Normal},
   {"Phase", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_51Phase, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_50Phase},
   {"PhaseUnwrap", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_53PhaseUnwrap, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_52PhaseUnwrap},
   {"PipFFT", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_55PipFFT, METH_VARARGS|METH_KEYWORDS, __pyx_doc_10LightPipes_11_LightPipes_4Init_54PipFFT},
@@ -10476,13 +10476,13 @@ static PyMethodDef __pyx_methods_10LightPipes_11_LightPipes_Init[] = {
   {"noll_to_zern", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_79noll_to_zern, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_78noll_to_zern},
   {"ZernikeNolltoMN", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_81ZernikeNolltoMN, METH_O, 0},
   {"ZernikeName", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_83ZernikeName, METH_O, 0},
-  {"LPtest", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_85LPtest, METH_NOARGS, 0},
+  {"LPtest", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_85LPtest, METH_NOARGS, __pyx_doc_10LightPipes_11_LightPipes_4Init_84LPtest},
   {"LPhelp", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_87LPhelp, METH_NOARGS, __pyx_doc_10LightPipes_11_LightPipes_4Init_86LPhelp},
-  {"getGridSize", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_89getGridSize, METH_NOARGS, 0},
-  {"setGridSize", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_91setGridSize, METH_O, 0},
-  {"getWavelength", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_93getWavelength, METH_NOARGS, 0},
-  {"setWavelength", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_95setWavelength, METH_O, 0},
-  {"getGridDimension", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_97getGridDimension, METH_NOARGS, 0},
+  {"getGridSize", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_89getGridSize, METH_NOARGS, __pyx_doc_10LightPipes_11_LightPipes_4Init_88getGridSize},
+  {"setGridSize", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_91setGridSize, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_90setGridSize},
+  {"getWavelength", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_93getWavelength, METH_NOARGS, __pyx_doc_10LightPipes_11_LightPipes_4Init_92getWavelength},
+  {"setWavelength", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_95setWavelength, METH_O, __pyx_doc_10LightPipes_11_LightPipes_4Init_94setWavelength},
+  {"getGridDimension", (PyCFunction)__pyx_pw_10LightPipes_11_LightPipes_4Init_97getGridDimension, METH_NOARGS, __pyx_doc_10LightPipes_11_LightPipes_4Init_96getGridDimension},
   {0, 0, 0, 0}
 };
 
@@ -10674,25 +10674,25 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "LightPipes/_LightPipes.pyx":869
+  /* "LightPipes/_LightPipes.pyx":873
  *         if (j == 0):
  *             print("Noll indices start at 1, 0 is invalid.")
  *             return (0,0)             # <<<<<<<<<<<<<<
  * 
  *         n = 0
  */
-  __pyx_tuple_ = PyTuple_Pack(2, __pyx_int_0, __pyx_int_0); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 869, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(2, __pyx_int_0, __pyx_int_0); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 873, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "LightPipes/_LightPipes.pyx":928
+  /* "LightPipes/_LightPipes.pyx":944
  * 
  *         """
  *         webbrowser.open_new("https://opticspy.github.io/lightpipes/")             # <<<<<<<<<<<<<<
  *     def getGridSize(self):
- *         return self.thisptr.getGridSize()
+ *         """
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_https_opticspy_github_io_lightpi); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 928, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_https_opticspy_github_io_lightpi); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 944, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
@@ -10966,12 +10966,12 @@ PyMODINIT_FUNC PyInit__LightPipes(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "vector.to_py":67
+  /* "vector.from_py":50
  * 
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_vector_3c_double_3e___(vector[X]& v):             # <<<<<<<<<<<<<<
- *     return [X_to_py(v[i]) for i in range(v.size())]
- * 
+ * @cname("__pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___")
+ * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_vector_3c_double_3e___(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef vector[X] v
+ *     for item in o:
  */
 
   /*--- Wrapped vars code ---*/

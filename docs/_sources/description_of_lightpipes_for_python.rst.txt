@@ -690,6 +690,3 @@ where P is the total beam power.
 .. [#f7] M. Born, E. Wolf, Principles of Optics, Pergamon, 464, 767-772 (1993).
 
 .. [#f8] D. Malacara, Optical shop testing, J. Wiley & Sons, (1992).
-
-.. [#f9] D. Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).
-

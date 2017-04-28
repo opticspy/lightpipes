@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Computer practical. &#8212; LightPipes for Python 1.1.3 documentation</title>
+    <title>7. Computer practical. &#8212; LightPipes for Python 1.1.3 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction to computer practical." href="computerpracintro.html" />
-    <link rel="prev" title="Examples." href="examples_of_lightpipes_for_python.html" /> 
+    <link rel="next" title="7.3.1. Spherical wavefront." href="SphericalWavefront.html" />
+    <link rel="prev" title="6. Examples." href="examples_of_lightpipes_for_python.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,10 +41,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="computerpracintro.html" title="Introduction to computer practical."
+          <a href="SphericalWavefront.html" title="7.3.1. Spherical wavefront."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="examples_of_lightpipes_for_python.html" title="Examples."
+          <a href="examples_of_lightpipes_for_python.html" title="6. Examples."
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
       </ul>
@@ -56,21 +56,127 @@
           <div class="body" role="main">
             
   <div class="section" id="computer-practical">
-<span id="computerprac"></span><h1>Computer practical.<a class="headerlink" href="#computer-practical" title="Permalink to this headline">¶</a></h1>
+<span id="computerprac"></span><h1>7. Computer practical.<a class="headerlink" href="#computer-practical" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="computerpracintro"></span><div class="section" id="introduction-to-computer-practical">
+<span id="index-0"></span><h2>7.1. Introduction to computer practical.<a class="headerlink" href="#introduction-to-computer-practical" title="Permalink to this headline">¶</a></h2>
+<p>The computer optics laboratory offers a number of experiments that can be done on the computer using simulations of real optical problems. The computer lab is part of the <a class="reference external" href="https://www.utwente.nl/onderwijs/bachelor/opleidingen/technische-natuurkunde/studieprogramma/tweede-jaar/#module-6-golven-interferentie-en-waarschijnlijkheid">introduction to optics</a> (in Dutch!) course given during the second year <a class="reference external" href="https://www.utwente.nl/en/education/bachelor/programmes/applied-physics/">Applied Physics</a> (TN) Bachelor study of the faculty of Science and Technology (TNW) of the <a class="reference external" href="http://www.utwente.nl/en/">University of Twente</a>.</p>
+<a class="reference external image-reference" href="http://www.utwente.nl/en/"><img alt="_images/UT_Logo_0072_Black_EN.png" class="align-center" src="_images/UT_Logo_0072_Black_EN.png" /></a>
+<p>Optics can be learned traditionally through theory by following lectures and in practice by performing experiments in the laboratory. With these simulations a third method is added: experiments on the student’s computer. Although the simulations are very realistic, computer experiments can never take the place of real experiments in the optics laboratory. Doing physics as opposed to thinking about doing physics should be done in the real laboratory where the student experiences real experimental problems that cannot be simulated even by the most advanced programs. The advantages of simulations are, however, that the student can do the experiment any time he wants in his own place. Also no costly laboratory equipment and stringent time schedules are needed.
+With these simulations the student will learn many things about the topic’s theory and how the experiment can be performed in the real laboratory.</p>
+<p>Each experiment has a number of exercises to be done and questions to be answered. The experiments are done by changing one or more parameters and by measuring characteristic data usually with the mouse. The student is asked to derive an expression for the parameter (wavelength, some radius, thickness, etc.) to be determined from the measurements. Each simulation will generate a random number, which will give the parameter to be measured. The formula relating this number to the parameter is very complicated and only known to the lecturer. The student must write this number on his report so he/she can easily check the answers.</p>
+<p>The simulations make use of an optical toolbox (<a class="reference external" href="http://www.okotech.com/">LightPipes</a>) with several commands for propagation, apertures, lenses, etc. The toolbox is written by Gleb Vdovin and is modified for this purpose by me. The toolbox is linked to each simulation program. It makes use of advanced propagation routines for solving the Fresnel-Kirchoff integral in two dimensions. The result is a very realistic optical simulation program for studying physical optics.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="_images/FresnelSphericalSetup.png" src="_images/FresnelSphericalSetup.png" />
+</div>
+</td>
+<td><div class="first last figure">
+<img alt="_images/FresnelSphericalScreenShot.png" src="_images/FresnelSphericalScreenShot.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>Screenshot of one of the simulation programs (Fresnel diffraction with spherical wavefront as input).</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="_images/FresnelLab1.jpg" src="_images/FresnelLab1.jpg" />
+</div>
+</td>
+<td><div class="first last figure">
+<img alt="_images/FresnelLab2.jpg" src="_images/FresnelLab2.jpg" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>Fresnel diffraction pattern as observed in the</em> <a class="reference external" href="http://edu.tnw.utwente.nl/optprac/">real optics lab</a></p>
+<p>The Python script file of each experiment can be downloaded and executed if you properly prepared your Python installation including the installation of the necessary packages, see: <a class="reference internal" href="#prepare-your-computer"><span class="std std-ref">Prepare your computer.</span></a>
+The experiments should be done in the order given below and when possible repeated in the real laboratory.</p>
+<p><strong>Assignments:</strong></p>
+<p><a class="reference internal" href="SphericalWavefront.html#spherical-wavefront"><span class="std std-ref">Spherical wavefront.</span></a></p>
+<p><a class="reference internal" href="Reflect.html#id1"><span class="std std-ref">Internal reflection and refraction.</span></a></p>
+<p><a class="reference internal" href="TwoHoles.html#two-holes-interferometer"><span class="std std-ref">Two holes interferometer.</span></a></p>
+<p><a class="reference internal" href="NewtonRings.html#newton-rings"><span class="std std-ref">Newton rings.</span></a></p>
+<p><a class="reference internal" href="FabryPerot.html#fabry-perot-interferometer"><span class="std std-ref">Fabry Perot interferometer.</span></a></p>
+<p><a class="reference internal" href="FresnelDiffraction.html#fresnel-diffraction"><span class="std std-ref">Fresnel diffraction.</span></a></p>
+<p>Enjoy playing with optics!</p>
+<p>Fred van Goor</p>
+</div>
+<div class="section" id="prepare-your-computer">
+<span id="preparepc"></span><h2>7.2. Prepare your computer.<a class="headerlink" href="#prepare-your-computer" title="Permalink to this headline">¶</a></h2>
+<p>To do the computer practical you have to prepare your computer. You must
+install Python and some other stuff before you can run the programs.</p>
+<ol class="arabic">
+<li><p class="first">Go to the Python website, <a class="reference external" href="https://www.python.org/">http://www.python.org,</a> and Install Python on your computer.</p>
+</li>
+<li><p class="first">You will need the download tool <a class="reference external" href="https://pypi.python.org/pypi/pip">pip</a>. It is already installed with
+your Python installation, but you need to upgrade it.
+<a class="reference external" href="https://pip.pypa.io/en/stable/">Install and/or upgrade the download tool &#8216;pip&#8217;.</a></p>
+</li>
+<li><p class="first">Install the <a class="reference external" href="http://www.matplotlib.org">matplotlib</a> plot package. Open a terminal and type at the prompt:</p>
+<p>Windows: <strong>pip install matplotlib</strong></p>
+<p>Linux and mac: <strong>sudo pip install matplotlib</strong></p>
+</li>
+<li><p class="first">Install the LightPipes for Python optical toolbox. Open a terminal and type at the prompt:</p>
+<p>Windows: <strong>pip install LightPipes</strong></p>
+<p>Linux and mac: <strong>sudo pip install LightPipes</strong></p>
+</li>
+<li><p class="first">A nice and convenient environment to run and edit the Python scripts is <a class="reference external" href="http://www.geany.org">Geany</a>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="assignments">
+<span id="id1"></span><h2>7.3. Assignments.<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="computerpracintro.html">Introduction to computer practical.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="preparepc.html">Prepare your computer.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="assignments.html">Assignments.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="1SphericalWavefront.html">1. Spherical wavefront.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2Reflect.html">2. Internal reflection and refraction.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3TwoHoles.html">3. Two holes interferometer.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4NewtonRings.html">4. Newton rings.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5FabryPerot.html">5. Fabry Perot interferometer.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6FresnelDiffraction.html">6. Fresnel diffraction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SphericalWavefront.html">7.3.1. Spherical wavefront.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="SphericalWavefront.html#irradiance-dependency-of-a-spherical-wavefront">7.3.1.1. Irradiance dependency of a spherical wavefront.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SphericalWavefront.html#questions">7.3.1.2. Questions.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Reflect.html">7.3.2. Internal reflection and refraction.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Reflect.html#id1">7.3.2.1. Internal reflection and refraction.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reflect.html#measurement-of-the-refractive-index-of-the-medium">7.3.2.2. Measurement of the refractive index of the medium.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Reflect.html#questions">7.3.2.3. Questions.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TwoHoles.html">7.3.3. Two holes interferometer.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="TwoHoles.html#measurement-of-the-wavelength">7.3.3.1. Measurement of the wavelength.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TwoHoles.html#measurement-of-the-thickness-of-a-thin-film-that-covers-one-of-the-holes">7.3.3.2. Measurement of the thickness of a thin film that covers one of the holes.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TwoHoles.html#questions">7.3.3.3. Questions.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NewtonRings.html">7.3.4. Newton rings.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="NewtonRings.html#measurement-of-the-radius-of-curvature-of-the-lens">7.3.4.1. Measurement of the radius of curvature of the lens.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NewtonRings.html#measurement-of-the-refractive-index-of-the-film-between-the-lens-and-the-flat-plate">7.3.4.2. Measurement of the refractive index of the film between the lens and the flat plate.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NewtonRings.html#questions">7.3.4.3. Questions.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FabryPerot.html">7.3.5. Fabry Perot interferometer.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FabryPerot.html#measurement-of-the-distance-between-two-wavelengths">7.3.5.1. Measurement of the distance between two wavelengths.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FabryPerot.html#measurement-of-the-refractive-index-of-a-medium">7.3.5.2. Measurement of the refractive index of a medium.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FabryPerot.html#questions">7.3.5.3. Questions.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FresnelDiffraction.html">7.3.6. Fresnel diffraction.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FresnelDiffraction.html#fresnel-diffraction-plane-wavefront">7.3.6.1. Fresnel diffraction, plane wavefront.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FresnelDiffraction.html#fresnel-diffraction-spherical-wavefront">7.3.6.2. Fresnel diffraction, spherical wavefront.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FresnelDiffraction.html#questions">7.3.6.3. Questions.</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -81,26 +187,28 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/underconstruction.png" alt="Logo"/>
+              <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
 <h3><a href="index.html">Table Of Contents</a></h3>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">Support.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="command-reference.html">Command Reference.</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">Manual.</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="examples_of_lightpipes_for_python.html">Examples.</a></li>
-</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Computer practical.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="computerpracintro.html">Introduction to computer practical.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preparepc.html">Prepare your computer.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="assignments.html">Assignments.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">5. Manual.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples_of_lightpipes_for_python.html">6. Examples.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Computer practical.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-to-computer-practical">7.1. Introduction to computer practical.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-your-computer">7.2. Prepare your computer.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assignments">7.3. Assignments.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="SphericalWavefront.html">7.3.1. Spherical wavefront.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reflect.html">7.3.2. Internal reflection and refraction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TwoHoles.html">7.3.3. Two holes interferometer.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NewtonRings.html">7.3.4. Newton rings.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FabryPerot.html">7.3.5. Fabry Perot interferometer.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FresnelDiffraction.html">7.3.6. Fresnel diffraction.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -129,7 +237,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 24, 2017.
+      Last updated on Apr 28, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>
