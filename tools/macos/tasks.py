@@ -105,7 +105,7 @@ class Builder:
         ))
 
     def fix_wheel(self):
-        self.run('delocate-wheel -v -w {dist} {whl}'.format(
+        self.run('delocate-wheel -v -d -w {dist} {whl}'.format(
             dist=DIST,
             whl=find_whl(self.version)
         ))

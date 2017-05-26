@@ -2,6 +2,7 @@ from LightPipes import *
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import math
+import numpy as np
 
 size=1*mm
 wavelength=1*um

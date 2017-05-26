@@ -1,7 +1,7 @@
 from LightPipes import *
 import matplotlib.pyplot as plt
 import math
-
+import numpy as np
 size=15*mm
 wavelength=1*um
 N=500

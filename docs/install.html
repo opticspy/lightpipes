@@ -57,10 +57,29 @@
             
   <div class="section" id="installation">
 <h1>2. Installation.<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>LightPipes for Python can be installed if you have pip:</p>
+<p>This Python version of Lightpipes can be operated on Windows (32 and 64 bits), Linux (32 and 64 bits) and Macintosh (64 bits) computers.
+There exist packages for Python versions 2.7, 3.4, 3.5 and 3.6.
+LightPipes for Python is on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a> and can be installed if you have <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a> installed on your computer.
+In a terminal window simply type:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>pip install LightPipes
 </pre></div>
 </div>
+<p>To test if the installation was successful start Python and type at the prompt:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LPTest</span><span class="p">()</span>
+<span class="go">LightPipes for Python: test passed.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>The response should be: &#8220;LightPipes for Python: test passed.&#8221;</p>
+<p>Most output from LightPipes python scripts should use the <a class="reference external" href="https://matplotlib.org/">MatPlotLib</a> plotting library.
+MatplotLib can be installed by typing in a terminal:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install matplotlib
+</pre></div>
+</div>
+<p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
+See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.html">http://www.tkdocs.com/tutorial/install.html</a> how to install it on your platform.</p>
+<p>Finally, a convenient editor to make Python scripts is <a class="reference external" href="http://www.geany.org/">Geany</a>.</p>
 </div>
 
 
@@ -107,7 +126,7 @@
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Apr 28, 2017.
+      Last updated on May 26, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>
