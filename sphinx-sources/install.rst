@@ -13,7 +13,7 @@ In a terminal window simply type:
 To test if the installation was successful start Python and type at the prompt:
 
     >>> from LightPipes import *
-    >>> LPTest()
+    >>> LPtest()
     LightPipes for Python: test passed.
     >>>
     
