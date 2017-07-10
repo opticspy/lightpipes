@@ -54,7 +54,7 @@ You probably want to plot the results, so import *matplotlib*:
 import matplotlib.pyplot as plt
 ```
 
-Next we define some variables: a wavelength of 20 micrometer , a 30 x 30 mm2 square grid with 250 x 250 pixels.
+Next we define some variables: a wavelength of 20 micrometer , a 30 x 30 mm2 square grid with 500 x 500 pixels.
 
 ```python
 wavelength = 20*um

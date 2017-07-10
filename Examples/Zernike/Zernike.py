@@ -24,7 +24,7 @@ for Noll in range (1,22):
     F=CircAperture(size/2,0,0,F)
     Phi=Phase(F)
     plt.subplot(3,7,Noll)
-    plt.imshow(Phi)
+    plt.imshow(Phi, cmap='jet')
     s=repr(Noll) + '  ' + ' $Z^{'+repr(mz)+'}_{'+repr(nz)+'}$' + '\n' + S
     plt.title(s, fontsize=9);plt.axis('off')
 plt.show()

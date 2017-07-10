@@ -38,22 +38,7 @@ The simulations make use of an optical toolbox (`LightPipes <http://www.okotech.
 *Fresnel diffraction pattern as observed in the* `real optics lab <http://edu.tnw.utwente.nl/optprac/>`_
 
 The Python script file of each experiment can be downloaded and executed if you properly prepared your Python installation including the installation of the necessary packages, see: :ref:`Prepare your computer.`
-The experiments should be done in the order given below and when possible repeated in the real laboratory.
-
-**Assignments:**
-
-
-:ref:`Spherical wavefront.`
-
-:ref:`Internal reflection and refraction.`
-
-:ref:`Two holes interferometer.`
-
-:ref:`Newton rings.`
-
-:ref:`Fabry Perot interferometer.`
-
-:ref:`Fresnel diffraction.`
+The experiments should be done in the order given by the :ref:`assignments<Assignments.>` and when possible repeated in the real laboratory.
 
 Enjoy playing with optics!
 
@@ -90,7 +75,7 @@ Assignments.
 ************
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
    SphericalWavefront
    Reflect
