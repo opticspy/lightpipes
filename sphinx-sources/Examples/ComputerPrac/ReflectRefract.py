@@ -91,7 +91,7 @@ def TheExample(event):
     canvas.show()
 
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/2Reflect.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/Reflect.html")
 
 def _quit():
     root.quit()

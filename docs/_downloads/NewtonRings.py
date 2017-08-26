@@ -112,7 +112,7 @@ def cb():
     TheExample(0)
     
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/4NewtonRings.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/NewtonRings.html")
     
 Checkbutton(root,
             text="insert medium between lens and plate",
