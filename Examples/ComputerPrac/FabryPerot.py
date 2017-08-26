@@ -127,7 +127,7 @@ def cb():
     TheExample(0)
     
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/5FabryPerot.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/FabryPerot.html")
     
 Checkbutton(root,
             text="insert medium between mirrors",

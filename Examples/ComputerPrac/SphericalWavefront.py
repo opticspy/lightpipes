@@ -71,7 +71,7 @@ def motion(event):
         root.configure(cursor='arrow')
 
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/1SphericalWavefront.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/SphericalWavefront.html")
 
 def _quit():
     root.quit()
