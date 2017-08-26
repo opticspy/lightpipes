@@ -41,7 +41,7 @@ Known installation problems.
     
         sudo pip install LightPipes
     
-    for a brandnew MacBook Air computer the following error popped-up:
+    for a brandnew MacBook Air computer the following error popped-up after an import-test in python:
     
         >>> import LightPipes
         Traceback (most recent call last):
