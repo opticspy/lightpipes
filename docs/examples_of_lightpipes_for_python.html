@@ -158,7 +158,7 @@
 <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z4</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -177,14 +177,14 @@
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
 <span class="n">size</span><span class="o">=</span><span class="mf">25.0</span><span class="o">*</span><span class="n">mm</span>
-<span class="n">N</span><span class="o">=</span><span class="mi">300</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
-<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -208,7 +208,7 @@
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Poisson&#39;s spot&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Poisson&#39;s spot&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -295,7 +295,7 @@ to a Poisson spot near the axis. It can be shown that the intensity distribution
     <span class="n">s</span><span class="o">=</span><span class="s1">&#39;z= </span><span class="si">%3.1f</span><span class="s1"> m </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;width = </span><span class="si">%3.2f</span><span class="s1"> mm&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
     <span class="c1">#plt.plot(x,y)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">])</span>
     <span class="c1">#plt.axis([-1, 1, 0,1])</span>
     <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">+</span><span class="n">delta_z</span>
@@ -352,7 +352,7 @@ surrounding the disk resulting in an annular slit.</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
     <span class="n">s</span><span class="o">=</span><span class="s1">&#39;z= </span><span class="si">%3.1f</span><span class="s1"> m&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">])</span>
     <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">+</span><span class="n">delta_z</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -409,7 +409,7 @@ the &#8216;overlap area&#8217;. From geometric optics this distance can be estim
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
     <span class="n">s</span><span class="o">=</span><span class="s1">&#39;z= </span><span class="si">%3.1f</span><span class="s1"> m&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">])</span>
     <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">+</span><span class="n">delta_z</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -464,7 +464,7 @@ a small fraction of the total beam power.</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
     <span class="n">s</span><span class="o">=</span><span class="s1">&#39;z= </span><span class="si">%3.1f</span><span class="s1"> m&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">m</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">-</span><span class="n">NZ</span><span class="p">,</span> <span class="n">N2</span><span class="o">+</span><span class="n">NZ</span><span class="p">])</span>
     <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="o">+</span><span class="n">delta_z</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -741,7 +741,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Nrndtrips</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-   <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+   <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
 <span class="n">F2</span><span class="o">=</span><span class="n">Convert</span><span class="p">(</span><span class="n">F2</span><span class="p">);</span>
 <span class="n">i</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">j</span><span class="o">=</span><span class="n">i</span>
@@ -828,9 +828,9 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Inear</span><span class="p">)</span>
 <span class="n">N_new</span><span class="o">=</span><span class="mi">256</span><span class="p">;</span><span class="n">size_new</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Inear</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Inear</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measured Intensity near field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Ifar</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Ifar</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measured Intensity far field&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
 
 <span class="c1">#Define a field with uniform amplitude- (=1) and phase (=0) distribution</span>
@@ -858,13 +858,13 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 
 <span class="n">Phase_near_rec</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">Phase_near_rec</span><span class="p">)</span>
 <span class="c1">#Plot the recovered intensity- and phase distributions:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Inear_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Inear_rec</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered Intensity near field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Ifar_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Ifar_rec</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered Intensity far field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phase_near_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phase_near_rec</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered phase near field&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phase_far_rec</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phase_far_rec</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recovered phase far field&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -957,7 +957,7 @@ amplitude of the aberration.</p>
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;radial shear interferometer&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phi</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;phase distribution input beam&#39;</span><span class="p">)</span>
 <span class="n">F1</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
@@ -966,7 +966,7 @@ amplitude of the aberration.</p>
 <span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
 <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity distribution output beam&#39;</span><span class="p">)</span>
 
@@ -997,6 +997,38 @@ amplitude of the aberration.</p>
 </td></tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="fourier-optics">
+<h2>6.8. Fourier optics.<a class="headerlink" href="#fourier-optics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pattern-recognition">
+<h3>6.8.1. Pattern recognition.<a class="headerlink" href="#pattern-recognition" title="Permalink to this headline">¶</a></h3>
+<p>In this example we demonstrate the recognition of objects using Fourier optics.
+The light, originating from a collection of objects, is focused with a positive lens. A second lens is positioned with its primary focal point in the focus of
+the first lens. When we place a screen behind the second lens at its secondary focus an inverted image of the collection of objects is projected on the
+screen, as shown in figure 1. The object to be recognized is present once or several times in the collection. As objects we choose
+transparencies with the characters A, B, and C.</p>
+<div class="figure" id="id7">
+<img alt="_images/setup1.png" src="_images/setup1.png" />
+<p class="caption"><span class="caption-text"><em>Fig. 1 Imaging a transparency with objects</em></span></p>
+</div>
+<p>Each object will contribute to the phase distribution in the secondary focus of the first lens. If the fluctuations in the wavefront coming from one of the
+objects is compensated by a phase plate prepared for that sort of object, see figure 2, placed in the focus, the beam coming from those objects will propagate as a
+diverging spherical wave to the second lens and will be focused in a diffraction limited point on the screen. The position of that point will indicate the
+presence and the position of the object. This will only be the case when the object, for which the phase plate was positioned in the focus, is actually present in the collection.</p>
+<div class="figure" id="id8">
+<img alt="_images/setup2.png" src="_images/setup2.png" />
+<p class="caption"><span class="caption-text"><em>Fig. 2 Making a phase mask of the Fourier transform of an object</em></span></p>
+</div>
+<div class="figure" id="id9">
+<img alt="_images/setup3.png" src="_images/setup3.png" />
+<p class="caption"><span class="caption-text"><em>Fig. 3 Placing the phase mask in the focus of the first lens.</em></span></p>
+</div>
+<p>(<a class="reference external" href="./Examples/FourierOptics/PatternRecognition.py">Source code</a>, <a class="reference external" href="./Examples/FourierOptics/PatternRecognition.png">png</a>, <a class="reference external" href="./Examples/FourierOptics/PatternRecognition.hires.png">hires.png</a>, <a class="reference external" href="./Examples/FourierOptics/PatternRecognition.pdf">pdf</a>)</p>
+<div class="figure">
+<img alt="_images/PatternRecognition.png" src="_images/PatternRecognition.png" />
+</div>
+<p><em>Fig. 4 Results of the pattern recognition simulation.</em></p>
+</div>
 </div>
 </div>
 
@@ -1047,6 +1079,10 @@ amplitude of the aberration.</p>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#propagation-in-a-lens-like-absorptive-medium">6.7. Propagation in a lens-like, absorptive medium.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fourier-optics">6.8. Fourier optics.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pattern-recognition">6.8.1. Pattern recognition.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
@@ -1076,7 +1112,7 @@ amplitude of the aberration.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Jul 05, 2017.
+      Last updated on Jul 14, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

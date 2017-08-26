@@ -34,7 +34,7 @@ for k in range(1,Nrndtrips+1):
    plt.subplot(2,Nrndtrips/2,k)
    plt.title(k)
    plt.axis('off')
-   plt.imshow(I)
+   plt.imshow(I,cmap='jet')
 F2=Convert(F2);
 i=range(N)
 j=i

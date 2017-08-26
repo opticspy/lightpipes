@@ -80,6 +80,37 @@ MatplotLib can be installed by typing in a terminal:</p>
 <p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
 See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.html">http://www.tkdocs.com/tutorial/install.html</a> how to install it on your platform.</p>
 <p>Finally, a convenient editor to make Python scripts is <a class="reference external" href="http://www.geany.org/">Geany</a>.</p>
+<div class="section" id="known-installation-problems">
+<h2>2.1. Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Too old version of numpy:</dt>
+<dd><p class="first">After installation of LightPipes, using</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo pip install LightPipes
+</pre></div>
+</div>
+<p>for a brandnew MacBook Air computer the following error popped-up:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import LightPipes
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+File &quot;/Library/Python/2.7/site-packages/LightPipes/__init__.py&quot;, line 52, in &lt;module&gt;
+from ._LightPipes import * # noqa
+File &quot;__init__.pxd&quot;, line 155, in init LightPipes._LightPipes (LightPipes/_LightPipes.cpp:10911)
+ValueError: numpy.dtype has the wrong size, try recompiling. Expected 88, got 96
+</pre></div>
+</div>
+<p>Solution:</p>
+<p>The version (1.8.0rc1) of the numpy package (installed as part of the macOS Sierra 10.12.6 update) is too old.
+You have to update numpy to the newest version. Use easy_install, not pip for this.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo easy_install -U numpy
+</pre></div>
+</div>
+<p class="last">(If the cpp-compiler is not installed a window pops up to ask you to install it and the numpy installation is interrupted. Say yes to install the compiler and repeat the numpy installation)</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
 </div>
 
 
@@ -94,7 +125,10 @@ See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.h
 <h3><a href="index.html">Table Of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Installation.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Installation.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#known-installation-problems">2.1. Known installation problems.</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">5. Manual.</a></li>
@@ -126,7 +160,7 @@ See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.h
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Jul 05, 2017.
+      Last updated on Aug 26, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

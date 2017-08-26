@@ -56,7 +56,7 @@ for i in range(1,steps):
     #plt.plot(x,y)
     #plt.ylim([0,0.5])
 
-    plt.imshow(I);plt.axis('off')
+    plt.imshow(I,cmap='jet');plt.axis('off')
     plt.axis([N2-NZ, N2+NZ, N2-NZ, N2+NZ])
     z[i]=z_start+i*delta_z
     #plt.axis('off'); 

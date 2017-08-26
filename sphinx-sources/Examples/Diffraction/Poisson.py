@@ -11,5 +11,5 @@ F=CircScreen(3*mm,0*mm,0*mm,F)
 F=Fresnel(20*cm,F)
 I=Intensity(2,F)
 
-plt.imshow(I); plt.axis('off'); plt.title("Poisson's spot")
+plt.imshow(I,cmap='jet'); plt.axis('off'); plt.title("Poisson's spot")
 plt.show()

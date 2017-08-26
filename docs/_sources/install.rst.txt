@@ -31,5 +31,33 @@ See http://www.tkdocs.com/tutorial/install.html how to install it on your platfo
 
 Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.org/>`_.
 
+Known installation problems.
+============================
 
+1) Too old version of numpy:
+    After installation of LightPipes, using
     
+    .. code-block:: bash
+    
+        sudo pip install LightPipes
+    
+    for a brandnew MacBook Air computer the following error popped-up:
+    
+        >>> import LightPipes
+        Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+        File "/Library/Python/2.7/site-packages/LightPipes/__init__.py", line 52, in <module>
+        from ._LightPipes import * # noqa
+        File "__init__.pxd", line 155, in init LightPipes._LightPipes (LightPipes/_LightPipes.cpp:10911)
+        ValueError: numpy.dtype has the wrong size, try recompiling. Expected 88, got 96
+    
+    Solution:
+    
+    The version (1.8.0rc1) of the numpy package (installed as part of the macOS Sierra 10.12.6 update) is too old.
+    You have to update numpy to the newest version. Use easy_install, not pip for this.
+    
+    .. code-block:: bash
+    
+        sudo easy_install -U numpy
+    
+    (If the cpp-compiler is not installed a window pops up to ask you to install it and the numpy installation is interrupted. Say yes to install the compiler and repeat the numpy installation)

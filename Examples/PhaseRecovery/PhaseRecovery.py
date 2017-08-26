@@ -32,9 +32,9 @@ Ifar = np.asfarray(data)
 N=len(Inear)
 N_new=256;size_new=40*mm;
 
-plt.subplot(3,2,1);plt.imshow(Inear);
+plt.subplot(3,2,1);plt.imshow(Inear,cmap='jet');
 plt.title('Measured Intensity near field'); plt.axis ('off');
-plt.subplot(3,2,2);plt.imshow(Ifar);
+plt.subplot(3,2,2);plt.imshow(Ifar,cmap='jet');
 plt.title('Measured Intensity far field');plt.axis ('off');
 
 #Define a field with uniform amplitude- (=1) and phase (=0) distribution
@@ -62,13 +62,13 @@ Inear_rec=Intensity(0,Fnear_rec); Phase_near_rec=Phase(Fnear_rec);
 
 Phase_near_rec=PhaseUnwrap(Phase_near_rec)
 #Plot the recovered intensity- and phase distributions:
-plt.subplot(3,2,3);plt.imshow(Inear_rec);
+plt.subplot(3,2,3);plt.imshow(Inear_rec,cmap='jet');
 plt.title('Recovered Intensity near field'); plt.axis ('off')
-plt.subplot(3,2,4);plt.imshow(Ifar_rec);
+plt.subplot(3,2,4);plt.imshow(Ifar_rec,cmap='jet');
 plt.title('Recovered Intensity far field'); plt.axis ('off')
-plt.subplot(3,2,5);plt.imshow(Phase_near_rec);
+plt.subplot(3,2,5);plt.imshow(Phase_near_rec,cmap='jet');
 plt.title('Recovered phase near field');plt.axis ('off')
-plt.subplot(3,2,6);plt.imshow(Phase_far_rec);
+plt.subplot(3,2,6);plt.imshow(Phase_far_rec,cmap='jet');
 plt.title('Recovered phase far field'); plt.axis ('off')
 
 plt.show()
