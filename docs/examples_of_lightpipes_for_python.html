@@ -499,6 +499,8 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <div class="literal-block-wrapper docutils container" id="laser-simulation">
 <div class="code-block-caption"><span class="caption-text">laser_simulation.py</span><a class="headerlink" href="#laser-simulation" title="Permalink to this code">¶</a></div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;TkAgg&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">matplotlib.backends.backend_tkagg</span> <span class="k">import</span> <span class="n">FigureCanvasTkAgg</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -588,7 +590,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
             <span class="s2">&quot;g2 = </span><span class="si">%5.3f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">g2</span><span class="o">+</span>
             <span class="s2">&quot;g  = </span><span class="si">%5.3f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">g</span>
             <span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Iw</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Iw</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
     <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;laser mode&#39;</span><span class="p">)</span> 
     <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">power</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
     <span class="n">s</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%3.1f</span><span class="s1"> ns/div&#39;</span><span class="o">%</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="mf">2.988</span><span class="o">*</span><span class="mf">1000.0</span><span class="p">)</span>
@@ -1112,7 +1114,7 @@ presence and the position of the object. This will only be the case when the obj
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Jul 14, 2017.
+      Last updated on Aug 28, 2017.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

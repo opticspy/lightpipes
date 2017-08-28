@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import math
@@ -88,7 +90,7 @@ def TheExample():
             "g2 = %5.3f\n"%g2+
             "g  = %5.3f\n"%g
             )
-    ax1.imshow(Iw); ax1.axis('off'); ax1.axis('equal')
+    ax1.imshow(Iw,cmap='rainbow'); ax1.axis('off'); ax1.axis('equal')
     ax1.set_title('laser mode') 
     ax2.plot(power); ax2.set_ylim(0,10); ax2.set_xlim(0,500)
     s='%3.1f ns/div'% (2.0*L/2.988*1000.0)

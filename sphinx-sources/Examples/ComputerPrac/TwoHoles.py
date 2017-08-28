@@ -12,7 +12,8 @@
     :license: MIT, see License for more details.
     
 """
-
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import sys
