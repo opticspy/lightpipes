@@ -11,8 +11,8 @@ WORKDIR /tmp/fftw3/fftw-3.3.6-pl1
 RUN ./configure --enable-shared && make > /dev/null && make install
 
 # build wheel
-RUN /opt/python/cp36-cp36m/bin/pip install invoke
+RUN /opt/python/cp36-cp36m/bin/pip install invoke==0.21.0
 VOLUME /io/
 WORKDIR /io/tools/linux
 ENV TARGET=linux-x32
-CMD ["/opt/python/cp36-cp36m/bin/inv", "build_all"]
+CMD ["/opt/python/cp36-cp36m/bin/inv", "build-all"]

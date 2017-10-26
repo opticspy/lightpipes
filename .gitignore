@@ -5,6 +5,9 @@ tools/macosx/envs
 # wheels
 wheelhouse
 
+# editor
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
