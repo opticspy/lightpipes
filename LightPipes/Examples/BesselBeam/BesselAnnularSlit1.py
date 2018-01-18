@@ -43,7 +43,7 @@ for i in range(1,steps):
     s='z= %3.1f m \n' % (z/m) + 'width = %3.2f mm' % (w/mm)
     plt.title(s, fontsize=8)
     #plt.plot(x,y)
-    plt.imshow(I);plt.axis('off')
+    plt.imshow(I,cmap='jet');plt.axis('off')
     plt.axis([N2-NZ, N2+NZ, N2-NZ, N2+NZ])
     #plt.axis([-1, 1, 0,1])
     z=z+delta_z

@@ -9,7 +9,8 @@
     Measure the values of z1, z2 and d for which minima and/or maxima on-axis occur
     and apply the Fresnel-zone theory to find the wavelength of the light.
 """
-
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import sys
@@ -82,7 +83,7 @@ def motion(event):
         root.configure(cursor='arrow')
 
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/6FresnelDiffraction.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/FresnelDiffraction.html")
 
 def _quit():
     root.quit()

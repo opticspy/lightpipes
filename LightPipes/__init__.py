@@ -47,6 +47,9 @@ __all__ = [
     'getGridDimension',
     'LPtest',
     'LPhelp',
+    'GaussBeam',
+    'PointSource',
+    'LPdemo',
 ]
 
 from ._LightPipes import * # noqa

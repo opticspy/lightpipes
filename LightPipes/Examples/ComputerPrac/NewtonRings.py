@@ -12,7 +12,8 @@
     :license: MIT, see License for more details.
     
 """
-
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import sys
@@ -112,7 +113,7 @@ def cb():
     TheExample(0)
     
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/4NewtonRings.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/NewtonRings.html")
     
 Checkbutton(root,
             text="insert medium between lens and plate",

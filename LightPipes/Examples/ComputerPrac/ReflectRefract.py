@@ -8,7 +8,8 @@
     Find the Brewster- and critical angle and from this determine
     the refractice index of the glass.
 """
-
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -91,7 +92,7 @@ def TheExample(event):
     canvas.show()
 
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/2Reflect.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/Reflect.html")
 
 def _quit():
     root.quit()

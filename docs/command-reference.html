@@ -643,11 +643,11 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 <dt id="LightPipes.Steps">
 <code class="descname">Steps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Steps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Steps(z, nstep, refr, Fin)</p>
-<p><a class="reference internal" href="description_of_lightpipes_for_python.html#steps"><span class="std std-ref">Propagates the field a distance, z, in nstep steps in a
+<p><a class="reference internal" href="description_of_lightpipes_for_python.html#steps"><span class="std std-ref">Propagates the field a distance, nstep x z, in nstep steps in a
 medium with a complex refractive index stored in the
 square array refr.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span> <span class="n">per</span> <span class="n">step</span>
 <span class="n">nstep</span><span class="p">:</span> <span class="n">number</span> <span class="n">of</span> <span class="n">steps</span>
 <span class="n">refr</span><span class="p">:</span> <span class="n">refractive</span> <span class="n">index</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
@@ -869,6 +869,46 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
 <p><a class="reference external" href="https://opticspy.github.io/lightpipes/">https://opticspy.github.io/lightpipes/</a></p>
 </dd></dl>
 
+<dl class="function">
+<dt id="LightPipes.GaussBeam">
+<code class="descname">GaussBeam</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>F=GaussBeam(GridSize, Wavelength, N, w,tx,ty)
+<a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a Gaussian beam in its waist (phase = 0.0, amplitude = 1.0).</span></a></p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
+<span class="n">Wavelength</span><span class="p">:</span> <span class="n">wavelength</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
+<span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">grid</span> <span class="n">points</span> <span class="p">(</span><span class="n">N</span> <span class="n">must</span> <span class="n">be</span> <span class="n">even</span><span class="p">)</span>
+<span class="n">w</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">waist</span>
+<span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="n">of</span> <span class="n">the</span> <span class="n">beam</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="LightPipes.PointSource">
+<code class="descname">PointSource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="LightPipes.LPdemo">
+<code class="descname">LPdemo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPdemo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Demonstrates the simulation of a two-holes interferometer.</p>
+<p>Args:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="n">plot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">interference</span> <span class="n">pattern</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">script</span><span class="o">.</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 
 
@@ -915,7 +955,7 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Jul 14, 2017.
+      Last updated on Jan 18, 2018.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
     </div>
   </body>

@@ -32,7 +32,7 @@ for i in range(1,steps):
     plt.subplot(2,5,i)
     s='z= %3.1f m' % (z/m)
     plt.title(s)
-    plt.imshow(I);plt.axis('off')
+    plt.imshow(I,cmap='jet');plt.axis('off')
     plt.axis([N2-NZ, N2+NZ, N2-NZ, N2+NZ])
     z=z+delta_z
 plt.show()

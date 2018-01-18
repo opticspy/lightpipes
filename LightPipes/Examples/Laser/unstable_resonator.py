@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 
-wavelength = 308*nm
+wavelength = 1000*nm
 size=14*mm
 N=100
 w=5.48*mm
-f1=-10*m; f2=20*m; L=10*m; Isat=1.0; alpha=1e-4; Lgain=1e4;
+f1=-2.0*m; f2=4.0*m; L=2.0*m; Isat=1.0; alpha=1e-4; Lgain=1e4;
 tx=0.0; ty=0.00000;
 Nrndtrips=20
 
@@ -19,7 +19,7 @@ SR=np.zeros(Nrndtrips+1)
 F=Begin(size,wavelength,N);
 F=RandomIntensity(time.time(),1000,F)
 F=RandomPhase(time.time(),10,F);
-
+print('{0} {1}'.format('roundtrip', 'Strehl ratio'))
 for k in range(1,Nrndtrips+1):
    F=RectAperture(w,w,0,0,0,F);
    F=Gain(Isat,alpha,2*Lgain,F);
@@ -28,13 +28,13 @@ for k in range(1,Nrndtrips+1):
    F=Tilt(tx,ty,F);
    SR[k]=Strehl(F);
    F=Interpol(size,N,0,0,0,1,F);
-   print ('Round trip ',k,' Strehl ratio= ',SR[k],'\n');
+   print('  {0:2d}          {1:0.3f}'.format(k, SR[k]))
    F2=RectScreen(w,w,0,0,0,F);
    I=Intensity(2,F2);
    plt.subplot(2,Nrndtrips/2,k)
    plt.title(k)
    plt.axis('off')
-   plt.imshow(I)
+   plt.imshow(I,cmap='jet')
 F2=Convert(F2);
 i=range(N)
 j=i
@@ -50,7 +50,7 @@ plt.plot(SR[1:Nrndtrips+1])
 plt.title('Strehl ratio')
 
 #Far-field calculation:
-z=1.0*m; f=40.0*m;
+z=0.1*m; f=4.0*m;
 ff=z*f/(f-z);
 F2=Lens(f,0,0,F2);
 F2=LensFresnel(ff,z,F2);

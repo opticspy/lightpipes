@@ -7,7 +7,8 @@
     Demonstrates a spherical wavefront and the inverse quadratic dependency.
     Show in a graph whether or not the inverse square irradiance law holds.
 """
-
+import matplotlib
+matplotlib.use("TkAgg")
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 import sys
@@ -71,7 +72,7 @@ def motion(event):
         root.configure(cursor='arrow')
 
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/1SphericalWavefront.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/SphericalWavefront.html")
 
 def _quit():
     root.quit()

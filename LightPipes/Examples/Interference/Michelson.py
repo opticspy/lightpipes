@@ -46,5 +46,5 @@ F=BeamMix(F1,F2)
 F=Forvard(z4,F)
 I=Intensity(1,F)
 
-plt.imshow(I); plt.axis('off');plt.title('intensity pattern')
+plt.imshow(I,cmap='jet'); plt.axis('off');plt.title('intensity pattern')
 plt.show()

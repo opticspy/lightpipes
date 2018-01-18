@@ -724,13 +724,13 @@ cdef class Init:
         """
         Fout = Steps(z, nstep, refr, Fin)
                      
-        :ref:`Propagates the field a distance, z, in nstep steps in a
+        :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
         medium with a complex refractive index stored in the
         square array refr. <Steps>`
 
         Args::
         
-            z: propagation distance
+            z: propagation distance per step
             nstep: number of steps
             refr: refractive index (N x N array of complex numbers)
             Fin: input field
@@ -1031,3 +1031,99 @@ cdef class Init:
 
         """
         return self.thisptr.getGridDimension()
+    def GaussBeam(self,size,labda,N,w,tx,ty):
+        """
+        F=GaussBeam(GridSize, Wavelength, N, w,tx,ty)
+        :ref:`Creates a Gaussian beam in its waist (phase = 0.0, amplitude = 1.0). <Begin>`
+
+        Args::
+        
+            GridSize: size of the grid
+            Wavelength: wavelength of the field
+            N: N x N grid points (N must be even)
+            w: size of the waist
+            tx, ty: tilt of the beam
+            
+            
+        Returns::
+         
+            F: N x N square array of complex numbers (1+0j).
+                
+        Example:
+        
+        :ref:`Diffraction from a circular aperture <Diffraction>`
+        
+        """
+        F=self.Begin(size,labda,N)
+        F=self.GaussHermite(0,0,1,w,F)
+        F=self.Tilt(tx,ty,F)
+        return F
+    def PointSource(self,size,labda,N,x,y):
+        F=self.Begin(size,labda,N)
+        if abs(x) >size/2 or abs(y) > size/2:
+            print('error in PointSource: x and y must be inside grid!')
+            return F
+        F=self.IntAttenuator(0,F)
+        nx=int(N/2*(1+2*x/size))
+        ny=int(N/2*(1+2*y/size))
+        F[nx][ny]=1.0
+        return F
+    def LPdemo(self):
+        """
+        LPdemo()
+        Demonstrates the simulation of a two-holes interferometer.
+        
+        Args::
+        
+             -
+        
+        Returns::
+        
+            A plot of the interference pattern and a listing of the Python script.
+        
+        """
+        import matplotlib.pyplot as plt
+        import sys
+        import platform
+        m=1
+        mm=1e-3*m
+        cm=1e-2*m
+        um=1e-6*m
+        wavelength=20*um
+        size=30.0*mm
+        N=500
+        F=self.Begin(size,wavelength,N)
+        F1=self.CircAperture(0.15*mm, -0.6*mm,0, F)
+        F2=self.CircAperture(0.15*mm, 0.6*mm,0, F)    
+        F=self.BeamMix(F1,F2)
+        F=self.Fresnel(10*cm,F)
+        I=self.Intensity(0,F)
+        #plt.contourf(I,50); plt.axis('equal')
+        fig=plt.figure()
+        fig.canvas.set_window_title('Interference pattern of a two holes interferometer') 
+        plt.imshow(I,cmap='rainbow');plt.axis('off')
+        print(
+            '\n\nLightPipes for Python demo\n\n'
+            'Python script of a two-holes interferometer:\n\n'
+            '   import matplotlib.pyplot as plt\n'
+            '   from LightPipes import *\n'
+            '   wavelength=20*um\n'
+            '   size=30.0*mm\n'
+            '   N=500\n'
+            '   F=Begin(size,wavelength,N)\n'
+            '   F1=CircAperture(0.15*mm, -0.6*mm,0, F)\n'
+            '   F2=CircAperture(0.15*mm, 0.6*mm,0, F)\n'
+            '   F=BeamMix(F1,F2)\n'
+            '   F=Fresnel(10*cm,F)\n'
+            '   I=Intensity(0,F)\n'
+            '   fig=plt.figure()\n'
+            '   fig.canvas.set_window_title(\'Interference pattern of a two holes interferometer\')\n'
+            '   plt.imshow(I,cmap=\'rainbow\');plt.axis(\'off\')\n'
+            '   plt.show()\n\n'
+        )
+        print('Executed with python version: ' + sys.version)
+        print('on a ' + platform.system() + ' ' + platform.release() + ' ' + platform.machine() +' machine')
+        plt.show()
+
+        
+            
