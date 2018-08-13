@@ -129,7 +129,7 @@ def cb():
     TheExample(0)
     
 def openbrowser(event):
-    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/3TwoHoles.html")
+    webbrowser.open_new(r"https://opticspy.github.io/lightpipes/TwoHoles.html")
     
 Checkbutton(root,
             text="Place glass before one of the holes",
