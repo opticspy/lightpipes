@@ -39,6 +39,7 @@ F2=Convert(F2);
 i=range(N)
 j=i
 X, Y=np.meshgrid(i,j)
+I=np.array(I)
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 surf = ax.plot_surface(X, Y, I, rstride=2, cstride=2, cmap='rainbow', linewidth=0.0)
@@ -56,6 +57,7 @@ F2=Lens(f,0,0,F2);
 F2=LensFresnel(ff,z,F2);
 F2=Convert(F2);
 I2=Intensity(1,F2);
+I2=np.array(I2)
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 surf = ax.plot_surface(X, Y, I2, rstride=1, cstride=1, cmap='rainbow', linewidth=0.0)

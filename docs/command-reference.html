@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>4. Command Reference. &#8212; LightPipes for Python 1.1.3 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>4. Command Reference. &#8212; LightPipes for Python 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Manual." href="description_of_lightpipes_for_python.html" />
     <link rel="prev" title="3. Support." href="support.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,7 +35,7 @@
         <li class="right" >
           <a href="support.html" title="3. Support."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,18 +48,18 @@
 <span id="command-reference"></span><h1>4. Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="LightPipes.Axicon">
-<code class="descname">Axicon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Axicon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Axicon(phi, n1, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#axicon"><span class="std std-ref">Propagates the field through an axicon.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">phi</span><span class="p">:</span> <span class="n">top</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">the</span> <span class="n">axicon</span> <span class="ow">in</span> <span class="n">radians</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">phi</span><span class="p">:</span> <span class="n">top</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">the</span> <span class="n">axicon</span> <span class="ow">in</span> <span class="n">radians</span>
 <span class="n">n1</span><span class="p">:</span> <span class="n">refractive</span> <span class="n">index</span> <span class="n">of</span> <span class="n">the</span> <span class="n">axicon</span> <span class="n">material</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">center</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -79,15 +68,15 @@
 
 <dl class="function">
 <dt id="LightPipes.BeamMix">
-<code class="descname">BeamMix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.BeamMix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">BeamMix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.BeamMix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = BeamMix(F1, F2)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#beammix"><span class="std std-ref">Addition of the fields F1 and F2.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F1</span><span class="p">,</span> <span class="n">F2</span><span class="p">:</span> <span class="nb">input</span> <span class="n">fields</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F1</span><span class="p">,</span> <span class="n">F2</span><span class="p">:</span> <span class="nb">input</span> <span class="n">fields</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -96,17 +85,17 @@
 
 <dl class="function">
 <dt id="LightPipes.Begin">
-<code class="descname">Begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Begin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Begin" title="Permalink to this definition">¶</a></dt>
 <dd><p>F = Begin(GridSize, Wavelength, N)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a plane wave (phase = 0.0, amplitude = 1.0).</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
 <span class="n">Wavelength</span><span class="p">:</span> <span class="n">wavelength</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
 <span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">grid</span> <span class="n">points</span> <span class="p">(</span><span class="n">N</span> <span class="n">must</span> <span class="n">be</span> <span class="n">even</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -115,17 +104,17 @@
 
 <dl class="function">
 <dt id="LightPipes.CircAperture">
-<code class="descname">CircAperture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CircAperture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = CircAperture(R, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#circaperture"><span class="std std-ref">Propagates the field through a circular aperture.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">:</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aperture</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">:</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aperture</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">center</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -134,17 +123,17 @@
 
 <dl class="function">
 <dt id="LightPipes.CircScreen">
-<code class="descname">CircScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircScreen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CircScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircScreen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = CircScreen(R, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#circscreen"><span class="std std-ref">Diffracts the field by a circular screen.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">:</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span><span class="p">:</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">center</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -153,15 +142,15 @@
 
 <dl class="function">
 <dt id="LightPipes.Convert">
-<code class="descname">Convert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Convert" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Convert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Convert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Convert(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#convert"><span class="std std-ref">Converts the field from a spherical variable coordinate to a normal coordinate system.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -170,16 +159,16 @@
 
 <dl class="function">
 <dt id="LightPipes.Forward">
-<code class="descname">Forward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Forward</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Forward(z, sizenew, Nnew, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#forward"><span class="std std-ref">Propagates the field using direct integration.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -188,16 +177,16 @@
 
 <dl class="function">
 <dt id="LightPipes.Forvard">
-<code class="descname">Forvard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forvard" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Forvard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forvard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Forvard(z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#forvard"><span class="std std-ref">Propagates the field using a FFT algorithm.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -206,16 +195,16 @@
 
 <dl class="function">
 <dt id="LightPipes.Fresnel">
-<code class="descname">Fresnel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Fresnel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Fresnel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Fresnel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Fresnel(z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#fresnel"><span class="std std-ref">Propagates the field using a convolution method.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -224,31 +213,31 @@
 
 <dl class="function">
 <dt id="LightPipes.Gain">
-<code class="descname">Gain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Gain" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Gain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Gain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Gain(Isat, alpha0, Lgain, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gain"><span class="std std-ref">Propagates the field through a thin saturable gain sheet.</span></a></p>
 <blockquote>
-<div><p><span class="math">\(F_{out}(x,y) = F_{in}(x,y) e^{\alpha L_{gain}}\)</span>, with
-<span class="math">\(\alpha = \dfrac{\alpha_0}{1 + {2 I(x,y)}/{I_{sat}}}\)</span>.</p>
-<p><span class="math">\(2\alpha L_{gain}\)</span> is the net round-trip intensity gain. 
-<span class="math">\(\alpha_0\)</span> is the small-signal intensity gain and 
-<span class="math">\(I_{sat}\)</span> is the saturation intensity of the gain medium 
-with a length <span class="math">\(L_{gain}\)</span>.</p>
+<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y) = F_{in}(x,y) e^{\alpha L_{gain}}\)</span>, with
+<span class="math notranslate nohighlight">\(\alpha = \dfrac{\alpha_0}{1 + {2 I(x,y)}/{I_{sat}}}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(2\alpha L_{gain}\)</span> is the net round-trip intensity gain. 
+<span class="math notranslate nohighlight">\(\alpha_0\)</span> is the small-signal intensity gain and 
+<span class="math notranslate nohighlight">\(I_{sat}\)</span> is the saturation intensity of the gain medium 
+with a length <span class="math notranslate nohighlight">\(L_{gain}\)</span>.</p>
 <p>The intensity must be doubled because of the left- and right 
 propagating fields in a normal resonator. (If only one field is propagating in one direction (ring 
-laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove the factor 2 in the denominator).</p>
+laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)</span> as well to remove the factor 2 in the denominator).</p>
 <p>The gain sheet should be at one of the mirrors of a (un)stable laser resonator.</p>
 <p>See: Rensch and Chester (1973).</p>
 </div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Isat</span><span class="p">:</span> <span class="n">saturation</span> <span class="n">intensity</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Isat</span><span class="p">:</span> <span class="n">saturation</span> <span class="n">intensity</span>
 <span class="n">alpha0</span><span class="p">:</span> <span class="n">small</span> <span class="n">signal</span> <span class="n">gain</span>
 <span class="n">Lgain</span><span class="p">:</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">gain</span> <span class="n">sheet</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -257,35 +246,37 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 
 <dl class="function">
 <dt id="LightPipes.GaussAperture">
-<code class="descname">GaussAperture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussAperture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = GaussAperture(w, x_shift, y_shift, T, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gaussaperture"><span class="std std-ref">Inserts an aperture with a Gaussian shape in the field.</span></a></p>
 <blockquote>
-<div><span class="math">\(F_{out}(x,y)= \sqrt{T}e^{ -\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)\)</span></div></blockquote>
+<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{T}e^{ -\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)\)</span></p>
+</div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">center</span>
 <span class="n">T</span><span class="p">:</span> <span class="n">center</span> <span class="n">intensity</span> <span class="n">transmission</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.GaussScreen">
-<code class="descname">GaussScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussScreen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussScreen" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Fout = GaussScreen(w, x_shift, y_shift, T, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gaussscreen"><span class="std std-ref">Inserts a screen with a Gaussian shape in the field.</span></a></p>
 <blockquote>
-<div><span class="math">\(F_{out}(x,y)= \sqrt{1-(1-T)e^{ -\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)\)</span></div></blockquote>
+<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{1-(1-T)e^{ -\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)\)</span></p>
+</div></blockquote>
 </div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
     <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">center</span>
     <span class="n">T</span><span class="p">:</span> <span class="n">center</span> <span class="n">intensity</span> <span class="n">transmission</span>
     <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
@@ -299,96 +290,98 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 
 <dl class="function">
 <dt id="LightPipes.GaussHermite">
-<code class="descname">GaussHermite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussHermite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussHermite</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussHermite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = GaussHermite(m, n, A, w0, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gausshermite"><span class="std std-ref">Substitutes a Gauss-Hermite mode (beam waist) in the field.</span></a></p>
 <blockquote>
-<div><span class="math">\(F_{m,n}(x,y,z=0) = A H_m\left(\dfrac{\sqrt{2}x}{w_0}\right)H_n\left(\dfrac{\sqrt{2}y}{w_0}\right)e^{-\frac{x^2+y^2}{w_0^2}}\)</span></div></blockquote>
+<div><p><span class="math notranslate nohighlight">\(F_{m,n}(x,y,z=0) = A H_m\left(\dfrac{\sqrt{2}x}{w_0}\right)H_n\left(\dfrac{\sqrt{2}y}{w_0}\right)e^{-\frac{x^2+y^2}{w_0^2}}\)</span></p>
+</div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">mode</span> <span class="n">indices</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">mode</span> <span class="n">indices</span>
 <span class="n">A</span><span class="p">:</span> <span class="n">Amplitude</span>
 <span class="n">w0</span><span class="p">:</span> <span class="n">Guaussian</span> <span class="n">spot</span> <span class="n">size</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">beam</span> <span class="n">waist</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">amplitude</span> <span class="n">point</span><span class="p">)</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>            
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>            
 </pre></div>
 </div>
 <p>Reference:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span> <span class="n">Siegman</span><span class="p">,</span> <span class="s2">&quot;Lasers&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">642</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span> <span class="n">Siegman</span><span class="p">,</span> <span class="s2">&quot;Lasers&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">642</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.GaussLaguerre">
-<code class="descname">GaussLaguerre</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussLaguerre</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = GaussLaguerre(p, m, A, w0, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gausslaguerre"><span class="std std-ref">Substitutes a Gauss-Laguerre mode (beam waist) in the field.</span></a></p>
 <blockquote>
-<div><p><span class="math">\(F_{p,m}(x,y,z=0) = A \left(\frac{\rho}{2}\right)^{\frac{|m|}{2} }L^p_m\left(\rho\right)e^{-\frac{\rho}{2}}\cos(m\theta)\)</span>,</p>
-<p>with <span class="math">\(\rho=\frac{2(x^2+y^2)}{w_0^2}\)</span></p>
+<div><p><span class="math notranslate nohighlight">\(F_{p,m}(x,y,z=0) = A \left(\frac{\rho}{2}\right)^{\frac{|m|}{2} }L^p_m\left(\rho\right)e^{-\frac{\rho}{2}}\cos(m\theta)\)</span>,</p>
+<p>with <span class="math notranslate nohighlight">\(\rho=\frac{2(x^2+y^2)}{w_0^2}\)</span></p>
 </div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">mode</span> <span class="n">indices</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">mode</span> <span class="n">indices</span>
 <span class="n">A</span><span class="p">:</span> <span class="n">Amplitude</span>
 <span class="n">w0</span><span class="p">:</span> <span class="n">Guaussian</span> <span class="n">spot</span> <span class="n">size</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">beam</span> <span class="n">waist</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">amplitude</span> <span class="n">point</span><span class="p">)</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>            
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>            
 </pre></div>
 </div>
 <p>Reference:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span> <span class="n">Siegman</span><span class="p">,</span> <span class="s2">&quot;Lasers&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">642</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span> <span class="n">Siegman</span><span class="p">,</span> <span class="s2">&quot;Lasers&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span> <span class="mi">642</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.IntAttenuator">
-<code class="descname">IntAttenuator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.IntAttenuator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">IntAttenuator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.IntAttenuator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = IntAttenuator(att, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#intattenuator"><span class="std std-ref">Attenuates the intensity of the field.</span></a></p>
 <blockquote>
-<div><span class="math">\(F_{out}(x,y)=\sqrt{att}F_{in}(x,y)\)</span></div></blockquote>
+<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)=\sqrt{att}F_{in}(x,y)\)</span></p>
+</div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">att</span><span class="p">:</span> <span class="n">intensity</span> <span class="n">attenuation</span> <span class="n">factor</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">att</span><span class="p">:</span> <span class="n">intensity</span> <span class="n">attenuation</span> <span class="n">factor</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Intensity">
-<code class="descname">Intensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Intensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Intensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Intensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>I=Intensity(flag,Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#intensity"><span class="std std-ref">Calculates the intensity of the field.</span></a></p>
-<p><span class="math">\(I(x,y)=F_{in}(x,y).F_{in}(x,y)^*\)</span></p>
+<p><span class="math notranslate nohighlight">\(I(x,y)=F_{in}(x,y).F_{in}(x,y)^*\)</span></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">flag</span><span class="p">:</span> <span class="mi">0</span><span class="o">=</span> <span class="n">no</span> <span class="n">normalization</span><span class="p">,</span> <span class="mi">1</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">255</span> <span class="p">(</span><span class="k">for</span> <span class="n">bitmaps</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flag</span><span class="p">:</span> <span class="mi">0</span><span class="o">=</span> <span class="n">no</span> <span class="n">normalization</span><span class="p">,</span> <span class="mi">1</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">=</span><span class="n">normalized</span> <span class="n">to</span> <span class="mi">255</span> <span class="p">(</span><span class="k">for</span> <span class="n">bitmaps</span><span class="p">)</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">:</span> <span class="n">intensity</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">:</span> <span class="n">intensity</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Interpol">
-<code class="descname">Interpol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Interpol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#interpol"><span class="std std-ref">Interpolates the field to a new grid size, grid dimension.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">NewSize</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">size</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NewSize</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">size</span>
 <span class="n">NewN</span><span class="p">:</span> <span class="n">the</span> <span class="n">new</span> <span class="n">grid</span> <span class="n">dimension</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
 <span class="n">angle</span><span class="p">:</span> <span class="n">rotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">degrees</span>
@@ -397,43 +390,43 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">Nnew</span> <span class="n">x</span> <span class="n">Nnew</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">Nnew</span> <span class="n">x</span> <span class="n">Nnew</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Lens">
-<code class="descname">Lens</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Lens" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Lens</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Lens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Lens(f, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#lens"><span class="std std-ref">Propagates the field through an ideal, thin lens.</span></a></p>
 <p>It adds a phase given by:
-<span class="math">\(F_{out}(x,y)=e^{-j\frac{2\pi}{\lambda}\left(\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\right)}F_{in}(x,y)\)</span></p>
+<span class="math notranslate nohighlight">\(F_{out}(x,y)=e^{-j\frac{2\pi}{\lambda}\left(\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\right)}F_{in}(x,y)\)</span></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">:</span> <span class="n">focal</span> <span class="n">length</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">:</span> <span class="n">focal</span> <span class="n">length</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">center</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.LensForvard">
-<code class="descname">LensForvard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensForvard" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LensForvard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensForvard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = LensForvard(f, z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#lensforvard"><span class="std std-ref">Propagates the field in a variable spherical coordinate system.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">:</span> <span class="n">focal</span> <span class="n">length</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">:</span> <span class="n">focal</span> <span class="n">length</span>
 <span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -442,17 +435,17 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 
 <dl class="function">
 <dt id="LightPipes.LensFresnel">
-<code class="descname">LensFresnel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensFresnel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LensFresnel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensFresnel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = LensFresnel(f, z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#lensfresnel"><span class="std std-ref">Propagates the field in a variable spherical coordinate system.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">:</span> <span class="n">focal</span> <span class="n">length</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">:</span> <span class="n">focal</span> <span class="n">length</span>
 <span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -461,153 +454,153 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 
 <dl class="function">
 <dt id="LightPipes.MultIntensity">
-<code class="descname">MultIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultIntensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MultIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = MultIntensity(Intens, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#multintensity"><span class="std std-ref">Multiplies the field with a given intensity distribution.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Intens</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Intens</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.MultPhase">
-<code class="descname">MultPhase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultPhase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MultPhase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = MultPhase(Phase, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#multphase"><span class="std std-ref">Multiplies the field with a given phase distribution.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Phase</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Phase</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Normal">
-<code class="descname">Normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Normal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Normal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Normal(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#normal"><span class="std std-ref">Normalizes the field.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Phase">
-<code class="descname">Phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Phase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Phase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Phase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Phi=Phase(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#phase"><span class="std std-ref">Calculates the phase of the field.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Phi</span><span class="p">:</span> <span class="n">phase</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Phi</span><span class="p">:</span> <span class="n">phase</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.PhaseUnwrap">
-<code class="descname">PhaseUnwrap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseUnwrap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PhaseUnwrap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseUnwrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>PhiOut=PhaseUnwrap(PhiIn)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#phaseunwrap"><span class="std std-ref">Unwraps (removes jumps of pi radians) the phase.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PhiIn</span><span class="p">:</span> <span class="nb">input</span> <span class="n">phase</span> <span class="n">distribution</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PhiIn</span><span class="p">:</span> <span class="nb">input</span> <span class="n">phase</span> <span class="n">distribution</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">PhiOut</span><span class="p">:</span> <span class="n">unwrapped</span> <span class="n">phase</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PhiOut</span><span class="p">:</span> <span class="n">unwrapped</span> <span class="n">phase</span> <span class="n">distribution</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">doubles</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.PipFFT">
-<code class="descname">PipFFT</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PipFFT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PipFFT</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PipFFT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = PipFFT(index, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#pipfft"><span class="std std-ref">Performs a 2D Fourier transform of the field.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">index</span><span class="p">:</span> <span class="o">+</span><span class="mi">1</span> <span class="o">=</span> <span class="n">forward</span> <span class="n">transform</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">back</span> <span class="n">transform</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="p">:</span> <span class="o">+</span><span class="mi">1</span> <span class="o">=</span> <span class="n">forward</span> <span class="n">transform</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">back</span> <span class="n">transform</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Power">
-<code class="descname">Power</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Power" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Power</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Power" title="Permalink to this definition">¶</a></dt>
 <dd><p>P = Power(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#power"><span class="std std-ref">Calculates the total power.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">:</span> <span class="n">output</span> <span class="n">power</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">:</span> <span class="n">output</span> <span class="n">power</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.RandomIntensity">
-<code class="descname">RandomIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomIntensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RandomIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RandomIntensity(seed, noise, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#randomintensity"><span class="std std-ref">Adds random intensity to the field</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">seed</span><span class="p">:</span> <span class="n">seed</span> <span class="n">number</span> <span class="k">for</span> <span class="n">the</span> <span class="n">random</span> <span class="n">noise</span> <span class="n">generator</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span><span class="p">:</span> <span class="n">seed</span> <span class="n">number</span> <span class="k">for</span> <span class="n">the</span> <span class="n">random</span> <span class="n">noise</span> <span class="n">generator</span>
 <span class="n">noise</span><span class="p">:</span> <span class="n">level</span> <span class="n">of</span> <span class="n">the</span> <span class="n">noise</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.RandomPhase">
-<code class="descname">RandomPhase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomPhase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RandomPhase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RandomPhase(seed, maxPhase, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#randomphase"><span class="std std-ref">Adds random phase to the field</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">seed</span><span class="p">:</span> <span class="n">seed</span> <span class="n">number</span> <span class="k">for</span> <span class="n">the</span> <span class="n">random</span> <span class="n">noise</span> <span class="n">generator</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span><span class="p">:</span> <span class="n">seed</span> <span class="n">number</span> <span class="k">for</span> <span class="n">the</span> <span class="n">random</span> <span class="n">noise</span> <span class="n">generator</span>
 <span class="n">maxPhase</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">phase</span> <span class="ow">in</span> <span class="n">radians</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.RectAperture">
-<code class="descname">RectAperture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RectAperture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RectAperture(w, h, x_shift, y_shift, angle, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#rectaperture"><span class="std std-ref">Propagates the field through a rectangular aperture.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aperture</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aperture</span>
 <span class="n">h</span><span class="p">:</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aperture</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">center</span>
 <span class="n">angle</span><span class="p">:</span> <span class="n">rotation</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">degrees</span> 
@@ -615,18 +608,18 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.RectScreen">
-<code class="descname">RectScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectScreen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RectScreen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectScreen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RectScreen(w, h, x_shift, y_shift, angle, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#rectscreen"><span class="std std-ref">Diffracts the field by a rectangular screen.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
 <span class="n">h</span><span class="p">:</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">screen</span>
 <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">center</span>
 <span class="n">angle</span><span class="p">:</span> <span class="n">rotation</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">degrees</span> 
@@ -634,27 +627,27 @@ laser) you should double <span class="math">\(I_{sat}\)</span> as well to remove
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Steps">
-<code class="descname">Steps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Steps" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Steps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Steps" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Steps(z, nstep, refr, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#steps"><span class="std std-ref">Propagates the field a distance, nstep x z, in nstep steps in a
 medium with a complex refractive index stored in the
 square array refr.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span> <span class="n">per</span> <span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span> <span class="n">per</span> <span class="n">step</span>
 <span class="n">nstep</span><span class="p">:</span> <span class="n">number</span> <span class="n">of</span> <span class="n">steps</span>
 <span class="n">refr</span><span class="p">:</span> <span class="n">refractive</span> <span class="n">index</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">ouput</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">ouput</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -663,85 +656,85 @@ square array refr.</span></a></p>
 
 <dl class="function">
 <dt id="LightPipes.Strehl">
-<code class="descname">Strehl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Strehl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Strehl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Strehl" title="Permalink to this definition">¶</a></dt>
 <dd><p>S = Strehl( Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#strehl"><span class="std std-ref">Calculates the Strehl value of the field</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">:</span> <span class="n">Strehl</span> <span class="n">value</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="p">:</span> <span class="n">Strehl</span> <span class="n">value</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.SubIntensity">
-<code class="descname">SubIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubIntensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SubIntensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = SubIntensity(Intens, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#subintensity"><span class="std std-ref">Substitutes  a given intensity distribution in the field with.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Intens</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Intens</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.SubPhase">
-<code class="descname">SubPhase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubPhase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SubPhase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = SubPhase(Phase, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#subphase"><span class="std std-ref">Substitutes  a given phase distribution in the field with.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Phase</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Phase</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="n">real</span> <span class="n">numbers</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Tilt">
-<code class="descname">Tilt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Tilt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Tilt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Tilt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Tilt(tx, ty, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#tilt"><span class="std std-ref">Tilts the field.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="ow">in</span> <span class="n">radians</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="ow">in</span> <span class="n">radians</span>
 <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.Zernike">
-<code class="descname">Zernike</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Zernike" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Zernike</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Zernike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Zernike(n, m, R, A, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#zernike"><span class="std std-ref">Substitutes a Zernike aberration phase distribution in the field.</span></a></p>
 <blockquote>
-<div><p><span class="math">\(F_{out}(x,y)=e^{\phi^m_n (x,y)}F_{in}(x,y)\)</span></p>
+<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)=e^{\phi^m_n (x,y)}F_{in}(x,y)\)</span></p>
 <p>with:</p>
-<p><span class="math">\(\phi^m_n(x,y)=-j \frac{2 \pi }{ \lambda } Z^m_n {(\rho (x,y) ,\theta (x,y)) }\)</span></p>
-<p><span class="math">\(\rho(x,y)=  \sqrt{ \frac{x^2+y^2}{R^2} }\)</span></p>
-<p><span class="math">\(\theta (x,y)=atan \big( \frac{y}{x} \big)\)</span></p>
-<p><span class="math">\(Z^m_n(\rho , \theta)=A \sqrt{ \frac{2(n+1)}{1+\delta_{m0}} } V^m_n(\rho)cos(m\theta)\)</span></p>
-<p><span class="math">\(Z^{-m}_n(\rho , \theta)=A \sqrt{ \frac{2(n+1)}{1+\delta_{m0}} }V^m_n(\rho)sin(m\theta)\)</span></p>
-<p><span class="math">\(V^m_n(\rho)= \sum_{s=0}^{ \frac{n-m}{2} }  \frac{(-1)^s(n-s)!}{s!( \frac{n+m}{2}-s)!( \frac{n-m}{2}-s )! } \rho^{n-2s}\)</span></p>
-<p><span class="math">\(\delta_{m0}= \begin{cases}1 &amp; m = 0\\0 &amp; m  \neq  0\end{cases}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\phi^m_n(x,y)=-j \frac{2 \pi }{ \lambda } Z^m_n {(\rho (x,y) ,\theta (x,y)) }\)</span></p>
+<p><span class="math notranslate nohighlight">\(\rho(x,y)=  \sqrt{ \frac{x^2+y^2}{R^2} }\)</span></p>
+<p><span class="math notranslate nohighlight">\(\theta (x,y)=atan \big( \frac{y}{x} \big)\)</span></p>
+<p><span class="math notranslate nohighlight">\(Z^m_n(\rho , \theta)=A \sqrt{ \frac{2(n+1)}{1+\delta_{m0}} } V^m_n(\rho)cos(m\theta)\)</span></p>
+<p><span class="math notranslate nohighlight">\(Z^{-m}_n(\rho , \theta)=A \sqrt{ \frac{2(n+1)}{1+\delta_{m0}} }V^m_n(\rho)sin(m\theta)\)</span></p>
+<p><span class="math notranslate nohighlight">\(V^m_n(\rho)= \sum_{s=0}^{ \frac{n-m}{2} }  \frac{(-1)^s(n-s)!}{s!( \frac{n+m}{2}-s)!( \frac{n-m}{2}-s )! } \rho^{n-2s}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\delta_{m0}= \begin{cases}1 &amp; m = 0\\0 &amp; m  \neq  0\end{cases}\)</span></p>
 </div></blockquote>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">:</span> <span class="n">radial</span> <span class="n">order</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">:</span> <span class="n">radial</span> <span class="n">order</span>
 <span class="n">m</span><span class="p">:</span> <span class="n">azimuthal</span> <span class="n">order</span><span class="p">,</span> <span class="n">n</span><span class="o">-|</span><span class="n">m</span><span class="o">|</span> <span class="n">must</span> <span class="n">be</span> <span class="n">even</span><span class="p">,</span> <span class="o">|</span><span class="n">m</span><span class="o">|&lt;=</span><span class="n">n</span>
 <span class="n">R</span><span class="p">:</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aberrated</span> <span class="n">aperture</span>
 <span class="n">A</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">aberration</span>
@@ -749,7 +742,7 @@ square array refr.</span></a></p>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">ouput</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">ouput</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -759,7 +752,7 @@ square array refr.</span></a></p>
 
 <dl class="function">
 <dt id="LightPipes.noll_to_zern">
-<code class="descname">noll_to_zern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.noll_to_zern" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">noll_to_zern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.noll_to_zern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert linear Noll index to tuple of Zernike indices.
 j is the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.
 &#64;param [in] j Zernike mode Noll index
@@ -770,93 +763,93 @@ Thanks to: Tim van Werkhoven, <a class="reference external" href="https://github
 
 <dl class="function">
 <dt id="LightPipes.ZernikeName">
-<code class="descname">ZernikeName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ZernikeName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeName" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.getGridSize">
-<code class="descname">getGridSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getGridSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getGridSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getGridSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>size_grid = getGridSize()</p>
 <p>Returns the value of the size of the grid in meters.</p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">size_grid</span><span class="p">:</span> <span class="n">Size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size_grid</span><span class="p">:</span> <span class="n">Size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.setGridSize">
-<code class="descname">setGridSize</code><span class="sig-paren">(</span><em>newGridSize</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setGridSize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setGridSize</code><span class="sig-paren">(</span><em class="sig-param">newGridSize</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setGridSize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the value of the grid size.</p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">newGridSize</span><span class="p">:</span> <span class="n">New</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newGridSize</span><span class="p">:</span> <span class="n">New</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.getWavelength">
-<code class="descname">getWavelength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getWavelength" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getWavelength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getWavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>wavelength = getWavelength()</p>
 <p>Returns the value of the wavelength in meters.</p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="p">:</span> <span class="n">Value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavelength</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="p">:</span> <span class="n">Value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavelength</span> <span class="p">(</span><span class="n">real</span> <span class="n">number</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.setWavelength">
-<code class="descname">setWavelength</code><span class="sig-paren">(</span><em>newWavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setWavelength" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setWavelength</code><span class="sig-paren">(</span><em class="sig-param">newWavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.setWavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the value of the wavelength.</p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">newWavelength</span><span class="p">:</span> <span class="n">New</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavelength</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newWavelength</span><span class="p">:</span> <span class="n">New</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavelength</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.getGridDimension">
-<code class="descname">getGridDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getGridDimension" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">getGridDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.getGridDimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>grid-dimension = getGridDimension()</p>
 <p>Returns the value of the grid dimension.
 The grid dimension cannot be set. Use: <a class="reference internal" href="description_of_lightpipes_for_python.html#interpol"><span class="std std-ref">Interpol.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">-</span><span class="n">dimension</span><span class="p">:</span> <span class="n">Value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="p">(</span><span class="n">integer</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">-</span><span class="n">dimension</span><span class="p">:</span> <span class="n">Value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">dimension</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span> <span class="p">(</span><span class="n">integer</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.LPtest">
-<code class="descname">LPtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPtest" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LPtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPtest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a test to check if the installation of the LightPipes package was successful.</p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;LightPipes for Python: test passed.&quot;</span> <span class="k">if</span> <span class="n">successful</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;LightPipes for Python: test passed.&quot;</span> <span class="k">if</span> <span class="n">successful</span><span class="p">,</span>
 <span class="s2">&quot;Test failed&quot;</span> <span class="k">if</span> <span class="ow">not</span><span class="o">.</span>
 </pre></div>
 </div>
@@ -864,18 +857,18 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
 
 <dl class="function">
 <dt id="LightPipes.LPhelp">
-<code class="descname">LPhelp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPhelp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LPhelp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPhelp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Go to the LightPipes documentation website on:</p>
 <p><a class="reference external" href="https://opticspy.github.io/lightpipes/">https://opticspy.github.io/lightpipes/</a></p>
 </dd></dl>
 
 <dl class="function">
 <dt id="LightPipes.GaussBeam">
-<code class="descname">GaussBeam</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>F=GaussBeam(GridSize, Wavelength, N, w,tx,ty)
+<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>F=GaussBeam(GridSize, Wavelength, N, w, tx,ty)
 <a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a Gaussian beam in its waist (phase = 0.0, amplitude = 1.0).</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
 <span class="n">Wavelength</span><span class="p">:</span> <span class="n">wavelength</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
 <span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">grid</span> <span class="n">points</span> <span class="p">(</span><span class="n">N</span> <span class="n">must</span> <span class="n">be</span> <span class="n">even</span><span class="p">)</span>
 <span class="n">w</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">waist</span>
@@ -883,7 +876,7 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -892,19 +885,34 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
 
 <dl class="function">
 <dt id="LightPipes.PointSource">
-<code class="descname">PointSource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="LightPipes.LPdemo">
-<code class="descname">LPdemo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPdemo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Demonstrates the simulation of a two-holes interferometer.</p>
+<code class="sig-name descname">PointSource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>F=PointSource(GridSize, Wavelength, N, x, y)
+<a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a point source.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
+<span class="n">Wavelength</span><span class="p">:</span> <span class="n">wavelength</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
+<span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">grid</span> <span class="n">points</span> <span class="p">(</span><span class="n">N</span> <span class="n">must</span> <span class="n">be</span> <span class="n">even</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">position</span> <span class="n">of</span> <span class="n">the</span> <span class="n">point</span> <span class="n">source</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="n">plot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">interference</span> <span class="n">pattern</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">script</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="ow">or</span> <span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span> <span class="n">where</span> <span class="n">the</span> <span class="n">pointsorce</span> <span class="ow">is</span> <span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="LightPipes.LPdemo">
+<code class="sig-name descname">LPdemo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPdemo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Demonstrates the simulation of a two-holes interferometer.</p>
+<p>Args:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="n">plot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">interference</span> <span class="n">pattern</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">script</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -920,7 +928,7 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
@@ -939,13 +947,13 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -955,8 +963,8 @@ The grid dimension cannot be set. Use: <a class="reference internal" href="descr
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Aug 13, 2018.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+      Last updated on Oct 29, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

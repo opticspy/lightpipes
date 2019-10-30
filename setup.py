@@ -1,3 +1,4 @@
+
 import platform
 import struct
 from os.path import join
@@ -36,7 +37,7 @@ if SYSTEM == 'Windows':
 else:  # Linux, Darwin
     data_files = None
     libraries = ['fftw3']
-    library_dirs = ['/usr/local/lib/']
+    library_dirs = ['/usr/local/fftw/lib/']
 
 ext = Extension(
     'LightPipes._LightPipes',
@@ -45,8 +46,10 @@ ext = Extension(
     library_dirs=library_dirs,
     libraries=libraries,
     language="c++",
+    #extra_compile_args=['-std=c++11','-Wunused-value'],
 )
-extensions = cythonize([ext])
+extensions = cythonize([ext],language_level = "3")
+#extensions = cythonize([ext])
 exec(open('./LightPipes/_version.py').read())
 
 setup(
@@ -61,13 +64,14 @@ setup(
     license='BSD-3-Clause',
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Programming Language :: Python :: 2.7',
+      #  'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     url='https://github.com/opticspy/lightpipes',
     download_url='https://github.com/opticspy/lightpipes/releases',
-    platforms=['win64', 'win32', 'linux'],
+    platforms=['win64', 'win32', 'linux', 'Mac OSX'],
     ext_modules=extensions,
     data_files=data_files,
 )

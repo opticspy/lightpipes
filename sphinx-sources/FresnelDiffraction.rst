@@ -118,8 +118,8 @@ Download source code: :download:`FresnelSpherical.py <./Examples/ComputerPrac/Fr
     2. Measure these positions for a number of values of the diameter, :math:`d`, of the hole and for the position, :math:`z_1`, of the point source.
     3. Determine the value of the wavelength of the light from the measurements.
 
-Questions.
-^^^^^^^^^^
+Questions about Fresnel diffraction.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     1. What happens if the beam of light is not monochromatic but contains
        a large number of wavelengths?

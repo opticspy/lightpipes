@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>7.3.5. Fabry Perot interferometer. &#8212; LightPipes for Python 1.1.3 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>7.3.5. Fabry Perot interferometer. &#8212; LightPipes for Python 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7.3.6. Fresnel diffraction." href="FresnelDiffraction.html" />
     <link rel="prev" title="7.3.4. Newton rings." href="NewtonRings.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,7 +35,7 @@
         <li class="right" >
           <a href="NewtonRings.html" title="7.3.4. Newton rings."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.2.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="computerprac.html" accesskey="U">7. Computer practical.</a> &#187;</li> 
       </ul>
     </div>  
@@ -58,18 +47,18 @@
             
   <span class="target" id="fabryperot"></span><div class="section" id="fabry-perot-interferometer">
 <span id="index-0"></span><h1>7.3.5. Fabry Perot interferometer.<a class="headerlink" href="#fabry-perot-interferometer" title="Permalink to this headline">¶</a></h1>
-<p>Download Python script: <a class="reference download internal" href="_downloads/FabryPerot.py" download=""><code class="xref download docutils literal"><span class="pre">FabryPerot.py</span></code></a></p>
-<div class="figure" id="id1">
+<p>Download Python script: <a class="reference download internal" download="" href="_downloads/53ef03dd431b4251c4e4ceaed2466f1d/FabryPerot.py"><code class="xref download docutils literal notranslate"><span class="pre">FabryPerot.py</span></code></a></p>
+<div class="figure align-default" id="id1">
 <img alt="_images/Charles_Fabry.jpg" src="_images/Charles_Fabry.jpg" />
-<p class="caption"><span class="caption-text"><em>Maurice Paul Auguste Charles Fabry (1867, Marseille – 1945)</em></span></p>
+<p class="caption"><span class="caption-text"><em>Maurice Paul Auguste Charles Fabry (1867, Marseille – 1945)</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <img alt="_images/Alfred_Perot.jpg" src="_images/Alfred_Perot.jpg" />
-<p class="caption"><span class="caption-text"><em>Jean-Baptiste Alfred Perot (1863, Metz  – 1925)</em></span></p>
+<p class="caption"><span class="caption-text"><em>Jean-Baptiste Alfred Perot (1863, Metz  – 1925)</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<p>When two partial reflecting mirrors with reflectivity, <span class="math">\(R\)</span>, (transmission <span class="math">\(= 1 - R\)</span>) are
+<p>When two partial reflecting mirrors with reflectivity, <span class="math notranslate nohighlight">\(R\)</span>, (transmission <span class="math notranslate nohighlight">\(= 1 - R\)</span>) are
 precisely aligned parallel, illuminated by a diffuse, broad, monochromatic source and
-are separated a distance, <span class="math">\(d\)</span>, from each other, a set of concentric rings can be observed
+are separated a distance, <span class="math notranslate nohighlight">\(d\)</span>, from each other, a set of concentric rings can be observed
 on a screen after imaging with a lens. These rings are the result of interference of
 multiple  beams and because of that, the Fabry Perot belongs to the class of multiple
 beam interferometers.The sharpness of the rings depends on the reflectivity of the mirrors
@@ -78,20 +67,20 @@ and the ring- or fringe contrast is represented by the finesse of the Fabry Pero
 at wavelengths close together. In general the two wavelengths will produce two sets of concentric
 rings, which will overlap for certain conditions.</p>
 <p>In the first experiment the 550 nm line (from a green mercury lamp) is splitted by some means
-(for example by the Zeeman effect) and is measured by variation of the distance, <span class="math">\(d\)</span>, between the mirrors.</p>
+(for example by the Zeeman effect) and is measured by variation of the distance, <span class="math notranslate nohighlight">\(d\)</span>, between the mirrors.</p>
 <p>In the second experiment a medium with refractive index larger than one is inserted between
 the mirrors and the index is measured, again by varying the distance between the two mirrors.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="52%" />
-<col width="48%" />
+<col style="width: 52%" />
+<col style="width: 48%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><div class="first last figure">
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default">
 <img alt="_images/FabryPerotLabSetup.jpg" src="_images/FabryPerotLabSetup.jpg" />
 </div>
 </td>
-<td><div class="first last figure">
+<td><div class="figure align-default">
 <img alt="_images/FabryPerotRings.jpg" src="_images/FabryPerotRings.jpg" />
 </div>
 </td>
@@ -99,28 +88,29 @@ the mirrors and the index is measured, again by varying the distance between the
 </tbody>
 </table>
 <blockquote>
-<div><em>Experimental set-up of a Fabry Perot interferometer illuminated by a sodium (Na) lamp. The two Na D1 and D2 lines at 589.6 nm and 589.0 nm produce two sets of concentric rings observed with a CCD camera.</em></div></blockquote>
-<div class="figure" id="id3">
+<div><p><em>Experimental set-up of a Fabry Perot interferometer illuminated by a sodium (Na) lamp. The two Na D1 and D2 lines at 589.6 nm and 589.0 nm produce two sets of concentric rings observed with a CCD camera.</em></p>
+</div></blockquote>
+<div class="figure align-default" id="id3">
 <img alt="_images/FabryPerotScreenShot.png" src="_images/FabryPerotScreenShot.png" />
-<p class="caption"><span class="caption-text"><em>Screenshot of the Fabry Perot program.</em></span></p>
+<p class="caption"><span class="caption-text"><em>Screenshot of the Fabry Perot program.</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-<p>Download Python script: <a class="reference download internal" href="_downloads/FabryPerot.py" download=""><code class="xref download docutils literal"><span class="pre">FabryPerot.py</span></code></a></p>
+<p>Download Python script: <a class="reference download internal" download="" href="_downloads/53ef03dd431b4251c4e4ceaed2466f1d/FabryPerot.py"><code class="xref download docutils literal notranslate"><span class="pre">FabryPerot.py</span></code></a></p>
 <div class="section" id="measurement-of-the-distance-between-two-wavelengths">
 <h2>7.3.5.1. Measurement of the distance between two wavelengths.<a class="headerlink" href="#measurement-of-the-distance-between-two-wavelengths" title="Permalink to this headline">¶</a></h2>
-<div class="figure" id="id4">
+<div class="figure align-default" id="id4">
 <img alt="_images/FabryPerotSetup.gif" src="_images/FabryPerotSetup.gif" />
-<p class="caption"><span class="caption-text"><em>Fabry Perot setup.</em></span></p>
+<p class="caption"><span class="caption-text"><em>Fabry Perot setup.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 <div class="legend">
 <ol class="arabic simple">
-<li>Show that, in air, overlap of the two sets of rings occurs for distances between the two mirrors:
-<span class="math">\(d_n=\frac{\lambda^2}{2\Delta\lambda}n\)</span> where <span class="math">\(n\)</span> is an integer.
+<li><p>Show that, in air, overlap of the two sets of rings occurs for distances between the two mirrors:
+<span class="math notranslate nohighlight">\(d_n=\frac{\lambda^2}{2\Delta\lambda}n\)</span> where <span class="math notranslate nohighlight">\(n\)</span> is an integer.
 Note that the angles with the optical axis of all the rays forming the rings
-are very small. The wavelength separation, <span class="math">\(\Delta\lambda\)</span>, is very small compared to the
-average wavelength, <span class="math">\(\lambda\)</span>.</li>
-<li>Choose a suitable value for the finesse of the Fabry Perot.</li>
-<li>Switch on the line-splitting and measure the distances, <span class="math">\(d\)</span>, where overlap of the fringes occurs.</li>
-<li>Calculate the wavelength-difference, <span class="math">\(\Delta\lambda\)</span>, from the measurements.
-The average (vacuum) wavelength, <span class="math">\(\lambda\)</span>, of the source is 550 nm.</li>
+are very small. The wavelength separation, <span class="math notranslate nohighlight">\(\Delta\lambda\)</span>, is very small compared to the
+average wavelength, <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+<li><p>Choose a suitable value for the finesse of the Fabry Perot.</p></li>
+<li><p>Switch on the line-splitting and measure the distances, <span class="math notranslate nohighlight">\(d\)</span>, where overlap of the fringes occurs.</p></li>
+<li><p>Calculate the wavelength-difference, <span class="math notranslate nohighlight">\(\Delta\lambda\)</span>, from the measurements.
+The average (vacuum) wavelength, <span class="math notranslate nohighlight">\(\lambda\)</span>, of the source is 550 nm.</p></li>
 </ol>
 </div>
 </div>
@@ -129,25 +119,25 @@ The average (vacuum) wavelength, <span class="math">\(\lambda\)</span>, of the s
 <h2>7.3.5.2. Measurement of the refractive index of a medium.<a class="headerlink" href="#measurement-of-the-refractive-index-of-a-medium" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Derive a theory from which the refractive index of a medium between
+<li><p>Derive a theory from which the refractive index of a medium between
 the two mirrors can be determined from overlap-measurements (modify the formula
-derived for experiment 5.1)</li>
-<li>Switch on the line-splitting and the medium and measure the distances, <span class="math">\(d\)</span>,
-where overlap of the fringes occurs.</li>
-<li>Determine the refractive index, <span class="math">\(n_f\)</span>, from the measurements using the
-wavelength measured in the first experiment.</li>
+derived for experiment 5.1)</p></li>
+<li><p>Switch on the line-splitting and the medium and measure the distances, <span class="math notranslate nohighlight">\(d\)</span>,
+where overlap of the fringes occurs.</p></li>
+<li><p>Determine the refractive index, <span class="math notranslate nohighlight">\(n_f\)</span>, from the measurements using the
+wavelength measured in the first experiment.</p></li>
 </ol>
 </div></blockquote>
 </div>
-<div class="section" id="questions">
-<h2>7.3.5.3. Questions.<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="questions-about-the-fabry-perot-interferometer">
+<h2>7.3.5.3. Questions about the Fabry Perot interferometer.<a class="headerlink" href="#questions-about-the-fabry-perot-interferometer" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Calculate the finesse of this Fabry Perot for mirror reflectivity <span class="math">\(R\)</span> = 70%.</li>
-<li>What is the minimum wavelength separation that can be measured for a distance
-between the mirrors of 2.0 mm and at reflections of 70 %?</li>
-<li>Can one measure the separation of the two yellow sodium D-lines with the overlap
-method of the Fabry Perot set-up of this exercise?</li>
+<li><p>Calculate the finesse of this Fabry Perot for mirror reflectivity <span class="math notranslate nohighlight">\(R\)</span> = 70%.</p></li>
+<li><p>What is the minimum wavelength separation that can be measured for a distance
+between the mirrors of 2.0 mm and at reflections of 70 %?</p></li>
+<li><p>Can one measure the separation of the two yellow sodium D-lines with the overlap
+method of the Fabry Perot set-up of this exercise?</p></li>
 </ol>
 </div></blockquote>
 <p><a class="reference external" href="https://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335">Literature: Pedrotti, 3rd ed., chapter 8-4.</a></p>
@@ -163,7 +153,7 @@ method of the Fabry Perot set-up of this exercise?</li>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
@@ -195,13 +185,13 @@ method of the Fabry Perot set-up of this exercise?</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -211,8 +201,8 @@ method of the Fabry Perot set-up of this exercise?</li>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Aug 13, 2018.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+      Last updated on Oct 29, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

@@ -16,6 +16,7 @@ Field=GaussAperture(R,xs,ys,T,Field)
 NewGridDimension=int(GridDimension/4)
 Field=Interpol(GridSize,NewGridDimension,0,0,0,1,Field)
 I=Intensity(0,Field)
+I=np.array(I)
 
 #plot cross section:
 x=[]

@@ -16,9 +16,6 @@ Download Python script: :download:`ReflectRefract.py <./Examples/ComputerPrac/Re
 
 
 
-Internal reflection and refraction.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 In this experiment we study internal reflection and refraction from the interface between a transparent medium and air.
 
 .. figure:: ./figures/ReflectSetup.png

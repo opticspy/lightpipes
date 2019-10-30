@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>2. Installation. &#8212; LightPipes for Python 1.1.3 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>2. Installation. &#8212; LightPipes for Python 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Support." href="support.html" />
     <link rel="prev" title="1. Introduction." href="introduction.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,7 +35,7 @@
         <li class="right" >
           <a href="introduction.html" title="1. Introduction."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -58,23 +47,23 @@
   <div class="section" id="installation">
 <h1>2. Installation.<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>This Python version of Lightpipes can be operated on Windows (32 and 64 bits), Linux (32 and 64 bits) and Macintosh (64 bits) computers.
-There exist packages for Python versions 2.7, 3.4, 3.5, 3.6 and 3.7.
+There exist packages for Python versions 2.7, 3.4, 3.5, 3.6 and 3.7., there is a 3.7 Python version for the Raspberry Pi too (Tested on a RP4 model B with 4Gb memory).
 LightPipes for Python is on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a> and can be installed if you have <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a> installed on your computer.
 In a terminal window simply type:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install LightPipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install LightPipes
 </pre></div>
 </div>
 <p>To test if the installation was successful start Python and type at the prompt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">LPtest</span><span class="p">()</span>
 <span class="go">LightPipes for Python: test passed.</span>
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>The response should be: &#8220;LightPipes for Python: test passed.&#8221;</p>
+<p>The response should be: “LightPipes for Python: test passed.”</p>
 <p>Most output from LightPipes python scripts should use the <a class="reference external" href="https://matplotlib.org/">MatPlotLib</a> plotting library.
 MatplotLib can be installed by typing in a terminal:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>pip install matplotlib
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install matplotlib
 </pre></div>
 </div>
 <p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
@@ -83,14 +72,13 @@ See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.h
 <div class="section" id="known-installation-problems">
 <h2>2.1. Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><dl class="first docutils">
-<dt>Too old version of numpy:</dt>
-<dd><p class="first">After installation of LightPipes, using</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo pip install LightPipes
+<li><dl>
+<dt>Too old version of numpy:</dt><dd><p>After installation of LightPipes, using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip install LightPipes
 </pre></div>
 </div>
 <p>for a brandnew MacBook Air computer the following error popped-up after an import-test in python:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import LightPipes
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import LightPipes
 Traceback (most recent call last):
 File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 File &quot;/Library/Python/2.7/site-packages/LightPipes/__init__.py&quot;, line 52, in &lt;module&gt;
@@ -102,10 +90,10 @@ ValueError: numpy.dtype has the wrong size, try recompiling. Expected 88, got 96
 <p>Solution:</p>
 <p>The version (1.8.0rc1) of the numpy package (installed as part of the macOS Sierra 10.12.6 update) is too old.
 You have to update numpy to the newest version. Use easy_install, not pip for this.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo easy_install -U numpy
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo easy_install -U numpy
 </pre></div>
 </div>
-<p class="last">(If the cpp-compiler is not installed a window pops up to ask you to install it and the numpy installation is interrupted. Say yes to install the compiler and repeat the numpy installation)</p>
+<p>(If the cpp-compiler is not installed a window pops up to ask you to install it and the numpy installation is interrupted. Say yes to install the compiler and repeat the numpy installation)</p>
 </dd>
 </dl>
 </li>
@@ -122,7 +110,7 @@ You have to update numpy to the newest version. Use easy_install, not pip for th
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Installation.</a><ul>
@@ -144,13 +132,13 @@ You have to update numpy to the newest version. Use easy_install, not pip for th
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -160,8 +148,8 @@ You have to update numpy to the newest version. Use easy_install, not pip for th
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Aug 13, 2018.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+      Last updated on Oct 29, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

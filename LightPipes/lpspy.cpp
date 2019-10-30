@@ -162,7 +162,7 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
         x_new = (i_new - nn21 + 1) * dx_new; 
         for (j_new = 0; j_new < new_n; j_new++){
             y_new = (j_new - nn21 + 1) * dx_new; 
-            FieldNew.at(i_new).at(j_new) = (0.,0.);
+            FieldNew.at(i_new).at(j_new) = complex<double>(0.,0.);
             for (i_old = 0; i_old < old_n; i_old++){
                 int io=i_old-on21+1; /* bug repaired: +1 added to formula */
                 for (j_old = 0; j_old < old_n; j_old++){
@@ -194,25 +194,42 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
                     c4c1=fc4*fc1;
                     s4s3=fs4*fs3;
                     c2c1=fc2*fc1;
-                    FieldNew.at(i_new).at(j_new).real(
-                                                        real(FieldNew.at(i_new).at(j_new)) + 
-                                                        fr*( c2s3+c4s1+s4c1+s2c3-c2s1-s4c3-s2c1-c4s3)
-                                                     );
-                                                     
-                    FieldNew.at(i_new).at(j_new).real(
-                                                        real(FieldNew.at(i_new).at(j_new)) + 
-                                                        fi*(-s2s3+s2s1+c2c3-s4s1-c4c3+c4c1+s4s3-c2c1)
-                                                     );
-                                                     
-                    FieldNew.at(i_new).at(j_new).imag(
-                                                        imag(FieldNew.at(i_new).at(j_new)) + 
-                                                        fr*(-c4c1+s2s3+c4c3-s4s3+c2c1-s2s1+s4s1-c2c3)
-                                                     );
-                                                     
-                    FieldNew.at(i_new).at(j_new).imag(
-                                                        imag(FieldNew.at(i_new).at(j_new)) + 
+//                    FieldNew.at(i_new).at(j_new) = complex<double>(
+//														real(FieldNew.at(i_new).at(j_new)) +  
+//                                                        fr*( c2s3+c4s1+s4c1+s2c3-c2s1-s4c3-s2c1-c4s3) +
+//                                                        fi*(-s2s3+s2s1+c2c3-s4s1-c4c3+c4c1+s4s3-c2c1),
+//                                                        imag(FieldNew.at(i_new).at(j_new)) + 
+//                                                        fr*(-c4c1+s2s3+c4c3-s4s3+c2c1-s2s1+s4s1-c2c3) +
+//                                                        fi*( c2s3+s2c3+c4s1+s4c1-c4s3-s4c3-c2s1-s2c1)
+//                                                        );
+                    
+                    FieldNew.at(i_new).at(j_new) += complex<double>(
+                                                        fr*( c2s3+c4s1+s4c1+s2c3-c2s1-s4c3-s2c1-c4s3) +
+                                                        fi*(-s2s3+s2s1+c2c3-s4s1-c4c3+c4c1+s4s3-c2c1), 
+                                                        fr*(-c4c1+s2s3+c4c3-s4s3+c2c1-s2s1+s4s1-c2c3) +
                                                         fi*( c2s3+s2c3+c4s1+s4c1-c4s3-s4c3-c2s1-s2c1)
-                                                     ); 
+                                                        );                                                        
+                    
+                    
+//                    FieldNew.at(i_new).at(j_new).real(
+//                                                        real(FieldNew.at(i_new).at(j_new)) + 
+//                                                        fr*( c2s3+c4s1+s4c1+s2c3-c2s1-s4c3-s2c1-c4s3)
+//                                                     );
+//                                                     
+//                    FieldNew.at(i_new).at(j_new).real(
+//                                                        real(FieldNew.at(i_new).at(j_new)) + 
+//                                                        fi*(-s2s3+s2s1+c2c3-s4s1-c4c3+c4c1+s4s3-c2c1)
+//                                                     );
+//                                                     
+//                    FieldNew.at(i_new).at(j_new).imag(
+//                                                        imag(FieldNew.at(i_new).at(j_new)) + 
+//                                                        fr*(-c4c1+s2s3+c4c3-s4s3+c2c1-s2s1+s4s1-c2c3)
+//                                                     );
+//                                                     
+//                    FieldNew.at(i_new).at(j_new).imag(
+//                                                        imag(FieldNew.at(i_new).at(j_new)) + 
+//                                                        fi*( c2s3+s2c3+c4s1+s4c1-c4s3-s4c3-c2s1-s2c1)
+//                                                     ); 
                 }
             }
         }
@@ -228,6 +245,7 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
     long ik, ir;
     double z,z1,cc;
     double sw, sw1, bus, abus, pi2, cab, sab, kz, cokz, sikz;
+
     pi2=2.*3.141592654;
     z=fabs(zz);
     kz = pi2/lambda*z;
@@ -253,7 +271,7 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
     else fftw_execute(planB);
     if(zz >= 0.){
        z1=z*lambda/2.;
-       n12=N/2;
+       n12=int(N/2);
        ik=0;
        for (int i=0;i<N; i++){
            for (int j=0;j<N; j++){ 
@@ -276,7 +294,7 @@ CMPLXVEC lpspy::CircScreen(double R, double x_shift, double y_shift, CMPLXVEC Fi
     }
     else { 
       z1=z*lambda/2.;
-      n12=N/2;
+      n12=int(N/2);
       ik=0;
       for (int i=0;i<N; i++){
         for (int j=0;j<N; j++){ 

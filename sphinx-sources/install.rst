@@ -2,7 +2,7 @@ Installation.
 *************
 
 This Python version of Lightpipes can be operated on Windows (32 and 64 bits), Linux (32 and 64 bits) and Macintosh (64 bits) computers.
-There exist packages for Python versions 2.7, 3.4, 3.5, 3.6 and 3.7.
+There exist packages for Python versions 2.7, 3.4, 3.5, 3.6 and 3.7., there is a 3.7 Python version for the Raspberry Pi too (Tested on a RP4 model B with 4Gb memory).
 LightPipes for Python is on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_ and can be installed if you have `pip <https://pip.pypa.io/en/stable/installing/>`_ installed on your computer.
 In a terminal window simply type:
 

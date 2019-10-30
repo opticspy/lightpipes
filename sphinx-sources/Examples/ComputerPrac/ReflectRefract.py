@@ -89,7 +89,7 @@ def TheExample(event):
     ax2.clear()
     ax2.contourf(I2,50,vmin=0., vmax=1.,cmap='hot'); ax2.axis('off'); ax2.axis('equal')
     ax2.set_title('Transmitted irradiance')
-    canvas.show()
+    canvas.draw()
 
 def openbrowser(event):
     webbrowser.open_new(r"https://opticspy.github.io/lightpipes/Reflect.html")

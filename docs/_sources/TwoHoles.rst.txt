@@ -70,8 +70,8 @@ film is known.
         Report the minimum thickness that this film can have.
     3.  What values of the thickness of the film are possible too?
 
-Questions.
-^^^^^^^^^^
+Questions about Young's experiment.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     1.  What condition must be fulfilled for the distance, :math:`z`, to the screen, the wavelength 
         of the light, and the size of the holes for the theory that you used?

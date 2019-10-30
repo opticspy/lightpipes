@@ -56,8 +56,8 @@ Measurement of the refractive index of the film between the lens and the flat pl
         with index larger than one. Find the value of the refractive index of this medium 
         by measuring the diameters of the Newton rings.
 
-Questions.
-^^^^^^^^^^
+Questions about Newton rings.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     1.  What happens if the beam of light is not monochromatic but contains a large 
         number of wavelengths?

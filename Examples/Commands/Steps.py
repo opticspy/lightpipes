@@ -10,7 +10,7 @@ from LightPipes import *
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-from LightPipes import cm, m, mm, nm, um
+
 
 wavelength=632.8*nm;
 size=4*mm;

@@ -934,10 +934,31 @@ cdef class Init:
             "Test failed" if not.
     
         """
+        Fa=[]
         F=self.Begin(1,2,4)
         F=self.Fresnel(10,F)
-        Fa=[[(0.0013726434717376028-0.034681156964385715j), (0.0019701158021205333-0.04855139308994034j), (0.0019701158021205338-0.04855139308994034j), (0.0013726434717376054-0.03468115696438571j)], [(0.0019701158021205325-0.04855139308994034j), (0.002825939499415421-0.06796876541708798j), (0.0028259394994154217-0.06796876541708798j), (0.0019701158021205346-0.04855139308994034j)], [(0.001970115802120533-0.04855139308994034j), (0.0028259394994154204-0.06796876541708798j), (0.002825939499415422-0.06796876541708798j), (0.001970115802120535-0.04855139308994033j)], [(0.0013726434717376043-0.03468115696438571j), (0.0019701158021205325-0.04855139308994033j), (0.001970115802120534-0.04855139308994033j), (0.0013726434717376064-0.03468115696438571j)]]
-        if F==Fa:
+        for i in range(0, 4):
+            for j in range(0, 4):
+                Fa.append('({0.real:2.7f} + {0.imag:2.7f}i)'.format(F[i][j]))
+        Faa=[
+        '(0.0013726 + -0.0346812i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0013726 + -0.0346812i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0028259 + -0.0679688i)',
+        '(0.0028259 + -0.0679688i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0028259 + -0.0679688i)',
+        '(0.0028259 + -0.0679688i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0013726 + -0.0346812i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0019701 + -0.0485514i)',
+        '(0.0013726 + -0.0346812i)'
+        ]
+        if Fa==Faa:
             self.thisptr.test()
         else:
             print('Test failed')
@@ -1033,7 +1054,7 @@ cdef class Init:
         return self.thisptr.getGridDimension()
     def GaussBeam(self,size,labda,N,w,tx,ty):
         """
-        F=GaussBeam(GridSize, Wavelength, N, w,tx,ty)
+        F=GaussBeam(GridSize, Wavelength, N, w, tx,ty)
         :ref:`Creates a Gaussian beam in its waist (phase = 0.0, amplitude = 1.0). <Begin>`
 
         Args::
@@ -1059,6 +1080,27 @@ cdef class Init:
         F=self.Tilt(tx,ty,F)
         return F
     def PointSource(self,size,labda,N,x,y):
+        """
+        F=PointSource(GridSize, Wavelength, N, x, y)
+        :ref:`Creates a point source. <Begin>`
+
+        Args::
+        
+            GridSize: size of the grid
+            Wavelength: wavelength of the field
+            N: N x N grid points (N must be even)
+            x, y: position of the point source.
+            
+            
+        Returns::
+         
+            F: N x N square array of complex numbers (0+0j, or 1+0j where the pointsorce is ).
+                
+        Example:
+        
+        :ref:`Diffraction from a circular aperture <Diffraction>`
+        
+        """
         F=self.Begin(size,labda,N)
         if abs(x) >size/2 or abs(y) > size/2:
             print('error in PointSource: x and y must be inside grid!')
@@ -1125,5 +1167,3 @@ cdef class Init:
         print('on a ' + platform.system() + ' ' + platform.release() + ' ' + platform.machine() +' machine')
         plt.show()
 
-        
-            

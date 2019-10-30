@@ -63,7 +63,7 @@ def TheExample(event):
     ax1.contourf(I,50,cmap='hot'); ax1.axis('off'); ax1.axis('equal')
     str='Intensity distribution\ncenter-irradiance = %3.3f [a.u.]' %I[N2][N2]
     ax1.set_title(str) 
-    canvas.show()
+    canvas.draw()
 
 def motion(event):
     x=event.xdata;y=event.ydata

@@ -75,8 +75,8 @@ Measurement of the refractive index of a medium.
     3.  Determine the refractive index, :math:`n_f`, from the measurements using the 
         wavelength measured in the first experiment.
 
-Questions.
-^^^^^^^^^^
+Questions about the Fabry Perot interferometer.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     1.  Calculate the finesse of this Fabry Perot for mirror reflectivity :math:`R` = 70%.
     2.  What is the minimum wavelength separation that can be measured for a distance 

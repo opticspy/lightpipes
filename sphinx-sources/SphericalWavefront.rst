@@ -73,8 +73,8 @@ Download Python script: :download:`SphericalWavefront.py <./Examples/ComputerPra
     4.  Determine, for both cases, the range of :math:`z` for which the beam can be considered 
         as spherical. Compare this range with the Rayleigh length.
 
-Questions.
-^^^^^^^^^^
+Questions about the spherical wavefront.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You should be able to answer the following questions:
 

@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>5. Manual. &#8212; LightPipes for Python 1.1.3 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>5. Manual. &#8212; LightPipes for Python 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Examples." href="examples_of_lightpipes_for_python.html" />
     <link rel="prev" title="4. Command Reference." href="command-reference.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,7 +35,7 @@
         <li class="right" >
           <a href="command-reference.html" title="4. Command Reference."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -62,7 +51,7 @@
 <div class="section" id="starting-the-calculations">
 <span id="begin"></span><h3>5.1.1. Starting the calculations.<a class="headerlink" href="#starting-the-calculations" title="Permalink to this headline">¶</a></h3>
 <p>All the calculations must start with the <em>Begin</em> command. This command defines the size of the square grid, the grid dimension and the wave length of the field.Before any LightPipes commands the LightPipes package must be imported in your Python script. It is very convenient to use units. Units are included in the LightPipes package.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from LightPipes import *
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from LightPipes import *
 &gt;&gt;&gt; <span class="nv">GridSize</span> <span class="o">=</span> <span class="m">30</span>*mm
 &gt;&gt;&gt; <span class="nv">GridDimension</span> <span class="o">=</span> <span class="m">5</span>
 &gt;&gt;&gt; <span class="nv">lambda_</span> <span class="o">=</span> <span class="m">500</span>*nm <span class="c1">#lambda_ is used because lambda is a Python build-in function.</span>
@@ -77,18 +66,18 @@
 </div>
 <div class="section" id="the-dimensions-of-structures">
 <h3>5.1.2. The dimensions of structures.<a class="headerlink" href="#the-dimensions-of-structures" title="Permalink to this headline">¶</a></h3>
-<p>The field structures in LightPipes are two dimensional arrays of complex numbers. For example a grid with 256x256 points asks about 1Mb of memory. 512x512 points ask more then 4Mb and 1024x1024 16Mb. Some commands, however need more memory because internal arrays are necessary. Grids up to 2000 x 2000 points are possible with common PC&#8217;s and laptops.</p>
+<p>The field structures in LightPipes are two dimensional arrays of complex numbers. For example a grid with 256x256 points asks about 1Mb of memory. 512x512 points ask more then 4Mb and 1024x1024 16Mb. Some commands, however need more memory because internal arrays are necessary. Grids up to 2000 x 2000 points are possible with common PC’s and laptops.</p>
 </div>
 <div class="section" id="apertures-and-screens">
 <span id="gaussscreen"></span><span id="gaussaperture"></span><span id="rectscreen"></span><span id="rectaperture"></span><span id="circscreen"></span><span id="circaperture"></span><h3>5.1.3. Apertures and screens.<a class="headerlink" href="#apertures-and-screens" title="Permalink to this headline">¶</a></h3>
 <p>The simplest component to model is an aperture. There are three different types of apertures:</p>
 <ol class="arabic simple">
-<li>The circular aperture: <em>CircAperture(R, xs, ys, Field)</em></li>
-<li>The rectangular aperture: <em>RectAperture(wx, wy, xs, ys, phi, Field)</em></li>
-<li>The Gaussian diaphragm: <em>GaussAperture(R, xs, ys, T, Field)</em></li>
+<li><p>The circular aperture: <em>CircAperture(R, xs, ys, Field)</em></p></li>
+<li><p>The rectangular aperture: <em>RectAperture(wx, wy, xs, ys, phi, Field)</em></p></li>
+<li><p>The Gaussian diaphragm: <em>GaussAperture(R, xs, ys, T, Field)</em></p></li>
 </ol>
 <p>Where R=radius, xs and ys are the shift in x and y direction respectively, phi is a rotation and T is the centre transmission of the Gaussian aperture. In addition, there are three commands describing screens: <em>CircScreen</em> (inversion of the circular aperture), <em>RectScreen</em>, (inversion of the rectangular aperture) and <em>GaussScreen</em> (inversion of the gauss aperture).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">GridSize</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
@@ -107,12 +96,12 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/AperturesandScreens1.py">Source code</a>, <a class="reference external" href="./Examples/Commands/AperturesandScreens1.png">png</a>, <a class="reference external" href="./Examples/Commands/AperturesandScreens1.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/AperturesandScreens1.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/AperturesandScreens1.png" src="_images/AperturesandScreens1.png" />
 </div>
 <p><em>Fig. 1. Example of the application of a circular aperture.</em></p>
 <p>All kinds of combinations of circular, rectangular and Gaussian apertures and screens can be made:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">GridSize</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
@@ -134,22 +123,22 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/AperturesandScreens2.py">Source code</a>, <a class="reference external" href="./Examples/Commands/AperturesandScreens2.png">png</a>, <a class="reference external" href="./Examples/Commands/AperturesandScreens2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/AperturesandScreens2.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/AperturesandScreens2.png" src="_images/AperturesandScreens2.png" />
 </div>
 <p><em>Fig. 2. The use of screens and apertures.</em></p>
 </div>
 <div class="section" id="graphing-and-visualisation">
 <span id="phaseunwrap"></span><span id="phase"></span><span id="intensity"></span><h3>5.1.4. Graphing and visualisation.<a class="headerlink" href="#graphing-and-visualisation" title="Permalink to this headline">¶</a></h3>
-<p>In figure 1 and 2 the intensity of the field is calculated after aperturing ‘Field’ with the <em>Intensity</em> command using option 0, which means that no normalization is applied. Alternatives are option 1: normalization to 1 and option 2: normalization to 255 for displaying gray-values (not often needed). Use has been made of the package &#8220;matplotlib&#8221; which can be installed by typing at the python prompt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+<p>In figure 1 and 2 the intensity of the field is calculated after aperturing ‘Field’ with the <em>Intensity</em> command using option 0, which means that no normalization is applied. Alternatives are option 1: normalization to 1 and option 2: normalization to 255 for displaying gray-values (not often needed). Use has been made of the package “matplotlib” which can be installed by typing at the python prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
 </pre></div>
 </div>
-<p>With the command <em>Interpolate</em> you can reduce the grid dimension of the field speeding up subsequent plotting considerably, especially when dealing with 3d surface plots. This is illustrated in figure 3. In figure 3 we also plotted the cross section of the beam in a two dimensional XY plot. For this we have to define an integer, i, ranging from 1 to the grid dimension. This integer must be used to define the element of the (square) array, I, which is used for the vertical axis of the XY plot. Use has been made of the &#8220;numpy&#8221; package which can be installed by typing at the python prompt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<p>With the command <em>Interpolate</em> you can reduce the grid dimension of the field speeding up subsequent plotting considerably, especially when dealing with 3d surface plots. This is illustrated in figure 3. In figure 3 we also plotted the cross section of the beam in a two dimensional XY plot. For this we have to define an integer, i, ranging from 1 to the grid dimension. This integer must be used to define the element of the (square) array, I, which is used for the vertical axis of the XY plot. Use has been made of the “numpy” package which can be installed by typing at the python prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -167,6 +156,7 @@
 <span class="n">NewGridDimension</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">GridDimension</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">Field</span><span class="o">=</span><span class="n">Interpol</span><span class="p">(</span><span class="n">GridSize</span><span class="p">,</span><span class="n">NewGridDimension</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
 <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
 
 <span class="c1">#plot cross section:</span>
 <span class="n">x</span><span class="o">=</span><span class="p">[]</span>
@@ -178,13 +168,13 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/plotresults.py">Source code</a>, <a class="reference external" href="./Examples/Commands/plotresults_00_00.png">png</a>, <a class="reference external" href="./Examples/Commands/plotresults_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/plotresults_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/plotresults_00_00.png" src="_images/plotresults_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#3d plot:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#3d plot:</span>
 <span class="n">X</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">NewGridDimension</span><span class="p">)</span>
 <span class="n">Y</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">NewGridDimension</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> 
 <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">,</span>
@@ -198,7 +188,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/plotresults_01_00.png">png</a>, <a class="reference external" href="./Examples/Commands/plotresults_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/plotresults_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/plotresults_01_00.png" src="_images/plotresults_01_00.png" />
 </div>
 <p><em>Fig. 3. The use of XY-plots and surface plots to present your simulation results. Note the usage of Interpol to reduce the grid dimension for a faster surface plot.</em></p>
@@ -210,44 +200,44 @@
 <p>There are four different possibilities for modelling the light propagation in LightPipes.</p>
 <div class="section" id="fft-propagation-spectral-method-forvard">
 <span id="forvard"></span><h3>5.2.1. FFT propagation (spectral method) (<em>Forvard</em>).<a class="headerlink" href="#fft-propagation-spectral-method-forvard" title="Permalink to this headline">¶</a></h3>
-<p>Let us consider the wave function <span class="math">\(U\)</span> in two planes: <span class="math">\(U(x,y,0\)</span>) and <span class="math">\(U(x,y,z)\)</span>. Suppose then that
-<span class="math">\(U(x,y,z)\)</span> is the result of propagation of <span class="math">\(U(x,y,0)\)</span> to the distance <span class="math">\(z\)</span> ,
+<p>Let us consider the wave function <span class="math notranslate nohighlight">\(U\)</span> in two planes: <span class="math notranslate nohighlight">\(U(x,y,0\)</span>) and <span class="math notranslate nohighlight">\(U(x,y,z)\)</span>. Suppose then that
+<span class="math notranslate nohighlight">\(U(x,y,z)\)</span> is the result of propagation of <span class="math notranslate nohighlight">\(U(x,y,0)\)</span> to the distance <span class="math notranslate nohighlight">\(z\)</span> ,
 with the Fourier transforms of these two (initial and propagated ) wave functions
-given by <span class="math">\(A(\alpha,\beta,0)\)</span> and <span class="math">\(A(\alpha,\beta,z)\)</span> correspondingly.
+given by <span class="math notranslate nohighlight">\(A(\alpha,\beta,0)\)</span> and <span class="math notranslate nohighlight">\(A(\alpha,\beta,z)\)</span> correspondingly.
 In the Fresnel approximation, the Fourier transform of the diffracted wave
 function is related to the Fourier transform of the initial function
-via the frequency transfer characteristic of the free space <span class="math">\(H( \alpha,\beta,z)\)</span> , given by <a class="footnote-reference" href="#f1" id="id1">[1]</a> <a class="footnote-reference" href="#f2" id="id2">[2]</a> :</p>
-<div class="math" id="equation-1">
+via the frequency transfer characteristic of the free space <span class="math notranslate nohighlight">\(H( \alpha,\beta,z)\)</span> , given by <a class="footnote-reference brackets" href="#f1" id="id1">1</a> <a class="footnote-reference brackets" href="#f2" id="id2">2</a> :</p>
+<div class="math notranslate nohighlight" id="equation-1">
 <span class="eqno">(1)<a class="headerlink" href="#equation-1" title="Permalink to this equation">¶</a></span>\[H=\frac{A(\alpha, \beta, z)}{A(\alpha, \beta, 0)}=\exp \big\{ {{-ikz(1-\alpha^2-\beta^2)}^{1/2}}\big\}\]</div>
 <p>where:</p>
-<div class="math" id="equation-2">
+<div class="math notranslate nohighlight" id="equation-2">
 <span class="eqno">(2)<a class="headerlink" href="#equation-2" title="Permalink to this equation">¶</a></span>\[A(\alpha, \beta,0)= \int \int_{ -\infty} ^{ \infty}  U(x,y,0)exp{\{-ikz(\alpha x+\beta y)}\}dxdy\]</div>
-<div class="math" id="equation-3">
+<div class="math notranslate nohighlight" id="equation-3">
 <span class="eqno">(3)<a class="headerlink" href="#equation-3" title="Permalink to this equation">¶</a></span>\[A(\alpha, \beta,z)= \int \int_{ -\infty} ^{ \infty}  U(x,y,z)exp{\{-ikz(\alpha x+\beta y)}\}dxdy\]</div>
 <p>Expressions <a class="reference internal" href="#equation-1">(1)</a>, <a class="reference internal" href="#equation-2">(2)</a>, and <a class="reference internal" href="#equation-3">(3)</a> provide a symmetrical relation between the initial and diffracted wave
-functions in the Fresnel approximation. Applied in the order  <a class="reference internal" href="#equation-2">(2)</a> <span class="math">\(\rightarrow\)</span> <a class="reference internal" href="#equation-1">(1)</a> <span class="math">\(\rightarrow\)</span> <a class="reference internal" href="#equation-3">(3)</a>
+functions in the Fresnel approximation. Applied in the order  <a class="reference internal" href="#equation-2">(2)</a> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <a class="reference internal" href="#equation-1">(1)</a> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <a class="reference internal" href="#equation-3">(3)</a>
 they result in the diffracted wave function, while being applied in the reversed order they allow for reconstruction of
 the initial wave function from the result of diffraction. We shall denote the forward and the
 reversed propagation operations defined by expressions <a class="reference internal" href="#equation-1">(1)</a>, <a class="reference internal" href="#equation-2">(2)</a> and <a class="reference internal" href="#equation-3">(3)</a> with operators
-<span class="math">\(L^+\)</span> and <span class="math">\(L^-\)</span> respectively.
-The described algorithm can be implemented numerically using Fast Fourier Transform (FFT) <a class="footnote-reference" href="#f2" id="id3">[2]</a> <a class="footnote-reference" href="#f3" id="id4">[3]</a> on a finite
+<span class="math notranslate nohighlight">\(L^+\)</span> and <span class="math notranslate nohighlight">\(L^-\)</span> respectively.
+The described algorithm can be implemented numerically using Fast Fourier Transform (FFT) <a class="footnote-reference brackets" href="#f2" id="id3">2</a> <a class="footnote-reference brackets" href="#f3" id="id4">3</a> on a finite
 rectangular grid with periodic border conditions. It results in a model of beam propagation inside a rectangular
 wave guide with reflective walls. To approximate a free-space propagation, wide empty guard bands have to be
 formed around the wave function defined on a grid. To eliminate the influence of the finite rectangular data
-window, Gaussian amplitude windowing in the frequency domain should be applied, see <a class="footnote-reference" href="#f2" id="id5">[2]</a> <a class="footnote-reference" href="#f3" id="id6">[3]</a> for
+window, Gaussian amplitude windowing in the frequency domain should be applied, see <a class="footnote-reference brackets" href="#f2" id="id5">2</a> <a class="footnote-reference brackets" href="#f3" id="id6">3</a> for
 extensive analysis of these computational aspects.
 The simplest and fastest LightPipes command for propagation is <em>Forvard</em>. (The ‘v’ is a type error made on purpose!)
-It implements the spectral method described by <a class="footnote-reference" href="#f1" id="id7">[1]</a> <a class="footnote-reference" href="#f2" id="id8">[2]</a> <a class="footnote-reference" href="#f3" id="id9">[3]</a> . The syntax is simple,
+It implements the spectral method described by <a class="footnote-reference brackets" href="#f1" id="id7">1</a> <a class="footnote-reference brackets" href="#f2" id="id8">2</a> <a class="footnote-reference brackets" href="#f3" id="id9">3</a> . The syntax is simple,
 for example if you want to filter your field through a 1cm aperture and then propagate the beam 1m forward,
 you type the following commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span>20mm, <span class="m">1</span> um, <span class="m">256</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span>20mm, <span class="m">1</span> um, <span class="m">256</span><span class="o">)</span>
 <span class="nv">Field</span> <span class="o">=</span> CircAperture<span class="o">(</span><span class="m">5</span>*mm, <span class="m">0</span>, <span class="m">0</span>, Field<span class="o">)</span>
 <span class="nv">Field</span> <span class="o">=</span> Forvard<span class="o">(</span><span class="m">1</span>*m, Field<span class="o">)</span>
 <span class="nv">I</span> <span class="o">=</span> Intensity<span class="o">(</span><span class="m">0</span>,Field<span class="o">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Forvard.png" src="_images/Forvard.png" />
 </div>
 <p><em>Fig. 4. The result of the propagation: density and cross section intensity plots.</em></p>
@@ -259,57 +249,57 @@ must be negligible small. Thus the grid edges must be far enough from the propag
 Neglecting these conditions will cause interference of the propagating beam with waves reflected
 from the wave guide walls.
 As a consequence of the previous feature, we must be extremely careful propagating the plane wave
-to a distance comparable with <span class="math">\(D^2/\lambda\)</span> where <span class="math">\(D\)</span> is the diameter (or a characteristic size) of
-the beam, and <span class="math">\(\lambda\)</span> is the wavelength. To propagate the beam to the far field (or just far enough)
+to a distance comparable with <span class="math notranslate nohighlight">\(D^2/\lambda\)</span> where <span class="math notranslate nohighlight">\(D\)</span> is the diameter (or a characteristic size) of
+the beam, and <span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength. To propagate the beam to the far field (or just far enough)
 we have to choose the size of our grid much larger than the beam itself,
 in other words we define the field in a grid filled mainly with zeros.
 The grid must be even larger when the beam is aberrated because the divergent beams reach the
 region border sooner.</p>
 <p>Due to these two reasons the commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">20</span>*mm,1*um,256<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">20</span>*mm,1*um,256<span class="o">)</span>
 <span class="nv">Field</span><span class="o">=</span>RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0,0,0,Field<span class="o">)</span>
 <span class="nv">Field</span><span class="o">=</span>Forvard<span class="o">(</span><span class="m">1</span>*m,Field<span class="o">)</span>
 <span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span><span class="m">2</span>,Field<span class="o">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard2.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard2.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard2.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Forvard2.png" src="_images/Forvard2.png" />
 </div>
 <p>make no sense (zero intensity). The cross section of the beam (argument of <em>RectAperture</em>)
 equals to the section of the grid (the first argument of <em>Begin</em>), so we have
 a model of light propagation in a wave guide but not in a free space. One has to put:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">40</span>*mm,1*um,256<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">40</span>*mm,1*um,256<span class="o">)</span>
 <span class="nv">Field</span><span class="o">=</span>RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0,0,0,Field<span class="o">)</span>
 <span class="nv">Field</span><span class="o">=</span>Forvard<span class="o">(</span>*m,Field<span class="o">)</span>
 <span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span><span class="m">2</span>,Field<span class="o">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard3.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard3.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard3.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard3.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Forvard3.png" src="_images/Forvard3.png" />
 </div>
 <p>for propagation in the near field, and may be:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">400</span>*mm, <span class="m">1</span>*um, <span class="m">512</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">400</span>*mm, <span class="m">1</span>*um, <span class="m">512</span><span class="o">)</span>
 <span class="nv">Field</span> <span class="o">=</span> RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0, <span class="m">0</span>,0, Field<span class="o">)</span>
 <span class="nv">Field</span> <span class="o">=</span> Forvard<span class="o">(</span><span class="m">500</span>*m, Field<span class="o">)</span>
 <span class="nv">I</span> <span class="o">=</span> Intensity<span class="o">(</span><span class="m">0</span>,Field<span class="o">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard4.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard4.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard4.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard4.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Forvard4.png" src="_images/Forvard4.png" />
 </div>
 <p>for far field propagation.
 If we compare the result of the previous example with the result of:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">60</span>*mm,1*um,512<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">60</span>*mm,1*um,512<span class="o">)</span>
 <span class="nv">Field</span><span class="o">=</span>RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0,0,0,Field<span class="o">)</span>
 <span class="nv">Field</span><span class="o">=</span>Forvard<span class="o">(</span><span class="m">500</span>,Field<span class="o">)</span>
 <span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span><span class="m">2</span>,Field<span class="o">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard5.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard5.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard5.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard5.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Forvard5.png" src="_images/Forvard5.png" />
 </div>
 <p>we’ll see the difference.</p>
@@ -319,35 +309,35 @@ and does not require the allocation of extra memory. In LightPipes a negative ar
 may be supplied to <em>Forvard</em>. It means that the program will perform “propagation back”
 or in other words it will reconstruct the initial field from the one diffracted. For example:</p>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard6.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard6.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard6.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard6.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Forvard6.png" src="_images/Forvard6.png" />
 </div>
 <p><em>Fig. 5. The initial filed, the field propagated to the near field and the field propagated back</em></p>
 </div>
 <div class="section" id="direct-integration-as-a-convolution-fft-approach-fresnel">
 <span id="fresnel"></span><h3>5.2.2. Direct integration as a convolution: FFT approach (<em>Fresnel</em>).<a class="headerlink" href="#direct-integration-as-a-convolution-fft-approach-fresnel" title="Permalink to this headline">¶</a></h3>
-<p>Another possibility of a fast computer implementation of the operator <span class="math">\(L^+\)</span> is free
-from many of the drawbacks of the described spectral algorithm. The operator <span class="math">\(L^+\)</span> may be
+<p>Another possibility of a fast computer implementation of the operator <span class="math notranslate nohighlight">\(L^+\)</span> is free
+from many of the drawbacks of the described spectral algorithm. The operator <span class="math notranslate nohighlight">\(L^+\)</span> may be
 numerically implemented with direct summation of the Fresnel-Kirchoff diffraction integral:</p>
-<div class="math" id="equation-4">
+<div class="math notranslate nohighlight" id="equation-4">
 <span class="eqno">(4)<a class="headerlink" href="#equation-4" title="Permalink to this equation">¶</a></span>\[U(x_1,y_1,z)=\frac{k}{2\pi iz} \int \int U(x,y,0)\exp \big\{ik\frac{(x-x_1)^2+(y-y_1)^2}{2 z}\big\}dxdy\]</div>
-<p>with functions <span class="math">\(U(x,y,0)\)</span> and <span class="math">\(U(x,y,z)\)</span> defined on rectangular grids.
+<p>with functions <span class="math notranslate nohighlight">\(U(x,y,0)\)</span> and <span class="math notranslate nohighlight">\(U(x,y,z)\)</span> defined on rectangular grids.
 This integral may be converted into a convolution form which can be efficiently computed
-using FFT <a class="footnote-reference" href="#f4" id="id10">[4]</a> , [f#5]_ . This method is free from many drawbacks of the spectral method given by
-the sequence <a class="reference internal" href="#equation-3">(3)</a> <span class="math">\(\rightarrow\)</span> <a class="reference internal" href="#equation-2">(2)</a> <span class="math">\(\rightarrow\)</span> <a class="reference internal" href="#equation-4">(4)</a>
+using FFT <a class="footnote-reference brackets" href="#f4" id="id10">4</a> , [f#5]_ . This method is free from many drawbacks of the spectral method given by
+the sequence <a class="reference internal" href="#equation-3">(3)</a> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <a class="reference internal" href="#equation-2">(2)</a> <span class="math notranslate nohighlight">\(\rightarrow\)</span> <a class="reference internal" href="#equation-4">(4)</a>
 although it is still very fast due to its use of FFT for computing of the integral sums.</p>
-<p>We&#8217;ll explain this using a two-dimensional example, following <a class="footnote-reference" href="#f4" id="id11">[4]</a>, p.100. Let the integral
-be defined in a finite interval <span class="math">\(–L/2\cdots L/2\)</span>:</p>
-<div class="math" id="equation-5">
+<p>We’ll explain this using a two-dimensional example, following <a class="footnote-reference brackets" href="#f4" id="id11">4</a>, p.100. Let the integral
+be defined in a finite interval <span class="math notranslate nohighlight">\(–L/2\cdots L/2\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-5">
 <span class="eqno">(5)<a class="headerlink" href="#equation-5" title="Permalink to this equation">¶</a></span>\[U(x_1,z)= \sqrt{ \frac{k}{2\pi iz}} \int _{-L/2}^{L/2} U(x,0)\exp \big\{ik\frac{(x-x_1)^2}{2 z}\big\}dx\]</div>
 <p>Replacing the functions U(x) and U(x1) with step functions Uj and Um, defined in the sampling points of the grid with j=0…N, and m=0…N we convert the integral (5.5) to the form:</p>
-<div class="math" id="equation-6">
+<div class="math notranslate nohighlight" id="equation-6">
 <span class="eqno">(6)<a class="headerlink" href="#equation-6" title="Permalink to this equation">¶</a></span>\[U_m= \sqrt{ \frac{k}{2\pi iz}}  \sum_{j=1}^{N-1}U_j \int   _{x_j-0.5}^{x_j+0.5} \exp \big\{ik\frac{(x_m-x)^2}{2 z}\big\}dx + U_0 \int   _{x_0}^{0.5} \exp \big\{ik\frac{(x_m-x)^2}{2 z}\big\}dx + U_N \int   _{x_N-0.5}^{x_N} \exp \big\{ik\frac{(x_m-x)^2}{2 z}\big\}dx\]</div>
 <p>Taking the integrals in <a class="reference internal" href="#equation-6">(6)</a> we obtain:</p>
-<div class="math" id="equation-7">
+<div class="math notranslate nohighlight" id="equation-7">
 <span class="eqno">(7)<a class="headerlink" href="#equation-7" title="Permalink to this equation">¶</a></span>\[U_m=  \sum_{j=1}^{N-1} U_j K_{mj}+U_0K_{m0}+U_NK_{mN}\]</div>
-<p>where: <span class="math">\(K_{m0}\)</span>, <span class="math">\(K_{mj}\)</span> and <span class="math">\(K_{mN}\)</span> are analytical expressed with the help of Fresnel
-integrals, depending only onto the difference of indices. The summations <span class="math">\(\sum_{j=1}^{N-1} U_j K_{mj}\)</span> can
+<p>where: <span class="math notranslate nohighlight">\(K_{m0}\)</span>, <span class="math notranslate nohighlight">\(K_{mj}\)</span> and <span class="math notranslate nohighlight">\(K_{mN}\)</span> are analytical expressed with the help of Fresnel
+integrals, depending only onto the difference of indices. The summations <span class="math notranslate nohighlight">\(\sum_{j=1}^{N-1} U_j K_{mj}\)</span> can
 easily be calculated for all indices m as one convolution with the help of FFT.</p>
 <p>The command <em>Fresnel</em> implements this algorithm using the trapezoidal rule. It is almost as fast
 as <em>Forvard</em> (from 2 to 5 times slower), it uses 8 times more memory than <em>Forvard</em> and it allows
@@ -362,51 +352,51 @@ at which the field is diffracted. In this case <em>Forvard</em> or <em>Steps</em
 </div>
 <div class="section" id="direct-integration-forward">
 <span id="forward"></span><h3>5.2.3. Direct integration (<em>Forward</em>).<a class="headerlink" href="#direct-integration-forward" title="Permalink to this headline">¶</a></h3>
-<p>Direct calculation of the Fresnel-Kirchoff integrals is very inefficient in two-dimensional grids. The number of operations is proportional to <span class="math">\(N^4\)</span> , where <span class="math">\(N\)</span> is the grid sampling. With direct integration we do not have any reflection at the grid boundary, so the size of the grid can just match the cross section of field distribution. LightPipes include a program <em>Forward</em> realizing direct integration. <em>Forward</em> has the following features:</p>
+<p>Direct calculation of the Fresnel-Kirchoff integrals is very inefficient in two-dimensional grids. The number of operations is proportional to <span class="math notranslate nohighlight">\(N^4\)</span> , where <span class="math notranslate nohighlight">\(N\)</span> is the grid sampling. With direct integration we do not have any reflection at the grid boundary, so the size of the grid can just match the cross section of field distribution. LightPipes include a program <em>Forward</em> realizing direct integration. <em>Forward</em> has the following features:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>arbitrary sampling and size of square grid at the input plane.</li>
-<li>arbitrary sampling and size of square grid at the output plane, it means we can propagate the field
-from a grid containing for example 52 x 52 points corresponding to 4.9 x4 .9 cm to a grid containing 42 x 42 points and corresponding let’s say 8.75 x 8.75 cm.</li>
+<li><p>arbitrary sampling and size of square grid at the input plane.</p></li>
+<li><p>arbitrary sampling and size of square grid at the output plane, it means we can propagate the field
+from a grid containing for example 52 x 52 points corresponding to 4.9 x4 .9 cm to a grid containing 42 x 42 points and corresponding let’s say 8.75 x 8.75 cm.</p></li>
 </ol>
 </div></blockquote>
 </div>
 <div class="section" id="finite-difference-method-steps">
 <span id="steps"></span><h3>5.2.4. Finite difference method (<em>Steps</em>).<a class="headerlink" href="#finite-difference-method-steps" title="Permalink to this headline">¶</a></h3>
-<p>It can be shown that the propagation of the field <span class="math">\(U\)</span> in a medium with complex
-refractive coefficient <span class="math">\(A\)</span>, is described by the differential equation:</p>
-<div class="math" id="equation-8">
+<p>It can be shown that the propagation of the field <span class="math notranslate nohighlight">\(U\)</span> in a medium with complex
+refractive coefficient <span class="math notranslate nohighlight">\(A\)</span>, is described by the differential equation:</p>
+<div class="math notranslate nohighlight" id="equation-8">
 <span class="eqno">(8)<a class="headerlink" href="#equation-8" title="Permalink to this equation">¶</a></span>\[\frac{\partial^2U}{\partial x^2} + \frac{\partial^2U}{\partial y^2}+2ik \frac{\partial U}{\partial z}  +A(x,y,z)U=0\]</div>
 <p>To solve this equation, we re-write it as a system of finite difference equations:</p>
-<div class="math" id="equation-9">
+<div class="math notranslate nohighlight" id="equation-9">
 <span class="eqno">(9)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span>\[\frac{U^{k+1}_{i-1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-2U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0\]</div>
 <p>Collecting terms we obtain the standard three-diagonal system of linear equations,
-the solution of which describes the complex amplitude of the light field in the layer <span class="math">\(z+\Delta z\)</span> as a
+the solution of which describes the complex amplitude of the light field in the layer <span class="math notranslate nohighlight">\(z+\Delta z\)</span> as a
 function of the field defined in the layer z:</p>
-<div class="math" id="equation-10">
+<div class="math notranslate nohighlight" id="equation-10">
 <span class="eqno">(10)<a class="headerlink" href="#equation-10" title="Permalink to this equation">¶</a></span>\[-a_iU^{k+1}_{i-1,j}+c_iU^{k+1}_{i,j}-b_iU^{k+1}_{i+1,j}=f_i\]</div>
-<p>where: (we put&nbsp;<span class="math">\(\Delta x=\Delta y=\Delta\)</span> )</p>
-<div class="math" id="equation-11">
+<p>where: (we put <span class="math notranslate nohighlight">\(\Delta x=\Delta y=\Delta\)</span> )</p>
+<div class="math notranslate nohighlight" id="equation-11">
 <span class="eqno">(11)<a class="headerlink" href="#equation-11" title="Permalink to this equation">¶</a></span>\[a_i=b_i=-\frac{1}{\Delta^2}\]</div>
-<div class="math" id="equation-12">
+<div class="math notranslate nohighlight" id="equation-12">
 <span class="eqno">(12)<a class="headerlink" href="#equation-12" title="Permalink to this equation">¶</a></span>\[c_i=A^{k+1}_{i,j}-\frac{2}{\Delta^2}+\frac{2ik}{\Delta z}\]</div>
-<div class="math" id="equation-13">
+<div class="math notranslate nohighlight" id="equation-13">
 <span class="eqno">(13)<a class="headerlink" href="#equation-13" title="Permalink to this equation">¶</a></span>\[f_i=\frac{2ik}{\Delta z}U^k_{i,j}-\frac{U^k_{i,j+1}-2U^k_{i,j}+U^k_{i,j-1}}{\Delta^2}\]</div>
 <p>The three-diagonal system of linear equations <a class="reference internal" href="#equation-10">(10)</a> is solved by the standard elimination
-(double sweep) method, described for example in <a class="footnote-reference" href="#f1" id="id12">[1]</a> . This scheme is absolutely stable
-(this variant is explicit with respect to the index <span class="math">\(i\)</span> and implicit with respect to the
-index <span class="math">\(j\)</span>). One step of propagation is divided into two sub-steps: the first sub-step
+(double sweep) method, described for example in <a class="footnote-reference brackets" href="#f1" id="id12">1</a> . This scheme is absolutely stable
+(this variant is explicit with respect to the index <span class="math notranslate nohighlight">\(i\)</span> and implicit with respect to the
+index <span class="math notranslate nohighlight">\(j\)</span>). One step of propagation is divided into two sub-steps: the first sub-step
 applies the described procedure to all rows of the matrix, the second sub-step changes
 the direction of elimination and the procedure is applied to all columns of the matrix.</p>
 <p>The main advantage of this approach is the possibility to take into account uniformly
 diffraction, absorption (amplification) and refraction. For example, the model of a
 waveguide with complex three-dimensional distribution of refraction index and absorption
 coefficient (both are defined as real and imaginary components of the (three-dimensional in general)
-matrix&nbsp;  <span class="math">\(A^k_{i,j}\)</span>) can be built easily.</p>
+matrix   <span class="math notranslate nohighlight">\(A^k_{i,j}\)</span>) can be built easily.</p>
 <p>It works also much faster than all described previously algorithms on one step of
 propagation, though to obtain a good result at a considerable distance, many steps should
 be done. As the scheme is absolutely stable (at least for free-space propagation),
-there is no stability limitation on the step size in the direction <span class="math">\(z.\)</span>
+there is no stability limitation on the step size in the direction <span class="math notranslate nohighlight">\(z.\)</span>
 Large steps cause high-frequency errors, therefore the number of steps should be determined by
 trial (increase the number of steps in a probe model till the result stabilizes),
 especially for strong variations of refraction and absorption inside the propagation path.</p>
@@ -415,15 +405,15 @@ again, creates the problem of the wave reflection at the grid boundary. The infl
 of these reflections in many cases can be reduced by introducing an additional absorbing
 layer in the proximity of the boundary, with the absorption smoothly (to reduce the
 reflection at the absorption gradient) increasing towards the boundary.</p>
-<p>In LightPipes for Python 1.1.3 the refraction term is not included into the
+<p>In LightPipes for Python 1.2.0 the refraction term is not included into the
 propagation formulas, instead the phase of the field is modified at each step according to
-the distribution of the refractive coefficient. This &#8220;zero-order&#8221; approximation happened to
+the distribution of the refractive coefficient. This “zero-order” approximation happened to
 be much more stable numerically than the direct inclusion of refraction terms into propagation
 formulas. It does not take into account the change of the wavelength in the medium, it does not
 model backscattering and reflections back on interfaces between different media. Perhaps there
 are other details to be mentioned. The described algorithm is implemented in the <em>Steps</em> command.</p>
 <p>(<a class="reference external" href="./Examples/Commands/FocLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/FocLens.png">png</a>, <a class="reference external" href="./Examples/Commands/FocLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/FocLens.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/FocLens.png" src="_images/FocLens.png" />
 </div>
 <p><em>Fig. 6. The use of Steps to calculate the intensity distribution in the focus of a lens.</em></p>
@@ -431,11 +421,11 @@ are other details to be mentioned. The described algorithm is implemented in the
 (to prevent reflections), occupying 10% of grid from each side. <em>Steps</em> is the only command in LightPipes
 allowing for modeling of (three-dimensional) waveguide devices.</p>
 <p>Like <em>Forvard</em>, <em>Steps</em> can inversely propagate the field, for example the sequence</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">Field</span> <span class="o">=</span> Steps<span class="o">(</span> <span class="m">0</span>.1, <span class="m">1</span>, n, Field<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span> <span class="o">=</span> Steps<span class="o">(</span> <span class="m">0</span>.1, <span class="m">1</span>, n, Field<span class="o">)</span>
 <span class="nv">Field</span> <span class="o">=</span> Steps<span class="o">(</span>-0.1, <span class="m">1</span>, n ,Field<span class="o">)</span>
 </pre></div>
 </div>
-<p>doesn&#8217;t change anything in the field distribution. The author has tested this reversibility
+<p>doesn’t change anything in the field distribution. The author has tested this reversibility
 also for propagation in absorptive/refractive media, examples will follow.</p>
 <p><em>Steps</em> implements scalar approximation, it is not applicable for modeling of
 waveguide devices in the vector approximation, where two components of the
@@ -446,33 +436,33 @@ field should be taken into account.</p>
 <span id="beammix"></span><span id="intattenuator"></span><h2>5.3. Splitting and mixing beams.<a class="headerlink" href="#splitting-and-mixing-beams" title="Permalink to this headline">¶</a></h2>
 <p>There are two commands in LightPipes which are useful for modelling of interferometers. With <em>IntAttenuator</em> we can split the field structure (amplitude division) - The two obtained fields could be processed separately and then mixed again with the routine <em>BeamMix</em>. In this script we have formed two beams each containing one “shifted” hole. After mixing these two beams we have a screen with two holes: a Young’s interferometer.</p>
 <p>(<a class="reference external" href="./Examples/Interference/Young.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Young_00_00.png" src="_images/Young_00_00.png" />
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/Young_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Young_01_00.png" src="_images/Young_01_00.png" />
 </div>
 <p><em>Fig. 7. Young’s interferometer.</em></p>
 <p>Having the model of the interferometer we can “play” with it, moving the pinholes and changing their sizes. The following models the result of the interference of a plane wave diffracted at three round apertures:</p>
 <p>(<a class="reference external" href="./Examples/Interference/ThreeHoles.py">Source code</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/ThreeHoles_00_00.png" src="_images/ThreeHoles_00_00.png" />
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/ThreeHoles_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/ThreeHoles_01_00.png" src="_images/ThreeHoles_01_00.png" />
 </div>
 <p><em>Fig. 8. Intensity distributions in the plane of the screen and 75cm behind the screen.</em></p>
 <p>The next interferometer is more interesting:</p>
 <p>(<a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.py">Source code</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.png">png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/TwoSlitsTilt1.png" src="_images/TwoSlitsTilt1.png" />
 </div>
 <p><em>Fig. 9. Intensity distributions in the plane of the screen and 75cm behind the screen.</em></p>
 <p>In the last example the intensity distribution is modulated by the wave, reflected from the grid edge, nevertheless it gives a good impression about the general character of the interference pattern. To obtain a better result, the calculations should be conducted in a larger grid or other numerical method should be used. The following example uses a direct integration algorithm (the input and output are in different scales and have different samplings):</p>
 <p>(<a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.py">Source code</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.png">png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/TwoSlitsTilt2.png" src="_images/TwoSlitsTilt2.png" />
 </div>
 <p><em>Fig. 10. Intensity distributions in plane of the screen and 75 cm after the screen, note that input and output have different scales, input grid is 2.5x2.5mm, output is 5x5mm.</em></p>
@@ -482,11 +472,11 @@ field should be taken into account.</p>
 <span id="interpol"></span><h2>5.4. Interpolation.<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
 <p>The command <em>Interpol</em> is the tool for manipulating the size and the dimension of the grid and for changing the shift, rotation and the scale of the field distribution. It accepts six command line arguments, the first is the new size of the grid. The second argument gives the new number of points, the third gives the value of transverse shift in the X direction, the fourth gives the shift in the Y direction, the fifth gives the field rotation (first shift and then rotation). The last sixth argument determines the magnification, its action is equivalent to passing the beam through a focal system with magnification M (without diffraction, but preserving the integral intensity). For example if the field was propagated with the FFT algorithm <em>Forvard</em>, then the grid contains empty borders, which is not necessary if we want to propagate the field further with <em>Forward</em>. Other way around, after <em>Forward</em> we have to add some empty borders to continue with <em>Forvard</em>. <em>Interpol</em> is useful for interpolating into a grid with different size and number of points. Of course it is not too wise to interpolate from a grid of 512x512 points into a grid of 8x8, and then back because all information about the field will be lost. The same is true for interpolating the  grid of 1mx1m to 1mmx1mm and back. When interpolating into a grid with larger size, for example from 1x1 to 2x2, the program puts zeros into the new added regions. Figure 11 illustrates the usage of <em>Interpol</em> for the transition from a fine grid used by <em>Forvard</em> (near field) to a coarse grid used by <em>Forward</em> (far field).</p>
 <p>(<a class="reference external" href="./Examples/Commands/Interpol.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.png">png</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Interpol_00_00.png" src="_images/Interpol_00_00.png" />
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Interpol_01_00.png">png</a>, <a class="reference external" href="./Examples/Commands/Interpol_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Interpol_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Interpol_01_00.png" src="_images/Interpol_01_00.png" />
 </div>
 <p><em>Fig. 11. Illustration of the usage of Interpol for the transition from a fine grid used by Forvard (near field) to a coarse grid used by Forward (far field).</em></p>
@@ -495,38 +485,38 @@ field should be taken into account.</p>
 <span id="axicon"></span><span id="tilt"></span><span id="lens"></span><h2>5.5. Phase and intensity filters.<a class="headerlink" href="#phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
 <p>There are four kinds of phase filters available in LightPipes -wave front tilt, the quadratic phase corrector called lens, a general aberration in the form of a Zernike polynomial, and a user defined filter. To illustrate the usage of these filters let’s consider the following examples:</p>
 <p>(<a class="reference external" href="./Examples/Commands/Lens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Lens.png">png</a>, <a class="reference external" href="./Examples/Commands/Lens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Lens.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Lens.png" src="_images/Lens.png" />
 </div>
 <p><em>Fig. 12. The phase distribution after passing the lens, intensity in the plane of the lens and at a distance equal to the half of the focal distance. (from left to right)</em></p>
-<p>The first sequence of operators forms the initial structure, filters the field through the rectangular aperture and then filters the field through a positive lens with optical power of 0.125D (the focal distance of <span class="math">\(1/0.125=8m\)</span> ). With the second command we propagate the field 4m forward. As 4m is exactly the half of the focal distance, the cross section of the beam must be reduces twice.</p>
+<p>The first sequence of operators forms the initial structure, filters the field through the rectangular aperture and then filters the field through a positive lens with optical power of 0.125D (the focal distance of <span class="math notranslate nohighlight">\(1/0.125=8m\)</span> ). With the second command we propagate the field 4m forward. As 4m is exactly the half of the focal distance, the cross section of the beam must be reduces twice.</p>
 <p>We have to be very careful propagating the field to the distance which is close to the focal distance of a positive lens- the near—focal intensity and phase distributions are localised in the central region of the grid occupying only a few grid points. This leads to the major loss of information about the field distribution. The problem is solved by applying the co-ordinate system which is tied to the divergent or convergent light beam, the tools to do this will be described later.</p>
-<p>The lens may be decentered, <em>Lens(8, 0.01, 0.01, Field)</em> produces the lens with a focal length of <span class="math">\(1/0.125\)</span>  shifted by 0.01 in X and Y directions. Note, when the lens is shifted, the aperture of the lens is not shifted, the light beam is not shifted also, only the phase mask correspondents to the lens is shifted.</p>
+<p>The lens may be decentered, <em>Lens(8, 0.01, 0.01, Field)</em> produces the lens with a focal length of <span class="math notranslate nohighlight">\(1/0.125\)</span>  shifted by 0.01 in X and Y directions. Note, when the lens is shifted, the aperture of the lens is not shifted, the light beam is not shifted also, only the phase mask correspondents to the lens is shifted.</p>
 <p>The wave front tilt is illustrated by following example:</p>
 <p>(<a class="reference external" href="./Examples/Commands/Tilt.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Tilt.png">png</a>, <a class="reference external" href="./Examples/Commands/Tilt.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Tilt.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Tilt.png" src="_images/Tilt.png" />
 </div>
 <p><em>Fig. 13. The intensity and the phase after tilting the wave front by :math:`0.1` mrad and propagating it 8 m forward. Note the transversal shift of the intensity distribution and the phase tilt.</em></p>
-<p>In this example the wave front was tilted by <span class="math">\(\alpha = 0.1 mrad\)</span> in X and Y directions, then propagated to the distance <span class="math">\(z=8m\)</span> , so in the output distribution we observe the transversal shift of the whole intensity distribution by <span class="math">\(\alpha Z=0.8mm\)</span> .</p>
+<p>In this example the wave front was tilted by <span class="math notranslate nohighlight">\(\alpha = 0.1 mrad\)</span> in X and Y directions, then propagated to the distance <span class="math notranslate nohighlight">\(z=8m\)</span> , so in the output distribution we observe the transversal shift of the whole intensity distribution by <span class="math notranslate nohighlight">\(\alpha Z=0.8mm\)</span> .</p>
 </div>
 <div class="section" id="zernike-polynomials">
 <span id="zernike"></span><h2>5.6. Zernike polynomials.<a class="headerlink" href="#zernike-polynomials" title="Permalink to this headline">¶</a></h2>
-<p>Any aberration in a circle can be decomposed over a sum of Zernike polynomials. Formulas given in <a class="footnote-reference" href="#f7" id="id13">[7]</a> have been directly implemented in LightPipes. The command is called <em>Zernike</em> and accepts four command line arguments:</p>
+<p>Any aberration in a circle can be decomposed over a sum of Zernike polynomials. Formulas given in <a class="footnote-reference brackets" href="#f7" id="id13">7</a> have been directly implemented in LightPipes. The command is called <em>Zernike</em> and accepts four command line arguments:</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>The radial order n (first column in Table 13.2 <a class="footnote-reference" href="#f8" id="id14">[8]</a> p. 465).</li>
-<li>The azimuthal order <span class="math">\(m\)</span> , <span class="math">\(|m| &lt;= n\)</span> , polynomials with negative <span class="math">\(n\)</span> are rotated
-<span class="math">\(90^{\circ}\)</span>  relative to the polynomials with positive n. For example <em>Zernike(5,3,1,1,Field)</em> gives
-the same aberration as <em>Zernike(5,-3,1,1,Field)</em>, but the last is rotated <span class="math">\(90^{\circ}\)</span> .
-This index corresponds to the <span class="math">\(n-2m\)</span> given in the third column of Table 13.2 in <a class="footnote-reference" href="#f8" id="id15">[8]</a> , p. 465.</li>
-<li>The radius, R.</li>
-<li>The amplitude of aberration in radians at R.</li>
+<li><p>The radial order n (first column in Table 13.2 <a class="footnote-reference brackets" href="#f8" id="id14">8</a> p. 465).</p></li>
+<li><p>The azimuthal order <span class="math notranslate nohighlight">\(m\)</span> , <span class="math notranslate nohighlight">\(|m| &lt;= n\)</span> , polynomials with negative <span class="math notranslate nohighlight">\(n\)</span> are rotated
+<span class="math notranslate nohighlight">\(90^{\circ}\)</span>  relative to the polynomials with positive n. For example <em>Zernike(5,3,1,1,Field)</em> gives
+the same aberration as <em>Zernike(5,-3,1,1,Field)</em>, but the last is rotated <span class="math notranslate nohighlight">\(90^{\circ}\)</span> .
+This index corresponds to the <span class="math notranslate nohighlight">\(n-2m\)</span> given in the third column of Table 13.2 in <a class="footnote-reference brackets" href="#f8" id="id15">8</a> , p. 465.</p></li>
+<li><p>The radius, R.</p></li>
+<li><p>The amplitude of aberration in radians at R.</p></li>
 </ol>
 </div></blockquote>
 <p>We can uniformly introduce <em>Lens</em> and <em>Tilt</em> with <em>Zernike</em>, the difference is that we pass the amplitude of the aberration to <em>Zernike</em>. <em>Lens</em> and <em>Tilt</em> accept conventional meters and radians, which are widely in use for the description of optical setups, while <em>Zernike</em> uses the amplitude of the aberration, which frequently has to be derived from the technical description.</p>
 <p>A cylindrical lens can be modelled as a combination of two <em>Zernike</em> commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">size</span><span class="o">=</span><span class="m">15</span>*mm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">size</span><span class="o">=</span><span class="m">15</span>*mm
 <span class="nv">wavelength</span><span class="o">=</span><span class="m">1</span>*um
 <span class="nv">N</span><span class="o">=</span><span class="m">500</span>
 <span class="nv">R</span><span class="o">=</span><span class="m">4</span>.5*mm
@@ -543,7 +533,7 @@ This index corresponds to the <span class="math">\(n-2m\)</span> given in the th
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/CylindricalLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/CylindricalLens.png">png</a>, <a class="reference external" href="./Examples/Commands/CylindricalLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/CylindricalLens.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/CylindricalLens.png" src="_images/CylindricalLens.png" />
 </div>
 <p><em>Fig. 14. The intensity in the input plane and after propagation through a cylindrical system modelled as a combination of Zernike polynomials and free space propagation.</em></p>
@@ -551,14 +541,14 @@ This index corresponds to the <span class="math">\(n-2m\)</span> given in the th
 <div class="section" id="spherical-coordinates">
 <span id="convert"></span><span id="lensfresnel"></span><span id="lensforvard"></span><span id="sphericalcoordinates"></span><h2>5.7. Spherical coordinates.<a class="headerlink" href="#spherical-coordinates" title="Permalink to this headline">¶</a></h2>
 <p>The principle of beam propagation in the “floating” co-ordinate system (for the case of a lens wave guide) is shown in Figure 15.</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/spherical_coordinates.png" src="_images/spherical_coordinates.png" />
 </div>
 <p><em>Fig. 15. The intensity in the input plane and after propagation through a cylindrical system modelled as a combination of Zernike polynomials and free space propagation.</em></p>
 <p>The spherical coordinates follow the geometrical section of the divergent or convergent light beam. Propagation in spherical coordinates is implemented with the commands <em>LensForvard</em> and <em>LensFresnel</em>. Both commands accept two parameters: the focal distance of the lens, and the distance of propagation. When <em>LensForvard</em> or <em>LensFresnel</em> is called, it “bends” the coordinate system so, that it follows the divergent or convergent spherical wave front, and then propagates the field to the distance z in the transformed coordinates. The command <em>Convert</em> should be used to convert the field back to the rectangular coordinate system. Some LightPipes commands can not be applied to the field in spherical coordinates. As the coordinates follow the geometrical section of the light beam, operator <em>LensForvard(10,10,Field)</em> will produce floating exception because the calculations can not be conducted in a grid with zero size (that is so in the geometrical approximation of a focal point). On the other hand, diffraction to the focus is equivalent to the diffraction to the far field (infinity), thus the FFT convolution algorithm will not work properly anyway. To model the diffraction into the focal point, a more complicated trick should be used:</p>
 <p>In Figure 16 we calculate the diffraction to the focus of a lens with a focal distance of 1m and compare the spherical coordinate method with the simple straight forward method of a lens followed by propagation to its focus. The spherical coordinates method uses the combination of a weak phase mask <em>Lens(f1, F)</em> and a “strong” geometrical coordinate transform <em>LensFresnel(f2, z, F)</em>. The grid after propagation is 10 times narrower than in the input plane. The focal intensity is 650 times higher than the input intensity and the wave front is plain as expected.</p>
 <p>The straight-forward method uses the following commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">labda</span><span class="o">=</span><span class="m">1000</span>*nm<span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">labda</span><span class="o">=</span><span class="m">1000</span>*nm<span class="p">;</span>
 <span class="nv">size</span><span class="o">=</span><span class="m">10</span>*mm<span class="p">;</span>
 <span class="nv">f</span><span class="o">=</span><span class="m">100</span>*cm
 <span class="nv">w</span><span class="o">=</span><span class="m">5</span>*mm<span class="p">;</span>
@@ -572,7 +562,7 @@ This index corresponds to the <span class="math">\(n-2m\)</span> given in the th
 </div>
 <p>to calculate the field at the focus of a positive lens.</p>
 <p>The method with spherical coordinates is slightly more complex:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">labda</span><span class="o">=</span><span class="m">1000</span>*nm<span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">labda</span><span class="o">=</span><span class="m">1000</span>*nm<span class="p">;</span>
 <span class="nv">size</span><span class="o">=</span><span class="m">10</span>*mm<span class="p">;</span>
 <span class="nv">f</span><span class="o">=</span><span class="m">100</span>*cm
 <span class="nv">w</span><span class="o">=</span><span class="m">5</span>*mm<span class="p">;</span>
@@ -590,29 +580,29 @@ This index corresponds to the <span class="math">\(n-2m\)</span> given in the th
 </pre></div>
 </div>
 <p>The bending of the coordinate system for the <em>LensFresnel</em> command is given by
-<span class="math">\(f_2\)</span>.
-The results for <span class="math">\(f=100 cm\)</span> and <span class="math">\(f=10 cm\)</span> are shown in figures 16a+b where the two methods are compared.
+<span class="math notranslate nohighlight">\(f_2\)</span>.
+The results for <span class="math notranslate nohighlight">\(f=100 cm\)</span> and <span class="math notranslate nohighlight">\(f=10 cm\)</span> are shown in figures 16a+b where the two methods are compared.
 As can been seen the straight-forward method requires much larger grid dimensions and hence
 longer execution time. This is especially the case for stronger lenses (shorter focal lengths).</p>
 <p>(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm.py">Source code</a>)</p>
-<div class="figure" id="id16">
+<div class="figure align-default" id="id16">
 <img alt="_images/LensFresnel_Convert_f100cm_00.png" src="_images/LensFresnel_Convert_f100cm_00.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.pdf">pdf</a>)</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id17">
+<div class="figure align-default" id="id17">
 <img alt="_images/LensFresnel_Convert_f100cm_01.png" src="_images/LensFresnel_Convert_f100cm_01.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.pdf">pdf</a>)</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
 </div>
 <p><em>Fig. 16a. Diffraction to the focus of a f=100 cm lens. The use of a spherical coordinate system (LensFresnel + Convert)
 is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <p>(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm.py">Source code</a>)</p>
-<div class="figure" id="id18">
+<div class="figure align-default" id="id18">
 <img alt="_images/LensFresnel_Convert_f10cm_00.png" src="_images/LensFresnel_Convert_f10cm_00.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.pdf">pdf</a>)</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id19">
+<div class="figure align-default" id="id19">
 <img alt="_images/LensFresnel_Convert_f10cm_01.png" src="_images/LensFresnel_Convert_f10cm_01.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.pdf">pdf</a>)</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 <p><em>Fig 16b. With a stronger lens the straight-forward method requires more grid points.</em></p>
 </div>
@@ -620,13 +610,13 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <span id="multphase"></span><span id="multintensity"></span><span id="subphase"></span><span id="subintensity"></span><h2>5.8. User defined phase and intensity filters.<a class="headerlink" href="#user-defined-phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
 <p>The phase and intensity of the light beam can be manipulated in several ways. The phase and intensity distributions may be produced as shown in the next examples:</p>
 <p>(<a class="reference external" href="./Examples/Commands/subintphase1.py">Source code</a>, <a class="reference external" href="./Examples/Commands/subintphase1.png">png</a>, <a class="reference external" href="./Examples/Commands/subintphase1.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/subintphase1.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/subintphase1.png" src="_images/subintphase1.png" />
 </div>
 <p><em>Fig. 17. An arbitrary intensity- and phase distribution.</em></p>
 <p>You can also create your own mask with a program like Microsoft Windows95 Paint. In the next example we made an arrow using Paint and stored it as a 200 pixels width x 200 pixels height, black-and-white, monochrome bitmap file (for example: arrow.bmp). This file can be read into Mathcad using the READBMP command. Next the arrow can be used as a filter:</p>
 <p>(<a class="reference external" href="./Examples/Commands/subintphase2.py">Source code</a>, <a class="reference external" href="./Examples/Commands/subintphase2.png">png</a>, <a class="reference external" href="./Examples/Commands/subintphase2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/subintphase2.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/subintphase2.png" src="_images/subintphase2.png" />
 </div>
 <p><em>Fig. 18. Illustration of importing a bit map from disk.</em></p>
@@ -639,94 +629,69 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <span id="pipfft"></span><h2>5.10. FFT and spatial filters.<a class="headerlink" href="#fft-and-spatial-filters" title="Permalink to this headline">¶</a></h2>
 <p>LightPipes provide a possibility to perform arbitrary filtering in the Fourier space. There is an operator, performing the Fourier transform of the whole data structure: <em>PipFFT</em>.</p>
 <p>(<a class="reference external" href="./Examples/Commands/PipFFT.py">Source code</a>, <a class="reference external" href="./Examples/Commands/PipFFT.png">png</a>, <a class="reference external" href="./Examples/Commands/PipFFT.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/PipFFT.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/PipFFT.png" src="_images/PipFFT.png" />
 </div>
 <p><em>Fig. 19. Intensity distributions before and after applying a spatial filter.</em></p>
-<p>Note, we still can apply all the intensity and phase filters in the Fourier-space. The whole grid size in the angular frequency domain corresponds to <span class="math">\(\frac{2 \pi \lambda}{\Delta x}\)</span>, where <span class="math">\(\Delta x\)</span> is the grid step. One step in the frequency domain corresponds to <span class="math">\(\frac{2 \pi \lambda}{x}\)</span>, where <span class="math">\(x\)</span> is the total size of the grid. LightPipes filters do not know about all these transformations, so the user should take care about setting the proper size (using the relations mentioned) of the filter (still in linear units) in the frequency domain.</p>
+<p>Note, we still can apply all the intensity and phase filters in the Fourier-space. The whole grid size in the angular frequency domain corresponds to <span class="math notranslate nohighlight">\(\frac{2 \pi \lambda}{\Delta x}\)</span>, where <span class="math notranslate nohighlight">\(\Delta x\)</span> is the grid step. One step in the frequency domain corresponds to <span class="math notranslate nohighlight">\(\frac{2 \pi \lambda}{x}\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is the total size of the grid. LightPipes filters do not know about all these transformations, so the user should take care about setting the proper size (using the relations mentioned) of the filter (still in linear units) in the frequency domain.</p>
 </div>
 <div class="section" id="laser-amplifier">
 <span id="gain"></span><h2>5.11. Laser amplifier.<a class="headerlink" href="#laser-amplifier" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Gain</em> command introduces a simple single-layer model of a laser amplifier. The output field is given by:
-<span class="math">\(F_{out}(x,y) = F_{in}(x,y) e^{\alpha L_{gain}}\)</span>, with <span class="math">\(\alpha = \dfrac{\alpha_0}{1 + {2 I(x,y)}/{I_{sat}}}\)</span>. <span class="math">\(2\alpha L_{gain}\)</span> is the net round-trip intensity gain. <span class="math">\(\alpha_0\)</span> is the small-signal intensity gain and <span class="math">\(I_{sat}\)</span> is the saturation intensity of the gain medium with a length <span class="math">\(L_{gain}\)</span>.</p>
-<p>The intensity must be doubled because of the left- and right propagating fields in a normal resonator. (If only one field is propagating in one direction (ring laser) you should double <span class="math">\(I_{sat}\)</span> to remove the factor 2 in the denominator).</p>
+<span class="math notranslate nohighlight">\(F_{out}(x,y) = F_{in}(x,y) e^{\alpha L_{gain}}\)</span>, with <span class="math notranslate nohighlight">\(\alpha = \dfrac{\alpha_0}{1 + {2 I(x,y)}/{I_{sat}}}\)</span>. <span class="math notranslate nohighlight">\(2\alpha L_{gain}\)</span> is the net round-trip intensity gain. <span class="math notranslate nohighlight">\(\alpha_0\)</span> is the small-signal intensity gain and <span class="math notranslate nohighlight">\(I_{sat}\)</span> is the saturation intensity of the gain medium with a length <span class="math notranslate nohighlight">\(L_{gain}\)</span>.</p>
+<p>The intensity must be doubled because of the left- and right propagating fields in a normal resonator. (If only one field is propagating in one direction (ring laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)</span> to remove the factor 2 in the denominator).</p>
 <p>The gain sheet should be at one of the mirrors of a (un)stable laser resonator.</p>
 </div>
 <div class="section" id="diagnostics-strehl-ratio-beam-power">
 <span id="power"></span><span id="normal"></span><span id="strehl"></span><h2>5.12. Diagnostics: Strehl ratio, beam power.<a class="headerlink" href="#diagnostics-strehl-ratio-beam-power" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Strehl</em> command calculates the Strehl ratio of the field, defined as:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[S= \frac{(\int  \int Re(F_{in}(x,y)dxdy)^2  + (\int  \int Im(F_{in}(x,y)dxdy)^2}{(\int \int |(F_{in}(x,y)|dxdy)^2}\]</div>
 <p>The next example calculates the Strehl ratio of a field with increasing random phase fluctuations:</p>
 <p>(<a class="reference external" href="./Examples/Commands/Strehl.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Strehl.png">png</a>, <a class="reference external" href="./Examples/Commands/Strehl.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Strehl.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Strehl.png" src="_images/Strehl.png" />
 </div>
 <p><em>Fig. 21. Demonstration of the use of the Strehl function to calculate the Strehl ratio (beam quality).</em></p>
 <p>The <em>Normal</em> command normalizes the field according to:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[F_{out}(x,y)=\frac{F_{in}(x,y)}{ \sqrt{P} }\]</div>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[P=\int \int(|F_{in}(x,y)|)^2dxdy\]</div>
 <p>where P is the total beam power.</p>
 <p class="rubric" id="gausslaguerre"><span id="gausshermite"></span>References</p>
-<table class="docutils footnote" frame="void" id="f1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id7">2</a>, <a class="fn-backref" href="#id12">3</a>)</em> J.W. Goodman, Introduction to Fourier Optics, 49-56, McGraw-Hill (1968).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f2" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id5">3</a>, <a class="fn-backref" href="#id8">4</a>)</em> W.H. Southwell, J. Opt. Soc. Am., 71, 7-14 (1981).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f3" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[3]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>, <a class="fn-backref" href="#id9">3</a>)</em> A.E. Siegman, E.A. Sziklas, Mode calculations in unstable resonators with flowing saturable gain: 2. Fast Fourier transform method, Applied Optics 14, 1874-1889 (1975).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f4" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[4]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> N.N. Elkin, A.P. Napartovich, in “Applied optics of Lasers”, Moscow TsniiAtomInform, 66 (1989) (in Russian).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f5" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[5]</td><td><ol class="first last upperalpha simple" start="18">
-<li>Bacarat, in “The Computer in Optical Research”, ed. B.R. Frieden, Springer Verlag, 72-75 (1980).</li>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id7">2</a>,<a href="#id12">3</a>)</span></dt>
+<dd><p>J.W. Goodman, Introduction to Fourier Optics, 49-56, McGraw-Hill (1968).</p>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>,<a href="#id5">3</a>,<a href="#id8">4</a>)</span></dt>
+<dd><p>W.H. Southwell, J. Opt. Soc. Am., 71, 7-14 (1981).</p>
+</dd>
+<dt class="label" id="f3"><span class="brackets">3</span><span class="fn-backref">(<a href="#id4">1</a>,<a href="#id6">2</a>,<a href="#id9">3</a>)</span></dt>
+<dd><p>A.E. Siegman, E.A. Sziklas, Mode calculations in unstable resonators with flowing saturable gain: 2. Fast Fourier transform method, Applied Optics 14, 1874-1889 (1975).</p>
+</dd>
+<dt class="label" id="f4"><span class="brackets">4</span><span class="fn-backref">(<a href="#id10">1</a>,<a href="#id11">2</a>)</span></dt>
+<dd><p>N.N. Elkin, A.P. Napartovich, in “Applied optics of Lasers”, Moscow TsniiAtomInform, 66 (1989) (in Russian).</p>
+</dd>
+<dt class="label" id="f5"><span class="brackets">5</span></dt>
+<dd><ol class="upperalpha simple" start="18">
+<li><p>Bacarat, in “The Computer in Optical Research”, ed. B.R. Frieden, Springer Verlag, 72-75 (1980).</p></li>
 </ol>
-</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f6" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[6]</td><td>A.A. Samarskii, E.S. Nikolaev, Numerical Methods for Grid Equations, V.1, Direct methods, pp. 61-65, Birkhäuser Verlag (1989).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f7" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[7]</a></td><td><ol class="first last upperalpha simple" start="13">
-<li>Born, E. Wolf, Principles of Optics, Pergamon, 464, 767-772 (1993).</li>
+</dd>
+<dt class="label" id="f6"><span class="brackets">6</span></dt>
+<dd><p>A.A. Samarskii, E.S. Nikolaev, Numerical Methods for Grid Equations, V.1, Direct methods, pp. 61-65, Birkhäuser Verlag (1989).</p>
+</dd>
+<dt class="label" id="f7"><span class="brackets"><a class="fn-backref" href="#id13">7</a></span></dt>
+<dd><ol class="upperalpha simple" start="13">
+<li><p>Born, E. Wolf, Principles of Optics, Pergamon, 464, 767-772 (1993).</p></li>
 </ol>
-</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="f8" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[8]</td><td><em>(<a class="fn-backref" href="#id14">1</a>, <a class="fn-backref" href="#id15">2</a>)</em> <ol class="last upperalpha simple" start="4">
-<li>Malacara, Optical shop testing, J. Wiley &amp; Sons, (1992).</li>
+</dd>
+<dt class="label" id="f8"><span class="brackets">8</span><span class="fn-backref">(<a href="#id14">1</a>,<a href="#id15">2</a>)</span></dt>
+<dd><ol class="upperalpha simple" start="4">
+<li><p>Malacara, Optical shop testing, J. Wiley &amp; Sons, (1992).</p></li>
 </ol>
-</td></tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -739,7 +704,7 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
@@ -784,13 +749,13 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -800,8 +765,8 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Aug 13, 2018.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+      Last updated on Oct 29, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

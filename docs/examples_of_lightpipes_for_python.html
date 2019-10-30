@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>6. Examples. &#8212; LightPipes for Python 1.1.3 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>6. Examples. &#8212; LightPipes for Python 1.2.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.1.3',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Computer practical." href="computerprac.html" />
     <link rel="prev" title="5. Manual." href="description_of_lightpipes_for_python.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,7 +35,7 @@
         <li class="right" >
           <a href="description_of_lightpipes_for_python.html" title="5. Manual."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.1.3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.2.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -60,8 +49,8 @@
 <div class="section" id="interference-examples">
 <span id="interference"></span><h2>6.1. Interference examples.<a class="headerlink" href="#interference-examples" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="young"></span><div class="section" id="young-s-experiment">
-<span id="index-0"></span><h3>6.1.1. Young&#8217;s experiment.<a class="headerlink" href="#young-s-experiment" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span id="index-0"></span><h3>6.1.1. Young’s experiment.<a class="headerlink" href="#young-s-experiment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
 
@@ -70,7 +59,7 @@
 <span class="sd">    Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern</span>
 <span class="sd">    at a distance, z, behind the screen is calculated.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-
+<span class="k">print</span><span class="p">(</span><span class="n">LPversion</span><span class="p">)</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">um</span>
 <span class="n">size</span><span class="o">=</span><span class="mf">20.0</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">500</span>
@@ -85,12 +74,12 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/Young.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Young_00_00.png" src="_images/Young_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="n">F1</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="o">-</span><span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
-<span class="n">F2</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>    
 <span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
@@ -99,13 +88,13 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/Young_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Young_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Young_01_00.png" src="_images/Young_01_00.png" />
 </div>
 </div>
 <div class="section" id="michelson-interferometer">
 <span id="michelson"></span><h3>6.1.2. Michelson interferometer.<a class="headerlink" href="#michelson-interferometer" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python" id="index-1"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+<div class="highlight-python notranslate" id="index-1"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
@@ -128,10 +117,10 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/Michelson.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Michelson_00_00.png" src="_images/Michelson_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#Generate a weak converging laser beam using a weak positive lens:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Generate a weak converging laser beam using a weak positive lens:</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
@@ -163,7 +152,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/Michelson_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Michelson_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Michelson_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Michelson_01_00.png" src="_images/Michelson_01_00.png" />
 </div>
 </div>
@@ -172,12 +161,12 @@
 <span id="diffraction"></span><h2>6.2. Diffraction examples.<a class="headerlink" href="#diffraction-examples" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="circ-aperture"></span><div class="section" id="diffraction-from-a-circular-aperture">
 <span id="index-2"></span><h3>6.2.1. Diffraction from a circular aperture.<a class="headerlink" href="#diffraction-from-a-circular-aperture" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
 <span class="n">size</span><span class="o">=</span><span class="mf">25.0</span><span class="o">*</span><span class="n">mm</span>
-<span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
@@ -189,13 +178,13 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Diffraction/RoundHole.py">Source code</a>, <a class="reference external" href="./Examples/Diffraction/RoundHole.png">png</a>, <a class="reference external" href="./Examples/Diffraction/RoundHole.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Diffraction/RoundHole.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/RoundHole.png" src="_images/RoundHole.png" />
 </div>
 <span class="target" id="poisson"></span></div>
 <div class="section" id="spot-of-poisson">
 <span id="index-3"></span><h3>6.2.2. Spot of Poisson.<a class="headerlink" href="#spot-of-poisson" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">um</span>
@@ -213,7 +202,7 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Diffraction/Poisson.py">Source code</a>, <a class="reference external" href="./Examples/Diffraction/Poisson.png">png</a>, <a class="reference external" href="./Examples/Diffraction/Poisson.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Diffraction/Poisson.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Poisson.png" src="_images/Poisson.png" />
 </div>
 </div>
@@ -230,7 +219,7 @@ In the following example a Poisson spot is generated by illuminating a circular 
 The disk is positioned in the primary focus of a positive lens so that the waves originating from the edge of teh disk will be collimated.
 By blocking the rest of the incoming beam only the edge waves remain which results in a
 non-diffracting Bessel beam.</p>
-<p>reference: J.Durnin, &#8220;Exact solutions for nondiffracting beams. I. The scalar theory.&#8221;
+<p>reference: J.Durnin, “Exact solutions for nondiffracting beams. I. The scalar theory.”
 JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)</p>
 <div class="section" id="from-poisson-spot-to-a-non-diffractive-bessel-beam">
 <h3>6.3.1. From Poisson spot to a non-diffractive Bessel beam.<a class="headerlink" href="#from-poisson-spot-to-a-non-diffractive-bessel-beam" title="Permalink to this headline">¶</a></h3>
@@ -238,14 +227,14 @@ JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)</p>
 collection of spherical waves which are all in phase because the disk is illuminated by a monochromatic plane wave.
 Each spherical wave has the same amplitude as well. As a result these waves interfere constructively
 to a Poisson spot near the axis. It can be shown that the intensity distribution is approximately given by:</p>
-<p><span class="math">\(I(r,z) \approx I_0 J_0 ^2 ( \frac{2 \pi  \alpha r}{ \lambda } )\)</span></p>
+<p><span class="math notranslate nohighlight">\(I(r,z) \approx I_0 J_0 ^2 ( \frac{2 \pi  \alpha r}{ \lambda } )\)</span></p>
 <p>with:</p>
-<p><span class="math">\(\alpha = \frac{a}{r}\)</span> is the angle of the wavefront near the axis,
-<span class="math">\(2a\)</span> is the diameter of the disk</p>
+<p><span class="math notranslate nohighlight">\(\alpha = \frac{a}{r}\)</span> is the angle of the wavefront near the axis,
+<span class="math notranslate nohighlight">\(2a\)</span> is the diameter of the disk</p>
 <p>The width of the beam is given by:</p>
-<p><span class="math">\(w(z)=\frac{2.44}{ \pi } \frac{ \lambda z}{a}\)</span></p>
+<p><span class="math notranslate nohighlight">\(w(z)=\frac{2.44}{ \pi } \frac{ \lambda z}{a}\)</span></p>
 <p>and is proportional to the distance, z.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
 <span class="kn">import</span> <span class="nn">math</span>
@@ -257,10 +246,10 @@ to a Poisson spot near the axis. It can be shown that the intensity distribution
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_00_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAnnularSlit1_00_00.png" src="_images/BesselAnnularSlit1_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
 
@@ -303,17 +292,17 @@ to a Poisson spot near the axis. It can be shown that the intensity distribution
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_01_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAnnularSlit1_01_00.png" src="_images/BesselAnnularSlit1_01_00.png" />
 </div>
 <div class="section" id="collimating-the-edge-waves-with-a-lens">
 <h4>6.3.1.1. Collimating the edge waves with a lens.<a class="headerlink" href="#collimating-the-edge-waves-with-a-lens" title="Permalink to this headline">¶</a></h4>
 <p>When the disk is placed in the primary focus of a postive lens,the spherical waves are collimated and
-the angle, <span class="math">\(\alpha\)</span> remains constant. As a result the beam does not diverge anymore. Ofcourse
+the angle, <span class="math notranslate nohighlight">\(\alpha\)</span> remains constant. As a result the beam does not diverge anymore. Ofcourse
 the light passing the disk at larger distances from the edge will be focussed as well by the lens and
 will disturb the Bessel beam. This light can easily been blocked with an extra aperture
 surrounding the disk resulting in an annular slit.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
 
@@ -323,10 +312,10 @@ surrounding the disk resulting in an annular slit.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2_00_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAnnularSlit2_00_00.png" src="_images/BesselAnnularSlit2_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
 
@@ -346,7 +335,7 @@ surrounding the disk resulting in an annular slit.</p>
 <span class="n">F</span><span class="o">=</span><span class="n">CircScreen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span> 
     <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">delta_z</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
@@ -359,7 +348,7 @@ surrounding the disk resulting in an annular slit.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2_01_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit2_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAnnularSlit2_01_00.png" src="_images/BesselAnnularSlit2_01_00.png" />
 </div>
 </div>
@@ -367,9 +356,9 @@ surrounding the disk resulting in an annular slit.</p>
 <div class="section" id="generation-of-a-bessel-beam-with-a-lens-and-an-annular-slit">
 <h3>6.3.2. Generation of a Bessel beam with a lens and an annular slit.<a class="headerlink" href="#generation-of-a-bessel-beam-with-a-lens-and-an-annular-slit" title="Permalink to this headline">¶</a></h3>
 <p>By positioning an aperture around the disk a non-difracting Bessel beam is generated over a distance given by
-the &#8216;overlap area&#8217;. From geometric optics this distance can be estimated by:</p>
-<p><span class="math">\(z_{max}=\frac{Df}{a}\)</span>, where <span class="math">\(D\)</span> and <span class="math">\(f\)</span> are the diameter and focallength of the lens respectively.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+the ‘overlap area’. From geometric optics this distance can be estimated by:</p>
+<p><span class="math notranslate nohighlight">\(z_{max}=\frac{Df}{a}\)</span>, where <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(f\)</span> are the diameter and focallength of the lens respectively.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
 
@@ -379,10 +368,10 @@ the &#8216;overlap area&#8217;. From geometric optics this distance can be estim
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3_00_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAnnularSlit3_00_00.png" src="_images/BesselAnnularSlit3_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
 
@@ -403,7 +392,7 @@ the &#8216;overlap area&#8217;. From geometric optics this distance can be estim
 <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span> 
     <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">delta_z</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
@@ -416,7 +405,7 @@ the &#8216;overlap area&#8217;. From geometric optics this distance can be estim
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3_01_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit3_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAnnularSlit3_01_00.png" src="_images/BesselAnnularSlit3_01_00.png" />
 </div>
 </div>
@@ -427,7 +416,7 @@ A much more efficient way to generate a Bessel beam is the use of an axicon. Wit
 in principle all the incoming light is converted.
 Although all the light is converted most applications are only interacting with the central lobe of the beam, which only carries
 a small fraction of the total beam power.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
 
@@ -437,10 +426,10 @@ a small fraction of the total beam power.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAxicon.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAxicon_00_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAxicon_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAxicon_00_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAxicon_00_00.png" src="_images/BesselAxicon_00_00.png" />
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelength</span><span class="o">=</span><span class="mf">1000.0</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">1000</span>
 
@@ -458,7 +447,7 @@ a small fraction of the total beam power.</p>
 <span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Axicon</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">n1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span> 
     <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">delta_z</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
@@ -471,7 +460,7 @@ a small fraction of the total beam power.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/BesselBeam/BesselAxicon_01_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAxicon_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAxicon_01_00.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/BesselAxicon_01_00.png" src="_images/BesselAxicon_01_00.png" />
 </div>
 </div>
@@ -486,19 +475,19 @@ mirrors are well aligned and the losses are below some maximum the radiation fie
 resonator will grow starting from noise by spontaneous emission as a function of the number of round trips. The laser intensity will be structured in
 a number of resonator modes depending on the wavelength, the curvatures of and the distance between the mirrors
 and especially the diameter of an intra-cavity aperture.</p>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <img alt="_images/stab_laser.png" src="_images/stab_laser.png" />
-<p class="caption"><span class="caption-text">Laser resonator with gain.</span></p>
+<p class="caption"><span class="caption-text">Laser resonator with gain.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>In the python script below a number of parameters can be adjusted which allows the study of several
 important features of a laser. In the movie we show Q-switching to generate short high intensity pulses
 by changing the reflectivity of the outcoupling mirror, operation on high-order transversal modes by opening
 the aperture, changing the resonator g-parameters to study the stability criterion,
 injection of a high-order Gauss-Hermite mode and the effect of thin wires inside the resonator.</p>
-<iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe><p><a class="reference download internal" href="_downloads/laser_simulation.py" download=""><code class="xref download docutils literal"><span class="pre">(Download</span> <span class="pre">source</span> <span class="pre">code)</span></code></a></p>
+<iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe><p><a class="reference download internal" download="" href="_downloads/e5e27bc34de23599084305b72c88d05b/laser_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">(Download</span> <span class="pre">source</span> <span class="pre">code)</span></code></a></p>
 <div class="literal-block-wrapper docutils container" id="laser-simulation">
 <div class="code-block-caption"><span class="caption-text">laser_simulation.py</span><a class="headerlink" href="#laser-simulation" title="Permalink to this code">¶</a></div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;TkAgg&quot;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">matplotlib.backends.backend_tkagg</span> <span class="k">import</span> <span class="n">FigureCanvasTkAgg</span>
@@ -707,7 +696,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 </div>
 <div class="section" id="unstable-laser-resonator">
 <span id="unstab"></span><h3>6.4.2. Unstable laser resonator.<a class="headerlink" href="#unstable-laser-resonator" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#Unstable resonator.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Unstable resonator.</span>
 <span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -748,6 +737,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <span class="n">i</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">j</span><span class="o">=</span><span class="n">i</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
@@ -765,6 +755,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <span class="n">F2</span><span class="o">=</span><span class="n">LensFresnel</span><span class="p">(</span><span class="n">ff</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">F2</span><span class="p">);</span>
 <span class="n">F2</span><span class="o">=</span><span class="n">Convert</span><span class="p">(</span><span class="n">F2</span><span class="p">);</span>
 <span class="n">I2</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F2</span><span class="p">);</span>
+<span class="n">I2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">I2</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
 <span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">I2</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
@@ -774,21 +765,21 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Laser/unstable_resonator.py">Source code</a>)</p>
-<div class="figure" id="id3">
+<div class="figure align-default" id="id3">
 <img alt="_images/unstable_resonator_00.png" src="_images/unstable_resonator_00.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_00.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_00.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_00.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_00.pdf">pdf</a>)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id4">
+<div class="figure align-default" id="id4">
 <img alt="_images/unstable_resonator_01.png" src="_images/unstable_resonator_01.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_01.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_01.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_01.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_01.pdf">pdf</a>)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id5">
+<div class="figure align-default" id="id5">
 <img alt="_images/unstable_resonator_02.png" src="_images/unstable_resonator_02.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_02.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_02.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_02.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_02.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_02.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_02.pdf">pdf</a>)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id6">
+<div class="figure align-default" id="id6">
 <img alt="_images/unstable_resonator_03.png" src="_images/unstable_resonator_03.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_03.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_03.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_03.pdf">pdf</a>)</span></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Laser/unstable_resonator_03.png">png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_03.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Laser/unstable_resonator_03.pdf">pdf</a>)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -796,7 +787,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <span id="phaserecovery"></span><h2>6.5. Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="phase-recovery-using-gerchberg-saxton-iteration">
 <span id="index-6"></span><h3>6.5.1. Phase recovery using Gerchberg Saxton iteration.<a class="headerlink" href="#phase-recovery-using-gerchberg-saxton-iteration" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/python</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Phase recovery from two measured intensity distributions using Gerchberg Saxton.</span>
 
@@ -873,7 +864,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/PhaseRecovery/PhaseRecovery.py">Source code</a>, <a class="reference external" href="./Examples/PhaseRecovery/PhaseRecovery.png">png</a>, <a class="reference external" href="./Examples/PhaseRecovery/PhaseRecovery.hires.png">hires.png</a>, <a class="reference external" href="./Examples/PhaseRecovery/PhaseRecovery.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/PhaseRecovery.png" src="_images/PhaseRecovery.png" />
 </div>
 </div>
@@ -885,7 +876,7 @@ polynomials. The Zernike command accepts four arguments:
 1. The radial order n  2. The
 azimuthal order m. 3. The radius, R 4. The
 amplitude of the aberration.</p>
-<span class="target" id="zernike-polynomial"></span><div class="highlight-python" id="index-7"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="target" id="zernike-polynomial"></span><div class="highlight-python notranslate" id="index-7"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This example demonstrates the Zernike command.</span>
 <span class="sd">..  :copyright: (c) 2017 by Fred van Goor.</span>
@@ -902,7 +893,7 @@ amplitude of the aberration.</p>
 <span class="n">N</span><span class="o">=</span><span class="mi">200</span>
 <span class="n">A</span><span class="o">=</span><span class="n">wavelength</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span> 
 <span class="k">for</span> <span class="n">Noll</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">22</span><span class="p">):</span>
     <span class="p">(</span><span class="n">nz</span><span class="p">,</span><span class="n">mz</span><span class="p">)</span><span class="o">=</span><span class="n">noll_to_zern</span><span class="p">(</span><span class="n">Noll</span><span class="p">)</span>
     <span class="n">S</span><span class="o">=</span><span class="n">ZernikeName</span><span class="p">(</span><span class="n">Noll</span><span class="p">)</span>
@@ -918,12 +909,12 @@ amplitude of the aberration.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Zernike/Zernike.py">Source code</a>, <a class="reference external" href="./Examples/Zernike/Zernike.png">png</a>, <a class="reference external" href="./Examples/Zernike/Zernike.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Zernike/Zernike.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/Zernike.png" src="_images/Zernike.png" />
 </div>
 <div class="section" id="radial-shear-interferometer">
 <h3>6.6.1. Radial shear interferometer.<a class="headerlink" href="#radial-shear-interferometer" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This example demonstrates a radial shear interferometer.</span>
 <span class="sd">Only a &#39;bare-bone&#39; model, so no propagation and diffraction, is considered.</span>
@@ -976,29 +967,27 @@ amplitude of the aberration.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Zernike/rad_shear.py">Source code</a>, <a class="reference external" href="./Examples/Zernike/rad_shear.png">png</a>, <a class="reference external" href="./Examples/Zernike/rad_shear.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Zernike/rad_shear.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/rad_shear.png" src="_images/rad_shear.png" />
 </div>
 </div>
 </div>
 <div class="section" id="propagation-in-a-lens-like-absorptive-medium">
 <span id="lenslikemedium"></span><h2>6.7. Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this headline">¶</a></h2>
-<p>In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We&#8217;ll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.</p>
-<p>we use the approximation for the profile of the refractive coefficient, <span class="math">\(n'=n-i\kappa\)</span> in the form: <span class="math">\(n(r)^2=n_0^2-n_0n_1r^2\)</span>. It is a well-known fact <a class="footnote-reference" href="#f9" id="id1">[1]</a> that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: <span class="math">\(w_0^2=\frac{2}{k(n_0n_1)^{1/2}}\)</span> , with <span class="math">\(k=\frac{2 \pi}{\lambda}\)</span>. For a waveguide of <span class="math">\(1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0\)</span> and <span class="math">\(\lambda = 1 \mu m\)</span>, the Gaussian mode has a diameter of <span class="math">\(226 \mu m\)</span> . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.</p>
+<p>In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We’ll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.</p>
+<p>we use the approximation for the profile of the refractive coefficient, <span class="math notranslate nohighlight">\(n'=n-i\kappa\)</span> in the form: <span class="math notranslate nohighlight">\(n(r)^2=n_0^2-n_0n_1r^2\)</span>. It is a well-known fact <a class="footnote-reference brackets" href="#f9" id="id1">1</a> that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: <span class="math notranslate nohighlight">\(w_0^2=\frac{2}{k(n_0n_1)^{1/2}}\)</span> , with <span class="math notranslate nohighlight">\(k=\frac{2 \pi}{\lambda}\)</span>. For a waveguide of <span class="math notranslate nohighlight">\(1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0\)</span> and <span class="math notranslate nohighlight">\(\lambda = 1 \mu m\)</span>, the Gaussian mode has a diameter of <span class="math notranslate nohighlight">\(226 \mu m\)</span> . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.</p>
 <p>(<a class="reference external" href="./Examples/Waveguide/LensLikeMedium.py">Source code</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.png">png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/LensLikeMedium.png" src="_images/LensLikeMedium.png" />
 </div>
 <p><em>Propagation of a tilted Gaussian beam in a lens-like, absorptive medium.</em></p>
-<table class="docutils footnote" frame="void" id="f9" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><ol class="first last upperalpha simple" start="4">
-<li>Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).</li>
+<dl class="footnote brackets">
+<dt class="label" id="f9"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><ol class="upperalpha simple" start="4">
+<li><p>Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).</p></li>
 </ol>
-</td></tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </div>
 <div class="section" id="fourier-optics">
 <h2>6.8. Fourier optics.<a class="headerlink" href="#fourier-optics" title="Permalink to this headline">¶</a></h2>
@@ -1009,24 +998,24 @@ The light, originating from a collection of objects, is focused with a positive 
 the first lens. When we place a screen behind the second lens at its secondary focus an inverted image of the collection of objects is projected on the
 screen, as shown in figure 1. The object to be recognized is present once or several times in the collection. As objects we choose
 transparencies with the characters A, B, and C.</p>
-<div class="figure" id="id7">
+<div class="figure align-default" id="id7">
 <img alt="_images/setup1.png" src="_images/setup1.png" />
-<p class="caption"><span class="caption-text"><em>Fig. 1 Imaging a transparency with objects</em></span></p>
+<p class="caption"><span class="caption-text"><em>Fig. 1 Imaging a transparency with objects</em></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Each object will contribute to the phase distribution in the secondary focus of the first lens. If the fluctuations in the wavefront coming from one of the
 objects is compensated by a phase plate prepared for that sort of object, see figure 2, placed in the focus, the beam coming from those objects will propagate as a
 diverging spherical wave to the second lens and will be focused in a diffraction limited point on the screen. The position of that point will indicate the
 presence and the position of the object. This will only be the case when the object, for which the phase plate was positioned in the focus, is actually present in the collection.</p>
-<div class="figure" id="id8">
+<div class="figure align-default" id="id8">
 <img alt="_images/setup2.png" src="_images/setup2.png" />
-<p class="caption"><span class="caption-text"><em>Fig. 2 Making a phase mask of the Fourier transform of an object</em></span></p>
+<p class="caption"><span class="caption-text"><em>Fig. 2 Making a phase mask of the Fourier transform of an object</em></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure" id="id9">
+<div class="figure align-default" id="id9">
 <img alt="_images/setup3.png" src="_images/setup3.png" />
-<p class="caption"><span class="caption-text"><em>Fig. 3 Placing the phase mask in the focus of the first lens.</em></span></p>
+<p class="caption"><span class="caption-text"><em>Fig. 3 Placing the phase mask in the focus of the first lens.</em></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <p>(<a class="reference external" href="./Examples/FourierOptics/PatternRecognition.py">Source code</a>, <a class="reference external" href="./Examples/FourierOptics/PatternRecognition.png">png</a>, <a class="reference external" href="./Examples/FourierOptics/PatternRecognition.hires.png">hires.png</a>, <a class="reference external" href="./Examples/FourierOptics/PatternRecognition.pdf">pdf</a>)</p>
-<div class="figure">
+<div class="figure align-default">
 <img alt="_images/PatternRecognition.png" src="_images/PatternRecognition.png" />
 </div>
 <p><em>Fig. 4 Results of the pattern recognition simulation.</em></p>
@@ -1043,7 +1032,7 @@ presence and the position of the object. This will only be the case when the obj
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/front.png" alt="Logo"/>
             </a></p>
-<h3><a href="index.html">Table Of Contents</a></h3>
+<h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
@@ -1052,7 +1041,7 @@ presence and the position of the object. This will only be the case when the obj
 <li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">5. Manual.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">6. Examples.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#interference-examples">6.1. Interference examples.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment">6.1.1. Young&#8217;s experiment.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment">6.1.1. Young’s experiment.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#michelson-interferometer">6.1.2. Michelson interferometer.</a></li>
 </ul>
 </li>
@@ -1098,13 +1087,13 @@ presence and the position of the object. This will only be the case when the obj
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -1114,8 +1103,8 @@ presence and the position of the object. This will only be the case when the obj
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Aug 13, 2018.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.
+      Last updated on Oct 29, 2019.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

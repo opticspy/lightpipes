@@ -85,7 +85,7 @@ def TheExample(event):
     ax1.axis('off'); ax1.axis('equal');
     str='Intensity distribution'
     ax1.set_title(str)
-    canvas.show()
+    canvas.draw()
 
 def motion(event):
     x=event.xdata;y=event.ydata

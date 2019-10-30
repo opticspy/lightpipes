@@ -43,7 +43,7 @@ Iy=np.zeros([NZ,N])
 for k in range(0,NZ):
     F=Steps(dz,10,n,F)
     I=Intensity(0,F)
-    Iy[k]=zip(*I)[N2]
+    Iy[k]=list(zip(*I))[N2]
     Ix[k]=I[N2]
 
 fig=plt.figure(figsize=(10,6))

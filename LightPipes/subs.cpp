@@ -169,9 +169,9 @@ double phase(double y,double x){
 /*****************************************************************/
 /*****************        END of Zernike     *********************/ 
 int phaseunwrap(double* ibuffer, double* obuffer,int xsize, int ysize) {
-	register short i, j;
+	short i, j;
 	double  *p, *q, *newpix;
-	register short hxsize, hysize;
+	short hxsize, hysize;
 	double comval,oldpix;
 	double hfactor, val;
 	double factor=2.0*Pi;
