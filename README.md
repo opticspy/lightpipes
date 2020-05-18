@@ -2,6 +2,9 @@
 
 > Simulations of optical phenomena where diffraction is essential
 
+## Pure Python version
+**In this branch, "PyLightPipes", we try to make a pure Python version making use of the pyFFTW, pysci and numpy packages.**
+
 [![travis-ci](https://api.travis-ci.org/opticspy/lightpipes.svg)](https://travis-ci.org/opticspy/lightpipes)
 
 LightPipes is a set of functions written in C++. It is designed to model coherent optical devices when the diffraction is essential.

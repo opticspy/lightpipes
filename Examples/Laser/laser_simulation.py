@@ -102,7 +102,7 @@ def TheExample():
         top='on',         # ticks along the top edge are off
         labelbottom='off')
     ax2.grid()
-    canvas.show()
+    canvas.draw()
     #print("Execution time: --- %4.2f seconds ---" % (time.time() - start_time)) 
 
 def _quit():
@@ -120,8 +120,8 @@ def _eigenmode():
         w0=math.sqrt(wavelength*L/math.pi)*(g1*g2*(1-g1*g2)/(g1+g2-2*g1*g2)**2)**0.25;
     mode_m=int(order_m.get())
     mode_n=int(order_n.get())
-    F=GaussHermite(mode_m,mode_n,1,w0,F);
-    #F=GaussLaguerre(mode_m,mode_n,1,w0,F);
+   #F=GaussHermite(mode_m,mode_n,1,w0,F);
+    F=GaussLaguerre(mode_m,mode_n,1,w0,F);
     F=Forvard(z2,F);
 
 frame1=Frame(root)

@@ -1,6 +1,0 @@
-machine:
-  services:
-    - docker
-test:
-  post:
-    - bash build-linux-x64.sh
