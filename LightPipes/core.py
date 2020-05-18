@@ -556,7 +556,9 @@ def PhaseSpiral(Fin, **kwargs):
     """ 
     Fout = PhaseSpiral(Fin, m=1)
     Multiplies Fin with a spiral phase distribution.
+    
     Args::
+    
         required:
         Fin: input field
 

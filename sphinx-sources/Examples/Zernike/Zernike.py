@@ -8,7 +8,6 @@ This example demonstrates the Zernike command.
 from LightPipes import *
 import matplotlib.pyplot as plt
 import math
-import numpy as np
 
 wavelength=500*nm
 size=2.0*mm

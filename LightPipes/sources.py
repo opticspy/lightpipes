@@ -1,19 +1,23 @@
 from .field import Field
 from .core import BeamMix, Phase, MultPhase, IntAttenuator, CircAperture, GaussHermite, GaussLaguerre, Interpol
 from .misc import PI,Tilt
-def PointSource(Fin,x=0,y=0):
+def PointSource(Fin,**kwargs):
     """
-    F=PointSource(x, y)
+    Fout=PointSource(Fin, x=0, y=0)
     :ref:`Creates a point source. <Begin>`
 
     Args::
     
-        x, y: position of the point source.
+        required:
+            Fin: input field
+        
+        optional:
+            x=0, y=0: position of the point source.
         
         
     Returns::
      
-        F: N x N square array of complex numbers (0+0j, or 1+0j where the pointsorce is ).
+        Fout: N x N square array of complex numbers (0+0j, or 1+0j where the pointsorce is ).
             
     Example:
     
@@ -21,6 +25,7 @@ def PointSource(Fin,x=0,y=0):
     
     """
     Fout = Field.copy(Fin)
+    x , y = kwargs.get('x',0.0), kwargs.get('y',0.0)
     if abs(x) >= Fin.siz/2 or abs(y) >= Fin.siz/2:
         raise ValueError(
         'error in PointSource: x and y must be inside grid size, between: {:4.4f} and {:4.4f}, got: x = {:4.4f}, y = {:4.4f}'.format(-Fin.siz/2,Fin.siz/2,x,y))

@@ -21,7 +21,10 @@ F2=Forvard(d2-z,F)
 F2=Lens(f1,0,0,F2)
 F2=LensForvard(f2,z,F2)
 F2=Convert(F2)
-size_new=getGridSize()
+if LPversion < "2.0.0":
+    size_new=getGridSize()
+else:
+    size_new=F2.siz
 F1=Interpol(size_new,N,0,0,0,1,F1)
 F=BeamMix(F1,F2)
 I=Intensity(2,F)

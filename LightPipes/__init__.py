@@ -1,5 +1,3 @@
-# fix: https://github.com/matthew-brett/delocate/issues/15
-
 __all__ = [
     'Axicon',
     'BeamMix',
@@ -47,18 +45,18 @@ __all__ = [
     'ZernikeName',
     'ZernikeFit',
     'ZernikeFilter',
-    'getGridSize',
-    'setGridSize',
-    'getWavelength',
-    'setWavelength',
-    'getGridDimension',
+    # 'getGridSize',
+    # 'setGridSize',
+    # 'getWavelength',
+    # 'setWavelength',
+    # 'getGridDimension',
     'LPtest',
     'LPhelp',
     'LPdemo',
 ]
 
 #physical units like m, mm, rad, deg, ...
-from .units import * # noqa
+from .units import * 
 
 from ._version import __version__
 LPversion=__version__
@@ -75,9 +73,6 @@ __all__ = tuple(__all__)
 import functools
 import numpy as np
 import webbrowser
-
-from ._LightPipes import Init
-_LP = Init() # noqa
 
 from .field import Field
 from .propagators import Fresnel, Forward, Forvard, Steps
@@ -100,54 +95,54 @@ from .core import Interpol
 from .sources import PointSource, GaussBeam, PlaneWave
 
 
-def _apply_vals_to_LP(Fin):
-    """Apply the values stored in Field to LP instance.
-    Use this before calling any LP function."""
-    _LP.internal_setN(Fin.N)
-    _LP.setGridSize(Fin.siz)
-    _LP.setWavelength(Fin.lam)
-    _LP.internal_setInt1(Fin._int1)
-    _LP.internal_setDoub1(Fin._curvature)
+# def _apply_vals_to_LP(Fin):
+    # """Apply the values stored in Field to LP instance.
+    # Use this before calling any LP function."""
+    # _LP.internal_setN(Fin.N)
+    # _LP.setGridSize(Fin.siz)
+    # _LP.setWavelength(Fin.lam)
+    # _LP.internal_setInt1(Fin._int1)
+    # _LP.internal_setDoub1(Fin._curvature)
 
-def _field_vals_from_LP(Fout):
-    """Apply (in-place!) the global values stored in
-    LP to the field Fout."""
-    if Fout.N != _LP.getGridDimension():
-        raise ValueError('Field size does not match LP global params')
-    Fout.siz = _LP.getGridSize()
-    Fout.lam = _LP.getWavelength()
-    Fout._int1 = _LP.internal_getInt1()
-    Fout._curvature = _LP.internal_getDoub1()
+# def _field_vals_from_LP(Fout):
+    # """Apply (in-place!) the global values stored in
+    # LP to the field Fout."""
+    # if Fout.N != _LP.getGridDimension():
+        # raise ValueError('Field size does not match LP global params')
+    # Fout.siz = _LP.getGridSize()
+    # Fout.lam = _LP.getWavelength()
+    # Fout._int1 = _LP.internal_getInt1()
+    # Fout._curvature = _LP.internal_getDoub1()
     
 
-def accept_new_field(fn):
-    """Decorator to wrap existint LP functions to accept new style
-    Field object with numpy field.
-    """
-    @functools.wraps(fn)
-    def fn_wrapper(*args, **kwargs):
-        if 'Fin' in kwargs:
-            raise NotImplementedError(
-                'accept_new_field decorator: Fin must not be keyword arg')
-        Fin = args[-1] #all LP functions have Fin as last arg
-        args = args[:-1] #strip last arg
-        Fout = Field.copy(Fin)
-        ll_in = Fout.field.T.tolist() #transpose since numpy convention
-        # is [y,x] and LP functions mostly assume [x,y] with some exceptions
-        args = list(args) #make mutable
-        args.append(ll_in)
-        # args = tuple(args) #back to standard
+# def accept_new_field(fn):
+    # """Decorator to wrap existint LP functions to accept new style
+    # Field object with numpy field.
+    # """
+    # @functools.wraps(fn)
+    # def fn_wrapper(*args, **kwargs):
+        # if 'Fin' in kwargs:
+            # raise NotImplementedError(
+                # 'accept_new_field decorator: Fin must not be keyword arg')
+        # Fin = args[-1] #all LP functions have Fin as last arg
+        # args = args[:-1] #strip last arg
+        # Fout = Field.copy(Fin)
+        # ll_in = Fout.field.T.tolist() #transpose since numpy convention
+        # # is [y,x] and LP functions mostly assume [x,y] with some exceptions
+        # args = list(args) #make mutable
+        # args.append(ll_in)
+        # # args = tuple(args) #back to standard
         
-        _apply_vals_to_LP(Fout)
+        # _apply_vals_to_LP(Fout)
         
-        ll_out = fn(*args, **kwargs)
+        # ll_out = fn(*args, **kwargs)
         
-        Fout.field = np.asarray(ll_out).T #undo transpose, see above
-        _field_vals_from_LP(Fout)
+        # Fout.field = np.asarray(ll_out).T #undo transpose, see above
+        # _field_vals_from_LP(Fout)
         
-        return Fout
+        # return Fout
     
-    return fn_wrapper
+    # return fn_wrapper
         
 
 def Begin(size,labda,N):
@@ -173,36 +168,36 @@ def Begin(size,labda,N):
     """
     # return _LP.Begin(size, labda, N) #returns list of list
     Fout = Field.begin(size, labda, N) #returns Field class with all params
-    _apply_vals_to_LP(Fout) #apply global params to keep consistency
+    #_apply_vals_to_LP(Fout) #apply global params to keep consistency
     return Fout
 
 
-@accept_new_field
-def StepsOLD(z, nstep, refr, Fin):
-    """
-    Fout = Steps(z, nstep, refr, Fin)
+# @accept_new_field
+# def StepsOLD(z, nstep, refr, Fin):
+    # """
+    # Fout = Steps(z, nstep, refr, Fin)
                  
-    :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
-    medium with a complex refractive index stored in the
-    square array refr. <Steps>`
+    # :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
+    # medium with a complex refractive index stored in the
+    # square array refr. <Steps>`
 
-    Args::
+    # Args::
     
-        z: propagation distance per step
-        nstep: number of steps
-        refr: refractive index (N x N array of complex numbers)
-        Fin: input field
+        # z: propagation distance per step
+        # nstep: number of steps
+        # refr: refractive index (N x N array of complex numbers)
+        # Fin: input field
         
-    Returns::
+    # Returns::
       
-        Fout: ouput field (N x N square array of complex numbers).
+        # Fout: ouput field (N x N square array of complex numbers).
         
-    Example:
+    # Example:
     
-    :ref:`Propagation through a lens like medium <lenslikemedium>`
+    # :ref:`Propagation through a lens like medium <lenslikemedium>`
     
-    """
-    return _LP.Steps(z, nstep, refr, Fin)
+    # """
+    # return _LP.Steps(z, nstep, refr, Fin)
 
 
 def LPtest():
@@ -260,93 +255,93 @@ def LPhelp():
     """
     webbrowser.open_new("https://opticspy.github.io/lightpipes/")
 
-def getGridSize():
-    """
-    size_grid = getGridSize()
+# def getGridSize():
+    # """
+    # size_grid = getGridSize()
     
-    Returns the value of the size of the grid in meters.
+    # Returns the value of the size of the grid in meters.
     
-    Args::
+    # Args::
         
-        -
+        # -
         
-    Returns::
+    # Returns::
     
-        size_grid: Size of the grid (real number).
+        # size_grid: Size of the grid (real number).
 
-    """
-    return _LP.getGridSize()
+    # """
+    # return _LP.getGridSize()
 
-def setGridSize(newSize):
-    """
-    setGridSize(newGridSize)
+# def setGridSize(newSize):
+    # """
+    # setGridSize(newGridSize)
     
-    Changes the value of the grid size.
+    # Changes the value of the grid size.
     
-    Args::
+    # Args::
     
-        newGridSize: New size of the grid.
+        # newGridSize: New size of the grid.
         
-    Returns::
+    # Returns::
     
-        -
+        # -
 
-    """
-    # _LP.setGridSize(newSize)
-    raise NotImplementedError('Deprecated! use Field.size on object, not lib.')
+    # """
+    # # _LP.setGridSize(newSize)
+    # raise NotImplementedError('Deprecated! use Field.size on object, not lib.')
 
-def getWavelength():
-    """
-    wavelength = getWavelength()
+# def getWavelength():
+    # """
+    # wavelength = getWavelength()
     
-    Returns the value of the wavelength in meters.
+    # Returns the value of the wavelength in meters.
     
-    Args::
+    # Args::
     
-        -
+        # -
         
-    Returns::
+    # Returns::
     
-        wavelength: Value of the wavelength (real number).
+        # wavelength: Value of the wavelength (real number).
 
-    """
-    return _LP.getWavelength()
+    # """
+    # return _LP.getWavelength()
 
-def setWavelength(newWavelength):
-    """
-    setWavelength(newWavelength)
+# def setWavelength(newWavelength):
+    # """
+    # setWavelength(newWavelength)
     
-    Changes the value of the wavelength.
+    # Changes the value of the wavelength.
     
-    Args::
+    # Args::
     
-        newWavelength: New value of the wavelength.
+        # newWavelength: New value of the wavelength.
         
-    Returns::
+    # Returns::
     
-        -
+        # -
 
-    """ 
-    # _LP.setWavelength(newWavelength)
-    raise NotImplementedError('Deprecated! use Field.lam on object, not lib.')
+    # """ 
+    # # _LP.setWavelength(newWavelength)
+    # raise NotImplementedError('Deprecated! use Field.lam on object, not lib.')
 
-def getGridDimension():
-    """
-    grid-dimension = getGridDimension()
+# def getGridDimension():
+    # """
+    # grid-dimension = getGridDimension()
     
-    Returns the value of the grid dimension.
-    The grid dimension cannot be set. Use: :ref:`Interpol. <Interpol>`
+    # Returns the value of the grid dimension.
+    # The grid dimension cannot be set. Use: :ref:`Interpol. <Interpol>`
     
-    Args::
+    # Args::
     
-        -
+        # -
         
-    Returns::
+    # Returns::
     
-        grid-dimension: Value of the dimension of the grid (integer).
+        # grid-dimension: Value of the dimension of the grid (integer).
 
-    """
-    return _LP.getGridDimension()
+    # """
+    # return _LP.getGridDimension()
 
 
 def LPdemo():

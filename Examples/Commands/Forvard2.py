@@ -1,7 +1,7 @@
 from LightPipes import *
 import matplotlib.pyplot as plt
 
-Field=Begin(20*mm, 1*um, 256)
+Field=Begin(50*mm, 1*um, 256)
 Field = RectAperture(20*mm,20*mm,0, 0,0, Field)
 Field = Forvard(1*m, Field)
 I = Intensity(0,Field)

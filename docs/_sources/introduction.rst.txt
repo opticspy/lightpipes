@@ -1,7 +1,7 @@
 Introduction.
 *************
 
-LightPipes for Python is a set of functions written in C++ available to Python.It is designed to model coherent optical devices when the diffraction is essential.The toolbox consists of a number of functions. Each function represents an optical element or a step in the light propagation. There are apertures, intensity filters,
+LightPipes for Python is a set of functions written in Python. It is designed to model coherent optical devices when the diffraction is essential.The toolbox consists of a number of functions. Each function represents an optical element or a step in the light propagation. There are apertures, intensity filters,
 beam-splitters, lenses and models of free space diffraction in LightPipes.
 There are also more advanced tools for manipulating the phase and amplitude of the light.
 The program operates on a large data structure, containing square two-dimensional arrays

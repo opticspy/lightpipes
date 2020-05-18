@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>6. Examples. &#8212; LightPipes for Python 1.2.0 documentation</title>
+    <title>6. Examples. &#8212; LightPipes for Python 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="description_of_lightpipes_for_python.html" title="5. Manual."
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 1.2.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 2.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -484,7 +484,7 @@ important features of a laser. In the movie we show Q-switching to generate shor
 by changing the reflectivity of the outcoupling mirror, operation on high-order transversal modes by opening
 the aperture, changing the resonator g-parameters to study the stability criterion,
 injection of a high-order Gauss-Hermite mode and the effect of thin wires inside the resonator.</p>
-<iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe><p><a class="reference download internal" download="" href="_downloads/e5e27bc34de23599084305b72c88d05b/laser_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">(Download</span> <span class="pre">source</span> <span class="pre">code)</span></code></a></p>
+<iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe><p><a class="reference download internal" download="" href="_downloads/5a58f99e5e308dccdb6cd0122d38ae20/laser_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">(Download</span> <span class="pre">source</span> <span class="pre">code)</span></code></a></p>
 <div class="literal-block-wrapper docutils container" id="laser-simulation">
 <div class="code-block-caption"><span class="caption-text">laser_simulation.py</span><a class="headerlink" href="#laser-simulation" title="Permalink to this code">¶</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
@@ -591,7 +591,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
         <span class="n">top</span><span class="o">=</span><span class="s1">&#39;on&#39;</span><span class="p">,</span>         <span class="c1"># ticks along the top edge are off</span>
         <span class="n">labelbottom</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">canvas</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
     <span class="c1">#print(&quot;Execution time: --- %4.2f seconds ---&quot; % (time.time() - start_time)) </span>
 
 <span class="k">def</span> <span class="nf">_quit</span><span class="p">():</span>
@@ -609,8 +609,8 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
         <span class="n">w0</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">wavelength</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">g1</span><span class="o">*</span><span class="n">g2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">g1</span><span class="o">*</span><span class="n">g2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">g1</span><span class="o">+</span><span class="n">g2</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">g1</span><span class="o">*</span><span class="n">g2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.25</span><span class="p">;</span>
     <span class="n">mode_m</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">order_m</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
     <span class="n">mode_n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">order_n</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-    <span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="n">mode_m</span><span class="p">,</span><span class="n">mode_n</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
-    <span class="c1">#F=GaussLaguerre(mode_m,mode_n,1,w0,F);</span>
+   <span class="c1">#F=GaussHermite(mode_m,mode_n,1,w0,F);</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">mode_m</span><span class="p">,</span><span class="n">mode_n</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
     <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 
 <span class="n">frame1</span><span class="o">=</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -886,7 +886,6 @@ amplitude of the aberration.</p>
 <span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">500</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mf">2.0</span><span class="o">*</span><span class="n">mm</span>
@@ -1103,7 +1102,7 @@ presence and the position of the object. This will only be the case when the obj
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on Oct 29, 2019.
+      Last updated on May 18, 2020.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>

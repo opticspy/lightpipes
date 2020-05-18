@@ -8,6 +8,7 @@ from .zernikemath import zernike
 def Zernike(n, m, R, A, Fin, norm=True, units='opd'):
     """
     Fout = Zernike(n, m, R, A, Fin, norm, units)
+    
     Example: if norm=True and Aunit='lambda' and A=1.0, the wavefront
         will have an rms error of 1lambda, but PtV depending on n/m.
         If norm=False and Aunit='lambda' and A=1.0, the wavefront will
@@ -103,17 +104,17 @@ def Zernike(n, m, R, A, Fin, norm=True, units='opd'):
 def ZernikeFit(j_terms, R, F, norm=True, units='lam'):
     """
     Fit the first N terms (Noll indexing) to the given Field.
+    
     R is the beam radius on which the Zernike coefficients should be defined.
     The phase will be ignored at points with low intensity, but should unwrap
     correctly in valid region.
     
     if j_terms is a number, first j_terms terms will be fitted
     if j_terms is a collection (list, array), each number should represent
-        one noll index to fit.
+    one noll index to fit.
     
     Piston term (j=1 / n,m=0) is always necessary for fitting but generally
-        meaningless in the result.
-    
+    meaningless in the result.
     """
     Ph = Phase(F, unwrap=True, units=units, blank_eps=1e-3) #blank phase where not well defined
 

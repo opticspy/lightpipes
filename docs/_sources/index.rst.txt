@@ -48,3 +48,8 @@ The Python version can be obtained for free from https://github.com/opticspy/lig
 **Guyskk**
 
 Guyskk' s contribution to the development of the LightPipes package was very important. His knowledge of Python helped a lot to get the package operative for the windows, macintosh and several linux platforms.
+
+**Leonard Idoyle**
+
+Leonard translated the C++ code of LightPipes into pure Python, using the numpy, scipy and pyFFTW packages. Thanks to the matrix routines of numpy and the fast pyFFTW Fourier transform the speed of the pure python version is as fast as the C++ version.
+Also parallel processing is possible now, which enhances the speed even more. From LightPipes version 2.0.0 the pure python version can be installed with pip. The older C++ versions are still on PyPi and can be installed by typing pip install LightPipes=1.2.0
