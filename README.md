@@ -2,12 +2,10 @@
 
 > Simulations of optical phenomena where diffraction is essential
 
-## Pure Python version
-**In this branch, "PyLightPipes", we try to make a pure Python version making use of the pyFFTW, pysci and numpy packages.**
-
 [![travis-ci](https://api.travis-ci.org/opticspy/lightpipes.svg)](https://travis-ci.org/opticspy/lightpipes)
 
-LightPipes is a set of functions written in C++. It is designed to model coherent optical devices when the diffraction is essential.
+LightPipes is a set of functions written in Python (Before version 2.0.0 these functions are in C++). It is designed to model coherent optical devices when the diffraction is essential. We put the C++ based version of LightPipes in another repository: opticspy/clightpipes.
+The pure Python version is as fast as the C++ version due to the use of the numpy, scipy and pyFFTW packages.
 
 The toolbox consists of a number of functions. Each function represents an optical element or a step in the light propagation. There are apertures, intensity filters, beam-splitters, lenses and models of free space diffraction. There are also more advanced tools for manipulating the phase and amplitude of the light. The program operates on a large data structure, containing square two-dimensional arrays of complex amplitudes of the optical field of the propagating light beam.
 
@@ -17,13 +15,25 @@ Visit the website of **Flexible Optical**: [http://www.okotech.com](http://www.o
 
 ## Install
 
-LightPipes support Windows 32bit and 64bit, Macintosh OSX, Linux 32bit and 64bit. It support python 2.7, 3.4, 3.5, 3.6, 3.7 currently.
-The newest version, 1.2.0, can also be installed on a Raspberry Pi with Python 3.7.
+The pure Python version of LightPipes (from version 2,0,0) can be installed on any platform with Python version 3.+ installed. We tested it on a number of computers: Windows, Macintosh and Linux.
+
+We encountered problems when installing it on a Raspberry Pi 4.0. It seems that pyFFTW package is not compatible with the Raspberry (ARM processor). Maybe they will solve that in the future. In the mean time you can install the latest C++ version, 1.2.0, of LightPipes when Python 3.7 is installed on your Raspberry Pi.
+    Type at a terminal prompt:
+    
+```python
+sudo pip3 install LightPipes==1.2.0
+```      
+Use pip3 to install for Python 3.7.
 
 The packages are on [PyPi](https://pypi.python.org/pypi/LightPipes/), so simply open a terminal window and type at the prompt:
 
 ```python
 pip install LightPipes
+```
+The C++ versions are still on PyPi and can be installed using:
+
+```python
+pip install LightPipes==1.2.0
 ```
 
 You can also download packages from [Releases](https://github.com/opticspy/lightpipes/releases).
@@ -86,24 +96,3 @@ plt.axis('off');
 plt.title('intensity pattern')
 plt.show()
 ```
-
-## Build wheels
-
-### Linux
-
-1. install docker from https://www.docker.com/products/docker
-2. `cd tools/linux`
-3. build for linux 32bit: `bash build-linux-x32.sh`
-4. build for linux 64bit: `bash build-linux-x64.sh`
-
-### MacOS
-
-1. install Miniconda3 from https://conda.io/miniconda.html
-2. install invoke and delocate: `pip install invoke delocate`
-3. `cd tools/macos` then `inv build_all`
-
-### Windows
-
-1. install Miniconda3 32bit(name it `Miniconda32`) and Miniconda3 64 bit(name it `Miniconda64`), they can be downloaded from https://conda.io/miniconda.html
-2. install invoke: `pip install invoke`
-3. `cd tools/windows` then `inv build_all`
