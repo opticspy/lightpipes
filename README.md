@@ -30,6 +30,8 @@ The C++ versions are still on PyPi and can be installed using:
 ```python
 pip install LightPipes==1.2.0
 ```
+for the latest C++ version.
+
 Use pip3 to install for Python 3.7.
 You can also download packages from [Releases](https://github.com/opticspy/lightpipes/releases).
 
