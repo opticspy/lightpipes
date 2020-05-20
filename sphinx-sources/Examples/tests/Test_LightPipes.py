@@ -12,8 +12,8 @@ wavelength=20*um
 size=30.0*mm
 N=500
 
-#F=Begin(size,wavelength,N)
-F=GaussBeam(size,wavelength,N,size/40,0.0,0)
+F=Begin(size,wavelength,N)
+F=GaussBeam(size/40,F)
 #F1=PointSource(size,wavelength,N,-0.6*mm,0)
 #F2=PointSource(size,wavelength,N, 0.6*mm,0)
 

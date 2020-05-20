@@ -2,7 +2,7 @@ from LightPipes import *
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-import LightPipes as lp
+#import LightPipes as lp
 import LightPipes.plotutils as lpplot
 from LightPipes import tictoc
 
@@ -14,7 +14,7 @@ from LightPipes import tictoc
 # print(LPversion)
 wavelength=5*um
 size=20.0*mm
-N=3000
+N=300
 z=50*cm
 R=0.3*mm
 d=1.2*mm
@@ -28,10 +28,10 @@ F=Begin(size,wavelength,N)
 F1=CircAperture(R/2.0,-d/2.0, 0, F)
 F2=CircAperture(R/2.0, d/2.0, 0, F)    
 F=BeamMix(F1,F2)
-with tictoc.printtimer('LPFrensel'):
+with tictoc.printtimer('LPFresnel'):
     F=Fresnel(z,F)
 I=Intensity(2,F)
 
-# lpplot.Plot(F)
+#lpplot.Plot(F)
 plt.imshow(I, cmap='rainbow'); plt.axis('off');plt.title('intensity pattern')
 plt.show()

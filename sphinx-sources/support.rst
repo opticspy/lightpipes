@@ -7,7 +7,7 @@ You can get help with LightPipes for Python in several ways:
 
 .. _Github: https://github.com/opticspy/lightpipes
 
-2) Help for a specific `command` can be obtained at the Python prompt and from the command reference.
+2) Help for a specific `command` can be obtained at the Python prompt.
 
 
     For example, to display the help for the `Begin` command, type at the Pythom prompt:
@@ -43,4 +43,7 @@ You can get help with LightPipes for Python in several ways:
         
         >>>
 
+3) Look at the :ref:`commandref`
 
+
+4) Read the :ref:`manual`

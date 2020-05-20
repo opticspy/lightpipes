@@ -158,7 +158,7 @@ def SuperGaussAperture(w, x_shift, y_shift, T, n, Fin):
     
     :ref:`Inserts an aperture with a Gaussian shape in the field. <GaussAperture>`
     
-        :math:`F_{out}(x,y)= \\sqrt{T}e^{ -\\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)`
+        :math:`F_{out}(x,y)= \\sqrt{T}e^{ -\\left [ \\frac{ x^{2}+y^{2} }{2w^{2}} \\right ]^n } F_{in}(x,y)`
 
     Args::
     
@@ -193,7 +193,7 @@ def GaussScreen(w, x_shift, y_shift, T, Fin):
 
         :math:`F_{out}(x,y)= \\sqrt{1-(1-T)e^{ -\\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)`
 
-   Args::
+    Args::
     
         w: 1/e intensity width
         x_shift, y_shift: shift from center
@@ -485,10 +485,10 @@ def Normal(Fin):
     :ref:`Normalizes the field using beam power. <Normal>`
     
         :math:`F_{out}(x,y)= \\frac{F_{in}(x,y)}{\\sqrt{P}}`
-        
+
         with
         
-        :math:`P=\\int\\int\\abs{F_{in}(x,y)\\right}^2 dx dy`
+        :math:`P=\\int \\int F_{in}(x,y)^2 dx dy`
     
     Args::
         

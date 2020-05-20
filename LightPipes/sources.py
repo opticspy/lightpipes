@@ -4,6 +4,7 @@ from .misc import PI,Tilt
 def PointSource(Fin,**kwargs):
     """
     Fout=PointSource(Fin, x=0, y=0)
+    
     :ref:`Creates a point source. <Begin>`
 
     Args::
@@ -38,6 +39,7 @@ def PointSource(Fin,**kwargs):
 def PlaneWave(w,tx,ty,xshift,yshift,Fin):
     """
     Fout=PlaneWave( w, tx, ty, xshift, yshift, Fin)
+    
     :ref:`Creates a plane wavefront. <Begin>`
     
     Args::
@@ -45,6 +47,7 @@ def PlaneWave(w,tx,ty,xshift,yshift,Fin):
         w: diameter of the source
         tx, ty: tilt of the wavefront
         xshift, yshift: shift of the source
+        Fin: input field
         
 
     Returns::
@@ -61,12 +64,14 @@ def PlaneWave(w,tx,ty,xshift,yshift,Fin):
     Fout=Tilt(tx,ty,Fout)
     return Fout
 
-def GaussBeam(w0, Fin, **kwargs,):
+def GaussBeam(w0, Fin, **kwargs):
     """
-    F=GaussBeam(w0, tx, ty, xshift, yshift)
-    :ref:`Creates a Gaussian beam in its waist. <Begin>`
+    Fout=GaussBeam(w0, tx, ty, xshift, yshift)
+    
+    Creates a Gaussian beam in its waist.
 
     Args::
+    
         required:
         w0: size of the Gauss waist
         Fin: input field
@@ -81,13 +86,7 @@ def GaussBeam(w0, Fin, **kwargs,):
     Returns::
      
         F: N x N square array of complex numbers (1+0j).
-            
-    Example:
-    
-    :ref:`Diffraction from a circular aperture <Diffraction>`
-    
     """
-
     Fout=Field.copy(Fin)
     if not kwargs.get('doughnut'):
         if kwargs.get('LG'):

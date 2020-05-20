@@ -7,21 +7,21 @@ import matplotlib.pyplot as plt
 
 #start_time = time.time()
 
-from LightPipes import *
+from PyLightPipes import *
 #help(LPdemo)
 #LPdemo()
 #print('using LightPipes version: ' + LPversion)
-#LPtest()
+LPtest()
 
 wavelength=20*um
 size=30.0*mm
 N=500
 
 #LPhelp()
-#F=Begin(size,wavelength,N)
+F=Begin(size,wavelength,N)
 #F=GaussBeam(size,wavelength,N,size/40,0.04,0)
-F1=PointSource(size,wavelength,N,-0.6*mm,0)
-F2=PointSource(size,wavelength,N, 0.6*mm,0)
+F1=PointSource(F,x=-0.3*mm)
+F2=PointSource( F,x=0.3*mm)
 
 #F1=CircAperture(0.15*mm, -0.6*mm,0, F)
 #F2=CircAperture(0.15*mm, 0.6*mm,0, F)    

@@ -408,6 +408,30 @@ def Forvard(z, Fin):
 
 
 def Steps(z, nstep, refr, Fin, save_ram=False, use_scipy=False):
+    """
+    Fout = Steps(z, nstep, refr, Fin, save_ram=False, use_scipy=False)
+
+    :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
+    medium with a complex refractive index stored in the
+    square array refr. <Steps>`
+
+    Args::
+    
+        z: propagation distance per step
+        nstep: number of steps
+        refr: refractive index (N x N array of complex numbers)
+        Fin: input field
+        save_ram: -
+        use_scipy: -
+        
+    Returns::
+      
+        Fout: ouput field (N x N square array of complex numbers).
+        
+    Example:
+    
+    :ref:`Propagation through a lens like medium <lenslikemedium>`
+    """
     if use_scipy:
         print('Warning! Non-functional develop version for testing')
         return _TODOStepsScipy(z, nstep, refr, Fin)

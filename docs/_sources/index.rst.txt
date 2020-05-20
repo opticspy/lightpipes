@@ -12,8 +12,6 @@ LightPipes for Python |release|
     :align: center
     :target:  http://www.okotech.com
 
-:ref:`credits <credits>`
-
 contents:
 ^^^^^^^^^
 
@@ -29,27 +27,3 @@ contents:
    examples_of_lightpipes_for_python
    computerprac
 
-.. _credits:
-
-Credits:
-^^^^^^^^
-
-**Gleb Vdovin**
-
-LightPipes was written by Gleb Vdovin in 1993 for MS DOS.
-the output of a command was the input for the next command. Gleb used the "pipe" feature of MS DOS, that's why it is called LightPipes. The source code of LightPipes for UNIX can be obtained for free from http://www.okotech.com.
-
-**Fred van Goor**
-
-Fred rewrote the commands for using them in Mathcad and Matlab in 1996. Later he made a version for Python (2017).
-The `Mathcad <http://www.ptc.com/engineering-math-software/mathcad>`_ and `Matlab <https://www.mathworks.com/>`_ versions (not free) can be obtained from Flexible Optical, http://www.okotech.com. 
-The Python version can be obtained for free from https://github.com/opticspy/lightpipes. He also developed the LightPipes for Python website using `Sphinx <http://www.sphinx-doc.org>`_.
-
-**Guyskk**
-
-Guyskk' s contribution to the development of the LightPipes package was very important. His knowledge of Python helped a lot to get the package operative for the windows, macintosh and several linux platforms.
-
-**Leonard Idoyle**
-
-Leonard translated the C++ code of LightPipes into pure Python, using the numpy, scipy and pyFFTW packages. Thanks to the matrix routines of numpy and the fast pyFFTW Fourier transform the speed of the pure python version is as fast as the C++ version.
-Also parallel processing is possible now, which enhances the speed even more. From LightPipes version 2.0.0 the pure python version can be installed with pip. The older C++ versions are still on PyPi and can be installed by typing pip install LightPipes=1.2.0

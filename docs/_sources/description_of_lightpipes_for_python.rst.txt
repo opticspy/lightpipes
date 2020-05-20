@@ -1,3 +1,5 @@
+.. _manual:
+
 Manual.
 =======
 
@@ -18,8 +20,13 @@ All the calculations must start with the *Begin* command. This command defines t
     >>> GridDimension = 5
     >>> lambda_ = 500*nm #lambda_ is used because lambda is a Python build-in function.
     >>> Field = Begin(GridSize, lambda_, GridDimension)
-    >>> print(Field)
-    [[(1+0j), (1+0j), (1+0j), (1+0j), (1+0j)], [(1+0j), (1+0j), (1+0j), (1+0j), (1+0j)], [(1+0j), (1+0j), (1+0j), (1+0j), (1+0j)], [(1+0j), (1+0j), (1+0j), (1+0j), (1+0j)], [(1+0j), (1+0j), (1+0j), (1+0j), (1+0j)]]
+    >>> print(Field.field)
+    [[1.+0.j 1.+0.j 1.+0.j 1.+0.j 1.+0.j]
+     [1.+0.j 1.+0.j 1.+0.j 1.+0.j 1.+0.j]
+     [1.+0.j 1.+0.j 1.+0.j 1.+0.j 1.+0.j]
+     [1.+0.j 1.+0.j 1.+0.j 1.+0.j 1.+0.j]
+     [1.+0.j 1.+0.j 1.+0.j 1.+0.j 1.+0.j]]
+    
     
 *The use of Begin to define a uniform field with intensity 1 and phase 0.*
 

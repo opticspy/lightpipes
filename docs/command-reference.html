@@ -1,19 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>4. Command Reference. &#8212; LightPipes for Python 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -45,10 +45,10 @@
           <div class="body" role="main">
             
   <div class="section" id="module-LightPipes">
-<span id="command-reference"></span><h1>4. Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<span id="command-reference"></span><span id="commandref"></span><h1><span class="section-number">4. </span>Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
 <dt id="LightPipes.Axicon">
-<code class="sig-name descname">Axicon</code><span class="sig-paren">(</span><em class="sig-param">phi</em>, <em class="sig-param">n1</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Axicon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">phi</span></em>, <em class="sig-param"><span class="n">n1</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Axicon(phi, n1, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#axicon"><span class="std std-ref">Propagates the field through an axicon.</span></a></p>
 <p>Args:</p>
@@ -66,9 +66,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#besselbeam"><span class="std std-ref">Bessel beam with axicon</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.BeamMix">
-<code class="sig-name descname">BeamMix</code><span class="sig-paren">(</span><em class="sig-param">Fin1</em>, <em class="sig-param">Fin2</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.BeamMix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">BeamMix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin1</span></em>, <em class="sig-param"><span class="n">Fin2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.BeamMix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = BeamMix(F1, F2)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#beammix"><span class="std std-ref">Addition of the fields F1 and F2.</span></a></p>
 <p>Args:</p>
@@ -83,15 +83,15 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#young"><span class="std std-ref">Two holes interferometer</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Begin">
-<code class="sig-name descname">Begin</code><span class="sig-paren">(</span><em class="sig-param">size</em>, <em class="sig-param">labda</em>, <em class="sig-param">N</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Begin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Begin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em>, <em class="sig-param"><span class="n">labda</span></em>, <em class="sig-param"><span class="n">N</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Begin" title="Permalink to this definition">¶</a></dt>
 <dd><p>F = Begin(GridSize, Wavelength, N)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a plane wave (phase = 0.0, amplitude = 1.0).</span></a></p>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSize</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">grid</span>
 <span class="n">Wavelength</span><span class="p">:</span> <span class="n">wavelength</span> <span class="n">of</span> <span class="n">the</span> <span class="n">field</span>
-<span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">grid</span> <span class="n">points</span> <span class="p">(</span><span class="n">N</span> <span class="n">must</span> <span class="n">be</span> <span class="n">even</span><span class="p">)</span>
+<span class="n">N</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">grid</span> <span class="n">points</span>
 </pre></div>
 </div>
 <p>Returns:</p>
@@ -102,9 +102,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.CircAperture">
-<code class="sig-name descname">CircAperture</code><span class="sig-paren">(</span><em class="sig-param">R</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CircAperture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = CircAperture(R, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#circaperture"><span class="std std-ref">Propagates the field through a circular aperture.</span></a></p>
 <p>Args:</p>
@@ -121,9 +121,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#circ-aperture"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.CircScreen">
-<code class="sig-name descname">CircScreen</code><span class="sig-paren">(</span><em class="sig-param">R</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircScreen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CircScreen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircScreen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = CircScreen(R, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#circscreen"><span class="std std-ref">Diffracts the field by a circular screen.</span></a></p>
 <p>Args:</p>
@@ -140,9 +140,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#poisson"><span class="std std-ref">Spot of Poisson</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Convert">
-<code class="sig-name descname">Convert</code><span class="sig-paren">(</span><em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Convert" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Convert</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Convert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Convert(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#convert"><span class="std std-ref">Converts the field from a spherical variable coordinate to a normal coordinate system.</span></a></p>
 <p>Args:</p>
@@ -157,9 +157,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#unstab"><span class="std std-ref">Unstable resonator</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Forward">
-<code class="sig-name descname">Forward</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">sizenew</em>, <em class="sig-param">Nnew</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">sizenew</span></em>, <em class="sig-param"><span class="n">Nnew</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Forward(z, sizenew, Nnew, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#forward"><span class="std std-ref">Propagates the field using direct integration.</span></a></p>
 <p>Args:</p>
@@ -175,9 +175,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Forvard">
-<code class="sig-name descname">Forvard</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forvard" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Forvard</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forvard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Forvard(z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#forvard"><span class="std std-ref">Propagates the field using a FFT algorithm.</span></a></p>
 <p>Args:</p>
@@ -193,9 +193,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Fresnel">
-<code class="sig-name descname">Fresnel</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Fresnel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Fresnel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Fresnel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Fresnel(z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#fresnel"><span class="std std-ref">Propagates the field using a convolution method.</span></a></p>
 <p>Args:</p>
@@ -211,9 +211,9 @@
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#young"><span class="std std-ref">Two holes interferometer</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Gain">
-<code class="sig-name descname">Gain</code><span class="sig-paren">(</span><em class="sig-param">Isat</em>, <em class="sig-param">alpha0</em>, <em class="sig-param">Lgain</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Gain" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Gain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Isat</span></em>, <em class="sig-param"><span class="n">alpha0</span></em>, <em class="sig-param"><span class="n">Lgain</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Gain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Gain(Isat, alpha0, Lgain, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gain"><span class="std std-ref">Propagates the field through a thin saturable gain sheet.</span></a></p>
 <blockquote>
@@ -244,9 +244,9 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#unstab"><span class="std std-ref">Unstable resonator</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.GaussAperture">
-<code class="sig-name descname">GaussAperture</code><span class="sig-paren">(</span><em class="sig-param">w</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">T</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussAperture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">T</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = GaussAperture(w, x_shift, y_shift, T, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gaussaperture"><span class="std std-ref">Inserts an aperture with a Gaussian shape in the field.</span></a></p>
 <blockquote>
@@ -265,57 +265,54 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.GaussBeam">
-<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><em class="sig-param">w0</em>, <em class="sig-param">Fin</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>F=GaussBeam(w0, tx, ty, xshift, yshift)
-<a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a Gaussian beam in its waist.</span></a></p>
-<dl>
-<dt>Args::</dt><dd><p>required:
-w0: size of the Gauss waist
-Fin: input field</p>
-<p>optional:
-tx, ty: tilt of the beam
-xshift, yshift: shift of the beam
-n, m: TEMn,m  Hermite-Gauss or  Laguerre-Gauss mode.
-doughnut: if True a dougnut mode is generated
-LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.</p>
-</dd>
-</dl>
+<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout=GaussBeam(w0, tx, ty, xshift, yshift)</p>
+<p>Creates a Gaussian beam in its waist.</p>
+<p>Args:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">required</span><span class="p">:</span>
+<span class="n">w0</span><span class="p">:</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Gauss</span> <span class="n">waist</span>
+<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+
+<span class="n">optional</span><span class="p">:</span>
+<span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="n">of</span> <span class="n">the</span> <span class="n">beam</span>
+<span class="n">xshift</span><span class="p">,</span> <span class="n">yshift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">beam</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">TEMn</span><span class="p">,</span><span class="n">m</span>  <span class="n">Hermite</span><span class="o">-</span><span class="n">Gauss</span> <span class="ow">or</span>  <span class="n">Laguerre</span><span class="o">-</span><span class="n">Gauss</span> <span class="n">mode</span><span class="o">.</span>
+<span class="n">doughnut</span><span class="p">:</span> <span class="k">if</span> <span class="kc">True</span> <span class="n">a</span> <span class="n">dougnut</span> <span class="n">mode</span> <span class="ow">is</span> <span class="n">generated</span>
+<span class="n">LG</span><span class="p">:</span> <span class="k">if</span> <span class="kc">True</span> <span class="n">a</span> <span class="n">Laguerre</span><span class="o">-</span><span class="n">Gauss</span> <span class="n">mode</span> <span class="ow">is</span> <span class="n">generated</span><span class="p">,</span> <span class="n">otherwise</span> <span class="n">a</span> <span class="n">Hermite</span><span class="o">-</span><span class="n">Gauss</span> <span class="n">mode</span><span class="o">.</span>
+</pre></div>
+</div>
 <p>Returns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Example:</p>
-<p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.GaussScreen">
-<code class="sig-name descname">GaussScreen</code><span class="sig-paren">(</span><em class="sig-param">w</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">T</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussScreen" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Fout = GaussScreen(w, x_shift, y_shift, T, Fin)</p>
+<code class="sig-name descname">GaussScreen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">T</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussScreen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout = GaussScreen(w, x_shift, y_shift, T, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gaussscreen"><span class="std std-ref">Inserts a screen with a Gaussian shape in the field.</span></a></p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{1-(1-T)e^{ -\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)\)</span></p>
 </div></blockquote>
-</div></blockquote>
 <p>Args:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
-    <span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">center</span>
-    <span class="n">T</span><span class="p">:</span> <span class="n">center</span> <span class="n">intensity</span> <span class="n">transmission</span>
-    <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
-
-<span class="n">Returns</span><span class="p">::</span>
-
-    <span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
+<span class="n">x_shift</span><span class="p">,</span> <span class="n">y_shift</span><span class="p">:</span> <span class="n">shift</span> <span class="kn">from</span> <span class="nn">center</span>
+<span class="n">T</span><span class="p">:</span> <span class="n">center</span> <span class="n">intensity</span> <span class="n">transmission</span>
+<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">output</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.GaussHermite">
-<code class="sig-name descname">GaussHermite</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">m</em>, <em class="sig-param">A</em>, <em class="sig-param">w0</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussHermite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussHermite</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">m</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussHermite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = GaussHermite(m, n, A, w0, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gausshermite"><span class="std std-ref">Substitutes a Hermite-Gauss mode (beam waist) in the field.</span></a></p>
 <blockquote>
@@ -338,9 +335,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.GaussLaguerre">
-<code class="sig-name descname">GaussLaguerre</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">l</em>, <em class="sig-param">A</em>, <em class="sig-param">w0</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussLaguerre</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span></em>, <em class="sig-param"><span class="n">l</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = GaussLaguerre(p, l, A, w0, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gausslaguerre"><span class="std std-ref">Substitutes a Laguerre-Gauss mode (beam waist) in the field.</span></a></p>
 <blockquote>
@@ -364,9 +361,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.IntAttenuator">
-<code class="sig-name descname">IntAttenuator</code><span class="sig-paren">(</span><em class="sig-param">att</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.IntAttenuator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">IntAttenuator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">att</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.IntAttenuator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = IntAttenuator(att, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#intattenuator"><span class="std std-ref">Attenuates the intensity of the field.</span></a></p>
 <blockquote>
@@ -383,9 +380,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Intensity">
-<code class="sig-name descname">Intensity</code><span class="sig-paren">(</span><em class="sig-param">flag</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Intensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Intensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flag</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Intensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>I=Intensity(flag,Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#intensity"><span class="std std-ref">Calculates the intensity of the field.</span></a></p>
 <p><span class="math notranslate nohighlight">\(I(x,y)=F_{in}(x,y).F_{in}(x,y)^*\)</span></p>
@@ -400,9 +397,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Interpol">
-<code class="sig-name descname">Interpol</code><span class="sig-paren">(</span><em class="sig-param">new_size</em>, <em class="sig-param">new_N</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">angle</em>, <em class="sig-param">magnif</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Interpol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">new_size</span></em>, <em class="sig-param"><span class="n">new_N</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">magnif</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#interpol"><span class="std std-ref">Interpolates the field to a new grid size, grid dimension.</span></a></p>
 <p>Args:</p>
@@ -420,9 +417,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Lens">
-<code class="sig-name descname">Lens</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Lens" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Lens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Lens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Lens(f, x_shift, y_shift, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#lens"><span class="std std-ref">Propagates the field through an ideal, thin lens.</span></a></p>
 <p>It adds a phase given by:
@@ -439,9 +436,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.LensForvard">
-<code class="sig-name descname">LensForvard</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">z</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensForvard" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LensForvard</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensForvard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = LensForvard(f, z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#lensforvard"><span class="std std-ref">Propagates the field in a variable spherical coordinate system.</span></a></p>
 <p>Args:</p>
@@ -458,9 +455,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#sphericalcoordinates"><span class="std std-ref">Spherical coordinates</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.LensFresnel">
-<code class="sig-name descname">LensFresnel</code><span class="sig-paren">(</span><em class="sig-param">f</em>, <em class="sig-param">z</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensFresnel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LensFresnel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensFresnel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = LensFresnel(f, z, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#lensfresnel"><span class="std std-ref">Propagates the field in a variable spherical coordinate system.</span></a></p>
 <p>Args:</p>
@@ -477,9 +474,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#sphericalcoordinates"><span class="std std-ref">Spherical coordinates</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.MultIntensity">
-<code class="sig-name descname">MultIntensity</code><span class="sig-paren">(</span><em class="sig-param">Intens</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultIntensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MultIntensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Intens</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = MultIntensity(Intens, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#multintensity"><span class="std std-ref">Multiplies the field with a given intensity distribution.</span></a></p>
 <p>Args:</p>
@@ -493,9 +490,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.MultPhase">
-<code class="sig-name descname">MultPhase</code><span class="sig-paren">(</span><em class="sig-param">Phi</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultPhase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MultPhase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Phi</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = MultPhase(Phase, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#multphase"><span class="std std-ref">Multiplies the field with a given phase distribution.</span></a></p>
 <p>Args:</p>
@@ -509,15 +506,15 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Normal">
-<code class="sig-name descname">Normal</code><span class="sig-paren">(</span><em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Normal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Normal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Normal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Normal(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#normal"><span class="std std-ref">Normalizes the field using beam power.</span></a></p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \frac{F_{in}(x,y)}{\sqrt{P}}\)</span></p>
 <p>with</p>
-<p><span class="math notranslate nohighlight">\(P=\int\int\abs{F_{in}(x,y)\right}^2 dx dy\)</span></p>
+<p><span class="math notranslate nohighlight">\(P=\int \int F_{in}(x,y)^2 dx dy\)</span></p>
 </div></blockquote>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
@@ -529,9 +526,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Phase">
-<code class="sig-name descname">Phase</code><span class="sig-paren">(</span><em class="sig-param">Fin</em>, <em class="sig-param">unwrap=False</em>, <em class="sig-param">units='rad'</em>, <em class="sig-param">blank_eps=0</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Phase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Phase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">unwrap</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">'rad'</span></em>, <em class="sig-param"><span class="n">blank_eps</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Phase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Phi=Phase(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#phase"><span class="std std-ref">Calculates the phase of the field.</span></a></p>
 <p>Args:</p>
@@ -551,9 +548,9 @@ LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.<
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.PhaseSpiral">
-<code class="sig-name descname">PhaseSpiral</code><span class="sig-paren">(</span><em class="sig-param">Fin</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseSpiral" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PhaseSpiral</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseSpiral" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = PhaseSpiral(Fin, m=1)
 Multiplies Fin with a spiral phase distribution.</p>
 <p>Args:</p>
@@ -566,9 +563,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.PhaseUnwrap">
-<code class="sig-name descname">PhaseUnwrap</code><span class="sig-paren">(</span><em class="sig-param">Phi</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseUnwrap" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PhaseUnwrap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Phi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseUnwrap" title="Permalink to this definition">¶</a></dt>
 <dd><p>PhiOut=PhaseUnwrap(PhiIn)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#phaseunwrap"><span class="std std-ref">Unwraps (removes jumps of pi radians) the phase.</span></a></p>
 <p>Args:</p>
@@ -581,9 +578,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.PipFFT">
-<code class="sig-name descname">PipFFT</code><span class="sig-paren">(</span><em class="sig-param">index</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PipFFT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PipFFT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PipFFT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = PipFFT(index, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#pipfft"><span class="std std-ref">Performs a 2D Fourier transform of the field.</span></a></p>
 <p>Args:</p>
@@ -597,15 +594,16 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.PlaneWave">
-<code class="sig-name descname">PlaneWave</code><span class="sig-paren">(</span><em class="sig-param">w</em>, <em class="sig-param">tx</em>, <em class="sig-param">ty</em>, <em class="sig-param">xshift</em>, <em class="sig-param">yshift</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PlaneWave" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fout=PlaneWave( w, tx, ty, xshift, yshift, Fin)
-<a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a plane wavefront.</span></a></p>
+<code class="sig-name descname">PlaneWave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">tx</span></em>, <em class="sig-param"><span class="n">ty</span></em>, <em class="sig-param"><span class="n">xshift</span></em>, <em class="sig-param"><span class="n">yshift</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PlaneWave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout=PlaneWave( w, tx, ty, xshift, yshift, Fin)</p>
+<p><a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a plane wavefront.</span></a></p>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="n">diameter</span> <span class="n">of</span> <span class="n">the</span> <span class="n">source</span>
 <span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavefront</span>
 <span class="n">xshift</span><span class="p">,</span> <span class="n">yshift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">source</span>
+<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
 </pre></div>
 </div>
 <p>Returns:</p>
@@ -616,11 +614,11 @@ Multiplies Fin with a spiral phase distribution.</p>
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.PointSource">
-<code class="sig-name descname">PointSource</code><span class="sig-paren">(</span><em class="sig-param">Fin</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fout=PointSource(Fin, x=0, y=0)
-<a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a point source.</span></a></p>
+<code class="sig-name descname">PointSource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout=PointSource(Fin, x=0, y=0)</p>
+<p><a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a point source.</span></a></p>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">required</span><span class="p">:</span>
     <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
@@ -637,9 +635,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 <p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Power">
-<code class="sig-name descname">Power</code><span class="sig-paren">(</span><em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Power" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Power</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Power" title="Permalink to this definition">¶</a></dt>
 <dd><p>P = Power(Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#power"><span class="std std-ref">Calculates the total power.</span></a></p>
 <p>Args:</p>
@@ -652,9 +650,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.RandomIntensity">
-<code class="sig-name descname">RandomIntensity</code><span class="sig-paren">(</span><em class="sig-param">seed</em>, <em class="sig-param">noise</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomIntensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RandomIntensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">noise</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RandomIntensity(seed, noise, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#randomintensity"><span class="std std-ref">Adds random intensity to the field</span></a></p>
 <p>Args:</p>
@@ -669,9 +667,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.RandomPhase">
-<code class="sig-name descname">RandomPhase</code><span class="sig-paren">(</span><em class="sig-param">seed</em>, <em class="sig-param">maxPhase</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomPhase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RandomPhase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span></em>, <em class="sig-param"><span class="n">maxPhase</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RandomPhase(seed, maxPhase, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#randomphase"><span class="std std-ref">Adds random phase to the field</span></a></p>
 <p>Args:</p>
@@ -686,9 +684,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.RectAperture">
-<code class="sig-name descname">RectAperture</code><span class="sig-paren">(</span><em class="sig-param">sx</em>, <em class="sig-param">sy</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">angle</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RectAperture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sx</span></em>, <em class="sig-param"><span class="n">sy</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RectAperture(w, h, x_shift, y_shift, angle, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#rectaperture"><span class="std std-ref">Propagates the field through a rectangular aperture.</span></a></p>
 <p>Args:</p>
@@ -705,9 +703,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.RectScreen">
-<code class="sig-name descname">RectScreen</code><span class="sig-paren">(</span><em class="sig-param">sx</em>, <em class="sig-param">sy</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">angle</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectScreen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RectScreen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sx</span></em>, <em class="sig-param"><span class="n">sy</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">angle</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectScreen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = RectScreen(w, h, x_shift, y_shift, angle, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#rectscreen"><span class="std std-ref">Diffracts the field by a rectangular screen.</span></a></p>
 <p>Args:</p>
@@ -724,14 +722,33 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Steps">
-<code class="sig-name descname">Steps</code><span class="sig-paren">(</span><em class="sig-param">z</em>, <em class="sig-param">nstep</em>, <em class="sig-param">refr</em>, <em class="sig-param">Fin</em>, <em class="sig-param">save_ram=False</em>, <em class="sig-param">use_scipy=False</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Steps" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">Steps</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">nstep</span></em>, <em class="sig-param"><span class="n">refr</span></em>, <em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">save_ram</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">use_scipy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout = Steps(z, nstep, refr, Fin, save_ram=False, use_scipy=False)</p>
+<p><a class="reference internal" href="description_of_lightpipes_for_python.html#steps"><span class="std std-ref">Propagates the field a distance, nstep x z, in nstep steps in a
+medium with a complex refractive index stored in the
+square array refr.</span></a></p>
+<p>Args:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">:</span> <span class="n">propagation</span> <span class="n">distance</span> <span class="n">per</span> <span class="n">step</span>
+<span class="n">nstep</span><span class="p">:</span> <span class="n">number</span> <span class="n">of</span> <span class="n">steps</span>
+<span class="n">refr</span><span class="p">:</span> <span class="n">refractive</span> <span class="n">index</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<span class="n">save_ram</span><span class="p">:</span> <span class="o">-</span>
+<span class="n">use_scipy</span><span class="p">:</span> <span class="o">-</span>
+</pre></div>
+</div>
+<p>Returns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">ouput</span> <span class="n">field</span> <span class="p">(</span><span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p><a class="reference internal" href="examples_of_lightpipes_for_python.html#lenslikemedium"><span class="std std-ref">Propagation through a lens like medium</span></a></p>
+</dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Strehl">
-<code class="sig-name descname">Strehl</code><span class="sig-paren">(</span><em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Strehl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Strehl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Strehl" title="Permalink to this definition">¶</a></dt>
 <dd><p>S = Strehl( Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#strehl"><span class="std std-ref">Calculates the Strehl value of the field</span></a></p>
 <p>Args:</p>
@@ -744,9 +761,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.SubIntensity">
-<code class="sig-name descname">SubIntensity</code><span class="sig-paren">(</span><em class="sig-param">Intens</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubIntensity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SubIntensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Intens</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = SubIntensity(Intens, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#subintensity"><span class="std std-ref">Substitutes  a given intensity distribution in the field with.</span></a></p>
 <p>Args:</p>
@@ -760,9 +777,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.SubPhase">
-<code class="sig-name descname">SubPhase</code><span class="sig-paren">(</span><em class="sig-param">Phi</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubPhase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SubPhase</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Phi</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = SubPhase(Phi, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#subphase"><span class="std std-ref">Substitutes  a given phase distribution in the field with.</span></a></p>
 <p>Args:</p>
@@ -776,13 +793,13 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.SuperGaussAperture">
-<code class="sig-name descname">SuperGaussAperture</code><span class="sig-paren">(</span><em class="sig-param">w</em>, <em class="sig-param">x_shift</em>, <em class="sig-param">y_shift</em>, <em class="sig-param">T</em>, <em class="sig-param">n</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SuperGaussAperture" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SuperGaussAperture</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">x_shift</span></em>, <em class="sig-param"><span class="n">y_shift</span></em>, <em class="sig-param"><span class="n">T</span></em>, <em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SuperGaussAperture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = SuperGaussAperture(w, x_shift, y_shift, T, n, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#gaussaperture"><span class="std std-ref">Inserts an aperture with a Gaussian shape in the field.</span></a></p>
 <blockquote>
-<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{T}e^{ -\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)\)</span></p>
+<div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{T}e^{ -\left [ \frac{ x^{2}+y^{2} }{2w^{2}} \right ]^n } F_{in}(x,y)\)</span></p>
 </div></blockquote>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">e</span> <span class="n">intensity</span> <span class="n">width</span>
@@ -798,9 +815,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Tilt">
-<code class="sig-name descname">Tilt</code><span class="sig-paren">(</span><em class="sig-param">tx</em>, <em class="sig-param">ty</em>, <em class="sig-param">Fin</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Tilt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Tilt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tx</span></em>, <em class="sig-param"><span class="n">ty</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Tilt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Tilt(tx, ty, Fin)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#tilt"><span class="std std-ref">Tilts the field.</span></a></p>
 <p>Args:</p>
@@ -814,9 +831,9 @@ Multiplies Fin with a spiral phase distribution.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.Zernike">
-<code class="sig-name descname">Zernike</code><span class="sig-paren">(</span><em class="sig-param">n</em>, <em class="sig-param">m</em>, <em class="sig-param">R</em>, <em class="sig-param">A</em>, <em class="sig-param">Fin</em>, <em class="sig-param">norm=True</em>, <em class="sig-param">units='opd'</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Zernike" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">Zernike</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em>, <em class="sig-param"><span class="n">m</span></em>, <em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">'opd'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Zernike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout = Zernike(n, m, R, A, Fin, norm, units)</p>
 <dl class="simple">
 <dt>Example: if norm=True and Aunit=’lambda’ and A=1.0, the wavefront</dt><dd><p>will have an rms error of 1lambda, but PtV depending on n/m.
@@ -859,9 +876,9 @@ depending on n/m.</p>
 <p>Reference: <a class="reference external" href="https://en.wikipedia.org/wiki/Zernike_polynomials">https://en.wikipedia.org/wiki/Zernike_polynomials</a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.noll_to_zern">
-<code class="sig-name descname">noll_to_zern</code><span class="sig-paren">(</span><em class="sig-param">j</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.noll_to_zern" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">noll_to_zern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.noll_to_zern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert linear Noll index to tuple of Zernike indices.
 j is the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.
 &#64;param [in] j Zernike mode Noll index
@@ -870,14 +887,14 @@ j is the linear Noll coordinate, n is the radial Zernike index and m is the azim
 Thanks to: Tim van Werkhoven, <a class="reference external" href="https://github.com/tvwerkhoven">https://github.com/tvwerkhoven</a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.ZernikeName">
-<code class="sig-name descname">ZernikeName</code><span class="sig-paren">(</span><em class="sig-param">Noll</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeName" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ZernikeName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Noll</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeName" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.ZernikeFit">
-<code class="sig-name descname">ZernikeFit</code><span class="sig-paren">(</span><em class="sig-param">j_terms</em>, <em class="sig-param">R</em>, <em class="sig-param">F</em>, <em class="sig-param">norm=True</em>, <em class="sig-param">units='lam'</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ZernikeFit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">j_terms</span></em>, <em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">F</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">'lam'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the first N terms (Noll indexing) to the given Field.</p>
 <p>R is the beam radius on which the Zernike coefficients should be defined.
 The phase will be ignored at points with low intensity, but should unwrap
@@ -889,9 +906,9 @@ one noll index to fit.</p>
 meaningless in the result.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.ZernikeFilter">
-<code class="sig-name descname">ZernikeFilter</code><span class="sig-paren">(</span><em class="sig-param">j_terms</em>, <em class="sig-param">R</em>, <em class="sig-param">F</em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFilter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ZernikeFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">j_terms</span></em>, <em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">F</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFilter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the input field’s wavefront, filter out the specified
 Zernike orders and return the field with filtered wavefront.</p>
 <p>j_terms: iterable of int which terms to filter. Given in Noll notation.
@@ -899,7 +916,7 @@ R: [m] radius of Zernike definition
 F: input field</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.LPtest">
 <code class="sig-name descname">LPtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPtest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a test to check if the installation of the LightPipes package was successful.</p>
@@ -914,14 +931,14 @@ F: input field</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.LPhelp">
 <code class="sig-name descname">LPhelp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPhelp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Go to the LightPipes documentation website on:</p>
 <p><a class="reference external" href="https://opticspy.github.io/lightpipes/">https://opticspy.github.io/lightpipes/</a></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="LightPipes.LPdemo">
 <code class="sig-name descname">LPdemo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPdemo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Demonstrates the simulation of a two-holes interferometer.</p>
@@ -973,7 +990,7 @@ F: input field</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -981,8 +998,8 @@ F: input field</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on May 18, 2020.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+      Last updated on May 20, 2020.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.
     </div>
   </body>
 </html>

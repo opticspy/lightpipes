@@ -1,5 +1,8 @@
+.. _commandref:
+
 Command Reference.
 ******************
+
 
 .. automodule:: LightPipes
     :members:
