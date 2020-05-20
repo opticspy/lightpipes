@@ -15,7 +15,7 @@ Visit the website of **Flexible Optical**: [http://www.okotech.com](http://www.o
 
 ## Install
 
-The pure Python version of LightPipes (from version 2,0,0) can be installed on any platform with Python version 3.+ installed. We tested it on a number of computers: Windows, Macintosh and Linux.
+The pure Python version of LightPipes (from version 2.0.0) can be installed on any platform with Python version 3.+ installed. We tested it on a number of computers: Windows, Macintosh and Linux.
 
 We encountered problems when installing it on a Raspberry Pi 4.0. It seems that pyFFTW package is not compatible with the Raspberry (ARM processor). Maybe they will solve that in the future. In the mean time you can install the latest C++ version, 1.2.0, of LightPipes when Python 3.7 is installed on your Raspberry Pi.
     Type at a terminal prompt:
