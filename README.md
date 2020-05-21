@@ -25,7 +25,7 @@ the output of a command was the input for the next command. Gleb used the "pipe"
 Fred rewrote the commands for using them in Mathcad and Matlab in 1996. Later he made a version for Python (2017).
 The [Mathcad](http://www.ptc.com/engineering-math-software/mathcad) and [Matlab](https://www.mathworks.com/) versions (not free) can be obtained from [Flexible Optical](http://www.okotech.com). 
 The Python version can be obtained for free from [https://github.com/opticspy/lightpipes](https://github.com/opticspy/lightpipes).
-Fred also developed the [LightPipes for Python website]((https://opticspy.github.io/lightpipes/)) using [Sphinx](http://www.sphinx-doc.org).
+Fred also developed the [LightPipes for Python website](https://opticspy.github.io/lightpipes/) using [Sphinx](http://www.sphinx-doc.org).
 Fred used LightPipes for his course "Introduction to Optics" at the [University of Twente](https://www.utwente.nl/en/education/bachelor/programmes/applied-physics/)
 as an introduction to the optics lab.
 See how Fred is [blowing out a HeNe laser](https://youtu.be/sm7MrA8Usuw?t=58s) during this lesson.
@@ -64,7 +64,7 @@ The packages are on [PyPi](https://pypi.python.org/pypi/LightPipes/), so simply 
 
 	pip install LightPipes
 
-The C++ versions are still on PyPi and can be installed using:
+The C++ versions are still on [PyPi](https://pypi.python.org/pypi/LightPipes/) and can be installed using:
 
 	pip install LightPipes==1.2.0
 
