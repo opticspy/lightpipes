@@ -1,6 +1,6 @@
 # LightPipes
 
-##Simulations of optical phenomena where diffraction is essential
+**Simulations of optical phenomena where diffraction is essential**
 
 [travis-ci: https://api.travis-ci.org/opticspy/lightpipes.svg](https://travis-ci.org/opticspy/lightpipes)
 
@@ -13,7 +13,7 @@ The LightPipes routines are modifications of the LightPipes C routines written b
 
 Visit the website of **Flexible Optical**: [http://www.okotech.com](http://www.okotech.com), where you can find the source code of *LightPipes* and a *manual*.
 
-# Credits.
+## Credits.
 
 **Gleb Vdovin**
 
@@ -73,7 +73,8 @@ for the latest C++ version.
 Use pip3 to install for Python 3.7.
 You can also download packages from [Releases](https://github.com/opticspy/lightpipes/releases).
 
-##Raspberry Pi:
+**Raspberry Pi:**
+
 We encountered problems when installing it on a Raspberry Pi 4.0. It seems that pyFFTW package is not compatible with the Raspberry (ARM processor). Maybe they will solve that in the future. In the mean time you can install the latest C++ version, 1.2.0, of LightPipes when Python 3.7 is installed on your Raspberry Pi.
 Type at a terminal prompt:
     
