@@ -267,8 +267,8 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 
 <dl class="py function">
 <dt id="LightPipes.GaussBeam">
-<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fout=GaussBeam(w0, tx, ty, xshift, yshift)</p>
+<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">xshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">yshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">tx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ty</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">doughnut</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">LG</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout=GaussBeam(w0, Fin, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False, LG=False):</p>
 <p>Creates a Gaussian beam in its waist.</p>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">required</span><span class="p">:</span>
@@ -284,7 +284,15 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">500</span><span class="o">*</span><span class="n">nm</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">w0</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#TEM0,0 Hermite Gauss beam</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">LG</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># LG2,5 Laguerre Gauss beam</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># LG0,1* doughnut beam</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -550,8 +558,8 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 
 <dl class="py function">
 <dt id="LightPipes.PhaseSpiral">
-<code class="sig-name descname">PhaseSpiral</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseSpiral" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fout = PhaseSpiral(Fin, m=1)
+<code class="sig-name descname">PhaseSpiral</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseSpiral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout = PhaseSpiral(Fin, m = 1)
 Multiplies Fin with a spiral phase distribution.</p>
 <p>Args:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">required</span><span class="p">:</span>
@@ -596,27 +604,41 @@ Multiplies Fin with a spiral phase distribution.</p>
 
 <dl class="py function">
 <dt id="LightPipes.PlaneWave">
-<code class="sig-name descname">PlaneWave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">tx</span></em>, <em class="sig-param"><span class="n">ty</span></em>, <em class="sig-param"><span class="n">xshift</span></em>, <em class="sig-param"><span class="n">yshift</span></em>, <em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PlaneWave" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fout=PlaneWave( w, tx, ty, xshift, yshift, Fin)</p>
+<code class="sig-name descname">PlaneWave</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">w</span></em>, <em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">tx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ty</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">xshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">yshift</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PlaneWave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fout=PlaneWave( w, Fin ,tx=0, ty=0, xshift=0, yshift=0):</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a plane wavefront.</span></a></p>
 <p>Args:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">:</span> <span class="n">diameter</span> <span class="n">of</span> <span class="n">the</span> <span class="n">source</span>
-<span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavefront</span>
-<span class="n">xshift</span><span class="p">,</span> <span class="n">yshift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">source</span>
-<span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">required</span><span class="p">::</span>
+
+    <span class="n">w</span><span class="p">:</span> <span class="n">diameter</span> <span class="n">of</span> <span class="n">the</span> <span class="n">source</span>
+    <span class="n">Fin</span><span class="p">:</span> <span class="nb">input</span> <span class="n">field</span>
+
+<span class="n">optional</span><span class="p">::</span>
+
+    <span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">:</span> <span class="n">tilt</span> <span class="n">of</span> <span class="n">the</span> <span class="n">wavefront</span>
+    <span class="n">xshift</span><span class="p">,</span> <span class="n">yshift</span><span class="p">:</span> <span class="n">shift</span> <span class="n">of</span> <span class="n">the</span> <span class="n">source</span>
 </pre></div>
 </div>
 <p>Returns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">0</span><span class="n">j</span><span class="p">)</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fout</span><span class="p">:</span> <span class="n">N</span> <span class="n">x</span> <span class="n">N</span> <span class="n">square</span> <span class="n">array</span> <span class="n">of</span> <span class="nb">complex</span> <span class="n">numbers</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<p><a class="reference internal" href="examples_of_lightpipes_for_python.html#diffraction"><span class="std std-ref">Diffraction from a circular aperture</span></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">500</span><span class="o">*</span><span class="n">nm</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">tx</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mrad</span>
+<span class="n">yshift</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">F</span><span class="o">=</span><span class="n">PlaneWave</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1"># A plane wave with diameter w=5 mm in the centre.</span>
+<span class="n">F</span><span class="o">=</span><span class="n">PlaneWave</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">yshift</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># shifted 3 mm in y-direction</span>
+<span class="n">F</span><span class="o">=</span><span class="n">PlaneWave</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">yshift</span><span class="o">=</span><span class="n">yshift</span><span class="p">,</span><span class="n">tx</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mrad</span><span class="p">)</span> <span class="c1"># shifted 3 mm in y-direction and tilted 2 mrad</span>
+<span class="n">F</span><span class="o">=</span><span class="n">PlaneWave</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">mrad</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">yshift</span><span class="p">)</span> <span class="c1"># shifted 3 mm in y-direction and tilted 2 mrad</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.PointSource">
-<code class="sig-name descname">PointSource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PointSource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">x</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fout=PointSource(Fin, x=0, y=0)</p>
 <p><a class="reference internal" href="description_of_lightpipes_for_python.html#begin"><span class="std std-ref">Creates a point source.</span></a></p>
 <p>Args:</p>
@@ -998,7 +1020,7 @@ F: input field</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Fred van Goor.
-      Last updated on May 20, 2020.
+      Last updated on May 21, 2020.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.
     </div>
   </body>
