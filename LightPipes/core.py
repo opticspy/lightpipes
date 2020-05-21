@@ -552,9 +552,9 @@ def Phase(Fin, unwrap = False, units='rad', blank_eps=0):
         
     return Phi
 
-def PhaseSpiral(Fin, m = 1):
+def PhaseSpiral(Fin, **kwargs):
     """ 
-    Fout = PhaseSpiral(Fin, m = 1)
+    Fout = PhaseSpiral(Fin, m=1)
     Multiplies Fin with a spiral phase distribution.
     
     Args::
@@ -565,7 +565,8 @@ def PhaseSpiral(Fin, m = 1):
         optional:
         m = 1: order of the spiral.
     """
-    Fout = Field.copy(Fin) 
+    Fout = Field.copy(Fin)
+    m = kwargs.get('m',1)   
     R, Phi = Fout.mgrid_polar  
     Fout.field *= _np.exp(1j * m * Phi)
     return Fout
