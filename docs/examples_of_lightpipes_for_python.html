@@ -1370,11 +1370,27 @@ amplitude of the aberration.</p>
 <div class="figure align-default">
 <img alt="_images/rad_shear.png" src="_images/rad_shear.png" />
 </div>
+</div>
+</div>
 <hr class="docutils" />
+<div class="section" id="graded-index-media-grin">
+<h2><span class="section-number">6.7. </span>Graded index media GRIN.<a class="headerlink" href="#graded-index-media-grin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="demonstration-of-a-grin-lens">
+<h3><span class="section-number">6.7.1. </span>Demonstration of a GRIN lens.<a class="headerlink" href="#demonstration-of-a-grin-lens" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="./Examples/Waveguide/GRIN_demo.py">Source code</a>, <a class="reference external" href="./Examples/Waveguide/GRIN_demo.png">png</a>, <a class="reference external" href="./Examples/Waveguide/GRIN_demo.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Waveguide/GRIN_demo.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="_images/GRIN_demo.png" src="_images/GRIN_demo.png" />
+</div>
+</div>
+<div class="section" id="young-s-experiment-with-grin-lens">
+<h3><span class="section-number">6.7.2. </span>Young’s experiment with GRIN lens.<a class="headerlink" href="#young-s-experiment-with-grin-lens" title="Permalink to this headline">¶</a></h3>
+<p>(<a class="reference external" href="./Examples/Waveguide/GRIN_Young.py">Source code</a>, <a class="reference external" href="./Examples/Waveguide/GRIN_Young.png">png</a>, <a class="reference external" href="./Examples/Waveguide/GRIN_Young.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Waveguide/GRIN_Young.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="_images/GRIN_Young.png" src="_images/GRIN_Young.png" />
 </div>
 </div>
 <div class="section" id="propagation-in-a-lens-like-absorptive-medium">
-<span id="lenslikemedium"></span><h2><span class="section-number">6.7. </span>Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this headline">¶</a></h2>
+<span id="lenslikemedium"></span><h3><span class="section-number">6.7.3. </span>Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this headline">¶</a></h3>
 <p>In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We’ll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.</p>
 <p>we use the approximation for the profile of the refractive coefficient, <span class="math notranslate nohighlight">\(n'=n-i\kappa\)</span> in the form: <span class="math notranslate nohighlight">\(n(r)^2=n_0^2-n_0n_1r^2\)</span>. It is a well-known fact <a class="footnote-reference brackets" href="#f9" id="id1">1</a> that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: <span class="math notranslate nohighlight">\(w_0^2=\frac{2}{k(n_0n_1)^{1/2}}\)</span> , with <span class="math notranslate nohighlight">\(k=\frac{2 \pi}{\lambda}\)</span>. For a waveguide of <span class="math notranslate nohighlight">\(1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0\)</span> and <span class="math notranslate nohighlight">\(\lambda = 1 \mu m\)</span>, the Gaussian mode has a diameter of <span class="math notranslate nohighlight">\(226 \mu m\)</span> . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.</p>
 <p>(<a class="reference external" href="./Examples/Waveguide/LensLikeMedium.py">Source code</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.png">png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.pdf">pdf</a>)</p>
@@ -1389,6 +1405,7 @@ amplitude of the aberration.</p>
 </ol>
 </dd>
 </dl>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="fourier-optics">
@@ -1475,7 +1492,12 @@ presence and the position of the object. This will only be the case when the obj
 <li class="toctree-l3"><a class="reference internal" href="#radial-shear-interferometer">6.6.1. Radial shear interferometer.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#propagation-in-a-lens-like-absorptive-medium">6.7. Propagation in a lens-like, absorptive medium.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graded-index-media-grin">6.7. Graded index media GRIN.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#demonstration-of-a-grin-lens">6.7.1. Demonstration of a GRIN lens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment-with-grin-lens">6.7.2. Young’s experiment with GRIN lens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propagation-in-a-lens-like-absorptive-medium">6.7.3. Propagation in a lens-like, absorptive medium.</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#fourier-optics">6.8. Fourier optics.</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#pattern-recognition">6.8.1. Pattern recognition.</a></li>
 </ul>

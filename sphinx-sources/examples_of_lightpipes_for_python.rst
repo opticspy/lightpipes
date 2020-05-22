@@ -334,10 +334,23 @@ Radial shear interferometer.
 ...............................................................................................
 
 
+Graded index media GRIN.
+************************
+
+Demonstration of a GRIN lens.
+-----------------------------
+
+.. plot:: ./Examples/Waveguide/GRIN_demo.py
+
+Young's experiment with GRIN lens.
+----------------------------------
+
+.. plot:: ./Examples/Waveguide/GRIN_Young.py
+
 .. _lenslikemedium:
 
 Propagation in a lens-like, absorptive medium.
-**********************************************
+----------------------------------------------
 
 In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We'll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.
 
