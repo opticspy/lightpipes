@@ -38,13 +38,17 @@ ty=0.00*mrad;
 xwire=10.0*mm
 ywire=10.0*mm
 dt=2*L/2.998*1e-8
-fig=plt.figure(figsize=(6,9))
+fig=plt.figure(figsize=(6,6))
 ax1 = fig.add_subplot(211)
 ax2 = fig.add_subplot(212)
 
 canvas = FigureCanvasTkAgg(fig, master=root)
 canvas._tkcanvas.pack(side=Tk.LEFT, fill=Tk.BOTH, expand=1)
 v=StringVar()
+v2=StringVar()
+dnt=IntVar()
+LG=IntVar()
+
 F=Begin(size,wavelength,N)
 
 def TheExample():
@@ -120,8 +124,20 @@ def _eigenmode():
         w0=math.sqrt(wavelength*L/math.pi)*(g1*g2*(1-g1*g2)/(g1+g2-2*g1*g2)**2)**0.25;
     mode_m=int(order_m.get())
     mode_n=int(order_n.get())
-   #F=GaussHermite(mode_m,mode_n,1,w0,F);
-    F=GaussLaguerre(mode_m,mode_n,1,w0,F);
+
+    if dnt.get():
+        m=mode_m
+        if m==0:
+            m=1
+        v2.set(r'Injected eigen mode: ' + f'dougnut LG{m},{mode_n}*')
+        F=GaussBeam(w0,F,doughnut=True,m=m,n=mode_n)
+    else:
+        if LG.get():
+            F=GaussBeam(w0,F,LG=True,m=mode_m,n=mode_n)
+            v2.set(r'Injected eigen mode: ' + f'Laguerre-Gauss{mode_m},{mode_n}')
+        else:
+            F=GaussBeam(w0,F,LG=False,m=mode_m,n=mode_n)
+            v2.set(r'Injected eigen mode: ' + f'Hermite-Gauss{mode_m},{mode_n}')
     F=Forvard(z2,F);
 
 frame1=Frame(root)
@@ -140,6 +156,7 @@ frame7=Frame(frame6)
 frame7.pack(side=Tk.BOTTOM)
 
 Label(root, textvariable=v).pack(side=Tk.LEFT)
+Label(root, textvariable=v2).pack(side=Tk.LEFT)
 
 scalexwire = Tk.Scale(frame1, orient='horizontal', label = 'x-wire position [mm]', length = 200, from_=-size/2/mm, to=size/2/mm, resolution = 0.001)
 scalexwire.pack(side = Tk.LEFT)
@@ -189,6 +206,13 @@ order_m.pack(side=Tk.LEFT)
 
 order_n=Tk.Spinbox(frame6,width=1,from_=0, to=5)
 order_n.pack(side=Tk.LEFT, pady=10)
+
+doughnut=Tk.Checkbutton(frame6,text='doughnut', variable = dnt)
+doughnut.pack(side=Tk.LEFT, pady=10)
+
+Laguerre=Tk.Checkbutton(frame6,text='Laguerre Gauss', variable = LG)
+Laguerre.pack(side=Tk.LEFT, pady=10)
+
 
 button_quit = Tk.Button(frame7, width = 24, text='Quit', command=_quit)
 button_quit.pack(side=Tk.LEFT, pady=10)

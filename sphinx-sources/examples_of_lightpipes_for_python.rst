@@ -43,6 +43,24 @@ Michelson interferometer.
 .. plot:: ./Examples/Interference/Michelson.py
    :include-source:
 
+
+   
+Interference of a doughnut laser beam: collinear beams.
+-------------------------------------------------------
+
+.. plot:: ./Examples/Interference/Doughnut_collinear.py
+   :include-source:
+
+Interference of a doughnut laser beam: tilted beams.
+----------------------------------------------------
+
+.. plot:: ./Examples/Interference/Doughnut_tilt.py
+   :include-source:
+
+
+...............................................................................................
+
+
 .. _diffraction:
 
 Diffraction examples.
@@ -79,6 +97,10 @@ Spot of Poisson.
 
 .. plot:: ./Examples/Diffraction/Poisson.py
    :include-source:
+
+
+...............................................................................................
+
 
 .. _BesselBeam:
 
@@ -172,6 +194,10 @@ a small fraction of the total beam power.
 .. plot:: ./Examples/BesselBeam/BesselAxicon.py
    :include-source:
 
+
+...............................................................................................
+
+
 Laser examples.
 ***************
 
@@ -183,6 +209,24 @@ Laser examples.
      Gain
      Lens
      Intensity
+
+Laser resonator eigen modes.
+----------------------------
+
+Hermite Gauss modes:
+
+.. plot:: ./Examples/Laser/Gauss_laser_mode_HG.py
+   :include-source:
+
+Laguerre Gauss modes:
+
+.. plot:: ./Examples/Laser/Gauss_laser_mode_LG.py
+   :include-source:
+   
+Laguerre doughnut modes:
+
+.. plot:: ./Examples/Laser/GaussLaguerre_doughnut.py
+   :include-source:
 
 Laser simulation, stable laser resonator.
 -----------------------------------------
@@ -197,6 +241,8 @@ and especially the diameter of an intra-cavity aperture.
 .. figure:: ./figures/stab_laser.png
 
    Laser resonator with gain.
+
+
 
 In the python script below a number of parameters can be adjusted which allows the study of several 
 important features of a laser. In the movie we show Q-switching to generate short high intensity pulses 
@@ -222,6 +268,15 @@ Unstable laser resonator.
 .. plot:: ./Examples/Laser/unstable_resonator.py
    :include-source:
 
+Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.
+------------------------------------------------------------------------------------------
+
+.. plot:: ./Examples/Laser/Spiral_phase_plate.py
+   :include-source:
+
+
+...............................................................................................
+
 .. _PhaseRecovery:
 
 Phase recovery.
@@ -242,6 +297,10 @@ Phase recovery using Gerchberg Saxton iteration.
 
 .. plot:: ./Examples/PhaseRecovery/PhaseRecovery.py
    :include-source:
+
+
+...............................................................................................
+
 
 Zernike aberration.
 *******************
@@ -271,6 +330,10 @@ Radial shear interferometer.
 .. plot:: ./Examples/Zernike/rad_shear.py
    :include-source:
 
+
+...............................................................................................
+
+
 .. _lenslikemedium:
 
 Propagation in a lens-like, absorptive medium.
@@ -285,6 +348,9 @@ we use the approximation for the profile of the refractive coefficient, :math:`n
 *Propagation of a tilted Gaussian beam in a lens-like, absorptive medium.*
 
 .. [#f9] D. Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).
+
+
+...............................................................................................
 
 Fourier optics.
 ***************
