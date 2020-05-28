@@ -979,7 +979,7 @@ def SubPhase( Fin, Phi):
     
     .. seealso::
     
-        * :ref:`Matlab: User defined phase and intensity filters.<User defined phase and intensity filters.>`
+        * :ref:`Manual: User defined phase and intensity filters.<User defined phase and intensity filters.>`
     """
     Fout = Field.copy(Fin)
     if not _np.isscalar(Phi):

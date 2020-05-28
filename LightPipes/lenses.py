@@ -29,9 +29,9 @@ def Axicon(Fin, phi, n1 = 1.5, x_shift = 0.0, y_shift = 0.0 ):
     >>> F = Axicon(F,phi, n1 = 1.23, y_shift = 2*mm) # Idem, refractive index = 1.23, shifted 2 mm in y direction
     >>> F = Axicon(F, phi, 1.23, 2*mm, 0.0) # Idem
      
-    ..seealso::
+    .. seealso::
     
-    * :ref:`Example: Bessel beam with axicon <Generation of a Bessel beam with an axicon.>`
+        * :ref:`Example: Bessel beam with axicon <Generation of a Bessel beam with an axicon.>`
     """
     Fout = Field.copy(Fin)
     k = 2*_np.pi/Fout.lam

@@ -20,10 +20,6 @@ def PointSource(Fin, x=0.0, y=0.0):
     >>> F = PointSource(F) # point source at center of the grid
     >>> F = PointSource(F, x = 5*mm) # point source at x=5mm, y=0.0
     >>> F = PointSource(F, 5*mm, 0.0) # Idem
-  
-    .. seealso::
-    
-        * -
     """
     Fout = Field.copy(Fin)
     if abs(x) >= Fin.siz/2 or abs(y) >= Fin.siz/2:
@@ -58,10 +54,6 @@ def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
     >>> F = PlaneWave(F, w = 2*mm, x = 5*mm) # Idem at x=5mm, y=0.0
     >>> F = PlaneWave(F, w = 2*mm, x = 5*mm, ty = 1.0*mrad) # Idem at x=5mm, y=0.0, tilted 1.0 mrad
     >>> F = PlaneWave(F, 2*mm, 5*mm, 0.0, 1.0*mrad) # Idem
-
-    .. seealso::
-    
-        * -
     """
     Fout = Field.copy(Fin)
     Fout=CircAperture(Fout, w/2, x_shift, y_shift )
