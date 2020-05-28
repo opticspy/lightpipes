@@ -9,7 +9,10 @@ A=1
 z=1*m
 
 F=Begin(size,wavelength,N)
-F=GaussHermite(2,3,A,w0,F)
+if LPversion < '2.0.0':
+    F=GaussHermite(2, 3, A, w0, F)
+else:
+    F=GaussHermite(F, w0, 2, 3, A)
 F=Fresnel(z,F)
 I=Intensity(2,F)
 plt.imshow(I)

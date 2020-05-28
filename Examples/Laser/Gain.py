@@ -16,7 +16,7 @@ It0=900.0*W/cm/cm; A=math.sqrt(It0)
 Isat=133*W/cm/cm; alpha0=0.0064/cm; Lgain=210*cm;
 
 F=Begin(size,wavelength,N)
-F=GaussHermite(0,0,A,w0,F)
+F=GaussBeam(F, w0)
 Iin=Intensity(1,F);Pin=Power(F)
 F=Gain(2*Isat,alpha0,Lgain,F);Pout=Power(F)
 Iout=Intensity(1,F)

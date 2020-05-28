@@ -23,7 +23,7 @@ contents:
    install
    support
    command-reference
-   description_of_lightpipes_for_python
-   examples_of_lightpipes_for_python
+   manual
+   examples
    computerprac
 

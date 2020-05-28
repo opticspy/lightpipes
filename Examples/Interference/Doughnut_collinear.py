@@ -34,10 +34,10 @@ fig.subplots_adjust(hspace=0.5)
 axs = _axs.flatten()
 
 F=Begin(size,wavelength,N)
-F1=GaussBeam(R,F,doughnut=True,n=0,m=1) #beam 1: doughnut  Laguerre-Gauss
+F1=GaussBeam(F,R,doughnut=True,n=0,m=1) #beam 1: doughnut  Laguerre-Gauss
 F1=Forvard(z1,F1) #propagate path 1
 
-F2=GaussBeam(R,F) #beam 2: TEM00 Gauss
+F2=GaussBeam(F,R) #beam 2: TEM00 Gauss
 F2=Forvard(z2,F2) #propagate path 2
 
 for i in range(23):

@@ -35,7 +35,7 @@ The simulations make use of an optical toolbox (`LightPipes <http://www.okotech.
 |.. figure:: ./figures/FresnelLab1.jpg | .. figure:: ./figures/FresnelLab2.jpg |
 +--------------------------------------+---------------------------------------+
 
-*Fresnel diffraction pattern as observed in the* `real optics lab <http://edu.tnw.utwente.nl/optprac/>`_
+*Fresnel diffraction pattern as observed in the* real optics lab.
 
 The Python script file of each experiment can be downloaded and executed if you properly prepared your Python installation including the installation of the necessary packages, see: :ref:`Prepare your computer.`
 The experiments should be done in the order given by the :ref:`assignments<Assignments.>` and when possible repeated in the real laboratory.

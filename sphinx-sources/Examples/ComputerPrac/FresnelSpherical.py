@@ -54,7 +54,7 @@ v=StringVar()
 def TheExample(event):
     global I
     F=Begin(size,wavelength,N)
-    F=GaussHermite(0,0,1.0,size/3,F)
+    F=GaussBeam(F, size/3)
     z1=Z1.get()*cm
     z2=Z2.get()*cm
     R=D.get()/2*mm

@@ -130,13 +130,13 @@ def _eigenmode():
         if m==0:
             m=1
         v2.set(r'Injected eigen mode: ' + f'dougnut LG{m},{mode_n}*')
-        F=GaussBeam(w0,F,doughnut=True,m=m,n=mode_n)
+        F=GaussBeam(F, w0, doughnut=True, m=m, n=mode_n)
     else:
         if LG.get():
-            F=GaussBeam(w0,F,LG=True,m=mode_m,n=mode_n)
+            F=GaussBeam(F, w0, LG=True, m=mode_m, n=mode_n)
             v2.set(r'Injected eigen mode: ' + f'Laguerre-Gauss{mode_m},{mode_n}')
         else:
-            F=GaussBeam(w0,F,LG=False,m=mode_m,n=mode_n)
+            F=GaussBeam(F, w0, LG=False, m=mode_m, n=mode_n)
             v2.set(r'Injected eigen mode: ' + f'Hermite-Gauss{mode_m},{mode_n}')
     F=Forvard(z2,F);
 

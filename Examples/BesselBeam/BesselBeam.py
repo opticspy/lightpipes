@@ -14,6 +14,7 @@ n1=1.5
 z=80*cm
 
 F=Begin(size,wavelength,N)
+F=GaussHermite(F,0,0,1,2*mm)
 F=Axicon(phi,n1,0,0,F)
 F=Forvard(z,F)
 I=Intensity(2,F)

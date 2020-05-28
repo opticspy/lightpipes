@@ -18,7 +18,7 @@ size = 15*mm
 N = 200
 w0=3*mm
 i=0
-LG=False
+LG=True
 
 n_max=6;m_max=6
 fig, axs = plt.subplots(nrows=m_max, ncols=n_max,figsize=(11.0,7.0))
@@ -33,7 +33,7 @@ fig.subplots_adjust(hspace=0.4)
 F=Begin(size,wavelength,N)
 for m in range(int(m_max/2)):
     for n in range(n_max):
-        F=GaussBeam(w0,F,LG=LG,n=n,m=m)
+        F=GaussBeam(F, w0, LG=LG,n=n,m=m)
         I=Intensity(0,F)
         Phi=Phase(F)
         if LG:

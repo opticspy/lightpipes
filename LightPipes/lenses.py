@@ -3,29 +3,35 @@
 import numpy as _np
 
 from .field import Field
-from .propagators import Forvard, Fresnel
+from .propagators import Forvard, Fresnel, backward_compatible
 
-def Axicon(phi, n1, x_shift, y_shift, Fin):
+@backward_compatible
+def Axicon(Fin, phi, n1 = 1.5, x_shift = 0.0, y_shift = 0.0 ):
     """
-    Fout = Axicon(phi, n1, x_shift, y_shift, Fin)
-   
-    :ref:`Propagates the field through an axicon. <Axicon>`
-
-    Args::
+    *Propagates the field through an axicon.*
     
-        phi: top angle of the axicon in radians
-        n1: refractive index of the axicon material
-        x_shift, y_shift: shift from the center
-        Fin: input field
-        
-    Returns::
-      
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
+    :param Fin: input field
+    :type Fin: Field
+    :param phi: top angle of the axicon in radiants
+    :type phi: int, float
+    :param n1: refractive index of the axicon material (default = 1.5)
+    :type phi: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :type x_shift: int, float
+    :param y_shift: shift in y direction (default = 0.0)
+    :type y_shift: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-    :ref:`Bessel beam with axicon <BesselBeam>`
-
+    >>> phi=179.7/180*3.1415
+    >>> F = Axicon(F, phi) # axicon with top angle phi, refractive index = 1.5, centered in grid
+    >>> F = Axicon(F,phi, n1 = 1.23, y_shift = 2*mm) # Idem, refractive index = 1.23, shifted 2 mm in y direction
+    >>> F = Axicon(F, phi, 1.23, 2*mm, 0.0) # Idem
+     
+    ..seealso::
+    
+    * :ref:`Example: Bessel beam with axicon <Generation of a Bessel beam with an axicon.>`
     """
     Fout = Field.copy(Fin)
     k = 2*_np.pi/Fout.lam
@@ -41,22 +47,19 @@ def Axicon(phi, n1, x_shift, y_shift, Fin):
 
 def Convert(Fin):
     """
-    Fout = Convert(Fin)
+    *Converts the field from a spherical variable coordinate to a normal coordinate system.*
 
-    :ref:`Converts the field from a spherical variable coordinate to a normal coordinate system. <Convert>`
-
-    Args::
+    :param Fin: input field
+    :type Fin: Field
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        Fin: input field
-        
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
+    >>> F = Convert(F) # convert to normal coordinates
     
-    :ref:`Unstable resonator <Unstab>`
+    .. seealso::
     
+        * :ref:`Examples: Unstable resonator <Unstable laser resonator.>`
     """
     Fout = Field.copy(Fin) #copy even if no need to convert to be consistent
     doub1 = Fin._curvature
@@ -81,25 +84,33 @@ def Convert(Fin):
     Fout._curvature = 0.0
     return Fout
 
-
-def Lens(f, x_shift, y_shift, Fin):
+@backward_compatible
+def Lens(Fin, f, x_shift = 0.0, y_shift = 0.0):
     """
-    Fout = Lens(f, x_shift, y_shift, Fin)
+    *Propagates the field through an ideal, thin lens.*
 
-    :ref:`Propagates the field through an ideal, thin lens. <Lens>`
-
-    It adds a phase given by:
+    The field is multiplied by a phase given by:
     :math:`F_{out}(x,y)=e^{-j\\frac{2\\pi}{\\lambda}\\left(\\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\\right)}F_{in}(x,y)`
-        
-    Args::
     
-        f: focal length
-        x_shift, y_shift: shift from center
-        Fin: input field
-        
-    Returns::
+    :param Fin: input field
+    :type Fin: Field
+    :param f: focal length of the lens
+    :type f: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :type x_shift: int, float
+    :param y_shift: shift in y direction (default = 0.0)
+    :type y_shift: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        Fout: output field (N x N square array of complex numbers).
+    >>> F = Lens(F, 50*mm) # propagate through lens with focal length of 50 mm
+    >>> F = Lens(F, 50*mm, x_shift = 5*mm) # Idem, shifted 5 mm in x direction
+    >>> F = Lens(F, 50*mm, 5*mm, 0.0) # Idem
+
+    .. seealso::
+    
+        * :ref:`Manual: Phase and intensity filters.<Phase and intensity filters.>`
 
     """
     Fout = Field.copy(Fin)
@@ -115,8 +126,7 @@ def Lens(f, x_shift, y_shift, Fin):
     Fout.field *= _np.exp(1j * fi)
     return Fout
 
-
-def LensFarfield(f, Fin):
+def LensFarfield(Fin, f ):
     """
     Use a direct FFT approach to calculate the far field of the input field.
     Given the focal length f, the correct scaling is applied and the
@@ -168,27 +178,28 @@ def LensFarfield(f, Fin):
     Fout.siz = L_prime
     return Fout
 
-
-def LensForvard(f, z, Fin):
+@backward_compatible
+def LensForvard(Fin, f, z ):
     """
-    Fout = LensForvard(f, z, Fin)
+    *Propagates the field in a variable spherical coordinate system using Forvard propagator.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param f: focal length
+    :type f: int, float
+    :param z: propagation distance
+    :type z: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = LensForvard(F, 100*mm, 20*cm) # propagate 20 cm with spherical coordinates given by the focal length of 100 mm
 
-    :ref:`Propagates the field in a variable spherical coordinate system. <LensForvard>`
+    .. seealso::
+    
+        * :ref:`Manual: Spherical coordinates.<Spherical coordinates.>`
         
-    Args::
-        
-        f: focal length
-        z: propagation distance
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-        
-    Example:
-        
-    :ref:`Spherical coordinates <SphericalCoordinates>`
-        
+        * :ref:`Examples: Unstable laser resonator.<Unstable laser resonator.>`
     """
     LARGENUMBER = 10000000.
     doub1 = Fin._curvature
@@ -226,27 +237,28 @@ def LensForvard(f, z, Fin):
         Fout.field /= ampl_scale
     return Fout
 
-
-def LensFresnel(f, z, Fin):
+@backward_compatible
+def LensFresnel(Fin, f, z ):
     """
-    Fout = LensFresnel(f, z, Fin)
+    *Propagates the field in a variable spherical coordinate system using Fresnel propagator.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param f: focal length
+    :type f: int, float
+    :param z: propagation distance
+    :type z: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = LensFresnel(F, 100*mm, 20*cm) # propagate 20 cm with spherical coordinates given by the focal length of 100 mm
 
-    :ref:`Propagates the field in a variable spherical coordinate system. <LensFresnel>`
+    .. seealso::
+    
+        * :ref:`Manual: Spherical coordinates.<Spherical coordinates.>`
         
-    Args::
-        
-        f: focal length
-        z: propagation distance
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-        
-    Example:
-        
-    :ref:`Spherical coordinates <SphericalCoordinates>`
-        
+        * :ref:`Examples: Unstable laser resonator.<Unstable laser resonator.>`
     """
     doub1 = Fin._curvature
     size = Fin.siz

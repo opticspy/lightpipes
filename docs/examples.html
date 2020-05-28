@@ -1,59 +1,225 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>6. Examples. &#8212; LightPipes for Python 2.0.2 documentation</title>
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Examples. &mdash; LightPipes for Python 2.0.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Computer practical." href="computerprac.html" />
-    <link rel="prev" title="5. Manual." href="description_of_lightpipes_for_python.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="computerprac.html" title="7. Computer practical."
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="description_of_lightpipes_for_python.html" title="5. Manual."
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LightPipes for Python 2.0.2 documentation</a> &#187;</li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="5. Manual." href="manual.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightPipes for Python
+          
+
+          
+            
+            <img src="_static/front.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">5. Manual.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Examples.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#interference-examples">6.1. Interference examples.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment">6.1.1. Young’s experiment.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#michelson-interferometer">6.1.2. Michelson interferometer.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interference-of-a-doughnut-laser-beam-collinear-beams">6.1.3. Interference of a doughnut laser beam: collinear beams.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interference-of-a-doughnut-laser-beam-tilted-beams">6.1.4. Interference of a doughnut laser beam: tilted beams.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#diffraction-examples">6.2. Diffraction examples.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#diffraction-from-a-circular-aperture">6.2.1. Diffraction from a circular aperture.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spot-of-poisson">6.2.2. Spot of Poisson.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#non-diffractive-bessel-beam">6.3. Non-diffractive Bessel beam.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-poisson-spot-to-a-non-diffractive-bessel-beam">6.3.1. From Poisson spot to a non-diffractive Bessel beam.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#collimating-the-edge-waves-with-a-lens">6.3.1.1. Collimating the edge waves with a lens.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#generation-of-a-bessel-beam-with-a-lens-and-an-annular-slit">6.3.2. Generation of a Bessel beam with a lens and an annular slit.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generation-of-a-bessel-beam-with-an-axicon">6.3.3. Generation of a Bessel beam with an axicon.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#laser-examples">6.4. Laser examples.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hermite-gauss-modes">6.4.1. Hermite Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#laguerre-gauss-modes">6.4.2. Laguerre Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#laguerre-doughnut-modes">6.4.3. Laguerre doughnut modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#laser-simulation-stable-laser-resonator">6.4.4. Laser simulation, stable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unstable-laser-resonator">6.4.5. Unstable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transformation-of-a-fundamental-gauss-mode-into-a-doughnut-mode-with-a-spiral-phase-plate">6.4.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#phase-recovery">6.5. Phase recovery.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phase-recovery-using-gerchberg-saxton-iteration">6.5.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#zernike-aberration">6.6. Zernike aberration.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#radial-shear-interferometer">6.6.1. Radial shear interferometer.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#graded-index-media-grin">6.7. Graded index media GRIN.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#demonstration-of-a-grin-lens">6.7.1. Demonstration of a GRIN lens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment-with-grin-lens">6.7.2. Young’s experiment with GRIN lens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propagation-in-a-lens-like-absorptive-medium">6.7.3. Propagation in a lens-like, absorptive medium.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fourier-optics">6.8. Fourier optics.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pattern-recognition">6.8.1. Pattern recognition.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightPipes for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">6. </span>Examples.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="examples">
 <h1><span class="section-number">6. </span>Examples.<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="interference-examples">
-<span id="interference"></span><h2><span class="section-number">6.1. </span>Interference examples.<a class="headerlink" href="#interference-examples" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="young"></span><div class="section" id="young-s-experiment">
+<h2><span class="section-number">6.1. </span>Interference examples.<a class="headerlink" href="#interference-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="young-s-experiment">
 <span id="index-0"></span><h3><span class="section-number">6.1.1. </span>Young’s experiment.<a class="headerlink" href="#young-s-experiment" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
-
+<span class="n">LPversion</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Young&#39;s experiment.</span>
 <span class="sd">    Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern</span>
@@ -93,7 +259,7 @@
 </div>
 </div>
 <div class="section" id="michelson-interferometer">
-<span id="michelson"></span><h3><span class="section-number">6.1.2. </span>Michelson interferometer.<a class="headerlink" href="#michelson-interferometer" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2. </span>Michelson interferometer.<a class="headerlink" href="#michelson-interferometer" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate" id="index-1"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
 <span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -122,7 +288,10 @@
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Generate a weak converging laser beam using a weak positive lens:</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="c1">#F=GaussBeam(F, R)</span>
+<span class="c1">#F=GaussHermite(F,R,0,0,1) #new style</span>
+<span class="c1">#F=GaussHermite(F,R) #new style</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#old style</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
 <span class="c1">#Propagate to the beamsplitter:</span>
@@ -194,10 +363,10 @@
 <span class="n">axs</span> <span class="o">=</span> <span class="n">_axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">F1</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#beam 1: doughnut  Laguerre-Gauss</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#beam 1: doughnut  Laguerre-Gauss</span>
 <span class="n">F1</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span> <span class="c1">#propagate path 1</span>
 
-<span class="n">F2</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">F</span><span class="p">)</span> <span class="c1">#beam 2: TEM00 Gauss</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">R</span><span class="p">)</span> <span class="c1">#beam 2: TEM00 Gauss</span>
 <span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span> <span class="c1">#propagate path 2</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">23</span><span class="p">):</span>
@@ -256,9 +425,9 @@
 <span class="n">tx</span><span class="o">=</span><span class="mf">1.0</span><span class="o">*</span><span class="n">mrad</span> <span class="c1"># tilt of mirror 1</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">F1</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">xshift</span><span class="o">=-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">w0</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">xshift</span><span class="o">=-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span>
 <span class="n">Phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F1</span><span class="p">)</span>
-<span class="n">F2</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">tx</span><span class="o">=</span><span class="n">tx</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">w0</span><span class="p">,</span><span class="n">tx</span><span class="o">=</span><span class="n">tx</span><span class="p">)</span>
 <span class="n">F1</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
 <span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
@@ -297,12 +466,12 @@
 <div class="figure align-default">
 <img alt="_images/Doughnut_tilt.png" src="_images/Doughnut_tilt.png" />
 </div>
+</div>
+</div>
 <hr class="docutils" />
-</div>
-</div>
 <div class="section" id="diffraction-examples">
-<span id="diffraction"></span><h2><span class="section-number">6.2. </span>Diffraction examples.<a class="headerlink" href="#diffraction-examples" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="circ-aperture"></span><div class="section" id="diffraction-from-a-circular-aperture">
+<h2><span class="section-number">6.2. </span>Diffraction examples.<a class="headerlink" href="#diffraction-examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="diffraction-from-a-circular-aperture">
 <span id="index-2"></span><h3><span class="section-number">6.2.1. </span>Diffraction from a circular aperture.<a class="headerlink" href="#diffraction-from-a-circular-aperture" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -324,7 +493,7 @@
 <div class="figure align-default">
 <img alt="_images/RoundHole.png" src="_images/RoundHole.png" />
 </div>
-<span class="target" id="poisson"></span></div>
+</div>
 <div class="section" id="spot-of-poisson">
 <span id="index-3"></span><h3><span class="section-number">6.2.2. </span>Spot of Poisson.<a class="headerlink" href="#spot-of-poisson" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -335,7 +504,7 @@
 <span class="n">N</span><span class="o">=</span><span class="mi">500</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircScreen</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
@@ -348,11 +517,11 @@
 <div class="figure align-default">
 <img alt="_images/Poisson.png" src="_images/Poisson.png" />
 </div>
+</div>
+</div>
 <hr class="docutils" />
-</div>
-</div>
 <div class="section" id="non-diffractive-bessel-beam">
-<span id="besselbeam"></span><h2><span class="section-number">6.3. </span>Non-diffractive Bessel beam.<a class="headerlink" href="#non-diffractive-bessel-beam" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Non-diffractive Bessel beam.<a class="headerlink" href="#non-diffractive-bessel-beam" title="Permalink to this headline">¶</a></h2>
 <p id="index-4">A Bessel beam has the interesting property that it does not diffract and that it keeps its shape
 over large distances. Several meters, depending on parameters, can be realized. Applications of Bessel beams
 take advantage of the very large size of the focus, which cannot be obtained using lenses or mirrors.
@@ -411,7 +580,7 @@ to a Poisson spot near the axis. It can be shown that the intensity distribution
 <span class="c1">#   x.append((-size/2 + i*size/N)/mm)</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircScreen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
 <span class="n">w0</span><span class="o">=</span><span class="mf">2.44</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">wavelength</span><span class="o">/</span><span class="n">a</span>
@@ -475,7 +644,7 @@ surrounding the disk resulting in an annular slit.</p>
 <span class="n">z</span><span class="o">=</span><span class="n">z_start</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircScreen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
@@ -531,7 +700,7 @@ the ‘overlap area’. From geometric optics this distance can be estimated by:
 <span class="n">z</span><span class="o">=</span><span class="n">z_start</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircScreen</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
@@ -588,7 +757,7 @@ a small fraction of the total beam power.</p>
 <span class="n">z</span><span class="o">=</span><span class="n">z_start</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussHermite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mf">3.5</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">Axicon</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span><span class="n">n1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">steps</span><span class="p">):</span> 
@@ -612,9 +781,8 @@ a small fraction of the total beam power.</p>
 <hr class="docutils" />
 <div class="section" id="laser-examples">
 <h2><span class="section-number">6.4. </span>Laser examples.<a class="headerlink" href="#laser-examples" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="laser-resonator-eigen-modes">
-<span id="index-5"></span><h3><span class="section-number">6.4.1. </span>Laser resonator eigen modes.<a class="headerlink" href="#laser-resonator-eigen-modes" title="Permalink to this headline">¶</a></h3>
-<p>Hermite Gauss modes:</p>
+<div class="section" id="hermite-gauss-modes">
+<span id="index-5"></span><h3><span class="section-number">6.4.1. </span>Hermite Gauss modes.<a class="headerlink" href="#hermite-gauss-modes" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Gauss_laser_mode.py</span>
@@ -650,7 +818,7 @@ a small fraction of the total beam power.</p>
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">m_max</span><span class="o">/</span><span class="mi">2</span><span class="p">)):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_max</span><span class="p">):</span>
-        <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">LG</span><span class="o">=</span><span class="n">LG</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">LG</span><span class="o">=</span><span class="n">LG</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
         <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
         <span class="n">Phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">LG</span><span class="p">:</span>
@@ -668,7 +836,9 @@ a small fraction of the total beam power.</p>
 <div class="figure align-default">
 <img alt="_images/Gauss_laser_mode_HG.png" src="_images/Gauss_laser_mode_HG.png" />
 </div>
-<p>Laguerre Gauss modes:</p>
+</div>
+<div class="section" id="laguerre-gauss-modes">
+<h3><span class="section-number">6.4.2. </span>Laguerre Gauss modes.<a class="headerlink" href="#laguerre-gauss-modes" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Gauss_laser_mode.py</span>
@@ -704,7 +874,7 @@ a small fraction of the total beam power.</p>
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">m_max</span><span class="o">/</span><span class="mi">2</span><span class="p">)):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_max</span><span class="p">):</span>
-        <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">LG</span><span class="o">=</span><span class="n">LG</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">LG</span><span class="o">=</span><span class="n">LG</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
         <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
         <span class="n">Phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">LG</span><span class="p">:</span>
@@ -722,7 +892,9 @@ a small fraction of the total beam power.</p>
 <div class="figure align-default">
 <img alt="_images/Gauss_laser_mode_LG.png" src="_images/Gauss_laser_mode_LG.png" />
 </div>
-<p>Laguerre doughnut modes:</p>
+</div>
+<div class="section" id="laguerre-doughnut-modes">
+<h3><span class="section-number">6.4.3. </span>Laguerre doughnut modes.<a class="headerlink" href="#laguerre-doughnut-modes" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">GaussLaguerre_doughnut.py</span>
@@ -751,7 +923,7 @@ a small fraction of the total beam power.</p>
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m_max</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">doughnut</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
     <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
     <span class="n">Phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
     <span class="n">s</span><span class="o">=</span><span class="n">f</span><span class="s1">&#39;$LG_{n}$&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;$_{m}$&#39;</span> <span class="o">+</span> <span class="s1">&#39;$_*$&#39;</span>
@@ -766,7 +938,7 @@ a small fraction of the total beam power.</p>
 </div>
 </div>
 <div class="section" id="laser-simulation-stable-laser-resonator">
-<h3><span class="section-number">6.4.2. </span>Laser simulation, stable laser resonator.<a class="headerlink" href="#laser-simulation-stable-laser-resonator" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.4. </span>Laser simulation, stable laser resonator.<a class="headerlink" href="#laser-simulation-stable-laser-resonator" title="Permalink to this headline">¶</a></h3>
 <p>A typical laser consists of two (concave or convex) mirrors separated some distance and a gain medium mostly based on
 stimulated emission. One (or both) of the mirrors is partly transmissive and when the
 mirrors are well aligned and the losses are below some maximum the radiation field inside the
@@ -917,13 +1089,13 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
         <span class="k">if</span> <span class="n">m</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
             <span class="n">m</span><span class="o">=</span><span class="mi">1</span>
         <span class="n">v2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Injected eigen mode: &#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;dougnut LG</span><span class="si">{m}</span><span class="s1">,</span><span class="si">{mode_n}</span><span class="s1">*&#39;</span><span class="p">)</span>
-        <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">doughnut</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
+        <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">doughnut</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">LG</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
-            <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">LG</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">mode_m</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
+            <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">LG</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">mode_m</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
             <span class="n">v2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Injected eigen mode: &#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;Laguerre-Gauss</span><span class="si">{mode_m}</span><span class="s1">,</span><span class="si">{mode_n}</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">LG</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">mode_m</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
+            <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">LG</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">mode_m</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
             <span class="n">v2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Injected eigen mode: &#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;Hermite-Gauss</span><span class="si">{mode_m}</span><span class="s1">,</span><span class="si">{mode_n}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 
@@ -1017,7 +1189,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 </div>
 </div>
 <div class="section" id="unstable-laser-resonator">
-<span id="unstab"></span><h3><span class="section-number">6.4.3. </span>Unstable laser resonator.<a class="headerlink" href="#unstable-laser-resonator" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.5. </span>Unstable laser resonator.<a class="headerlink" href="#unstable-laser-resonator" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Unstable resonator.</span>
 <span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
@@ -1105,7 +1277,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 </div>
 </div>
 <div class="section" id="transformation-of-a-fundamental-gauss-mode-into-a-doughnut-mode-with-a-spiral-phase-plate">
-<h3><span class="section-number">6.4.4. </span>Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.<a class="headerlink" href="#transformation-of-a-fundamental-gauss-mode-into-a-doughnut-mode-with-a-spiral-phase-plate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.6. </span>Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.<a class="headerlink" href="#transformation-of-a-fundamental-gauss-mode-into-a-doughnut-mode-with-a-spiral-phase-plate" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Spiral_phase_plate.py</span>
@@ -1129,7 +1301,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">w0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
 <span class="n">Iin</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
 <span class="n">F</span><span class="o">=</span><span class="n">PhaseSpiral</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
 <span class="n">phase</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">unwrap</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -1180,11 +1352,11 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 <div class="figure align-default">
 <img alt="_images/Spiral_phase_plate.png" src="_images/Spiral_phase_plate.png" />
 </div>
+</div>
+</div>
 <hr class="docutils" />
-</div>
-</div>
 <div class="section" id="phase-recovery">
-<span id="phaserecovery"></span><h2><span class="section-number">6.5. </span>Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="phase-recovery-using-gerchberg-saxton-iteration">
 <span id="index-6"></span><h3><span class="section-number">6.5.1. </span>Phase recovery using Gerchberg Saxton iteration.<a class="headerlink" href="#phase-recovery-using-gerchberg-saxton-iteration" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/python</span>
@@ -1277,7 +1449,7 @@ polynomials. The Zernike command accepts four arguments:
 1. The radial order n  2. The
 azimuthal order m. 3. The radius, R 4. The
 amplitude of the aberration.</p>
-<span class="target" id="zernike-polynomial"></span><div class="highlight-python notranslate" id="index-7"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<div class="highlight-python notranslate" id="index-7"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This example demonstrates the Zernike command.</span>
 <span class="sd">..  :copyright: (c) 2017 by Fred van Goor.</span>
@@ -1390,7 +1562,7 @@ amplitude of the aberration.</p>
 </div>
 </div>
 <div class="section" id="propagation-in-a-lens-like-absorptive-medium">
-<span id="lenslikemedium"></span><h3><span class="section-number">6.7.3. </span>Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.7.3. </span>Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this headline">¶</a></h3>
 <p>In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We’ll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.</p>
 <p>we use the approximation for the profile of the refractive coefficient, <span class="math notranslate nohighlight">\(n'=n-i\kappa\)</span> in the form: <span class="math notranslate nohighlight">\(n(r)^2=n_0^2-n_0n_1r^2\)</span>. It is a well-known fact <a class="footnote-reference brackets" href="#f9" id="id1">1</a> that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: <span class="math notranslate nohighlight">\(w_0^2=\frac{2}{k(n_0n_1)^{1/2}}\)</span> , with <span class="math notranslate nohighlight">\(k=\frac{2 \pi}{\lambda}\)</span>. For a waveguide of <span class="math notranslate nohighlight">\(1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0\)</span> and <span class="math notranslate nohighlight">\(\lambda = 1 \mu m\)</span>, the Gaussian mode has a diameter of <span class="math notranslate nohighlight">\(226 \mu m\)</span> . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.</p>
 <p>(<a class="reference external" href="./Examples/Waveguide/LensLikeMedium.py">Source code</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.png">png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.pdf">pdf</a>)</p>
@@ -1443,96 +1615,55 @@ presence and the position of the object. This will only be the case when the obj
 </div>
 
 
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="computerprac.html" class="btn btn-neutral float-right" title="7. Computer practical." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="manual.html" class="btn btn-neutral float-left" title="5. Manual." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Fred van Goor
+      <span class="lastupdated">
+        Last updated on May 28, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/front.png" alt="Logo"/>
-            </a></p>
-<h3><a href="index.html">Table of Contents</a></h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="description_of_lightpipes_for_python.html">5. Manual.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Examples.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#interference-examples">6.1. Interference examples.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment">6.1.1. Young’s experiment.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#michelson-interferometer">6.1.2. Michelson interferometer.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interference-of-a-doughnut-laser-beam-collinear-beams">6.1.3. Interference of a doughnut laser beam: collinear beams.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interference-of-a-doughnut-laser-beam-tilted-beams">6.1.4. Interference of a doughnut laser beam: tilted beams.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#diffraction-examples">6.2. Diffraction examples.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#diffraction-from-a-circular-aperture">6.2.1. Diffraction from a circular aperture.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#spot-of-poisson">6.2.2. Spot of Poisson.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#non-diffractive-bessel-beam">6.3. Non-diffractive Bessel beam.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#from-poisson-spot-to-a-non-diffractive-bessel-beam">6.3.1. From Poisson spot to a non-diffractive Bessel beam.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generation-of-a-bessel-beam-with-a-lens-and-an-annular-slit">6.3.2. Generation of a Bessel beam with a lens and an annular slit.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#generation-of-a-bessel-beam-with-an-axicon">6.3.3. Generation of a Bessel beam with an axicon.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#laser-examples">6.4. Laser examples.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#laser-resonator-eigen-modes">6.4.1. Laser resonator eigen modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#laser-simulation-stable-laser-resonator">6.4.2. Laser simulation, stable laser resonator.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#unstable-laser-resonator">6.4.3. Unstable laser resonator.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#transformation-of-a-fundamental-gauss-mode-into-a-doughnut-mode-with-a-spiral-phase-plate">6.4.4. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#phase-recovery">6.5. Phase recovery.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#phase-recovery-using-gerchberg-saxton-iteration">6.5.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#zernike-aberration">6.6. Zernike aberration.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#radial-shear-interferometer">6.6.1. Radial shear interferometer.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#graded-index-media-grin">6.7. Graded index media GRIN.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#demonstration-of-a-grin-lens">6.7.1. Demonstration of a GRIN lens.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#young-s-experiment-with-grin-lens">6.7.2. Young’s experiment with GRIN lens.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#propagation-in-a-lens-like-absorptive-medium">6.7.3. Propagation in a lens-like, absorptive medium.</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#fourier-optics">6.8. Fourier optics.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pattern-recognition">6.8.1. Pattern recognition.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
-</ul>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/examples_of_lightpipes_for_python.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div> 
+    </section>
 
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2017, Fred van Goor.
-      Last updated on May 22, 2020.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.
-    </div>
-  </body>
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

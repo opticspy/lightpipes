@@ -22,7 +22,7 @@ delta_z=(z_end-z_start)/steps
 z=z_start
 
 F=Begin(size,wavelength,N);
-F=GaussHermite(0,0,1,size/3.5,F)
+F=GaussBeam(F, size/3.5)
 F=CircScreen(a,0,0,F)
 F=CircAperture(a+0.1*mm,0,0,F)
 F=Fresnel(f,F);

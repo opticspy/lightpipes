@@ -75,7 +75,7 @@ def TheExample(event):
     F=Fresnel(z,F);
     I=Intensity(1,F);
     ax1.clear()
-    ax1.contourf(I,50,cmap='hot');
+    ax1.contourf(I,50,cmap='jet');
     ax1.axis('off'); ax1.axis('equal');
     str='Intensity distribution'
     ax1.set_title(str)

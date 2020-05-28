@@ -30,26 +30,28 @@ from scipy.sparse import coo_matrix
 from .field import Field
 from . import tictoc
 from .subs import elim, elimH, elimV
+from .misc import backward_compatible
 
-def Fresnel(z, Fin):
+@backward_compatible
+def Fresnel(Fin, z):
     """
-    Fout = Fresnel(z, Fin)
+    *Propagates the field using a convolution method.*
 
-    :ref:`Propagates the field using a convolution method. <Fresnel>`
-
-    Args::
+    :param Fin: input field
+    :type Fin: Field
+    :param z: propagation distance
+    :type z: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        z: propagation distance
-        Fin: input field
+    >>> F = Fresnel(F, 20*cm) # propagates the field 20 cm
+    
+    .. seealso::
         
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
-    
-    :ref:`Two holes interferometer <Young>`
-
+        * :ref:`Manual: Direct integration as a convolution: FFT approach. <Direct integration as a convolution: FFT approach.>`
+        
+        * :ref:`Examples: Young's experiment.<Young's experiment.>`
     """
     if z < 0:
         raise ValueError('Fresnel does not support negative z')
@@ -233,26 +235,26 @@ def _field_Fresnel(z, field, dx, lam):
             ttotal, t_fft, t_outside))
     return field
 
-
-def Forward(z, sizenew, Nnew, Fin):
+@backward_compatible
+def Forward(Fin, z, sizenew, Nnew ):
     """
-    Fout = Forward(z, sizenew, Nnew, Fin)
+    *Propagates the field using direct integration.*
 
-    :ref:`Propagates the field using direct integration. <Forward>`
-
-    Args::
+    :param Fin: input field
+    :type Fin: Field
+    :param z: propagation distance
+    :type z: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        z: propagation distance
-        Fin: input field
+    >>> F = Forward(F, 20*cm, 10*mm, 20) # propagates the field 20 cm, for a new grid size of 10 mm and a new grid dimension 20
+    
+    .. seealso::
         
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
-    
-    :ref:`Diffraction from a circular aperture <Diffraction>`
-    
+        * :ref:`Manual: Direct integration. <Direct integration.>`
+        
+        * :ref:`Manual: Splitting and mixing beams.<Splitting and mixing beams.>` (figure 10.)
     """
     if z <= 0:
         raise ValueError('Forward does not support z<=0')
@@ -326,25 +328,26 @@ def Forward(z, sizenew, Nnew, Fin):
             field_out[j_new, i_new] = Temp_c.sum() #complex elementwise sum
     return Fout
 
-def Forvard(z, Fin):
+@backward_compatible
+def Forvard(Fin, z):
     """
-    Fout = Forvard(z, Fin)
+    *Propagates the field using a FFT algorithm.*
 
-    :ref:`Propagates the field using a FFT algorithm. <Forvard>`
-
-    Args::
+    :param Fin: input field
+    :type Fin: Field
+    :param z: propagation distance
+    :type z: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        z: propagation distance
-        Fin: input field
+    >>> F = Forvard(F, 20*cm) # propagates the field 20 cm
+    
+    .. seealso::
         
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
-    
-    :ref:`Diffraction from a circular aperture <Diffraction>`
-    
+        * :ref:`Manual: FFT propagation (spectral method).<FFT propagation (spectral method).>`
+        
+        * :ref:`Examples: Diffraction from a circular aperture.<Diffraction from a circular aperture.>`
     """
     if z==0:
         Fout = Field.copy(Fin)
@@ -406,31 +409,34 @@ def Forvard(z, Fin):
     Fout.field = in_out
     return Fout
 
-
-def Steps(z, nstep, refr, Fin, save_ram=False, use_scipy=False):
+@backward_compatible
+def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
     """
-    Fout = Steps(z, nstep, refr, Fin, save_ram=False, use_scipy=False)
-
-    :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
+    *Propagates the field a distance, nstep x z, in nstep steps in a
     medium with a complex refractive index stored in the
-    square array refr. <Steps>`
+    square array refr.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param z: propagation distance per step
+    :type z: int, float
+    :param nstep: number of steps (default = 1)
+    :type nstep: int, float
+    :param refr: refractive index (N x N array of complex numbers) (default = 1.0)
+    :type refr: numpy.ndarray
+    :param save_ram: -
+    :type save_ram: bool
+    :param use_scipy: -
+    :type use_scipy: bool    
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
-    Args::
+    .. seealso::
     
-        z: propagation distance per step
-        nstep: number of steps
-        refr: refractive index (N x N array of complex numbers)
-        Fin: input field
-        save_ram: -
-        use_scipy: -
+        * :ref:`Manual: Finite difference method.<Finite difference method.>`
         
-    Returns::
-      
-        Fout: ouput field (N x N square array of complex numbers).
-        
-    Example:
-    
-    :ref:`Propagation through a lens like medium <lenslikemedium>`
+        * :ref:`Examples: Propagation in a lens-like, absorptive medium.<Propagation in a lens-like, absorptive medium.>`
     """
     if use_scipy:
         print('Warning! Non-functional develop version for testing')
@@ -449,29 +455,7 @@ def Steps(z, nstep, refr, Fin, save_ram=False, use_scipy=False):
 
 
 def _StepsArrayElim(z, nstep, refr, Fin):
-    """
-    Fout = StepsArrayElim(z, nstep, refr, Fin)
-                 
-    :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
-    medium with a complex refractive index stored in the
-    square array refr. <Steps>`
 
-    Args::
-    
-        z: propagation distance per step
-        nstep: number of steps
-        refr: refractive index (N x N array of complex numbers)
-        Fin: input field
-        
-    Returns::
-      
-        Fout: ouput field (N x N square array of complex numbers).
-        
-    Example:
-    
-    :ref:`Propagation through a lens like medium <lenslikemedium>`
-    
-    """
     if Fin._curvature != 0.0:
         raise ValueError('Cannot operate on spherical coords.'
                          + 'Use Convert() first')
@@ -675,26 +659,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
 def _StepsLoopElim(z, nstep, refr, Fin):
     """
     Fout = StepsLoopElim(z, nstep, refr, Fin)
-                 
-    :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
-    medium with a complex refractive index stored in the
-    square array refr. <Steps>`
 
-    Args::
-    
-        z: propagation distance per step
-        nstep: number of steps
-        refr: refractive index (N x N array of complex numbers)
-        Fin: input field
-        
-    Returns::
-      
-        Fout: ouput field (N x N square array of complex numbers).
-        
-    Example:
-    
-    :ref:`Propagation through a lens like medium <lenslikemedium>`
-    
     """
     if Fin._curvature != 0.0:
         raise ValueError('Cannot operate on spherical coords.'
@@ -888,29 +853,7 @@ def _TODOStepsScipy(z, nstep, refr, Fin):
     which is not functional for Lightpipes!
     Also, its really really slow, so possibly not useful at all.
     """
-    """
-    Fout = Steps(z, nstep, refr, Fin)
-                 
-    :ref:`Propagates the field a distance, nstep x z, in nstep steps in a
-    medium with a complex refractive index stored in the
-    square array refr. <Steps>`
 
-    Args::
-    
-        z: propagation distance per step
-        nstep: number of steps
-        refr: refractive index (N x N array of complex numbers)
-        Fin: input field
-        
-    Returns::
-      
-        Fout: ouput field (N x N square array of complex numbers).
-        
-    Example:
-    
-    :ref:`Propagation through a lens like medium <lenslikemedium>`
-    
-    """
     if Fin._curvature != 0.0:
         raise ValueError('Cannot operate on spherical coords.'
                          + 'Use Convert() first')

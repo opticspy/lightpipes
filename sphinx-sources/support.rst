@@ -46,4 +46,4 @@ You can get help with LightPipes for Python in several ways:
 3) Look at the :ref:`commandref`
 
 
-4) Read the :ref:`manual`
+4) Read the :ref:`Manual.`

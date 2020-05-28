@@ -1,12 +1,8 @@
 Examples.
 =========
 
-.. _interference:
-
 Interference examples.
 **********************
-
-.. _Young:
 
 .. Index::
     Two holes interferometer
@@ -22,8 +18,6 @@ Young's experiment.
 
 .. plot:: ./Examples/Interference/Young.py
    :include-source:
-
-.. _Michelson:
 
 Michelson interferometer.
 -------------------------
@@ -43,8 +37,6 @@ Michelson interferometer.
 .. plot:: ./Examples/Interference/Michelson.py
    :include-source:
 
-
-   
 Interference of a doughnut laser beam: collinear beams.
 -------------------------------------------------------
 
@@ -60,13 +52,8 @@ Interference of a doughnut laser beam: tilted beams.
 
 ...............................................................................................
 
-
-.. _diffraction:
-
 Diffraction examples.
 *********************
-
-.. _circ_aperture:
 
 .. Index::
     Forvard
@@ -80,8 +67,6 @@ Diffraction from a circular aperture.
 
 .. plot:: ./Examples/Diffraction/RoundHole.py
    :include-source:
-
-.. _Poisson:
 
 .. Index::
     Poisson spot
@@ -98,11 +83,8 @@ Spot of Poisson.
 .. plot:: ./Examples/Diffraction/Poisson.py
    :include-source:
 
-
 ...............................................................................................
 
-
-.. _BesselBeam:
 
 Non-diffractive Bessel beam.
 ****************************
@@ -197,7 +179,6 @@ a small fraction of the total beam power.
 
 ...............................................................................................
 
-
 Laser examples.
 ***************
 
@@ -210,20 +191,21 @@ Laser examples.
      Lens
      Intensity
 
-Laser resonator eigen modes.
-----------------------------
 
-Hermite Gauss modes:
+Hermite Gauss modes.
+--------------------
 
 .. plot:: ./Examples/Laser/Gauss_laser_mode_HG.py
    :include-source:
 
-Laguerre Gauss modes:
+Laguerre Gauss modes.
+---------------------
 
 .. plot:: ./Examples/Laser/Gauss_laser_mode_LG.py
    :include-source:
-   
-Laguerre doughnut modes:
+
+Laguerre doughnut modes.
+------------------------
 
 .. plot:: ./Examples/Laser/GaussLaguerre_doughnut.py
    :include-source:
@@ -260,8 +242,6 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
     :caption: laser_simulation.py
     :name: laser-simulation
 
-.. _Unstab:
-
 Unstable laser resonator.
 -------------------------
 
@@ -277,8 +257,6 @@ Transformation of a fundamental Gauss mode into a doughnut mode with a spiral ph
 
 ...............................................................................................
 
-.. _PhaseRecovery:
-
 Phase recovery.
 ***************
 
@@ -291,7 +269,7 @@ Phase recovery.
      Phase
      PhaseUnwrap
      Intensity
-
+     
 Phase recovery using Gerchberg Saxton iteration.
 ------------------------------------------------
 
@@ -301,7 +279,6 @@ Phase recovery using Gerchberg Saxton iteration.
 
 ...............................................................................................
 
-
 Zernike aberration.
 *******************
 
@@ -310,8 +287,6 @@ polynomials. The Zernike command accepts four arguments:
 1. The radial order n  2. The 
 azimuthal order m. 3. The radius, R 4. The 
 amplitude of the aberration.
-
-.. _zernike_polynomial:
 
 .. Index::
     Zernike aberration
@@ -333,7 +308,6 @@ Radial shear interferometer.
 
 ...............................................................................................
 
-
 Graded index media GRIN.
 ************************
 
@@ -346,8 +320,6 @@ Young's experiment with GRIN lens.
 ----------------------------------
 
 .. plot:: ./Examples/Waveguide/GRIN_Young.py
-
-.. _lenslikemedium:
 
 Propagation in a lens-like, absorptive medium.
 ----------------------------------------------

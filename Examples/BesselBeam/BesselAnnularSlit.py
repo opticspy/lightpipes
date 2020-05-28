@@ -28,7 +28,7 @@ z=np.zeros(steps)
 
 F=Begin(size,wavelength,N);
 #propagation through the annular slit:
-F=GaussHermite(0,0,1,size/3.5,F)
+F=GaussBeam(F, size/3.5)
 F=CircScreen(R,0,0,F)
 #F=CircAperture(R+0.1*mm,0,0,F)
 #calculation of the intensity just after the slit:

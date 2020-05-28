@@ -14,7 +14,7 @@ for i in range(1,N):
     for j in range(1,N):
         Int[i][j]=math.fabs(math.sin(i/10.0)*math.cos(j/5.0))
         phase[i][j]=math.cos(i/10.0)*math.sin(j/5.0)
-
+phase = 0.12345*rad
 F=Begin(size,wavelength,N)
 F=SubIntensity(Int,F)
 F=SubPhase(phase,F)

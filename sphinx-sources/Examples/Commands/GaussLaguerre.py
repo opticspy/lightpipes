@@ -9,7 +9,10 @@ A=1
 z=1*m
 
 F=Begin(size,wavelength,N)
-F=GaussLaguerre(1,4,A,w0,F)
+if LPversion < '2.0.0':
+    F=GaussLaguerre(1, 4, A, w0, F)
+else:
+    F=GaussLaguerre(F, w0, 1, 4, A)
 F=Forvard(z,F)
 I=Intensity(2,F)
 plt.imshow(I)

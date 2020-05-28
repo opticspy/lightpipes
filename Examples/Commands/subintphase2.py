@@ -10,7 +10,9 @@ def rgb2gray(rgb):
 
 #read image from disk and check if it is square:
 img=mpimg.imread('arrow.png')
+print(img[100][1])
 img=rgb2gray(img)
+print(img[100])
 data = np.asarray( img, dtype='uint8' )
 Nr=data.shape[0]
 Nc=data.shape[1]

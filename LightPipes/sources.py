@@ -1,29 +1,29 @@
 from .field import Field
 from .core import BeamMix, Phase, MultPhase, IntAttenuator, CircAperture, GaussHermite, GaussLaguerre, Interpol
-from .misc import PI,Tilt
+from .misc import PI,Tilt, backward_compatible
+
+@backward_compatible
 def PointSource(Fin, x=0.0, y=0.0):
     """
-    Fout=PointSource(Fin, x=0, y=0)
-    
-    :ref:`Creates a point source. <Begin>`
+    *Creates a point source.*
 
-    Args::
+    :param Fin: input field
+    :type Fin: Field
+    :param x: x-position of the point source (default = 0.0)
+    :type x: int, float
+    :param y: y-position of the point source (default = 0.0)
+    :type y: int, float    
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        required:
-            Fin: input field
-        
-        optional:
-            x=0, y=0: position of the point source.
-        
-        
-    Returns::
-     
-        Fout: N x N square array of complex numbers (0+0j, or 1+0j where the pointsorce is ).
-            
-    Example:
+    >>> F = PointSource(F) # point source at center of the grid
+    >>> F = PointSource(F, x = 5*mm) # point source at x=5mm, y=0.0
+    >>> F = PointSource(F, 5*mm, 0.0) # Idem
+  
+    .. seealso::
     
-    :ref:`Diffraction from a circular aperture <Diffraction>`
-    
+        * -
     """
     Fout = Field.copy(Fin)
     if abs(x) >= Fin.siz/2 or abs(y) >= Fin.siz/2:
@@ -35,137 +35,86 @@ def PointSource(Fin, x=0.0, y=0.0):
     Fout.field[ny, nx] = 1.0
     return Fout
     
-def PlaneWave(w, Fin, tx=0, ty=0, xshift=0, yshift=0):
-#def PlaneWave(w,Fin,**kwargs):
+def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
     """
-    Fout=PlaneWave( w, Fin ,tx=0, ty=0, xshift=0, yshift=0):
-    
-    :ref:`Creates a plane wavefront. <Begin>`
-    
-    Args::
-    
-        required::
-        
-            w: diameter of the source
-            Fin: input field
-        
-        optional::
-        
-            tx, ty: tilt of the wavefront
-            xshift, yshift: shift of the source
+    *Creates a (circular) plane wavefront.*
 
-    Returns::
-     
-        Fout: N x N square array of complex numbers.
-            
-    Example::
+    :param Fin: input field
+    :type Fin: Field
+    :param w: diameter of the plane wave
+    :param tx: tilt in radiants (default = 0.0)
+    :type tx: int, float
+    :param ty: tilt in radiants (default = 0.0)
+    :type ty: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :type x_shift: int, float
+    :param y_shift: shift in y direction (default = 0.0)
+    :type y_shift: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        F=Begin(20*mm,500*nm,100)
-        w=5*mm
-        tx=2*mrad
-        yshift=3*mm
-        F=PlaneWave(w,F) # A plane wave with diameter w=5 mm in the centre.
-        F=PlaneWave(w,F,yshift=3*mm) # shifted 3 mm in y-direction
-        F=PlaneWave(w,F,yshift=yshift,tx=2*mrad) # shifted 3 mm in y-direction and tilted 2 mrad
-        F=PlaneWave(w,F,2*mrad,0,0,yshift) # shifted 3 mm in y-direction and tilted 2 mrad
+    >>> F = PlaneWave(F, w = 2*mm) # plane wave with diameter of 2 mm at center of the grid
+    >>> F = PlaneWave(F, w = 2*mm, x = 5*mm) # Idem at x=5mm, y=0.0
+    >>> F = PlaneWave(F, w = 2*mm, x = 5*mm, ty = 1.0*mrad) # Idem at x=5mm, y=0.0, tilted 1.0 mrad
+    >>> F = PlaneWave(F, 2*mm, 5*mm, 0.0, 1.0*mrad) # Idem
+
+    .. seealso::
+    
+        * -
     """
-    #xshift, yshift = kwargs.get('xshift',0), kwargs.get('yshift',0)
-    #tx, ty =  kwargs.get('tx',0), kwargs.get('ty',0)
     Fout = Field.copy(Fin)
-    Fout=CircAperture(w/2,xshift,yshift,Fout)
-    Fout=Tilt(tx,ty,Fout)
+    Fout=CircAperture(Fout, w/2, x_shift, y_shift )
+    Fout=Tilt(Fout, tx, ty)
     return Fout
-
-# def GaussBeam(w0, Fin, **kwargs):
-    # """
-    # Fout=GaussBeam(w0, Fin, tx, ty, xshift, yshift)
     
-    # Creates a Gaussian beam in its waist.
-
-    # Args::
-    
-        # required:
-        # w0: size of the Gauss waist
-        # Fin: input field
-
-        # optional:
-        # tx, ty: tilt of the beam
-        # xshift, yshift: shift of the beam
-        # n, m: TEMn,m  Hermite-Gauss or  Laguerre-Gauss mode.
-        # doughnut: if True a dougnut mode is generated
-        # LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.
-        
-    # Returns::
-     
-        # F: N x N square array of complex numbers (1+0j).
-    # """
-    # Fout=Field.copy(Fin)
-    
-    # if not kwargs.get('doughnut'):
-        # if kwargs.get('LG'):
-            # Fout = GaussLaguerre(kwargs.get('n',0), kwargs.get('m',0), 1, w0, Fin)
-        # else:
-            # Fout = GaussHermite(kwargs.get('n',0), kwargs.get('m',0), 1, w0, Fin)
-    # else:
-        # m = kwargs.get('m',1)
-        # if m == 0:
-            # raise ValueError(
-                    # 'm cannot be zero for the doughnut mode')
-        # Fout = GaussLaguerre(kwargs.get('n',0), m, 1, w0, Fin)
-        # Fout = Interpol(Fout.siz, Fout.N, 0, 0, 360 / (4 * m), 1, Fout)
-        # Fout = MultPhase(PI/2, Fout)
-        # Fout = BeamMix(GaussLaguerre(kwargs.get('n',0), m, 1, w0, Fin), Fout)
-    # Fout = Interpol(Fin.siz, Fin.N, kwargs.get('xshift',0.0), kwargs.get('yshift',0.0), 0, 1, Fout)
-    # Fout = Tilt(kwargs.get('tx',0.0), kwargs.get('ty',0.0), Fout)
-    # return Fout
-
-def GaussBeam(w0, Fin, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False, LG=False):
+@backward_compatible
+def GaussBeam( Fin, w0, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False, LG=False):
     """
-    Fout=GaussBeam(w0, Fin, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False, LG=False):
-    
-    Creates a Gaussian beam in its waist.
+    *Creates a Gaussian beam in its waist.*
 
-    Args::
-    
-        required:
-        w0: size of the Gauss waist
-        Fin: input field
+    :param Fin: input field
+    :type Fin: Field
+    :param w0: size of the Gauss waist
+    :param x_shift: shift in x direction (default = 0.0)
+    :type x_shift: int, float
+    :param y_shift: shift in y direction (default = 0.0)
+    :type y_shift: int, float
+    :param tx: tilt in radiants (default = 0.0)
+    :type tx: int, float
+    :param ty: tilt in radiants (default = 0.0)
+    :type ty: int, float
+    :param doughnut: if True a dougnut mode is generated (default = False)
+    :type doughnut: bool
+    :param LG: if True a (n,m) Laguerre-Gauss mode is generated, if False a Hermite Gauss mode (default = False)
+    :type LG: bool
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
-        optional:
-        tx, ty: tilt of the beam
-        xshift, yshift: shift of the beam
-        n, m: TEMn,m  Hermite-Gauss or  Laguerre-Gauss mode.
-        doughnut: if True a dougnut mode is generated
-        LG: if True a Laguerre-Gauss mode is generated, otherwise a Hermite-Gauss mode.
-        
-    Returns::
-     
-        Fout: N x N square array of complex numbers.
-    
-    Example::
-
-        F=Begin(20*mm,500*nm,100)
-        w0 = 3*mm
-        F=GaussBeam(w0,F) #TEM0,0 Hermite Gauss beam
-        F=GaussBeam(w0,F,LG=True,n=2,m=5) # LG2,5 Laguerre Gauss beam
-        F=GaussBeam(w0,F,doughnut=True,m=1) # LG0,1* doughnut beam
+    >>> w0 = 3*mm
+    >>> F=GaussBeam(w0,F) #TEM0,0 Hermite Gauss beam with size (radius) 3 mm in center of the grid
+    >>> F=GaussBeam(w0,F,LG=True,n=2,m=5) # LG2,5 Laguerre Gauss beam
+    >>> F=GaussBeam(w0,F,doughnut=True,m=1) # LG0,1* doughnut beam
+    >>> F=GaussBeam(w0,F,doughnut=True,m=1, tx = 1*mrad, x_shift = 1*mm) #  idem, tilted and shifted
     """
     Fout=Field.copy(Fin)
 
     if not doughnut:
         if LG:
-            Fout = GaussLaguerre(n,m,1,w0,Fin)
+            Fout = GaussLaguerre(Fin, w0, p=n, l=m, A=1.0)
         else:
-            Fout = GaussHermite(n,m,1,w0,Fin)
+            Fout = GaussHermite(Fin, w0, n ,m, A=1.0)
     else:
         if m==0:
             m=1
+            # alternative: raise error
             #raise ValueError(
             #        'm cannot be zero for the doughnut mode')
-        Fout = GaussLaguerre(n, m, 1, w0, Fin)
-        Fout = Interpol(Fout.siz, Fout.N, 0, 0, 360 / (4 * m), 1, Fout)
-        Fout = MultPhase(PI/2, Fout)
-        Fout = BeamMix(GaussLaguerre(n, m, 1, w0, Fin), Fout)
-    Fout = Interpol(Fin.siz, Fin.N, xshift, yshift, 0, 1, Fout)
-    Fout = Tilt(tx, ty, Fout)
+        Fout = GaussLaguerre(Fin, w0, p=n, l=m, A = 1.0 )
+        Fout = Interpol( Fout, Fout.siz, Fout.N, 0, 0, 360 / (4 * m), 1)
+        Fout = MultPhase(Fout, PI/2 )
+        Fout = BeamMix(GaussLaguerre(Fin, w0, p=n, l=m, A=1 ), Fout)
+    Fout = Interpol(Fout, Fin.siz, Fin.N, xshift, yshift, 0, 1 )
+    Fout = Tilt(Fout, tx, ty )
     return Fout

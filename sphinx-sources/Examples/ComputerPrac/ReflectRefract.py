@@ -76,8 +76,8 @@ def TheExample(event):
     R_p = 1.0 - T_p;
     I_T = T_s * I_s + T_p * I_p;
     I_R = R_s * I_s + R_p * I_p;
-    F1=GaussHermite(0,0,I_R,size/4,F);
-    F2=GaussHermite(0,0,I_T,size/4,F);
+    F1=GaussHermite(F, size/4, 0, 0, I_R);
+    F2=GaussHermite(F, size/4, 0, 0, I_T);
     v.set( "Reflected power = %5.3f mW\n"% I_R +
         "Transmitted power = %5.3f mW\n"%I_T
         )

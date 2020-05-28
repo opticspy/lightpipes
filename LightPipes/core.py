@@ -3,7 +3,7 @@
 import numpy as _np
 from scipy.special import hermite, genlaguerre
 from scipy.interpolate import RectBivariateSpline
-
+from .misc import backward_compatible
 
 USE_CV2 = False
 
@@ -26,22 +26,23 @@ from .subs import Inv_Squares
 
 def BeamMix(Fin1, Fin2):
     """
-    Fout = BeamMix(F1, F2)
+    *Addition of the fields Fin1 and Fin2.*
+    
+    :param Fin1: First field.
+    :type Fin1: Field
+    :param Fin2: Second field
+    :param Fin2: Field
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
-    :ref:`Addition of the fields F1 and F2. <BeamMix>`
+    >>> F = BeamMix(F1 , F2)
 
-    Args::
+    .. seealso::
     
-        F1, F2: input fields
-        
-    Returns::
-      
-        Fout: output field (N x N square array of complex numbers).
-        
-    Example:
-    
-    :ref:`Two holes interferometer <Young>`
-    
+        * :ref:`Manual: Splitting and mixing beams. <Splitting and mixing beams.>`
+
+        * :ref:`Examples: Young's experiment. <Young's experiment.>`
     """
     if Fin1.field.shape != Fin2.field.shape:
         raise ValueError('Field sizes do not match')
@@ -49,28 +50,35 @@ def BeamMix(Fin1, Fin2):
     Fout.field += Fin2.field
     return Fout
 
-def CircAperture(R, x_shift, y_shift, Fin):
+@backward_compatible
+def CircAperture(Fin, R, x_shift = 0.0, y_shift = 0.0):
     """
-    Fout = CircAperture(R, x_shift, y_shift, Fin)
+    *Inserts a circular aperture in the field.*
     
-    :ref:`Propagates the field through a circular aperture. <CircAperture>`
-
-    Args::
+    :param R: radius of the aperture
+    :type R: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :param Fin: input field
+    :type Fin: Field
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        R: radius of the aperture
-        x_shift, y_shift: shift from the center
-        Fin: input field
+    >>> F = CircAperture(F, 3*mm) # A 3 mm radius circular aperture in the center of the grid.
+    >>> # alternative notations:
+    >>> F = CircAperture(F, 3*mm, 0, -3*mm) # Shifted -3 mm in the y-direction.
+    >>> F = CircAperture(F, R = 3*mm, y_shift = -3*mm) # Idem
+    >>> F = CircAperture(3*mm, 0.0, -3*mm, F) # Idem, old order of arguments for backward compatibility.
+    
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens<Apertures and screens.>`
         
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
-    
-    :ref:`Diffraction from a circular aperture <circ_aperture>`
-    
+        * :ref:`Examples: Diffraction from a circular aperture.<Diffraction from a circular aperture.>`
     """
-    
     #from
     #https://stackoverflow.com/questions/44865023/
     # circular-masking-an-image-in-python-using-numpy-arrays
@@ -85,28 +93,35 @@ def CircAperture(R, x_shift, y_shift, Fin):
     Fout.field[dist_sq > R**2] = 0.0
     return Fout
 
-def CircScreen(R, x_shift, y_shift, Fin):
+@backward_compatible
+def CircScreen(Fin, R, x_shift=0.0, y_shift=0.0):
     """
-    Fout = CircScreen(R, x_shift, y_shift, Fin)
-                
-    :ref:`Diffracts the field by a circular screen. <CircScreen>`
-
-    Args::
+    *Inserts a circular screen in the field.*
     
-        R: radius of the screen
-        x_shift, y_shift: shift from the center
-        Fin: input field
+    :param Fin: input field
+    :type Fin: Field    
+    :param R: radius of the screen
+    :type R: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = CircScreen(F, 3*mm) # A 3 mm radius circular screen in the center of the grid.
+    >>> # alternative notations:
+    >>> F = CircScreen(F, 3*mm, 0, -3*mm) # Shifted -3 mm in the y-direction.
+    >>> F = CircScreen(F, R = 3*mm, y_shift = -3*mm) # Idem
+    >>> F = CircScreen(3*mm, 0.0, -3*mm, F) # Idem, old order of arguments for backward compatibility.
+    
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens<Apertures and screens.>`
         
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-            
-    Example:
-    
-    :ref:`Spot of Poisson <Poisson>`
-    
+        * :ref:`Examples: Spot of Poisson <Spot of Poisson.>`
     """
-    
     #from
     #https://stackoverflow.com/questions/44865023/
     # circular-masking-an-image-in-python-using-numpy-arrays
@@ -120,25 +135,35 @@ def CircScreen(R, x_shift, y_shift, Fin):
     Fout.field[dist_sq <= R**2] = 0.0
     return Fout
 
-def GaussAperture(w, x_shift, y_shift, T, Fin):
+@backward_compatible
+def GaussAperture(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 1.0, ):
     """
-    Fout = GaussAperture(w, x_shift, y_shift, T, Fin)
-    
-    :ref:`Inserts an aperture with a Gaussian shape in the field. <GaussAperture>`
+    *Inserts an aperture with a Gaussian shape in the field.*
     
         :math:`F_{out}(x,y)= \\sqrt{T}e^{ -\\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)`
 
-    Args::
-    
-        w: 1/e intensity width
-        x_shift, y_shift: shift from center
-        T: center intensity transmission
-        Fin: input field
-    
-    Returns::
-    
-        Fout: output field (N x N square array of complex numbers).
+    :param Fin: input field
+    :type Fin: Field
+    :param w: 1/e intensity width
+    :type w: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :param T: center intensity transmission (default = 1.0)
+    :type T: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
+    >>> F = GaussAperture(Fin, w) # centered, T=1.0, width = w
+    >>> F = GaussAperture(Fin, w, T = 0.5) # idem, transmission = 0.5
+    >>> F = GaussAperture(Fin, w, T = 0.5, y_shift = -3 *mm) # idem, shifted in y direction
+    >>> F = GaussAperture(Fin, w, 0.0, -3.0*mm, 0.5) # idem
+
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens.<Apertures and screens.>`
     """ 
 
     Fout = Field.copy(Fin)
@@ -152,26 +177,36 @@ def GaussAperture(w, x_shift, y_shift, T, Fin):
     Fout.field*=SqrtT*_np.exp(-(X*X+Y*Y)/w2)
     return Fout
 
-def SuperGaussAperture(w, x_shift, y_shift, T, n, Fin):
+def SuperGaussAperture(Fin, w, n = 2.0, x_shift = 0.0, y_shift = 0.0, T = 1.0  ):
     """
-    Fout = SuperGaussAperture(w, x_shift, y_shift, T, n, Fin)
-    
-    :ref:`Inserts an aperture with a Gaussian shape in the field. <GaussAperture>`
+    *Inserts an aperture with a super-Gaussian shape in the field.*
     
         :math:`F_{out}(x,y)= \\sqrt{T}e^{ -\\left [ \\frac{ x^{2}+y^{2} }{2w^{2}} \\right ]^n } F_{in}(x,y)`
 
-    Args::
-    
-        w: 1/e intensity width
-        x_shift, y_shift: shift from center
-        T: center intensity transmission
-        n: power of the super Gaussian
-        Fin: input field
-    
-    Returns::
-    
-        Fout: output field (N x N square array of complex numbers).
+    :param Fin: input field
+    :type Fin: Field
+    :param w: 1/e intensity width
+    :type w: int, float
+    :param n: power of the super Gauss (default = 2.0)
+    :type n: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :param T: center intensity transmission (default = 1.0)
+    :type T: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
+    >>> F = SuperGaussAperture(Fin, w) # centered, T=1.0, width = w, power = 2.0
+    >>> F = SuperGaussAperture(Fin, w, n = 21) # idem, power = 21
+    >>> F = SuperGaussAperture(Fin, w, n = 21, y_shift = -3 *mm) # idem, shifted in y direction
+    >>> F = SuperGaussAperture(Fin, w, 21, 0.0, -3.0*mm, 0.5) # idem
+
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens.<Apertures and screens.>`
     """ 
 
     Fout = Field.copy(Fin)
@@ -185,25 +220,35 @@ def SuperGaussAperture(w, x_shift, y_shift, T, n, Fin):
     Fout.field*=SqrtT*_np.exp(-((X*X+Y*Y)/w2)**n)
     return Fout
 
-def GaussScreen(w, x_shift, y_shift, T, Fin):
-    """
-    Fout = GaussScreen(w, x_shift, y_shift, T, Fin)
-    
-    :ref:`Inserts a screen with a Gaussian shape in the field. <GaussScreen>`
+@backward_compatible
+def GaussScreen(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 0.0 ):
+    """    
+    *Inserts a screen with a Gaussian shape in the field.*
 
         :math:`F_{out}(x,y)= \\sqrt{1-(1-T)e^{ -\\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)`
 
-    Args::
-    
-        w: 1/e intensity width
-        x_shift, y_shift: shift from center
-        T: center intensity transmission
-        Fin: input field
-    
-    Returns::
-    
-        Fout: output field (N x N square array of complex numbers).
+    :param Fin: input field
+    :type Fin: Field
+    :param w: 1/e intensity width
+    :type w: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :param T: center intensity transmission (default = 0.0)
+    :type T: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
+    >>> F = GaussAperture(Fin, w) # centered, T=1.0, width = w
+    >>> F = GaussAperture(Fin, w, T = 0.5) # idem, transmission = 0.5
+    >>> F = GaussAperture(Fin, w, T = 0.5, y_shift = -3 *mm) # idem, shifted in y direction
+    >>> F = GaussAperture(Fin, w, 0.0, -3.0*mm, 0.5) # idem
+
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens.<Apertures and screens.>`
     """  
     Fout = Field.copy(Fin)
     
@@ -215,31 +260,60 @@ def GaussScreen(w, x_shift, y_shift, T, Fin):
     Fout.field*=_np.sqrt(1-(1-T)*_np.exp(-(X*X+Y*Y)/w2))
     return Fout
     
-def GaussHermite( n, m, A, w0, Fin):
+def GaussHermite(Fin, w0, m = 0, n = 0, A = 1.0):
     """
-    Fout = GaussHermite(m, n, A, w0, Fin)
-    
-    :ref:`Substitutes a Hermite-Gauss mode (beam waist) in the field. <GaussHermite>`
+    *Substitutes a Hermite-Gauss mode (beam waist) in the field.*
 
         :math:`F_{m,n}(x,y,z=0) = A H_m\\left(\\dfrac{\\sqrt{2}x}{w_0}\\right)H_n\\left(\\dfrac{\\sqrt{2}y}{w_0}\\right)e^{-\\frac{x^2+y^2}{w_0^2}}`
 
-    Args::
-        
-        m, n: mode indices
-        A: Amplitude
-        w0: Guaussian spot size parameter in the beam waist (1/e amplitude point)
-        Fin: input field
-        
-    Returns::
+    :param Fin: input field
+    :type Fin: Field
+    :param w0: Gaussian spot size parameter in the beam waist (1/e amplitude point)
+    :type w0: int, float
+    :param m: mode index (default = 0.0)
+    :param n: mode index (default = 0.0)
+    :type m: int, float
+    :type n: int, float
+    :param A: amplitude (default = 1.0)
+    :type A: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+
+    >>> F = GaussHermite(F, 3*mm) # Fundamental Gauss mode, HG0,0 with a beam radius of 3 mm
+    >>> F = GaussHermite(F, 3*mm, m=3) # Idem, HG3,0
+    >>> F = GaussHermite(F, 3*mm, m=3, n=1, A=2.0) # Idem, HG3,1, amplitude 2.0
+    >>> F = GaussHermite(F, 3*mm, 3, 1, 2.0) # Idem
     
-        Fout: output field (N x N square array of complex numbers).            
+    .. seealso::
+    
+        * :ref:`Examples: Hermite Gauss modes.<Hermite Gauss modes.>`
         
     Reference::
     
         A. Siegman, "Lasers", p. 642
-
     """
-
+    # ************* Backward compatibility section ****************
+    #The general backward_compatible decorator does not work for this command,
+    #because of the positional argument w0.
+    _using_oldstyle = False
+    if not isinstance(Fin, Field):
+        #first arg is not a field, either backward compat syntax or
+        # complete usage error -> find out if Field is last, else error
+        if isinstance(A, Field):
+            #found field in last arg
+            _using_oldstyle = True #just in case code wants to know this later
+            # in function
+            Fin, w0, m, n, A = A, n, Fin, w0, m
+            #caution: python can swap the values only if written on single
+            # line, if split up a temporary assignment is necessary
+            # (since a=b, b=a would not work, only temp=a, a=b, b=temp)
+            #-> now all the variables contain what is expected in new style
+        else:
+            raise ValueError('GaussHermite: Field is neither first nor '
+                             + 'last parameter (backward compatibility check)'
+                             + ', please check syntax/usage.')
+    # ************* end of Backward compatibility section *********
     Fout = Field.copy(Fin)
     
     Y, X = Fout.mgrid_cartesian
@@ -251,34 +325,65 @@ def GaussHermite( n, m, A, w0, Fin):
 
     Fout.field  = A * hermite(m)(sqrt2w0*X)*hermite(n)(sqrt2w0*Y)*_np.exp(-(X*X+Y*Y)/w02)
     return Fout
-    
-def GaussLaguerre(p, l, A, w0, Fin):
-    """
-    Fout = GaussLaguerre(p, l, A, w0, Fin)
 
-    :ref:`Substitutes a Laguerre-Gauss mode (beam waist) in the field. <GaussLaguerre>`
+def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
+    """
+    *Substitutes a Laguerre-Gauss mode (beam waist) in the field.*
 
         :math:`F_{p,l}(x,y,z=0) = A \\left(\\frac{\\rho}{2}\\right)^{\\frac{|l|}{2} }L^p_l\\left(\\rho\\right)e^{-\\frac{\\rho}{2}}\\cos(l\\theta)`,
         
-        with :math:`\\rho=\\frac{2(x^2+y^2)}{w_0^2}`
+        with: :math:`\\rho=\\frac{2(x^2+y^2)}{w_0^2}`
 
-    Args::
-        
-        p, l: mode indices
-        A: Amplitude
-        w0: Guaussian spot size parameter in the beam waist (1/e amplitude point)
-        Fin: input field
-        
-    Returns::
+    :param Fin: input field
+    :type Fin: Field
+    :param w0: Gaussian spot size parameter in the beam waist (1/e amplitude point)
+    :type w0: int, float
+    :param p: mode index (default = 0.0)
+    :param l: mode index (default = 0.0)
+    :type p: int, float
+    :type l: int, float
+    :param A: amplitude (default = 1.0)
+    :type A: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+
+    >>> F = GaussLaguerre(F, 3*mm) # Fundamental Gauss mode, LG0,0 with a beam radius of 3 mm
+    >>> F = GaussLaguerre(F, 3*mm, m=3) # Idem, LG3,0
+    >>> F = GaussLaguerre(F, 3*mm, m=3, n=1, A=2.0) # Idem, LG3,1, amplitude 2.0
+    >>> F = GaussLaguerre(F, 3*mm, 3, 1, 2.0) # Idem
     
-        Fout: output field (N x N square array of complex numbers).            
+    .. seealso::
+    
+        * :ref:`Examples: Laguerre Gauss modes.<Laguerre Gauss modes.>`
         
     Reference::
     
         A. Siegman, "Lasers", p. 642
-
     """
-
+    # ************* Backward compatibility section ****************
+    #The general backward_compatible decorator does not work for this command,
+    #because of the positional argument w0.
+    #Old style: GaussLaguerre(p, l, A, w0,Fin)
+    #New style: GaussLaguerre(Fin, w0, p=0, l=0, A=1.0)
+    _using_oldstyle = False
+    if not isinstance(Fin, Field):
+        #first arg is not a field, either backward compat syntax or
+        # complete usage error -> find out if Field is last, else error
+        if isinstance(A, Field):
+            #found field in last arg
+            _using_oldstyle = True #just in case code wants to know this later
+            # in function
+            Fin, w0, p, l, A = A, l, Fin, w0, p
+            #caution: python can swap the values only if written on single
+            # line, if split up a temporary assignment is necessary
+            # (since a=b, b=a would not work, only temp=a, a=b, b=temp)
+            #-> now all the variables contain what is expected in new style
+        else:
+            raise ValueError('GaussLaguerre: Field is neither first nor '
+                             + 'last parameter (backward compatibility check)'
+                             + ', please check syntax/usage.')
+    # ************* end of Backward compatibility section *********
     Fout = Field.copy(Fin)
     R, Phi = Fout.mgrid_polar
     w02=w0*w0
@@ -287,47 +392,58 @@ def GaussLaguerre(p, l, A, w0, Fin):
     Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
     return Fout
 
-
-def IntAttenuator(att, Fin):
+@backward_compatible
+def IntAttenuator(Fin, att = 0.5 ):
     """
-    Fout = IntAttenuator(att, Fin)
-    
-    :ref:`Attenuates the intensity of the field. <IntAttenuator>`
+    *Attenuates the intensity of the field.*
         
         :math:`F_{out}(x,y)=\\sqrt{att}F_{in}(x,y)`
-        
-    Args::
+
+    :param Fin: input field
+    :type Fin: Field
+    :param att: intensity attenuation factor (default = 0.5)
+    :type att: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+
+    >>> F = IntAttenuator(F) # attenuates the intensity of the field with a factor 0.5
+    >>> F = IntAttenuator(F, att = 0.2) # Idem, with a factor 0.2
+    >>> F = IntAttenuator(F, 0.2) # Idem
     
-        att: intensity attenuation factor
-        Fin: input field
-        
-    Returns::
+    .. seealso::
     
-        Fout: output field (N x N square array of complex numbers).
-   
+        * :ref:`Manual: Splitting and mixing beams.<Splitting and mixing beams.>`
+    
+        * :ref:`Examples: Michelson interferometer.<Michelson interferometer.>`
     """
     Efactor = _np.sqrt(att) #att. given as intensity
     Fout = Field.copy(Fin)
     Fout.field *= Efactor
     return Fout
 
-def Intensity(flag, Fin):
+@backward_compatible
+def Intensity(Fin, flag = 0):
     """
-    I=Intensity(flag,Fin)
+    *Calculates the intensity of the field.*
     
-    :ref:`Calculates the intensity of the field. <Intensity>`
+        :math:`I(x,y)=F_{in}(x,y).F_{in}(x,y)^*`
     
-    :math:`I(x,y)=F_{in}(x,y).F_{in}(x,y)^*`
+    :param Fin: input field
+    :type Fin: Field
+    :param flag: 0: no normalisation, 1: normalisation to 1, 2: normalized to 255 (for bitmaps) (default = 0)
+    :type flag: int, float
+    :return: output intensity distribution (N x N square array of real numbers).
+    :rtype: `numpy.ndarray`
+    :Example:
     
-    Args::
+    >>> I = Intensity(F) # intensity of the field, no normalisation
+    >>> I = Intensity(F, flag=1) # Idem, normalized to 1
+    >>> I = Intensity(F, 2) # Idem, normalized to 255
     
-        flag: 0= no normalization, 1=normalized to 1, 2=normalized to 255 (for bitmaps)
-        Fin: input field
-        
-    Returns::
+    .. seealso::
     
-        I: intensity distribution (N x N square array of doubles)
-
+        * :ref:`Manual: Graphing and visualisation.<Graphing and visualisation.>`
     """
     I = _np.abs(Fin.field)**2
     if flag > 0:
@@ -339,25 +455,37 @@ def Intensity(flag, Fin):
             I = I*255
     return I
 
-def Interpol(new_size, new_N, x_shift, y_shift, angle, magnif, Fin):
+@backward_compatible
+def Interpol(Fin, new_size, new_N, x_shift = 0.0, y_shift = 0.0, angle = 0.0, magnif = 1.0 ):
     """
-    Fout = Interpol(NewSize, NewN, x_shift, y_shift, angle, magnif, Fin)
+    *Interpolates the field to a new grid size, grid dimension.*
     
-    :ref:`Interpolates the field to a new grid size, grid dimension. <Interpol>`
+    :param Fin: input field
+    :type Fin: Field
+    :param new_size: new grid size
+    :type new_size: int, float
+    :param new_N: new grid dimension
+    :type new_N: int, float
+    :param x_shift: shift of the field in x direction (default = 0.0)
+    :type x_shift: int, float
+    :param y_shift: shift of the field in y direction (default = 0.0)
+    :type y_shift: int, float
+    :param angle: rotation of the field in degrees (default = 0.0)
+    :type angle: int, float
+    :param magnif: magnification of the field amplitude (default = 1.0)
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+
+    >>> F = Interpol(F, 50*mm, 200) # interpolates the field to a grid size of 50 mm and a grid dimension of 200
+    >>> F = Interpol(F, 50*mm, 200, y_shift = 2*mm) # Idem, shifted 2 mm in the y direction
+    >>> F = Interpol(F, 50*mm, 200, y_shift = 2*mm, magnif = 2.0) # Idem, magnifizes the field a factor 2.0
+    >>> F = Interpol(F, 50*mm, 200, 0.0, 2*mm, 0.0, 2.0) # Idem
     
-    Args::
+    .. seealso::
     
-        NewSize: the new grid size
-        NewN: the new grid dimension
-        x_shift, y_shift: shift of the field
-        angle: rotation of the field in degrees
-        magnif: magnification of the field amplitude
-        Fin: input field
+        * :ref:`Manual: Interpolation.<Interpolation.>`
         
-    Returns::
-        
-        Fout: output field (Nnew x Nnew square array of complex numbers).
-  
     """
 
     Fout = Field.begin(new_size, Fin.lam, new_N)
@@ -429,21 +557,29 @@ def Interpol(new_size, new_N, x_shift, y_shift, angle, magnif, Fin):
     Fout.field /= magnif
     return Fout
 
-def MultIntensity(Intens, Fin):
+@backward_compatible
+def MultIntensity( Fin, Intens):
     """
-    Fout = MultIntensity(Intens, Fin)
+    *Multiplies the field with a given intensity distribution.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param Intens: N x N square array of real numbers or scalar
+    :type Intens: numpy.ndarray, float, int
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> import numpy as np
+    >>> Int=np.empty([N,N])
+    >>> for i in range(1,N):
+    >>>     for j in range(1,N):
+    >>>         Int[i][j]=math.fabs(math.sin(i/10.0)*math.cos(j/5.0))
+    >>> F = MultIntensity(F, Int)
 
-    :ref:`Multiplies the field with a given intensity distribution. <MultIntensity>`
-        
-    Args::
-        
-        Intens: N x N square array of real numbers or scalar
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    .. seealso::
+    
+        * :ref:`Manual: User defined phase and intensity filters.<User defined phase and intensity filters.>`
     """
     if not _np.isscalar(Intens):
         if Intens.shape != Fin.field.shape:
@@ -453,22 +589,34 @@ def MultIntensity(Intens, Fin):
     Fout.field *= Efield
     return Fout
 
-
-def MultPhase(Phi, Fin):
+@backward_compatible
+def MultPhase( Fin, Phi):
     """
-    Fout = MultPhase(Phase, Fin)
+    *Multiplies the field with a given phase distribution.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param Phi: N x N square array of real numbers or scalar
+    :type Phi: numpy.ndarray, int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> # multiply with a phase distribution:
+    >>> #
+    >>> import numpy as np
+    >>> Phi=np.empty([N,N])
+    >>> for i in range(1,N):
+    >>>     for j in range(1,N):
+    >>>         Phi[i][j]=math.fabs(math.sin(i/10.0)*math.cos(j/5.0))
+    >>> F = MultPhase(F, Phi)
+    >>> #
+    >>> # multiply with a scalar:
+    >>> F = MultPhase(F, 0.12345*rad) # multiplies the field with a constant phase factor of 0.12345 rad
 
-    :ref:`Multiplies the field with a given phase distribution. <MultPhase>`
-        
-    Args::
-        
-        Phase: N x N square array of real numbers or scalar
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    .. seealso::
+    
+        * :ref:`Manual: User defined phase and intensity filters.<User defined phase and intensity filters.>`
     """
     if not _np.isscalar(Phi):
         if Phi.shape != Fin.field.shape:
@@ -480,24 +628,23 @@ def MultPhase(Phi, Fin):
 
 def Normal(Fin):
     """
-    Fout = Normal(Fin)
-
-    :ref:`Normalizes the field using beam power. <Normal>`
+    *Normalizes the field using beam power.*
     
         :math:`F_{out}(x,y)= \\frac{F_{in}(x,y)}{\\sqrt{P}}`
 
-        with
-        
-        :math:`P=\\int \\int F_{in}(x,y)^2 dx dy`
+        with: :math:`P=\\int \\int F_{in}(x,y)^2 dx dy`
     
-    Args::
-        
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    :param Fin: input field
+    :type Fin: Field
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = Normal(F)
+    
+    .. seealso::
+    
+        * :ref:`Manual: Diagnostics: Strehl ratio, beam power.<Diagnostics: Strehl ratio, beam power.>`
     """
     Fabs = _np.abs(Fin.field)**2
     Fabs *= Fin.dx**2
@@ -511,26 +658,31 @@ def Normal(Fin):
 
 def Phase(Fin, unwrap = False, units='rad', blank_eps=0):
     """
-    Phi=Phase(Fin)
+    *Calculates the phase of the field.*
     
-    :ref:`Calculates the phase of the field. <Phase>`
+    :param Fin: input field
+    :type Fin: Field
+    :param unwrap: Call PhaseUnwrap on the extracted Phase (default = False)
+    :type unwrap: bool
+    :param units:   'opd': returned in [meters] of optical path length
+                    'lam': returned in multiples of lambda
+                    'rad': returned in multiples of 2pi phase jumps (default)
+    :type units: string
+    :param blank_eps:  [fraction] of max. Intensity at which to blank the phase
+                        and replace the value with numpy.nan (e.g. 1e-3==0.1%)
+                        Set to 0 or None to disable
+    :type blank_eps: int, None
+    :return: output phase distribution (N x N square array of real numbers).
+    :rtype: `numpy.ndarray`
+    :Example:
     
+    >>> Phi = Phase(F) # returns phase distribution
+    >>> Phi = Phase(F, unwrap = True) # Idem, phase unwrapped
+    >>> Phi = Phase(F, units = 'lam') # phase in multiples of wavelength
     
-    Args::
-    
-        Fin: input field
-        unwrap: Call PhaseUnwarp on the extracted Phase, Default is False
-        units: 'opd': returned in [meters] of optical path length
-                'lam': returned in multiples of lambda
-                'rad': returned in multiples of 2pi phase jumps (default)
-        blank_eps: [fraction] of max. Intensity at which to blank the phase
-            and replace the value with numpy.nan (e.g. 1e-3==0.1%)
-            Set to 0 or None to disable
+    .. seealso::
         
-    Returns::
-    
-        Phi: phase distribution (N x N square array of doubles)
-
+        * :ref:`Manual: Graphing and visualisation.<Graphing and visualisation.>`
     """
     _2pi = 2*_np.pi
     Phi = _np.angle(Fin.field)
@@ -553,17 +705,20 @@ def Phase(Fin, unwrap = False, units='rad', blank_eps=0):
     return Phi
 
 def PhaseSpiral(Fin, m = 1):
-    """ 
-    Fout = PhaseSpiral(Fin, m = 1)
-    Multiplies Fin with a spiral phase distribution.
+    """
+    *Multiplies Fin with a spiral phase distribution.*
     
-    Args::
+    :param Fin: input field
+    :type Fin: Field
+    :param m: Order of the spiral (default = 1)
+    :type m: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        required:
-        Fin: input field
-
-        optional:
-        m = 1: order of the spiral.
+    >>> order = 2
+    >>> F=PhaseSpiral(F,m=order) # multiplies the field with a spiral phase distribution of order 2
+    
     """
     Fout = Field.copy(Fin) 
     R, Phi = Fout.mgrid_polar  
@@ -572,19 +727,17 @@ def PhaseSpiral(Fin, m = 1):
 
 def PhaseUnwrap(Phi):
     """
-    PhiOut=PhaseUnwrap(PhiIn)
+    *Unwraps (removes jumps of pi radians) the phase.*
     
-    :ref:`Unwraps (removes jumps of pi radians) the phase. <PhaseUnwrap>`
+    :param Phi: input phase distribution
+    :type Phi: numpy
+    :param Phi: Order of the spiral (default = 1)
+    :type m: int, float
+    :return: output phase distribution (N x N square array of real numbers).
+    :rtype: `numpy.ndarray`
+    :Example:
     
-    
-    Args::
-    
-        PhiIn: input phase distribution
-        
-    Returns::
-    
-        PhiOut: unwrapped phase distribution (N x N square array of doubles)
-
+    >>> Phi = PhaseUnwrap(Phi) # unwraps the phase distribution Phi
     """
     PhiU = _unwrap_phase(Phi)
     return PhiU
@@ -592,40 +745,45 @@ def PhaseUnwrap(Phi):
 
 def Power(Fin):
     """
-    P = Power(Fin)
-
-    :ref:`Calculates the total power. <Power>`
-        
-    Args::
-        
-        Fin: input field
-        
-    Returns::
-        
-        P: output power (real number).
-  
+    *Calculates the total power.*
+    
+    .. math:: P=\int \int(|F_{in}(x,y)|)^2dxdy
+    
+    :param Fin: input field
+    :type Fin: Field
+    :return: output power
+    :rtype: float
+    :Example:
+    
+    >>> P = Power(F) # returns the power of the field F
+      
     """
     #TODO why does Normal() also sum dx**2 (==integral) while this does not??
     I = _np.abs(Fin.field)**2
     return I.sum()
 
-
-def RandomIntensity(seed, noise, Fin):
+@backward_compatible
+def RandomIntensity(Fin, seed = 123, noise = 1.0, ):
     """
-    Fout = RandomIntensity(seed, noise, Fin)
+    *Adds random intensity to the field*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param seed: seed number for the random noise generator (default = 123)
+    :type seed: int, float
+    :param noise: level of the noise (default = 1.0)
+    :type noise: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = RandomIntensity(F) # adds noise to the field
+    >>> F = RandomIntensity(F, seed = 49) # Idem, with seed 49
+    >>> F = RandomIntensity(F, noise = 0.1) # adds noise to the field with amplitude 0.1
 
-    :ref:`Adds random intensity to the field <RandomIntensity>`
-        
-    Args::
-        
-        seed: seed number for the random noise generator
-        noise: level of the noise
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    .. seealso::
+    
+        * :ref:`Manual: Random filters.<Random filters.>`
     """
     #TODO implementation error in original LP: field error, not I error!
     # need to sqrt for that
@@ -636,22 +794,28 @@ def RandomIntensity(seed, noise, Fin):
     Fout.field += ranint
     return Fout
 
-def RandomPhase(seed, maxPhase, Fin):
+@backward_compatible
+def RandomPhase(Fin, seed =456, maxPhase = _np.pi ):
     """
-    Fout = RandomPhase(seed, maxPhase, Fin)
+    *Adds random phase to the field*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param seed: seed number for the random noise generator (default = 456)
+    :type seed: int, float
+    :param maxPhase: max value of the phase (default = 3.1415 (pi))
+    :type maxPhase: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = RandomPhase(F) # adds noise to the phase of the field
+    >>> F = RandomPhase(F, seed = 49) # Idem, with seed 49
+    >>> F = RandomPhase(F, maxPhase = 0.1) # adds phase-noise to the field with maximum value 0.1
 
-    :ref:`Adds random phase to the field <RandomPhase>`
-        
-    Args::
-        
-        seed: seed number for the random noise generator
-        maxPhase: maximum phase in radians
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    .. seealso::
+    
+        * :ref:`Manual: Random filters.<Random filters.>`
     """
     #2020023 - ldo - tested similar result as Cpp version, although not 
     # 1:1 since seed is different in numpy
@@ -662,25 +826,34 @@ def RandomPhase(seed, maxPhase, Fin):
     Fout.field *= _np.exp(1j * ranphase)
     return Fout
 
-
-def RectAperture(sx, sy, x_shift, y_shift, angle, Fin):
+@backward_compatible
+def RectAperture(Fin, sx, sy, x_shift = 0.0, y_shift = 0.0, angle = 0.0 ):
     """
-    Fout = RectAperture(w, h, x_shift, y_shift, angle, Fin)
+    *Inserts a rectangular aperture in the field.*
     
-    :ref:`Propagates the field through a rectangular aperture. <RectAperture>`
-
-    Args::
+    :param Fin: input field
+    :type Fin: Field    
+    :param sx: width of the aperture
+    :type sx: int, float
+    :param sy: height of the aperture
+    :type sy: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :param angle: rotation angle in degrees (default = 0.0)
+    :type angle: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        w: width of the aperture
-        h: height of the aperture
-        x_shift, y_shift: shift from the center
-        angle: rotation angle in degrees 
-        Fin: input field
-        
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-
+    >>> F = RectAperture(F, 3*mm, 4*mm) # A 3 x 4 mm rectangular aperture in the center of the grid.
+    >>> F = RectAperture(F, 3*mm, 4*mm, 0, -3*mm) # Idem, shifted -3 mm in the y-direction.
+    >>> F = RectAperture(F, 3*mm, 4*mm, y_shift = -3*mm) # Idem
+    
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens<Apertures and screens.>`
     """
     Fout = Field.copy(Fin)
     yy, xx = Fout.mgrid_cartesian
@@ -698,25 +871,34 @@ def RectAperture(sx, sy, x_shift, y_shift, angle, Fin):
     Fout.field[matchx | matchy] = 0.0
     return Fout
 
-
-def RectScreen(sx, sy, x_shift, y_shift, angle, Fin):
+@backward_compatible
+def RectScreen(Fin, sx, sy, x_shift = 0.0, y_shift = 0.0, angle = 0.0 ):
     """
-    Fout = RectScreen(w, h, x_shift, y_shift, angle, Fin)
+    *Inserts a rectangular screen in the field.*
     
-    :ref:`Diffracts the field by a rectangular screen. <RectScreen>`
-
-    Args::
+    :param Fin: input field
+    :type Fin: Field    
+    :param sx: width of the screen
+    :type sx: int, float
+    :param sy: height of the screen
+    :type sy: int, float
+    :param x_shift: shift in x direction (default = 0.0)
+    :param y_shift: shift in y direction (default = 0.0)
+    :type x_shift: int, float
+    :type y_shift: int, float
+    :param angle: rotation angle in degrees (default = 0.0)
+    :type angle: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        w: width of the screen
-        h: height of the screen
-        x_shift, y_shift: shift from the center
-        angle: rotation angle in degrees 
-        Fin: input field
-        
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
-
+    >>> F = RectScreen(F, 3*mm, 4*mm) # A 3 x 4 mm rectangular screen in the center of the grid.
+    >>> F = RectScreen(F, 3*mm, 4*mm, 0, -3*mm) # Idem, shifted -3 mm in the y-direction.
+    >>> F = RectScreen(F, 3*mm, 4*mm, y_shift = -3*mm) # Idem
+    
+    .. seealso::
+    
+        * :ref:`Manual: Apertures and screens<Apertures and screens.>`
     """
     Fout = Field.copy(Fin)
     yy, xx = Fout.mgrid_cartesian
@@ -737,18 +919,19 @@ def RectScreen(sx, sy, x_shift, y_shift, angle, Fin):
 
 def Strehl(Fin):
     """
-    S = Strehl( Fin)
-
-    :ref:`Calculates the Strehl value of the field <Strehl>`
+    *Calculates the Strehl value of the field*
+    
+    :param Fin: input field
+    :type Fin: Field    
+    :return: Strehl value of the field
+    :rtype: float
+    :Example:
+    
+    >>> S = Strehl(F) # returns the Strehl value of the field
+    
+    .. seealso::
         
-    Args::
-        
-        Fin: input field
-        
-    Returns::
-        
-        S: Strehl value (real number).
-  
+        * :ref:`Manual: Diagnostics: Strehl ratio, beam power.<Diagnostics: Strehl ratio, beam power.>`
     """
     normsq = _np.abs(Fin.field).sum()**2
     if normsq == 0.0:
@@ -757,21 +940,22 @@ def Strehl(Fin):
     strehl = strehl/normsq
     return strehl
 
-def SubIntensity(Intens, Fin):
+@backward_compatible
+def SubIntensity(Fin, Intens ):
     """
-    Fout = SubIntensity(Intens, Fin)
-
-    :ref:`Substitutes  a given intensity distribution in the field with. <SubIntensity>`
-        
-    Args::
-        
-        Intens: N x N square array of real numbers >= 0
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    *Substitutes  a given intensity distribution in the field with.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param Intens: N x N square array of real numbers or scalar
+    :type Intens: numpy.ndarray, int, float    
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    .. seealso::
+    
+        * :ref:`Matlab: User defined phase and intensity filters.<User defined phase and intensity filters.>`
     """
     Fout = Field.copy(Fin)
     Intens = _np.asarray(Intens)
@@ -782,26 +966,26 @@ def SubIntensity(Intens, Fin):
     Fout.field = Efield * _np.exp(1j * phi)
     return Fout
 
-def SubPhase(Phi, Fin):
+@backward_compatible
+def SubPhase( Fin, Phi):
     """
-    Fout = SubPhase(Phi, Fin)
-
-    :ref:`Substitutes  a given phase distribution in the field with. <SubPhase>`
-        
-    Args::
-        
-        Phase: N x N square array of real numbers
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    *Substitutes  a given phase distribution in the field with.*
+    
+    :param Phi: N x N square array of real numbers or scalar
+    :type Phi: numpy.ndarray, int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    .. seealso::
+    
+        * :ref:`Matlab: User defined phase and intensity filters.<User defined phase and intensity filters.>`
     """
     Fout = Field.copy(Fin)
-    Phi = _np.asarray(Phi)
-    if Phi.shape != Fin.field.shape:
-        raise ValueError('Phase map has wrong shape')
+    if not _np.isscalar(Phi):
+        Phi = _np.asarray(Phi)
+        if Phi.shape != Fin.field.shape:
+            raise ValueError('Phase mapppp has wrong shape')
     oldabs = _np.abs(Fout.field)
     Fout.field = oldabs * _np.exp(1j * Phi)
     return Fout

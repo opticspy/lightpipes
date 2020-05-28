@@ -26,7 +26,7 @@ z=z_start
 #   x.append((-size/2 + i*size/N)/mm)
 
 F=Begin(size,wavelength,N);
-F=GaussHermite(0,0,1,size/3.5,F)
+F=GaussBeam(F, size/3.5)
 F=CircScreen(a,0,0,F)
 
 w0=2.44/math.pi*wavelength/a

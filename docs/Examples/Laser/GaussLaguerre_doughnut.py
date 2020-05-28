@@ -26,7 +26,7 @@ fig.suptitle(s)
 F=Begin(size,wavelength,N)
 n=0
 for m in range(1,m_max+1):
-    F=GaussBeam(w0,F,doughnut=True,n=n,m=m)
+    F=GaussBeam(F, w0, doughnut=True, n=n, m=m)
     I=Intensity(0,F)
     Phi=Phase(F)
     s=f'$LG_{n}$' + f'$_{m}$' + '$_*$'

@@ -4,62 +4,66 @@ import numpy as _np
 from .field import Field
 from .core import Phase, PhaseUnwrap, Intensity
 from .zernikemath import zernike
+from .misc import backward_compatible
 
-def Zernike(n, m, R, A, Fin, norm=True, units='opd'):
+@backward_compatible
+def Zernike(Fin, n, m, R, A = 1.0, norm=True, units='opd'):
     """
-    Fout = Zernike(n, m, R, A, Fin, norm, units)
+    *Substitutes a Zernike aberration phase distribution in the field.*
+        
+    :math:`F_{out}(x,y)=e^{\\phi^m_n (x,y)}F_{in}(x,y)`
     
-    Example: if norm=True and Aunit='lambda' and A=1.0, the wavefront
+     with:
+    
+    :math:`\\phi^m_n(x,y)=-j \\frac{2 \\pi }{ \\lambda } Z^m_n {(\\rho (x,y) ,\\theta (x,y)) }`
+    
+    :math:`\\rho(x,y)=  \\sqrt{ \\frac{x^2+y^2}{R^2} }`
+    
+    :math:`\\theta (x,y)=atan \\big( \\frac{y}{x} \\big)`
+    
+    :math:`Z^m_n(\\rho , \\theta)=A \\sqrt{ \\frac{2(n+1)}{1+\\delta_{m0}} } V^m_n(\\rho)cos(m\\theta)`
+    
+    :math:`Z^{-m}_n(\\rho , \\theta)=A \\sqrt{ \\frac{2(n+1)}{1+\\delta_{m0}} }V^m_n(\\rho)sin(m\\theta)`
+    
+    :math:`V^m_n(\\rho)= \\sum_{s=0}^{ \\frac{n-m}{2} }  \\frac{(-1)^s(n-s)!}{s!( \\frac{n+m}{2}-s)!( \\frac{n-m}{2}-s )! } \\rho^{n-2s}`
+    
+    :math:`\\delta_{m0}= \\begin{cases}1 & m = 0\\\\0 & m  \\neq  0\\end{cases}`
+        
+    :param Fin: input field
+    :type Fin: Field
+    :param n: radial order
+    :type n: int, float
+    :param m: azimuthal order, n-\|m\| must be even, \|m\|<=n
+    :type m: int, float    
+    :param R: radius of the aberrated aperture
+    :type R: int, float
+    :param A: size of the aberration
+    :type A: int, float
+    :param norm: if True, normalize integral(Z over unit circle)=1, if False
+                Z(rho=1)=1 on edge (-> True=rms const, False=PtV const) (default = True)
+    :type norm: bool
+    :param units: 'opd': A given in meters as optical path difference (default = 'opd')
+                'lam': A given in multiples of lambda
+                'rad': A given in multiples of 2pi
+    :type units: string
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+        if norm=True and Aunit='lambda' and A=1.0, the wavefront
         will have an rms error of 1lambda, but PtV depending on n/m.
         If norm=False and Aunit='lambda' and A=1.0, the wavefront will
         have a PtV value of 2lambda (+ and -1 lambda!), but rms error
         depending on n/m.
 
-    :ref:`Substitutes a Zernike aberration phase distribution in the field. <Zernike>`
-        
-        :math:`F_{out}(x,y)=e^{\\phi^m_n (x,y)}F_{in}(x,y)`
-        
-        with:
-        
-        :math:`\\phi^m_n(x,y)=-j \\frac{2 \\pi }{ \\lambda } Z^m_n {(\\rho (x,y) ,\\theta (x,y)) }`
-        
-        :math:`\\rho(x,y)=  \\sqrt{ \\frac{x^2+y^2}{R^2} }`
-        
-        :math:`\\theta (x,y)=atan \\big( \\frac{y}{x} \\big)`
-        
-        :math:`Z^m_n(\\rho , \\theta)=A \\sqrt{ \\frac{2(n+1)}{1+\\delta_{m0}} } V^m_n(\\rho)cos(m\\theta)`
-        
-        :math:`Z^{-m}_n(\\rho , \\theta)=A \\sqrt{ \\frac{2(n+1)}{1+\\delta_{m0}} }V^m_n(\\rho)sin(m\\theta)`
-        
-        :math:`V^m_n(\\rho)= \\sum_{s=0}^{ \\frac{n-m}{2} }  \\frac{(-1)^s(n-s)!}{s!( \\frac{n+m}{2}-s)!( \\frac{n-m}{2}-s )! } \\rho^{n-2s}`
-        
-        :math:`\\delta_{m0}= \\begin{cases}1 & m = 0\\\\0 & m  \\neq  0\\end{cases}`
-        
-       
-    Args::
+    .. seealso::
     
-        n: radial order
-        m: azimuthal order, n-|m| must be even, |m|<=n
-        R: radius of the aberrated aperture
-        A: size of the aberration
-        Fin: input field
-        norm: if True, normalize integral(Z over unit circle)=1, if False
-            Z(rho=1)=1 on edge (-> True=rms const, False=PtV const)
-        units: 'opd': A given in meters as optical path difference (default)
-            'lam': A given in multiples of lambda
-            'rad': A given in multiples of 2pi
-        
-    Returns::
-      
-        Fout: ouput field (N x N square array of complex numbers).
-            
-    Example:
+        * :ref:`Manual: Zernike polynomials.<Zernike polynomials.>`
     
-    :ref:`Zernike aberration <Zernike>`
+        * :ref:`Examples: Zernike aberration.<Zernike aberration.>`
     
-    Reference: https://en.wikipedia.org/wiki/Zernike_polynomials
- 
-
+    Reference::
+    
+        https://en.wikipedia.org/wiki/Zernike_polynomials
     """
     mcorrect = False
     ncheck = n
@@ -101,7 +105,7 @@ def Zernike(n, m, R, A, Fin, norm=True, units='opd'):
     return Fout
 
 
-def ZernikeFit(j_terms, R, F, norm=True, units='lam'):
+def ZernikeFit(F, j_terms, R,  norm=True, units='lam'):
     """
     Fit the first N terms (Noll indexing) to the given Field.
     

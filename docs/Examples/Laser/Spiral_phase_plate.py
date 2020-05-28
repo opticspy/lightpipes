@@ -21,7 +21,7 @@ z=100*cm
 order = 1
 
 F=Begin(size,wavelength,N)
-F=GaussBeam(w0,F)
+F=GaussBeam(F, w0)
 Iin=Intensity(0,F)
 F=PhaseSpiral(F,m=order)
 phase=Phase(F,unwrap=True)

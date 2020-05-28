@@ -1,16 +1,99 @@
 # -*- coding: utf-8 -*-
 
 import numpy as _np
+import functools
 
 from .field import Field
 
 PI=_np.pi
-
-def Gain(Isat, alpha0, Lgain, Fin):
+def backward_compatible(fn):
+    """Decorator to wrap new-convention (field first) LP methods to also
+    accept old convention (field last).
+    This decorator should work for any new-convention functions that
+    only changed the order of the field. If the order or number of other
+    arguments has also changed, this decorator might fail and one has to
+    manually take care of the order inside that function!
+    
+    If the user supplies only positional arguments (without keyword), the
+    field is searched as first argument for new-convention functions. If not
+    found, the field is searched as last argument (old convention) and swapped
+    to front if found. If neither first nor last, an error is raised.
+    
+    The handling of all possible combinations of positional and keyword-
+    supplied arguments is tricky, so it might fail in rare occasions/
+    strange use cases (e.g. someone supplying kwargs even though all args
+    are given and in the correct order).
+    Therefore, if at least one argument is supplied via keyword and the first
+    positional argument is not a field, an error is raised (swapping would be
+    guessing). The solution is to either provide all positional, all keyword
+    or update to new syntax putting Field as first argument.
+    
+    Example new-convention definition:
+    @backward_compatible
+    def CircScreen(Fin, R, x_shift=0, y_shift=0):
+        #old convention was
+        # CircScreen(R, x_shift, y_shift, Fin)
+    
+    Valid function calls then are:
+        F = CircScreen(F, 1, 0, 0) #new style, all positional
+        F = CircScreen(F, 1) #new style, all positional, some default value
+        F = CircScreen(F, 1, y_shift=1) #new style, some default, some kwarg
+        
+        F = CircScreen(1, 0, 0, F) #old style, all positional
+        F = CircScreen(R=1, x_shift=0, y_shift=0, Fin=F) #old, all kwargs
+        
+        F = CircScreen(R=1, x_shift=0, Fin=F, y_shift=0) #...
+            # all kwargs, order irrelevant
+    
+    Invalid function calls (resolving cannot be guaranteed by decorator):
+        F = CircScreen(1, 0, 0, Fin=F) #old style, at least one kwarg
+        F = CircScreen(1, F, 0, 0) #plain wrong, neither old nor new style
+    
+    Grey area:
+        F = CircScreen(1, F) #old style part positional, part default value
+            #interestingly, this will not raise an error in decorator
+            # but might fail in the function call since order not clear
     """
-    Fout = Gain(Isat, alpha0, Lgain, Fin)
-
-    :ref:`Propagates the field through a thin saturable gain sheet. <Gain>`
+    @functools.wraps(fn)
+    def fn_wrapper(*args, **kwargs):
+        args = list(args) #make mutable
+        if len(kwargs)==0:
+            #no keyword args supplied, all args stricly by order/positional
+            # -> easy, this decorator won't fail
+            if not isinstance(args[0], Field):
+                #first arg is not a field, either backward compat syntax or
+                # complete usage error -> find out if Field is last, else error
+                if isinstance(args[-1], Field):
+                    #found field in last arg, push last arg to first:
+                    args.insert(0, args.pop()) #[1,2,3,4] -> [4, 1, 2, 3]
+                    #-> now all the variables contain what is expected in new style
+                else:
+                    raise ValueError(fn.__name__ + '(backward compatibility'
+                                     + ' check): Field is neither first'
+                                     + ' nor last parameter, please check '
+                                     + 'syntax/usage.')
+        else:
+            if len(args)>0:
+                #at least one argument is supplied by explicitly naming it,
+                # while others are positiobal args.
+                # In this case flipping the order or the rest seems
+                # dangerous/wrong/unpredictable
+                if isinstance(args[0], Field):
+                    #all good, Field still first even though kwargs later
+                    pass
+                else:
+                    raise ValueError(fn.__name__ + ' (backward comaptibility'
+                                     + ' check): Field not first and kwargs '
+                                     + 'used, please update to new '
+                                     + 'syntax/usage.')
+        
+        return fn(*args, **kwargs)
+    
+    return fn_wrapper
+@backward_compatible
+def Gain(Fin, Isat, alpha0, Lgain) :
+    """
+    *Propagates the field through a thin saturable gain sheet.*
         
         :math:`F_{out}(x,y) = F_{in}(x,y) e^{\\alpha L_{gain}}`, with
         :math:`\\alpha = \\dfrac{\\alpha_0}{1 + {2 I(x,y)}/{I_{sat}}}`.
@@ -27,22 +110,25 @@ def Gain(Isat, alpha0, Lgain, Fin):
         The gain sheet should be at one of the mirrors of a (un)stable laser resonator.
         
         See: Rensch and Chester (1973).
-        
-    Args::
     
-        Isat: saturation intensity
-        alpha0: small signal gain
-        Lgain: length of the gain sheet
-        Fin: input field
-        
-    Returns::
-     
-        Fout: output field (N x N square array of complex numbers).
+    :param Fin: input field
+    :type Fin: Field
+    :param Isat: saturation intensity
+    :type Isat: int, float
+    :param alpha0: small signal gain
+    :type alpha0: int, float
+    :param Lgain: length of the gain medium
+    :type Lgain: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
 
-    Example:
+    >>> Isat=131*W/cm/cm; alpha=0.0067/cm; Lgain=30*cm;
+    >>> F = Gain(F, Isat, alpha, Lgain) # amplifacation of the field
     
-    :ref:`Unstable resonator <Unstab>`
-
+    .. seealso::
+    
+        * :ref:`Examples: Unstable laser resonator <Unstable laser resonator.>`
     """
     Fout = Field.copy(Fin)
     Ii = _np.abs(Fout.field)**2
@@ -67,22 +153,25 @@ def Gain(Isat, alpha0, Lgain, Fin):
     Fout.field *= ampl
     return Fout
 
-
-def PipFFT(index, Fin):
+@backward_compatible
+def PipFFT(Fin, index = 1 ):
     """
-    Fout = PipFFT(index, Fin)
-
-    :ref:`Performs a 2D Fourier transform of the field. <PipFFT>`
-        
-    Args::
-        
-        index: +1 = forward transform, -1 = back transform
-        Fin: input field
-        
-    Returns::
-        
-        Fout: output field (N x N square array of complex numbers).
-  
+    *Performs a 2D Fourier transform of the field.*
+    
+    :param Fin: input field
+    :type Fin: Field
+    :param index: 1 = forward transform, -1 = back transform (default = 1)
+    :type index: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    >>> F = PipFFT(F) # forward transform
+    >>> F = PipFFT(F, -1) # back transform
+    
+    .. seealso::
+    
+        * :ref:`Manual: FFT and spatial filters.<FFT and spatial filters.>`
     """
     Fout = Field.copy(Fin)
     legacy = False
@@ -135,22 +224,27 @@ def PipFFT(index, Fin):
                 'FFT direction index must be 1 or -1, got {}'.format(index))
     return Fout
 
-
-def Tilt(tx, ty, Fin):
+@backward_compatible
+def Tilt( Fin, tx, ty,):
     """
-    Fout = Tilt(tx, ty, Fin)
-
-    :ref:`Tilts the field. <Tilt>`
-
-    Args::
+    *Tilts the field.*
     
-        tx, ty: tilt in radians
-        Fin: input field
-        
-    Returns::
+    :param Fin: input field
+    :type Fin: Field
+    :param tx: tilt in radians
+    :type tx: int, float
+    :param ty: tilt in radians
+    :type ty: int, float    
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        Fout: output field (N x N square array of complex numbers).
-
+    >>> F = Tilt(F, tx = 2*mrad, ty = 1*mrad) # wavefront tilt of 2 mrad in x and 1 mrad in y direction
+    >>> F = Tilt(F, 2*mrad, 1*mrad) # Idem
+    
+    .. seealso::
+    
+        * :ref:`Examples: Michelson interferometer.<Michelson interferometer.>`
     """
 
     Fout = Field.copy(Fin)
@@ -159,60 +253,3 @@ def Tilt(tx, ty, Fin):
     fi = -k*(tx*xx + ty*yy)
     Fout.field *= _np.exp(1j * fi)
     return Fout
-
-def LPdemo():
-    """
-    LPdemo()
-    Demonstrates the simulation of a two-holes interferometer.
-    
-    Args::
-    
-         -
-    
-    Returns::
-    
-        A plot of the interference pattern and a listing of the Python script.
-    
-    """
-    import matplotlib.pyplot as plt
-    import sys
-    import platform
-    m=1
-    mm=1e-3*m
-    cm=1e-2*m
-    um=1e-6*m
-    wavelength=20*um
-    size=30.0*mm
-    N=500
-    F=Begin(size,wavelength,N)
-    F1=CircAperture(0.15*mm, -0.6*mm,0, F)
-    F2=CircAperture(0.15*mm, 0.6*mm,0, F)    
-    F=BeamMix(F1,F2)
-    F=Fresnel(10*cm,F)
-    I=Intensity(0,F)
-    #plt.contourf(I,50); plt.axis('equal')
-    fig=plt.figure()
-    fig.canvas.set_window_title('Interference pattern of a two holes interferometer') 
-    plt.imshow(I,cmap='rainbow');plt.axis('off')
-    print(
-        '\n\nLightPipes for Python demo\n\n'
-        'Python script of a two-holes interferometer:\n\n'
-        '   import matplotlib.pyplot as plt\n'
-        '   from LightPipes import *\n'
-        '   wavelength=20*um\n'
-        '   size=30.0*mm\n'
-        '   N=500\n'
-        '   F=Begin(size,wavelength,N)\n'
-        '   F1=CircAperture(0.15*mm, -0.6*mm,0, F)\n'
-        '   F2=CircAperture(0.15*mm, 0.6*mm,0, F)\n'
-        '   F=BeamMix(F1,F2)\n'
-        '   F=Fresnel(10*cm,F)\n'
-        '   I=Intensity(0,F)\n'
-        '   fig=plt.figure()\n'
-        '   fig.canvas.set_window_title(\'Interference pattern of a two holes interferometer\')\n'
-        '   plt.imshow(I,cmap=\'rainbow\');plt.axis(\'off\')\n'
-        '   plt.show()\n\n'
-    )
-    print('Executed with python version: ' + sys.version)
-    print('on a ' + platform.system() + ' ' + platform.release() + ' ' + platform.machine() +' machine')
-    plt.show()

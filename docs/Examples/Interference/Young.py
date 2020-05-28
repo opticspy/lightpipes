@@ -1,7 +1,7 @@
 from LightPipes import *
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-
+LPversion
 """
     Young's experiment.
     Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern

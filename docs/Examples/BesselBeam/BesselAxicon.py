@@ -21,7 +21,7 @@ delta_z=(z_end-z_start)/steps
 z=z_start
 
 F=Begin(size,wavelength,N);
-F=GaussHermite(0,0,1,size/3.5,F)
+F=GaussBeam(F, size/3.5)
 F=Axicon(phi,n1,0,0,F)
 
 for i in range(1,steps): 

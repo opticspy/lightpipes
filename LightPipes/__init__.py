@@ -91,25 +91,45 @@ from .sources import PointSource, GaussBeam, PlaneWave
 
 def Begin(size,labda,N):
     """
-    F = Begin(GridSize, Wavelength, N)
+    *Initiates a field with a grid size, a wavelength and a grid dimension.*
     
-    :ref:`Creates a plane wave (phase = 0.0, amplitude = 1.0). <Begin>`
-
-    Args::
+    :param size: size of the square grid
+    :type size: int, float
+    :param labda: the wavelength of the output field
+    :type labda: int, float
+    :param N: the grid dimension
+    :type N: int
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
     
-        GridSize: size of the grid
-        Wavelength: wavelength of the field
-        N: N x N grid points
+    >>> from LightPipes import *
+    >>> size = 20*mm
+    >>> wavelength = 500*nm
+    >>> N = 5
+    >>> F = Begin(size, wavelength, N)
+    >>> F
+    <LightPipes.field.Field object at 0x0000027AAF6E5908>
+    >>> F.field
+    array([[1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j],
+           [1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j],
+           [1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j],
+           [1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j],
+           [1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j]])
+    >>> F.siz
+    0.02
+    >>> F.lam
+    5.000000000000001e-07
+    >>> F.N
+    5
+    
+    .. seealso::
+    
+        * :ref:`Manual: Starting the calculations. <Starting the calculations.>`
         
-    Returns::
-     
-        F: N x N square array of complex numbers (1+0j).
-            
-    Example:
-    
-    :ref:`Diffraction from a circular aperture <Diffraction>`
-    
+        * :ref:`Examples: Diffraction from a circular aperture <Diffraction from a circular aperture.>`
     """
+
     Fout = Field.begin(size, labda, N) #returns Field class with all params
     return Fout
 
