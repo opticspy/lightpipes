@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>7.3.6. Fresnel diffraction. &mdash; LightPipes for Python 2.0.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="7.3.5. Fabry Perot interferometer." href="FabryPerot.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LightPipes for Python
+          
+
+          
+            
+            <img src="../_static/front.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">5. Manual.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">6. Examples.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="computerprac.html">7. Computer practical.</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="computerprac.html#introduction-to-computer-practical">7.1. Introduction to computer practical.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="computerprac.html#prepare-your-computer">7.2. Prepare your computer.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="computerprac.html#assignments">7.3. Assignments.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="SphericalWavefront.html">7.3.1. Spherical wavefront.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Reflect.html">7.3.2. Internal reflection and refraction.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TwoHoles.html">7.3.3. Two holes interferometer.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NewtonRings.html">7.3.4. Newton rings.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FabryPerot.html">7.3.5. Fabry Perot interferometer.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.3.6. Fresnel diffraction.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fresnel-diffraction-plane-wavefront">7.3.6.1. Fresnel diffraction, plane wavefront.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fresnel-diffraction-spherical-wavefront">7.3.6.2. Fresnel diffraction, spherical wavefront.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#questions-about-fresnel-diffraction">7.3.6.3. Questions about Fresnel diffraction.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+<!--
+    <a href="genindex.html">Index</a>
+-->
+    <a href= "../genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LightPipes for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="computerprac.html"><span class="section-number">7. </span>Computer practical.</a> &raquo;</li>
+        
+      <li><span class="section-number">7.3.6. </span>Fresnel diffraction.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/sphinx-sources/FresnelDiffraction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="fresneldiffraction"></span><div class="section" id="fresnel-diffraction">
+<span id="index-0"></span><h1><span class="section-number">7.3.6. </span>Fresnel diffraction.<a class="headerlink" href="#fresnel-diffraction" title="Permalink to this headline">¶</a></h1>
+<p>Download Python script: <a class="reference download internal" download="" href="../_downloads/767af1e06950c3dbab753b7355b6f35b/FresnelPlane.py"><code class="xref download docutils literal notranslate"><span class="pre">FresnelPlane.py</span></code></a></p>
+<div class="figure align-default" id="id1">
+<img alt="../_images/Augustin_Fresnel.jpg" src="../_images/Augustin_Fresnel.jpg" />
+<p class="caption"><span class="caption-text"><em>Auguste Fresnel, (Broglie, 1788 – Ville-d’Avray, 1827)</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Suppose that a monochromatic beam of light falls on a screen with a round
+hole in it. At a certain distance from the hole a diffraction pattern
+can be observed on a second screen. The structure of the pattern depends
+on the wavelength, <span class="math notranslate nohighlight">\(λ\)</span>, and the phase distribution of the incoming wavefront
+and also on the diameter, <span class="math notranslate nohighlight">\(d\)</span>, of the hole and the distance, <span class="math notranslate nohighlight">\(z\)</span>, from
+the hole to the screen.</p>
+<p>Here we study the case that <span class="math notranslate nohighlight">\(\frac{A}{\lambda}\)</span> is larger than the distance to
+the screen: <span class="math notranslate nohighlight">\(\frac{A}{\lambda}&gt;z\)</span>, where <span class="math notranslate nohighlight">\(A=\frac{\pi}{4}d^2\)</span> is the area of the hole.
+In this so-called near field- or Fresnel diffraction regime a monochromatic plane or spherical wave
+that illuminates the hole will produce a diffraction pattern in the form of a set of concentric rings.
+The irradiance at the optical axis will be a minimum or a maximum when, at constant wavelength and hole
+diameter, the distance from the hole to the observation screen is reduced from inifinity to zero.</p>
+<p>The rings appear after passing the critical distance
+(also called the Rayleigh length) <span class="math notranslate nohighlight">\(z_R =\frac{A}{\lambda}\)</span>.
+If <span class="math notranslate nohighlight">\(z &gt; z_R\)</span> no rings but a smooth irradiance distribution in the form
+of a squared Bessel function is observed of which the shape
+(but not the beam diameter) remains constant while increasing z.
+This far-field is also called Fraunhofer diffraction (Pedrotti chapter 11).</p>
+<p>Whether a maximum or a minimum appears on the optical axis can be
+understood using the Fresnel zone theory (Pedrotti, 13-4).
+If the number of half-lambda zones ‘seen’ by the observer is odd a
+maximum is observed, an even number of zones produces a minimum irradiance.
+The number of Fresnel zones is indicated by the Fresnel number, <span class="math notranslate nohighlight">\(N_F=\frac{z_R}{z}\)</span>.</p>
+<p>In these experiments the distances where a maximum or minimum intensity
+on the optical axis appear are measured. From these measurements the
+wavelength of the light can be determined if the hole diameter is known.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default">
+<img alt="../_images/FresnelLab1.jpg" src="../_images/FresnelLab1.jpg" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../_images/FresnelLab2.jpg" src="../_images/FresnelLab2.jpg" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><em>The experimental set-up in the lab is simple:
+it consists of a (HeNe) laser, a beam expander or a strong lens to
+produce a plane or a spherical wave, a screen with the hole
+and a CCD camera. All the components are mounted on an optical
+rail to adjust and measure distances easily.</em></p>
+</div></blockquote>
+<p>In this exercise two incoming wavefronts are considered: a plane wave
+and a spherical wave.</p>
+<div class="section" id="fresnel-diffraction-plane-wavefront">
+<h2><span class="section-number">7.3.6.1. </span>Fresnel diffraction, plane wavefront.<a class="headerlink" href="#fresnel-diffraction-plane-wavefront" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id2">
+<img alt="../_images/FresnelPlaneSetup.png" src="../_images/FresnelPlaneSetup.png" />
+<p class="caption"><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A plane wave enters a round hole in a screen.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id3">
+<img alt="../_images/FresnelPlaneScreenShot.png" src="../_images/FresnelPlaneScreenShot.png" />
+<p class="caption"><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a plane input wave.</em></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Download Python script: <a class="reference download internal" download="" href="../_downloads/767af1e06950c3dbab753b7355b6f35b/FresnelPlane.py"><code class="xref download docutils literal notranslate"><span class="pre">FresnelPlane.py</span></code></a></p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Show that at the optical axis maximum and minimum irradiances are observed for distances <span class="math notranslate nohighlight">\(z_m\)</span> if:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{z_m}=\frac{4\lambda}{d^2}m\]</div>
+</div></blockquote>
+<p>minima for: <span class="math notranslate nohighlight">\(m = even = 2, 4, 6, …\)</span></p>
+<p>maxima for: <span class="math notranslate nohighlight">\(m= odd = 1, 3, 5, …\)</span></p>
+</li>
+<li><p>Measure these positions for a number of values of the diameter, <span class="math notranslate nohighlight">\(d\)</span>, of the hole.</p></li>
+<li><p>Determine the value of the wavelength of the light from the measurements.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="fresnel-diffraction-spherical-wavefront">
+<span id="fresnelspherical"></span><h2><span class="section-number">7.3.6.2. </span>Fresnel diffraction, spherical wavefront.<a class="headerlink" href="#fresnel-diffraction-spherical-wavefront" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id4">
+<img alt="../_images/FresnelSphericalSetup.png" src="../_images/FresnelSphericalSetup.png" />
+<p class="caption"><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A spherical wave from a point source enters a round hole in a screen.</em></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="../_images/FresnelSphericalScreenShot.png" src="../_images/FresnelSphericalScreenShot.png" />
+<p class="caption"><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a spherical input wave.</em></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Download source code: <a class="reference download internal" download="" href="../_downloads/3f91d74b52a25d1773d24c9bba17e54a/FresnelSpherical.py"><code class="xref download docutils literal notranslate"><span class="pre">FresnelSpherical.py</span></code></a></p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Modify the equations for the positions of maximum and minimum
+irradiance on the optical axis behind the screen with the hole
+for the spherical wave and show that in this case these distances
+are given by:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\frac{1}{z_1} + \frac{1}{z_{2m}}=\frac{4\lambda}{d^2}m\]</div>
+</div></blockquote>
+<p>minima for: <span class="math notranslate nohighlight">\(m = even = 2, 4, 6, …\)</span></p>
+<p>maxima for: <span class="math notranslate nohighlight">\(m= odd = 1, 3, 5, …\)</span></p>
+</li>
+<li><p>Measure these positions for a number of values of the diameter, <span class="math notranslate nohighlight">\(d\)</span>, of the hole and for the position, <span class="math notranslate nohighlight">\(z_1\)</span>, of the point source.</p></li>
+<li><p>Determine the value of the wavelength of the light from the measurements.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="questions-about-fresnel-diffraction">
+<h2><span class="section-number">7.3.6.3. </span>Questions about Fresnel diffraction.<a class="headerlink" href="#questions-about-fresnel-diffraction" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>What happens if the beam of light is not monochromatic but contains
+a large number of wavelengths?</p></li>
+<li><p>Look at the formula(s) you derived to explain the observations.
+Can you talk about some sort of imaging? Define an expression for
+a ‘focal length’. Hint: have a look at the pinhole  camera (Pedrotti 3-4).</p></li>
+<li><p>Find out what is meant with the “Fresnel Number”.
+What is the irradiance on the optical axis when this number is odd and when it is even?</p></li>
+<li><p>Can you consider a diffraction pattern as an interference phenomenon? Why?</p></li>
+</ol>
+</div></blockquote>
+<p><a class="reference external" href="https://www.amazon.com/Introduction-Optics-3rd-Frank-Pedrotti/dp/0131499335">Literature: Pedrotti, 3rd ed., chapter 13.</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="FabryPerot.html" class="btn btn-neutral float-left" title="7.3.5. Fabry Perot interferometer." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Fred van Goor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
