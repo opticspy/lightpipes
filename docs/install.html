@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Installation. &mdash; LightPipes for Python 2.0.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Support." href="support.html" />
+    <link rel="prev" title="1. Introduction." href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightPipes for Python
+          
+
+          
+            
+            <img src="_static/front.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Installation.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#known-installation-problems">2.1. Known installation problems.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">5. Manual.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">6. Examples.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightPipes for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Installation.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1><span class="section-number">2. </span>Installation.<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Current version = 2.0.3</p>
+<p>Up to version 1.2.0 the LightPipes for Python package, called LightPipes,
+consists of a collection of C++ routines which can be called from a Python script.
+From version 2.0.0 we transformed the package into pure Python using the numpy, scipy and pyFFTW
+packages. Because of these packages, the speed of the pure python version is about the same
+as with the C++ version or even faster because use can be made of multi-processor operation.</p>
+<p>All versions of Lightpipes can be operated on Windows (32 and 64 bits),
+Linux (32 and 64 bits) and Macintosh (64 bits) computers.
+The C++ versions &lt; 2.0.0 packages are for Python versions 2.7, 3.4, 3.5, 3.6 and 3.7.
+The pure Python versions will run on all (future) Python 3.+ versions.
+It cannot be used with the retired Python 2.7 version. Upgrade to Python 3.</p>
+<p>Due to a problem with the installation of pyFFTW on the Raspberry Pi,
+the pure Python version cannot be installed on the Raspberry Pi.</p>
+<p>However, there is a C++ version (1.2.0) for 3.7 Python for the Raspberry Pi which works
+(Tested on a RP4 model B with 4Gb memory).</p>
+<p>LightPipes for Python is on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a>
+and can be installed if you have <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">pip</a>
+installed on your computer.
+In a terminal window simply type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install LightPipes
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install --upgrade LightPipes
+</pre></div>
+</div>
+<p>to upgrade the package.</p>
+<p>For the Raspberry with Python 3.7 type:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install <span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
+</pre></div>
+</div>
+<p>To test if the installation was successful start Python and type at the prompt:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LPtest</span><span class="p">()</span>
+<span class="go">LightPipes for Python: test passed.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>The response should be: “LightPipes for Python: test passed.”</p>
+<p>Most output from LightPipes python scripts should use the <a class="reference external" href="https://matplotlib.org/">MatPlotLib</a> plotting library.
+MatplotLib can be installed by typing in a terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install matplotlib
+</pre></div>
+</div>
+<p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
+See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.html">http://www.tkdocs.com/tutorial/install.html</a> how to install it on your platform.</p>
+<p>Finally, a convenient editor to make Python scripts is <a class="reference external" href="http://www.geany.org/">Geany</a>.</p>
+<div class="section" id="known-installation-problems">
+<h2><span class="section-number">2.1. </span>Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl>
+<dt>Too old version of numpy:</dt><dd><p>After installation of LightPipes, using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip install LightPipes
+</pre></div>
+</div>
+<p>for a brandnew MacBook Air computer the following error popped-up after an import-test in python:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import LightPipes
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+File &quot;/Library/Python/2.7/site-packages/LightPipes/__init__.py&quot;, line 52, in &lt;module&gt;
+from ._LightPipes import * # noqa
+File &quot;__init__.pxd&quot;, line 155, in init LightPipes._LightPipes (LightPipes/_LightPipes.cpp:10911)
+ValueError: numpy.dtype has the wrong size, try recompiling. Expected 88, got 96
+</pre></div>
+</div>
+<p>Solution:</p>
+<p>The version (1.8.0rc1) of the numpy package (installed as part of the macOS Sierra 10.12.6 update) is too old.
+You have to update numpy to the newest version. Use easy_install, not pip for this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo easy_install -U numpy
+</pre></div>
+</div>
+<p>(If the cpp-compiler is not installed a window pops up to ask you to install it and the numpy installation is interrupted. Say yes to install the compiler and repeat the numpy installation)</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Cannot install LightPipes (version 2.0.0 and higher) on a Raspberry Pi vs 4.0:</dt><dd><p>This is caused by the fact that the required  pyFFTW package cannot be installed on a Raspberry Pi (ARM processor)
+Maybe this will be solved in the future. In the mean time you can install version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
+Type at a terminal prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install <span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
+</pre></div>
+</div>
+<p>Use pip3 to install for Python 3.7</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="support.html" class="btn btn-neutral float-right" title="3. Support." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Fred van Goor
+      <span class="lastupdated">
+        Last updated on May 28, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
