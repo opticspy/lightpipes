@@ -8,9 +8,9 @@
 Internal reflection and refraction.
 ===================================
 
-Download Python script: :download:`ReflectRefract.py <./Examples/ComputerPrac/ReflectRefract.py>`
+Download Python script: :download:`ReflectRefract.py <../Examples/ComputerPrac/ReflectRefract.py>`
 
-.. figure:: ./figures/Willebrord_Snell.jpg
+.. figure:: ./_static/Willebrord_Snell.jpg
 
     *Willebrord Snel van Royen (Leiden, 1580 – 1626), better known as Snellius*
 
@@ -18,7 +18,7 @@ Download Python script: :download:`ReflectRefract.py <./Examples/ComputerPrac/Re
 
 In this experiment we study internal reflection and refraction from the interface between a transparent medium and air.
 
-.. figure:: ./figures/ReflectSetup.png
+.. figure:: ./_static/ReflectSetup.png
 
     *Setup of the reflection / refraction experiment.*
     
@@ -49,14 +49,14 @@ The medium has the shape of a half cylinder so that the incident beam is always 
 to the air-medium interface. With this experiment the refractive index of the medium can be determined. 
 Reflections from the cylinder surface can be neglected.
 
-.. figure:: ./figures/ReflectScreenShot.png
+.. figure:: ./_static/ReflectScreenShot.png
 
     *Screenshot of the reflection - refraction experiment.*
 
 Measurement of the refractive index of the medium.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download Python script: :download:`ReflectRefract.py <./Examples/ComputerPrac/ReflectRefract.py>`
+Download Python script: :download:`ReflectRefract.py <../Examples/ComputerPrac/ReflectRefract.py>`
 
     1.  Derive an expression that yields the refractive index from the measurable quantities.
     2.  Determine the refractive index of the medium.

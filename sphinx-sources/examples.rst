@@ -16,8 +16,7 @@ Interference examples.
 Young's experiment.
 -------------------
 
-.. plot:: ./Examples/Interference/Young.py
-   :include-source:
+.. plot:: ../Examples/Interference/Young.py
 
 Michelson interferometer.
 -------------------------
@@ -34,21 +33,17 @@ Michelson interferometer.
     Begin
     Intensity
 
-.. plot:: ./Examples/Interference/Michelson.py
-   :include-source:
+.. plot:: ../Examples/Interference/Michelson.py
 
 Interference of a doughnut laser beam: collinear beams.
 -------------------------------------------------------
 
-.. plot:: ./Examples/Interference/Doughnut_collinear.py
-   :include-source:
+.. plot:: ../Examples/Interference/Doughnut_collinear.py
 
 Interference of a doughnut laser beam: tilted beams.
 ----------------------------------------------------
 
-.. plot:: ./Examples/Interference/Doughnut_tilt.py
-   :include-source:
-
+.. plot:: ../Examples/Interference/Doughnut_tilt.py
 
 ...............................................................................................
 
@@ -65,8 +60,7 @@ Diffraction examples.
 Diffraction from a circular aperture.
 -------------------------------------
 
-.. plot:: ./Examples/Diffraction/RoundHole.py
-   :include-source:
+.. plot:: ../Examples/Diffraction/RoundHole.py
 
 .. Index::
     Poisson spot
@@ -80,8 +74,7 @@ Diffraction from a circular aperture.
 Spot of Poisson.
 ----------------
 
-.. plot:: ./Examples/Diffraction/Poisson.py
-   :include-source:
+.. plot:: ../Examples/Diffraction/Poisson.py
 
 ...............................................................................................
 
@@ -138,8 +131,7 @@ The width of the beam is given by:
 
 and is proportional to the distance, z.
 
-.. plot:: ./Examples/BesselBeam/BesselAnnularSlit1.py
-   :include-source:
+.. plot:: ../Examples/BesselBeam/BesselAnnularSlit1.py
 
 Collimating the edge waves with a lens.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -150,8 +142,7 @@ the light passing the disk at larger distances from the edge will be focussed as
 will disturb the Bessel beam. This light can easily been blocked with an extra aperture
 surrounding the disk resulting in an annular slit. 
 
-.. plot:: ./Examples/BesselBeam/BesselAnnularSlit2.py
-   :include-source:
+.. plot:: ../Examples/BesselBeam/BesselAnnularSlit2.py
 
 Generation of a Bessel beam with a lens and an annular slit.
 ------------------------------------------------------------
@@ -161,8 +152,7 @@ the 'overlap area'. From geometric optics this distance can be estimated by:
 
 :math:`z_{max}=\frac{Df}{a}`, where :math:`D` and :math:`f` are the diameter and focallength of the lens respectively.
 
-.. plot:: ./Examples/BesselBeam/BesselAnnularSlit3.py
-   :include-source:
+.. plot:: ../Examples/BesselBeam/BesselAnnularSlit3.py
 
 Generation of a Bessel beam with an axicon.
 -------------------------------------------
@@ -173,8 +163,7 @@ in principle all the incoming light is converted.
 Although all the light is converted most applications are only interacting with the central lobe of the beam, which only carries
 a small fraction of the total beam power.
 
-.. plot:: ./Examples/BesselBeam/BesselAxicon.py
-   :include-source:
+.. plot:: ../Examples/BesselBeam/BesselAxicon.py
 
 
 ...............................................................................................
@@ -195,20 +184,17 @@ Laser examples.
 Hermite Gauss modes.
 --------------------
 
-.. plot:: ./Examples/Laser/Gauss_laser_mode_HG.py
-   :include-source:
+.. plot:: ../Examples/Laser/Gauss_laser_mode_HG.py
 
 Laguerre Gauss modes.
 ---------------------
 
-.. plot:: ./Examples/Laser/Gauss_laser_mode_LG.py
-   :include-source:
+.. plot:: ../Examples/Laser/Gauss_laser_mode_LG.py
 
 Laguerre doughnut modes.
 ------------------------
 
-.. plot:: ./Examples/Laser/GaussLaguerre_doughnut.py
-   :include-source:
+.. plot:: ../Examples/Laser/GaussLaguerre_doughnut.py
 
 Laser simulation, stable laser resonator.
 -----------------------------------------
@@ -220,7 +206,7 @@ resonator will grow starting from noise by spontaneous emission as a function of
 a number of resonator modes depending on the wavelength, the curvatures of and the distance between the mirrors 
 and especially the diameter of an intra-cavity aperture.
 
-.. figure:: ./figures/stab_laser.png
+.. figure:: ./_static/stab_laser.png
 
    Laser resonator with gain.
 
@@ -236,23 +222,21 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 
     <iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe>
 
-:download:`(Download source code) <./Examples/Laser/laser_simulation.py>`
+:download:`(Download source code) <../Examples/Laser/laser_simulation.py>`
 
-.. literalinclude:: ./Examples/Laser/laser_simulation.py
-    :caption: laser_simulation.py
-    :name: laser-simulation
+.. .. literalinclude:: ../Examples/Laser/laser_simulation.py
+..     :caption: laser_simulation.py
+..     :name: laser-simulation
 
 Unstable laser resonator.
 -------------------------
 
-.. plot:: ./Examples/Laser/unstable_resonator.py
-   :include-source:
+.. plot:: ../Examples/Laser/unstable_resonator.py
 
 Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.
 ------------------------------------------------------------------------------------------
 
-.. plot:: ./Examples/Laser/Spiral_phase_plate.py
-   :include-source:
+.. plot:: ../Examples/Laser/Spiral_phase_plate.py
 
 
 ...............................................................................................
@@ -273,8 +257,7 @@ Phase recovery.
 Phase recovery using Gerchberg Saxton iteration.
 ------------------------------------------------
 
-.. plot:: ./Examples/PhaseRecovery/PhaseRecovery.py
-   :include-source:
+.. plot:: ../Examples/PhaseRecovery/PhaseRecovery.py
 
 
 ...............................................................................................
@@ -296,14 +279,12 @@ amplitude of the aberration.
     Begin
     Intensity
 
-.. plot:: ./Examples/Zernike/Zernike.py
-   :include-source:
+.. plot:: ../Examples/Zernike/Zernike.py
 
 Radial shear interferometer.
 ----------------------------
 
-.. plot:: ./Examples/Zernike/rad_shear.py
-   :include-source:
+.. plot:: ../Examples/Zernike/rad_shear.py
 
 
 ...............................................................................................
@@ -314,12 +295,12 @@ Graded index media GRIN.
 Demonstration of a GRIN lens.
 -----------------------------
 
-.. plot:: ./Examples/Waveguide/GRIN_demo.py
+.. plot:: ../Examples/Waveguide/GRIN_demo.py
 
 Young's experiment with GRIN lens.
 ----------------------------------
 
-.. plot:: ./Examples/Waveguide/GRIN_Young.py
+.. plot:: ../Examples/Waveguide/GRIN_Young.py
 
 Propagation in a lens-like, absorptive medium.
 ----------------------------------------------
@@ -328,7 +309,7 @@ In this example we model the propagation of a Gaussian beam in a lens-like waveg
 
 we use the approximation for the profile of the refractive coefficient, :math:`n'=n-i\kappa` in the form: :math:`n(r)^2=n_0^2-n_0n_1r^2`. It is a well-known fact [#f9]_ that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: :math:`w_0^2=\frac{2}{k(n_0n_1)^{1/2}}` , with :math:`k=\frac{2 \pi}{\lambda}`. For a waveguide of :math:`1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0` and :math:`\lambda = 1 \mu m`, the Gaussian mode has a diameter of :math:`226 \mu m` . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.
 
-.. plot:: ./Examples/Waveguide/LensLikeMedium.py
+.. plot:: ../Examples/Waveguide/LensLikeMedium.py
 
 *Propagation of a tilted Gaussian beam in a lens-like, absorptive medium.*
 
@@ -349,7 +330,7 @@ the first lens. When we place a screen behind the second lens at its secondary f
 screen, as shown in figure 1. The object to be recognized is present once or several times in the collection. As objects we choose
 transparencies with the characters A, B, and C.
 
-.. figure:: ./Examples/FourierOptics/setup1.png
+.. figure:: ../Examples/FourierOptics/setup1.png
 
     *Fig. 1 Imaging a transparency with objects*
     
@@ -358,16 +339,16 @@ objects is compensated by a phase plate prepared for that sort of object, see fi
 diverging spherical wave to the second lens and will be focused in a diffraction limited point on the screen. The position of that point will indicate the
 presence and the position of the object. This will only be the case when the object, for which the phase plate was positioned in the focus, is actually present in the collection.
 
-.. figure:: ./Examples/FourierOptics/setup2.png
+.. figure:: ../Examples/FourierOptics/setup2.png
 
     *Fig. 2 Making a phase mask of the Fourier transform of an object*
     
 
-.. figure:: ./Examples/FourierOptics/setup3.png
+.. figure:: ../Examples/FourierOptics/setup3.png
 
     *Fig. 3 Placing the phase mask in the focus of the first lens.*
 
-.. plot:: ./Examples/FourierOptics/PatternRecognition.py
+.. plot:: ../Examples/FourierOptics/PatternRecognition.py
 
 
 *Fig. 4 Results of the pattern recognition simulation.*

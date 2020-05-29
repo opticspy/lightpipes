@@ -26,13 +26,13 @@ Each experiment has a number of exercises to be done and questions to be answere
 The simulations make use of an optical toolbox (`LightPipes <http://www.okotech.com/>`_) with several commands for propagation, apertures, lenses, etc. The toolbox is written by Gleb Vdovin and is modified for this purpose by me. The toolbox is linked to each simulation program. It makes use of advanced propagation routines for solving the Fresnel-Kirchoff integral in two dimensions. The result is a very realistic optical simulation program for studying physical optics.
 
 +------------------------------------------------+------------------------------------------------------+
-|.. figure:: ./figures/FresnelSphericalSetup.png | .. figure:: ./figures/FresnelSphericalScreenShot.png |
+|.. figure:: ./_static/FresnelSphericalSetup.png | .. figure:: ./_static/FresnelSphericalScreenShot.png |
 +------------------------------------------------+------------------------------------------------------+
 
 *Screenshot of one of the simulation programs (Fresnel diffraction with spherical wavefront as input).*
 
 +--------------------------------------+---------------------------------------+
-|.. figure:: ./figures/FresnelLab1.jpg | .. figure:: ./figures/FresnelLab2.jpg |
+|.. figure:: ./_static/FresnelLab1.jpg | .. figure:: ./_static/FresnelLab2.jpg |
 +--------------------------------------+---------------------------------------+
 
 *Fresnel diffraction pattern as observed in the* real optics lab.

@@ -13,9 +13,9 @@
 Fresnel diffraction.
 ====================
 
-Download Python script: :download:`FresnelPlane.py <./Examples/ComputerPrac/FresnelPlane.py>`
+Download Python script: :download:`FresnelPlane.py <../Examples/ComputerPrac/FresnelPlane.py>`
 
-.. figure:: ./figures/Augustin_Fresnel.jpg
+.. figure:: ./_static/Augustin_Fresnel.jpg
 
     *Auguste Fresnel, (Broglie, 1788 – Ville-d'Avray, 1827)*
 
@@ -51,7 +51,7 @@ on the optical axis appear are measured. From these measurements the
 wavelength of the light can be determined if the hole diameter is known.
 
 +--------------------------------------+--------------------------------------+
-|.. figure:: ./figures/FresnelLab1.jpg |.. figure:: ./figures/FresnelLab2.jpg |
+|.. figure:: ./_static/FresnelLab1.jpg |.. figure:: ./_static/FresnelLab2.jpg |
 +--------------------------------------+--------------------------------------+
 
     *The experimental set-up in the lab is simple:
@@ -66,15 +66,15 @@ and a spherical wave.
 Fresnel diffraction, plane wavefront.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ./figures/FresnelPlaneSetup.png
+.. figure:: ./_static/FresnelPlaneSetup.png
 
     *Setup of the Fresnel diffraction experiment. A plane wave enters a round hole in a screen.*
 
-.. figure:: ./figures/FresnelPlaneScreenShot.png
+.. figure:: ./_static/FresnelPlaneScreenShot.png
     
    *Screenshot of the Fresnel diffraction experiment with a plane input wave.*
 
-Download Python script: :download:`FresnelPlane.py <./Examples/ComputerPrac/FresnelPlane.py>`
+Download Python script: :download:`FresnelPlane.py <../Examples/ComputerPrac/FresnelPlane.py>`
 
     1. Show that at the optical axis maximum and minimum irradiances are observed for distances :math:`z_m` if:
     
@@ -93,15 +93,15 @@ Download Python script: :download:`FresnelPlane.py <./Examples/ComputerPrac/Fres
 Fresnel diffraction, spherical wavefront.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ./figures/FresnelSphericalSetup.png
+.. figure:: ./_static/FresnelSphericalSetup.png
 
     *Setup of the Fresnel diffraction experiment. A spherical wave from a point source enters a round hole in a screen.*
 
-.. figure:: ./figures/FresnelSphericalScreenShot.png
+.. figure:: ./_static/FresnelSphericalScreenShot.png
 
     *Screenshot of the Fresnel diffraction experiment with a spherical input wave.*
     
-Download source code: :download:`FresnelSpherical.py <./Examples/ComputerPrac/FresnelSpherical.py>`
+Download source code: :download:`FresnelSpherical.py <../Examples/ComputerPrac/FresnelSpherical.py>`
 
     1. Modify the equations for the positions of maximum and minimum
        irradiance on the optical axis behind the screen with the hole

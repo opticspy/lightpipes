@@ -7,9 +7,9 @@
 Newton rings.
 =============
 
-Download Python script: :download:`NewtonRings.py <./Examples/ComputerPrac/NewtonRings.py>`
+Download Python script: :download:`NewtonRings.py <../Examples/ComputerPrac/NewtonRings.py>`
 
-.. figure:: ./figures/Newton.jpg
+.. figure:: ./_static/Newton.jpg
 
     *Sir Isaac Newton, (Woolsthorpe-by-Colsterworth, 1643 – Kensington, 1727).*
 
@@ -25,15 +25,15 @@ interference pattern. In these experiments the radius of curvature of the lens
 will be measured and the influence of replacing the refractive index of the film 
 between the two glass surfaces will be investigated.
 
-.. figure:: ./figures/newtonrings.png
+.. figure:: ./_static/newtonrings.png
 
     *Newton rings setup.*
 
-.. figure:: ./figures/NewtonRingsScreenShot.png
+.. figure:: ./_static/NewtonRingsScreenShot.png
 
     *Screenshot of the Newton rings program.*
 
-Download Python script: :download:`NewtonRings.py <./Examples/ComputerPrac/NewtonRings.py>`
+Download Python script: :download:`NewtonRings.py <../Examples/ComputerPrac/NewtonRings.py>`
 
 Measurement of the radius of curvature of the lens.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ Questions about Newton rings.
         but mount the lens with a ring instead. Explain why.
 
 +--------------------------------------+---------------------------------------+
-| .. figure:: ./figures/ring_mount.jpg | .. figure:: ./figures/screw_mount.jpg |
+| .. figure:: ./_static/ring_mount.jpg | .. figure:: ./_static/screw_mount.jpg |
 +--------------------------------------+---------------------------------------+
 |        *Good with ring mounting*     |      *Less good using screw mounting* |
 +--------------------------------------+---------------------------------------+

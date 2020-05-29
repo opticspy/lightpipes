@@ -8,9 +8,9 @@
 Two holes interferometer.
 =========================
 
-Download Python script: :download:`TwoHoles.py <./Examples/ComputerPrac/TwoHoles.py>`
+Download Python script: :download:`TwoHoles.py <../Examples/ComputerPrac/TwoHoles.py>`
 
-.. figure:: ./figures/Young_Thomas_Lawrence.jpg
+.. figure:: ./_static/Young_Thomas_Lawrence.jpg
 
     *Thomas Young (Milverton, 1773 – London, 1829)*
 
@@ -18,7 +18,7 @@ When a screen with two small holes (or slits) is illuminated by a monochromatic 
 of light an interference pattern can be observed on a screen some distance from the holes. 
 This experiment is also called Young's experiment.
 
-.. figure:: ./figures/twoholeslab.jpg
+.. figure:: ./_static/twoholeslab.jpg
  
     *Fringes from a Young’s interferometer as observed in the lab. From left to right the distance between the CCD camera and the holes is increased. It can be seen that the two spherical waves emitted from the holes overlap and interfere better at larger distances.*
 
@@ -27,13 +27,13 @@ Two experiments can be performed:
 Measurement of the wavelength.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ./figures/TwoHoles.png
+.. figure:: ./_static/TwoHoles.png
 
     *Screenshot of the two holes experiment.*
 
-Download Python script: :download:`TwoHoles.py <./Examples/ComputerPrac/TwoHoles.py>`
+Download Python script: :download:`TwoHoles.py <../Examples/ComputerPrac/TwoHoles.py>`
 
-.. figure:: ./figures/twoholessetup.png
+.. figure:: ./_static/twoholessetup.png
 
     *Young's experiment.*
     
@@ -59,7 +59,7 @@ now occur at different places and as a result the fringes are shifted. From the 
 the fringe pattern the film thickness can be determined if the refractive index of the 
 film is known.
 
-.. figure:: ./figures/twoholes_with_filmsetup.png
+.. figure:: ./_static/twoholes_with_filmsetup.png
 
     *Young's experiment with thin film before one of the holes.*
     

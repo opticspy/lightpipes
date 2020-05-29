@@ -7,13 +7,13 @@
 Fabry Perot interferometer.
 ===========================
 
-Download Python script: :download:`FabryPerot.py <./Examples/ComputerPrac/FabryPerot.py>`
+Download Python script: :download:`FabryPerot.py <../Examples/ComputerPrac/FabryPerot.py>`
 
-.. figure:: ./figures/Charles_Fabry.jpg
+.. figure:: ./_static/Charles_Fabry.jpg
 
     *Maurice Paul Auguste Charles Fabry (1867, Marseille – 1945)*
 
-.. figure:: ./figures/Alfred_Perot.jpg
+.. figure:: ./_static/Alfred_Perot.jpg
 
     *Jean-Baptiste Alfred Perot (1863, Metz  – 1925)*
 
@@ -36,21 +36,21 @@ In the second experiment a medium with refractive index larger than one is inser
 the mirrors and the index is measured, again by varying the distance between the two mirrors.
 
 +---------------------------------------------+-----------------------------------------+
-|.. figure:: ./figures/FabryPerotLabSetup.jpg |.. figure:: ./figures/FabryPerotRings.jpg|
+|.. figure:: ./_static/FabryPerotLabSetup.jpg |.. figure:: ./_static/FabryPerotRings.jpg|
 +---------------------------------------------+-----------------------------------------+
 
     *Experimental set-up of a Fabry Perot interferometer illuminated by a sodium (Na) lamp. The two Na D1 and D2 lines at 589.6 nm and 589.0 nm produce two sets of concentric rings observed with a CCD camera.*
 
-.. figure:: ./figures/FabryPerotScreenShot.png
+.. figure:: ./_static/FabryPerotScreenShot.png
 
     *Screenshot of the Fabry Perot program.*
 
-Download Python script: :download:`FabryPerot.py <./Examples/ComputerPrac/FabryPerot.py>`
+Download Python script: :download:`FabryPerot.py <../Examples/ComputerPrac/FabryPerot.py>`
 
 Measurement of the distance between two wavelengths.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ./figures/FabryPerotSetup.gif
+.. figure:: ./_static/FabryPerotSetup.gif
 
     *Fabry Perot setup.*
 

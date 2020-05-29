@@ -14,9 +14,9 @@
 Spherical wavefront.
 ====================
 
-Download Python script: :download:`SphericalWavefront.py <./Examples/ComputerPrac/SphericalWavefront.py>`
+Download Python script: :download:`SphericalWavefront.py <../Examples/ComputerPrac/SphericalWavefront.py>`
 
-.. figure:: ./figures/Christiaans_huigens_by_Caspar_Netscher.jpg
+.. figure:: ./_static/Christiaans_huigens_by_Caspar_Netscher.jpg
 
     *Christiaan Huygens (Den Haag, 1629 – 1695)*
 
@@ -39,11 +39,11 @@ with :math:`A` the hole area. Another indicator of Fresnel- or Fraunhofer diffra
  
 The Fresnel number gives the number of so-called Fresnel half-wavelength zones ‘seen’ by the observer. If the number of zones is even, a minimum irradiance can be observed on axis. A maximum occurs if :math:`N_F`  is odd. (The Fresnel and Fraunhofer diffraction theory will be introduced in experiment 6, Fresnel Diffraction. Also see Pedrotti chapter 13). Depending on the required accuracy the minimum distance from the hole must be some factor times :math:`Z_R`. A factor 100-200 is often chosen, for this exercise a factor 10 will due.
 
-.. figure:: ./figures/SphericalWavefront2.jpg
+.. figure:: ./_static/SphericalWavefront2.jpg
 
    *Fresnel or near-field diffraction*
 
-.. figure:: ./figures/SphericalWavefront1.jpg
+.. figure:: ./_static/SphericalWavefront1.jpg
 
    *Fraunhofer or far-field diffraction*
 
@@ -51,15 +51,15 @@ The Fresnel number gives the number of so-called Fresnel half-wavelength zones �
 Irradiance dependency of a spherical wavefront.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ./figures/SphericalWavefrontSetup.gif
+.. figure:: ./_static/SphericalWavefrontSetup.gif
 
     *Setup of the experiment. A spherical wave is made by illuminating a small hole in a screen.*
 
-.. figure:: ./figures/SphericalWavefrontScreenShot.png
+.. figure:: ./_static/SphericalWavefrontScreenShot.png
 
     *Screenshot of the spherical wavefront experiment.*
     
-Download Python script: :download:`SphericalWavefront.py <./Examples/ComputerPrac/SphericalWavefront.py>`
+Download Python script: :download:`SphericalWavefront.py <../Examples/ComputerPrac/SphericalWavefront.py>`
 
     1.  Write down the expression for the irradiance distribution as a function of 
         the propagation distance, :math:`z`, for a spherical electro-magnetic wave.
