@@ -4,80 +4,22 @@ Examples.
 Interference examples.
 **********************
 
-.. Index::
-    Two holes interferometer
-    Young's interferometer
-    BeamMix
-    Fresnel
-    CircAperture
-    Begin
-    Intensity
-
-Young's experiment.
--------------------
-
-.. plot:: ../Examples/Interference/Young.py
-
-Michelson interferometer.
--------------------------
-
-.. Index::
-    Michelson
-    interferometer
-    GaussHermite
-    Lens
-    IntAttenuator
-    Tilt
-    BeamMix
-    Forvard
-    Begin
-    Intensity
-
-.. plot:: ../Examples/Interference/Michelson.py
-
-Interference of a doughnut laser beam: collinear beams.
--------------------------------------------------------
-
-.. plot:: ../Examples/Interference/Doughnut_collinear.py
-
-Interference of a doughnut laser beam: tilted beams.
-----------------------------------------------------
-
-.. plot:: ../Examples/Interference/Doughnut_tilt.py
-
-...............................................................................................
+.. toctree::
+   :maxdepth: 1
+   
+   YoungsExperiment
+   MichelsonInterferometer
+   InterferenceDoughnutCollinear
+   InterferenceDoughnutTilted
 
 Diffraction examples.
 *********************
 
-.. Index::
-    Forvard
-    CircAperture
-    Begin
-    Intensity
-    Fresnel diffraction
-
-Diffraction from a circular aperture.
--------------------------------------
-
-.. plot:: ../Examples/Diffraction/RoundHole.py
-
-.. Index::
-    Poisson spot
-    Arago spot
-    Diffraction
-    Forvard
-    CircScreen
-    Begin
-    Intensity
-
-Spot of Poisson.
-----------------
-
-.. plot:: ../Examples/Diffraction/Poisson.py
-
-...............................................................................................
-
+.. toctree::
+   :maxdepth: 1
+   
+   DiffractionRoundHole
+   PoissonSpot
 
 Non-diffractive Bessel beam.
 ****************************
@@ -110,64 +52,16 @@ non-diffracting Bessel beam.
 reference: J.Durnin, "Exact solutions for nondiffracting beams. I. The scalar theory."
 JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)
 
-From Poisson spot to a non-diffractive Bessel beam.
----------------------------------------------------
-
-The waves originating from Huygens point-sources at the edge of the disk can be considered as a
-collection of spherical waves which are all in phase because the disk is illuminated by a monochromatic plane wave.
-Each spherical wave has the same amplitude as well. As a result these waves interfere constructively 
-to a Poisson spot near the axis. It can be shown that the intensity distribution is approximately given by:
-
-:math:`I(r,z) \approx I_0 J_0 ^2 ( \frac{2 \pi  \alpha r}{ \lambda } )`
-
-with:
-
-:math:`\alpha = \frac{a}{r}` is the angle of the wavefront near the axis, 
-:math:`2a` is the diameter of the disk
-
-The width of the beam is given by:
-
-:math:`w(z)=\frac{2.44}{ \pi } \frac{ \lambda z}{a}`
-
-and is proportional to the distance, z.
-
-.. plot:: ../Examples/BesselBeam/BesselAnnularSlit1.py
-
-Collimating the edge waves with a lens.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-When the disk is placed in the primary focus of a postive lens,the spherical waves are collimated and 
-the angle, :math:`\alpha` remains constant. As a result the beam does not diverge anymore. Ofcourse 
-the light passing the disk at larger distances from the edge will be focussed as well by the lens and 
-will disturb the Bessel beam. This light can easily been blocked with an extra aperture
-surrounding the disk resulting in an annular slit. 
-
-.. plot:: ../Examples/BesselBeam/BesselAnnularSlit2.py
-
-Generation of a Bessel beam with a lens and an annular slit.
-------------------------------------------------------------
-
-By positioning an aperture around the disk a non-difracting Bessel beam is generated over a distance given by
-the 'overlap area'. From geometric optics this distance can be estimated by:
-
-:math:`z_{max}=\frac{Df}{a}`, where :math:`D` and :math:`f` are the diameter and focallength of the lens respectively.
-
-.. plot:: ../Examples/BesselBeam/BesselAnnularSlit3.py
-
-Generation of a Bessel beam with an axicon.
--------------------------------------------
-
-Using an annular slit is of course not very efficient because most of the incoming (laser) beam is not used.
-A much more efficient way to generate a Bessel beam is the use of an axicon. With such an element
-in principle all the incoming light is converted.
-Although all the light is converted most applications are only interacting with the central lobe of the beam, which only carries
-a small fraction of the total beam power.
-
-.. plot:: ../Examples/BesselBeam/BesselAxicon.py
+.. toctree::
+   :maxdepth: 1
+   
+   PoissonSpottoBesselBeam
+   CollimatingEdgeWaves
+   BesselBeamWithAnnularSlit
+   BesselBeamWithAxicon
 
 
-...............................................................................................
-
+     
 Laser examples.
 ***************
 
@@ -180,66 +74,16 @@ Laser examples.
      Lens
      Intensity
 
+.. toctree::
+   :maxdepth: 1
+   
+   HermiteGaussModes
+   LaguerreGaussModes
+   DoughnutModes
+   StableLaserResonator
+   UnstableLaserResonator
+   TransformationtoDoughnutMode
 
-Hermite Gauss modes.
---------------------
-
-.. plot:: ../Examples/Laser/Gauss_laser_mode_HG.py
-
-Laguerre Gauss modes.
----------------------
-
-.. plot:: ../Examples/Laser/Gauss_laser_mode_LG.py
-
-Laguerre doughnut modes.
-------------------------
-
-.. plot:: ../Examples/Laser/GaussLaguerre_doughnut.py
-
-Laser simulation, stable laser resonator.
------------------------------------------
-
-A typical laser consists of two (concave or convex) mirrors separated some distance and a gain medium mostly based on
-stimulated emission. One (or both) of the mirrors is partly transmissive and when the 
-mirrors are well aligned and the losses are below some maximum the radiation field inside the 
-resonator will grow starting from noise by spontaneous emission as a function of the number of round trips. The laser intensity will be structured in 
-a number of resonator modes depending on the wavelength, the curvatures of and the distance between the mirrors 
-and especially the diameter of an intra-cavity aperture.
-
-.. figure:: ./_static/stab_laser.png
-
-   Laser resonator with gain.
-
-
-
-In the python script below a number of parameters can be adjusted which allows the study of several 
-important features of a laser. In the movie we show Q-switching to generate short high intensity pulses 
-by changing the reflectivity of the outcoupling mirror, operation on high-order transversal modes by opening 
-the aperture, changing the resonator g-parameters to study the stability criterion, 
-injection of a high-order Gauss-Hermite mode and the effect of thin wires inside the resonator.
-
-.. raw:: html
-
-    <iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe>
-
-:download:`(Download source code) <../Examples/Laser/laser_simulation.py>`
-
-.. .. literalinclude:: ../Examples/Laser/laser_simulation.py
-..     :caption: laser_simulation.py
-..     :name: laser-simulation
-
-Unstable laser resonator.
--------------------------
-
-.. plot:: ../Examples/Laser/unstable_resonator.py
-
-Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.
-------------------------------------------------------------------------------------------
-
-.. plot:: ../Examples/Laser/Spiral_phase_plate.py
-
-
-...............................................................................................
 
 Phase recovery.
 ***************
@@ -254,14 +98,11 @@ Phase recovery.
      PhaseUnwrap
      Intensity
      
-Phase recovery using Gerchberg Saxton iteration.
-------------------------------------------------
-
-.. plot:: ../Examples/PhaseRecovery/PhaseRecovery.py
-
-
-...............................................................................................
-
+.. toctree::
+   :maxdepth: 1
+   
+   PhaseRecoveryGerchbergSaxton
+        
 Zernike aberration.
 *******************
 
@@ -279,76 +120,28 @@ amplitude of the aberration.
     Begin
     Intensity
 
-.. plot:: ../Examples/Zernike/Zernike.py
-
-Radial shear interferometer.
-----------------------------
-
-.. plot:: ../Examples/Zernike/rad_shear.py
-
-
-...............................................................................................
+.. toctree::
+   :maxdepth: 1
+   
+   ZernikeAberrations
+   RadialShearInterferometer
 
 Graded index media GRIN.
 ************************
 
-Demonstration of a GRIN lens.
------------------------------
+.. toctree::
+   :maxdepth: 1
+   
+   GRINDemo
+   GRINYoung
+   PropagationLensLikeMedium
 
-.. plot:: ../Examples/Waveguide/GRIN_demo.py
-
-Young's experiment with GRIN lens.
-----------------------------------
-
-.. plot:: ../Examples/Waveguide/GRIN_Young.py
-
-Propagation in a lens-like, absorptive medium.
-----------------------------------------------
-
-In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We'll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.
-
-we use the approximation for the profile of the refractive coefficient, :math:`n'=n-i\kappa` in the form: :math:`n(r)^2=n_0^2-n_0n_1r^2`. It is a well-known fact [#f9]_ that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: :math:`w_0^2=\frac{2}{k(n_0n_1)^{1/2}}` , with :math:`k=\frac{2 \pi}{\lambda}`. For a waveguide of :math:`1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0` and :math:`\lambda = 1 \mu m`, the Gaussian mode has a diameter of :math:`226 \mu m` . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.
-
-.. plot:: ../Examples/Waveguide/LensLikeMedium.py
-
-*Propagation of a tilted Gaussian beam in a lens-like, absorptive medium.*
-
-.. [#f9] D. Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).
-
-
-...............................................................................................
 
 Fourier optics.
 ***************
 
-Pattern recognition.
---------------------
+.. toctree::
+   :maxdepth: 1
+   
+   PatternRecognition
 
-In this example we demonstrate the recognition of objects using Fourier optics.
-The light, originating from a collection of objects, is focused with a positive lens. A second lens is positioned with its primary focal point in the focus of
-the first lens. When we place a screen behind the second lens at its secondary focus an inverted image of the collection of objects is projected on the
-screen, as shown in figure 1. The object to be recognized is present once or several times in the collection. As objects we choose
-transparencies with the characters A, B, and C.
-
-.. figure:: ../Examples/FourierOptics/setup1.png
-
-    *Fig. 1 Imaging a transparency with objects*
-    
-Each object will contribute to the phase distribution in the secondary focus of the first lens. If the fluctuations in the wavefront coming from one of the
-objects is compensated by a phase plate prepared for that sort of object, see figure 2, placed in the focus, the beam coming from those objects will propagate as a
-diverging spherical wave to the second lens and will be focused in a diffraction limited point on the screen. The position of that point will indicate the
-presence and the position of the object. This will only be the case when the object, for which the phase plate was positioned in the focus, is actually present in the collection.
-
-.. figure:: ../Examples/FourierOptics/setup2.png
-
-    *Fig. 2 Making a phase mask of the Fourier transform of an object*
-    
-
-.. figure:: ../Examples/FourierOptics/setup3.png
-
-    *Fig. 3 Placing the phase mask in the focus of the first lens.*
-
-.. plot:: ../Examples/FourierOptics/PatternRecognition.py
-
-
-*Fig. 4 Results of the pattern recognition simulation.*

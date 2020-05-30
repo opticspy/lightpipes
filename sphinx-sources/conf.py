@@ -37,6 +37,7 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',
     'sphinx.ext.githubpages',
     'sphinx.ext.autosectionlabel',
+    'rst2pdf.pdfbuilder',
 #    'sphinxcontrib.fulltoc',
 ]
 numfig = False
@@ -247,7 +248,7 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'figures\Young.png'
+latex_logo = '_static\Young.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
