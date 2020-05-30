@@ -43,7 +43,12 @@ for the `Introduction to Optics course <https://youtu.be/sm7MrA8Usuw>`_ of the s
 
 
 
-.. _credits:
+.. Index::
+    Credits
+    Gleb Vdovin
+    Fred van Goor
+    Guyskk
+    Leonard Doyle
 
 Credits.
 ^^^^^^^^

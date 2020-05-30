@@ -1,3 +1,9 @@
+.. Index::
+    lenslike medium
+    refractive index profile
+    Graded index media GRIN
+    GRIN lens
+
 Propagation in a lens-like, absorptive medium.
 ----------------------------------------------
 

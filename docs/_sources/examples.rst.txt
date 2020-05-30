@@ -20,10 +20,7 @@ Diffraction examples.
    
    DiffractionRoundHole
    PoissonSpot
-
-Non-diffractive Bessel beam.
-****************************
-
+   
 .. Index::
      Bessel beam
      Poisson spot
@@ -36,7 +33,10 @@ Non-diffractive Bessel beam.
      Forvard
      Fresnel
      Intensity
-     
+
+Non-diffractive Bessel beam.
+****************************
+
 A Bessel beam has the interesting property that it does not diffract and that it keeps its shape
 over large distances. Several meters, depending on parameters, can be realized. Applications of Bessel beams
 take advantage of the very large size of the focus, which cannot be obtained using lenses or mirrors.
@@ -56,23 +56,25 @@ JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)
    :maxdepth: 1
    
    PoissonSpottoBesselBeam
-   CollimatingEdgeWaves
-   BesselBeamWithAnnularSlit
    BesselBeamWithAxicon
-
-
-     
-Laser examples.
-***************
 
 .. Index::
      laser
+     stable laser resonator
      unstable laser resonator
+     resonator
+     Gauss mode
+     Hermite Gauss mode
+     Laguerre Gauss mode
+     doughnut mode
      Begin
      Forvard
      Gain
      Lens
      Intensity
+     
+Laser examples.
+***************
 
 .. toctree::
    :maxdepth: 1
@@ -83,11 +85,7 @@ Laser examples.
    StableLaserResonator
    UnstableLaserResonator
    TransformationtoDoughnutMode
-
-
-Phase recovery.
-***************
-
+   
 .. Index::
      phase recovery
      Begin
@@ -97,12 +95,19 @@ Phase recovery.
      Phase
      PhaseUnwrap
      Intensity
-     
+
+Phase recovery.
+***************
+
 .. toctree::
    :maxdepth: 1
    
    PhaseRecoveryGerchbergSaxton
-        
+
+.. Index::
+    Zernike aberration
+    Zernike
+
 Zernike aberration.
 *******************
 
@@ -112,20 +117,19 @@ polynomials. The Zernike command accepts four arguments:
 azimuthal order m. 3. The radius, R 4. The 
 amplitude of the aberration.
 
-.. Index::
-    Zernike aberration
-    Zernike
-    Fresnel
-    CircAperture
-    Begin
-    Intensity
+
 
 .. toctree::
    :maxdepth: 1
    
    ZernikeAberrations
    RadialShearInterferometer
-
+   
+.. Index::
+    Graded index media GRIN
+    GRIN lens
+    Lenslike medium
+    
 Graded index media GRIN.
 ************************
 
@@ -136,7 +140,10 @@ Graded index media GRIN.
    GRINYoung
    PropagationLensLikeMedium
 
-
+.. Index::
+   Fourier optics
+   Pattern recognition
+    
 Fourier optics.
 ***************
 

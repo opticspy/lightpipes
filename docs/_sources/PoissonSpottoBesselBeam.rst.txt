@@ -20,3 +20,9 @@ The width of the beam is given by:
 and is proportional to the distance, z.
 
 .. plot:: ../Examples/BesselBeam/BesselAnnularSlit1.py
+
+.. toctree::
+   :maxdepth: 1
+   
+   CollimatingEdgeWaves
+   BesselBeamWithAnnularSlit
