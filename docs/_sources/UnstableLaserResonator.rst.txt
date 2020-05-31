@@ -1,4 +1,4 @@
 Unstable laser resonator.
 -------------------------
 
-.. plot:: ../Examples/Laser/unstable_resonator.py
+.. plot:: ./Examples/Laser/unstable_resonator.py

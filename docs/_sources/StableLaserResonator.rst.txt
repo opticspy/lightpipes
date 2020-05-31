@@ -24,7 +24,7 @@ injection of a high-order Gauss-Hermite mode and the effect of thin wires inside
 
     <iframe width="560" height="315" src="_static/laser.m4v" frameborder="0" allowfullscreen></iframe>
 
-:download:`(Download source code) <../Examples/Laser/laser_simulation.py>`
+:download:`(Download source code) <./Examples/Laser/laser_simulation.py>`
 
 .. .. literalinclude:: ../Examples/Laser/laser_simulation.py
 ..     :caption: laser_simulation.py

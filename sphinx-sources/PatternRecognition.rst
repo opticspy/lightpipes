@@ -7,7 +7,7 @@ the first lens. When we place a screen behind the second lens at its secondary f
 screen, as shown in figure 1. The object to be recognized is present once or several times in the collection. As objects we choose
 transparencies with the characters A, B, and C.
 
-.. figure:: ../Examples/FourierOptics/setup1.png
+.. figure:: ./Examples/FourierOptics/setup1.png
 
     *Fig. 1 Imaging a transparency with objects*
     
@@ -16,16 +16,16 @@ objects is compensated by a phase plate prepared for that sort of object, see fi
 diverging spherical wave to the second lens and will be focused in a diffraction limited point on the screen. The position of that point will indicate the
 presence and the position of the object. This will only be the case when the object, for which the phase plate was positioned in the focus, is actually present in the collection.
 
-.. figure:: ../Examples/FourierOptics/setup2.png
+.. figure:: ./Examples/FourierOptics/setup2.png
 
     *Fig. 2 Making a phase mask of the Fourier transform of an object*
     
 
-.. figure:: ../Examples/FourierOptics/setup3.png
+.. figure:: ./Examples/FourierOptics/setup3.png
 
     *Fig. 3 Placing the phase mask in the focus of the first lens.*
 
-.. plot:: ../Examples/FourierOptics/PatternRecognition.py
+.. plot:: ./Examples/FourierOptics/PatternRecognition.py
 
 
 *Fig. 4 Results of the pattern recognition simulation.*

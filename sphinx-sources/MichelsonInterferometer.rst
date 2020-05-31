@@ -13,4 +13,4 @@ Michelson interferometer.
     Begin
     Intensity
 
-.. plot:: ../Examples/Interference/Michelson.py
+.. plot:: ./Examples/Interference/Michelson.py

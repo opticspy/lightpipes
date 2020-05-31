@@ -7,5 +7,5 @@ in principle all the incoming light is converted.
 Although all the light is converted most applications are only interacting with the central lobe of the beam, which only carries
 a small fraction of the total beam power.
 
-.. plot:: ../Examples/BesselBeam/BesselAxicon.py
+.. plot:: ./Examples/BesselBeam/BesselAxicon.py
 

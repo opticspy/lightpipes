@@ -8,7 +8,7 @@
 Internal reflection and refraction.
 ===================================
 
-Download Python script: :download:`ReflectRefract.py <../Examples/ComputerPrac/ReflectRefract.py>`
+Download Python script: :download:`ReflectRefract.py <./Examples/ComputerPrac/ReflectRefract.py>`
 
 .. figure:: ./_static/Willebrord_Snell.jpg
 
@@ -56,7 +56,7 @@ Reflections from the cylinder surface can be neglected.
 Measurement of the refractive index of the medium.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download Python script: :download:`ReflectRefract.py <../Examples/ComputerPrac/ReflectRefract.py>`
+Download Python script: :download:`ReflectRefract.py <./Examples/ComputerPrac/ReflectRefract.py>`
 
     1.  Derive an expression that yields the refractive index from the measurable quantities.
     2.  Determine the refractive index of the medium.

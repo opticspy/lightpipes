@@ -7,4 +7,4 @@ the light passing the disk at larger distances from the edge will be focussed as
 will disturb the Bessel beam. This light can easily been blocked with an extra aperture
 surrounding the disk resulting in an annular slit. 
 
-.. plot:: ../Examples/BesselBeam/BesselAnnularSlit2.py
+.. plot:: ./Examples/BesselBeam/BesselAnnularSlit2.py

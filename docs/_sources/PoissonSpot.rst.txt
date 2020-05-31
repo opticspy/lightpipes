@@ -10,4 +10,4 @@
 Spot of Poisson.
 ----------------
 
-.. plot:: ../Examples/Diffraction/Poisson.py
+.. plot:: ./Examples/Diffraction/Poisson.py

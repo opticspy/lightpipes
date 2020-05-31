@@ -30,7 +30,7 @@ Units are included in the LightPipes package.
     
 *The use of Begin to define a uniform field with intensity 1 and phase 0.*
 
-.. plot:: ../Examples/Commands/Begin.py
+.. plot:: ./Examples/Commands/Begin.py
 
 A two dimensional array will be defined containing the complex numbers with
 the real and imaginary parts equal to one and zero respectively.
@@ -57,7 +57,7 @@ In addition, there are three commands describing screens:
 :func:`~LightPipes.RectScreen`, (inversion of the rectangular aperture)
 and :func:`~LightPipes.GaussScreen` (inversion of the gauss aperture).
 
-.. plot:: ../Examples/Commands/AperturesandScreens1.py
+.. plot:: ./Examples/Commands/AperturesandScreens1.py
     :include-source:
 
 *Fig. 1. Example of the application of a circular aperture.*
@@ -65,7 +65,7 @@ and :func:`~LightPipes.GaussScreen` (inversion of the gauss aperture).
 All kinds of combinations of circular, rectangular and Gaussian apertures
 and screens can be made:
 
-.. plot:: ../Examples/Commands/AperturesandScreens2.py
+.. plot:: ./Examples/Commands/AperturesandScreens2.py
     :include-source:
 
 *Fig. 2. The use of screens and apertures.*
@@ -99,7 +99,7 @@ package which can be installed by typing at the python prompt:
 
 >>> pip install numpy
 
-.. plot:: ../Examples/Commands/plotresults.py
+.. plot:: ./Examples/Commands/plotresults.py
    :include-source:
 
 *Fig. 3. The use of XY-plots and surface plots to present your simulation results. Note the usage of Interpol to reduce the grid dimension for a faster surface plot.*
@@ -175,7 +175,7 @@ propagate the beam 1m forward, you type the following commands:
     Field = Forvard(1*m, Field)
     I = Intensity(0,Field)
 
-.. plot:: ../Examples/Commands/Forvard.py
+.. plot:: ./Examples/Commands/Forvard.py
 
 *Fig. 4. The result of the propagation: density and cross section intensity plots.*
 
@@ -207,7 +207,7 @@ Due to these two reasons the commands:
     Field=Forvard(1*m,Field)
     I=Intensity(2,Field)
 
-.. plot:: ../Examples/Commands/Forvard2.py
+.. plot:: ./Examples/Commands/Forvard2.py
 
 make no sense (zero intensity). The cross section of the beam
 (argument of :func:`~LightPipes.RectAperture`) 
@@ -221,7 +221,7 @@ a model of light propagation in a wave guide but not in a free space. One has to
     Field=Forvard(*m,Field)
     I=Intensity(2,Field)
     
-.. plot:: ../Examples/Commands/Forvard3.py
+.. plot:: ./Examples/Commands/Forvard3.py
 
 for propagation in the near field, and may be:
 
@@ -232,7 +232,7 @@ for propagation in the near field, and may be:
     Field = Forvard(500*m, Field)
     I = Intensity(0,Field)
     
-.. plot:: ../Examples/Commands/Forvard4.py
+.. plot:: ./Examples/Commands/Forvard4.py
 
 for far field propagation.
 If we compare the result of the previous example with the result of:
@@ -244,7 +244,7 @@ If we compare the result of the previous example with the result of:
     Field=Forvard(500,Field)
     I=Intensity(2,Field)
 
-.. plot:: ../Examples/Commands/Forvard5.py
+.. plot:: ./Examples/Commands/Forvard5.py
 
 we’ll see the difference.
 
@@ -255,7 +255,7 @@ may be supplied to :func:`~LightPipes.Forvard`. It means that the program will
 perform “propagation back” 
 or in other words it will reconstruct the initial field from the one diffracted. For example:
 
-.. plot:: ../Examples/Commands/Forvard6.py
+.. plot:: ./Examples/Commands/Forvard6.py
 
 *Fig. 5. The initial filed, the field propagated to the near field and the field propagated back*
 
@@ -399,7 +399,7 @@ formulas. It does not take into account the change of the wavelength in the medi
 model backscattering and reflections back on interfaces between different media. Perhaps there 
 are other details to be mentioned. The described algorithm is implemented in the :func:`~LightPipes.Steps` command.
 
-.. plot:: ../Examples/Commands/FocLens.py
+.. plot:: ./Examples/Commands/FocLens.py
 
 *Fig. 6. The use of Steps to calculate the intensity distribution in the focus of a lens.*
 
@@ -427,25 +427,25 @@ Splitting and mixing beams.
 
 There are two commands in LightPipes which are useful for modelling of interferometers. With :func:`~LightPipes.IntAttenuator` we can split the field structure (amplitude division) - The two obtained fields could be processed separately and then mixed again with the routine :func:`~LightPipes.BeamMix`. In this script we have formed two beams each containing one “shifted” hole. After mixing these two beams we have a screen with two holes: a Young’s interferometer. 
 
-.. plot:: ../Examples/Interference/Young.py
+.. plot:: ./Examples/Interference/Young.py
 
 *Fig. 7. Young’s interferometer.*
 
 Having the model of the interferometer we can “play” with it, moving the pinholes and changing their sizes. The following models the result of the interference of a plane wave diffracted at three round apertures:
 
-.. plot:: ../Examples/Interference/ThreeHoles.py
+.. plot:: ./Examples/Interference/ThreeHoles.py
 
 *Fig. 8. Intensity distributions in the plane of the screen and 75cm behind the screen.*
 
 The next interferometer is more interesting:
 
-.. plot:: ../Examples/Interference/TwoSlitsTilt1.py
+.. plot:: ./Examples/Interference/TwoSlitsTilt1.py
 
 *Fig. 9. Intensity distributions in the plane of the screen and 75cm behind the screen.*
 
 In the last example the intensity distribution is modulated by the wave, reflected from the grid edge, nevertheless it gives a good impression about the general character of the interference pattern. To obtain a better result, the calculations should be conducted in a larger grid or other numerical method should be used. The following example uses a direct integration algorithm (the input and output are in different scales and have different samplings):
 
-.. plot:: ../Examples/Interference/TwoSlitsTilt2.py
+.. plot:: ./Examples/Interference/TwoSlitsTilt2.py
 
 *Fig. 10. Intensity distributions in plane of the screen and 75 cm after the screen, note that input and output have different scales, input grid is 2.5x2.5mm, output is 5x5mm.*
 
@@ -456,7 +456,7 @@ Interpolation.
 
 The command :func:`~LightPipes.Interpol` is the tool for manipulating the size and the dimension of the grid and for changing the shift, rotation and the scale of the field distribution. It accepts six command line arguments, the first is the new size of the grid. The second argument gives the new number of points, the third gives the value of transverse shift in the X direction, the fourth gives the shift in the Y direction, the fifth gives the field rotation (first shift and then rotation). The last sixth argument determines the magnification, its action is equivalent to passing the beam through a focal system with magnification M (without diffraction, but preserving the integral intensity). For example if the field was propagated with the FFT algorithm :func:`~LightPipes.Forvard`, then the grid contains empty borders, which is not necessary if we want to propagate the field further with :func:`~LightPipes.Forward`. Other way around, after *Forward* we have to add some empty borders to continue with :func:`~LightPipes.Forvard`. :func:`~LightPipes.Interpol` is useful for interpolating into a grid with different size and number of points. Of course it is not too wise to interpolate from a grid of 512x512 points into a grid of 8x8, and then back because all information about the field will be lost. The same is true for interpolating the  grid of 1mx1m to 1mmx1mm and back. When interpolating into a grid with larger size, for example from 1x1 to 2x2, the program puts zeros into the new added regions. Figure 11 illustrates the usage of *Interpol* for the transition from a fine grid used by :func:`~LightPipes.Forvard` (near field) to a coarse grid used by :func:`~LightPipes.Forward` (far field).
 
-.. plot:: ../Examples/Commands/Interpol.py
+.. plot:: ./Examples/Commands/Interpol.py
 
 *Fig. 11. Illustration of the usage of Interpol for the transition from a fine grid used by Forvard (near field) to a coarse grid used by Forward (far field).*
 
@@ -465,7 +465,7 @@ Phase and intensity filters.
 
 There are four kinds of phase filters available in LightPipes -wave front tilt, the quadratic phase corrector called lens, a general aberration in the form of a Zernike polynomial, and a user defined filter. To illustrate the usage of these filters let’s consider the following examples:
 
-.. plot:: ../Examples/Commands/Lens.py
+.. plot:: ./Examples/Commands/Lens.py
 
 *Fig. 12. The phase distribution after passing the lens, intensity in the plane of the lens and at a distance equal to the half of the focal distance. (from left to right)*
 
@@ -477,7 +477,7 @@ The lens may be decentered, *Lens(8, 0.01, 0.01, Field)* produces the lens with 
 
 The wave front tilt is illustrated by following example:
 
-.. plot:: ../Examples/Commands/Tilt.py
+.. plot:: ./Examples/Commands/Tilt.py
 
 *Fig. 13. The intensity and the phase after tilting the wave front by 0.1 mrad and propagating it z = 8 m forward. Note the transversal shift of the intensity distribution and the phase tilt.*
 
@@ -520,7 +520,7 @@ A cylindrical lens can be modelled as a combination of two :func:`~LightPipes.Ze
     Field = Fresnel(z, Field)
     I1 = Intensity(1,Field)
 
-.. plot:: ../Examples/Commands/CylindricalLens.py
+.. plot:: ./Examples/Commands/CylindricalLens.py
 
 *Fig. 14. The intensity in the input plane and after propagation through a cylindrical system modelled as a combination of Zernike polynomials and free space propagation.*
 
@@ -580,12 +580,12 @@ The results for :math:`f=100 cm` and :math:`f=10 cm` are shown in figures 16a+b 
 As can been seen the straight-forward method requires much larger grid dimensions and hence 
 longer execution time. This is especially the case for stronger lenses (shorter focal lengths).
 
-.. plot:: ../Examples/Commands/LensFresnel_Convert_f100cm.py
+.. plot:: ./Examples/Commands/LensFresnel_Convert_f100cm.py
 
 *Fig. 16a. Diffraction to the focus of a f=100 cm lens. The use of a spherical coordinate system (LensFresnel + Convert)
 is compared with the straight-forward method (Lens + Fresnel).*
 
-.. plot:: ../Examples/Commands/LensFresnel_Convert_f10cm.py
+.. plot:: ./Examples/Commands/LensFresnel_Convert_f10cm.py
 
 *Fig 16b. With a stronger lens the straight-forward method requires more grid points.*
 
@@ -594,13 +594,13 @@ User defined phase and intensity filters.
 
 The phase and intensity of the light beam can be manipulated in several ways. The phase and intensity distributions may be produced as shown in the next examples:
 
-.. plot:: ../Examples/Commands/subintphase1.py
+.. plot:: ./Examples/Commands/subintphase1.py
 
 *Fig. 17. An arbitrary intensity- and phase distribution.*
 
 You can also create your own mask with a program like Microsoft Paint. In the next example we made an arrow using Paint and stored it as a 200 pixels width x 200 pixels height, black-and-white, monochrome bitmap file (for example: arrow.png). This file can be read from disk. Next the arrow can be used as a filter:
 
-.. plot:: ../Examples/Commands/subintphase2.py
+.. plot:: ./Examples/Commands/subintphase2.py
 
 *Fig. 18. Illustration of importing a bit map from disk.*
 
@@ -614,7 +614,7 @@ FFT and spatial filters.
 
 LightPipes provide a possibility to perform arbitrary filtering in the Fourier space. There is an operator, performing the Fourier transform of the whole data structure: :func:`~LightPipes.PipFFT`.
 
-.. plot:: ../Examples/Commands/PipFFT.py
+.. plot:: ./Examples/Commands/PipFFT.py
 
 *Fig. 19. Intensity distributions before and after applying a spatial filter.*
 
@@ -642,7 +642,7 @@ The :func:`~LightPipes.Strehl` command calculates the Strehl ratio of the field,
     
 The next example calculates the Strehl ratio of a field with increasing random phase fluctuations:
 
-.. plot:: ../Examples/Commands/Strehl.py
+.. plot:: ./Examples/Commands/Strehl.py
 
 *Fig. 21. Demonstration of the use of the Strehl function to calculate the Strehl ratio (beam quality).*
 

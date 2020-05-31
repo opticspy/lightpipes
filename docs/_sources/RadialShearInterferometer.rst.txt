@@ -1,4 +1,4 @@
 Radial shear interferometer.
 ----------------------------
 
-.. plot:: ../Examples/Zernike/rad_shear.py
+.. plot:: ./Examples/Zernike/rad_shear.py

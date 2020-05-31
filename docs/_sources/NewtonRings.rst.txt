@@ -7,7 +7,7 @@
 Newton rings.
 =============
 
-Download Python script: :download:`NewtonRings.py <../Examples/ComputerPrac/NewtonRings.py>`
+Download Python script: :download:`NewtonRings.py <./Examples/ComputerPrac/NewtonRings.py>`
 
 .. figure:: ./_static/Newton.jpg
 
@@ -33,7 +33,7 @@ between the two glass surfaces will be investigated.
 
     *Screenshot of the Newton rings program.*
 
-Download Python script: :download:`NewtonRings.py <../Examples/ComputerPrac/NewtonRings.py>`
+Download Python script: :download:`NewtonRings.py <./Examples/ComputerPrac/NewtonRings.py>`
 
 Measurement of the radius of curvature of the lens.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

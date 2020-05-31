@@ -13,7 +13,7 @@
 Fresnel diffraction.
 ====================
 
-Download Python script: :download:`FresnelPlane.py <../Examples/ComputerPrac/FresnelPlane.py>`
+Download Python script: :download:`FresnelPlane.py <./Examples/ComputerPrac/FresnelPlane.py>`
 
 .. figure:: ./_static/Augustin_Fresnel.jpg
 
@@ -101,7 +101,7 @@ Fresnel diffraction, spherical wavefront.
 
     *Screenshot of the Fresnel diffraction experiment with a spherical input wave.*
     
-Download source code: :download:`FresnelSpherical.py <../Examples/ComputerPrac/FresnelSpherical.py>`
+Download source code: :download:`FresnelSpherical.py <./Examples/ComputerPrac/FresnelSpherical.py>`
 
     1. Modify the equations for the positions of maximum and minimum
        irradiance on the optical axis behind the screen with the hole

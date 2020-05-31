@@ -7,7 +7,7 @@
 Fabry Perot interferometer.
 ===========================
 
-Download Python script: :download:`FabryPerot.py <../Examples/ComputerPrac/FabryPerot.py>`
+Download Python script: :download:`FabryPerot.py <./Examples/ComputerPrac/FabryPerot.py>`
 
 .. figure:: ./_static/Charles_Fabry.jpg
 
@@ -45,7 +45,7 @@ the mirrors and the index is measured, again by varying the distance between the
 
     *Screenshot of the Fabry Perot program.*
 
-Download Python script: :download:`FabryPerot.py <../Examples/ComputerPrac/FabryPerot.py>`
+Download Python script: :download:`FabryPerot.py <./Examples/ComputerPrac/FabryPerot.py>`
 
 Measurement of the distance between two wavelengths.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

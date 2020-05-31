@@ -6,4 +6,4 @@ the 'overlap area'. From geometric optics this distance can be estimated by:
 
 :math:`z_{max}=\frac{Df}{a}`, where :math:`D` and :math:`f` are the diameter and focallength of the lens respectively.
 
-.. plot:: ../Examples/BesselBeam/BesselAnnularSlit3.py
+.. plot:: ./Examples/BesselBeam/BesselAnnularSlit3.py

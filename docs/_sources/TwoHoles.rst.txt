@@ -8,7 +8,7 @@
 Two holes interferometer.
 =========================
 
-Download Python script: :download:`TwoHoles.py <../Examples/ComputerPrac/TwoHoles.py>`
+Download Python script: :download:`TwoHoles.py <./Examples/ComputerPrac/TwoHoles.py>`
 
 .. figure:: ./_static/Young_Thomas_Lawrence.jpg
 
@@ -31,7 +31,7 @@ Measurement of the wavelength.
 
     *Screenshot of the two holes experiment.*
 
-Download Python script: :download:`TwoHoles.py <../Examples/ComputerPrac/TwoHoles.py>`
+Download Python script: :download:`TwoHoles.py <./Examples/ComputerPrac/TwoHoles.py>`
 
 .. figure:: ./_static/twoholessetup.png
 

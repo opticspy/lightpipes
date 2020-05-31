@@ -9,4 +9,4 @@
 Zernike aberrations.
 --------------------
 
-.. plot:: ../Examples/Zernike/Zernike.py
+.. plot:: ./Examples/Zernike/Zernike.py

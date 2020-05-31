@@ -8,4 +8,4 @@
 Diffraction from a circular aperture.
 -------------------------------------
 
-.. plot:: ../Examples/Diffraction/RoundHole.py
+.. plot:: ./Examples/Diffraction/RoundHole.py

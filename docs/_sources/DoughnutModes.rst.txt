@@ -1,6 +1,6 @@
 Laguerre doughnut modes.
 ------------------------
 
-.. plot:: ../Examples/Laser/GaussLaguerre_doughnut.py
+.. plot:: ./Examples/Laser/GaussLaguerre_doughnut.py
 
 
