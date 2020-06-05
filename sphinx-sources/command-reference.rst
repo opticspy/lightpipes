@@ -3,7 +3,6 @@
 Command Reference.
 ******************
 
-
 .. automodule:: LightPipes
     :members:
     :undoc-members:

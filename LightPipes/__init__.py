@@ -62,6 +62,11 @@ __all__.extend([
     'PI'
 ])
 
+__all__.extend([
+    'FieldArray2D',
+    'RowOfFields',
+    ])
+
 # avoid modified
 __all__ = tuple(__all__)
 
@@ -87,7 +92,8 @@ from .core import Normal, Power
 from .core import IntAttenuator
 from .misc import Tilt, Gain, PipFFT
 from .core import Interpol
-from .sources import PointSource, GaussBeam, PlaneWave  
+from .sources import PointSource, GaussBeam, PlaneWave
+from .userfunc import FieldArray2D, RowOfFields
 
 def Begin(size,labda,N):
     """

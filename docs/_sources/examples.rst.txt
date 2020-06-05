@@ -124,6 +124,7 @@ amplitude of the aberration.
    
    ZernikeAberrations
    RadialShearInterferometer
+   ShackHartmannSensor
    
 .. Index::
     Graded index media GRIN

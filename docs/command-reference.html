@@ -1738,6 +1738,93 @@ F: input field</p>
 </div>
 </dd></dl>
 
+<dl class="py function">
+<dt id="LightPipes.FieldArray2D">
+<code class="sig-name descname">FieldArray2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">Ffield</span></em>, <em class="sig-param"><span class="n">Nfieldsx</span></em>, <em class="sig-param"><span class="n">Nfieldsy</span></em>, <em class="sig-param"><span class="n">x_sep</span></em>, <em class="sig-param"><span class="n">y_sep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.FieldArray2D" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inserts an array of fields in the field</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
+<li><p><strong>Ffield</strong> (<em>Field</em>) – field to be inserted</p></li>
+<li><p><strong>Nfieldsx</strong> (<em>int</em><em>, </em><em>float</em>) – number of inserted field in x-direction</p></li>
+<li><p><strong>Nfieldy</strong> (<em>int</em><em>, </em><em>float</em>) – number of inserted field in y-direction</p></li>
+<li><p><strong>x_sep</strong> (<em>int</em><em>, </em><em>float</em>) – separation of the inserted fields in the x-direction</p></li>
+<li><p><strong>y_sep</strong> (<em>int</em><em>, </em><em>float</em>) – separation of the inserted fields in the y-direction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert an array of lenses in the field    </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#Define the field, Ffield, to be inserted:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Nfield</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">size_field</span><span class="o">/</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ffield</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size_field</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">Nfield</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ffield</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">Ffield</span><span class="p">,</span><span class="n">Dlens</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ffield</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">Ffield</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert the Ffield&#39;s in the field F:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">FieldArray2D</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">Ffield</span><span class="p">,</span><span class="n">Nfields</span><span class="p">,</span><span class="n">Nfields</span><span class="p">,</span><span class="n">x_sep</span><span class="p">,</span><span class="n">y_sep</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ifields</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="ShackHartmannSensor.html#shack-hartmann-sensor"><span class="std std-ref">Examples: Shack Hartmann sensor</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="LightPipes.RowOfFields">
+<code class="sig-name descname">RowOfFields</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">Ffield</span></em>, <em class="sig-param"><span class="n">Nfields</span></em>, <em class="sig-param"><span class="n">sep</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RowOfFields" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inserts an row of fields in the field</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
+<li><p><strong>Ffield</strong> (<em>Field</em><em>, </em><em>numpy.ndarray</em>) – field to be inserted</p></li>
+<li><p><strong>Nfields</strong> (<em>int</em><em>, </em><em>float</em>) – number of inserted field in x-direction</p></li>
+<li><p><strong>sep</strong> (<em>int</em><em>, </em><em>float</em>) – separation of the inserted fields in the x-direction</p></li>
+<li><p><strong>y</strong> (<em>int</em><em>, </em><em>float</em>) – position of the row in the y-direction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert a row of lenses in the field at y=0.0:    </span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#Define the field, Ffield, to be inserted:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Nfield</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">size_field</span><span class="o">/</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ffield</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size_field</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">Nfield</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ffield</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">Ffield</span><span class="p">,</span><span class="n">Dlens</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ffield</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">Ffield</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert the Ffield&#39;s in the field F:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">RowOfFields</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">Ffield</span><span class="p">,</span><span class="n">Nfields</span><span class="p">,</span><span class="n">sep</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ifields</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="ShackHartmannSensor.html#shack-hartmann-sensor"><span class="std std-ref">Examples: Shack Hartmann sensor</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
+
 </div>
 
 
@@ -1762,7 +1849,7 @@ F: input field</p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on May 31, 2020.
+        Last updated on Jun 05, 2020.
       </span>
 
     </p>
