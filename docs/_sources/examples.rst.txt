@@ -9,6 +9,7 @@ Interference examples.
    
    YoungsExperiment
    MichelsonInterferometer
+   MultiHoleAndSlit
    InterferenceDoughnutCollinear
    InterferenceDoughnutTilted
 

@@ -1793,7 +1793,7 @@ F: input field</p>
 <li><p><strong>Ffield</strong> (<em>Field</em><em>, </em><em>numpy.ndarray</em>) – field to be inserted</p></li>
 <li><p><strong>Nfields</strong> (<em>int</em><em>, </em><em>float</em>) – number of inserted field in x-direction</p></li>
 <li><p><strong>sep</strong> (<em>int</em><em>, </em><em>float</em>) – separation of the inserted fields in the x-direction</p></li>
-<li><p><strong>y</strong> (<em>int</em><em>, </em><em>float</em>) – position of the row in the y-direction</p></li>
+<li><p><strong>y</strong> (<em>int</em><em>, </em><em>float</em>) – position of the row in the y-direction (Default = 0.0)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1805,7 +1805,7 @@ F: input field</p>
 <dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert a row of lenses in the field at y=0.0:    </span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert a row of fields or numpy arrays in the input field at y (Default=0.0):    </span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1">#Define the field, Ffield, to be inserted:</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Nfield</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">size_field</span><span class="o">/</span><span class="n">size</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
@@ -1820,7 +1820,7 @@ F: input field</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="ShackHartmannSensor.html#shack-hartmann-sensor"><span class="std std-ref">Examples: Shack Hartmann sensor</span></a></p></li>
+<li><p><a class="reference internal" href="MultiHoleAndSlit.html#multi-holes-and-slits"><span class="std std-ref">Examples: Multi- holes and slits.</span></a></p></li>
 </ul>
 </div>
 </dd></dl>

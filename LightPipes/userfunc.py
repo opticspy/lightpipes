@@ -19,13 +19,13 @@ def RowOfFields(Fin,Ffield,Nfields,sep,y=0.0):
     :type Nfields: int, float
     :param sep: separation of the inserted fields in the x-direction
     :type sep: int, float
-    :param y: position of the row in the y-direction
+    :param y: position of the row in the y-direction (Default = 0.0)
     :type y: int, float
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
     :Example:
     
-    >>> #Insert a row of lenses in the field at y=0.0:    
+    >>> #Insert a row of fields or numpy arrays in the input field at y (Default=0.0):    
     >>> F=Begin(size,wavelength,N)
     >>> #Define the field, Ffield, to be inserted:
     >>> Nfield=int(size_field/size*N)
@@ -38,11 +38,11 @@ def RowOfFields(Fin,Ffield,Nfields,sep,y=0.0):
     
     .. seealso::
         
-        * :ref:`Examples: Shack Hartmann sensor <Shack Hartmann sensor.>`
+        * :ref:`Examples: Multi- holes and slits. <Multi- holes and slits.>`
     
     """
     if (Nfields+1)*sep > Fin.siz:
-       print('too big')
+       print('Field to be inserted does not fit in input field')
        exit(1)
     Fout = Field.copy(Fin)
     Fout.field*=0.0

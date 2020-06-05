@@ -42,7 +42,7 @@ F2=Fresnel(F2,f)
 Iscreen2=Intensity(F2,1)
 
 s= r'LightPipes for Python,' + '\n' +\
-  r'Shack_HartmannDemo2.py'+ '\n\n'\
+  r'Shack_HartmannDemo.py'+ '\n\n'\
   r'size = {:4.2f} mm'.format(size/mm) + '\n' +\
   r'$\lambda$ = {:4.2f} nm'.format(wavelength/nm) + '\n' +\
   r'N = {:d}'.format(N) + '\n' +\
