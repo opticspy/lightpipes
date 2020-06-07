@@ -58,12 +58,8 @@ def Zernike(Fin, n, m, R, A = 1.0, norm=True, units='opd'):
     .. seealso::
     
         * :ref:`Manual: Zernike polynomials.<Zernike polynomials.>`
-    
         * :ref:`Examples: Zernike aberration.<Zernike aberration.>`
-    
-    Reference::
-    
-        https://en.wikipedia.org/wiki/Zernike_polynomials
+        * `https://en.wikipedia.org/wiki/Zernike_polynomials <https://en.wikipedia.org/wiki/Zernike_polynomials>`_
     """
     mcorrect = False
     ncheck = n
@@ -107,15 +103,24 @@ def Zernike(Fin, n, m, R, A = 1.0, norm=True, units='opd'):
 
 def ZernikeFit(F, j_terms, R,  norm=True, units='lam'):
     """
-    Fit the first N terms (Noll indexing) to the given Field.
+    *Fit the first N terms (Noll indexing) to the given Field.*
     
-    R is the beam radius on which the Zernike coefficients should be defined.
+    :param F: input field
+    :type F: Field
+    :param j_terms: if j_terms is a number, first j_terms terms will be fitted if j_terms is a collection (list, array), each number should represent one noll index to fit.
+    :type j_terms: int, float, list array
+    :param R: beam radius on which the Zernike coefficients should be defined.
+    :type R: int,float
+    :param norm: if True normalization (default = True)
+    :param units: 'opd': A given in meters as optical path difference 
+                'lam': A given in multiples of lambda (default = 'lam')
+                'rad': A given in multiples of 2pi
+    
+    :return: (j_terms, A_fits) 
+    :rtype: tuple of int, float
+    
     The phase will be ignored at points with low intensity, but should unwrap
     correctly in valid region.
-    
-    if j_terms is a number, first j_terms terms will be fitted
-    if j_terms is a collection (list, array), each number should represent
-    one noll index to fit.
     
     Piston term (j=1 / n,m=0) is always necessary for fitting but generally
     meaningless in the result.
@@ -162,13 +167,19 @@ def ZernikeFit(F, j_terms, R,  norm=True, units='lam'):
     return (j_terms, A_fits)
 
 
-def ZernikeFilter(j_terms, R, F):
-    """Compute the input field's wavefront, filter out the specified
-    Zernike orders and return the field with filtered wavefront.
+def ZernikeFilter(F, j_terms, R):
+    """
+    *Compute the input field's wavefront, filter out the specified
+    Zernike orders and return the field with filtered wavefront.*
     
-    j_terms: iterable of int which terms to filter. Given in Noll notation.
-    R: [m] radius of Zernike definition
-    F: input field
+    :param F: input field
+    :type F: Field
+    :param j_terms: iterable of int which terms to filter. Given in Noll notation.
+    :type j_terms: float, int
+    :param R: radius of Zernike definition
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    
     """
     j_terms, A_fits = ZernikeFit(j_terms, R, F, norm=True, units='rad')
     # print(A_fits.round(4))
@@ -201,6 +212,18 @@ def ZernikeFilter(j_terms, R, F):
     
 
 def ZernikeName(Noll):
+    """
+    *Returns the name of Zernike Noll term*
+    
+    :param Noll: Noll term (1 .. 21)
+    :type Noll: int, float
+    :return: name of Noll Zernike term
+    :rtype: string
+    
+    .. seealso::
+    
+        * :ref:`Examples: Zernike aberration.<Zernike aberration.>`
+    """
     if (Noll >= 1 and Noll <= 21):
         name = [
             "piston",
@@ -235,12 +258,19 @@ def ZernikeName(Noll):
 
 def noll_to_zern(j):
     """
-    Convert linear Noll index to tuple of Zernike indices.
-    j is the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.
-    @param [in] j Zernike mode Noll index
-    @return (n, m) tuple of Zernike indices
-    @see <https://oeis.org/A176988>.
-    Thanks to: Tim van Werkhoven, https://github.com/tvwerkhoven
+    *Convert linear Noll index to tuple of Zernike indices.*
+    
+    :param j: the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.
+    :type j: int, float
+    :return: name of Noll Zernike term
+    :rtype: string (n, m) tuple of Zernike indices
+    
+    .. seealso::
+    
+        * :ref:`Manual: Zernike polynomials.<Zernike polynomials.>`
+        * `https://oeis.org <https://oeis.org/A176988>`_
+        * `Tim van Werkhoven, https://github.com/tvwerkhoven <https://github.com/tvwerkhoven>`_
+        * :ref:`Examples: Zernike aberration.<Zernike aberration.>`
     """
 
     if (j == 0):

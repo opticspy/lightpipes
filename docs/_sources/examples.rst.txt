@@ -4,6 +4,9 @@ Examples.
 Interference examples.
 **********************
 
+When two or more waves overlap each other in space a more or less complicated pattern of fringes can be observed on a screen placed in the overlap area. These fringes are the result of superposition of the fields, which cause local enhancement or decrement of the intensity depending on the phase and amplitude distribution of the waves in the observation regio.
+In this chapter we will demonstrate a number of interference examples.
+
 .. toctree::
    :maxdepth: 1
    
@@ -78,7 +81,7 @@ Laser examples.
 ***************
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    
    HermiteGaussModes
    LaguerreGaussModes
@@ -86,6 +89,7 @@ Laser examples.
    StableLaserResonator
    UnstableLaserResonator
    TransformationtoDoughnutMode
+   LaserModeTransformer
    
 .. Index::
      phase recovery

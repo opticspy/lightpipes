@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.1.2. Michelson interferometer. &mdash; LightPipes for Python 2.0.3 documentation</title>
+  <title>6.1.2. Michelson interferometer. &mdash; LightPipes for Python 2.0.4 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.3
+                2.0.4
               </div>
             
           
@@ -184,6 +184,8 @@
             
   <div class="section" id="michelson-interferometer">
 <h1><span class="section-number">6.1.2. </span>Michelson interferometer.<a class="headerlink" href="#michelson-interferometer" title="Permalink to this headline">¶</a></h1>
+<p>In a Michelson interferometer an incoming wave is split in two by a beamsplitter. The two beams are reflected by mirrors and united at the same beamsplitter, which generally results in interference. The interference pattern observed depends on the incoming beam, whether or not the mirrors are tilted and on the difference of the distances of the mirrors to the beamsplitter.
+In this experiment we demonstrate a Michelson interferometer with unequal mirror distances and one of the mirrors tilted.</p>
 <p id="index-0">(<a class="reference external" href="./Examples/Interference/Michelson.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Michelson_00_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Michelson_00_00.png" src="_images/Michelson_00_00.png" />
@@ -191,6 +193,16 @@
 <p>(<a class="reference external" href="./Examples/Interference/Michelson_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/Michelson_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Michelson_01_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Michelson_01_00.png" src="_images/Michelson_01_00.png" />
+</div>
+<p>You can modify the source Python script by, for example, insertion of a lens in one of the arms and remove the mirror tilt. The resulting interference pattern will be a set of concentric circles.</p>
+<div class="figure align-center" id="id1">
+<img alt="_images/MichelsonWithLens.png" src="_images/MichelsonWithLens.png" />
+<p class="caption"><span class="caption-text"><em>Interference pattern when a f=100cm lens is inserted in one of the arms and with the mirror tilt removed.</em></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Also the Michelson interferometer can be used to study the effect of phase aberrations. Place a phase aberrator, for example a Zernike aberration, in one of the arms.</p>
+<div class="figure align-center" id="id2">
+<img alt="_images/MichelsonWithAberration.png" src="_images/MichelsonWithAberration.png" />
+<p class="caption"><span class="caption-text"><em>Interference pattern when aberration is inserted in one of the arms.</em></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 
@@ -216,7 +228,7 @@
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Jun 05, 2020.
+        Last updated on Jun 07, 2020.
       </span>
 
     </p>

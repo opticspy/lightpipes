@@ -65,6 +65,7 @@ __all__.extend([
 __all__.extend([
     'FieldArray2D',
     'RowOfFields',
+    'CylindricalLens',
     ])
 
 # avoid modified
@@ -93,7 +94,7 @@ from .core import IntAttenuator
 from .misc import Tilt, Gain, PipFFT
 from .core import Interpol
 from .sources import PointSource, GaussBeam, PlaneWave
-from .userfunc import FieldArray2D, RowOfFields
+from .userfunc import FieldArray2D, RowOfFields, CylindricalLens
 
 def Begin(size,labda,N):
     """
@@ -141,17 +142,11 @@ def Begin(size,labda,N):
 
 def LPtest():
     """
-    Performs a test to check if the installation of the LightPipes package was successful.
+    *Performs a test to check if the installation of the LightPipes package was successful.*
     
-    Args::
+    :return: "LightPipes for Python: test passed." if successful, "Test failed" if not.
+    :rtype: string
     
-        -
-        
-    Returns::
-    
-        "LightPipes for Python: test passed." if successful,
-        "Test failed" if not.
-
     """
     F=Begin(1.8,2.5,55)
     F=Fresnel(10,F)
@@ -165,26 +160,17 @@ def LPtest():
 
 def LPhelp():
     """
-    Go to the LightPipes documentation website on:
-    
-    https://opticspy.github.io/lightpipes/
+    *Go to the LightPipes documentation website on:* `https://opticspy.github.io/lightpipes/ <https://opticspy.github.io/lightpipes/>`_
 
     """
     webbrowser.open_new("https://opticspy.github.io/lightpipes/")
 
 def LPdemo():
     """
-    LPdemo()
-    Demonstrates the simulation of a two-holes interferometer.
+    *Demonstrates the simulation of a two-holes interferometer.*
     
-    Args::
-    
-         -
-    
-    Returns::
-    
-        A plot of the interference pattern and a listing of the Python script.
-    
+    :return: A plot of the interference pattern and a listing of the Python script.
+    :rtype: `matplotlib.image.AxesImage`
     """
     import matplotlib.pyplot as plt
     import sys

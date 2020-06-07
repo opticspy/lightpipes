@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Command Reference. &mdash; LightPipes for Python 2.0.3 documentation</title>
+  <title>4. Command Reference. &mdash; LightPipes for Python 2.0.4 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.3
+                2.0.4
               </div>
             
           
@@ -1654,88 +1654,143 @@ depending on n/m.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="manual.html#zernike-polynomials"><span class="std std-ref">Manual: Zernike polynomials.</span></a></p></li>
 <li><p><a class="reference internal" href="examples.html#zernike-aberration"><span class="std std-ref">Examples: Zernike aberration.</span></a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Zernike_polynomials">https://en.wikipedia.org/wiki/Zernike_polynomials</a></p></li>
 </ul>
-</div>
-<p>Reference:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Zernike_polynomials</span>
-</pre></div>
 </div>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.noll_to_zern">
 <code class="sig-name descname">noll_to_zern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">j</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.noll_to_zern" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert linear Noll index to tuple of Zernike indices.
-j is the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.
-&#64;param [in] j Zernike mode Noll index
-&#64;return (n, m) tuple of Zernike indices
-&#64;see &lt;<a class="reference external" href="https://oeis.org/A176988">https://oeis.org/A176988</a>&gt;.
-Thanks to: Tim van Werkhoven, <a class="reference external" href="https://github.com/tvwerkhoven">https://github.com/tvwerkhoven</a></p>
+<dd><p><em>Convert linear Noll index to tuple of Zernike indices.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>j</strong> (<em>int</em><em>, </em><em>float</em>) – the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>name of Noll Zernike term</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string (n, m) tuple of Zernike indices</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="manual.html#zernike-polynomials"><span class="std std-ref">Manual: Zernike polynomials.</span></a></p></li>
+<li><p><a class="reference external" href="https://oeis.org/A176988">https://oeis.org</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tvwerkhoven">Tim van Werkhoven, https://github.com/tvwerkhoven</a></p></li>
+<li><p><a class="reference internal" href="examples.html#zernike-aberration"><span class="std std-ref">Examples: Zernike aberration.</span></a></p></li>
+</ul>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.ZernikeName">
 <code class="sig-name descname">ZernikeName</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Noll</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p><em>Returns the name of Zernike Noll term</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Noll</strong> (<em>int</em><em>, </em><em>float</em>) – Noll term (1 .. 21)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>name of Noll Zernike term</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="examples.html#zernike-aberration"><span class="std std-ref">Examples: Zernike aberration.</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.ZernikeFit">
 <code class="sig-name descname">ZernikeFit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">F</span></em>, <em class="sig-param"><span class="n">j_terms</span></em>, <em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">norm</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">'lam'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit the first N terms (Noll indexing) to the given Field.</p>
-<p>R is the beam radius on which the Zernike coefficients should be defined.
-The phase will be ignored at points with low intensity, but should unwrap
+<dd><p><em>Fit the first N terms (Noll indexing) to the given Field.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F</strong> (<em>Field</em>) – input field</p></li>
+<li><p><strong>j_terms</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>list array</em>) – if j_terms is a number, first j_terms terms will be fitted if j_terms is a collection (list, array), each number should represent one noll index to fit.</p></li>
+<li><p><strong>R</strong> (<em>int</em><em>,</em><em>float</em>) – beam radius on which the Zernike coefficients should be defined.</p></li>
+<li><p><strong>norm</strong> – if True normalization (default = True)</p></li>
+<li><p><strong>units</strong> – ‘opd’: A given in meters as optical path difference 
+‘lam’: A given in multiples of lambda (default = ‘lam’)
+‘rad’: A given in multiples of 2pi</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(j_terms, A_fits)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple of int, float</p>
+</dd>
+</dl>
+<p>The phase will be ignored at points with low intensity, but should unwrap
 correctly in valid region.</p>
-<p>if j_terms is a number, first j_terms terms will be fitted
-if j_terms is a collection (list, array), each number should represent
-one noll index to fit.</p>
 <p>Piston term (j=1 / n,m=0) is always necessary for fitting but generally
 meaningless in the result.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.ZernikeFilter">
-<code class="sig-name descname">ZernikeFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">j_terms</span></em>, <em class="sig-param"><span class="n">R</span></em>, <em class="sig-param"><span class="n">F</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the input field’s wavefront, filter out the specified
-Zernike orders and return the field with filtered wavefront.</p>
-<p>j_terms: iterable of int which terms to filter. Given in Noll notation.
-R: [m] radius of Zernike definition
-F: input field</p>
+<code class="sig-name descname">ZernikeFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">F</span></em>, <em class="sig-param"><span class="n">j_terms</span></em>, <em class="sig-param"><span class="n">R</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Compute the input field’s wavefront, filter out the specified
+Zernike orders and return the field with filtered wavefront.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F</strong> (<em>Field</em>) – input field</p></li>
+<li><p><strong>j_terms</strong> (<em>float</em><em>, </em><em>int</em>) – iterable of int which terms to filter. Given in Noll notation.</p></li>
+<li><p><strong>R</strong> – radius of Zernike definition</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.LPtest">
 <code class="sig-name descname">LPtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPtest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Performs a test to check if the installation of the LightPipes package was successful.</p>
-<p>Args:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
-</pre></div>
-</div>
-<p>Returns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;LightPipes for Python: test passed.&quot;</span> <span class="k">if</span> <span class="n">successful</span><span class="p">,</span>
-<span class="s2">&quot;Test failed&quot;</span> <span class="k">if</span> <span class="ow">not</span><span class="o">.</span>
-</pre></div>
-</div>
+<dd><p><em>Performs a test to check if the installation of the LightPipes package was successful.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>“LightPipes for Python: test passed.” if successful, “Test failed” if not.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.LPhelp">
 <code class="sig-name descname">LPhelp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPhelp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Go to the LightPipes documentation website on:</p>
-<p><a class="reference external" href="https://opticspy.github.io/lightpipes/">https://opticspy.github.io/lightpipes/</a></p>
+<dd><p><em>Go to the LightPipes documentation website on:</em> <a class="reference external" href="https://opticspy.github.io/lightpipes/">https://opticspy.github.io/lightpipes/</a></p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="LightPipes.LPdemo">
 <code class="sig-name descname">LPdemo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPdemo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Demonstrates the simulation of a two-holes interferometer.</p>
-<p>Args:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span>
-</pre></div>
-</div>
-<p>Returns:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="n">plot</span> <span class="n">of</span> <span class="n">the</span> <span class="n">interference</span> <span class="n">pattern</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Python</span> <span class="n">script</span><span class="o">.</span>
-</pre></div>
-</div>
+<dd><p><em>Demonstrates the simulation of a two-holes interferometer.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A plot of the interference pattern and a listing of the Python script.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><cite>matplotlib.image.AxesImage</cite></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -1825,6 +1880,43 @@ F: input field</p>
 </div>
 </dd></dl>
 
+<dl class="py function">
+<dt id="LightPipes.CylindricalLens">
+<code class="sig-name descname">CylindricalLens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">x_shift</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">y_shift</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">angle</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CylindricalLens" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inserts a cylindrical lens in the field</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
+<li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length</p></li>
+<li><p><strong>x_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in the x-direction (default = 0.0)</p></li>
+<li><p><strong>y_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in the y-direction (default = 0.0)</p></li>
+<li><p><strong>angle</strong> (<em>int</em><em>, </em><em>float</em>) – rotation angle in degrees (default = 0.0, horizontal)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="c1">#Cylindrical lens in the center</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1">#idem, shifted 2 mm in x direction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span> <span class="c1">#idem, rotated 30 degrees</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="LaserModeTransformer.html#transformation-of-high-order-gauss-modes"><span class="std std-ref">Examples: Transformation of high order Gauss modes</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
+
 </div>
 
 
@@ -1849,7 +1941,7 @@ F: input field</p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Jun 05, 2020.
+        Last updated on Jun 07, 2020.
       </span>
 
     </p>
