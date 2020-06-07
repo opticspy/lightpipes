@@ -37,8 +37,8 @@ f3=19*mm
 f4=19*mm
 f5=20*mm
 angle=45.0
-m_=0
-n_=1
+m_=3
+n_=0
 
 L=d1+d2
 g1=1-L/R1
@@ -50,7 +50,7 @@ d5=f4*np.sqrt(2)
 fM2=-R2/(1.5-1) #lensmakers formula with refractive index = 1.5, focal length outcoupler
 
 F=Begin(size,labda,N)
-F=GaussBeam(F,w0,LG=True,m=m_,n=n_) # Hermite Gauss beam in waist
+F=GaussBeam(F,w0,m=m_,n=n_) # Hermite Gauss beam in waist
 F=Forvard(F,d2) # propagate d2
 F=Lens(F,fM2) #outcoupler as lens
 F=Forvard(F,d3) #propagate d3
