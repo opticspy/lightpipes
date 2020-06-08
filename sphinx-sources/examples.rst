@@ -90,6 +90,7 @@ Laser examples.
    UnstableLaserResonator
    TransformationtoDoughnutMode
    LaserModeTransformer
+   resonator_geometric_optics
    
 .. Index::
      phase recovery

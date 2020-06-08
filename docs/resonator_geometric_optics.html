@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.4.8. Gauss TEM00 mode described with geometric optics. &mdash; LightPipes for Python 2.0.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6.5.1. Phase recovery using Gerchberg Saxton iteration." href="PhaseRecoveryGerchbergSaxton.html" />
+    <link rel="prev" title="6.4.7. Transformation of high order Gauss modes." href="LaserModeTransformer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightPipes for Python
+          
+
+          
+            
+            <img src="_static/front.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">5. Manual.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="examples.html">6. Examples.</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples.html#interference-examples">6.1. Interference examples.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#diffraction-examples">6.2. Diffraction examples.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#non-diffractive-bessel-beam">6.3. Non-diffractive Bessel beam.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="examples.html#laser-examples">6.4. Laser examples.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="HermiteGaussModes.html">6.4.1. Hermite Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LaguerreGaussModes.html">6.4.2. Laguerre Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DoughnutModes.html">6.4.3. Laguerre doughnut modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StableLaserResonator.html">6.4.4. Laser simulation, stable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UnstableLaserResonator.html">6.4.5. Unstable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransformationtoDoughnutMode.html">6.4.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LaserModeTransformer.html">6.4.7. Transformation of high order Gauss modes.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">6.4.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays">6.4.8.1. ABCD matrix formulation to describe the propagation of rays.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eigen-values-and-eigen-vectors-eigen-rays">6.4.8.2. Eigen values and eigen vectors (eigen rays)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-of-rays-that-can-be-confined-to-the-resonator">6.4.8.3. Collection of rays that can be confined to the resonator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second-moments">6.4.8.4. Second moments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wavefront-radius">6.4.8.5. Wavefront radius</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brightness">6.4.8.6. Brightness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-the-constant-c">6.4.8.7. Get the constant <span class="math notranslate nohighlight">\(c\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#phase-recovery">6.5. Phase recovery.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#zernike-aberration">6.6. Zernike aberration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#graded-index-media-grin">6.7. Graded index media GRIN.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#fourier-optics">6.8. Fourier optics.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
+</ul>
+
+            
+          
+    <a href="genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightPipes for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="examples.html"><span class="section-number">6. </span>Examples.</a> &raquo;</li>
+        
+      <li><span class="section-number">6.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/resonator_geometric_optics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gauss-tem00-mode-described-with-geometric-optics">
+<h1><span class="section-number">6.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.<a class="headerlink" href="#gauss-tem00-mode-described-with-geometric-optics" title="Permalink to this headline">¶</a></h1>
+<p>June 2020, Fred van Goor.</p>
+<p>Is it possible to describe a periodic focusing system such as a laser
+resonator with geometric optics? The answer is of course no, because
+there are no such things as amplitude, phase and wavelength when dealing
+with rays. In stead we have to solve Maxwell’s equations leading to the
+wave equation with boundary conditions. This equation can be solved
+analytically in the paraxial approximation resulting in the well-known
+Gauss-Hermite or Gauss-Laguerre resonator transverse- and longitudinal
+resonator modes.</p>
+<p>Yet, as will be shown in the following paragraphs, it has sense to find
+the rays that can be confined in a stable resonator applying Snell’s law
+for small angles. As will be shown, all the well-known formulas
+describing the characteristic properties of the fundamental mode of an
+empty, stable, open resonator can be deduced with ray-optics. The only
+missing element in the formulation is the wavelength of the light
+because this is not defined in geometric optics. We will introduce a wavelength to the theory by using
+Heisenberg’s uncertainty relation or by comparison with the physical optics solution.</p>
+<p>In what follows we will:</p>
+<ol class="arabic simple">
+<li><p>Use an ABCD matrix:
+<span class="math notranslate nohighlight">\(\mathbf{M} = \begin{bmatrix} A &amp; B \\ C &amp; D \\ \end{bmatrix}\)</span>
+to decribe a resonator in the paraxial approximation.</p></li>
+<li><p>Find the eigen-ray vectors and eigen values which can be used to
+describe rays in the resonator.</p></li>
+<li><p>Find a collection of rays which are confined to the resonator.</p></li>
+<li><p>Calculate second moments: i.e. average of the ray-positions; average
+of the ray-angles.</p></li>
+<li><p>From the second moments the beam-propagation formulas will be derived
+as well as the brightness and M<sup>2</sup> value.</p></li>
+<li><p>Using Heisenberg’s uncertainty principle we can estimate an arbritray
+constant which turns out to be dependent on the wavelength. By
+comparison with the physical optics solution we will find this
+constant as well.</p></li>
+</ol>
+<div class="section" id="abcd-matrix-formulation-to-describe-the-propagation-of-rays">
+<h2><span class="section-number">6.4.8.1. </span>ABCD matrix formulation to describe the propagation of rays.<a class="headerlink" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays" title="Permalink to this headline">¶</a></h2>
+<p>A ray vector can be defined as follows:
+<span class="math notranslate nohighlight">\(\mathbf{R} = \begin{bmatrix} {y} \\ \theta\\ \end{bmatrix}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the position of the ray above the optical axis and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle with that axis.
+A period in a periodic system such as a laser resonator can be described
+in the paraxial approximation (small angles <span class="math notranslate nohighlight">\(\theta\)</span>) by the
+1-pass propagation matrix:
+<span class="math notranslate nohighlight">\(\mathbf{M} = \begin{bmatrix} A &amp; B \\ C &amp; D \\ \end{bmatrix}\)</span>,
+where <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(D\)</span> are determined by
+the details of the resonator, i.e. the radii of the mirrors and the
+distance between the mirrors.</p>
+<p>With an input ray,
+<span class="math notranslate nohighlight">\(\mathbf{R_0} = \begin{bmatrix} {y_0} \\ \theta_0\\ \end{bmatrix}\)</span>,
+the output after one roundtrip is:
+<span class="math notranslate nohighlight">\(\mathbf{R_1} = \mathbf{M} \mathbf{ R_0}\)</span></p>
+<p>After the second roundtrip:
+<span class="math notranslate nohighlight">\(\mathbf{R_2} = \mathbf{M} \mathbf{ R_1}=\mathbf{M}^2 \mathbf{ R_0}\)</span>
+and after <span class="math notranslate nohighlight">\(n\)</span> roundtrips:
+<span class="math notranslate nohighlight">\(\mathbf{R_n} = \mathbf{M} \mathbf{ R_{n-1}}=\mathbf{M}^n \mathbf{ R_0}\)</span>.</p>
+<p>Because of the principle of ‘ray reversibility’, the determinant of the
+ABCD matrix is one:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}Det\begin{bmatrix}
+A &amp; B \\
+C &amp; D \\
+\end{bmatrix} = AD-BC=1\end{split}\]</div>
+</div>
+<div class="section" id="eigen-values-and-eigen-vectors-eigen-rays">
+<h2><span class="section-number">6.4.8.2. </span>Eigen values and eigen vectors (eigen rays)<a class="headerlink" href="#eigen-values-and-eigen-vectors-eigen-rays" title="Permalink to this headline">¶</a></h2>
+<p>Each ray, <span class="math notranslate nohighlight">\(R_0\)</span>, <span class="math notranslate nohighlight">\(R_1\)</span>, <span class="math notranslate nohighlight">\(R_2\)</span>, …. <span class="math notranslate nohighlight">\(R_n\)</span> can be
+written as a linear combination of the eigen rays, of the matrix
+<span class="math notranslate nohighlight">\(\mathbf{M}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}_n=\sum_xc_x\mathbf{R}{^e_x}\]</div>
+<p>The eigen rays and eigen values can be found in the usual way by
+solving:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{M}\mathbf{R}^e_x=\lambda_x\mathbf{R}^e_x\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{R}^e_x\)</span> and <span class="math notranslate nohighlight">\(\lambda_x\)</span> are the <span class="math notranslate nohighlight">\(x^{th}\)</span>
+eigen ray and eigen value respectively.</p>
+<p>The solution is straightforward:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+A &amp; B \\
+C &amp; D \\
+\end{bmatrix} \begin{bmatrix}
+{y_x} \\
+\theta_x\\
+\end{bmatrix} = \lambda_x
+\begin{bmatrix}
+{y_x} \\
+\theta_x\\
+\end{bmatrix}\end{split}\]</div>
+<p>or:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}(A-\lambda_x)y_x=-B\theta_x\\
+(D-\lambda_x)\theta_x=-Cy_x\\\end{split}\]</div>
+<p>using <span class="math notranslate nohighlight">\(AD-BC=1\)</span> we find the equation:</p>
+<div class="math notranslate nohighlight">
+\[\lambda^2_x-(A+D)\lambda_x+1=0\]</div>
+<p>with the solution of two eigen values:</p>
+<div class="math notranslate nohighlight">
+\[\lambda_{a,b}=\frac{A+D}{2}\pm\sqrt{\Big(\frac{A+D}{2}\Big)^2-1}\]</div>
+<p>defining <span class="math notranslate nohighlight">\(m\equiv\frac{A+D}{2}\)</span> this can be written as:</p>
+<div class="math notranslate nohighlight">
+\[\lambda_{a,b}=m\pm\sqrt{m^2-1}\]</div>
+<p>The two eigen rays are found as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R^e_a}=\begin{bmatrix}
+{y_a} \\
+\theta_a\\
+\end{bmatrix} = \begin{bmatrix}
+\frac{-B}{A-\lambda_a} \theta_a \\
+\theta_a\\
+\end{bmatrix}
+\\
+\mathbf{R^e_b}=\begin{bmatrix}
+{y_b} \\
+\theta_b\\
+\end{bmatrix} = \begin{bmatrix}
+\frac{-B}{A-\lambda_b} \theta_b \\
+\theta_b\\
+\end{bmatrix}\end{split}\]</div>
+<p>Taking <span class="math notranslate nohighlight">\(\theta_{a,b}\)</span> equal to arbitrary, complex values:
+<span class="math notranslate nohighlight">\(\theta_{a,b}=\mu,\nu\)</span> the eigen rays can be written as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R}^e_a=\mu\begin{bmatrix}
+\frac{-B}{A-\lambda_a}  \\
+1\\
+\end{bmatrix}
+\\
+\mathbf{R}^e_b=\nu\begin{bmatrix}
+\frac{-B}{A-\lambda_b}  \\
+1\\
+\end{bmatrix}\end{split}\]</div>
+</div>
+<div class="section" id="collection-of-rays-that-can-be-confined-to-the-resonator">
+<h2><span class="section-number">6.4.8.3. </span>Collection of rays that can be confined to the resonator<a class="headerlink" href="#collection-of-rays-that-can-be-confined-to-the-resonator" title="Permalink to this headline">¶</a></h2>
+<p>Each ray in the resonator can be described by a linear combination of
+the two eigen rays:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}_n=\mathbf{M}^n\mathbf{R}_0=\mathbf{M}^n(c_a\mathbf{R}^e_a+c_b\mathbf{R}^e_b)=c_a\lambda^n_a\mathbf{R}^e_a+c_b\lambda^n_b\mathbf{R}^e_b\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{R}_0\)</span> is the input ray and <span class="math notranslate nohighlight">\(\mathbf{R}_n\)</span> is
+the ray after <span class="math notranslate nohighlight">\(n\)</span> roundtrips. <span class="math notranslate nohighlight">\(c_a\)</span> and <span class="math notranslate nohighlight">\(c_b\)</span> are
+unknown, complex constants.</p>
+<p>We define:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}c_a\mathbf{R}^e_a\equiv\frac{1}{2}(\mathbf{R}_0-i\mathbf{S}_0)
+\\
+c_b\mathbf{R}^e_b\equiv\frac{1}{2}(\mathbf{R}_0+i\mathbf{S}_0)\end{split}\]</div>
+<p>Two cases can be considered:</p>
+<ol class="arabic">
+<li><p><span class="math notranslate nohighlight">\(-1 \le m \le 1\)</span>: “Stable resonators”</p>
+<p>with <span class="math notranslate nohighlight">\(\cos(\phi)\equiv m\)</span> it can be shown that:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}_n=\mathbf{R}_0\cos(n\phi)+\mathbf{S}_0\sin(n\phi)\]</div>
+</li>
+<li><p><span class="math notranslate nohighlight">\(|m| &gt; 1\)</span>: “Unstable resonators”</p></li>
+</ol>
+<p>with <span class="math notranslate nohighlight">\(\cosh(\phi)\equiv m\)</span> it can be shown that:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}_n=\mathbf{R}_0\cosh(n\phi)-i\mathbf{S}_0\sinh(n\phi)\]</div>
+<p>There are two classes of unstable resonators:</p>
+<p><span class="math notranslate nohighlight">\(m&gt;1\)</span> : “positive branch”</p>
+<p><span class="math notranslate nohighlight">\(m&lt;-1\)</span>: “negative branch”</p>
+<p>In what follows we will only consider case 1), stable resonators.</p>
+<p>Of course the rays in the resonator must be real:</p>
+<div class="math notranslate nohighlight">
+\[\Im(\mathbf{R}_n)=0\]</div>
+<p>Because we only consider resonators with real
+<span class="math notranslate nohighlight">\(\begin{bmatrix} A &amp; B \\ C &amp; D \\ \end{bmatrix}\)</span> matrices, and
+because <span class="math notranslate nohighlight">\(\phi=\arccos(m)=\arccos(\frac{A+D}{2})\)</span>,
+<span class="math notranslate nohighlight">\(\cos(n\phi)\)</span> and <span class="math notranslate nohighlight">\(\sin(n\phi)\)</span> are real.</p>
+<p>Therefore we require:</p>
+<div class="math notranslate nohighlight">
+\[\Im(\mathbf{R}_0)=\Im(\mathbf{S}_0)=0\]</div>
+<p>It can be shown that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R}_0=2c\begin{bmatrix}
+z_1\cos(\alpha)-z_R\sin(\alpha) \\
+\cos(\alpha)  \\
+\end{bmatrix}\end{split}\]</div>
+<p>and that:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{S}_0=\frac{\partial \mathbf{R}_0}{\partial \alpha}=-2c\begin{bmatrix}
+z_1\sin(\alpha)+z_R\cos(\alpha) \\
+\sin(\alpha)  \\
+\end{bmatrix}\end{split}\]</div>
+<p>with:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}z_1\equiv \frac{A-D}{2C}\\
+z_R\equiv \frac{\sqrt{1-m^2}}{C}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(0\le \alpha \le 2\pi\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are arbitrary, real
+parameters. They define a ray that is confined to and can propagate
+through the resonator.</p>
+<p>When dealing with “second moments” in the next paragraph we will see that
+<span class="math notranslate nohighlight">\(z_1\)</span> is the distance from the reference plane (input to
+the<span class="math notranslate nohighlight">\(\begin{bmatrix} A &amp; B \\ C &amp; D \\ \end{bmatrix}\)</span> system) to
+the “beam waist” and that <span class="math notranslate nohighlight">\(z_R\)</span> is equal to the “Rayleigh length”.</p>
+<p>In the following Python script we calculate the propagation of a large number of rays in the resonator.</p>
+<p>(<a class="reference external" href=".//geometric_laser_plot_rays.py">Source code</a>)</p>
+<p>(<a class="reference external" href=".//geometric_laser_plot_rays_01_00.png">png</a>, <a class="reference external" href=".//geometric_laser_plot_rays_01_00.hires.png">hires.png</a>, <a class="reference external" href=".//geometric_laser_plot_rays_01_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="_images/geometric_laser_plot_rays_01_00.png" src="_images/geometric_laser_plot_rays_01_00.png" />
+</div>
+</div>
+<div class="section" id="second-moments">
+<h2><span class="section-number">6.4.8.4. </span>Second moments<a class="headerlink" href="#second-moments" title="Permalink to this headline">¶</a></h2>
+<p>The envelope of the bundle of rays and other parameters can be found
+using <strong>second moments</strong>.</p>
+<p>For the input rays:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R}_0=\begin{bmatrix}y_0 \\
+\theta_0\\
+\end{bmatrix}
+=2c\begin{bmatrix}
+z_1\cos(\alpha)-z_R\sin(\alpha) \\
+\cos(\alpha)  \\
+\end{bmatrix}\;0 \leq \alpha \leq 2\pi\end{split}\]</div>
+<p>we find for the second moment of <span class="math notranslate nohighlight">\(y_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\langle{y_0^2}\rangle=\frac{1}{2\pi}\int_0^{2\pi}y_0(\alpha)^2\mathrm{d}\alpha=\frac{4c^2}{2\pi}\int_0^{2\pi}(z_1\cos\alpha-z_R\sin\alpha)^2\mathrm{d}\alpha=\]</div>
+<div class="math notranslate nohighlight">
+\[=\frac{4c^2}{2\pi}\left[z_1^2\int_0^{2\pi}\cos^2\alpha\mathrm{d}\alpha+z_R^2\int_0^{2\pi}\sin^2\alpha\mathrm{d}\alpha-2z_1z_R\int_0^{2\pi}\sin\alpha\cos\alpha\mathrm{d}\alpha\right]=\]</div>
+<div class="math notranslate nohighlight">
+\[=\frac{4c^2}{2\pi}\left[\pi{z_1^2}+\pi{z_R^2}+0\right]=2c^2\left(z_1^2+z_R^2\right)\]</div>
+<p>In a similar way we find for the second moments of <span class="math notranslate nohighlight">\(\theta_0\)</span> and
+<span class="math notranslate nohighlight">\(y_0\theta_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\langle{\theta_0^2}\rangle=\frac{1}{2\pi}\int_0^{2\pi}\theta_0(\alpha)^2\mathrm{d}\alpha=2c^2\]</div>
+<div class="math notranslate nohighlight">
+\[\langle{y_0\theta_0}\rangle=\frac{1}{2\pi}\int_0^{2\pi}{y_0}(\alpha)\theta_0(\alpha)\mathrm{d}\alpha=2c^2z_1\]</div>
+<p>In general we want to know the rays at a distance <span class="math notranslate nohighlight">\(z'\)</span> from the
+input-reference plane:</p>
+<div class="figure align-default">
+<img alt="_images/geometric_laser_fig1.png" src="_images/geometric_laser_fig1.png" />
+</div>
+<p>In other words we want to know <span class="math notranslate nohighlight">\(\mathbf{R}(z',\alpha)\)</span> for a given
+input ray <span class="math notranslate nohighlight">\(\mathbf{R}_0=\mathbf{R}(0,\alpha)\)</span> The ray at a
+distance <span class="math notranslate nohighlight">\(z'\)</span> can be found by propagating in free space
+(refractive index = 1):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R}(z',\alpha)=\begin{bmatrix}
+1 &amp; z' \\
+0 &amp; 1 \\
+\end{bmatrix}\mathbf{R}_0=
+\begin{bmatrix}
+y_0 + z'\theta_0 \\
+\theta_0 \\
+\end{bmatrix}=
+2c\begin{bmatrix}
+z_1\cos{\alpha}-z_R\sin{\alpha}+z'\theta_0 \\
+\theta_0 \\
+\end{bmatrix}\end{split}\]</div>
+<p>Using <span class="math notranslate nohighlight">\(\theta_0=\cos{\alpha}\)</span> and <span class="math notranslate nohighlight">\(z \equiv{z_1+z'}\)</span> we find
+for the rays at a distance, <span class="math notranslate nohighlight">\(z\)</span>, from the beam waist (at a
+distance <span class="math notranslate nohighlight">\(z_1\)</span> from the reference plane):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R}(z,\alpha)=2c\begin{bmatrix}
+z\cos{\alpha}-z_R\sin{\alpha} \\
+\cos{\alpha} \\
+\end{bmatrix}\end{split}\]</div>
+<p>The second moments at <span class="math notranslate nohighlight">\(z\)</span> are now:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\langle{y(z)^2}\rangle=2c^2(z^2+z_R^2)\equiv{w(z)^2}\\
+\langle\theta(z)^2\rangle=2c^2\\
+\langle{y(z)}\theta(z)\rangle=2c^2z\end{split}\]</div>
+<p>With <span class="math notranslate nohighlight">\(w_0\equiv{w(0)}=\sqrt{2}cz_R\)</span> we define the beam waist
+<span class="math notranslate nohighlight">\(w_0\)</span> at <span class="math notranslate nohighlight">\(z=0\)</span>. The size of the beam at a distance,
+<span class="math notranslate nohighlight">\(z\)</span>, from the waist is:</p>
+<div class="math notranslate nohighlight">
+\[w(z)^2=2c^2z_R^2\left(1+\frac{z^2}{z_R^2}\right)\]</div>
+<p>or:</p>
+<div class="math notranslate nohighlight">
+\[w(z)^2=w_0^2\left(1+\frac{z^2}{z_R^2}\right)\]</div>
+<p>This formula of the size of the beam (bundle of confined rays) is
+exactly the same as the formula of the beam size of a Gaussian beam
+modelled according to the theory of physical optics, based on Maxwell’s
+equations. Also, the beam-area doubles when propagating a distance,
+<span class="math notranslate nohighlight">\(z_R\)</span>, from the waist:</p>
+<div class="math notranslate nohighlight">
+\[w(z_R)^2=2c^2z_R^2(1+1)=2w_0^2\]</div>
+<p>according to the definition of the Rayleigh length. The beam size,
+<span class="math notranslate nohighlight">\(w(z)\)</span>, is also plotted in the figure below executing the same Python script as before but now with the second moments included (black dashed curves).</p>
+<p>(<a class="reference external" href=".//geometric_laser_plot_rays2.py">Source code</a>)</p>
+<p>(<a class="reference external" href=".//geometric_laser_plot_rays2_01_00.png">png</a>, <a class="reference external" href=".//geometric_laser_plot_rays2_01_00.hires.png">hires.png</a>, <a class="reference external" href=".//geometric_laser_plot_rays2_01_00.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="_images/geometric_laser_plot_rays2_01_00.png" src="_images/geometric_laser_plot_rays2_01_00.png" />
+</div>
+</div>
+<div class="section" id="wavefront-radius">
+<h2><span class="section-number">6.4.8.5. </span>Wavefront radius<a class="headerlink" href="#wavefront-radius" title="Permalink to this headline">¶</a></h2>
+<p>The radius of the wavefront can be found as follows: From
+the figure it follows that:</p>
+<div class="math notranslate nohighlight">
+\[\beta=\frac{dw(z)}{dz}=\frac{w(z)}{Radius(z)}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dw(z)^2}{dz}=2w\frac{dw}{dz}=2w(z)\frac{w(z)}{Radius(z)}=2\frac{\langle{y(z)^2}\rangle}{Radius(z)}\]</div>
+<p>Also:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d{w(z)^2}}{dz}=\frac{d}{dz}[2c^2(z^2+z_R^2)]=4c^2z=2\langle{y(z)}\theta(z)\rangle\]</div>
+<p>So, we find for the radius of the wavefront at large values of z:</p>
+<div class="math notranslate nohighlight">
+\[Radius(z)=\frac{\langle{y(z)^2}\rangle}{\langle{y(z)\theta(z)}\rangle}=\frac{w_0^2(1+\frac{z^2}{z_R^2})}{2c^2z}
+=\frac{2c^2(z^2+z_R^2)}{2c^2z}=z(1+\frac{z_R^2}{z^2})\]</div>
+<div class="figure align-default">
+<img alt="_images/geometric_laser_fig2.png" src="_images/geometric_laser_fig2.png" />
+</div>
+</div>
+<div class="section" id="brightness">
+<h2><span class="section-number">6.4.8.6. </span>Brightness<a class="headerlink" href="#brightness" title="Permalink to this headline">¶</a></h2>
+<p>The following parameter, called the <strong>Brightness</strong> of the beam, does not
+change while propagating the beam:</p>
+<div class="math notranslate nohighlight">
+\[Brightness\equiv\sqrt{\langle{y(z)^2}\rangle\langle\theta{(z)^2}\rangle-\langle{y(z)}\theta(z)\rangle^2}
+=\sqrt{4c^4(z^2+z_R^2-z^2)}=2c^2z_R=const\]</div>
+</div>
+<div class="section" id="get-the-constant-c">
+<h2><span class="section-number">6.4.8.7. </span>Get the constant <span class="math notranslate nohighlight">\(c\)</span><a class="headerlink" href="#get-the-constant-c" title="Permalink to this headline">¶</a></h2>
+<p>The constant <span class="math notranslate nohighlight">\(c\)</span> is still unknown and can be obtained by using
+Heisenberg’s uncertainty relation or by comparing the results with the
+formulas obtained using physical optics, the solution of the wave
+equation.</p>
+<p><strong>a) Heisenberg:</strong></p>
+<p>The angle, <span class="math notranslate nohighlight">\(\beta\)</span>, is given by:</p>
+<div class="math notranslate nohighlight">
+\[\beta= \frac{w(z)}{z}\mid_{z\rightarrow\infty}=\frac{w_0\frac{z}{z_R}}{z}=\frac{w_0}{z_R}\]</div>
+<p>The Heisenberg relation for the uncertainty of the impulse and position
+in the transverse direction, <span class="math notranslate nohighlight">\(y\)</span>, of a photon is given by:</p>
+<div class="math notranslate nohighlight">
+\[\Delta{P_y}\Delta{y}=h\]</div>
+<p>Assume that the uncertainty of the impulse,
+<span class="math notranslate nohighlight">\(p_z=\frac{h}{\lambda}\)</span>, <span class="math notranslate nohighlight">\(\Delta{p_z}\)</span> in the z direction is
+zero, the angle, <span class="math notranslate nohighlight">\(\beta\)</span> is also given by:</p>
+<div class="math notranslate nohighlight">
+\[2\beta=\frac{\Delta{p_y}}{p_z}=\frac{\frac{h}{2w_0}}   {\frac{h}{\lambda}}=\frac{\lambda}{2w_0}\]</div>
+<p>So, from:</p>
+<div class="math notranslate nohighlight">
+\[2\beta=\frac{2w_0}{z_R}=\frac{\lambda}{2w_0}\]</div>
+<p>it follows that:</p>
+<div class="math notranslate nohighlight">
+\[4w_0^2=\lambda{z_R}
+8c^2z_R^2=\lambda{z_R}\]</div>
+<p>The constant, <span class="math notranslate nohighlight">\(c\)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[c=\frac{\lambda}{4\sqrt{2}w_0}\]</div>
+<p><strong>b) Compare with physical optics solution:</strong></p>
+<p>For a round beam the Rayleigh length is:</p>
+<div class="math notranslate nohighlight">
+\[z_R=\frac{\pi{w_0^2}}{\lambda}\]</div>
+<p>using <span class="math notranslate nohighlight">\(z_R=\frac{w_0}{\sqrt{2}c}\)</span> we find for the constant
+<span class="math notranslate nohighlight">\(c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[c=\frac{\lambda}{\pi{\sqrt{2}w_0}}\]</div>
+<p>(There is a slight difference with the Heisenberg method. Maybe this is
+due to the slab geometry versus cylinder geometry? )</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PhaseRecoveryGerchbergSaxton.html" class="btn btn-neutral float-right" title="6.5.1. Phase recovery using Gerchberg Saxton iteration." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="LaserModeTransformer.html" class="btn btn-neutral float-left" title="6.4.7. Transformation of high order Gauss modes." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Fred van Goor
+      <span class="lastupdated">
+        Last updated on Jun 08, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
