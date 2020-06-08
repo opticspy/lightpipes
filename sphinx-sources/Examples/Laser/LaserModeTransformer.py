@@ -96,7 +96,7 @@ fig=plt.figure(figsize=(11,6))
 ax1 = fig.add_subplot(221);ax1.axis('off')
 ax2 = fig.add_subplot(222);ax2.axis('off')
 ax3 = fig.add_subplot(223);ax3.axis('off')
-ax1.imshow(I0,cmap='jet');ax1.set_title(f'input intensity, LG$_{m_}$$_{n_}$')
+ax1.imshow(I0,cmap='jet');ax1.set_title(f'input intensity, HG$_{m_}$$_{n_}$')
 ax2.imshow(I1,cmap='jet');ax2.set_title('output intensity')
 ax3.text(0.0,0.0,s1);ax3.text(0.5,0.0,s2);ax3.text(1.0,0.0,s3)
 
