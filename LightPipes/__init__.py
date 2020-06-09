@@ -50,6 +50,15 @@ __all__ = [
     'LPdemo',
 ]
 
+#User defined functions from userfunc.py:
+__all__.extend([
+    'FieldArray2D',
+    'RowOfFields',
+    'CylindricalLens',
+    ])
+
+__all__.sort()
+
 #physical units like m, mm, rad, deg, ...
 from .units import * 
 
@@ -62,11 +71,7 @@ __all__.extend([
     'PI'
 ])
 
-__all__.extend([
-    'FieldArray2D',
-    'RowOfFields',
-    'CylindricalLens',
-    ])
+
 
 # avoid modified
 __all__ = tuple(__all__)

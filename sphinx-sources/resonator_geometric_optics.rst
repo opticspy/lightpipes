@@ -42,6 +42,9 @@ In what follows we will:
    constant which turns out to be dependent on the wavelength. By
    comparison with the physical optics solution we will find this
    constant as well.
+   
+All details about ABCD matrices, solving the wave equation, etc. can be found in for example: 
+"Lasers" by: Anthony E. Siegman (1986).
 
 ABCD matrix formulation to describe the propagation of rays.
 ============================================================
@@ -529,5 +532,5 @@ using :math:`z_R=\frac{w_0}{\sqrt{2}c}` we find for the constant
    c=\frac{\lambda}{\pi{\sqrt{2}w_0}}
 
 (There is a slight difference with the Heisenberg method. Maybe this is
-due to the slab geometry versus cylinder geometry? )
+due to the slab geometry versus cylinder geometry? Comments are welcome!)
 
