@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. User defined functions. &mdash; LightPipes for Python 2.0.5 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Manual." href="manual.html" />
+    <link rel="prev" title="4. Command Reference." href="command-reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> LightPipes for Python
+          
+
+          
+            
+            <img src="_static/front.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. User defined functions.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#find-userfunc-py">5.1. Find userfunc.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-the-code">5.2. Write the code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-the-init-py-file">5.3. Modify the __init__.py file.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-your-command">5.4. Test your command.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#your-command-should-be-an-extension-of-lightpipes">5.5. Your command should be an extension of LightPipes.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">7. Examples.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
+</ul>
+
+            
+          
+    <a href="genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightPipes for Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>User defined functions.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/UserDefinedFunctions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="user-defined-functions">
+<h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline">¶</a></h1>
+<p>It is possible to make your own commands and use them in your simulations in the same way as the LightPipes commands. In this chapter we describe a step by step procedure to write a user defined command.</p>
+<div class="section" id="find-userfunc-py">
+<h2><span class="section-number">5.1. </span>Find userfunc.py<a class="headerlink" href="#find-userfunc-py" title="Permalink to this headline">¶</a></h2>
+<p>The code of a user defined command must be put in the file: userfunc.py. This file can be found in the directory in which the LightPipes package was installed on your computer. This directory, called “site-packages” can be found at the place where Python was installed. Use the following Python commands to locate this directory. Depending on your Python-installation the response could be:</p>
+<p><strong>Windows:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import site
+&gt;&gt;&gt; site.getsitepackages<span class="o">()</span>
+<span class="o">[</span><span class="s1">&#39;C:\\Users\\Fred\\AppData\\Local\\Programs\\Python\\Python37&#39;</span>, <span class="s1">&#39;C:\\Users\\Fred\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; print<span class="o">(</span>site.getsitepackages<span class="o">()[</span><span class="m">1</span><span class="o">])</span>
+C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython37<span class="se">\l</span>ib<span class="se">\s</span>ite-packages
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p><strong>Mac:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import site
+&gt;&gt;&gt; site.getsitepackages<span class="o">()</span>
+<span class="o">[</span><span class="s1">&#39;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages&#39;</span><span class="o">]</span>
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p><strong>Linux (ubuntu):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import site
+&gt;&gt;&gt; site.getsitepackages<span class="o">()</span>
+<span class="o">[</span><span class="s1">&#39;/usr/local/lib/python3.6/dist-packages&#39;</span>, <span class="s1">&#39;/usr/lib/python3/dist-packages&#39;</span>, <span class="s1">&#39;/usr/lib/python3.6/dist-packages&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; print<span class="o">(</span>site.getsitepackages<span class="o">()[</span><span class="m">1</span><span class="o">])</span>
+/usr/lib/python3/dist-packages
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-the-code">
+<h2><span class="section-number">5.2. </span>Write the code<a class="headerlink" href="#write-the-code" title="Permalink to this headline">¶</a></h2>
+<p>As an example the code for a cylindrical lens is used here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>def CylindricalLens<span class="o">(</span>Fin,f,x_shift<span class="o">=</span><span class="m">0</span>.0,y_shift<span class="o">=</span><span class="m">0</span>.0,angle<span class="o">=</span><span class="m">0</span>.0<span class="o">)</span>:
+    <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    *Inserts a cylindrical lens in the field*</span>
+
+<span class="s2">    :param Fin: input field</span>
+<span class="s2">    :type Fin: Field</span>
+<span class="s2">    :param f: focal length</span>
+<span class="s2">    :type f: int, float</span>
+<span class="s2">    :param x_shift: shift in the x-direction (default = 0.0)</span>
+<span class="s2">    :type x_shift: int, float</span>
+<span class="s2">    :param y_shift: shift in the y-direction (default = 0.0)</span>
+<span class="s2">    :type y_shift: int, float</span>
+<span class="s2">    :param angle: rotation angle in degrees (default = 0.0, horizontal)</span>
+<span class="s2">    :type angle: int, float</span>
+<span class="s2">    :return: output field (N x N square array of complex numbers).</span>
+<span class="s2">    :rtype: `LightPipes.field.Field`</span>
+<span class="s2">    :Example:</span>
+
+<span class="s2">    &gt;&gt;&gt; F=Begin(size,wavelength,N)</span>
+<span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f) #Cylindrical lens in the center</span>
+<span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f, x_shift=2*mm) #idem, shifted 2 mm in x direction</span>
+<span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f, x_shift=2*mm, angle=30.0) #idem, rotated 30 degrees</span>
+
+<span class="s2">    .. seealso::</span>
+
+<span class="s2">        * :ref:`Examples: Transformation of high order Gauss modes &lt;Transformation of high order Gauss modes.&gt;`</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="nv">Fout</span> <span class="o">=</span> Field.copy<span class="o">(</span>Fin<span class="o">)</span>
+    <span class="nv">_2pi</span> <span class="o">=</span> <span class="m">2</span>*_np.pi
+    <span class="nv">k</span> <span class="o">=</span> _2pi/Fout.lam
+    yy, <span class="nv">xx</span> <span class="o">=</span> Fout.mgrid_cartesian
+    xx -<span class="o">=</span> x_shift
+    yy -<span class="o">=</span> y_shift
+    <span class="k">if</span> angle!<span class="o">=</span><span class="m">0</span>.0:
+        <span class="nv">ang_rad</span> <span class="o">=</span> -1*angle*_np.pi/180.0
+        <span class="nv">cc</span> <span class="o">=</span> _np.cos<span class="o">(</span>ang_rad<span class="o">)</span>
+        <span class="nv">ss</span> <span class="o">=</span> _np.sin<span class="o">(</span>ang_rad<span class="o">)</span>
+        <span class="nv">xxr</span> <span class="o">=</span> cc * xx + ss * yy
+        <span class="nv">yyr</span> <span class="o">=</span> -ss * xx + cc * yy
+        yy, <span class="nv">xx</span> <span class="o">=</span> yyr, xxr
+    <span class="k">fi</span> <span class="o">=</span> -k*<span class="o">(</span>xx**2<span class="o">)</span>/<span class="o">(</span><span class="m">2</span>*f<span class="o">)</span>
+    Fout.field *<span class="o">=</span> _np.exp<span class="o">(</span>1j * <span class="k">fi</span><span class="o">)</span>
+    <span class="k">return</span> Fout
+</pre></div>
+</div>
+<p>Before the code begins it is recommended to insert a socalled “docstring” just after the function definition. In this docstring the working of the command and the parameters are explained and become visible in the help and eventually in the html pages of a sphinx web.
+In the code the first thing to do is to copy the input field with the Field.copy(Fin) command. At the end the output field can be returned after application of the modifications by the mathematics and the input parameters.
+It is recommented to put the parameters in the order as shown: the input field, Fin, first, next the required positional parameters and finally the optional parameters with their default values.</p>
+</div>
+<div class="section" id="modify-the-init-py-file">
+<h2><span class="section-number">5.3. </span>Modify the __init__.py file.<a class="headerlink" href="#modify-the-init-py-file" title="Permalink to this headline">¶</a></h2>
+<p>The final step is the modification of the __init__.py script. This file is also in the <em>…/site-packages/LightPipes</em> directory.
+Find the Python list:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...
+<span class="c1">#User defined functions from userfunc.py:</span>
+__all__.extend<span class="o">([</span>
+    <span class="s1">&#39;FieldArray2D&#39;</span>,
+    <span class="s1">&#39;RowOfFields&#39;</span>,
+    <span class="s1">&#39;CylindricalLens&#39;</span>, <span class="c1"># user defined function added at June 9, 2020 by Fred.</span>
+    <span class="o">])</span>
+...
+</pre></div>
+</div>
+<p>and add your command to the list.</p>
+<p>Finally you have to add your command to the line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...
+from .userfunc import FieldArray2D, RowOfFields, CylindricalLens
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-your-command">
+<h2><span class="section-number">5.4. </span>Test your command.<a class="headerlink" href="#test-your-command" title="Permalink to this headline">¶</a></h2>
+<p>Write a test program to test your command. For the CylindricalLens command the following test script was used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Script to test the user-defined CylindricalLens command.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">R</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">f</span><span class="o">=</span><span class="mf">1.89</span><span class="o">*</span><span class="n">m</span>
+<span class="n">angle</span><span class="o">=</span><span class="mi">90</span><span class="o">*</span><span class="n">deg</span>
+<span class="n">x_shift</span><span class="o">=</span><span class="mi">0</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">y_shift</span><span class="o">=</span><span class="mi">0</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">Field</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">,</span><span class="n">x_shift</span><span class="o">=</span><span class="n">x_shift</span><span class="p">,</span><span class="n">y_shift</span><span class="o">=</span><span class="n">y_shift</span><span class="p">)</span>
+<span class="c1">#Field=CylindricalLens(Field,F)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">I1</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;LightPipes for Python,&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;UserDefinedCylindricalLens.py&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$\lambda = {:4.1f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wavelength</span><span class="o">/</span><span class="n">nm</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $nm$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$size = {:4.2f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">size</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $mm$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$N = {:4d}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$R = {:4.2f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $mm$&#39;</span><span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$f = {:4.1f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">/</span><span class="n">cm</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $cm$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$\alpha = {:4.1f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">angle</span><span class="o">/</span><span class="n">deg</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $deg$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$x_{shift} = &#39;</span> <span class="o">+</span> <span class="s1">&#39;{:4.2f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_shift</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $mm$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;$y_{shift} = &#39;</span> <span class="o">+</span> <span class="s1">&#39;{:4.2f}$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_shift</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39; $mm$&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+    <span class="sa">r</span><span class="s1">&#39;${\copyright}$ Fred van Goor, June 2020&#39;</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="n">s</span><span class="p">);</span> <span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">I1</span><span class="p">))[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>
+
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.png">png</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="_images/UserDefinedCylindricalLens.png" src="_images/UserDefinedCylindricalLens.png" />
+</div>
+</div>
+<div class="section" id="your-command-should-be-an-extension-of-lightpipes">
+<h2><span class="section-number">5.5. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Permalink to this headline">¶</a></h2>
+<p>If you are convinced that your new command is an important, useful extension of the LightPipes for Python package, please open an issue on our <a class="reference external" href="https://github.com/opticspy/lightpipes">GitHub</a> site with the source code and the authors will consider to put it in a new version of LightPipes for Python.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="manual.html" class="btn btn-neutral float-right" title="6. Manual." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="command-reference.html" class="btn btn-neutral float-left" title="4. Command Reference." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Fred van Goor
+      <span class="lastupdated">
+        Last updated on Jun 09, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

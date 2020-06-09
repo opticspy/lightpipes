@@ -142,7 +142,7 @@ def CylindricalLens(Fin,f,x_shift=0.0,y_shift=0.0,angle=0.0):
     :type x_shift: int, float
     :param y_shift: shift in the y-direction (default = 0.0)
     :type y_shift: int, float
-    :param angle: rotation angle in degrees (default = 0.0, horizontal)
+    :param angle: rotation angle (default = 0.0, horizontal)
     :type angle: int, float    
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
@@ -164,9 +164,9 @@ def CylindricalLens(Fin,f,x_shift=0.0,y_shift=0.0,angle=0.0):
     xx -= x_shift
     yy -= y_shift
     if angle!=0.0:
-        ang_rad = -1*angle*_np.pi/180.0
-        cc = _np.cos(ang_rad)
-        ss = _np.sin(ang_rad)
+        ang_rad = angle
+        cc = _np.cos(angle)
+        ss = _np.sin(angle)
         xxr = cc * xx + ss * yy
         yyr = -ss * xx + cc * yy
         yy, xx = yyr, xxr

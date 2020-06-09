@@ -23,6 +23,7 @@ contents:
    install
    support
    command-reference
+   UserDefinedFunctions
    manual
    examples
    computerprac

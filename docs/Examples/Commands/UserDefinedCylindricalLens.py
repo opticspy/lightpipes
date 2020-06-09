@@ -21,8 +21,8 @@ Field=CylindricalLens(Field,f,angle=angle,x_shift=x_shift,y_shift=y_shift)
 Field = Fresnel(f, Field)
 I1 = Intensity(1,Field)
 I1=np.array(I1)
+x=np.linspace(-size/2.0,size/2.0,N)/mm
 
-x,y=Field.mgrid_cartesian
 fig=plt.figure(figsize=(10,6))
 ax1 = fig.add_subplot(221)
 ax2 = fig.add_subplot(222)
@@ -43,8 +43,7 @@ s = r'LightPipes for Python,' + '\n' + 'UserDefinedCylindricalLens.py' + '\n\n'\
 ax1.imshow(I0,cmap='gray'); ax1.axis('off')
 ax2.imshow(I1,cmap='jet'); ax2.axis('off')
 ax3.text(0.0,0.0,s); ax3.axis('off')
-ax4.plot(y[int(N/2)],I1[int(N/2)],y[int(N/2)],list(zip(*I1))[int(N/2)])
-#ax4.plot(y[int(N/2)],I1[:][int(N/2)],x[int(N/2)],I1[:][int(N/2)])
+ax4.plot(x,I1[int(N/2)],x,list(zip(*I1))[int(N/2)])
 
 ax4.set_xlabel('x [mm]');ax4.set_ylabel('Intensity [a.u.]')
 plt.show()

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6.4.8. Gauss TEM00 mode described with geometric optics. &mdash; LightPipes for Python 2.0.5 documentation</title>
+  <title>7.4.8. Gauss TEM00 mode described with geometric optics. &mdash; LightPipes for Python 2.0.5 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6.5.1. Phase recovery using Gerchberg Saxton iteration." href="PhaseRecoveryGerchbergSaxton.html" />
-    <link rel="prev" title="6.4.7. Transformation of high order Gauss modes." href="LaserModeTransformer.html" /> 
+    <link rel="next" title="7.5.1. Phase recovery using Gerchberg Saxton iteration." href="PhaseRecoveryGerchbergSaxton.html" />
+    <link rel="prev" title="7.4.7. Transformation of high order Gauss modes." href="LaserModeTransformer.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,38 +94,39 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="manual.html">5. Manual.</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="examples.html">6. Examples.</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="examples.html#interference-examples">6.1. Interference examples.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#diffraction-examples">6.2. Diffraction examples.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#non-diffractive-bessel-beam">6.3. Non-diffractive Bessel beam.</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="examples.html#laser-examples">6.4. Laser examples.</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="HermiteGaussModes.html">6.4.1. Hermite Gauss modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LaguerreGaussModes.html">6.4.2. Laguerre Gauss modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DoughnutModes.html">6.4.3. Laguerre doughnut modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="StableLaserResonator.html">6.4.4. Laser simulation, stable laser resonator.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="UnstableLaserResonator.html">6.4.5. Unstable laser resonator.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransformationtoDoughnutMode.html">6.4.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LaserModeTransformer.html">6.4.7. Transformation of high order Gauss modes.</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">6.4.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays">6.4.8.1. ABCD matrix formulation to describe the propagation of rays.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eigen-values-and-eigen-vectors-eigen-rays">6.4.8.2. Eigen values and eigen vectors (eigen rays)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#collection-of-rays-that-can-be-confined-to-the-resonator">6.4.8.3. Collection of rays that can be confined to the resonator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#second-moments">6.4.8.4. Second moments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wavefront-radius">6.4.8.5. Wavefront radius</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#brightness">6.4.8.6. Brightness</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get-the-constant-c">6.4.8.7. Get the constant <span class="math notranslate nohighlight">\(c\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="UserDefinedFunctions.html">5. User defined functions.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual.</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="examples.html">7. Examples.</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples.html#interference-examples">7.1. Interference examples.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#diffraction-examples">7.2. Diffraction examples.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#non-diffractive-bessel-beam">7.3. Non-diffractive Bessel beam.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="examples.html#laser-examples">7.4. Laser examples.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="HermiteGaussModes.html">7.4.1. Hermite Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LaguerreGaussModes.html">7.4.2. Laguerre Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DoughnutModes.html">7.4.3. Laguerre doughnut modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StableLaserResonator.html">7.4.4. Laser simulation, stable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UnstableLaserResonator.html">7.4.5. Unstable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransformationtoDoughnutMode.html">7.4.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LaserModeTransformer.html">7.4.7. Transformation of high order Gauss modes.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.4.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays">7.4.8.1. ABCD matrix formulation to describe the propagation of rays.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eigen-values-and-eigen-vectors-eigen-rays">7.4.8.2. Eigen values and eigen vectors (eigen rays)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-of-rays-that-can-be-confined-to-the-resonator">7.4.8.3. Collection of rays that can be confined to the resonator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second-moments">7.4.8.4. Second moments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wavefront-radius">7.4.8.5. Wavefront radius</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brightness">7.4.8.6. Brightness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-the-constant-c">7.4.8.7. Get the constant <span class="math notranslate nohighlight">\(c\)</span></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#phase-recovery">6.5. Phase recovery.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#zernike-aberration">6.6. Zernike aberration.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#graded-index-media-grin">6.7. Graded index media GRIN.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#fourier-optics">6.8. Fourier optics.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#phase-recovery">7.5. Phase recovery.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#zernike-aberration">7.6. Zernike aberration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#graded-index-media-grin">7.7. Graded index media GRIN.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#fourier-optics">7.8. Fourier optics.</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="computerprac.html">7. Computer practical.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
 </ul>
 
             
@@ -173,9 +174,9 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-          <li><a href="examples.html"><span class="section-number">6. </span>Examples.</a> &raquo;</li>
+          <li><a href="examples.html"><span class="section-number">7. </span>Examples.</a> &raquo;</li>
         
-      <li><span class="section-number">6.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.</li>
+      <li><span class="section-number">7.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -195,7 +196,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="gauss-tem00-mode-described-with-geometric-optics">
-<h1><span class="section-number">6.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.<a class="headerlink" href="#gauss-tem00-mode-described-with-geometric-optics" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.<a class="headerlink" href="#gauss-tem00-mode-described-with-geometric-optics" title="Permalink to this headline">¶</a></h1>
 <p>June 2020, Fred van Goor.</p>
 <p>Is it possible to describe a periodic focusing system such as a laser
 resonator with geometric optics? The answer is of course no, because
@@ -233,7 +234,7 @@ constant as well.</p></li>
 <p>All details about ABCD matrices, solving the wave equation, etc. can be found in for example:
 “Lasers” by: Anthony E. Siegman (1986).</p>
 <div class="section" id="abcd-matrix-formulation-to-describe-the-propagation-of-rays">
-<h2><span class="section-number">6.4.8.1. </span>ABCD matrix formulation to describe the propagation of rays.<a class="headerlink" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.1. </span>ABCD matrix formulation to describe the propagation of rays.<a class="headerlink" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays" title="Permalink to this headline">¶</a></h2>
 <p>A ray vector can be defined as follows:
 <span class="math notranslate nohighlight">\(\mathbf{R} = \begin{bmatrix} {y} \\ \theta\\ \end{bmatrix}\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(y\)</span> is the position of the ray above the optical axis and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle with that axis.
@@ -261,7 +262,7 @@ C &amp; D \\
 \end{bmatrix} = AD-BC=1\end{split}\]</div>
 </div>
 <div class="section" id="eigen-values-and-eigen-vectors-eigen-rays">
-<h2><span class="section-number">6.4.8.2. </span>Eigen values and eigen vectors (eigen rays)<a class="headerlink" href="#eigen-values-and-eigen-vectors-eigen-rays" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.2. </span>Eigen values and eigen vectors (eigen rays)<a class="headerlink" href="#eigen-values-and-eigen-vectors-eigen-rays" title="Permalink to this headline">¶</a></h2>
 <p>Each ray, <span class="math notranslate nohighlight">\(R_0\)</span>, <span class="math notranslate nohighlight">\(R_1\)</span>, <span class="math notranslate nohighlight">\(R_2\)</span>, …. <span class="math notranslate nohighlight">\(R_n\)</span> can be
 written as a linear combination of the eigen rays, of the matrix
 <span class="math notranslate nohighlight">\(\mathbf{M}\)</span>:</p>
@@ -330,7 +331,7 @@ C &amp; D \\
 \end{bmatrix}\end{split}\]</div>
 </div>
 <div class="section" id="collection-of-rays-that-can-be-confined-to-the-resonator">
-<h2><span class="section-number">6.4.8.3. </span>Collection of rays that can be confined to the resonator<a class="headerlink" href="#collection-of-rays-that-can-be-confined-to-the-resonator" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.3. </span>Collection of rays that can be confined to the resonator<a class="headerlink" href="#collection-of-rays-that-can-be-confined-to-the-resonator" title="Permalink to this headline">¶</a></h2>
 <p>Each ray in the resonator can be described by a linear combination of
 the two eigen rays:</p>
 <div class="math notranslate nohighlight">
@@ -400,7 +401,7 @@ the “beam waist” and that <span class="math notranslate nohighlight">\(z_R\)
 </div>
 </div>
 <div class="section" id="second-moments">
-<h2><span class="section-number">6.4.8.4. </span>Second moments<a class="headerlink" href="#second-moments" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.4. </span>Second moments<a class="headerlink" href="#second-moments" title="Permalink to this headline">¶</a></h2>
 <p>The envelope of the bundle of rays and other parameters can be found
 using <strong>second moments</strong>.</p>
 <p>For the input rays:</p>
@@ -484,7 +485,7 @@ equations. Also, the beam-area doubles when propagating a distance,
 </div>
 </div>
 <div class="section" id="wavefront-radius">
-<h2><span class="section-number">6.4.8.5. </span>Wavefront radius<a class="headerlink" href="#wavefront-radius" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.5. </span>Wavefront radius<a class="headerlink" href="#wavefront-radius" title="Permalink to this headline">¶</a></h2>
 <p>The radius of the wavefront can be found as follows: From
 the figure it follows that:</p>
 <div class="math notranslate nohighlight">
@@ -503,7 +504,7 @@ the figure it follows that:</p>
 </div>
 </div>
 <div class="section" id="brightness">
-<h2><span class="section-number">6.4.8.6. </span>Brightness<a class="headerlink" href="#brightness" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.6. </span>Brightness<a class="headerlink" href="#brightness" title="Permalink to this headline">¶</a></h2>
 <p>The following parameter, called the <strong>Brightness</strong> of the beam, does not
 change while propagating the beam:</p>
 <div class="math notranslate nohighlight">
@@ -511,7 +512,7 @@ change while propagating the beam:</p>
 =\sqrt{4c^4(z^2+z_R^2-z^2)}=2c^2z_R=const\]</div>
 </div>
 <div class="section" id="get-the-constant-c">
-<h2><span class="section-number">6.4.8.7. </span>Get the constant <span class="math notranslate nohighlight">\(c\)</span><a class="headerlink" href="#get-the-constant-c" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.4.8.7. </span>Get the constant <span class="math notranslate nohighlight">\(c\)</span><a class="headerlink" href="#get-the-constant-c" title="Permalink to this headline">¶</a></h2>
 <p>The constant <span class="math notranslate nohighlight">\(c\)</span> is still unknown and can be obtained by using
 Heisenberg’s uncertainty relation or by comparing the results with the
 formulas obtained using physical optics, the solution of the wave
@@ -560,10 +561,10 @@ due to the slab geometry versus cylinder geometry? Comments are welcome!)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="PhaseRecoveryGerchbergSaxton.html" class="btn btn-neutral float-right" title="6.5.1. Phase recovery using Gerchberg Saxton iteration." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PhaseRecoveryGerchbergSaxton.html" class="btn btn-neutral float-right" title="7.5.1. Phase recovery using Gerchberg Saxton iteration." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="LaserModeTransformer.html" class="btn btn-neutral float-left" title="6.4.7. Transformation of high order Gauss modes." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="LaserModeTransformer.html" class="btn btn-neutral float-left" title="7.4.7. Transformation of high order Gauss modes." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
