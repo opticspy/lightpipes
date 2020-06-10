@@ -514,6 +514,7 @@ it follows that:
 
 
    4w_0^2=\lambda{z_R}
+   
    8c^2z_R^2=\lambda{z_R}
 
 The constant, :math:`c` is:
