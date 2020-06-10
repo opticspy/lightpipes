@@ -402,7 +402,7 @@
 <li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length</p></li>
 <li><p><strong>x_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in the x-direction (default = 0.0)</p></li>
 <li><p><strong>y_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in the y-direction (default = 0.0)</p></li>
-<li><p><strong>angle</strong> (<em>int</em><em>, </em><em>float</em>) – rotation angle in degrees (default = 0.0, horizontal)</p></li>
+<li><p><strong>angle</strong> (<em>int</em><em>, </em><em>float</em>) – rotation angle (default = 0.0, horizontal)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -417,7 +417,7 @@
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="c1">#Cylindrical lens in the center</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1">#idem, shifted 2 mm in x direction</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span> <span class="c1">#idem, rotated 30 degrees</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">CylindricalLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mf">30.0</span><span class="o">*</span><span class="n">deg</span><span class="p">)</span> <span class="c1">#idem, rotated 30 degrees</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -1942,7 +1942,7 @@ meaningless in the result.</p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Jun 09, 2020.
+        Last updated on Jun 10, 2020.
       </span>
 
     </p>

@@ -218,7 +218,7 @@ C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A
 <span class="s2">    :type x_shift: int, float</span>
 <span class="s2">    :param y_shift: shift in the y-direction (default = 0.0)</span>
 <span class="s2">    :type y_shift: int, float</span>
-<span class="s2">    :param angle: rotation angle in degrees (default = 0.0, horizontal)</span>
+<span class="s2">    :param angle: rotation angle (default = 0.0, horizontal)</span>
 <span class="s2">    :type angle: int, float</span>
 <span class="s2">    :return: output field (N x N square array of complex numbers).</span>
 <span class="s2">    :rtype: `LightPipes.field.Field`</span>
@@ -227,22 +227,20 @@ C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A
 <span class="s2">    &gt;&gt;&gt; F=Begin(size,wavelength,N)</span>
 <span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f) #Cylindrical lens in the center</span>
 <span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f, x_shift=2*mm) #idem, shifted 2 mm in x direction</span>
-<span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f, x_shift=2*mm, angle=30.0) #idem, rotated 30 degrees</span>
+<span class="s2">    &gt;&gt;&gt; F=CylindricalLens(F,f, x_shift=2*mm, angle=30.0*deg) #idem, rotated 30 degrees</span>
 
 <span class="s2">    .. seealso::</span>
 
 <span class="s2">        * :ref:`Examples: Transformation of high order Gauss modes &lt;Transformation of high order Gauss modes.&gt;`</span>
 <span class="s2">    &quot;&quot;&quot;</span>
     <span class="nv">Fout</span> <span class="o">=</span> Field.copy<span class="o">(</span>Fin<span class="o">)</span>
-    <span class="nv">_2pi</span> <span class="o">=</span> <span class="m">2</span>*_np.pi
-    <span class="nv">k</span> <span class="o">=</span> _2pi/Fout.lam
+    <span class="nv">k</span> <span class="o">=</span> <span class="m">2</span>*_np.pi/Fout.lam
     yy, <span class="nv">xx</span> <span class="o">=</span> Fout.mgrid_cartesian
     xx -<span class="o">=</span> x_shift
     yy -<span class="o">=</span> y_shift
     <span class="k">if</span> angle!<span class="o">=</span><span class="m">0</span>.0:
-        <span class="nv">ang_rad</span> <span class="o">=</span> -1*angle*_np.pi/180.0
-        <span class="nv">cc</span> <span class="o">=</span> _np.cos<span class="o">(</span>ang_rad<span class="o">)</span>
-        <span class="nv">ss</span> <span class="o">=</span> _np.sin<span class="o">(</span>ang_rad<span class="o">)</span>
+        <span class="nv">cc</span> <span class="o">=</span> _np.cos<span class="o">(</span>angle<span class="o">)</span>
+        <span class="nv">ss</span> <span class="o">=</span> _np.sin<span class="o">(</span>angle<span class="o">)</span>
         <span class="nv">xxr</span> <span class="o">=</span> cc * xx + ss * yy
         <span class="nv">yyr</span> <span class="o">=</span> -ss * xx + cc * yy
         yy, <span class="nv">xx</span> <span class="o">=</span> yyr, xxr
@@ -253,7 +251,7 @@ C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A
 </div>
 <p>Before the code begins it is recommended to insert a socalled “docstring” just after the function definition. In this docstring the working of the command and the parameters are explained and become visible in the help and eventually in the html pages of a sphinx web.
 In the code the first thing to do is to copy the input field with the Field.copy(Fin) command. At the end the output field can be returned after application of the modifications by the mathematics and the input parameters.
-It is recommented to put the parameters in the order as shown: the input field, Fin, first, next the required positional parameters and finally the optional parameters with their default values.</p>
+It is recommended to put the parameters in the order as shown: the input field, Fin, first, next the required positional parameters and finally the optional parameters with their default values.</p>
 </div>
 <div class="section" id="modify-the-init-py-file">
 <h2><span class="section-number">5.3. </span>Modify the __init__.py file.<a class="headerlink" href="#modify-the-init-py-file" title="Permalink to this headline">¶</a></h2>
@@ -364,7 +362,7 @@ from .userfunc import FieldArray2D, RowOfFields, CylindricalLens
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Jun 09, 2020.
+        Last updated on Jun 10, 2020.
       </span>
 
     </p>

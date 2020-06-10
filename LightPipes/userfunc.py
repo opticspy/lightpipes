@@ -151,25 +151,21 @@ def CylindricalLens(Fin,f,x_shift=0.0,y_shift=0.0,angle=0.0):
     >>> F=Begin(size,wavelength,N)
     >>> F=CylindricalLens(F,f) #Cylindrical lens in the center
     >>> F=CylindricalLens(F,f, x_shift=2*mm) #idem, shifted 2 mm in x direction
-    >>> F=CylindricalLens(F,f, x_shift=2*mm, angle=30.0) #idem, rotated 30 degrees
+    >>> F=CylindricalLens(F,f, x_shift=2*mm, angle=30.0*deg) #idem, rotated 30 degrees
     
     .. seealso::
         
         * :ref:`Examples: Transformation of high order Gauss modes <Transformation of high order Gauss modes.>`
     """
     Fout = Field.copy(Fin)
-    _2pi = 2*_np.pi
-    k = _2pi/Fout.lam
+    k = 2*_np.pi/Fout.lam
     yy, xx = Fout.mgrid_cartesian
     xx -= x_shift
     yy -= y_shift
     if angle!=0.0:
-        ang_rad = angle
         cc = _np.cos(angle)
         ss = _np.sin(angle)
-        xxr = cc * xx + ss * yy
-        yyr = -ss * xx + cc * yy
-        yy, xx = yyr, xxr
+        xx = cc * xx + ss * yy
     fi = -k*(xx**2)/(2*f)
     Fout.field *= _np.exp(1j * fi)
     return Fout
