@@ -1,3 +1,7 @@
+.. Index::
+    Doughnut laser mode
+    Spiral phase plate
+
 Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.
 ------------------------------------------------------------------------------------------
 

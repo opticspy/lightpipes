@@ -1,3 +1,12 @@
+.. Index::
+    Gauss beam
+    Laser resonator
+    Geometrical description of light
+    rays
+    ABCD propagation
+    Stable resonator
+    Confined rays
+
 Gauss TEM\ :sub:`00` \ mode described with geometric optics.
 ************************************************************
 

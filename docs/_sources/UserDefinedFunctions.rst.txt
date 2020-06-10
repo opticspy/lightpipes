@@ -1,3 +1,10 @@
+.. Index::
+    User defined functions
+    Cylindrical Lens
+    userfunc.py
+    __init__.py
+    site-packages
+
 User defined functions.
 ***********************
 

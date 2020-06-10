@@ -1,3 +1,11 @@
+.. Index::
+    Poisson spot
+    Arago spot
+    Bessel beam
+    edge waves
+    annular slit
+
+
 From Poisson spot to a non-diffractive Bessel beam.
 ---------------------------------------------------
 

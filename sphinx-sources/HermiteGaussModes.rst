@@ -1,3 +1,8 @@
+.. Index::
+    Hermite Gauss modes
+    High order transversal modes
+    eigen modes
+
 Hermite Gauss modes.
 --------------------
 

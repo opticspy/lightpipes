@@ -1,3 +1,9 @@
+.. Index::
+    Shack Hartmann sensor
+    Phase recovery
+    Zernike aberration
+
+
 Shack Hartmann sensor.
 ----------------------
 
