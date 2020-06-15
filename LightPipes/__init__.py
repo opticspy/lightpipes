@@ -55,6 +55,7 @@ __all__.extend([
     'FieldArray2D',
     'RowOfFields',
     'CylindricalLens',
+    'ZonePlate',
     ])
 
 __all__.sort()
@@ -67,11 +68,9 @@ LPversion=__version__
 
 __all__.extend([
     'm', 'cm', 'mm', 'um', 'nm',
-    'rad', 'mrad', 'urad', 'deg', 'W', 'mW', 'LPversion',
+    'rad', 'mrad', 'urad', 'deg', 'W', 'mW', 'LPversion', 
     'PI'
 ])
-
-
 
 # avoid modified
 __all__ = tuple(__all__)
@@ -99,7 +98,7 @@ from .core import IntAttenuator
 from .misc import Tilt, Gain, PipFFT
 from .core import Interpol
 from .sources import PointSource, GaussBeam, PlaneWave
-from .userfunc import FieldArray2D, RowOfFields, CylindricalLens
+from .userfunc import *
 
 def Begin(size,labda,N):
     """
@@ -219,4 +218,5 @@ def LPdemo():
     print('Executed with python version: ' + sys.version)
     print('on a ' + platform.system() + ' ' + platform.release() + ' ' + platform.machine() +' machine')
     plt.show()
+
 

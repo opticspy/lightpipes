@@ -36,7 +36,7 @@ f2=160*mm +df2 #160*mm
 f3=19*mm
 f4=19*mm
 f5=20*mm
-angle=45.0
+angle=45.0*deg
 m_=3
 n_=0
 

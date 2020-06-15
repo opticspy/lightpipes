@@ -36,7 +36,9 @@ F2=Lens(F2,f)
 F2=Forvard(F2,f)
 F22=Interpol(F2,size,N,magnif=4)
 Iscreen2=Intensity(F22)
-
+F3=BeamMix(F11,F22)
+Iscreen3=Intensity(F3)
+print(F22.lam/nm)
 
 X=np.arange(N)
 X=(X/N-1/2)*size/mm

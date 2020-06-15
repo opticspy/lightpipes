@@ -4,8 +4,9 @@ User defined functions for LightPipes for Python
 
 """
 import numpy as _np
+from scipy.optimize import fsolve
 from .field import Field
-from .core import BeamMix
+from .core import BeamMix, CircAperture
 
 def RowOfFields(Fin,Ffield,Nfields,sep,y=0.0):
     """
@@ -168,4 +169,55 @@ def CylindricalLens(Fin,f,x_shift=0.0,y_shift=0.0,angle=0.0):
         xx = cc * xx + ss * yy
     fi = -k*(xx**2)/(2*f)
     Fout.field *= _np.exp(1j * fi)
+    return Fout
+
+def ZonePlate(Fin, N_zones,f=None, p=None,q=None, T=1.0, PassEvenZones=True ):
+    Fout = Field.copy(Fin)
+    Y, X = Fout.mgrid_cartesian
+    T=_np.sqrt(T)
+    
+    R = _np.sqrt( X**2 + Y**2) #squared, no need for sqrt
+    if (not f==None) and (p==None) and (q==None):
+        Rzone=_np.zeros(N_zones+1)
+        for n in range(1,N_zones+1):
+            Rzone[n] = _np.sqrt(n * Fout.lam * f + ((n * Fout.lam)**2)/4)
+            if PassEvenZones:
+                if (n % 2)==0.0:
+                    Fout.field[R>=Rzone[n-1]]=Fin.field[R>=Rzone[n-1]]*T
+                else:
+                    Fout.field[R>=Rzone[n-1]]=0.0
+            else:
+                if not (n % 2)==0.0:
+                    Fout.field[R>=Rzone[n-1]]=Fin.field[R>=Rzone[n-1]]*T
+                else:
+                    Fout.field[R>=Rzone[n-1]]=0.0
+    elif (not p==None) and (not q==None) and (f==None):
+        def get_r(p,q,n):
+            c=p+q+n*Fout.lam/2
+            def equations(P):
+                x,y,r=P
+                F=_np.empty(3)
+                F[0]=x-_np.sqrt(p**2+r**2)
+                F[1]=y-_np.sqrt(q**2+r**2)
+                F[2]=x+y-c
+                return F
+            r=fsolve(equations,(1,1,1))[2]
+            return r
+        Rzone=_np.zeros(N_zones+1)
+        for n in range(1,N_zones+1):
+            Rzone[n] = get_r(p,q,n)
+            if PassEvenZones:
+                if (n % 2)==0.0:
+                    Fout.field[R>=Rzone[n-1]]=Fin.field[R>=Rzone[n-1]]*T
+                else:
+                    Fout.field[R>=Rzone[n-1]]=0.0
+            else:
+                if not (n % 2)==0.0:
+                    Fout.field[R>=Rzone[n-1]]=Fin.field[R>=Rzone[n-1]]*T
+                else:
+                    Fout.field[R>=Rzone[n-1]]=0.0
+        Fout=CircAperture(Fout,Rzone[N_zones])
+    else:
+        print("Error in ZonePlate: either the focal length, 'f',  or the object- and image distances, 'p and q', must be given.")
+        exit(1)                
     return Fout
