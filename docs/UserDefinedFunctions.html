@@ -313,7 +313,7 @@ It is recommended to put the parameters in the order as shown: the input field, 
 </li>
 <li><dl>
 <dt>Modify the __init__.py file.</dt><dd><p>The final step is the modification of the <em>__init__.py</em> script. This file is also in the <em>…/site-packages/LightPipes</em> directory.
-Find the Python list:</p>
+Find the Python list and add your function to the list:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    .
     .
 <span class="c1">#User defined functions from userfunc.py:</span>
@@ -322,16 +322,6 @@ __all__.extend<span class="o">([</span>
     <span class="s1">&#39;RowOfFields&#39;</span>,
     <span class="s1">&#39;CylindricalLens&#39;</span>, <span class="c1"># user defined function added at June 9, 2020 by Fred.</span>
     <span class="o">])</span>
-    .
-    .
-</pre></div>
-</div>
-<p>Finally you have to add your command to the line:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    .
-    .
-    .
-from .userfunc import FieldArray2D, RowOfFields, CylindricalLens
-    .
     .
     .
 </pre></div>

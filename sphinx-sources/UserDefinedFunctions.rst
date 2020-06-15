@@ -149,7 +149,7 @@ Make your functions part of your LightPipes for Python installation.
 
 3) Modify the __init__.py file.
     The final step is the modification of the *__init__.py* script. This file is also in the *.../site-packages/LightPipes* directory.
-    Find the Python list:
+    Find the Python list and add your function to the list:
     
     .. code-block:: bash
     
@@ -163,19 +163,7 @@ Make your functions part of your LightPipes for Python installation.
             ])
             .
             .
-    
-    Finally you have to add your command to the line:
-    
-    .. code-block:: bash
-    
-            .
-            .
-            .
-        from .userfunc import FieldArray2D, RowOfFields, CylindricalLens
-            .
-            .
-            .
-        
+
 4) Test your command.
     Write a test program to test your command.
     
