@@ -438,6 +438,9 @@ def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
         
         * :ref:`Examples: Propagation in a lens-like, absorptive medium.<Propagation in a lens-like, absorptive medium.>`
     """
+    if _np.isscalar(refr):
+        #refr. index specified as number, need to expand to 2D grid
+        refr = _np.ones_like(Fin.field) * refr
     if use_scipy:
         print('Warning! Non-functional develop version for testing')
         return _TODOStepsScipy(z, nstep, refr, Fin)
