@@ -73,7 +73,8 @@ You can also download packages from [Releases](https://github.com/opticspy/light
 
 **Raspberry Pi:**
 
-We encountered problems when installing it on a Raspberry Pi 4.0. It seems that pyFFTW package is not compatible with the Raspberry (ARM processor). Maybe they will solve that in the future. In the mean time you can install the latest C++ version, 1.2.0, of LightPipes when Python 3.7 is installed on your Raspberry Pi.
+We encountered problems when installing it on a Raspberry Pi 4.0. It seems that pyFFTW package is not compatible with the Raspberry (ARM processor). Maybe they will solve that in the future. 
+In the mean time you can follow the instructions in the [install section](https://opticspy.github.io/lightpipes/install.html#known-installation-problems) of our documentation to install pyFFTW on a Raspberry PI, or install the latest C++ version, 1.2.0, of LightPipes when Python 3.7 is installed on your Raspberry Pi.
 Type at a terminal prompt:
     
 	sudo pip3 install LightPipes==1.2.0
