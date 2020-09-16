@@ -41,7 +41,8 @@ F=Tilt(tx,0,F)
 Ix=np.zeros([NZ,N])
 Iy=np.zeros([NZ,N])
 for k in range(0,NZ):
-    F=Steps(dz,10,n,F)
+    #F=Steps(dz,10,n,F)
+    F=Steps(F,dz,10)
     I=Intensity(0,F)
     Iy[k]=list(zip(*I))[N2]
     Ix[k]=I[N2]

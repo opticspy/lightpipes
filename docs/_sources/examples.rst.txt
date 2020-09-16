@@ -15,7 +15,7 @@ In this chapter we will demonstrate a number of interference examples.
    MultiHoleAndSlit
    InterferenceDoughnutCollinear
    InterferenceDoughnutTilted
-
+   
 Diffraction examples.
 *********************
 
@@ -24,6 +24,7 @@ Diffraction examples.
    
    DiffractionRoundHole
    PoissonSpot
+   FresnelZonePlate
    
 .. Index::
      Bessel beam

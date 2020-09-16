@@ -191,6 +191,7 @@ def ZonePlate(Fin, N_zones,f=None, p=None,q=None, T=1.0, PassEvenZones=True ):
                     Fout.field[R>=Rzone[n-1]]=Fin.field[R>=Rzone[n-1]]*T
                 else:
                     Fout.field[R>=Rzone[n-1]]=0.0
+        w=Rzone[N_zones]-Rzone[N_zones-1]
     elif (not p==None) and (not q==None) and (f==None):
         def get_r(p,q,n):
             c=p+q+n*Fout.lam/2
@@ -205,6 +206,12 @@ def ZonePlate(Fin, N_zones,f=None, p=None,q=None, T=1.0, PassEvenZones=True ):
             return r
         Rzone=_np.zeros(N_zones+1)
         for n in range(1,N_zones+1):
+            # Rzone[n]=((n*Fout.lam)**4)/16 +\
+                     # (((n*Fout.lam)**3)*(p+q))/2 +\
+                     # ((n*Fout.lam)**2)*(p*q+(p+q)**2) +\
+                     # 4*n*Fout.lam*q*(p+q)
+            # Rzone[n]/=4*(p+q)*(n*Fout.lam+p+q)+(n*Fout.lam)**2
+            # Rzone[n]=_np.sqrt(Rzone[n])
             Rzone[n] = get_r(p,q,n)
             if PassEvenZones:
                 if (n % 2)==0.0:
@@ -216,8 +223,9 @@ def ZonePlate(Fin, N_zones,f=None, p=None,q=None, T=1.0, PassEvenZones=True ):
                     Fout.field[R>=Rzone[n-1]]=Fin.field[R>=Rzone[n-1]]*T
                 else:
                     Fout.field[R>=Rzone[n-1]]=0.0
+        w=Rzone[N_zones]-Rzone[N_zones-1]
         Fout=CircAperture(Fout,Rzone[N_zones])
     else:
         print("Error in ZonePlate: either the focal length, 'f',  or the object- and image distances, 'p and q', must be given.")
         exit(1)                
-    return Fout
+    return Fout,w

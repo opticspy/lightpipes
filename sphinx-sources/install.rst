@@ -15,34 +15,25 @@ The C++ versions < 2.0.0 packages are for Python versions 2.7, 3.4, 3.5, 3.6 and
 The pure Python versions will run on all (future) Python 3.+ versions.
 It cannot be used with the retired Python 2.7 version. Upgrade to Python 3.
 
-Due to a problem with the installation of pyFFTW on the Raspberry Pi,
-the pure Python version cannot be installed on the Raspberry Pi.
- 
-However, there is a C++ version (1.2.0) for 3.7 Python for the Raspberry Pi which works
-(Tested on a RP4 model B with 4Gb memory).
-
 LightPipes for Python is on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_ 
 and can be installed if you have `pip <https://pip.pypa.io/en/stable/installing/>`_ 
 installed on your computer.
-In a terminal window simply type:
+In a terminal window simply type the following commands:
+(If you have both Python versions 2.7 and 3.+ installed on your computer use pip3 in stead of pip.)
 
 .. code-block:: bash
 
-    pip install LightPipes
+    pip(3) install LightPipes
     
 or:
 
 .. code-block:: bash
 
-    pip install --upgrade LightPipes
+    pip(3) install --upgrade LightPipes
 
 to upgrade the package.
     
-For the Raspberry with Python 3.7 type:
 
-.. code-block:: bash
-
-    pip install LightPipes==1.2.0
 
 To test if the installation was successful start Python and type at the prompt:
 
@@ -98,11 +89,60 @@ Known installation problems.
 
 2) Cannot install LightPipes (version 2.0.0 and higher) on a Raspberry Pi vs 4.0:
     This is caused by the fact that the required  pyFFTW package cannot be installed on a Raspberry Pi (ARM processor)
-    Maybe this will be solved in the future. In the mean time you can install version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
+    Maybe this will be solved in the future.
+    
+    In the mean time you can install pyFFTW on a Raspberry Pi as follows:
+ 
+    Step1, download FFTW:
+    
+    Download from the `FFTW Download page <http://www.fftw.org/download.html>`_ the file fftw-3.3.8.tar.gz or newer.
+    At a terminal prompt goto your Downloads directory and type:
+    
+    .. code-block:: bash
+    
+        cd ~/Downloads
+        tar xzf fftw-3.3.8.tar.gz
+    
+    Step 2, install FFTW:
+    
+    .. code-block:: bash
+    
+        cd fftw-3.3.8
+        ./configure --enable-threads --enable-shared
+        make
+        sudo make install
+    
+    Step 3, install the cython compiler and ATLAS:
+    
+    .. code-block:: bash
+    
+        sudo pip3 install cython
+        sudo apt-get install libatlas-base-dev
+    
+    If an error pops up that says something like: "E: Encountered a section with no package header" and/or:
+    "E: The package lists or status file could not be parsed or opened", try:
+    
+    .. code-block:: bash
+    
+        sudo rm -vf /var/lib/apt/lists/*
+        sudo apt-get update
+    
+    Step 4, install LightPipes for Python:
+    
+    .. code-block:: bash
+    
+        sudo pip3 install lightpipes
+
+    The installation of LightPipes for Python described above has been tested on a Raspberry Pi 4 model B with 8Gbyte memory and with NOOBS 3.5.0 operating system.
+    
+    It has also been tested with the recommended Raspberry Pi OS (32-bit) operating system installed using the Raspberry Pi Imager v1.4. See: `Raspberry Pi OS (previously called Raspbian) <https://www.raspberrypi.org/downloads/raspberry-pi-os/>`_
+
+    As an alternative you can install the C++ version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
     Type at a terminal prompt:
     
     .. code-block:: bash
     
         sudo pip3 install LightPipes==1.2.0
         
-    Use pip3 to install for Python 3.7
+  
+    

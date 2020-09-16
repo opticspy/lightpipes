@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7.3.1. From Poisson spot to a non-diffractive Bessel beam. &mdash; LightPipes for Python 2.0.5 documentation</title>
+  <title>7.2.3. Fresnel zone plate. &mdash; LightPipes for Python 2.0.5 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="7.3.1.1. Collimating the edge waves with a lens." href="CollimatingEdgeWaves.html" />
-    <link rel="prev" title="7.2.3. Fresnel zone plate." href="FresnelZonePlate.html" /> 
+    <link rel="next" title="7.3.1. From Poisson spot to a non-diffractive Bessel beam." href="PoissonSpottoBesselBeam.html" />
+    <link rel="prev" title="7.2.2. Spot of Poisson." href="PoissonSpot.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -98,16 +98,13 @@
 <li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual.</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="examples.html">7. Examples.</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="examples.html#interference-examples">7.1. Interference examples.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#diffraction-examples">7.2. Diffraction examples.</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="examples.html#non-diffractive-bessel-beam">7.3. Non-diffractive Bessel beam.</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">7.3.1. From Poisson spot to a non-diffractive Bessel beam.</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="CollimatingEdgeWaves.html">7.3.1.1. Collimating the edge waves with a lens.</a></li>
-<li class="toctree-l4"><a class="reference internal" href="BesselBeamWithAnnularSlit.html">7.3.1.2. Generation of a Bessel beam with a lens and an annular slit.</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="examples.html#diffraction-examples">7.2. Diffraction examples.</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="DiffractionRoundHole.html">7.2.1. Diffraction from a circular aperture.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PoissonSpot.html">7.2.2. Spot of Poisson.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.2.3. Fresnel zone plate.</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="BesselBeamWithAxicon.html">7.3.2. Generation of a Bessel beam with an axicon.</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#non-diffractive-bessel-beam">7.3. Non-diffractive Bessel beam.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#laser-examples">7.4. Laser examples.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#phase-recovery">7.5. Phase recovery.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#zernike-aberration">7.6. Zernike aberration.</a></li>
@@ -165,13 +162,13 @@
         
           <li><a href="examples.html"><span class="section-number">7. </span>Examples.</a> &raquo;</li>
         
-      <li><span class="section-number">7.3.1. </span>From Poisson spot to a non-diffractive Bessel beam.</li>
+      <li><span class="section-number">7.2.3. </span>Fresnel zone plate.</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/PoissonSpottoBesselBeam.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/FresnelZonePlate.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -184,32 +181,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="from-poisson-spot-to-a-non-diffractive-bessel-beam">
-<span id="index-0"></span><h1><span class="section-number">7.3.1. </span>From Poisson spot to a non-diffractive Bessel beam.<a class="headerlink" href="#from-poisson-spot-to-a-non-diffractive-bessel-beam" title="Permalink to this headline">¶</a></h1>
-<p>The waves originating from Huygens point-sources at the edge of the disk can be considered as a
-collection of spherical waves which are all in phase because the disk is illuminated by a monochromatic plane wave.
-Each spherical wave has the same amplitude as well. As a result these waves interfere constructively
-to a Poisson spot near the axis. It can be shown that the intensity distribution is approximately given by:</p>
-<p><span class="math notranslate nohighlight">\(I(r,z) \approx I_0 J_0 ^2 ( \frac{2 \pi  \alpha r}{ \lambda } )\)</span></p>
-<p>with:</p>
-<p><span class="math notranslate nohighlight">\(\alpha = \frac{a}{r}\)</span> is the angle of the wavefront near the axis,
-<span class="math notranslate nohighlight">\(2a\)</span> is the diameter of the disk</p>
-<p>The width of the beam is given by:</p>
-<p><span class="math notranslate nohighlight">\(w(z)=\frac{2.44}{ \pi } \frac{ \lambda z}{a}\)</span></p>
-<p>and is proportional to the distance, z.</p>
-<p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1.py">Source code</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_00_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_00_00.pdf">pdf</a>)</p>
+  <div class="section" id="fresnel-zone-plate">
+<span id="index-0"></span><h1><span class="section-number">7.2.3. </span>Fresnel zone plate.<a class="headerlink" href="#fresnel-zone-plate" title="Permalink to this headline">¶</a></h1>
+<p>A Fresnel zone plate is a diffractive element consisting of a number of concentric rings which are alternating transparent and opaque. The opaque rings block the odd Fresnel zones while the transparent rings passes the even zones. Alternatively, the opaque rings block the even and the transparent rings pass the odd zones. When a plane wave is incident on the plate it acts as a focusing lens. Also it is possible to arrange the plate such that it can be used as an imaging element.</p>
+<p>A nice introduction to the theory and the relevant equations can be found at <a class="reference external" href="http://zoneplate.lbl.gov/theory">The Center For X-Ray Optics,
+Lawrence Berkeley National Laboratory</a>.</p>
+<p><span class="math notranslate nohighlight">\(w=\frac{\lambda }{2sin\theta}
+=\frac{\lambda }{2}\frac{2\Delta r}{\lambda }
+=\Delta r\)</span></p>
+<p>(<a class="reference external" href="./Examples/Diffraction/ZonePlate.py">Source code</a>, <a class="reference external" href="./Examples/Diffraction/ZonePlate.png">png</a>, <a class="reference external" href="./Examples/Diffraction/ZonePlate.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Diffraction/ZonePlate.pdf">pdf</a>)</p>
 <div class="figure align-default">
-<img alt="_images/BesselAnnularSlit1_00_00.png" src="_images/BesselAnnularSlit1_00_00.png" />
-</div>
-<p>(<a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_01_00.png">png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/BesselBeam/BesselAnnularSlit1_01_00.pdf">pdf</a>)</p>
-<div class="figure align-default">
-<img alt="_images/BesselAnnularSlit1_01_00.png" src="_images/BesselAnnularSlit1_01_00.png" />
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="CollimatingEdgeWaves.html">7.3.1.1. Collimating the edge waves with a lens.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BesselBeamWithAnnularSlit.html">7.3.1.2. Generation of a Bessel beam with a lens and an annular slit.</a></li>
-</ul>
+<img alt="_images/ZonePlate.png" src="_images/ZonePlate.png" />
 </div>
 </div>
 
@@ -221,10 +203,10 @@ to a Poisson spot near the axis. It can be shown that the intensity distribution
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="CollimatingEdgeWaves.html" class="btn btn-neutral float-right" title="7.3.1.1. Collimating the edge waves with a lens." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PoissonSpottoBesselBeam.html" class="btn btn-neutral float-right" title="7.3.1. From Poisson spot to a non-diffractive Bessel beam." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="FresnelZonePlate.html" class="btn btn-neutral float-left" title="7.2.3. Fresnel zone plate." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="PoissonSpot.html" class="btn btn-neutral float-left" title="7.2.2. Spot of Poisson." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
