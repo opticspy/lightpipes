@@ -15,9 +15,9 @@ Rbs=0.5 # reflection beam splitter
 tx=1*mrad; ty=0.0*mrad # tilt of mirror 1
 f=50*cm # focal length of positive lens
 
-img=mpimg.imread('Michelson.png')
-plt.imshow(img); plt.axis('off')
-plt.show()
+# img=mpimg.imread('Michelson.png')
+# plt.imshow(img); plt.axis('off')
+# plt.show()
 
 #Generate a weak converging laser beam using a weak positive lens:
 F=Begin(size,wavelength,N)

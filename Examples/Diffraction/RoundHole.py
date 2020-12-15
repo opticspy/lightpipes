@@ -7,6 +7,7 @@ N=500
 
 F=Begin(size,wavelength,N)
 F=CircAperture(5*mm, 0, 0, F)
+F=Lens(F,100*cm)
 F=Forvard(100*cm,F)
 I=Intensity(0,F)
 

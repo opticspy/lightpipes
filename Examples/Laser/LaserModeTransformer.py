@@ -37,8 +37,8 @@ f3=19*mm
 f4=19*mm
 f5=20*mm
 angle=45.0*deg
-m_=3
-n_=0
+m_=5
+n_=3
 
 L=d1+d2
 g1=1-L/R1
