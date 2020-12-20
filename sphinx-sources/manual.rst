@@ -209,7 +209,7 @@ Due to these two reasons the commands:
 
 .. plot:: ./Examples/Commands/Forvard2.py
 
-make no sense (zero intensity). The cross section of the beam
+make no sense. The cross section of the beam
 (argument of :func:`~LightPipes.RectAperture`) 
 equals to the section of the grid (the first argument of :func:`~LightPipes.Begin`), so we have 
 a model of light propagation in a wave guide but not in a free space. One has to put:

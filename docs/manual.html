@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. Manual. &mdash; LightPipes for Python 2.0.5 documentation</title>
+  <title>6. Manual. &mdash; LightPipes for Python 2.0.6 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.5
+                2.0.6
               </div>
             
           
@@ -458,7 +458,7 @@ beams reach the region border sooner.</p>
 <div class="figure align-default">
 <img alt="_images/Forvard2.png" src="_images/Forvard2.png" />
 </div>
-<p>make no sense (zero intensity). The cross section of the beam
+<p>make no sense. The cross section of the beam
 (argument of <a class="reference internal" href="command-reference.html#LightPipes.RectAperture" title="LightPipes.RectAperture"><code class="xref py py-func docutils literal notranslate"><span class="pre">RectAperture</span></code></a>)
 equals to the section of the grid (the first argument of <a class="reference internal" href="command-reference.html#LightPipes.Begin" title="LightPipes.Begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">Begin</span></code></a>), so we have
 a model of light propagation in a wave guide but not in a free space. One has to put:</p>
@@ -608,7 +608,7 @@ again, creates the problem of the wave reflection at the grid boundary. The infl
 of these reflections in many cases can be reduced by introducing an additional absorbing
 layer in the proximity of the boundary, with the absorption smoothly (to reduce the
 reflection at the absorption gradient) increasing towards the boundary.</p>
-<p>In LightPipes for Python 2.0.5 the refraction term is not included into the
+<p>In LightPipes for Python 2.0.6 the refraction term is not included into the
 propagation formulas, instead the phase of the field is modified at each step according to
 the distribution of the refractive coefficient. This “zero-order” approximation happened to
 be much more stable numerically than the direct inclusion of refraction terms into propagation
@@ -922,7 +922,7 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Jun 15, 2020.
+        Last updated on Dec 20, 2020.
       </span>
 
     </p>
