@@ -82,7 +82,7 @@ scipy and pyFFTW packages.
 Thanks to the matrix routines of numpy and the fast pyFFTW Fourier transform
 the speed of the pure python version is as fast as the C++ version.
 Also parallel processing is possible now, which enhances the speed even more.
-From LightPipes version 2.0.0 LightpIpes is pure python. As usual, it can be installed with pip:
+From LightPipes version 2.0.0 LightPipes is pure python. As usual, it can be installed with pip:
 
 .. code-block:: bash
 
