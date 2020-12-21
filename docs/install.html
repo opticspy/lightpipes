@@ -242,14 +242,14 @@ You have to update numpy to the newest version. Use easy_install, not pip for th
 Maybe this will be solved in the future.</p>
 <p>In the mean time you can install pyFFTW on a Raspberry Pi as follows:</p>
 <p>Step1, download FFTW:</p>
-<p>Download from the <a class="reference external" href="http://www.fftw.org/download.html">FFTW Download page</a> the file fftw-3.3.8.tar.gz or newer.
+<p>Download from the <a class="reference external" href="http://www.fftw.org/download.html">FFTW Download page</a> the file fftw-3.3.9.tar.gz or newer.
 At a terminal prompt goto your Downloads directory and type:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Downloads
-tar xzf fftw-3.3.8.tar.gz
+tar xzf fftw-3.3.9.tar.gz
 </pre></div>
 </div>
 <p>Step 2, install FFTW:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> fftw-3.3.8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> fftw-3.3.9
 ./configure --enable-threads --enable-shared
 make
 sudo make install
@@ -272,6 +272,12 @@ sudo apt-get update
 </div>
 <p>The installation of LightPipes for Python described above has been tested on a Raspberry Pi 4 model B with 8Gbyte memory and with NOOBS 3.5.0 operating system.</p>
 <p>It has also been tested with the recommended Raspberry Pi OS (32-bit) operating system installed using the Raspberry Pi Imager v1.4. See: <a class="reference external" href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">Raspberry Pi OS (previously called Raspbian)</a></p>
+<p>With some examples (i.e. LaserModeTransformer.py) an error message popped-up:</p>
+<p>“Type Error: Couldn’t find foreign struct converter for ‘cairo.Context’</p>
+<p>This could be solved by typing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-gi-cairo
+</pre></div>
+</div>
 <p>As an alternative you can install the C++ version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
 Type at a terminal prompt:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install <span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
@@ -306,7 +312,7 @@ Type at a terminal prompt:</p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Dec 20, 2020.
+        Last updated on Dec 21, 2020.
       </span>
 
     </p>

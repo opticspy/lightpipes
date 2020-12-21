@@ -95,19 +95,19 @@ Known installation problems.
  
     Step1, download FFTW:
     
-    Download from the `FFTW Download page <http://www.fftw.org/download.html>`_ the file fftw-3.3.8.tar.gz or newer.
+    Download from the `FFTW Download page <http://www.fftw.org/download.html>`_ the file fftw-3.3.9.tar.gz or newer.
     At a terminal prompt goto your Downloads directory and type:
     
     .. code-block:: bash
     
         cd ~/Downloads
-        tar xzf fftw-3.3.8.tar.gz
+        tar xzf fftw-3.3.9.tar.gz
     
     Step 2, install FFTW:
     
     .. code-block:: bash
     
-        cd fftw-3.3.8
+        cd fftw-3.3.9
         ./configure --enable-threads --enable-shared
         make
         sudo make install
@@ -136,7 +136,17 @@ Known installation problems.
     The installation of LightPipes for Python described above has been tested on a Raspberry Pi 4 model B with 8Gbyte memory and with NOOBS 3.5.0 operating system.
     
     It has also been tested with the recommended Raspberry Pi OS (32-bit) operating system installed using the Raspberry Pi Imager v1.4. See: `Raspberry Pi OS (previously called Raspbian) <https://www.raspberrypi.org/downloads/raspberry-pi-os/>`_
+    
+    With some examples (i.e. LaserModeTransformer.py) an error message popped-up:
+    
+    "Type Error: Couldn't find foreign struct converter for 'cairo.Context'
 
+    This could be solved by typing:
+    
+    .. code-block:: bash
+    
+        sudo apt install python3-gi-cairo
+    
     As an alternative you can install the C++ version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
     Type at a terminal prompt:
     
