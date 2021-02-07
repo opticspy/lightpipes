@@ -2,6 +2,15 @@
 
 """User can decide to disable dependency here. This will slow down the FFT,
 but otherwise numpy.fft is a drop-in replacement so far."""
+_WARNING =  '\n**************************** WARNING ***********************\n'\
+            +'LightPipes: Cannot import pyFFTW, falling back to numpy.fft.\n'\
+            +'(Try to) install pyFFTW on your computer for faster performance.\n'\
+            +'Enter at a terminal prompt: python -m pip install pyfftw.\n'\
+            +'Or reinstall LightPipes with the option pyfftw\n'\
+            +'Enter: python -m pip install lightpipes[pyfftw]\n\n'\
+            +'You can suppress warnings by using the -Wignore option:\n'\
+            +'Enter: python _Wignore *****.py\n'\
+            +'*************************************************************'
 _USE_PYFFTW = True
 _using_pyfftw = False # determined if loading is successful
 if _USE_PYFFTW:
@@ -15,8 +24,7 @@ if _USE_PYFFTW:
         _using_pyfftw = True
     except ImportError:
         import warnings
-        warnings.warn('LightPipes: Cannot import pyfftw,'
-                      + ' falling back to numpy.fft')
+        warnings.warn(_WARNING)
 if not _using_pyfftw:
     from numpy.fft import fft2 as _fft2
     from numpy.fft import ifft2 as _ifft2

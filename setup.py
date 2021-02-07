@@ -8,7 +8,9 @@ exec(open('./LightPipes/_version.py').read())
 setuptools.setup(
     name='LightPipes',
     packages=['LightPipes'],
-    install_requires = ['numpy', 'pyFFTW', 'scipy'],
+    #install_requires = ['numpy', 'pyFFTW', 'scipy'],
+    install_requires = ['numpy', 'scipy'],
+    extras_require = {'pyfftw':[ 'pyfftw']},
     version = __version__,
     description='LightPipes for Python optical toolbox',
     long_description=long_description,
