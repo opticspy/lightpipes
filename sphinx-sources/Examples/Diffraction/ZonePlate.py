@@ -32,7 +32,7 @@ F=Fresnel(F,p)
 #F=CircAperture(F,Dlens/2)
 #F=ZonePlate(F,N_zones)
 F,w=ZonePlate(F,N_zones,p=p,q=q,T=T, PassEvenZones=PassEvenZones)
-print(w/mm)
+print(w/um)
 #F=ZonePlate(F,N_zones,p=p,q=q,T=T, PassEvenZones=PassEvenZones)
 I2=Intensity(F)
 F=Fresnel(F,q)
@@ -43,9 +43,11 @@ s2 =    r'Test-ZonePlate.py'+ '\n\n'\
         f'size = {size/mm:4.2f} mm' + '\n'\
         f'$\lambda$ = {wavelength/um:4.2f} $\mu$m' + '\n'\
         f'N = {N:d}' + '\n' +\
-        f'f = {f/mm:4.2f} mm' + '\n'\
-        f'p = {p/mm:4.2f} mm' + '\n'\
-        f'q = {q/mm:4.2f} mm' + '\n'\
+        f'f = {f/mm:4.2f} mm focal length of the zone plate' + '\n'\
+        f'p = {p/mm:4.2f} mm distance from object' + '\n'\
+        f'q = {q/mm:4.2f} mm distance to screen' + '\n'\
+        f'dx = {dx/mm:4.2f} mm distance between the point sources' + '\n'\
+        f'w = {w/um:4.2f} $\mu$m size of the outermost ring' + '\n'\
         f'number of zones = {N_zones:d}' + '\n'\
         f'Transmission = {T:4.2f}' + '\n'\
         f'Pass even zones: {PassEvenZones}' + '\n\n'\
@@ -58,8 +60,10 @@ ax3 = fig.add_subplot(223);ax3.axis('off')
 ax4 = fig.add_subplot(224);
 ax1.imshow(I2,cmap='gray');ax1.set_title('input intensity')
 ax2.imshow(I1,cmap='jet');ax2.set_title('output intensity')
+ax2.set_xlim(N2-50,N2+50)
+ax2.set_ylim(N2-50,N2+50)
 ax3.text(0.0,1.0,s1,fontsize=12, fontweight='bold')
-ax3.text(0.0,0.0,s2)
+ax3.text(0.0,-0.3,s2)
 X=np.linspace(-size/2,size/2,N)
 ax4.plot(X/mm,I1[N2]); ax4.set_xlabel('x[mm]'); ax4.set_ylabel('Intensity [a.u.]')
 ax4.set_xlim(-1,1)

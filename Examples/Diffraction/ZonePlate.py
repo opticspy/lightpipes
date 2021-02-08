@@ -43,9 +43,9 @@ s2 =    r'Test-ZonePlate.py'+ '\n\n'\
         f'size = {size/mm:4.2f} mm' + '\n'\
         f'$\lambda$ = {wavelength/um:4.2f} $\mu$m' + '\n'\
         f'N = {N:d}' + '\n' +\
-        f'f = {f/mm:4.2f} mm' + '\n'\
-        f'p = {p/mm:4.2f} mm' + '\n'\
-        f'q = {q/mm:4.2f} mm' + '\n'\
+        f'f = {f/mm:4.2f} mm focal length of the zone plate' + '\n'\
+        f'p = {p/mm:4.2f} mm distance from object' + '\n'\
+        f'q = {q/mm:4.2f} mm distance to screen' + '\n'\
         f'number of zones = {N_zones:d}' + '\n'\
         f'Transmission = {T:4.2f}' + '\n'\
         f'Pass even zones: {PassEvenZones}' + '\n\n'\

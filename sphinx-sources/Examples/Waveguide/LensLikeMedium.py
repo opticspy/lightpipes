@@ -17,7 +17,7 @@ kappa=1.0
 tx=1*mrad
 #step size and number of steps in z-direction:
 dz=1*mm
-NZ=2
+NZ=200
 
 X=np.linspace(-size/2,size/2,N)/um
 Z=np.linspace(0,NZ*dz,NZ)/cm

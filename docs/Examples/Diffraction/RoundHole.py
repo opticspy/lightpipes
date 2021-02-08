@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 wavelength=1*um
 size=25.0*mm
-N=2500
+N=2000
 N2=int(N/2)
 z=80*cm
 d=8*mm
 f=100*cm
 F=Begin(size,wavelength,N)
-F=CircAperture(d, 0, 0, F)
+F=CircAperture(d/2, 0, 0, F)
 F=Fresnel(F,z)
 I1=Intensity(F)
 F=Lens(F,f)
@@ -23,7 +23,7 @@ s2 =    r'RoundHole.py'+ '\n\n'\
         f'N = {N:d}' + '\n' +\
         f'f = {f/cm:4.2f} cm focal length' + '\n'\
         f'd = {d/mm:4.2f} mm hole diameter' + '\n'\
-        f'z = {z/cm:4.2f} cm distance lens from hole' + '\n'\
+        f'z = {z/cm:4.2f} cm distance from hole to lens' + '\n'\
         r'${\copyright}$ Fred van Goor, February 2021'
 
 fig=plt.figure(figsize=(11,6))
@@ -44,4 +44,3 @@ X=np.linspace(-size/2,size/2,N)
 ax4.plot(X/mm,I[N2]); ax4.set_xlabel('x[mm]'); ax4.set_ylabel('Intensity [a.u.]')
 ax4.set_xlim(-1,1)
 plt.show()
-
