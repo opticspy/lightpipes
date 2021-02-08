@@ -56,7 +56,7 @@ Credits.
 **Gleb Vdovin**
 
 LightPipes was written by Gleb Vdovin in 1993 for MS DOS.
-the output of a command was the input for the next command. Gleb used the "pipe" feature of MS DOS, that's why it is called LightPipes. The source code of LightPipes for UNIX can be obtained for free from http://www.okotech.com.
+The output of a command was the input for the next command. Gleb used the "pipe" feature of MS DOS, that's why it is called LightPipes. The source code of LightPipes for UNIX can be obtained for free from http://www.okotech.com.
 
 **Fred van Goor**
 

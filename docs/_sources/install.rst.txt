@@ -155,4 +155,62 @@ Known installation problems.
         sudo pip3 install LightPipes==1.2.0
         
   
+3) Cannot install LightPipes because pyFFTW does not install:
+    With a new Python version it takes a while before new binaries of pyFFTW are available. Because of that we decided from LightPipes version 2.0.7. to skip pyFFTW from the list of required packages and let it be an option. As a consequence the FFT calculations are performed by the FFT of numpy which is slightly slower than pyFFTW.
+    For reasonable small grid sizes (less than 1000 x 1000 gridpoints) you will not notice that.
+    When pyFFTW becomes available you can install pyFFTW and from that moment LightPipes will use pyFFTW and will be faster.
+    So for normal installation do:
     
+    .. code-block:: bash
+    
+        sudo pip3 install LightPipes
+        
+    To install pyFFTW do:
+    
+    .. code-block:: bash
+    
+        sudo pip3 install pyFFTW
+        
+    To install LightPipes with pyFFTW do:
+    
+    .. code-block:: bash
+    
+        sudo pip3 install LightPipes[pyfftw]
+        
+    If pyFFTW is not installed, LightPipes will show a warning to advise the user to install pyFFTW for maximum performance.
+    You can suppress this warning (and all others!) by using the python option -Wignore, so do:
+    
+    .. code-block:: bash
+    
+        python -Wignore YourLightPipesScript.py
+        
+    The warning can also be suppressed by editing the file propagators.py in your local python site-packages directory.
+
+    1) Find your python installation directory:
+       For windows:
+    
+        .. code-block:: bash
+    
+          where python
+        
+        For Mac or Linux:
+        
+        .. code-block:: bash
+    
+          which python
+        
+    2) You will find propagators.py in:
+    
+        .. code-block:: bash
+        
+          .....\Python3x\Lib\site-packages\LightPipes (windows)
+          ...../Python3x/Lib/site-packages/LightPipes (Linux, Mac)
+        
+    3) Open propagators.py in an editor and change line 14 in:
+    
+        .. code-block:: bash
+        
+          _USE_PYFFTW = False
+        
+    4) After saving propagators.py LightPipes uses numpy-FFT and the warning will be suppressed.
+       Of course _USE_PYFFTW must be put back to True after you have successfully installed pyFFTW.

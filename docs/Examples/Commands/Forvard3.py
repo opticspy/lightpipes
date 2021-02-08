@@ -8,7 +8,7 @@ I = Intensity(0,Field)
 
 x=[]
 for i in range(256):
-    x.append((-20*mm/2+i*20*mm/256)/mm)
+    x.append((-40*mm/2+i*40*mm/256)/mm)
 
 fig=plt.figure(figsize=(10,6))
 ax1 = fig.add_subplot(121)

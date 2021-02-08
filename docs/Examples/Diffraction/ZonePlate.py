@@ -11,24 +11,28 @@ N=1000
 N2=int(N/2)
 
 f=5*cm
-N_zones=100
+N_zones=50
 T=1
 p=8*cm
 q=1/(1/f-1/p)
-
-dx=0.1*mm
-PassEvenZones=False
+Dlens=10*mm
+#dx_min=1.22*wavelength*p/Dlens
+dx_min=1.22*0.0355*mm
+dx=2*dx_min
+PassEvenZones=True
 
 F = Begin(size, wavelength, N)
-F=GaussBeam(F,0.5*mm)
+#F=GaussBeam(F,0.5*mm)
 F1=PointSource(F,x=-dx)
 F2=PointSource(F,x=dx)
 F=BeamMix(F1,F2)
 I0=Intensity(F)
 F=Fresnel(F,p)
 #F=Lens(F,f)
+#F=CircAperture(F,Dlens/2)
 #F=ZonePlate(F,N_zones)
-F=ZonePlate(F,N_zones,f=f,T=T, PassEvenZones=PassEvenZones)
+F,w=ZonePlate(F,N_zones,p=p,q=q,T=T, PassEvenZones=PassEvenZones)
+print(w/mm)
 #F=ZonePlate(F,N_zones,p=p,q=q,T=T, PassEvenZones=PassEvenZones)
 I2=Intensity(F)
 F=Fresnel(F,q)
@@ -58,4 +62,5 @@ ax3.text(0.0,1.0,s1,fontsize=12, fontweight='bold')
 ax3.text(0.0,0.0,s2)
 X=np.linspace(-size/2,size/2,N)
 ax4.plot(X/mm,I1[N2]); ax4.set_xlabel('x[mm]'); ax4.set_ylabel('Intensity [a.u.]')
+ax4.set_xlim(-1,1)
 plt.show()
