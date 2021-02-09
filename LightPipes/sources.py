@@ -37,7 +37,7 @@ def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
 
     :param Fin: input field
     :type Fin: Field
-    :param w: diameter of the plane wave
+    :param w: radius of the plane wave
     :param tx: tilt in radiants (default = 0.0)
     :type tx: int, float
     :param ty: tilt in radiants (default = 0.0)
@@ -56,7 +56,7 @@ def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
     >>> F = PlaneWave(F, 2*mm, 5*mm, 0.0, 1.0*mrad) # Idem
     """
     Fout = Field.copy(Fin)
-    Fout=CircAperture(Fout, w/2, x_shift, y_shift )
+    Fout=CircAperture(Fout, w, x_shift, y_shift )
     Fout=Tilt(Fout, tx, ty)
     return Fout
     
