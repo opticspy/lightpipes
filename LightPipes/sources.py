@@ -61,7 +61,7 @@ def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
     return Fout
     
 @backward_compatible
-def GaussBeam( Fin, w0, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False, LG=False):
+def GaussBeam( Fin, w0, n=0, m=0, x_shift=0, y_shift=0, tx=0, ty=0, doughnut=False, LG=False, **kwargs):
     """
     *Creates a Gaussian beam in its waist.*
 
@@ -90,6 +90,9 @@ def GaussBeam( Fin, w0, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False
     >>> F=GaussBeam(w0,F,doughnut=True,m=1) # LG0,1* doughnut beam
     >>> F=GaussBeam(w0,F,doughnut=True,m=1, tx = 1*mrad, x_shift = 1*mm) #  idem, tilted and shifted
     """
+    x_shift = kwargs.get('xshift',x_shift) # For backward compatibility
+    y_shift = kwargs.get('yshift',y_shift)
+    
     Fout=Field.copy(Fin)
 
     if not doughnut:
