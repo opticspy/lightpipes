@@ -572,7 +572,7 @@ refractive coefficient <span class="math notranslate nohighlight">\(A\)</span>, 
 <span class="eqno">(8)<a class="headerlink" href="#equation-8" title="Permalink to this equation">¶</a></span>\[\frac{\partial^2U}{\partial x^2} + \frac{\partial^2U}{\partial y^2}+2ik \frac{\partial U}{\partial z}  +A(x,y,z)U=0\]</div>
 <p>To solve this equation, we re-write it as a system of finite difference equations:</p>
 <div class="math notranslate nohighlight" id="equation-9">
-<span class="eqno">(9)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span>\[\frac{U^{k+1}_{i-1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-2U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span>\[\frac{U^{k+1}_{i+1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-2U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0\]</div>
 <p>Collecting terms we obtain the standard three-diagonal system of linear equations,
 the solution of which describes the complex amplitude of the light field in the layer <span class="math notranslate nohighlight">\(z+\Delta z\)</span> as a
 function of the field defined in the layer z:</p>
@@ -918,7 +918,7 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Feb 08, 2021.
+        Last updated on Feb 10, 2021.
       </span>
 
     </p>
