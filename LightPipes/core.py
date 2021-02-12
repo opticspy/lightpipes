@@ -392,6 +392,21 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
     Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
     return Fout
 
+def GaussLens(Fin, f):
+    Fout = Field.copy(Fin)
+    #Fout = Field.shallowcopy(Fin)    
+    A=1.0
+    B=0.0
+    C=-1.0/f
+    D=1.0
+    if Fin._IsGauss:
+        if Fin._n > 0 or Fin._m >0:
+            print("only TEM00")
+        r2 = Fin.mgrid_Rsquared
+        Fout._q = (A*Fin._q + B)/(C*Fin._q +D)
+        Fout.field = 1/Fout._q * _np.exp((-1j*2*_np.pi/Fout.lam)*r2/(2*Fout._q))   
+    return Fout
+
 @backward_compatible
 def IntAttenuator(Fin, att = 0.5 ):
     """

@@ -92,7 +92,7 @@ class Field:
         self._siz = grid_size
         self._int1 = 0 #remembers PipFFT direction
         self._curvature = 0.0 #remembers field curvature or 0.0 for normal
-    
+        self._IsGauss = False #not a pure Gaussian normally
     
     def _get_grid_size(self):
         """Get or set the grid size in [m]."""

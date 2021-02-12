@@ -1,6 +1,7 @@
 from .field import Field
 from .core import BeamMix, Phase, MultPhase, IntAttenuator, CircAperture, GaussHermite, GaussLaguerre, Interpol
 from .misc import PI,Tilt, backward_compatible
+import numpy as _np
 
 @backward_compatible
 def PointSource(Fin, x=0.0, y=0.0):
@@ -61,7 +62,7 @@ def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
     return Fout
     
 @backward_compatible
-def GaussBeam( Fin, w0, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False, LG=False):
+def GaussBeam( Fin, w0, n=0, m=0, x_shift=0, y_shift=0, tx=0, ty=0, doughnut=False, LG=False):
     """
     *Creates a Gaussian beam in its waist.*
 
@@ -107,6 +108,18 @@ def GaussBeam( Fin, w0, n=0, m=0, xshift=0, yshift=0, tx=0, ty=0, doughnut=False
         Fout = Interpol( Fout, Fout.siz, Fout.N, 0, 0, 360 / (4 * m), 1)
         Fout = MultPhase(Fout, PI/2 )
         Fout = BeamMix(GaussLaguerre(Fin, w0, p=n, l=m, A=1 ), Fout)
-    Fout = Interpol(Fout, Fin.siz, Fin.N, xshift, yshift, 0, 1 )
+    Fout = Interpol(Fout, Fin.siz, Fin.N, x_shift, y_shift, 0, 1 )
     Fout = Tilt(Fout, tx, ty )
+    
+    if not LG and not doughnut and tx == 0.0 and ty == 0.0 and x_shift == 0.0 and y_shift == 0.0:
+        Fout._IsGauss = True #analytical propagation is possible using ABCD matrices
+        Fout._q = -1j* _np.pi*w0*w0/Fout.lam
+        Fout._w0 = w0
+        Fout._z = 0.0
+        Fout._A = 1.0
+        Fout._n = n
+        Fout._m = m
+
     return Fout
+    
+    
