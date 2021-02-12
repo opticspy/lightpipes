@@ -428,7 +428,7 @@ def GaussForvard(Fin,z):
         D=1.0
 
         Fout._q = (A*Fin._q + B)/(C*Fin._q + D)
-        Fout._z=Fin._z+z
+        Fout._z=Fin._z + B
         w2=-Fin.lam/_np.pi*(Fout._q.imag+Fout._q.real*Fout._q.real/Fout._q.imag)
         w02=Fin._w0 * Fin._w0
         w=_np.sqrt(w2)

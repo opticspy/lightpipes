@@ -9,6 +9,7 @@ __all__ = [
     'Forvard',
     'Fresnel',
     'Gain',
+    'GaussABCD',
     'GaussAperture',
     'GaussBeam',
     'GaussForvard',
@@ -88,7 +89,7 @@ from .lenses import Axicon, Lens, LensFarfield, LensForvard, LensFresnel, \
 from .zernike import ZernikeName, ZernikeNolltoMN, noll_to_zern, \
     ZernikeFilter, ZernikeFit, Zernike
 from .core import CircAperture, CircScreen, RectAperture, RectScreen
-from .core import GaussAperture, GaussScreen, GaussHermite, GaussLaguerre, GaussLens, SuperGaussAperture
+from .core import GaussAperture, GaussABCD, GaussScreen, GaussHermite, GaussLaguerre, GaussLens, SuperGaussAperture
 from .core import Intensity, Phase, PhaseUnwrap, PhaseSpiral
 from .core import RandomIntensity, RandomPhase
 from .core import Strehl
