@@ -48,6 +48,7 @@ def BeamMix(Fin1, Fin2):
         raise ValueError('Field sizes do not match')
     Fout = Field.copy(Fin1)
     Fout.field += Fin2.field
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -91,6 +92,7 @@ def CircAperture(Fin, R, x_shift = 0.0, y_shift = 0.0):
     dist_sq = X**2 + Y**2 #squared, no need for sqrt
     
     Fout.field[dist_sq > R**2] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -133,6 +135,7 @@ def CircScreen(Fin, R, x_shift=0.0, y_shift=0.0):
     dist_sq = X**2 + Y**2 #squared, no need for sqrt
     
     Fout.field[dist_sq <= R**2] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 def GaussABCD(Fin, M):
@@ -212,6 +215,7 @@ def GaussAperture(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 1.0, ):
     w2=w*w*2
     SqrtT=_np.sqrt(T)
     Fout.field*=SqrtT*_np.exp(-(X*X+Y*Y)/w2)
+    Fout._IsGauss=False
     return Fout
 
 def SuperGaussAperture(Fin, w, n = 2.0, x_shift = 0.0, y_shift = 0.0, T = 1.0  ):
@@ -255,6 +259,7 @@ def SuperGaussAperture(Fin, w, n = 2.0, x_shift = 0.0, y_shift = 0.0, T = 1.0  )
     w2=w*w*2
     SqrtT=_np.sqrt(T)
     Fout.field*=SqrtT*_np.exp(-((X*X+Y*Y)/w2)**n)
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -295,6 +300,7 @@ def GaussScreen(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 0.0 ):
 
     w2=w*w
     Fout.field*=_np.sqrt(1-(1-T)*_np.exp(-(X*X+Y*Y)/w2))
+    Fout._IsGauss=False
     return Fout
     
 def GaussHermite(Fin, w0, m = 0, n = 0, A = 1.0):
@@ -361,6 +367,7 @@ def GaussHermite(Fin, w0, m = 0, n = 0, A = 1.0):
     w02=w0*w0
 
     Fout.field  = A * hermite(m)(sqrt2w0*X)*hermite(n)(sqrt2w0*Y)*_np.exp(-(X*X+Y*Y)/w02)
+    Fout._IsGauss=True
     return Fout
 
 def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
@@ -427,6 +434,7 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
     la=abs(l)
     rho = 2*R*R/w02
     Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
+    Fout._IsGauss=False
     return Fout
 
 def GaussLens(Fin, f):  
@@ -601,6 +609,7 @@ def Interpol(Fin, new_size, new_N, x_shift = 0.0, y_shift = 0.0, angle = 0.0, ma
         out_z = Inv_Squares(Xmask, Ymask, Fin.field, dx_old)
         Fout.field[filtmask] = out_z
     Fout.field /= magnif
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -633,6 +642,7 @@ def MultIntensity( Fin, Intens):
     Fout = Field.copy(Fin)
     Efield = _np.sqrt(Intens)
     Fout.field *= Efield
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -669,6 +679,7 @@ def MultPhase( Fin, Phi):
             raise ValueError('Phase pattern shape does not match field size')
     Fout = Field.copy(Fin)
     Fout.field *= _np.exp(1j*Phi)
+    Fout._IsGauss=False
     return Fout
 
 
@@ -769,6 +780,7 @@ def PhaseSpiral(Fin, m = 1):
     Fout = Field.copy(Fin) 
     R, Phi = Fout.mgrid_polar  
     Fout.field *= _np.exp(1j * m * Phi)
+    Fout._IsGauss=False
     return Fout
 
 def PhaseUnwrap(Phi):
@@ -838,6 +850,7 @@ def RandomIntensity(Fin, seed = 123, noise = 1.0, ):
     N = Fout.N
     ranint = _np.random.rand(N, N)*noise
     Fout.field += ranint
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -870,6 +883,7 @@ def RandomPhase(Fin, seed =456, maxPhase = _np.pi ):
     N = Fout.N
     ranphase = (_np.random.rand(N, N)-0.5)*maxPhase
     Fout.field *= _np.exp(1j * ranphase)
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -915,6 +929,7 @@ def RectAperture(Fin, sx, sy, x_shift = 0.0, y_shift = 0.0, angle = 0.0 ):
     matchx = _np.abs(xx) > sx/2
     matchy = _np.abs(yy) > sy/2
     Fout.field[matchx | matchy] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -960,6 +975,7 @@ def RectScreen(Fin, sx, sy, x_shift = 0.0, y_shift = 0.0, angle = 0.0 ):
     matchx = _np.abs(xx) <= sx/2
     matchy = _np.abs(yy) <= sy/2
     Fout.field[matchx & matchy] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 
@@ -1010,6 +1026,7 @@ def SubIntensity(Fin, Intens ):
     phi = _np.angle(Fout.field)
     Efield = _np.sqrt(Intens)
     Fout.field = Efield * _np.exp(1j * phi)
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -1034,6 +1051,7 @@ def SubPhase( Fin, Phi):
             raise ValueError('Phase mapppp has wrong shape')
     oldabs = _np.abs(Fout.field)
     Fout.field = oldabs * _np.exp(1j * Phi)
+    Fout._IsGauss=False
     return Fout
 
 

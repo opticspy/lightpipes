@@ -70,6 +70,7 @@ def Fresnel(Fin, z):
     Fout = Field.shallowcopy(Fin) #no need to copy .field as it will be
     # re-created anyway inside _field_Fresnel()
     Fout.field = _field_Fresnel(z, Fout.field, Fout.dx, Fout.lam)
+    Fout._IsGauss=False
     return Fout
 
 
@@ -335,6 +336,7 @@ def Forward(Fin, z, sizenew, Nnew ):
                       + 1j * Fi*(C2S3 + S2C3 + C4S1 + S4C1
                                  - C4S3 - S4C3 - C2S1 - S2C1))
             field_out[j_new, i_new] = Temp_c.sum() #complex elementwise sum
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -416,6 +418,7 @@ def Forvard(Fin, z):
     in_out *= (cokz + 1j* sikz)
     in_out *= iiij #/N**2 omitted since pyfftw already normalizes (numpy too)
     Fout.field = in_out
+    Fout._IsGauss=False
     return Fout
 
 def GaussForvard(Fin,z):
@@ -672,6 +675,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     # seems so, that would add up to 1*ikz*n, right now its 3/4*ikz per iter
     # and a final 1/4 ??
     Fout.field *= expfi4 #*=_np.exp(1j*(0.25*K*dz*(refr.real-1.0)))
+    Fout._IsGauss=False
     return Fout
 
 
@@ -863,6 +867,7 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     # seems so, that would add up to 1*ikz*n, right now its 3/4*ikz per iter
     # and a final 1/4 ??
     Fout.field *= expfi4 #*=_np.exp(1j*(0.25*K*dz*(refr.real-1.0)))
+    Fout._IsGauss=False
     return Fout
 
 
@@ -962,6 +967,7 @@ def _TODOStepsScipy(z, nstep, refr, Fin):
                           verbose=0)
     # print(res_1)
     Fout.field = res_1.x.reshape((N, N))
+    Fout._IsGauss=False
     return Fout
 
 

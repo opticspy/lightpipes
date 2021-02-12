@@ -30,6 +30,7 @@ def PointSource(Fin, x=0.0, y=0.0):
     nx = int(Fin.N * (0.5 + x / Fin.siz))
     ny = int(Fin.N * (0.5 + y / Fin.siz))        
     Fout.field[ny, nx] = 1.0
+    Fout._IsGauss=False
     return Fout
     
 def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
@@ -59,6 +60,7 @@ def PlaneWave(Fin, w, tx=0.0, ty=0.0, x_shift=0.0, y_shift=0.0):
     Fout = Field.copy(Fin)
     Fout=CircAperture(Fout, w/2, x_shift, y_shift )
     Fout=Tilt(Fout, tx, ty)
+    Fout._IsGauss=False
     return Fout
     
 @backward_compatible

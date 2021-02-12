@@ -71,6 +71,7 @@ def RowOfFields(Fin,Ffield,Nfields,sep,y=0.0):
             Fout.field[Ny_field:Ny_field+Nfieldy, Nx_field:Nx_field+Nfieldx]=Ffield.field
         else:
             Fout.field[Ny_field:Ny_field+Nfieldy, Nx_field:Nx_field+Nfieldx]=Ffield
+    Fout._IsGauss=False
     return Fout
 
 
@@ -129,6 +130,7 @@ def FieldArray2D(Fin,Ffield,Nfieldsx,Nfieldsy,x_sep,y_sep):
         F[i]=RowOfFields(Fin,Ffield,Nfieldsx,x_sep,ys)
         F[i]=BeamMix(F[i-1],F[i])
     Fout=F[Nfieldsy-1]
+    Fout._IsGauss=False
     return Fout
     
 def CylindricalLens(Fin,f,x_shift=0.0,y_shift=0.0,angle=0.0):
@@ -169,6 +171,7 @@ def CylindricalLens(Fin,f,x_shift=0.0,y_shift=0.0,angle=0.0):
         xx = cc * xx + ss * yy
     fi = -k*(xx**2)/(2*f)
     Fout.field *= _np.exp(1j * fi)
+    Fout._IsGauss=False
     return Fout
 
 def ZonePlate(Fin, N_zones,f=None, p=None,q=None, T=1.0, PassEvenZones=True ):
@@ -227,5 +230,6 @@ def ZonePlate(Fin, N_zones,f=None, p=None,q=None, T=1.0, PassEvenZones=True ):
         Fout=CircAperture(Fout,Rzone[N_zones])
     else:
         print("Error in ZonePlate: either the focal length, 'f',  or the object- and image distances, 'p and q', must be given.")
-        exit(1)                
+        exit(1)
+    Fout._IsGauss=False
     return Fout,w

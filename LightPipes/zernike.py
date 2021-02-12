@@ -98,6 +98,7 @@ def Zernike(Fin, n, m, R, A = 1.0, norm=True, units='opd'):
     rho = r/R
     fi = -A*Nnm*zernike(n,m, rho, phi)
     Fout.field *= _np.exp(1j*fi)
+    Fout._IsGauss=False
     return Fout
 
 
@@ -208,6 +209,7 @@ def ZernikeFilter(F, j_terms, R):
     Fout.field *= _np.exp(-1j * Ph)
     # Fout = Field.copy(F)
     # Fout = SubPhase(Ph, Fout)
+    Fout._IsGauss=False
     return Fout
     
 

@@ -42,6 +42,7 @@ def Axicon(Fin, phi, n1 = 1.5, x_shift = 0.0, y_shift = 0.0 ):
     yy -= y_shift
     fi = -Ktheta*_np.sqrt(xx**2+yy**2)
     Fout.field *= _np.exp(1j*fi)
+    Fout._IsGauss=False
     return Fout
 
 
@@ -82,6 +83,7 @@ def Convert(Fin):
     Fout.field *= _np.exp(1j* Fi)
             
     Fout._curvature = 0.0
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -124,6 +126,7 @@ def Lens(Fin, f, x_shift = 0.0, y_shift = 0.0):
     yy -= y_shift
     fi = -k*(xx**2+yy**2)/(2*f)
     Fout.field *= _np.exp(1j * fi)
+    Fout._IsGauss=False
     return Fout
 
 def LensFarfield(Fin, f ):
@@ -176,6 +179,7 @@ def LensFarfield(Fin, f ):
     focusfield = _np.fft.fftshift(_np.fft.fft2(Fout.field))
     Fout.field = focusfield
     Fout.siz = L_prime
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -235,6 +239,7 @@ def LensForvard(Fin, f, z ):
         ftemp.flat[:] = Fout.field.flat[::-1]
         Fout.field = ftemp
         Fout.field /= ampl_scale
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -307,4 +312,5 @@ def LensFresnel(Fin, f, z ):
     return Field;
     """
     # return _LP.LensFresnel(f, z, Fin)
+    Fout._IsGauss=False
     return Fout

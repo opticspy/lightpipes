@@ -151,6 +151,7 @@ def Gain(Fin, Isat, alpha0, Lgain) :
     else:
         ampl = _np.exp(1/2*alpha0*Lgain/(1+2*Ii/Isat))
     Fout.field *= ampl
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -222,6 +223,7 @@ def PipFFT(Fin, index = 1 ):
         else:
             raise ValueError(
                 'FFT direction index must be 1 or -1, got {}'.format(index))
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -252,4 +254,5 @@ def Tilt( Fin, tx, ty,):
     k = 2*_np.pi/Fout.lam
     fi = -k*(tx*xx + ty*yy)
     Fout.field *= _np.exp(1j * fi)
+    Fout._IsGauss=False
     return Fout
