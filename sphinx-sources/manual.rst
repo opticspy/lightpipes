@@ -342,7 +342,7 @@ To solve this equation, we re-write it as a system of finite difference equation
 .. math::
     :label: 9
 
-    \frac{U^{k+1}_{i+1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-2U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0
+    \frac{U^{k+1}_{i+1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0
 
 Collecting terms we obtain the standard three-diagonal system of linear equations, 
 the solution of which describes the complex amplitude of the light field in the layer :math:`z+\Delta z` as a 
