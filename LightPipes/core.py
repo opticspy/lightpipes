@@ -429,42 +429,14 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
     Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
     return Fout
 
-def GaussLens(Fin, f):
-    Fout = Field.copy(Fin)    
+def GaussLens(Fin, f):  
     A=1.0
     B=0.0
     C=-1.0/f
-    D=1.0  
-    if Fin._IsGauss:
-        Fout._q = (A*Fin._q + B)/(C*Fin._q + D)
-        Fout._z=Fin._z + B
-        w2=-Fin.lam/_np.pi*(Fout._q.imag+Fout._q.real*Fout._q.real/Fout._q.imag)
-        w02=Fin._w0 * Fin._w0
-        w=_np.sqrt(w2)
-        inv_R=(1/Fout._q).real
-        
-        z0=_np.pi*w02/Fin._lam
-        k = 2*_np.pi/Fin.lam
-        phase_z=k*Fout._z-(Fin._m+Fin._n+1)*_np.arctan(Fout._z/z0)
-        
-        r2 = Fin.mgrid_Rsquared
-        Y,X = Fin.mgrid_cartesian
-
-        phase_trans=k/2*inv_R*r2
-        sqrt2w=_np.sqrt(2)/w
-        sqrt2xw=sqrt2w*X
-        sqrt2yw=sqrt2w*Y
-        w0w=Fin._w0/w
-        Fout.field=Fin._A*w0w*_np.exp(-r2/w2)*hermite(Fin._n)(sqrt2xw)*hermite(Fin._m)(sqrt2yw)*_np.exp(1j*(phase_trans+phase_z))
-        Fout._IsGauss = True
-        Fout._w0=Fin._w0
-        Fout._n=Fin._n
-        Fout._m=Fin._m
-        Fout._A=Fin._A
-        return Fout
-    else:
-        print("not pure Gauss beam, field not propagated")
-        return Fout
+    D=1.0
+    M=[[A,B],[C,D]]
+    Fout=GaussABCD(Fin,M) 
+    return Fout
 
 @backward_compatible
 def IntAttenuator(Fin, att = 0.5 ):

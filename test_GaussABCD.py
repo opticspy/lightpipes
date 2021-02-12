@@ -2,7 +2,7 @@
 
 from LightPipes import *
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 wavelength = 500*nm
 size = 7*mm
@@ -14,23 +14,23 @@ z2=2*m
 z3=1*m
 
 M_lens=[
-    [1,       0],
-    [-1.0/f,  1]
+    [1.0,       0.0],
+    [-1.0/f,    1.0]
   ]
   
 M_propagate=[
-    [1,       z1],
-    [0,       1]
+    [1.0,       z1 ],
+    [0.0,       1.0]
   ]
 
 F=Begin(size,wavelength,N)
-F0=GaussBeam(F, w0,n=2,m=2)
+F0=GaussBeam(F, w0,n=0,m=0)
 I0=Intensity(F0,0)
 print("Beam power source at z=0.0:",Power(F0))
 
 F1n=Forvard(F0,z1)
-F1=GaussForvard(F0,z1)
-#F1=GaussABCD(F0,M_propagate)
+#F1=GaussForvard(F0,z1)
+F1=GaussABCD(F0,M_propagate)
 
 F2n=Lens(F1n,f)
 F2=GaussLens(F1,f)

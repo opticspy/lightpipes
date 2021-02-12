@@ -39,6 +39,7 @@ from .field import Field
 from . import tictoc
 from .subs import elim, elimH, elimV
 from .misc import backward_compatible
+from .core import GaussABCD
 
 @backward_compatible
 def Fresnel(Fin, z):
@@ -418,45 +419,14 @@ def Forvard(Fin, z):
     return Fout
 
 def GaussForvard(Fin,z):
-    Fout = Field.copy(Fin)    
-    if z==0:
-        return Fout #return copy to avoid hidden reference
-    if Fin._IsGauss:
-        A=1.0
-        B=z
-        C=0.0
-        D=1.0
+    A=1.0
+    B=z
+    C=0.0
+    D=1.0
+    M=[[A,B],[C,D]]
+    Fout=GaussABCD(Fin,M)
+    return Fout
 
-        Fout._q = (A*Fin._q + B)/(C*Fin._q + D)
-        Fout._z=Fin._z + B
-        w2=-Fin.lam/_np.pi*(Fout._q.imag+Fout._q.real*Fout._q.real/Fout._q.imag)
-        w02=Fin._w0 * Fin._w0
-        w=_np.sqrt(w2)
-        inv_R=(1/Fout._q).real
-        
-        z0=_np.pi*w02/Fin._lam
-        k = 2*_np.pi/Fin.lam
-        phase_z=k*Fout._z-(Fin._m+Fin._n+1)*_np.arctan(Fout._z/z0)
-        
-        r2 = Fin.mgrid_Rsquared
-        Y,X = Fin.mgrid_cartesian
-
-        phase_trans=k/2*inv_R*r2
-        sqrt2w=_np.sqrt(2)/w
-        sqrt2xw=sqrt2w*X
-        sqrt2yw=sqrt2w*Y
-        w0w=Fin._w0/w
-        Fout.field=Fin._A*w0w*_np.exp(-r2/w2)*hermite(Fin._n)(sqrt2xw)*hermite(Fin._m)(sqrt2yw)*_np.exp(1j*(phase_trans+phase_z))
-        Fout._IsGauss = True
-        Fout._w0=Fin._w0
-        
-        Fout._n=Fin._n
-        Fout._m=Fin._m
-        Fout._A=Fin._A
-        return Fout
-    else:
-        print("not pure Gauss beam, field not propagated")
-        return Fout
 
 @backward_compatible
 def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
