@@ -68,11 +68,11 @@ def Fresnel(Fin, z):
         return Fout #return copy to avoid hidden reference/link
     Fout = Field.shallowcopy(Fin) #no need to copy .field as it will be
     # re-created anyway inside _field_Fresnel()
-    Fout.field = _field_Fresnel(z, Fout.field, Fout.dx, Fout.lam)
+    Fout.field = _field_Fresnel(z, Fout.field, Fout.dx, Fout.lam, Fout._dtype)
     return Fout
 
 
-def _field_Fresnel(z, field, dx, lam):
+def _field_Fresnel(z, field, dx, lam, dtype):
     """
     Separated the "math" logic out so that only standard and numpy types
     are used.
@@ -87,6 +87,8 @@ def _field_Fresnel(z, field, dx, lam):
         In units of sim (usually [m]), spacing of grid points in field.
     lam : float
         Wavelength lambda in sim units (usually [m]).
+    dtype : dtype
+        complex dtype of the array
 
     Returns
     -------
@@ -128,11 +130,11 @@ def _field_Fresnel(z, field, dx, lam):
         step involving Fresnel integral calc.
     """
     if _using_pyfftw:
-        in_outF = _pyfftw.zeros_aligned((2*N, 2*N),dtype=complex)
-        in_outK = _pyfftw.zeros_aligned((2*N, 2*N),dtype=complex)
+        in_outF = _pyfftw.zeros_aligned((2*N, 2*N),dtype=dtype)
+        in_outK = _pyfftw.zeros_aligned((2*N, 2*N),dtype=dtype)
     else:
-        in_outF = _np.zeros((2*N, 2*N),dtype=complex)
-        in_outK = _np.zeros((2*N, 2*N),dtype=complex)
+        in_outF = _np.zeros((2*N, 2*N),dtype=dtype)
+        in_outK = _np.zeros((2*N, 2*N),dtype=dtype)
     
     """Our grid is zero-centered, i.e. the 0 coordiante (beam axis) is
     not at field[0,0], but field[No2, No2]. The FFT however is implemented
@@ -266,7 +268,7 @@ def Forward(Fin, z, sizenew, Nnew ):
     """
     if z <= 0:
         raise ValueError('Forward does not support z<=0')
-    Fout = Field.begin(sizenew, Fin.lam, Nnew)
+    Fout = Field.begin(sizenew, Fin.lam, Nnew, Fin._dtype)
     
     field_in = Fin.field
     field_out = Fout.field
@@ -364,11 +366,12 @@ def Forvard(Fin, z):
     N = Fout.N
     size = Fout.siz
     lam = Fout.lam
+    dtype = Fin._dtype
     
     if _using_pyfftw:
-        in_out = _pyfftw.zeros_aligned((N, N),dtype=complex)
+        in_out = _pyfftw.zeros_aligned((N, N),dtype=dtype)
     else:
-        in_out = _np.zeros((N, N),dtype=complex)
+        in_out = _np.zeros((N, N),dtype=dtype)
     in_out[:,:] = Fin.field
     
     _2pi = 2*_np.pi
@@ -476,6 +479,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     N = Fout.N
     lam = Fout.lam
     size = Fout.siz
+    dtype = Fout._dtype
     
     legacy = True
     if legacy:
@@ -504,7 +508,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     """
     ///* absorption borders are formed here */
     """
-    c_absorb_x = _np.zeros(N, dtype=complex)
+    c_absorb_x = _np.zeros(N, dtype=dtype)
     iv = _np.arange(N, dtype=int)
     mask = iv+1<=i_left
     iii = i_left - iv[mask]
@@ -516,7 +520,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     c_absorb_x[mask2] = 1j* (AA*K)*_np.power(iii/im, band_pow)
     
     
-    c_absorb_x2 = _np.zeros(N, dtype=complex)
+    c_absorb_x2 = _np.zeros(N, dtype=dtype)
     mask = iv+1<=i_left
     iii = i_left - iv[mask]
     c_absorb_x2[mask] = 1j* (AA*K)*_np.power(iii/i_left, band_pow)
@@ -527,7 +531,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     c_absorb_x2[mask2] = 1j* (AA*K)*_np.power(iii/im, band_pow)
     
     
-    c_absorb_y = _np.zeros(N, dtype=complex)
+    c_absorb_y = _np.zeros(N, dtype=dtype)
     jv = _np.arange(N, dtype=int)
     mask = jv+1<=i_left
     iii = i_left - jv[mask] -1# REM +1 in i direction, why different here?
@@ -581,11 +585,11 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     #Variables for elimination function elim():
     a = -1/delta2
     b = -1/delta2 #keep both since one day might be different dx and dy
-    UU = _np.zeros((N,N), dtype=complex)
-    Alpha = _np.zeros((N,N), dtype=complex)
-    Beta = _np.zeros((N,N), dtype=complex)
-    P = _np.zeros((N,N), dtype=complex)
-    tempCNN = _np.zeros((N,N), dtype=complex) #use as scratch to avoid mem alloc in loop
+    UU = _np.zeros((N,N), dtype=dtype)
+    Alpha = _np.zeros((N,N), dtype=dtype)
+    Beta = _np.zeros((N,N), dtype=dtype)
+    P = _np.zeros((N,N), dtype=dtype)
+    tempCNN = _np.zeros((N,N), dtype=dtype) #use as scratch to avoid mem alloc in loop
     
     """
     /*  Main  loop, steps here */
@@ -681,6 +685,7 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     N = Fout.N
     lam = Fout.lam
     size = Fout.siz
+    dtype = Fout._dtype
     
     legacy = True
     if legacy:
@@ -709,7 +714,7 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     """
     ///* absorption borders are formed here */
     """
-    c_absorb_x = _np.zeros(N, dtype=complex)
+    c_absorb_x = _np.zeros(N, dtype=dtype)
     iv = _np.arange(N, dtype=int)
     mask = iv+1<=i_left
     iii = i_left - iv[mask]
@@ -721,7 +726,7 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     c_absorb_x[mask2] = 1j* (AA*K)*_np.power(iii/im, band_pow)
     
     
-    c_absorb_x2 = _np.zeros(N, dtype=complex)
+    c_absorb_x2 = _np.zeros(N, dtype=dtype)
     mask = iv+1<=i_left
     iii = i_left - iv[mask]
     c_absorb_x2[mask] = 1j* (AA*K)*_np.power(iii/i_left, band_pow)
@@ -732,7 +737,7 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     c_absorb_x2[mask2] = 1j* (AA*K)*_np.power(iii/im, band_pow)
     
     
-    c_absorb_y = _np.zeros(N, dtype=complex)
+    c_absorb_y = _np.zeros(N, dtype=dtype)
     jv = _np.arange(N, dtype=int)
     mask = jv+1<=i_left
     iii = i_left - jv[mask] -1# REM +1 in i direction, why different here?
@@ -787,11 +792,11 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     #Variables for elimination function elim():
     a = -1/delta2
     b = -1/delta2
-    uu = _np.zeros(N, dtype=complex)
-    uu2 = _np.zeros(N, dtype=complex)
-    alpha = _np.zeros(N, dtype=complex)
-    beta = _np.zeros(N, dtype=complex)
-    p = _np.zeros(N, dtype=complex)
+    uu = _np.zeros(N, dtype=dtype)
+    uu2 = _np.zeros(N, dtype=dtype)
+    alpha = _np.zeros(N, dtype=dtype)
+    beta = _np.zeros(N, dtype=dtype)
+    p = _np.zeros(N, dtype=dtype)
     
     """
     /*  Main  loop, steps here */
@@ -869,6 +874,7 @@ def _TODOStepsScipy(z, nstep, refr, Fin):
     N = Fout.N
     lam = Fout.lam
     size = Fout.siz
+    dtype = Fout._dtype
     
     
     legacy = True

@@ -488,7 +488,7 @@ def Interpol(Fin, new_size, new_N, x_shift = 0.0, y_shift = 0.0, angle = 0.0, ma
         
     """
 
-    Fout = Field.begin(new_size, Fin.lam, new_N)
+    Fout = Field.begin(new_size, Fin.lam, new_N, Fin._dtype)
     Fout.field[:,:] = 0.0
     
     legacy = True
