@@ -17,7 +17,7 @@ class Field:
     
     
     @classmethod
-    def begin(cls, grid_size, wavelength, N):
+    def begin(cls, grid_size, wavelength, N, dtype=None):
         """
         Initialize a new field object with the given parameters.
         This method is preferred over direct calling of constructor.
@@ -31,13 +31,15 @@ class Field:
             [m] physical wavelength
         N : int
             number of grid points in each dimension (square)
+        dtype : dtype
+            complex dtype to use
 
         Returns
         -------
         The initialized Field object.
 
         """
-        inst = cls(None, grid_size, wavelength, N)
+        inst = cls(None, grid_size, wavelength, N, dtype)
         return inst
         
     @classmethod
@@ -79,14 +81,20 @@ class Field:
         """
         return _copy.copy(Fin)
     
-    def __init__(self, Fin=None, grid_size=1.0, wavelength=1.0, N=0):
+    def __init__(self, Fin=None, grid_size=1.0, wavelength=1.0, N=0, dtype=None):
         """Private, use class method factories instead."""
+
+        if dtype is None:
+            self._dtype=complex
+        else:
+            self._dtype=dtype
+
         if Fin is None:
             if not N:
                 raise ValueError('Cannot create zero size field (N=0)')
-            Fin = _np.ones((N,N),dtype=complex)
+            Fin = _np.ones((N,N),dtype=self._dtype)
         else:
-            Fin = _np.asarray(Fin, dtype=complex)
+            Fin = _np.asarray(Fin, dtype=self._dtype)
         self._field = Fin
         self._lam = wavelength
         self._siz = grid_size
@@ -137,7 +145,7 @@ class Field:
     def field(self, field):
         """The field must be a complex 2d square numpy array.
         """
-        field = _np.asarray(field, dtype=complex)
+        field = _np.asarray(field, dtype=self._dtype)
         #will not create a new instance if already good
         self._field = field
 
