@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Command Reference. &mdash; LightPipes for Python 2.0.7 documentation</title>
+  <title>4. Command Reference. &mdash; LightPipes for Python 2.0.8 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.7
+                2.0.8
               </div>
             
           
@@ -166,6 +166,54 @@
             
   <div class="section" id="module-LightPipes">
 <span id="command-reference"></span><span id="commandref"></span><h1><span class="section-number">4. </span>Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="LightPipes.ABCD">
+<code class="sig-name descname">ABCD</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">M</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ABCD" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Propagates a pure Gaussian field using ABCD matrix theory.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fin</strong> (<em>Field</em>) – input field, must be pare Gaussian.</p></li>
+<li><p><strong>M</strong> (<em>List</em>) – 2 x 2 ABCD matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">wavelength</span> <span class="o">=</span> <span class="mi">500</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">w0</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">m</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">m</span>
+
+<span class="n">M_lens</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span>       <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="o">/</span><span class="n">f</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">]</span>
+  <span class="p">]</span>
+
+<span class="n">M_propagate</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span>       <span class="n">z</span> <span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span>       <span class="mf">1.0</span><span class="p">]</span>
+  <span class="p">]</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">ABCD</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">M_lens</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">ABCD</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">M_propagate</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt id="LightPipes.Axicon">
 <code class="sig-name descname">Axicon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">phi</span></em>, <em class="sig-param"><span class="n">n1</span><span class="o">=</span><span class="default_value">1.5</span></em>, <em class="sig-param"><span class="n">x_shift</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">y_shift</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition">¶</a></dt>
@@ -283,6 +331,50 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="manual.html#starting-the-calculations"><span class="std std-ref">Manual: Starting the calculations.</span></a></p></li>
 <li><p><a class="reference internal" href="DiffractionRoundHole.html#diffraction-from-a-circular-aperture"><span class="std std-ref">Examples: Diffraction from a circular aperture</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="LightPipes.Centroid">
+<code class="sig-name descname">Centroid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Returns the centroid of the intensity distribution.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the coordinates and the closests array indices of the centroid: Xc, Yc, NXc, NYc</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[float, float, int, int]</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">wavelength</span> <span class="o">=</span> <span class="mi">500</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">25</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">x_shift</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">y_shift</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
+<span class="n">Xc</span><span class="p">,</span><span class="n">Yc</span><span class="p">,</span> <span class="n">NXc</span><span class="p">,</span> <span class="n">NYc</span> <span class="o">=</span> <span class="n">Centroid</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Xc = </span><span class="si">{:4.2f}</span><span class="s2"> mm, Yc = </span><span class="si">{:4.2f}</span><span class="s2"> mm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Xc</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">Yc</span><span class="o">/</span><span class="n">mm</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Answer</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span> <span class="o">=</span> <span class="mf">4.96</span> <span class="n">mm</span><span class="p">,</span> <span class="n">Yc</span> <span class="o">=</span> <span class="mf">2.97</span> <span class="n">mm</span>
+<span class="n">NXc</span> <span class="o">=</span>  <span class="mi">349</span><span class="p">,</span> <span class="n">NYc</span> <span class="o">=</span>  <span class="mi">309</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="manual.html#centroid"><span class="std std-ref">Manual: Diagnostics: Centroid.</span></a></p></li>
 </ul>
 </div>
 </dd></dl>
@@ -429,6 +521,49 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="LightPipes.D4sigma">
+<code class="sig-name descname">D4sigma</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.D4sigma" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Returns the width (</em> <span class="math notranslate nohighlight">\(D4\sigma\)</span> <em>) of the intensity distribution.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>widths in X and Y direction.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Tuple[float, float]</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="k">import</span> <span class="o">*</span>
+<span class="n">wavelength</span> <span class="o">=</span> <span class="mi">500</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">25</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">x_shift</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">y_shift</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
+<span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">Centroid</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sx = </span><span class="si">{:4.2f}</span><span class="s2"> mm, sy = </span><span class="si">{:4.2f}</span><span class="s2"> mm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sx</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">sy</span><span class="o">/</span><span class="n">mm</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Answer</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sx</span> <span class="o">=</span> <span class="mf">6.19</span> <span class="n">mm</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="mf">6.30</span> <span class="n">mm</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="manual.html#d4-sigma"><span class="std std-ref">Manual =&gt; Diagnostics =&gt; Beam width =&gt; D4sigma</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt id="LightPipes.FieldArray2D">
 <code class="sig-name descname">FieldArray2D</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">Ffield</span></em>, <em class="sig-param"><span class="n">Nfieldsx</span></em>, <em class="sig-param"><span class="n">Nfieldsy</span></em>, <em class="sig-param"><span class="n">x_sep</span></em>, <em class="sig-param"><span class="n">y_sep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.FieldArray2D" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>Inserts an array of fields in the field</em></p>
@@ -569,6 +704,42 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="LightPipes.GForvard">
+<code class="sig-name descname">GForvard</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GForvard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="LightPipes.GLens">
+<code class="sig-name descname">GLens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GLens" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Propagates the field through an ideal thin lens using ABCD matrix theory. Only works for a pure Gaussian input field.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fin</strong> (<em>Field</em>) – input field (must be pure Gaussian)</p></li>
+<li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length of the lens</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers, pure Gauss).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>LightPipes.field.Field</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="manual.html#phase-and-intensity-filters"><span class="std std-ref">Manual: Phase and intensity filters.</span></a></p></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt id="LightPipes.Gain">
 <code class="sig-name descname">Gain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">Isat</span></em>, <em class="sig-param"><span class="n">alpha0</span></em>, <em class="sig-param"><span class="n">Lgain</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Gain" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>Propagates the field through a thin saturable gain sheet.</em></p>
@@ -657,7 +828,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 
 <dl class="py function">
 <dt id="LightPipes.GaussBeam">
-<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">xshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">yshift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">tx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ty</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">doughnut</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">LG</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GaussBeam</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">w0</span></em>, <em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">x_shift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">y_shift</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">tx</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ty</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">doughnut</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">LG</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>Creates a Gaussian beam in its waist.</em></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -968,7 +1139,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <dl class="py function">
 <dt id="LightPipes.Lens">
 <code class="sig-name descname">Lens</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">x_shift</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">y_shift</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Lens" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Propagates the field through an ideal, thin lens.</em></p>
+<dd><p><em>Propagates the field through an ideal, thin lens. If the input field is pure Gaussian, the ABCD matrix theory is used.</em></p>
 <p>The field is multiplied by a phase given by:
 <span class="math notranslate nohighlight">\(F_{out}(x,y)=e^{-j\frac{2\pi}{\lambda}\left(\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\right)}F_{in}(x,y)\)</span></p>
 <dl class="field-list simple">
@@ -1172,7 +1343,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="manual.html#diagnostics-strehl-ratio-beam-power"><span class="std std-ref">Manual: Diagnostics: Strehl ratio, beam power.</span></a></p></li>
+<li><p><a class="reference internal" href="manual.html#field-normalization"><span class="std std-ref">Manual: Diagnostics: Field normalization.</span></a></p></li>
 </ul>
 </div>
 </dd></dl>
@@ -1384,6 +1555,40 @@ Set to 0 or None to disable</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt id="LightPipes.Propagate">
+<code class="sig-name descname">Propagate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">z</span></em>, <em class="sig-param"><span class="n">UseFresnel</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">UseForvard</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Propagate" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Experimental general propagation command</em></p>
+<p>Propagate is an experimental propagation command which selects the best propagation routine automatically.
+The idea is to use something like the Fesnel number to select the Forvard, GForvard or the Fresnel command.
+Please provide us with tips to improve this command by starting an issue on our github repository!</p>
+<p>At this moment the code looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Propagate</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">UseFresnel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">UseForvard</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">xs</span><span class="p">,</span><span class="n">ys</span><span class="o">=</span><span class="n">D4sigma</span><span class="p">(</span><span class="n">Fin</span><span class="p">)</span>
+    <span class="n">M</span><span class="o">=</span><span class="mi">10</span>
+    <span class="n">NF</span><span class="o">=</span><span class="n">M</span><span class="o">*</span><span class="p">(((</span><span class="n">xs</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="n">Fin</span><span class="o">.</span><span class="n">lam</span><span class="p">)</span><span class="o">**</span><span class="mf">0.333</span><span class="p">)</span><span class="o">/</span><span class="n">z</span> <span class="c1"># Check with formula given by jjmelko in issue 59</span>
+    <span class="c1">#NF=xs*xs/Fin.lam/z #Check with Fresnel number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">NF</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Fin</span><span class="o">.</span><span class="n">_IsGauss</span><span class="p">:</span> <span class="c1">#obvious choice ...</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using GForvard, pure Gauss field&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">GForvard</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">UseFresnel</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;forced to use Fresnel&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">UseForvard</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;forced to use Forvard&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Forvard</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">NF</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using Fresnel because NF = </span><span class="si">{:4.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">NF</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using Forvard because NF = </span><span class="si">{:4.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">NF</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">Forvard</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt id="LightPipes.RandomIntensity">
 <code class="sig-name descname">RandomIntensity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Fin</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">123</span></em>, <em class="sig-param"><span class="n">noise</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomIntensity" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>Adds random intensity to the field</em></p>
@@ -1581,14 +1786,8 @@ square array refr.</em></p>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance per step</p></li>
 <li><p><strong>nstep</strong> (<em>int</em><em>, </em><em>float</em>) – number of steps (default = 1)</p></li>
 <li><p><strong>refr</strong> (<em>numpy.ndarray</em>) – refractive index (N x N array of complex numbers) (default = 1.0)</p></li>
-<li><p><strong>save_ram</strong> (<em>bool</em>) – <ul>
-<li></li>
-</ul>
-</p></li>
-<li><p><strong>use_scipy</strong> (<em>bool</em>) – <ul>
-<li></li>
-</ul>
-</p></li>
+<li><p><strong>save_ram</strong> (<em>bool</em>) – saves ram but slower! (default = False)</p></li>
+<li><p><strong>use_scipy</strong> (<em>bool</em>) – should not be used; for development only! (default = False)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1632,7 +1831,7 @@ square array refr.</em></p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="manual.html#diagnostics-strehl-ratio-beam-power"><span class="std std-ref">Manual: Diagnostics: Strehl ratio, beam power.</span></a></p></li>
+<li><p><a class="reference internal" href="manual.html#strehl-ratio"><span class="std std-ref">Manual: Diagnostics: Strehl ratio.</span></a></p></li>
 </ul>
 </div>
 </dd></dl>
@@ -1947,7 +2146,7 @@ meaningless in the result.</p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Feb 08, 2021.
+        Last updated on Mar 17, 2021.
       </span>
 
     </p>

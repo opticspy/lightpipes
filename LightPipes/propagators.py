@@ -39,7 +39,7 @@ from .field import Field
 from . import tictoc
 from .subs import elim, elimH, elimV
 from .misc import backward_compatible
-from .core import GaussABCD
+from .core import D4sigma
 
 @backward_compatible
 def Fresnel(Fin, z):
@@ -421,15 +421,151 @@ def Forvard(Fin, z):
     Fout._IsGauss=False
     return Fout
 
-def GaussForvard(Fin,z):
+def GForvard(Fin,z):
     A=1.0
     B=z
     C=0.0
     D=1.0
     M=[[A,B],[C,D]]
-    Fout=GaussABCD(Fin,M)
+    Fout=ABCD(Fin,M)
     return Fout
+    
+def ABCD(Fin, M):
+    """
+    *Propagates a pure Gaussian field using ABCD matrix theory.*
 
+    :param Fin: input field, must be pare Gaussian.
+    :type Fin: Field
+    :param M: 2 x 2 ABCD matrix
+    :type M: List
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        
+        wavelength = 500*nm
+        size = 7*mm
+        N = 1000
+        
+        w0 = 1*mm
+        f = 1*m
+        z = 1*m
+
+        M_lens = [
+            [1.0,       0.0],
+            [-1.0/f,    1.0]
+          ]
+          
+        M_propagate = [
+            [1.0,       z ],
+            [0.0,       1.0]
+          ]
+        
+        F = Begin(size,wavelength,N)
+        F = GaussBeam(F, w0,n=0,m=0)
+        F = ABCD(F,M_lens)
+        F = ABCD(F,M_propagate)
+        
+    """
+    Fout = Field.copy(Fin)    
+    A=M[0][0]
+    B=M[0][1]
+    C=M[1][0]
+    D=M[1][1]
+    if Fin._IsGauss:
+        Fout._q = (A*Fin._q + B)/(C*Fin._q + D)
+        Fout._z=Fin._z + B
+        w2=-Fin.lam/_np.pi*(Fout._q.imag+Fout._q.real*Fout._q.real/Fout._q.imag)
+        w02=Fin._w0 * Fin._w0
+        w=_np.sqrt(w2)
+        inv_R=(1/Fout._q).real
+        
+        z0=_np.pi*w02/Fin._lam
+        k = 2*_np.pi/Fin.lam
+        phase_z=k*Fout._z-(Fin._m+Fin._n+1)*_np.arctan(Fout._z/z0)
+        
+        r2 = Fin.mgrid_Rsquared
+        Y,X = Fin.mgrid_cartesian
+
+        phase_trans=k/2*inv_R*r2
+        sqrt2w=_np.sqrt(2)/w
+        sqrt2xw=sqrt2w*X
+        sqrt2yw=sqrt2w*Y
+        w0w=Fin._w0/w
+        Fout.field=Fin._A*w0w*_np.exp(-r2/w2)*hermite(Fin._n)(sqrt2xw)*hermite(Fin._m)(sqrt2yw)*_np.exp(1j*(phase_trans+phase_z))
+        Fout._IsGauss = True
+        Fout._w0=Fin._w0
+        Fout._n=Fin._n
+        Fout._m=Fin._m
+        Fout._A=Fin._A
+        return Fout
+    else:
+        print("not pure Gauss beam, field not propagated")
+        return Fout
+
+def Propagate(Fin,z,UseFresnel=False,UseForvard=False):
+    """
+    *Experimental general propagation command*
+    
+    Propagate is an experimental propagation command which selects the best propagation routine automatically.
+    The idea is to use something like the Fesnel number to select the Forvard, GForvard or the Fresnel command.
+    Please provide us with tips to improve this command by starting an issue on our github repository!
+    
+    At this moment the code looks like this:
+    
+    .. code-block::
+    
+        def Propagate(Fin,z,UseFresnel=False,UseForvard=False):
+            xs,ys=D4sigma(Fin)
+            M=10
+            NF=M*(((xs**4)/Fin.lam)**0.333)/z # Check with formula given by jjmelko in issue 59
+            #NF=xs*xs/Fin.lam/z #Check with Fresnel number
+            print(NF)
+            if Fin._IsGauss: #obvious choice ...
+                print('using GForvard, pure Gauss field')
+                return GForvard(Fin,z)
+            else:
+                if UseFresnel:
+                    print('forced to use Fresnel')
+                    return Fresnel(Fin,z)
+                if UseForvard:
+                    print('forced to use Forvard')
+                    return Forvard(Fin,z)
+                if NF > 1:
+                    print('using Fresnel because NF = {:4.2f}'.format(NF))
+                    return Fresnel(Fin,z)
+                else:
+                    print('using Forvard because NF = {:4.2f}'.format(NF))
+                    return Forvard(Fin,z)
+
+    """
+    xs,ys=D4sigma(Fin)
+    M=10
+    NF=M*(((xs**4)/Fin.lam)**0.333)/z # Check with formula given by jjmelko in issue 59
+    #NF=xs*xs/Fin.lam/z #Check with Fresnel number
+    print(NF)
+    if Fin._IsGauss: #obvious choice ...
+        print('using GForvard, pure Gauss field')
+        return GForvard(Fin,z)
+    else:
+        if UseFresnel and not UseForvard:
+            print('forced to use Fresnel')
+            return Fresnel(Fin,z)
+        if UseForvard and not UseFresnel:
+            print('forced to use Forvard')
+            return Forvard(Fin,z)
+        if UseForvard and UseFresnel:
+            print('cannot force both methods!, no propagation performed')
+            return Fin
+        if NF > 1:
+            print('using Fresnel because NF = {:4.2f}'.format(NF))
+            return Fresnel(Fin,z)
+        else:
+            print('using Forvard because NF = {:4.2f}'.format(NF))
+            return Forvard(Fin,z)
 
 @backward_compatible
 def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
@@ -446,9 +582,9 @@ def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
     :type nstep: int, float
     :param refr: refractive index (N x N array of complex numbers) (default = 1.0)
     :type refr: numpy.ndarray
-    :param save_ram: -
+    :param save_ram: saves ram but slower! (default = False)
     :type save_ram: bool
-    :param use_scipy: -
+    :param use_scipy: should not be used; for development only! (default = False)
     :type use_scipy: bool    
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
@@ -476,11 +612,16 @@ def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
             return _StepsArrayElim(z, nstep, refr, Fin)
 
 
-def _StepsArrayElim(z, nstep, refr, Fin):
+def _StepsArrayElim(z, nstep, _refr, Fin):
 
     if Fin._curvature != 0.0:
         raise ValueError('Cannot operate on spherical coords.'
                          + 'Use Convert() first')
+    if type(_refr) != _np.ndarray:
+        refr=_np.ones((Fin.N,Fin.N))*_refr
+    else:
+        refr = _refr
+    
     if Fin.field.shape != refr.T.shape:
         #TODO fix the .T problem
         raise ValueError('refractive index refr must have same NxN'
@@ -568,7 +709,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     """
     ///* end absorption */
     """
-    
+
     refr = refr.T #TODO I messed up somewhere...
     
     """The refraction part (real part of refr. index n) is separated out
@@ -679,7 +820,7 @@ def _StepsArrayElim(z, nstep, refr, Fin):
     return Fout
 
 
-def _StepsLoopElim(z, nstep, refr, Fin):
+def _StepsLoopElim(z, nstep, _refr, Fin):
     """
     Fout = StepsLoopElim(z, nstep, refr, Fin)
 
@@ -687,6 +828,12 @@ def _StepsLoopElim(z, nstep, refr, Fin):
     if Fin._curvature != 0.0:
         raise ValueError('Cannot operate on spherical coords.'
                          + 'Use Convert() first')
+
+    if type(_refr) != _np.ndarray:
+        refr=_np.ones((Fin.N,Fin.N))*_refr
+    else:
+        refr = _refr
+    
     if Fin.field.shape != refr.T.shape:
         #TODO fix the .T problem
         raise ValueError('refractive index refr must have same NxN'

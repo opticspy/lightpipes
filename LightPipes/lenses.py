@@ -3,7 +3,8 @@
 import numpy as _np
 
 from .field import Field
-from .propagators import Forvard, Fresnel, backward_compatible
+from .propagators import ABCD, Forvard, Fresnel, backward_compatible
+from .core import D4sigma
 
 @backward_compatible
 def Axicon(Fin, phi, n1 = 1.5, x_shift = 0.0, y_shift = 0.0 ):
@@ -86,10 +87,38 @@ def Convert(Fin):
     Fout._IsGauss=False
     return Fout
 
+def GLens(Fin, f):
+    """
+    *Propagates the field through an ideal thin lens using ABCD matrix theory. Only works for a pure Gaussian input field.*
+    
+    :param Fin: input field (must be pure Gaussian)
+    :type Fin: Field
+    :param f: focal length of the lens
+    :type f: int, float
+    :return: output field (N x N square array of complex numbers, pure Gauss).
+    :rtype: LightPipes.field.Field
+    
+    :Example:
+    
+    >>> F = GLens(F,f)
+    
+    .. seealso::
+    
+        * :ref:`Manual: Phase and intensity filters.<Phase and intensity filters.>`
+
+    """
+    A=1.0
+    B=0.0
+    C=-1.0/f
+    D=1.0
+    M=[[A,B],[C,D]]
+    Fout=ABCD(Fin,M) 
+    return Fout
+
 @backward_compatible
 def Lens(Fin, f, x_shift = 0.0, y_shift = 0.0):
     """
-    *Propagates the field through an ideal, thin lens.*
+    *Propagates the field through an ideal, thin lens. If the input field is pure Gaussian, the ABCD matrix theory is used.*
 
     The field is multiplied by a phase given by:
     :math:`F_{out}(x,y)=e^{-j\\frac{2\\pi}{\\lambda}\\left(\\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\\right)}F_{in}(x,y)`
@@ -115,19 +144,26 @@ def Lens(Fin, f, x_shift = 0.0, y_shift = 0.0):
         * :ref:`Manual: Phase and intensity filters.<Phase and intensity filters.>`
 
     """
-    Fout = Field.copy(Fin)
-    _2pi = 2*_np.pi
-    legacy=True
-    if legacy:
-        _2pi = 3.1415926*2
-    k = _2pi/Fout.lam
-    yy, xx = Fout.mgrid_cartesian
-    xx -= x_shift
-    yy -= y_shift
-    fi = -k*(xx**2+yy**2)/(2*f)
-    Fout.field *= _np.exp(1j * fi)
-    Fout._IsGauss=False
-    return Fout
+    # xs,ys=D4sigma(Fin)
+    # NFresnel=xs*xs/_np.pi/Fin.lam
+    # print(NFresnel)
+    if Fin._IsGauss and x_shift == 0.0 and y_shift == 0.0:
+        print('using GaussLens')
+        return GLens(Fin,f)
+    else:
+        Fout = Field.copy(Fin)
+        _2pi = 2*_np.pi
+        legacy=True
+        if legacy:
+            _2pi = 3.1415926*2
+        k = _2pi/Fout.lam
+        yy, xx = Fout.mgrid_cartesian
+        xx -= x_shift
+        yy -= y_shift
+        fi = -k*(xx**2+yy**2)/(2*f)
+        Fout.field *= _np.exp(1j * fi)
+        Fout._IsGauss=False
+        return Fout
 
 def LensFarfield(Fin, f ):
     """

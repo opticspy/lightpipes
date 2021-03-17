@@ -11,6 +11,16 @@ LightPipes for Python |release|
 .. image:: ./_static/front.png
     :align: center
     :target:  http://www.okotech.com
+    
+.. image:: https://badge.fury.io/py/LightPipes.svg
+    :target: https://badge.fury.io/py/LightPipes
+
+.. image:: https://githubbadges.com/star.svg?user=opticspy&repo=lightpipes&style=default'}
+    :target: https://github.com/opticspy/lightpipes/
+    
+.. image:: https://githubbadges.com/fork.svg?user=opticspy&repo=lightpipes&style=default'}
+    :target: https://github.com/opticspy/lightpipes/
+    
 
 contents:
 ^^^^^^^^^

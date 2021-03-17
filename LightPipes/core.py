@@ -51,6 +51,86 @@ def BeamMix(Fin1, Fin2):
     Fout._IsGauss=False
     return Fout
 
+def Centroid(Fin):
+    """
+    *Returns the centroid of the intensity distribution.*
+    
+    :param Fin: input field.
+    :type Fin: Field
+    :return: the coordinates and the closests array indices of the centroid: Xc, Yc, NXc, NYc
+    :rtype: Tuple[float, float, int, int]
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        wavelength = 500*nm
+        size = 25*mm
+        N = 500
+        F = Begin(size, wavelength, N)
+        F = CircAperture(F, 2*mm, x_shift = 5*mm, y_shift = 3*mm)
+        F = Fresnel(F, 10*m)
+        Xc,Yc, NXc, NYc = Centroid(F)
+        print("Xc = {:4.2f} mm, Yc = {:4.2f} mm".format(Xc/mm, Yc/mm))
+    
+    :Answer:
+    
+    .. code-block::
+        
+        Xc = 4.96 mm, Yc = 2.97 mm
+        NXc =  349, NYc =  309
+
+    .. seealso::
+        
+        * :ref:`Manual: Diagnostics: Centroid.<Centroid.>`
+    """
+    Y,X=Fin.mgrid_cartesian
+    I=Intensity(Fin)
+    Xc=_np.average(X,weights = I)
+    Yc=_np.average(Y,weights = I)
+    # Find the array indices close to Xc and Yc:
+    NXc =(_np.abs(Fin.xvalues - Xc)).argmin()
+    NYc =(_np.abs(Fin.yvalues - Yc)).argmin()
+    return Xc, Yc, NXc, NYc
+
+def D4sigma(Fin):
+    """
+    *Returns the width (* :math:`D4\sigma` *) of the intensity distribution.*
+    
+    :param Fin: input field.
+    :type Fin: Field
+    :return: widths in X and Y direction.
+    :rtype: Tuple[float, float]
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        wavelength = 500*nm
+        size = 25*mm
+        N = 500
+        F = Begin(size, wavelength, N)
+        F = CircAperture(F, 2*mm, x_shift = 5*mm, y_shift = 3*mm)
+        F = Fresnel(F, 10*m)
+        sx, sy = Centroid(F)
+        print("sx = {:4.2f} mm, sy = {:4.2f} mm".format(sx/mm, sy/mm))
+    
+    :Answer:
+    
+    .. code-block::
+        
+        sx = 6.19 mm, sy = 6.30 mm
+        
+    .. seealso::
+        
+        * :ref:`Manual => Diagnostics => Beam width => D4sigma<d4-sigma>`
+    """
+    
+    Y,X=Fin.mgrid_cartesian
+    I=Intensity(Fin)
+    Xc,Yc, NXc, NYc = Centroid(Fin)
+    return 4*_np.sqrt(_np.average((X-Xc)*(X-Xc), weights = I)), 4*_np.sqrt(_np.average((Y-Yc)*(Y-Yc), weights = I))
+
 @backward_compatible
 def CircAperture(Fin, R, x_shift = 0.0, y_shift = 0.0):
     """
@@ -138,42 +218,7 @@ def CircScreen(Fin, R, x_shift=0.0, y_shift=0.0):
     Fout._IsGauss=False
     return Fout
 
-def GaussABCD(Fin, M):
-    Fout = Field.copy(Fin)    
-    A=M[0][0]
-    B=M[0][1]
-    C=M[1][0]
-    D=M[1][1]
-    if Fin._IsGauss:
-        Fout._q = (A*Fin._q + B)/(C*Fin._q + D)
-        Fout._z=Fin._z + B
-        w2=-Fin.lam/_np.pi*(Fout._q.imag+Fout._q.real*Fout._q.real/Fout._q.imag)
-        w02=Fin._w0 * Fin._w0
-        w=_np.sqrt(w2)
-        inv_R=(1/Fout._q).real
-        
-        z0=_np.pi*w02/Fin._lam
-        k = 2*_np.pi/Fin.lam
-        phase_z=k*Fout._z-(Fin._m+Fin._n+1)*_np.arctan(Fout._z/z0)
-        
-        r2 = Fin.mgrid_Rsquared
-        Y,X = Fin.mgrid_cartesian
 
-        phase_trans=k/2*inv_R*r2
-        sqrt2w=_np.sqrt(2)/w
-        sqrt2xw=sqrt2w*X
-        sqrt2yw=sqrt2w*Y
-        w0w=Fin._w0/w
-        Fout.field=Fin._A*w0w*_np.exp(-r2/w2)*hermite(Fin._n)(sqrt2xw)*hermite(Fin._m)(sqrt2yw)*_np.exp(1j*(phase_trans+phase_z))
-        Fout._IsGauss = True
-        Fout._w0=Fin._w0
-        Fout._n=Fin._n
-        Fout._m=Fin._m
-        Fout._A=Fin._A
-        return Fout
-    else:
-        print("not pure Gauss beam, field not propagated")
-        return Fout
 
 @backward_compatible
 def GaussAperture(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 1.0, ):
@@ -437,14 +482,7 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
     Fout._IsGauss=False
     return Fout
 
-def GaussLens(Fin, f):  
-    A=1.0
-    B=0.0
-    C=-1.0/f
-    D=1.0
-    M=[[A,B],[C,D]]
-    Fout=GaussABCD(Fin,M) 
-    return Fout
+
 
 @backward_compatible
 def IntAttenuator(Fin, att = 0.5 ):
@@ -701,7 +739,7 @@ def Normal(Fin):
     
     .. seealso::
     
-        * :ref:`Manual: Diagnostics: Strehl ratio, beam power.<Diagnostics: Strehl ratio, beam power.>`
+        * :ref:`Manual: Diagnostics: Field normalization.<Field normalization.>`
     """
     Fabs = _np.abs(Fin.field)**2
     Fabs *= Fin.dx**2
@@ -993,7 +1031,7 @@ def Strehl(Fin):
     
     .. seealso::
         
-        * :ref:`Manual: Diagnostics: Strehl ratio, beam power.<Diagnostics: Strehl ratio, beam power.>`
+        * :ref:`Manual: Diagnostics: Strehl ratio.<Strehl ratio.>`
     """
     normsq = _np.abs(Fin.field).sum()**2
     if normsq == 0.0:

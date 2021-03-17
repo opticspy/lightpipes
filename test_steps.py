@@ -17,13 +17,13 @@ kappa=1.0
 tx=1*mrad
 #step size and number of steps in z-direction:
 dz=1*mm
-NZ=2
+NZ=200
 
 X=np.linspace(-size/2,size/2,N)/um
 Z=np.linspace(0,NZ*dz,NZ)/cm
 
-#fill the refractive index list:
-n=np.zeros([N,N])*(1+1j)
+#fill the refractive index array:
+n=np.ones([N,N])*(1+0j)
 for i in range(0,N-1):
     x=-size/2+i*size/N
     for j in range(1,N):
@@ -42,7 +42,7 @@ Ix=np.zeros([NZ,N])
 Iy=np.zeros([NZ,N])
 for k in range(0,NZ):
     #F=Steps(dz,10,n,F)
-    F=Steps(F,dz,10)
+    F=Steps(F,dz,nstep=10,refr=n)
     I=Intensity(0,F)
     Iy[k]=list(zip(*I))[N2]
     Ix[k]=I[N2]
