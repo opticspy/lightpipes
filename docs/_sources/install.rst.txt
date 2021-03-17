@@ -56,6 +56,39 @@ See http://www.tkdocs.com/tutorial/install.html how to install it on your platfo
 
 Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.org/>`_.
 
+LightPipes |release| release notes.
+===================================
+
+Fred van Goor, 13 march 2021.
+
+New commands.
+-------------
+
+*  :func:`~LightPipes.ABCD`: propagation of a pure Gaussian field using ABCD matrix.
+
+*  :func:`~LightPipes.GLens`: Lens filter for a pure Gaussian field using ABCD matrix.
+
+*  :func:`~LightPipes.GForvard`: Free space propagation of a pure Gaussian field using ABCD matrix.
+
+*  :func:`~LightPipes.Propagate`: Free space propagation of a field chosing the best propagtion routine depending on Fresnel number, pure Gauss (experimental)
+
+*  :func:`~LightPipes.Centroid`: returns the centroid coordinates of an intensity distribution.
+
+*  :func:`~LightPipes.D4sigma`: returns the beam width (:math:`D4\sigma`) of an intensity distribution.
+
+Command changes.
+----------------
+
+*  :func:`~LightPipes.Lens`: a check for Pure Gauss beam is performed so use can be made of analytical ABCD propagation if the input field is pure Gaussian, is in the grid-center and is not tilted.
+
+*  All commands set the "IsPureGauss" flag to False to allow ABCD propagation only when it is possible.
+
+Bug fixes.
+----------
+
+*  A bug in :func:`~LightPipes.Steps` was fixed. Now scalar values of the refractive index can be passed as an argument.
+
+
 Known installation problems.
 ============================
 

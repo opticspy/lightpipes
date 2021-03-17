@@ -92,7 +92,13 @@ class Field:
         self._siz = grid_size
         self._int1 = 0 #remembers PipFFT direction
         self._curvature = 0.0 #remembers field curvature or 0.0 for normal
-    
+        self._IsGauss = False
+        self._w0 = 0.2*grid_size
+        self._q = -1j* _np.pi*self._w0*self._w0/wavelength
+        self._z = 0.0
+        self._A = 1.0
+        self._n = 0
+        self._m = 0
     
     def _get_grid_size(self):
         """Get or set the grid size in [m]."""

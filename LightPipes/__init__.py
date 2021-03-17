@@ -1,19 +1,24 @@
 __all__ = [
+    'ABCD',
     'Axicon',
     'BeamMix',
     'Begin',
+    'Centroid',
     'CircAperture',
     'CircScreen',
     'Convert',
+    'D4sigma', 
     'Forward',
     'Forvard',
     'Fresnel',
     'Gain',
     'GaussAperture',
     'GaussBeam',
+    'GForvard',
     'GaussScreen',
     'GaussHermite',
     'GaussLaguerre',
+    'GLens',
     'IntAttenuator',
     'Intensity',
     'Interpol',
@@ -30,6 +35,7 @@ __all__ = [
     'PlaneWave',
     'PointSource',
     'Power',
+    'Propagate',
     'RandomIntensity',
     'RandomPhase',
     'RectAperture',
@@ -80,8 +86,8 @@ import numpy as np
 import webbrowser
 
 from .field import Field
-from .propagators import Fresnel, Forward, Forvard, Steps
-from .lenses import Axicon, Lens, LensFarfield, LensForvard, LensFresnel, \
+from .propagators import ABCD, Fresnel, Forward, Forvard, GForvard, Propagate, Steps
+from .lenses import Axicon, Lens, GLens, LensFarfield, LensForvard, LensFresnel, \
     Convert
 from .zernike import ZernikeName, ZernikeNolltoMN, noll_to_zern, \
     ZernikeFilter, ZernikeFit, Zernike
@@ -89,7 +95,7 @@ from .core import CircAperture, CircScreen, RectAperture, RectScreen
 from .core import GaussAperture, GaussScreen, GaussHermite, GaussLaguerre, SuperGaussAperture
 from .core import Intensity, Phase, PhaseUnwrap, PhaseSpiral
 from .core import RandomIntensity, RandomPhase
-from .core import Strehl
+from .core import Strehl, Centroid, D4sigma
 from .core import SubIntensity, SubPhase
 from .core import BeamMix
 from .core import MultIntensity, MultPhase

@@ -10,13 +10,13 @@ R=10*mm
 
 Int=np.empty([N,N])
 phase=np.empty([N,N])
-for i in range(1,N):
-    for j in range(1,N):
+for i in range(0,N):
+    for j in range(0,N):
         Int[i][j]=math.fabs(math.sin(i/10.0)*math.cos(j/5.0))
         phase[i][j]=math.cos(i/10.0)*math.sin(j/5.0)
 phase = 0.12345*rad
 F=Begin(size,wavelength,N)
-F=SubIntensity(Int,F)
+F=SubIntensity(F,Int)
 F=SubPhase(phase,F)
 F=CircAperture(R,0,0,F)
 

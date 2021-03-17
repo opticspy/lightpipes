@@ -23,8 +23,8 @@ f=50*cm # focal length of positive lens
 F=Begin(size,wavelength,N)
 #F=GaussBeam(F, R)
 #F=GaussHermite(F,R,0,0,1) #new style
-#F=GaussHermite(F,R) #new style
-F=GaussHermite(0,0,1,R,F) #old style
+F=GaussHermite(F,R) #new style
+#F=GaussHermite(0,0,1,R,F) #old style
 F=Lens(f,0,0,F)
 
 #Propagate to the beamsplitter:

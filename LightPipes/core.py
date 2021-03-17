@@ -48,7 +48,88 @@ def BeamMix(Fin1, Fin2):
         raise ValueError('Field sizes do not match')
     Fout = Field.copy(Fin1)
     Fout.field += Fin2.field
+    Fout._IsGauss=False
     return Fout
+
+def Centroid(Fin):
+    """
+    *Returns the centroid of the intensity distribution.*
+    
+    :param Fin: input field.
+    :type Fin: Field
+    :return: the coordinates and the closests array indices of the centroid: Xc, Yc, NXc, NYc
+    :rtype: Tuple[float, float, int, int]
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        wavelength = 500*nm
+        size = 25*mm
+        N = 500
+        F = Begin(size, wavelength, N)
+        F = CircAperture(F, 2*mm, x_shift = 5*mm, y_shift = 3*mm)
+        F = Fresnel(F, 10*m)
+        Xc,Yc, NXc, NYc = Centroid(F)
+        print("Xc = {:4.2f} mm, Yc = {:4.2f} mm".format(Xc/mm, Yc/mm))
+    
+    :Answer:
+    
+    .. code-block::
+        
+        Xc = 4.96 mm, Yc = 2.97 mm
+        NXc =  349, NYc =  309
+
+    .. seealso::
+        
+        * :ref:`Manual: Diagnostics: Centroid.<Centroid.>`
+    """
+    Y,X=Fin.mgrid_cartesian
+    I=Intensity(Fin)
+    Xc=_np.average(X,weights = I)
+    Yc=_np.average(Y,weights = I)
+    # Find the array indices close to Xc and Yc:
+    NXc =(_np.abs(Fin.xvalues - Xc)).argmin()
+    NYc =(_np.abs(Fin.yvalues - Yc)).argmin()
+    return Xc, Yc, NXc, NYc
+
+def D4sigma(Fin):
+    """
+    *Returns the width (* :math:`D4\sigma` *) of the intensity distribution.*
+    
+    :param Fin: input field.
+    :type Fin: Field
+    :return: widths in X and Y direction.
+    :rtype: Tuple[float, float]
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        wavelength = 500*nm
+        size = 25*mm
+        N = 500
+        F = Begin(size, wavelength, N)
+        F = CircAperture(F, 2*mm, x_shift = 5*mm, y_shift = 3*mm)
+        F = Fresnel(F, 10*m)
+        sx, sy = Centroid(F)
+        print("sx = {:4.2f} mm, sy = {:4.2f} mm".format(sx/mm, sy/mm))
+    
+    :Answer:
+    
+    .. code-block::
+        
+        sx = 6.19 mm, sy = 6.30 mm
+        
+    .. seealso::
+        
+        * :ref:`Manual => Diagnostics => Beam width => D4sigma<d4-sigma>`
+    """
+    
+    Y,X=Fin.mgrid_cartesian
+    I=Intensity(Fin)
+    Xc,Yc, NXc, NYc = Centroid(Fin)
+    return 4*_np.sqrt(_np.average((X-Xc)*(X-Xc), weights = I)), 4*_np.sqrt(_np.average((Y-Yc)*(Y-Yc), weights = I))
 
 @backward_compatible
 def CircAperture(Fin, R, x_shift = 0.0, y_shift = 0.0):
@@ -91,6 +172,7 @@ def CircAperture(Fin, R, x_shift = 0.0, y_shift = 0.0):
     dist_sq = X**2 + Y**2 #squared, no need for sqrt
     
     Fout.field[dist_sq > R**2] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -133,7 +215,10 @@ def CircScreen(Fin, R, x_shift=0.0, y_shift=0.0):
     dist_sq = X**2 + Y**2 #squared, no need for sqrt
     
     Fout.field[dist_sq <= R**2] = 0.0
+    Fout._IsGauss=False
     return Fout
+
+
 
 @backward_compatible
 def GaussAperture(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 1.0, ):
@@ -175,6 +260,7 @@ def GaussAperture(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 1.0, ):
     w2=w*w*2
     SqrtT=_np.sqrt(T)
     Fout.field*=SqrtT*_np.exp(-(X*X+Y*Y)/w2)
+    Fout._IsGauss=False
     return Fout
 
 def SuperGaussAperture(Fin, w, n = 2.0, x_shift = 0.0, y_shift = 0.0, T = 1.0  ):
@@ -218,6 +304,7 @@ def SuperGaussAperture(Fin, w, n = 2.0, x_shift = 0.0, y_shift = 0.0, T = 1.0  )
     w2=w*w*2
     SqrtT=_np.sqrt(T)
     Fout.field*=SqrtT*_np.exp(-((X*X+Y*Y)/w2)**n)
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -258,6 +345,7 @@ def GaussScreen(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 0.0 ):
 
     w2=w*w
     Fout.field*=_np.sqrt(1-(1-T)*_np.exp(-(X*X+Y*Y)/w2))
+    Fout._IsGauss=False
     return Fout
     
 def GaussHermite(Fin, w0, m = 0, n = 0, A = 1.0):
@@ -324,6 +412,7 @@ def GaussHermite(Fin, w0, m = 0, n = 0, A = 1.0):
     w02=w0*w0
 
     Fout.field  = A * hermite(m)(sqrt2w0*X)*hermite(n)(sqrt2w0*Y)*_np.exp(-(X*X+Y*Y)/w02)
+    Fout._IsGauss=True
     return Fout
 
 def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
@@ -390,7 +479,10 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
     la=abs(l)
     rho = 2*R*R/w02
     Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
+    Fout._IsGauss=False
     return Fout
+
+
 
 @backward_compatible
 def IntAttenuator(Fin, att = 0.5 ):
@@ -555,6 +647,7 @@ def Interpol(Fin, new_size, new_N, x_shift = 0.0, y_shift = 0.0, angle = 0.0, ma
         out_z = Inv_Squares(Xmask, Ymask, Fin.field, dx_old)
         Fout.field[filtmask] = out_z
     Fout.field /= magnif
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -587,6 +680,7 @@ def MultIntensity( Fin, Intens):
     Fout = Field.copy(Fin)
     Efield = _np.sqrt(Intens)
     Fout.field *= Efield
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -623,6 +717,7 @@ def MultPhase( Fin, Phi):
             raise ValueError('Phase pattern shape does not match field size')
     Fout = Field.copy(Fin)
     Fout.field *= _np.exp(1j*Phi)
+    Fout._IsGauss=False
     return Fout
 
 
@@ -644,7 +739,7 @@ def Normal(Fin):
     
     .. seealso::
     
-        * :ref:`Manual: Diagnostics: Strehl ratio, beam power.<Diagnostics: Strehl ratio, beam power.>`
+        * :ref:`Manual: Diagnostics: Field normalization.<Field normalization.>`
     """
     Fabs = _np.abs(Fin.field)**2
     Fabs *= Fin.dx**2
@@ -723,6 +818,7 @@ def PhaseSpiral(Fin, m = 1):
     Fout = Field.copy(Fin) 
     R, Phi = Fout.mgrid_polar  
     Fout.field *= _np.exp(1j * m * Phi)
+    Fout._IsGauss=False
     return Fout
 
 def PhaseUnwrap(Phi):
@@ -792,6 +888,7 @@ def RandomIntensity(Fin, seed = 123, noise = 1.0, ):
     N = Fout.N
     ranint = _np.random.rand(N, N)*noise
     Fout.field += ranint
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -824,6 +921,7 @@ def RandomPhase(Fin, seed =456, maxPhase = _np.pi ):
     N = Fout.N
     ranphase = (_np.random.rand(N, N)-0.5)*maxPhase
     Fout.field *= _np.exp(1j * ranphase)
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -869,6 +967,7 @@ def RectAperture(Fin, sx, sy, x_shift = 0.0, y_shift = 0.0, angle = 0.0 ):
     matchx = _np.abs(xx) > sx/2
     matchy = _np.abs(yy) > sy/2
     Fout.field[matchx | matchy] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -914,6 +1013,7 @@ def RectScreen(Fin, sx, sy, x_shift = 0.0, y_shift = 0.0, angle = 0.0 ):
     matchx = _np.abs(xx) <= sx/2
     matchy = _np.abs(yy) <= sy/2
     Fout.field[matchx & matchy] = 0.0
+    Fout._IsGauss=False
     return Fout
 
 
@@ -931,7 +1031,7 @@ def Strehl(Fin):
     
     .. seealso::
         
-        * :ref:`Manual: Diagnostics: Strehl ratio, beam power.<Diagnostics: Strehl ratio, beam power.>`
+        * :ref:`Manual: Diagnostics: Strehl ratio.<Strehl ratio.>`
     """
     normsq = _np.abs(Fin.field).sum()**2
     if normsq == 0.0:
@@ -964,6 +1064,7 @@ def SubIntensity(Fin, Intens ):
     phi = _np.angle(Fout.field)
     Efield = _np.sqrt(Intens)
     Fout.field = Efield * _np.exp(1j * phi)
+    Fout._IsGauss=False
     return Fout
 
 @backward_compatible
@@ -988,6 +1089,7 @@ def SubPhase( Fin, Phi):
             raise ValueError('Phase mapppp has wrong shape')
     oldabs = _np.abs(Fout.field)
     Fout.field = oldabs * _np.exp(1j * Phi)
+    Fout._IsGauss=False
     return Fout
 
 

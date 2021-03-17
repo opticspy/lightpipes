@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. Manual. &mdash; LightPipes for Python 2.0.7 documentation</title>
+  <title>6. Manual. &mdash; LightPipes for Python 2.0.8 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.7
+                2.0.8
               </div>
             
           
@@ -119,7 +119,17 @@
 <li class="toctree-l2"><a class="reference internal" href="#random-filters">6.9. Random filters.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fft-and-spatial-filters">6.10. FFT and spatial filters.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#laser-amplifier">6.11. Laser amplifier.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#diagnostics-strehl-ratio-beam-power">6.12. Diagnostics: Strehl ratio, beam power.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diagnostics">6.12. Diagnostics.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#strehl-ratio">6.12.1. Strehl ratio.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beam-power">6.12.2. Beam power.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-normalization">6.12.3. Field normalization.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#centroid">6.12.4. Centroid.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beam-width">6.12.5. Beam width.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#d4-sigma">6.12.5.1. <span class="math notranslate nohighlight">\(D4\sigma\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#references">6.13. References</a></li>
 </ul>
 </li>
@@ -418,10 +428,25 @@ LightPipes command for propagation is <a class="reference internal" href="comman
 It implements the spectral method described by <a class="footnote-reference brackets" href="#f1" id="id7">1</a> <a class="footnote-reference brackets" href="#f2" id="id8">2</a> <a class="footnote-reference brackets" href="#f3" id="id9">3</a> . The syntax is simple,
 for example if you want to filter your field through a 1cm aperture and then
 propagate the beam 1m forward, you type the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span>20mm, <span class="m">1</span> um, <span class="m">256</span><span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> CircAperture<span class="o">(</span><span class="m">5</span>*mm, <span class="m">0</span>, <span class="m">0</span>, Field<span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> Forvard<span class="o">(</span><span class="m">1</span>*m, Field<span class="o">)</span>
-<span class="nv">I</span> <span class="o">=</span> Intensity<span class="o">(</span><span class="m">0</span>,Field<span class="o">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">256</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I</span><span class="p">[</span><span class="mi">128</span><span class="p">]);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard.pdf">pdf</a>)</p>
@@ -448,10 +473,25 @@ in other words we define the field in a grid filled mainly with zeros.
 The grid must be even larger when the beam is aberrated because the divergent
 beams reach the region border sooner.</p>
 <p>Due to these two reasons the commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">20</span>*mm,1*um,256<span class="o">)</span>
-<span class="nv">Field</span><span class="o">=</span>RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0,0,0,Field<span class="o">)</span>
-<span class="nv">Field</span><span class="o">=</span>Forvard<span class="o">(</span><span class="m">1</span>*m,Field<span class="o">)</span>
-<span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span><span class="m">2</span>,Field<span class="o">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">256</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I</span><span class="p">[</span><span class="mi">128</span><span class="p">]);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard2.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard2.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard2.pdf">pdf</a>)</p>
@@ -462,10 +502,25 @@ beams reach the region border sooner.</p>
 (argument of <a class="reference internal" href="command-reference.html#LightPipes.RectAperture" title="LightPipes.RectAperture"><code class="xref py py-func docutils literal notranslate"><span class="pre">RectAperture</span></code></a>)
 equals to the section of the grid (the first argument of <a class="reference internal" href="command-reference.html#LightPipes.Begin" title="LightPipes.Begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">Begin</span></code></a>), so we have
 a model of light propagation in a wave guide but not in a free space. One has to put:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">40</span>*mm,1*um,256<span class="o">)</span>
-<span class="nv">Field</span><span class="o">=</span>RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0,0,0,Field<span class="o">)</span>
-<span class="nv">Field</span><span class="o">=</span>Forvard<span class="o">(</span>*m,Field<span class="o">)</span>
-<span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span><span class="m">2</span>,Field<span class="o">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">256</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I</span><span class="p">[</span><span class="mi">128</span><span class="p">]);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard3.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard3.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard3.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard3.pdf">pdf</a>)</p>
@@ -473,10 +528,25 @@ a model of light propagation in a wave guide but not in a free space. One has to
 <img alt="_images/Forvard3.png" src="_images/Forvard3.png" />
 </div>
 <p>for propagation in the near field, and may be:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">400</span>*mm, <span class="m">1</span>*um, <span class="m">512</span><span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0, <span class="m">0</span>,0, Field<span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> Forvard<span class="o">(</span><span class="m">500</span>*m, Field<span class="o">)</span>
-<span class="nv">I</span> <span class="o">=</span> Intensity<span class="o">(</span><span class="m">0</span>,Field<span class="o">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">400</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">512</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">512</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I</span><span class="p">[</span><span class="mi">256</span><span class="p">]);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard4.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard4.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard4.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard4.pdf">pdf</a>)</p>
@@ -485,10 +555,25 @@ a model of light propagation in a wave guide but not in a free space. One has to
 </div>
 <p>for far field propagation.
 If we compare the result of the previous example with the result of:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">Field</span><span class="o">=</span>Begin<span class="o">(</span><span class="m">60</span>*mm,1*um,512<span class="o">)</span>
-<span class="nv">Field</span><span class="o">=</span>RectAperture<span class="o">(</span><span class="m">20</span>*mm,20*mm,0,0,0,Field<span class="o">)</span>
-<span class="nv">Field</span><span class="o">=</span>Forvard<span class="o">(</span><span class="m">500</span>,Field<span class="o">)</span>
-<span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span><span class="m">2</span>,Field<span class="o">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">512</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">512</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I</span><span class="p">[</span><span class="mi">256</span><span class="p">]);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard5.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard5.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard5.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard5.pdf">pdf</a>)</p>
@@ -502,6 +587,31 @@ and does not require the allocation of extra memory. In LightPipes a negative ar
 may be supplied to <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a>. It means that the program will
 perform “propagation back”
 or in other words it will reconstruct the initial field from the one diffracted. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">512</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="o">/</span><span class="mi">512</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Initial field&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Propagated to the near field&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I2</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Propagated back&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/Forvard6.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Forvard6.png">png</a>, <a class="reference external" href="./Examples/Commands/Forvard6.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Forvard6.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Forvard6.png" src="_images/Forvard6.png" />
@@ -572,7 +682,7 @@ refractive coefficient <span class="math notranslate nohighlight">\(A\)</span>, 
 <span class="eqno">(8)<a class="headerlink" href="#equation-8" title="Permalink to this equation">¶</a></span>\[\frac{\partial^2U}{\partial x^2} + \frac{\partial^2U}{\partial y^2}+2ik \frac{\partial U}{\partial z}  +A(x,y,z)U=0\]</div>
 <p>To solve this equation, we re-write it as a system of finite difference equations:</p>
 <div class="math notranslate nohighlight" id="equation-9">
-<span class="eqno">(9)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span>\[\frac{U^{k+1}_{i+1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-9" title="Permalink to this equation">¶</a></span>\[\frac{U^{k+1}_{i+1,j}-2U^{k+1}_{i,j}+U^{k+1}_{i-1,j}}{\Delta x^2}+\frac{U^{k}_{i,j+1}-2U^{k}_{i,j}+U^{k}_{i,j-1}}{\Delta y^2}+2ik\frac{U^{k+1}_{i,j}-2U^k_{i,j}}{\Delta z}+A^{k+1}_{i,j}U^{k+1}_{i,j}=0\]</div>
 <p>Collecting terms we obtain the standard three-diagonal system of linear equations,
 the solution of which describes the complex amplitude of the light field in the layer <span class="math notranslate nohighlight">\(z+\Delta z\)</span> as a
 function of the field defined in the layer z:</p>
@@ -608,13 +718,53 @@ again, creates the problem of the wave reflection at the grid boundary. The infl
 of these reflections in many cases can be reduced by introducing an additional absorbing
 layer in the proximity of the boundary, with the absorption smoothly (to reduce the
 reflection at the absorption gradient) increasing towards the boundary.</p>
-<p>In LightPipes for Python 2.0.7 the refraction term is not included into the
+<p>In LightPipes for Python 2.0.8 the refraction term is not included into the
 propagation formulas, instead the phase of the field is modified at each step according to
 the distribution of the refractive coefficient. This “zero-order” approximation happened to
 be much more stable numerically than the direct inclusion of refraction terms into propagation
 formulas. It does not take into account the change of the wavelength in the medium, it does not
 model backscattering and reflections back on interfaces between different media. Perhaps there
 are other details to be mentioned. The described algorithm is implemented in the <a class="reference internal" href="command-reference.html#LightPipes.Steps" title="LightPipes.Steps"><code class="xref py py-func docutils literal notranslate"><span class="pre">Steps</span></code></a> command.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Focus of a lens.</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span><span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span><span class="p">;</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">N2</span><span class="o">=</span><span class="mi">50</span><span class="p">;</span>
+<span class="n">R</span><span class="o">=</span><span class="mf">1.5</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+<span class="n">dz</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+<span class="n">f</span><span class="o">=</span><span class="mi">50</span><span class="o">*</span><span class="n">cm</span><span class="p">;</span>
+<span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.1j</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+
+<span class="n">Icross</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">X</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">Z</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Z</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+  <span class="n">F</span><span class="o">=</span><span class="n">Steps</span><span class="p">(</span><span class="n">dz</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+  <span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+  <span class="n">Icross</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="n">N</span><span class="p">]</span><span class="o">=</span><span class="n">I</span><span class="p">[</span><span class="n">N2</span><span class="p">][:</span><span class="n">N</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span>
+        <span class="n">Icross</span><span class="p">,</span>
+        <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/FocLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/FocLens.png">png</a>, <a class="reference external" href="./Examples/Commands/FocLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/FocLens.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/FocLens.png" src="_images/FocLens.png" />
@@ -638,15 +788,75 @@ field should be taken into account.</p>
 <div class="section" id="splitting-and-mixing-beams">
 <h2><span class="section-number">6.3. </span>Splitting and mixing beams.<a class="headerlink" href="#splitting-and-mixing-beams" title="Permalink to this headline">¶</a></h2>
 <p>There are two commands in LightPipes which are useful for modelling of interferometers. With <a class="reference internal" href="command-reference.html#LightPipes.IntAttenuator" title="LightPipes.IntAttenuator"><code class="xref py py-func docutils literal notranslate"><span class="pre">IntAttenuator</span></code></a> we can split the field structure (amplitude division) - The two obtained fields could be processed separately and then mixed again with the routine <a class="reference internal" href="command-reference.html#LightPipes.BeamMix" title="LightPipes.BeamMix"><code class="xref py py-func docutils literal notranslate"><span class="pre">BeamMix</span></code></a>. In this script we have formed two beams each containing one “shifted” hole. After mixing these two beams we have a screen with two holes: a Young’s interferometer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
+<span class="n">LPversion</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Young&#39;s experiment.</span>
+<span class="sd">    Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern</span>
+<span class="sd">    at a distance, z, behind the screen is calculated.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">LPversion</span><span class="p">)</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">um</span>
+<span class="n">size</span><span class="o">=</span><span class="mf">20.0</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">50</span><span class="o">*</span><span class="n">cm</span>
+<span class="n">R</span><span class="o">=</span><span class="mf">0.3</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">d</span><span class="o">=</span><span class="mf">1.2</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="c1">#img=mpimg.imread(&#39;Young.png&#39;)</span>
+<span class="c1">#plt.imshow(img); plt.axis(&#39;off&#39;)</span>
+
+<span class="c1">#plt.show()</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="o">-</span><span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>    
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Interference/Young.py">Source code</a>, <a class="reference external" href="./Examples/Interference/Young.png">png</a>, <a class="reference external" href="./Examples/Interference/Young.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/Young.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Young.png" src="_images/Young.png" />
 </div>
 <p><em>Fig. 7. Young’s interferometer.</em></p>
 <p>Having the model of the interferometer we can “play” with it, moving the pinholes and changing their sizes. The following models the result of the interference of a plane wave diffracted at three round apertures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">550</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">R</span><span class="o">=</span><span class="mf">0.12</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">y</span><span class="o">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">75</span><span class="o">*</span><span class="n">cm</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">y</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F3</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>  
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">),</span><span class="n">F3</span><span class="p">)</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Plane of the screen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Interference/ThreeHoles.py">Source code</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_00_00.png">png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_00_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/ThreeHoles_00_00.png" src="_images/ThreeHoles_00_00.png" />
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Intensity distribution a distance z from the screen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Interference/ThreeHoles_01_00.png">png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/ThreeHoles_01_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
@@ -654,12 +864,77 @@ field should be taken into account.</p>
 </div>
 <p><em>Fig. 8. Intensity distributions in the plane of the screen and 75cm behind the screen.</em></p>
 <p>The next interferometer is more interesting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! python3</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">550</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">128</span>
+<span class="n">w</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">h</span><span class="o">=</span><span class="mf">2.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">phi</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">rad</span>
+<span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">75</span><span class="o">*</span><span class="n">cm</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F1</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span> 
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Plane of the screen&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Intensity distribution at a distance z from the screen&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.py">Source code</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.png">png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt1.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/TwoSlitsTilt1.png" src="_images/TwoSlitsTilt1.png" />
 </div>
 <p><em>Fig. 9. Intensity distributions in the plane of the screen and 75cm behind the screen.</em></p>
 <p>In the last example the intensity distribution is modulated by the wave, reflected from the grid edge, nevertheless it gives a good impression about the general character of the interference pattern. To obtain a better result, the calculations should be conducted in a larger grid or other numerical method should be used. The following example uses a direct integration algorithm (the input and output are in different scales and have different samplings):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! python3</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">550</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span><span class="o">=</span><span class="mf">2.6</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">64</span>
+<span class="n">w</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">h</span><span class="o">=</span><span class="mf">2.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">phi</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">rad</span>
+<span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">75</span><span class="o">*</span><span class="n">cm</span>
+<span class="n">sizenew</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F1</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span><span class="o">-</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span> 
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forward</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">sizenew</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Plane of the screen&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Intensity distribution at a distance z from the screen&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.py">Source code</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.png">png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Interference/TwoSlitsTilt2.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/TwoSlitsTilt2.png" src="_images/TwoSlitsTilt2.png" />
@@ -670,9 +945,55 @@ field should be taken into account.</p>
 <div class="section" id="interpolation">
 <h2><span class="section-number">6.4. </span>Interpolation.<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
 <p>The command <a class="reference internal" href="command-reference.html#LightPipes.Interpol" title="LightPipes.Interpol"><code class="xref py py-func docutils literal notranslate"><span class="pre">Interpol</span></code></a> is the tool for manipulating the size and the dimension of the grid and for changing the shift, rotation and the scale of the field distribution. It accepts six command line arguments, the first is the new size of the grid. The second argument gives the new number of points, the third gives the value of transverse shift in the X direction, the fourth gives the shift in the Y direction, the fifth gives the field rotation (first shift and then rotation). The last sixth argument determines the magnification, its action is equivalent to passing the beam through a focal system with magnification M (without diffraction, but preserving the integral intensity). For example if the field was propagated with the FFT algorithm <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a>, then the grid contains empty borders, which is not necessary if we want to propagate the field further with <a class="reference internal" href="command-reference.html#LightPipes.Forward" title="LightPipes.Forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forward</span></code></a>. Other way around, after <em>Forward</em> we have to add some empty borders to continue with <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a>. <a class="reference internal" href="command-reference.html#LightPipes.Interpol" title="LightPipes.Interpol"><code class="xref py py-func docutils literal notranslate"><span class="pre">Interpol</span></code></a> is useful for interpolating into a grid with different size and number of points. Of course it is not too wise to interpolate from a grid of 512x512 points into a grid of 8x8, and then back because all information about the field will be lost. The same is true for interpolating the  grid of 1mx1m to 1mmx1mm and back. When interpolating into a grid with larger size, for example from 1x1 to 2x2, the program puts zeros into the new added regions. Figure 11 illustrates the usage of <em>Interpol</em> for the transition from a fine grid used by <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a> (near field) to a coarse grid used by <a class="reference internal" href="command-reference.html#LightPipes.Forward" title="LightPipes.Forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forward</span></code></a> (far field).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! python3</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">LPversion</span><span class="p">)</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">z</span><span class="o">=</span><span class="mi">400</span><span class="o">*</span><span class="n">m</span>
+<span class="n">sizenew</span><span class="o">=</span><span class="mi">400</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">Nnew</span><span class="o">=</span><span class="mi">64</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="mf">0.2</span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">Interpol</span><span class="p">(</span><span class="mf">7.5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="n">Nnew</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forward</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">sizenew</span><span class="p">,</span><span class="n">Nnew</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">I1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;near field&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/Interpol.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.png">png</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Interpol_00_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Interpol_00_00.png" src="_images/Interpol_00_00.png" />
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">Nnew</span><span class="p">)</span>
+<span class="n">Y</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">Nnew</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span> 
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span><span class="n">I1</span><span class="p">,</span>
+                <span class="n">rstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">cstride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;far field&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/Interpol_01_00.png">png</a>, <a class="reference external" href="./Examples/Commands/Interpol_01_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Interpol_01_00.pdf">pdf</a>)</p>
 <div class="figure align-default">
@@ -683,6 +1004,40 @@ field should be taken into account.</p>
 <div class="section" id="phase-and-intensity-filters">
 <h2><span class="section-number">6.5. </span>Phase and intensity filters.<a class="headerlink" href="#phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
 <p>There are four kinds of phase filters available in LightPipes -wave front tilt, the quadratic phase corrector called lens, a general aberration in the form of a Zernike polynomial, and a user defined filter. To illustrate the usage of these filters let’s consider the following examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">w</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">f</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">m</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">m</span>
+
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">phi0</span> <span class="o">=</span> <span class="n">Phase</span><span class="p">(</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">size</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">phi0</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)]);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Phase [rad]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/Lens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Lens.png">png</a>, <a class="reference external" href="./Examples/Commands/Lens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Lens.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Lens.png" src="_images/Lens.png" />
@@ -692,6 +1047,42 @@ field should be taken into account.</p>
 <p>We have to be very careful propagating the field to the distance which is close to the focal distance of a positive lens- the near—focal intensity and phase distributions are localised in the central region of the grid occupying only a few grid points. This leads to the major loss of information about the field distribution. The problem is solved by applying the co-ordinate system which is tied to the divergent or convergent light beam, the tools to do this will be described later.</p>
 <p>The lens may be decentered, <em>Lens(8, 0.01, 0.01, Field)</em> produces the lens with a focal length of <span class="math notranslate nohighlight">\(1/0.125\)</span>  shifted by 0.01 in X and Y directions. Note, when the lens is shifted, the aperture of the lens is not shifted, the light beam is not shifted also, only the phase mask correspondents to the lens is shifted.</p>
 <p>The wave front tilt is illustrated by following example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">w</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">m</span>
+<span class="n">tx</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">mrad</span>
+<span class="n">ty</span><span class="o">=</span><span class="mf">0.1</span><span class="o">*</span><span class="n">mrad</span>
+
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Tilt</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+
+
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">phi1</span> <span class="o">=</span> <span class="n">Phase</span><span class="p">(</span><span class="n">Field</span><span class="p">)</span>
+
+<span class="n">x</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">size</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)]);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">phi1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)]);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Phase [rad]&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/Tilt.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Tilt.png">png</a>, <a class="reference external" href="./Examples/Commands/Tilt.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Tilt.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Tilt.png" src="_images/Tilt.png" />
@@ -715,20 +1106,39 @@ This index corresponds to the <span class="math notranslate nohighlight">\(n-2m\
 </div></blockquote>
 <p>We can uniformly introduce <a class="reference internal" href="command-reference.html#LightPipes.Lens" title="LightPipes.Lens"><code class="xref py py-func docutils literal notranslate"><span class="pre">Lens</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Tilt" title="LightPipes.Tilt"><code class="xref py py-func docutils literal notranslate"><span class="pre">Tilt</span></code></a> with <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a>, the difference is that we pass the amplitude of the aberration to  <a class="reference internal" href="command-reference.html#LightPipes.Lens" title="LightPipes.Lens"><code class="xref py py-func docutils literal notranslate"><span class="pre">Lens</span></code></a>, <a class="reference internal" href="command-reference.html#LightPipes.Tilt" title="LightPipes.Tilt"><code class="xref py py-func docutils literal notranslate"><span class="pre">Tilt</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a> accept conventional meters and radians, which are widely in use for the description of optical setups, while <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a> uses the amplitude of the aberration, which frequently has to be derived from the technical description.</p>
 <p>A cylindrical lens can be modelled as a combination of two <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a> commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">size</span><span class="o">=</span><span class="m">15</span>*mm
-<span class="nv">wavelength</span><span class="o">=</span><span class="m">1</span>*um
-<span class="nv">N</span><span class="o">=</span><span class="m">500</span>
-<span class="nv">R</span><span class="o">=</span><span class="m">4</span>.5*mm
-<span class="nv">z</span><span class="o">=</span><span class="m">1</span>.89*m
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">R</span><span class="o">=</span><span class="mf">4.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">z</span><span class="o">=</span><span class="mf">1.89</span><span class="o">*</span><span class="n">m</span>
 
-<span class="nv">A</span> <span class="o">=</span> wavelength/<span class="o">(</span><span class="m">2</span>*math.pi*math.sqrt<span class="o">(</span><span class="m">2</span>*<span class="o">(</span><span class="m">2</span>+1<span class="o">)))</span>
-<span class="nv">Field</span> <span class="o">=</span> Begin<span class="o">(</span>size, wavelength, N<span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> CircAperture<span class="o">(</span>R, <span class="m">0</span>, <span class="m">0</span>, Field<span class="o">)</span>
-<span class="nv">I0</span> <span class="o">=</span> Intensity<span class="o">(</span><span class="m">1</span>,Field<span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> Zernike<span class="o">(</span><span class="m">2</span>,2,R,-20*A,Field<span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> Zernike<span class="o">(</span><span class="m">2</span>,0,R,10*A,Field<span class="o">)</span>
-<span class="nv">Field</span> <span class="o">=</span> Fresnel<span class="o">(</span>z, Field<span class="o">)</span>
-<span class="nv">I1</span> <span class="o">=</span> Intensity<span class="o">(</span><span class="m">1</span>,Field<span class="o">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">wavelength</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Zernike</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Zernike</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="mi">10</span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">Field</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
+<span class="c1">#Field = Interpol(size,N,0,0,-45,1,Field)</span>
+<span class="n">I1</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Field</span><span class="p">)</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">I1</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">I1</span><span class="p">))[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)])</span>
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="./Examples/Commands/CylindricalLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/CylindricalLens.png">png</a>, <a class="reference external" href="./Examples/Commands/CylindricalLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/CylindricalLens.pdf">pdf</a>)</p>
@@ -783,37 +1193,256 @@ This index corresponds to the <span class="math notranslate nohighlight">\(n-2m\
 The results for <span class="math notranslate nohighlight">\(f=100 cm\)</span> and <span class="math notranslate nohighlight">\(f=10 cm\)</span> are shown in figures 16a+b where the two methods are compared.
 As can been seen the straight-forward method requires much larger grid dimensions and hence
 longer execution time. This is especially the case for stronger lenses (shorter focal lengths).</p>
-<p>(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm.py">Source code</a>)</p>
-<div class="figure align-default" id="id16">
-<img alt="_images/LensFresnel_Convert_f100cm_00.png" src="_images/LensFresnel_Convert_f100cm_00.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.pdf">pdf</a>)</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">TheExample</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">9.5</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+    <span class="n">ax4</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+    <span class="n">labda</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="n">nm</span><span class="p">;</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+
+    <span class="n">f</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">cm</span>
+    <span class="n">f1</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">m</span>
+    <span class="n">f2</span><span class="o">=</span><span class="n">f1</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="p">(</span><span class="n">f1</span><span class="o">-</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">frac</span><span class="o">=</span><span class="n">f</span><span class="o">/</span><span class="n">f1</span>
+    <span class="n">newsize</span><span class="o">=</span><span class="n">frac</span><span class="o">*</span><span class="n">size</span>
+    <span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">labda</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+
+<span class="c1">#1) Using Lens and Fresnel:</span>
+    <span class="n">F1</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">F1</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
+    <span class="n">phi1</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F1</span><span class="p">);</span><span class="n">phi1</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">phi1</span><span class="p">)</span>
+    <span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F1</span><span class="p">);</span>
+    <span class="n">x1</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x1</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">size</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>  
+
+<span class="c1">#2) Using Lens + LensFresnel and Convert:</span>
+    <span class="n">F2</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="n">F2</span><span class="o">=</span><span class="n">LensFresnel</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">F2</span><span class="p">);</span>
+    <span class="n">F2</span><span class="o">=</span><span class="n">Convert</span><span class="p">(</span><span class="n">F2</span><span class="p">);</span>
+    <span class="n">phi2</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F2</span><span class="p">);</span><span class="n">phi2</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">phi2</span><span class="p">)</span>
+    <span class="n">I2</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F2</span><span class="p">);</span>
+    <span class="n">x2</span><span class="o">=</span><span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x2</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">newsize</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">phi1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Without spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">phi2</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;With spherical coordinates&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;phase [rad]&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;phase, N = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">I1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Without spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">I2</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;With spherical coordinates&#39;</span><span class="p">);</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">);</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;intensity, N = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Without spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I2</span><span class="p">);</span><span class="n">ax4</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;With spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figtext</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="s1">&#39;Spherical Coordinates, f = 100cm lens</span><span class="se">\n</span><span class="s1">Grid dimension is: </span><span class="si">%d</span><span class="s1"> x </span><span class="si">%d</span><span class="s1"> pixels&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">TheExample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#100 x 100 grid</span>
+
+<span class="n">TheExample</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">#1000 x 1000 grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm.py">Source code</a>)</p>
 <div class="figure align-default" id="id17">
+<img alt="_images/LensFresnel_Convert_f100cm_00.png" src="_images/LensFresnel_Convert_f100cm_00.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_00.pdf">pdf</a>)</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id18">
 <img alt="_images/LensFresnel_Convert_f100cm_01.png" src="_images/LensFresnel_Convert_f100cm_01.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.pdf">pdf</a>)</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f100cm_01.pdf">pdf</a>)</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
 </div>
 <p><em>Fig. 16a. Diffraction to the focus of a f=100 cm lens. The use of a spherical coordinate system (LensFresnel + Convert)
 is compared with the straight-forward method (Lens + Fresnel).</em></p>
-<p>(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm.py">Source code</a>)</p>
-<div class="figure align-default" id="id18">
-<img alt="_images/LensFresnel_Convert_f10cm_00.png" src="_images/LensFresnel_Convert_f10cm_00.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.pdf">pdf</a>)</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">TheExample</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">9.5</span><span class="p">))</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+    <span class="n">ax4</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+
+    <span class="n">labda</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="n">nm</span><span class="p">;</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+
+    <span class="n">f</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">cm</span>
+    <span class="n">f1</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">m</span>
+    <span class="n">f2</span><span class="o">=</span><span class="n">f1</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="p">(</span><span class="n">f1</span><span class="o">-</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">frac</span><span class="o">=</span><span class="n">f</span><span class="o">/</span><span class="n">f1</span>
+    <span class="n">newsize</span><span class="o">=</span><span class="n">frac</span><span class="o">*</span><span class="n">size</span>
+    <span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">labda</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">RectAperture</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+
+<span class="c1">#1) Using Lens and Fresnel:</span>
+    <span class="n">F1</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">F1</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
+    <span class="n">phi1</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F1</span><span class="p">);</span><span class="n">phi1</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">phi1</span><span class="p">)</span>
+    <span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F1</span><span class="p">);</span>
+    <span class="n">x1</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x1</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">size</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>  
+
+<span class="c1">#2) Using Lens + LensFresnel and Convert:</span>
+    <span class="n">F2</span><span class="o">=</span><span class="n">Lens</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+    <span class="n">F2</span><span class="o">=</span><span class="n">LensFresnel</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">F2</span><span class="p">);</span>
+    <span class="n">F2</span><span class="o">=</span><span class="n">Convert</span><span class="p">(</span><span class="n">F2</span><span class="p">);</span>
+    <span class="n">phi2</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F2</span><span class="p">);</span><span class="n">phi2</span><span class="o">=</span><span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">phi2</span><span class="p">)</span>
+    <span class="n">I2</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F2</span><span class="p">);</span>
+    <span class="n">x2</span><span class="o">=</span><span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">x2</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="o">-</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">newsize</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">phi1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Without spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">phi2</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;With spherical coordinates&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;phase [rad]&#39;</span><span class="p">);</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;phase, N = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">I1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Without spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">I2</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;With spherical coordinates&#39;</span><span class="p">);</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span><span class="n">newsize</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">mm</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x [mm]&#39;</span><span class="p">);</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">);</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;intensity, N = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">legend</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Without spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">N</span><span class="o">*</span><span class="n">frac</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I2</span><span class="p">);</span><span class="n">ax4</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span><span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;With spherical coordinates&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figtext</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="s1">&#39;Spherical Coordinates, f = 10cm lens</span><span class="se">\n</span><span class="s1">Grid dimension is: </span><span class="si">%d</span><span class="s1"> x </span><span class="si">%d</span><span class="s1"> pixels&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">TheExample</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#100 x 100 grid</span>
+
+<span class="n">TheExample</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">#1000 x 1000 grid</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
+<p>(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm.py">Source code</a>)</p>
 <div class="figure align-default" id="id19">
+<img alt="_images/LensFresnel_Convert_f10cm_00.png" src="_images/LensFresnel_Convert_f10cm_00.png" />
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_00.pdf">pdf</a>)</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id20">
 <img alt="_images/LensFresnel_Convert_f10cm_01.png" src="_images/LensFresnel_Convert_f10cm_01.png" />
-<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.pdf">pdf</a>)</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">(<a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.png">png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/LensFresnel_Convert_f10cm_01.pdf">pdf</a>)</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 </div>
 <p><em>Fig 16b. With a stronger lens the straight-forward method requires more grid points.</em></p>
 </div>
 <div class="section" id="user-defined-phase-and-intensity-filters">
 <h2><span class="section-number">6.8. </span>User defined phase and intensity filters.<a class="headerlink" href="#user-defined-phase-and-intensity-filters" title="Permalink to this headline">¶</a></h2>
 <p>The phase and intensity of the light beam can be manipulated in several ways. The phase and intensity distributions may be produced as shown in the next examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">Int</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">])</span>
+<span class="n">phase</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">Int</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mf">10.0</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">j</span><span class="o">/</span><span class="mf">5.0</span><span class="p">))</span>
+        <span class="n">phase</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mf">10.0</span><span class="p">)</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">j</span><span class="o">/</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="n">phase</span> <span class="o">=</span> <span class="mf">0.12345</span><span class="o">*</span><span class="n">rad</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">SubIntensity</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">Int</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">SubPhase</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">Phi</span><span class="o">=</span><span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Phase&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/subintphase1.py">Source code</a>, <a class="reference external" href="./Examples/Commands/subintphase1.png">png</a>, <a class="reference external" href="./Examples/Commands/subintphase1.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/subintphase1.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/subintphase1.png" src="_images/subintphase1.png" />
 </div>
 <p><em>Fig. 17. An arbitrary intensity- and phase distribution.</em></p>
 <p>You can also create your own mask with a program like Microsoft Paint. In the next example we made an arrow using Paint and stored it as a 200 pixels width x 200 pixels height, black-and-white, monochrome bitmap file (for example: arrow.png). This file can be read from disk. Next the arrow can be used as a filter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">mpimg</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1">#Convert rgb to gray with weighted average of rgb pixels:</span>
+<span class="k">def</span> <span class="nf">rgb2gray</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rgb</span><span class="p">[</span><span class="o">...</span><span class="p">,:</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.299</span><span class="p">,</span> <span class="mf">0.587</span><span class="p">,</span> <span class="mf">0.114</span><span class="p">])</span>
+
+<span class="c1">#read image from disk and check if it is square:</span>
+<span class="n">img</span><span class="o">=</span><span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;arrow.png&#39;</span><span class="p">)</span>
+<span class="c1">#print(img[100][1])</span>
+<span class="n">img</span><span class="o">=</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="c1">#print(img[100])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span> <span class="p">)</span>
+<span class="n">Nr</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Nc</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">Nc</span> <span class="o">!=</span> <span class="n">Nr</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;image must be square&#39;</span><span class="p">)</span>
+    <span class="nb">exit</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">N</span><span class="o">=</span><span class="n">Nc</span>
+
+<span class="n">size</span><span class="o">=</span><span class="mi">25</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+
+<span class="n">R</span><span class="o">=</span><span class="mi">6</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">xs</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">ys</span><span class="o">=</span><span class="mi">0</span><span class="o">*</span><span class="n">mm</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">xs</span><span class="p">,</span><span class="n">ys</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">MultIntensity</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Intensity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/subintphase2.py">Source code</a>, <a class="reference external" href="./Examples/Commands/subintphase2.png">png</a>, <a class="reference external" href="./Examples/Commands/subintphase2.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/subintphase2.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/subintphase2.png" src="_images/subintphase2.png" />
@@ -827,6 +1456,38 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <div class="section" id="fft-and-spatial-filters">
 <h2><span class="section-number">6.10. </span>FFT and spatial filters.<a class="headerlink" href="#fft-and-spatial-filters" title="Permalink to this headline">¶</a></h2>
 <p>LightPipes provide a possibility to perform arbitrary filtering in the Fourier space. There is an operator, performing the Fourier transform of the whole data structure: <a class="reference internal" href="command-reference.html#LightPipes.PipFFT" title="LightPipes.PipFFT"><code class="xref py py-func docutils literal notranslate"><span class="pre">PipFFT</span></code></a>.</p>
+<p>To spatial filter a beam with an aperture the following code could be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">150</span>
+<span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">m</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">Rf</span><span class="o">=</span><span class="mf">1.5</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">seed</span><span class="o">=</span><span class="mi">7</span>
+<span class="n">MaxPhase</span><span class="o">=</span><span class="mf">1.5</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">RandomPhase</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span><span class="n">MaxPhase</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">PipFFT</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">Rf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">F</span><span class="o">=</span><span class="n">PipFFT</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+<span class="n">I1</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Unfiltered intensity&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Filtered intensity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/PipFFT.py">Source code</a>, <a class="reference external" href="./Examples/Commands/PipFFT.png">png</a>, <a class="reference external" href="./Examples/Commands/PipFFT.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/PipFFT.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/PipFFT.png" src="_images/PipFFT.png" />
@@ -841,23 +1502,132 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <p>The intensity must be doubled because of the left- and right propagating fields in a normal resonator. (If only one field is propagating in one direction (ring laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)</span> to remove the factor 2 in the denominator).</p>
 <p>The gain sheet should be at one of the mirrors of a (un)stable laser resonator.</p>
 </div>
-<div class="section" id="diagnostics-strehl-ratio-beam-power">
-<h2><span class="section-number">6.12. </span>Diagnostics: Strehl ratio, beam power.<a class="headerlink" href="#diagnostics-strehl-ratio-beam-power" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="diagnostics">
+<h2><span class="section-number">6.12. </span>Diagnostics.<a class="headerlink" href="#diagnostics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="strehl-ratio">
+<h3><span class="section-number">6.12.1. </span>Strehl ratio.<a class="headerlink" href="#strehl-ratio" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="command-reference.html#LightPipes.Strehl" title="LightPipes.Strehl"><code class="xref py py-func docutils literal notranslate"><span class="pre">Strehl</span></code></a> command calculates the Strehl ratio of the field, defined as:</p>
 <div class="math notranslate nohighlight">
 \[S= \frac{(\int  \int Re(F_{in}(x,y)dxdy)^2  + (\int  \int Im(F_{in}(x,y)dxdy)^2}{(\int \int |(F_{in}(x,y)|dxdy)^2}\]</div>
 <p>The next example calculates the Strehl ratio of a field with increasing random phase fluctuations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">1.0</span><span class="o">*</span><span class="n">um</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">200</span>
+<span class="n">w</span><span class="o">=</span><span class="mi">25</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">S</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">MaxPhase</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">MaxPhase</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">seed</span><span class="o">=</span><span class="n">i</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">F</span><span class="o">=</span><span class="n">RandomPhase</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span><span class="n">MaxPhase</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Strehl</span><span class="p">(</span><span class="n">F</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">MaxPhase</span><span class="p">,</span><span class="n">S</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Strehl ratio of a beam with random phase</span><span class="se">\n</span><span class="s1"> as a function of the amplitude of the phase fluctuations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Strehl ratio&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MaxPhase&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>(<a class="reference external" href="./Examples/Commands/Strehl.py">Source code</a>, <a class="reference external" href="./Examples/Commands/Strehl.png">png</a>, <a class="reference external" href="./Examples/Commands/Strehl.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/Strehl.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="_images/Strehl.png" src="_images/Strehl.png" />
 </div>
 <p><em>Fig. 21. Demonstration of the use of the Strehl function to calculate the Strehl ratio (beam quality).</em></p>
-<p>The <em>Normal</em> command normalizes the field according to:</p>
+</div>
+<div class="section" id="beam-power">
+<h3><span class="section-number">6.12.2. </span>Beam power.<a class="headerlink" href="#beam-power" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="command-reference.html#LightPipes.Power" title="LightPipes.Power"><code class="xref py py-func docutils literal notranslate"><span class="pre">Power</span></code></a> command returns the total beam power:</p>
+<div class="math notranslate nohighlight">
+\[P=\int \int(|F_{in}(x,y)|)^2dxdy\]</div>
+</div>
+<div class="section" id="field-normalization">
+<h3><span class="section-number">6.12.3. </span>Field normalization.<a class="headerlink" href="#field-normalization" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="command-reference.html#LightPipes.Normal" title="LightPipes.Normal"><code class="xref py py-func docutils literal notranslate"><span class="pre">Normal</span></code></a> command normalizes the field according to:</p>
 <div class="math notranslate nohighlight">
 \[F_{out}(x,y)=\frac{F_{in}(x,y)}{ \sqrt{P} }\]</div>
 <div class="math notranslate nohighlight">
 \[P=\int \int(|F_{in}(x,y)|)^2dxdy\]</div>
 <p>where P is the total beam power.</p>
+</div>
+<div class="section" id="centroid">
+<h3><span class="section-number">6.12.4. </span>Centroid.<a class="headerlink" href="#centroid" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="command-reference.html#LightPipes.Centroid" title="LightPipes.Centroid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Centroid</span></code></a> command calculates the centroid of the intensity distribution.
+It also returns the indices of the Field array closest to the centroid coordinates.</p>
+<div class="math notranslate nohighlight">
+\[X_c=\frac{\int \int xI(x,y)dxdy}{\int \int I(x,y)dxdy}\]</div>
+<div class="math notranslate nohighlight">
+\[Y_c=\frac{\int \int yI(x,y)dxdy}{\int \int I(x,y)dxdy}\]</div>
+</div>
+<div class="section" id="beam-width">
+<h3><span class="section-number">6.12.5. </span>Beam width.<a class="headerlink" href="#beam-width" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="d4-sigma">
+<span id="id16"></span><h4><span class="section-number">6.12.5.1. </span><span class="math notranslate nohighlight">\(D4\sigma\)</span><a class="headerlink" href="#d4-sigma" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference internal" href="command-reference.html#LightPipes.D4sigma" title="LightPipes.D4sigma"><code class="xref py py-func docutils literal notranslate"><span class="pre">D4sigma</span></code></a> command returns the width of a beam in the horizontal and vertical direction. It is <span class="math notranslate nohighlight">\(4\)</span> times <span class="math notranslate nohighlight">\(\sigma\)</span>,
+where <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the horizontal or vertical marginal distribution respectively.
+Mathematically, the <span class="math notranslate nohighlight">\(D4\sigma\)</span> beam width in the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> dimension for the beam profile <span class="math notranslate nohighlight">\(I(x,y)\)</span> is expressed as:</p>
+<div class="math notranslate nohighlight">
+\[D4\sigma _x=4\sigma=4\sqrt{\frac{\int \int (x-X_c)^2I(x,y)dxdy}{\int \int I(x,y)dxdy}}\]</div>
+<div class="math notranslate nohighlight">
+\[D4\sigma _y=4\sigma=4\sqrt{\frac{\int \int (y-Y_c)^2I(x,y)dxdy}{\int \int I(x,y)dxdy}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_c\)</span> and <span class="math notranslate nohighlight">\(Y_c\)</span> are the coordinates of the <a class="reference internal" href="command-reference.html#LightPipes.Centroid" title="LightPipes.Centroid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Centroid</span></code></a>.</p>
+<p>The next example demonstrates the usage of <a class="reference internal" href="command-reference.html#LightPipes.D4sigma" title="LightPipes.D4sigma"><code class="xref py py-func docutils literal notranslate"><span class="pre">D4sigma</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Centroid" title="LightPipes.Centroid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Centroid</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span>
+
+<span class="n">wavelength</span> <span class="o">=</span> <span class="mi">1500</span><span class="o">*</span><span class="n">nm</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">25</span><span class="o">*</span><span class="n">mm</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">CircAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">x_shift</span><span class="o">=-</span><span class="mi">6</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">y_shift</span><span class="o">=-</span><span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
+<span class="n">Xc</span><span class="p">,</span><span class="n">Yc</span><span class="p">,</span> <span class="n">NXc</span><span class="p">,</span> <span class="n">NYc</span> <span class="o">=</span><span class="n">Centroid</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">D4sigma</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I0</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+
+<span class="c1"># Axes ...</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">main_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">divider</span>  <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">main_ax</span><span class="p">)</span>
+<span class="n">top_ax</span>   <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>   <span class="mf">1.05</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">main_ax</span><span class="p">)</span>
+<span class="n">right_ax</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">append_axes</span><span class="p">(</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="n">main_ax</span><span class="p">)</span>
+
+<span class="c1"># Make some labels invisible</span>
+<span class="n">top_ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">labelbottom</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">right_ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c1"># Labels ...</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X [mm]&#39;</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y [mm]&#39;</span><span class="p">)</span>
+<span class="n">top_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="n">right_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+
+<span class="c1">#plot ...</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">xvalues</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">yvalues</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">I0</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">Xc</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">Yc</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">((</span><span class="n">Xc</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">Yc</span><span class="o">/</span><span class="n">mm</span><span class="p">),</span> <span class="n">sx</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">sy</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">))</span>
+<span class="n">right_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I0</span><span class="p">[:,</span><span class="n">NXc</span><span class="p">],</span><span class="n">F</span><span class="o">.</span><span class="n">yvalues</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">top_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">xvalues</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span><span class="n">I0</span><span class="p">[</span><span class="n">NYc</span><span class="p">,:],</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="./Examples/Commands/D4sigma.py">Source code</a>, <a class="reference external" href="./Examples/Commands/D4sigma.png">png</a>, <a class="reference external" href="./Examples/Commands/D4sigma.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/D4sigma.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="_images/D4sigma.png" src="_images/D4sigma.png" />
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="references">
 <h2><span class="section-number">6.13. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -918,7 +1688,7 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Feb 12, 2021.
+        Last updated on Mar 17, 2021.
       </span>
 
     </p>
