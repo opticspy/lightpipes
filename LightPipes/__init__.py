@@ -106,7 +106,7 @@ from .core import Interpol
 from .sources import PointSource, GaussBeam, PlaneWave
 from .userfunc import ZonePlate, CylindricalLens, RowOfFields, FieldArray2D
 
-def Begin(size,labda,N):
+def Begin(size,labda,N,dtype=None):
     """
     *Initiates a field with a grid size, a wavelength and a grid dimension.*
     
@@ -147,7 +147,7 @@ def Begin(size,labda,N):
         * :ref:`Examples: Diffraction from a circular aperture <Diffraction from a circular aperture.>`
     """
 
-    Fout = Field.begin(size, labda, N) #returns Field class with all params
+    Fout = Field.begin(size, labda, N, dtype) #returns Field class with all params
     return Fout
 
 def LPtest():
