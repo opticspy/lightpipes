@@ -70,7 +70,7 @@ Bug fixes:
 Command changes:
     *  :func:`~LightPipes.Begin`: type of the complex field array can be set to numpy.complex64 to save memory, thanks to leguyader, issue 62.
 
-Fred van Goor, April, 1, 2021.
+Fred van Goor, March, 27, 2021.
 
 **Version 2.0.8** on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
