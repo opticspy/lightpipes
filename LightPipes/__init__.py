@@ -108,7 +108,9 @@ from .userfunc import ZonePlate, CylindricalLens, RowOfFields, FieldArray2D
 
 def Begin(size,labda,N,dtype=None):
     """
-    *Initiates a field with a grid size, a wavelength and a grid dimension.*
+    *Initiates a field with a grid size, a wavelength and a grid dimension.
+    By setting dtype to numpy.complex64 memory can be saved.
+    If dtype is not set (default = None), complex (equivalent to numpy.complex128) will be used for the field array.*
     
     :param size: size of the square grid
     :type size: int, float
@@ -116,6 +118,8 @@ def Begin(size,labda,N,dtype=None):
     :type labda: int, float
     :param N: the grid dimension
     :type N: int
+    :param dtype: type of the field array
+    :type dtype: complex, numpy.complex64, numpy.complex128 (default = None)
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
     :Example:

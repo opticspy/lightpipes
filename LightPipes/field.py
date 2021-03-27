@@ -90,7 +90,7 @@ class Field:
             if dtype is None:
                 self._dtype=complex
             else:
-                print("invalid dtype given, dtype must be complex, numpy.complex128 or numpy.complex64. dtype is set to: complex")
+                print("Begin command: invalid dtype given, dtype must be complex, numpy.complex128 or numpy.complex64. dtype is set to: complex")
                 self._dtype = complex
 
         if Fin is None:

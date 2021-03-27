@@ -3,15 +3,12 @@
 Script to test the Begin command with dtype option.
 """
 from LightPipes import *
-import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
-from matplotlib import patches
 import numpy as np
 import sys
 
 wavelength = 500*nm
 size = 25*mm
-N = 30000
+N = 300
 N2=int(N/2)
 w0=2*mm
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Installation. &mdash; LightPipes for Python 2.0.8 documentation</title>
+  <title>2. Installation. &mdash; LightPipes for Python 2.0.9 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.8
+                2.0.9
               </div>
             
           
@@ -92,12 +92,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Installation.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#lightpipes-release-release-notes">2.1. LightPipes 2.0.8 release notes.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#new-commands">2.1.1. New commands.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#command-changes">2.1.2. Command changes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bug-fixes">2.1.3. Bug fixes.</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#lightpipes-release-notes">2.1. LightPipes  release notes.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#known-installation-problems">2.2. Known installation problems.</a></li>
 </ul>
 </li>
@@ -175,7 +170,7 @@
             
   <div class="section" id="installation">
 <h1><span class="section-number">2. </span>Installation.<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Current version = 2.0.8</p>
+<p>Current version = 2.0.9</p>
 <p>Up to version 1.2.0 the LightPipes for Python package, called LightPipes,
 consists of a collection of C++ routines which can be called from a Python script.
 From version 2.0.0 we transformed the package into pure Python using the numpy, scipy and pyFFTW
@@ -215,33 +210,46 @@ MatplotLib can be installed by typing in a terminal:</p>
 <p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
 See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.html">http://www.tkdocs.com/tutorial/install.html</a> how to install it on your platform.</p>
 <p>Finally, a convenient editor to make Python scripts is <a class="reference external" href="http://www.geany.org/">Geany</a>.</p>
-<div class="section" id="lightpipes-release-release-notes">
-<h2><span class="section-number">2.1. </span>LightPipes 2.0.8 release notes.<a class="headerlink" href="#lightpipes-release-release-notes" title="Permalink to this headline">¶</a></h2>
-<p>Fred van Goor, 13 march 2021.</p>
-<div class="section" id="new-commands">
-<h3><span class="section-number">2.1.1. </span>New commands.<a class="headerlink" href="#new-commands" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<div class="section" id="lightpipes-release-notes">
+<h2><span class="section-number">2.1. </span>LightPipes  release notes.<a class="headerlink" href="#lightpipes-release-notes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Version:</strong> 2.0.9 (under development)</p>
+<dl class="simple">
+<dt>New commands:</dt><dd><ul class="simple">
+<li><p>none</p></li>
+</ul>
+</dd>
+<dt>Bug fixes:</dt><dd><ul class="simple">
+<li><p>none</p></li>
+</ul>
+</dd>
+<dt>Command changes:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="command-reference.html#LightPipes.Begin" title="LightPipes.Begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">Begin</span></code></a>: type of the complex field array can be set to numpy.complex64 to save memory, thanks to leguyader, issue 62.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Fred van Goor, April, 1, 2021.</p>
+<p><strong>Version 2.0.8</strong> on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
+<dl class="simple">
+<dt>New commands:</dt><dd><ul class="simple">
 <li><p><a class="reference internal" href="command-reference.html#LightPipes.ABCD" title="LightPipes.ABCD"><code class="xref py py-func docutils literal notranslate"><span class="pre">ABCD</span></code></a>: propagation of a pure Gaussian field using ABCD matrix.</p></li>
 <li><p><a class="reference internal" href="command-reference.html#LightPipes.GLens" title="LightPipes.GLens"><code class="xref py py-func docutils literal notranslate"><span class="pre">GLens</span></code></a>: Lens filter for a pure Gaussian field using ABCD matrix.</p></li>
 <li><p><a class="reference internal" href="command-reference.html#LightPipes.GForvard" title="LightPipes.GForvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">GForvard</span></code></a>: Free space propagation of a pure Gaussian field using ABCD matrix.</p></li>
-<li><p><a class="reference internal" href="command-reference.html#LightPipes.Propagate" title="LightPipes.Propagate"><code class="xref py py-func docutils literal notranslate"><span class="pre">Propagate</span></code></a>: Free space propagation of a field chosing the best propagtion routine depending on Fresnel number, pure Gauss (experimental)</p></li>
+<li><p><a class="reference internal" href="command-reference.html#LightPipes.Propagate" title="LightPipes.Propagate"><code class="xref py py-func docutils literal notranslate"><span class="pre">Propagate</span></code></a>: Free space propagation of a field choosing the best propagation routine depending on Fresnel number (experimental)</p></li>
 <li><p><a class="reference internal" href="command-reference.html#LightPipes.Centroid" title="LightPipes.Centroid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Centroid</span></code></a>: returns the centroid coordinates of an intensity distribution.</p></li>
 <li><p><a class="reference internal" href="command-reference.html#LightPipes.D4sigma" title="LightPipes.D4sigma"><code class="xref py py-func docutils literal notranslate"><span class="pre">D4sigma</span></code></a>: returns the beam width (<span class="math notranslate nohighlight">\(D4\sigma\)</span>) of an intensity distribution.</p></li>
 </ul>
-</div>
-<div class="section" id="command-changes">
-<h3><span class="section-number">2.1.2. </span>Command changes.<a class="headerlink" href="#command-changes" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+</dd>
+<dt>Command changes:</dt><dd><ul class="simple">
 <li><p><a class="reference internal" href="command-reference.html#LightPipes.Lens" title="LightPipes.Lens"><code class="xref py py-func docutils literal notranslate"><span class="pre">Lens</span></code></a>: a check for Pure Gauss beam is performed so use can be made of analytical ABCD propagation if the input field is pure Gaussian, is in the grid-center and is not tilted.</p></li>
 <li><p>All commands set the “IsPureGauss” flag to False to allow ABCD propagation only when it is possible.</p></li>
 </ul>
-</div>
-<div class="section" id="bug-fixes">
-<h3><span class="section-number">2.1.3. </span>Bug fixes.<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+</dd>
+<dt>Bug fixes:</dt><dd><ul class="simple">
 <li><p>A bug in <a class="reference internal" href="command-reference.html#LightPipes.Steps" title="LightPipes.Steps"><code class="xref py py-func docutils literal notranslate"><span class="pre">Steps</span></code></a> was fixed. Now scalar values of the refractive index can be passed as an argument.</p></li>
 </ul>
-</div>
+</dd>
+</dl>
+<p>Fred van Goor, 13 march 2021.</p>
 </div>
 <div class="section" id="known-installation-problems">
 <h2><span class="section-number">2.2. </span>Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline">¶</a></h2>
@@ -402,7 +410,7 @@ Of course _USE_PYFFTW must be put back to True after you have successfully insta
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Mar 17, 2021.
+        Last updated on Mar 27, 2021.
       </span>
 
     </p>

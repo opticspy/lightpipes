@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Command Reference. &mdash; LightPipes for Python 2.0.8 documentation</title>
+  <title>4. Command Reference. &mdash; LightPipes for Python 2.0.9 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                2.0.8
+                2.0.9
               </div>
             
           
@@ -286,14 +286,17 @@
 
 <dl class="py function">
 <dt id="LightPipes.Begin">
-<code class="sig-name descname">Begin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em>, <em class="sig-param"><span class="n">labda</span></em>, <em class="sig-param"><span class="n">N</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Begin" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Initiates a field with a grid size, a wavelength and a grid dimension.</em></p>
+<code class="sig-name descname">Begin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em>, <em class="sig-param"><span class="n">labda</span></em>, <em class="sig-param"><span class="n">N</span></em>, <em class="sig-param"><span class="n">dtype</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Begin" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Initiates a field with a grid size, a wavelength and a grid dimension.
+By setting dtype to numpy.complex64 memory can be saved.
+If dtype is not set (default = None), complex (equivalent to numpy.complex128) will be used for the field array.</em></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>size</strong> (<em>int</em><em>, </em><em>float</em>) – size of the square grid</p></li>
 <li><p><strong>labda</strong> (<em>int</em><em>, </em><em>float</em>) – the wavelength of the output field</p></li>
 <li><p><strong>N</strong> (<em>int</em>) – the grid dimension</p></li>
+<li><p><strong>dtype</strong> (<em>complex</em><em>, </em><em>numpy.complex64</em><em>, </em><em>numpy.complex128</em><em> (</em><em>default = None</em><em>)</em>) – type of the field array</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -2146,7 +2149,7 @@ meaningless in the result.</p>
     <p>
         &copy; Copyright 2017, Fred van Goor
       <span class="lastupdated">
-        Last updated on Mar 17, 2021.
+        Last updated on Mar 27, 2021.
       </span>
 
     </p>
