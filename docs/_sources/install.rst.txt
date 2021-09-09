@@ -59,7 +59,23 @@ Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.
 LightPipes  release notes.
 ==========================
 
-**Version:** |release| (under development)
+**Version:** |release| on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+
+New commands:
+    * none
+
+Bug fixes:
+    * repaired some warning messages in core.py and zernike.py
+    * when LightPipes is installed on an iPad with `pyto <https://pyto.readthedocs.io/en/latest/#>`_ 
+      the warning message that the package pyFFTW is not installed has been removed.
+      pyFFTW is not pure python and cannot be installed by a user on his iPad.
+
+Command changes:
+    *  none
+
+Fred van Goor, September, 9, 2021.
+
+**Version:** 2.0.9 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 New commands:
     * none
@@ -70,7 +86,7 @@ Bug fixes:
 Command changes:
     *  :func:`~LightPipes.Begin`: type of the complex field array can be set to numpy.complex64 to save memory, thanks to leguyader, issue 62.
 
-Fred van Goor, March, 27, 2021.
+Fred van Goor, September, 9, 2021.
 
 **Version 2.0.8** on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
