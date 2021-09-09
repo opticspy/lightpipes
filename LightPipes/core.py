@@ -95,7 +95,7 @@ def Centroid(Fin):
 
 def D4sigma(Fin):
     """
-    *Returns the width (* :math:`D4\sigma` *) of the intensity distribution.*
+    *Returns the width (* :math:`D4\\sigma` *) of the intensity distribution.*
     
     :param Fin: input field.
     :type Fin: Field
@@ -843,7 +843,7 @@ def Power(Fin):
     """
     *Calculates the total power.*
     
-    .. math:: P=\int \int(|F_{in}(x,y)|)^2dxdy
+    .. math:: P=\\int \\int(|F_{in}(x,y)|)^2dxdy
     
     :param Fin: input field
     :type Fin: Field

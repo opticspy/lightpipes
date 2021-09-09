@@ -12,6 +12,14 @@ _WARNING =  '\n**************************** WARNING ***********************\n'\
             +'Enter: python _Wignore *****.py\n'\
             +'*************************************************************'
 _USE_PYFFTW = True
+
+# On an iPad pyFFTW is not (yet?) installed and cannot be user-installed because it is not pure Python.
+# So do not use pyFFTW in that case and suppress the warning message.
+import platform
+NodeName = f"System: {platform.uname().node}"
+if NodeName == "System: iPad":
+    _USE_PYFFTW = False
+
 _using_pyfftw = False # determined if loading is successful
 if _USE_PYFFTW:
     try:

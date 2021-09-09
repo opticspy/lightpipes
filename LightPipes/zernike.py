@@ -33,7 +33,7 @@ def Zernike(Fin, n, m, R, A = 1.0, norm=True, units='opd'):
     :type Fin: Field
     :param n: radial order
     :type n: int, float
-    :param m: azimuthal order, n-\|m\| must be even, \|m\|<=n
+    :param m: azimuthal order, n-\\|m\\| must be even, \\|m\\|<=n
     :type m: int, float    
     :param R: radius of the aberrated aperture
     :type R: int, float
