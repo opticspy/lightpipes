@@ -31,7 +31,7 @@ for k in range(1,Nrndtrips+1):
    print('  {0:2d}          {1:0.3f}'.format(k, SR[k]))
    F2=RectScreen(w,w,0,0,0,F);
    I=Intensity(2,F2);
-   plt.subplot(2,Nrndtrips/2,k)
+   plt.subplot(2,int(Nrndtrips/2),k)
    plt.title(k)
    plt.axis('off')
    plt.imshow(I,cmap='jet')
