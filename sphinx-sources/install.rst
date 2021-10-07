@@ -59,7 +59,20 @@ Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.
 LightPipes  release notes.
 ==========================
 
-**Version:** |release| on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+**Version:** |release|
+
+New commands:
+    * none
+
+Bug fixes:
+    * updated LPtest() command
+
+Command changes:
+    *  none
+
+Fred van Goor, October, 7, 2021.
+
+**Version:** 2.1.0 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 New commands:
     * none
@@ -69,6 +82,7 @@ Bug fixes:
     * when LightPipes is installed on an iPad with `pyto <https://pyto.readthedocs.io/en/latest/#>`_ 
       the warning message that the package pyFFTW is not installed has been removed.
       pyFFTW is not pure python and cannot be installed by a user on his iPad.
+    * updated LPtest() command
 
 Command changes:
     *  none
