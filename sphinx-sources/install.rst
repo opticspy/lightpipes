@@ -59,7 +59,8 @@ Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.
 LightPipes  release notes.
 ==========================
 
-**Version:** |release|
+**Version:** |release| on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+
 
 New commands:
     * none
