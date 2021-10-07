@@ -162,13 +162,15 @@ def LPtest():
     :rtype: string
     
     """
+    import math
     F=Begin(1.8,2.5,55)
     F=Fresnel(10,F)
     I=Intensity(0,F)
     S=np.sum(I)
     Sa=16.893173606654138
-    if S==Sa:
-        print('Test OK')
+    if math.isclose(S, Sa):
+        print('LightPipes for Python: test passed.')
+        print("LightPipes version:",LPversion)
     else:
         print('Test failed')
 
