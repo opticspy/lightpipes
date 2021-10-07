@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 """
-Script to test the Begin command with dtype option.
+Script to test the LPtest() command.
 """
 from LightPipes import *
 LPtest()
