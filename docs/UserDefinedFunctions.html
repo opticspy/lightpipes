@@ -1,80 +1,39 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>5. User defined functions. &mdash; LightPipes for Python 2.1.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>5. User defined functions. &mdash; LightPipes for Python 2.1.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="6. Manual." href="manual.html" />
     <link rel="prev" title="4. Command Reference." href="command-reference.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> LightPipes for Python
-          
-
-          
-            
             <img src="_static/front.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                2.1.1
+                2.1.2
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -82,19 +41,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
     
-            
-            
-              
-            
-            
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
@@ -111,78 +59,37 @@
 <li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
 </ul>
 
-            
-          
     <a href="genindex.html">Index</a>
   
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">LightPipes for Python</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li><span class="section-number">5. </span>User defined functions.</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/UserDefinedFunctions.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="user-defined-functions">
-<span id="index-0"></span><h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="user-defined-functions">
+<span id="index-0"></span><h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline"></a></h1>
 <p>It is possible to make your own commands and use them in your simulations in the same way as the LightPipes commands. In this chapter we describe a step by step procedure to write a user defined command. It is also possible to make your commands <a class="reference internal" href="#make-your-functions-part-of-your-lightpipes-for-python-installation"><span class="std std-ref">part of your LightPipes installation</span></a>.</p>
-<div class="section" id="user-defined-functions-in-a-subdirectory-of-your-python-scripts">
-<h2><span class="section-number">5.1. </span>User defined functions in a subdirectory of your Python scripts.<a class="headerlink" href="#user-defined-functions-in-a-subdirectory-of-your-python-scripts" title="Permalink to this headline">¶</a></h2>
+<section id="user-defined-functions-in-a-subdirectory-of-your-python-scripts">
+<h2><span class="section-number">5.1. </span>User defined functions in a subdirectory of your Python scripts.<a class="headerlink" href="#user-defined-functions-in-a-subdirectory-of-your-python-scripts" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><dl class="simple">
 <dt>Create a new subdirectory in the directory of your Python script.</dt><dd><p>Create a new subdirectory, for example: <em>MyFunctions</em></p>
@@ -232,12 +139,12 @@ from MyFunctions.MyLightPipesFunctions import CylindricalLens
 </ol>
 <p>Below is the complete Python script to test the <em>CylindricalLens</em> command:</p>
 <p>(<a class="reference external" href=".//MyLightPipesFunctions.py">Source code</a>, <a class="reference external" href=".//MyLightPipesFunctions.png">png</a>, <a class="reference external" href=".//MyLightPipesFunctions.hires.png">hires.png</a>, <a class="reference external" href=".//MyLightPipesFunctions.pdf">pdf</a>)</p>
-<div class="figure align-default">
-<img alt="_images/MyLightPipesFunctions.png" src="_images/MyLightPipesFunctions.png" />
-</div>
-</div>
-<div class="section" id="make-your-functions-part-of-your-lightpipes-for-python-installation">
-<h2><span class="section-number">5.2. </span>Make your functions part of your LightPipes for Python installation.<a class="headerlink" href="#make-your-functions-part-of-your-lightpipes-for-python-installation" title="Permalink to this headline">¶</a></h2>
+<figure class="align-default">
+<img alt="_images/MyLightPipesFunctions.png" class="plot-directive" src="_images/MyLightPipesFunctions.png" />
+</figure>
+</section>
+<section id="make-your-functions-part-of-your-lightpipes-for-python-installation">
+<h2><span class="section-number">5.2. </span>Make your functions part of your LightPipes for Python installation.<a class="headerlink" href="#make-your-functions-part-of-your-lightpipes-for-python-installation" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><dl>
 <dt>Find userfunc.py.</dt><dd><p>The code of a user defined command must be put in the file: <em>userfunc.py</em>. This file can be found in the directory in which the LightPipes package was installed on your computer. This directory, called “site-packages” can be found at the place where Python was installed. Use the following Python commands to locate this directory. Depending on your Python-installation the response could be:</p>
@@ -341,69 +248,51 @@ __all__.extend<span class="o">([</span>
 <li><dl>
 <dt>Test your command.</dt><dd><p>Write a test program to test your command.</p>
 <p>(<a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.png">png</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.pdf">pdf</a>)</p>
-<div class="figure align-default">
-<img alt="_images/UserDefinedCylindricalLens.png" src="_images/UserDefinedCylindricalLens.png" />
-</div>
+<figure class="align-default">
+<img alt="_images/UserDefinedCylindricalLens.png" class="plot-directive" src="_images/UserDefinedCylindricalLens.png" />
+</figure>
 </dd>
 </dl>
 </li>
 </ol>
-</div>
-<div class="section" id="your-command-should-be-an-extension-of-lightpipes">
-<h2><span class="section-number">5.3. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="your-command-should-be-an-extension-of-lightpipes">
+<h2><span class="section-number">5.3. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Permalink to this headline"></a></h2>
 <p>If you are convinced that your new command is an important, useful extension of the LightPipes for Python package, please open an issue on our <a class="reference external" href="https://github.com/opticspy/lightpipes">GitHub</a> site with the source code and the authors will consider to put it in a new version of LightPipes for Python.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="manual.html" class="btn btn-neutral float-right" title="6. Manual." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="command-reference.html" class="btn btn-neutral float-left" title="4. Command Reference." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="manual.html" class="btn btn-neutral float-right" title="6. Manual." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">
-        Last updated on Oct 07, 2021.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2017, Fred van Goor.
+      <span class="lastupdated">Last updated on Dec 19, 2021.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

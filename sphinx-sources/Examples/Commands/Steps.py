@@ -33,7 +33,7 @@ for i in range(0,Nsteps):
     Icross[i][:N]=I[int(N/2)][:N]
 
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = plt.axes(projection='3d')
 ax.plot_surface(X, Z, Icross, rstride=1, cstride=1,
     cmap='rainbow',
     linewidth=0.0,

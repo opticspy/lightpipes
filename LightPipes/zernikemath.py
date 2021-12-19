@@ -40,8 +40,8 @@ def zernike(n,m,rho,phi):
             prod = 1.0
         prod *= _np.math.factorial(n-s)*sign
         prod /= (_np.math.factorial(s)
-                * _np.math.factorial(((n+mabs)/2)-s)
-                * _np.math.factorial(((n-mabs)/2)-s))
+                * _np.math.factorial(int(((n+mabs)/2))-s)
+                * _np.math.factorial(int(((n-mabs)/2))-s))
         summ += prod
         sign = -sign
     if m>=0:

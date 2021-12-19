@@ -1,81 +1,40 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>7.4.8. Gauss TEM00 mode described with geometric optics. &mdash; LightPipes for Python 2.1.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>7.4.8. Gauss TEM00 mode described with geometric optics. &mdash; LightPipes for Python 2.1.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7.5.1. Phase recovery using Gerchberg Saxton iteration." href="PhaseRecoveryGerchbergSaxton.html" />
     <link rel="prev" title="7.4.7. Transformation of high order Gauss modes." href="LaserModeTransformer.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> LightPipes for Python
-          
-
-          
-            
             <img src="_static/front.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                2.1.1
+                2.1.2
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -83,19 +42,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
     
-            
-            
-              
-            
-            
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
@@ -136,77 +84,35 @@
 <li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
 </ul>
 
-            
-          
     <a href="genindex.html">Index</a>
   
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">LightPipes for Python</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="examples.html"><span class="section-number">7. </span>Examples.</a> &raquo;</li>
-        
       <li><span class="section-number">7.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/resonator_geometric_optics.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="gauss-tem00-mode-described-with-geometric-optics">
-<span id="index-0"></span><h1><span class="section-number">7.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.<a class="headerlink" href="#gauss-tem00-mode-described-with-geometric-optics" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="gauss-tem00-mode-described-with-geometric-optics">
+<span id="index-0"></span><h1><span class="section-number">7.4.8. </span>Gauss TEM<sub>00</sub> mode described with geometric optics.<a class="headerlink" href="#gauss-tem00-mode-described-with-geometric-optics" title="Permalink to this headline"></a></h1>
 <p>June 2020, Fred van Goor.</p>
 <p>Is it possible to describe a periodic focusing system such as a laser
 resonator with geometric optics? The answer is of course no, because
@@ -243,8 +149,8 @@ constant as well.</p></li>
 </ol>
 <p>All details about ABCD matrices, solving the wave equation, etc. can be found in for example:
 “Lasers” by: Anthony E. Siegman (1986).</p>
-<div class="section" id="abcd-matrix-formulation-to-describe-the-propagation-of-rays">
-<h2><span class="section-number">7.4.8.1. </span>ABCD matrix formulation to describe the propagation of rays.<a class="headerlink" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays" title="Permalink to this headline">¶</a></h2>
+<section id="abcd-matrix-formulation-to-describe-the-propagation-of-rays">
+<h2><span class="section-number">7.4.8.1. </span>ABCD matrix formulation to describe the propagation of rays.<a class="headerlink" href="#abcd-matrix-formulation-to-describe-the-propagation-of-rays" title="Permalink to this headline"></a></h2>
 <p>A ray vector can be defined as follows:
 <span class="math notranslate nohighlight">\(\mathbf{R} = \begin{bmatrix} {y} \\ \theta\\ \end{bmatrix}\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(y\)</span> is the position of the ray above the optical axis and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle with that axis.
@@ -270,9 +176,9 @@ ABCD matrix is one:</p>
 A &amp; B \\
 C &amp; D \\
 \end{bmatrix} = AD-BC=1\end{split}\]</div>
-</div>
-<div class="section" id="eigen-values-and-eigen-vectors-eigen-rays">
-<h2><span class="section-number">7.4.8.2. </span>Eigen values and eigen vectors (eigen rays)<a class="headerlink" href="#eigen-values-and-eigen-vectors-eigen-rays" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="eigen-values-and-eigen-vectors-eigen-rays">
+<h2><span class="section-number">7.4.8.2. </span>Eigen values and eigen vectors (eigen rays)<a class="headerlink" href="#eigen-values-and-eigen-vectors-eigen-rays" title="Permalink to this headline"></a></h2>
 <p>Each ray, <span class="math notranslate nohighlight">\(R_0\)</span>, <span class="math notranslate nohighlight">\(R_1\)</span>, <span class="math notranslate nohighlight">\(R_2\)</span>, …. <span class="math notranslate nohighlight">\(R_n\)</span> can be
 written as a linear combination of the eigen rays, of the matrix
 <span class="math notranslate nohighlight">\(\mathbf{M}\)</span>:</p>
@@ -339,9 +245,9 @@ C &amp; D \\
 \frac{-B}{A-\lambda_b}  \\
 1\\
 \end{bmatrix}\end{split}\]</div>
-</div>
-<div class="section" id="collection-of-rays-that-can-be-confined-to-the-resonator">
-<h2><span class="section-number">7.4.8.3. </span>Collection of rays that can be confined to the resonator<a class="headerlink" href="#collection-of-rays-that-can-be-confined-to-the-resonator" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="collection-of-rays-that-can-be-confined-to-the-resonator">
+<h2><span class="section-number">7.4.8.3. </span>Collection of rays that can be confined to the resonator<a class="headerlink" href="#collection-of-rays-that-can-be-confined-to-the-resonator" title="Permalink to this headline"></a></h2>
 <p>Each ray in the resonator can be described by a linear combination of
 the two eigen rays:</p>
 <div class="math notranslate nohighlight">
@@ -406,12 +312,12 @@ the “beam waist” and that <span class="math notranslate nohighlight">\(z_R\)
 <p>In the following Python script we calculate the propagation of a large number of rays in the resonator.</p>
 <p>(<a class="reference external" href=".//geometric_laser_plot_rays.py">Source code</a>)</p>
 <p>(<a class="reference external" href=".//geometric_laser_plot_rays_01_00.png">png</a>, <a class="reference external" href=".//geometric_laser_plot_rays_01_00.hires.png">hires.png</a>, <a class="reference external" href=".//geometric_laser_plot_rays_01_00.pdf">pdf</a>)</p>
-<div class="figure align-default">
-<img alt="_images/geometric_laser_plot_rays_01_00.png" src="_images/geometric_laser_plot_rays_01_00.png" />
-</div>
-</div>
-<div class="section" id="second-moments">
-<h2><span class="section-number">7.4.8.4. </span>Second moments<a class="headerlink" href="#second-moments" title="Permalink to this headline">¶</a></h2>
+<figure class="align-default">
+<img alt="_images/geometric_laser_plot_rays_01_00.png" class="plot-directive" src="_images/geometric_laser_plot_rays_01_00.png" />
+</figure>
+</section>
+<section id="second-moments">
+<h2><span class="section-number">7.4.8.4. </span>Second moments<a class="headerlink" href="#second-moments" title="Permalink to this headline"></a></h2>
 <p>The envelope of the bundle of rays and other parameters can be found
 using <strong>second moments</strong>.</p>
 <p>For the input rays:</p>
@@ -438,9 +344,9 @@ z_1\cos(\alpha)-z_R\sin(\alpha) \\
 \[\langle{y_0\theta_0}\rangle=\frac{1}{2\pi}\int_0^{2\pi}{y_0}(\alpha)\theta_0(\alpha)\mathrm{d}\alpha=2c^2z_1\]</div>
 <p>In general we want to know the rays at a distance <span class="math notranslate nohighlight">\(z'\)</span> from the
 input-reference plane:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="_images/geometric_laser_fig1.png" src="_images/geometric_laser_fig1.png" />
-</div>
+</figure>
 <p>In other words we want to know <span class="math notranslate nohighlight">\(\mathbf{R}(z',\alpha)\)</span> for a given
 input ray <span class="math notranslate nohighlight">\(\mathbf{R}_0=\mathbf{R}(0,\alpha)\)</span> The ray at a
 distance <span class="math notranslate nohighlight">\(z'\)</span> can be found by propagating in free space
@@ -490,12 +396,12 @@ equations. Also, the beam-area doubles when propagating a distance,
 <span class="math notranslate nohighlight">\(w(z)\)</span>, is also plotted in the figure below executing the same Python script as before but now with the second moments included (black dashed curves).</p>
 <p>(<a class="reference external" href=".//geometric_laser_plot_rays2.py">Source code</a>)</p>
 <p>(<a class="reference external" href=".//geometric_laser_plot_rays2_01_00.png">png</a>, <a class="reference external" href=".//geometric_laser_plot_rays2_01_00.hires.png">hires.png</a>, <a class="reference external" href=".//geometric_laser_plot_rays2_01_00.pdf">pdf</a>)</p>
-<div class="figure align-default">
-<img alt="_images/geometric_laser_plot_rays2_01_00.png" src="_images/geometric_laser_plot_rays2_01_00.png" />
-</div>
-</div>
-<div class="section" id="wavefront-radius">
-<h2><span class="section-number">7.4.8.5. </span>Wavefront radius<a class="headerlink" href="#wavefront-radius" title="Permalink to this headline">¶</a></h2>
+<figure class="align-default">
+<img alt="_images/geometric_laser_plot_rays2_01_00.png" class="plot-directive" src="_images/geometric_laser_plot_rays2_01_00.png" />
+</figure>
+</section>
+<section id="wavefront-radius">
+<h2><span class="section-number">7.4.8.5. </span>Wavefront radius<a class="headerlink" href="#wavefront-radius" title="Permalink to this headline"></a></h2>
 <p>The radius of the wavefront can be found as follows: From
 the figure it follows that:</p>
 <div class="math notranslate nohighlight">
@@ -509,20 +415,20 @@ the figure it follows that:</p>
 <div class="math notranslate nohighlight">
 \[Radius(z)=\frac{\langle{y(z)^2}\rangle}{\langle{y(z)\theta(z)}\rangle}=\frac{w_0^2(1+\frac{z^2}{z_R^2})}{2c^2z}
 =\frac{2c^2(z^2+z_R^2)}{2c^2z}=z(1+\frac{z_R^2}{z^2})\]</div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="_images/geometric_laser_fig2.png" src="_images/geometric_laser_fig2.png" />
-</div>
-</div>
-<div class="section" id="brightness">
-<h2><span class="section-number">7.4.8.6. </span>Brightness<a class="headerlink" href="#brightness" title="Permalink to this headline">¶</a></h2>
+</figure>
+</section>
+<section id="brightness">
+<h2><span class="section-number">7.4.8.6. </span>Brightness<a class="headerlink" href="#brightness" title="Permalink to this headline"></a></h2>
 <p>The following parameter, called the <strong>Brightness</strong> of the beam, does not
 change while propagating the beam:</p>
 <div class="math notranslate nohighlight">
 \[Brightness\equiv\sqrt{\langle{y(z)^2}\rangle\langle\theta{(z)^2}\rangle-\langle{y(z)}\theta(z)\rangle^2}
 =\sqrt{4c^4(z^2+z_R^2-z^2)}=2c^2z_R=const\]</div>
-</div>
-<div class="section" id="get-the-constant-c">
-<h2><span class="section-number">7.4.8.7. </span>Get the constant <span class="math notranslate nohighlight">\(c\)</span><a class="headerlink" href="#get-the-constant-c" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="get-the-constant-c">
+<h2><span class="section-number">7.4.8.7. </span>Get the constant <span class="math notranslate nohighlight">\(c\)</span><a class="headerlink" href="#get-the-constant-c" title="Permalink to this headline"></a></h2>
 <p>The constant <span class="math notranslate nohighlight">\(c\)</span> is still unknown and can be obtained by using
 Heisenberg’s uncertainty relation or by comparing the results with the
 formulas obtained using physical optics, the solution of the wave
@@ -559,58 +465,40 @@ zero, the angle, <span class="math notranslate nohighlight">\(\beta\)</span> is 
 \[c=\frac{\lambda}{\pi{\sqrt{2}w_0}}\]</div>
 <p>(There is a slight difference with the Heisenberg method. Maybe this is
 due to the slab geometry versus cylinder geometry? Comments are welcome!)</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="PhaseRecoveryGerchbergSaxton.html" class="btn btn-neutral float-right" title="7.5.1. Phase recovery using Gerchberg Saxton iteration." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="LaserModeTransformer.html" class="btn btn-neutral float-left" title="7.4.7. Transformation of high order Gauss modes." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="PhaseRecoveryGerchbergSaxton.html" class="btn btn-neutral float-right" title="7.5.1. Phase recovery using Gerchberg Saxton iteration." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">
-        Last updated on Oct 07, 2021.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2017, Fred van Goor.
+      <span class="lastupdated">Last updated on Dec 19, 2021.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

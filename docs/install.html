@@ -1,81 +1,40 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>2. Installation. &mdash; LightPipes for Python 2.1.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>2. Installation. &mdash; LightPipes for Python 2.1.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Support." href="support.html" />
     <link rel="prev" title="1. Introduction." href="introduction.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> LightPipes for Python
-          
-
-          
-            
             <img src="_static/front.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                2.1.1
+                2.1.2
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -83,24 +42,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
     
-            
-            
-              
-            
-            
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Installation.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#lightpipes-release-notes">2.1. LightPipes  release notes.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#known-installation-problems">2.2. Known installation problems.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-lightpipes-with-the-pyfftw-package">2.3. Using LightPipes with the pyFFTW package.</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
@@ -111,76 +60,35 @@
 <li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
 </ul>
 
-            
-          
     <a href="genindex.html">Index</a>
   
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">LightPipes for Python</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li><span class="section-number">2. </span>Installation.</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="installation">
-<h1><span class="section-number">2. </span>Installation.<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Current version = 2.1.1</p>
+             
+  <section id="installation">
+<h1><span class="section-number">2. </span>Installation.<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>Current version = 2.1.2</p>
 <p>Up to version 1.2.0 the LightPipes for Python package, called LightPipes,
 consists of a collection of C++ routines which can be called from a Python script.
 From version 2.0.0 we transformed the package into pure Python using the numpy, scipy and pyFFTW
@@ -214,14 +122,36 @@ In a terminal window simply type the following commands:
 <p>The response should be: “LightPipes for Python: test passed.”</p>
 <p>Most output from LightPipes python scripts should use the <a class="reference external" href="https://matplotlib.org/">MatPlotLib</a> plotting library.
 MatplotLib can be installed by typing in a terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install matplotlib
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install matplotlib
 </pre></div>
 </div>
 <p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
 See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.html">http://www.tkdocs.com/tutorial/install.html</a> how to install it on your platform.</p>
 <p>Finally, a convenient editor to make Python scripts is <a class="reference external" href="http://www.geany.org/">Geany</a>.</p>
-<div class="section" id="lightpipes-release-notes">
-<h2><span class="section-number">2.1. </span>LightPipes  release notes.<a class="headerlink" href="#lightpipes-release-notes" title="Permalink to this headline">¶</a></h2>
+<section id="lightpipes-release-notes">
+<h2><span class="section-number">2.1. </span>LightPipes  release notes.<a class="headerlink" href="#lightpipes-release-notes" title="Permalink to this headline"></a></h2>
+<p><strong>Version:</strong> 2.1.2 on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
+<dl class="simple">
+<dt>New commands:</dt><dd><ul class="simple">
+<li><p>none</p></li>
+</ul>
+</dd>
+<dt>Bug fixes:</dt><dd><ul class="simple">
+<li><p>fixed float to integer conversion errors. IndexErrors were raised in zernikemath.py</p></li>
+</ul>
+</dd>
+<dt>Command changes:</dt><dd><ul class="simple">
+<li><p>Added option in Fresnel and Forvard commands to use the pyFFTW or the numpy Fast Fourier Transform package. Default is FFT in numpy. This allows the user to compare the two FFT methods.</p></li>
+<li><p>Added a config.py file. Here one can make the usage of pyFFTW permanent.
+Change “_USEPYFFTW = False” to “_USEPYFFTW = True” in that file.
+See: <a class="reference internal" href="#using-pyfftw"><span class="std std-ref">Using LightPipes with the pyFFTW package.</span></a> for more details.</p></li>
+</ul>
+</dd>
+</dl>
+<p>In this version we also install the package matplotlib as a required installation.
+Matplotlib is used in almost all LightPipes applications to present the results.</p>
+<p>Fred van Goor, December, 18, 2021.</p>
+<hr class="docutils" />
 <p><strong>Version:</strong> 2.1.1 on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
 <dl class="simple">
 <dt>New commands:</dt><dd><ul class="simple">
@@ -238,6 +168,7 @@ See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.h
 </dd>
 </dl>
 <p>Fred van Goor, October, 7, 2021.</p>
+<hr class="docutils" />
 <p><strong>Version:</strong> 2.1.0 on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
 <dl class="simple">
 <dt>New commands:</dt><dd><ul class="simple">
@@ -258,6 +189,7 @@ pyFFTW is not pure python and cannot be installed by a user on his iPad.</p></li
 </dd>
 </dl>
 <p>Fred van Goor, September, 9, 2021.</p>
+<hr class="docutils" />
 <p><strong>Version:</strong> 2.0.9 on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
 <dl class="simple">
 <dt>New commands:</dt><dd><ul class="simple">
@@ -274,6 +206,7 @@ pyFFTW is not pure python and cannot be installed by a user on his iPad.</p></li
 </dd>
 </dl>
 <p>Fred van Goor, September, 9, 2021.</p>
+<hr class="docutils" />
 <p><strong>Version 2.0.8</strong> on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
 <dl class="simple">
 <dt>New commands:</dt><dd><ul class="simple">
@@ -295,10 +228,11 @@ pyFFTW is not pure python and cannot be installed by a user on his iPad.</p></li
 </ul>
 </dd>
 </dl>
-<p>Fred van Goor, 13 march 2021.</p>
-</div>
-<div class="section" id="known-installation-problems">
-<h2><span class="section-number">2.2. </span>Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline">¶</a></h2>
+<p>Fred van Goor, March, 13, 2021.</p>
+</section>
+<hr class="docutils" />
+<section id="known-installation-problems">
+<h2><span class="section-number">2.2. </span>Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><dl>
 <dt>Too old version of numpy:</dt><dd><p>After installation of LightPipes, using</p>
@@ -355,7 +289,7 @@ sudo apt-get update
 </pre></div>
 </div>
 <p>Step 4, install LightPipes for Python:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install lightpipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install lightpipes
 </pre></div>
 </div>
 <p>The installation of LightPipes for Python described above has been tested on a Raspberry Pi 4 model B with 8Gbyte memory and with NOOBS 3.5.0 operating system.</p>
@@ -368,34 +302,40 @@ sudo apt-get update
 </div>
 <p>As an alternative you can install the C++ version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
 Type at a terminal prompt:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install <span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install <span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
 </pre></div>
 </div>
 </dd>
 </dl>
 </li>
-<li><dl>
-<dt>Cannot install LightPipes because pyFFTW does not install:</dt><dd><p>With a new Python version it takes a while before new binaries of pyFFTW are available. Because of that we decided from LightPipes version 2.0.7. to skip pyFFTW from the list of required packages and let it be an option. As a consequence the FFT calculations are performed by the FFT of numpy which is slightly slower than pyFFTW.
+</ol>
+</section>
+<section id="using-lightpipes-with-the-pyfftw-package">
+<span id="using-pyfftw"></span><h2><span class="section-number">2.3. </span>Using LightPipes with the pyFFTW package.<a class="headerlink" href="#using-lightpipes-with-the-pyfftw-package" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><p>Using the pyFFTW package we found that LightPipes propagation routines are faster.
+However, we experienced that with a new Python version it takes a while before new binaries of pyFFTW are available.
+Because of that we decided from LightPipes version 2.0.7. to skip pyFFTW from the list of required packages and let it be an option.
+As a consequence the FFT calculations are performed by the FFT of numpy which is slightly slower than pyFFTW.
 For reasonable small grid sizes (less than 1000 x 1000 gridpoints) you will not notice that.
-When pyFFTW becomes available you can install pyFFTW and from that moment LightPipes will use pyFFTW and will be faster.
+When pyFFTW becomes available you can install pyFFTW and from that moment pyFFTW can be used and the propagation will be faster.
+See the <a class="reference internal" href="command-reference.html#LightPipes.Fresnel" title="LightPipes.Fresnel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fresnel</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a> commands how to use pyFFTW.
 So for normal installation do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install LightPipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install LightPipes
 </pre></div>
 </div>
 <p>To install pyFFTW do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install pyFFTW
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install pyFFTW
 </pre></div>
 </div>
 <p>To install LightPipes with pyFFTW do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install LightPipes<span class="o">[</span>pyfftw<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install LightPipes<span class="o">[</span>pyfftw<span class="o">]</span>
 </pre></div>
 </div>
-<p>If pyFFTW is not installed, LightPipes will show a warning to advise the user to install pyFFTW for maximum performance.
-You can suppress this warning (and all others!) by using the python option -Wignore, so do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -Wignore YourLightPipesScript.py
-</pre></div>
-</div>
-<p>The warning can also be suppressed by editing the file propagators.py in your local python site-packages directory.</p>
+<p>If pyFFTW is not installed, LightPipes will fall back to numpy FFT which is slightly slower than pyFFTW.
+A user can force the propagation routines <a class="reference internal" href="command-reference.html#LightPipes.Fresnel" title="LightPipes.Fresnel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fresnel</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a> to use pyFFTW or numpy FFT.
+If pyFFTW is not installed a warning message will be shown and LightPipes falls back to numpy FFT.
+The warning can be suppressed by editing the file config.py in your local python site-packages directory:</p>
 <ol class="arabic">
 <li><p>Find your python installation directory:
 For windows:</p>
@@ -409,7 +349,7 @@ For windows:</p>
 </div>
 </div></blockquote>
 </li>
-<li><p>You will find propagators.py in:</p>
+<li><p>You will find config.py in:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.....<span class="se">\P</span>ython3x<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\L</span>ightPipes <span class="o">(</span>windows<span class="o">)</span>
 ...../Python3x/Lib/site-packages/LightPipes <span class="o">(</span>Linux, Mac<span class="o">)</span>
@@ -417,72 +357,57 @@ For windows:</p>
 </div>
 </div></blockquote>
 </li>
-<li><p>Open propagators.py in an editor and change line 14 in:</p>
+<li><p>Open config.py in an editor and change:</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">_USE_PYFFTW</span> <span class="o">=</span> False
 </pre></div>
 </div>
 </div></blockquote>
-</li>
-<li><p>After saving propagators.py LightPipes uses numpy-FFT and the warning will be suppressed.
-Of course _USE_PYFFTW must be put back to True after you have successfully installed pyFFTW.</p></li>
-</ol>
-</dd>
-</dl>
-</li>
-</ol>
+<p>to:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">_USE_PYFFTW</span> <span class="o">=</span> True
+</pre></div>
 </div>
-</div>
+</div></blockquote>
+</li>
+</ol>
+<p>4) After saving config.py LightPipes always uses pyFFTW,
+even if you ommit the usepyFFTW = True option in the <a class="reference internal" href="command-reference.html#LightPipes.Fresnel" title="LightPipes.Fresnel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fresnel</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a> commands.</p>
+</div></blockquote>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="support.html" class="btn btn-neutral float-right" title="3. Support." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="introduction.html" class="btn btn-neutral float-left" title="1. Introduction." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="support.html" class="btn btn-neutral float-right" title="3. Support." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">
-        Last updated on Oct 07, 2021.
-      </span>
-
-    </p>
+    <p>&#169; Copyright 2017, Fred van Goor.
+      <span class="lastupdated">Last updated on Dec 19, 2021.
+      </span></p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

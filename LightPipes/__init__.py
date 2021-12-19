@@ -54,6 +54,7 @@ __all__ = [
     'LPtest',
     'LPhelp',
     'LPdemo',
+    
 ]
 
 #User defined functions from userfunc.py:
@@ -230,5 +231,4 @@ def LPdemo():
     print('Executed with python version: ' + sys.version)
     print('on a ' + platform.system() + ' ' + platform.release() + ' ' + platform.machine() +' machine')
     plt.show()
-
 

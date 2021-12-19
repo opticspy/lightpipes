@@ -41,7 +41,9 @@ j=i
 X, Y=np.meshgrid(i,j)
 I=np.array(I)
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+#ax = fig.gca(projection='3d')
+
+ax = plt.axes(projection='3d')
 surf = ax.plot_surface(X, Y, I, rstride=2, cstride=2, cmap='rainbow', linewidth=0.0)
 plt.axis('off'); plt.title('Near-field intensity distribution')
 
@@ -59,7 +61,8 @@ F2=Convert(F2);
 I2=Intensity(1,F2);
 I2=np.array(I2)
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+#ax = fig.gca(projection='3d')
+ax = plt.axes(projection='3d')
 surf = ax.plot_surface(X, Y, I2, rstride=1, cstride=1, cmap='rainbow', linewidth=0.0)
 plt.axis('off'); plt.title('Far-field intensity distribution')
 

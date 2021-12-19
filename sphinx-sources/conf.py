@@ -37,7 +37,7 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',
     'sphinx.ext.githubpages',
     'sphinx.ext.autosectionlabel',
-    'rst2pdf.pdfbuilder',
+#    'rst2pdf.pdfbuilder',
 #    'sphinxcontrib.fulltoc',
 ]
 numfig = False

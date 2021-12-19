@@ -54,7 +54,7 @@ I_NOFILTER=Intensity(0,Fouriertransform(F1))
 #plt.show()
 fig, axs = plt.subplots(1,4,figsize=(12,5))
 fig.suptitle('Pattern recognition\nusing Fourier optics', fontsize=20)
-fig.canvas.set_window_title('Pattern recognition example')
+fig.canvas.manager.set_window_title('Pattern recognition example')
 axs[0].contourf(X,Z,I_NOFILTER,cmap='hot');
 axs[0].axis('off');axs[0].axis('equal');
 axs[0].text(50,N,'non-filtered image')

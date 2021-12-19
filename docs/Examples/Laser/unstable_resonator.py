@@ -31,7 +31,7 @@ for k in range(1,Nrndtrips+1):
    print('  {0:2d}          {1:0.3f}'.format(k, SR[k]))
    F2=RectScreen(w,w,0,0,0,F);
    I=Intensity(2,F2);
-   plt.subplot(2,Nrndtrips/2,k)
+   plt.subplot(2,int(Nrndtrips/2),k)
    plt.title(k)
    plt.axis('off')
    plt.imshow(I,cmap='jet')
@@ -41,7 +41,9 @@ j=i
 X, Y=np.meshgrid(i,j)
 I=np.array(I)
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+#ax = fig.gca(projection='3d')
+
+ax = plt.axes(projection='3d')
 surf = ax.plot_surface(X, Y, I, rstride=2, cstride=2, cmap='rainbow', linewidth=0.0)
 plt.axis('off'); plt.title('Near-field intensity distribution')
 
@@ -59,7 +61,8 @@ F2=Convert(F2);
 I2=Intensity(1,F2);
 I2=np.array(I2)
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+#ax = fig.gca(projection='3d')
+ax = plt.axes(projection='3d')
 surf = ax.plot_surface(X, Y, I2, rstride=1, cstride=1, cmap='rainbow', linewidth=0.0)
 plt.axis('off'); plt.title('Far-field intensity distribution')
 

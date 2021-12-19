@@ -49,7 +49,7 @@ MatplotLib can be installed by typing in a terminal:
 
 .. code-block:: bash
 
-    pip install matplotlib
+    pip(3) install matplotlib
 
 Another useful package is `Tkinter <https://docs.python.org/3/library/tk.html>`_ to make graphical user interfaces (GUI). It is installed already with most Python installations.
 See http://www.tkdocs.com/tutorial/install.html how to install it on your platform.
@@ -60,6 +60,27 @@ LightPipes  release notes.
 ==========================
 
 **Version:** |release| on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+
+New commands:
+    * none
+
+Bug fixes:
+    * fixed float to integer conversion errors. IndexErrors were raised in zernikemath.py
+
+Command changes:
+    *  Added option in Fresnel and Forvard commands to use the pyFFTW or the numpy Fast Fourier Transform package. Default is FFT in numpy. This allows the user to compare the two FFT methods.
+    *  Added a config.py file. Here one can make the usage of pyFFTW permanent.
+       Change "_USEPYFFTW = False" to "_USEPYFFTW = True" in that file.
+       See: :ref:`using_pyFFTW` for more details.
+
+In this version we also install the package matplotlib as a required installation.
+Matplotlib is used in almost all LightPipes applications to present the results.
+
+Fred van Goor, December, 18, 2021.
+
+----
+
+**Version:** 2.1.1 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 
 New commands:
@@ -72,6 +93,8 @@ Command changes:
     *  none
 
 Fred van Goor, October, 7, 2021.
+
+----
 
 **Version:** 2.1.0 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
@@ -90,6 +113,8 @@ Command changes:
 
 Fred van Goor, September, 9, 2021.
 
+----
+
 **Version:** 2.0.9 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 New commands:
@@ -102,6 +127,8 @@ Command changes:
     *  :func:`~LightPipes.Begin`: type of the complex field array can be set to numpy.complex64 to save memory, thanks to leguyader, issue 62.
 
 Fred van Goor, September, 9, 2021.
+
+----
 
 **Version 2.0.8** on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
@@ -120,7 +147,9 @@ Command changes:
 Bug fixes:
     *  A bug in :func:`~LightPipes.Steps` was fixed. Now scalar values of the refractive index can be passed as an argument.
 
-Fred van Goor, 13 march 2021.
+Fred van Goor, March, 13, 2021.
+
+----
 
 Known installation problems.
 ============================
@@ -197,7 +226,7 @@ Known installation problems.
     
     .. code-block:: bash
     
-        sudo pip3 install lightpipes
+        sudo pip(3) install lightpipes
 
     The installation of LightPipes for Python described above has been tested on a Raspberry Pi 4 model B with 8Gbyte memory and with NOOBS 3.5.0 operating system.
     
@@ -218,39 +247,43 @@ Known installation problems.
     
     .. code-block:: bash
     
-        sudo pip3 install LightPipes==1.2.0
+        sudo pip(3) install LightPipes==1.2.0
         
-  
-3) Cannot install LightPipes because pyFFTW does not install:
-    With a new Python version it takes a while before new binaries of pyFFTW are available. Because of that we decided from LightPipes version 2.0.7. to skip pyFFTW from the list of required packages and let it be an option. As a consequence the FFT calculations are performed by the FFT of numpy which is slightly slower than pyFFTW.
+.. _using_pyFFTW:
+ 
+Using LightPipes with the pyFFTW package.
+=========================================
+
+    Using the pyFFTW package we found that LightPipes propagation routines are faster.
+    However, we experienced that with a new Python version it takes a while before new binaries of pyFFTW are available. 
+    Because of that we decided from LightPipes version 2.0.7. to skip pyFFTW from the list of required packages and let it be an option. 
+    As a consequence the FFT calculations are performed by the FFT of numpy which is slightly slower than pyFFTW.
     For reasonable small grid sizes (less than 1000 x 1000 gridpoints) you will not notice that.
-    When pyFFTW becomes available you can install pyFFTW and from that moment LightPipes will use pyFFTW and will be faster.
+    When pyFFTW becomes available you can install pyFFTW and from that moment pyFFTW can be used and the propagation will be faster.
+    See the :func:`~LightPipes.Fresnel` and :func:`~LightPipes.Forvard` commands how to use pyFFTW.
     So for normal installation do:
     
     .. code-block:: bash
     
-        sudo pip3 install LightPipes
-        
+        sudo pip(3) install LightPipes
+
+
     To install pyFFTW do:
     
     .. code-block:: bash
     
-        sudo pip3 install pyFFTW
+        sudo pip(3) install pyFFTW
         
     To install LightPipes with pyFFTW do:
     
     .. code-block:: bash
     
-        sudo pip3 install LightPipes[pyfftw]
+        sudo pip(3) install LightPipes[pyfftw]
         
-    If pyFFTW is not installed, LightPipes will show a warning to advise the user to install pyFFTW for maximum performance.
-    You can suppress this warning (and all others!) by using the python option -Wignore, so do:
-    
-    .. code-block:: bash
-    
-        python -Wignore YourLightPipesScript.py
-        
-    The warning can also be suppressed by editing the file propagators.py in your local python site-packages directory.
+    If pyFFTW is not installed, LightPipes will fall back to numpy FFT which is slightly slower than pyFFTW.
+    A user can force the propagation routines :func:`~LightPipes.Fresnel` and :func:`~LightPipes.Forvard` to use pyFFTW or numpy FFT.
+    If pyFFTW is not installed a warning message will be shown and LightPipes falls back to numpy FFT.
+    The warning can be suppressed by editing the file config.py in your local python site-packages directory:
 
     1) Find your python installation directory:
        For windows:
@@ -265,18 +298,25 @@ Known installation problems.
     
           which python
         
-    2) You will find propagators.py in:
+    2) You will find config.py in:
     
         .. code-block:: bash
         
           .....\Python3x\Lib\site-packages\LightPipes (windows)
           ...../Python3x/Lib/site-packages/LightPipes (Linux, Mac)
-        
-    3) Open propagators.py in an editor and change line 14 in:
+          
+          
+    3) Open config.py in an editor and change:
     
         .. code-block:: bash
         
           _USE_PYFFTW = False
+          
+       to:
         
-    4) After saving propagators.py LightPipes uses numpy-FFT and the warning will be suppressed.
-       Of course _USE_PYFFTW must be put back to True after you have successfully installed pyFFTW.
+        .. code-block:: bash
+        
+          _USE_PYFFTW = True       
+        
+    4) After saving config.py LightPipes always uses pyFFTW, 
+    even if you ommit the usepyFFTW = True option in the :func:`~LightPipes.Fresnel` and :func:`~LightPipes.Forvard` commands.

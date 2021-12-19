@@ -31,7 +31,7 @@ X=range(NewGridDimension)
 Y=range(NewGridDimension)
 X, Y=np.meshgrid(X,Y) 
 fig=plt.figure(figsize=(10,6))
-ax = fig.gca(projection='3d')
+ax = plt.axes(projection='3d')
 ax.plot_surface(X, Y,I,
                 rstride=1,
                 cstride=1,

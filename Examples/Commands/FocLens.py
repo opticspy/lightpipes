@@ -25,8 +25,7 @@ for i in range(0,100):
   I=Intensity(0,F);
   Icross[i][:N]=I[N2][:N]
 
-fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = plt.axes(projection='3d')
 ax.plot_surface(X, Z,
         Icross,
         rstride=1,

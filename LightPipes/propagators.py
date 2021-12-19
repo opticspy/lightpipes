@@ -1,43 +1,4 @@
 # -*- coding: utf-8 -*-
-
-"""User can decide to disable dependency here. This will slow down the FFT,
-but otherwise numpy.fft is a drop-in replacement so far."""
-_WARNING =  '\n**************************** WARNING ***********************\n'\
-            +'LightPipes: Cannot import pyFFTW, falling back to numpy.fft.\n'\
-            +'(Try to) install pyFFTW on your computer for faster performance.\n'\
-            +'Enter at a terminal prompt: python -m pip install pyfftw.\n'\
-            +'Or reinstall LightPipes with the option pyfftw\n'\
-            +'Enter: python -m pip install lightpipes[pyfftw]\n\n'\
-            +'You can suppress warnings by using the -Wignore option:\n'\
-            +'Enter: python _Wignore *****.py\n'\
-            +'*************************************************************'
-_USE_PYFFTW = True
-
-# On an iPad pyFFTW is not (yet?) installed and cannot be user-installed because it is not pure Python.
-# So do not use pyFFTW in that case and suppress the warning message.
-import platform
-NodeName = f"System: {platform.uname().node}"
-if NodeName == "System: iPad":
-    _USE_PYFFTW = False
-
-_using_pyfftw = False # determined if loading is successful
-if _USE_PYFFTW:
-    try:
-        import pyfftw as _pyfftw
-        from pyfftw.interfaces.numpy_fft import fft2 as _fft2
-        from pyfftw.interfaces.numpy_fft import ifft2 as _ifft2
-        _fftargs = {'planner_effort': 'FFTW_ESTIMATE',
-                    'overwrite_input': True,
-                    'threads': -1} #<0 means use multiprocessing.cpu_count()
-        _using_pyfftw = True
-    except ImportError:
-        import warnings
-        warnings.warn(_WARNING)
-if not _using_pyfftw:
-    from numpy.fft import fft2 as _fft2
-    from numpy.fft import ifft2 as _ifft2
-    _fftargs = {}
-
 import numpy as _np
 from scipy.special import fresnel as _fresnel, hermite
 from scipy.optimize import least_squares #TODO hide from public
@@ -48,9 +9,10 @@ from . import tictoc
 from .subs import elim, elimH, elimV
 from .misc import backward_compatible
 from .core import D4sigma
+from LightPipes.config import _USE_PYFFTW
 
 @backward_compatible
-def Fresnel(Fin, z):
+def Fresnel(Fin, z, usepyFFTW = False):
     """
     *Propagates the field using a convolution method.*
 
@@ -58,11 +20,16 @@ def Fresnel(Fin, z):
     :type Fin: Field
     :param z: propagation distance
     :type z: int, float
+    :param usepyFFTW: use the pyFFTW Fast Fourier package (default = False)
+                       Has no effect if _USEPYFFTW = True in config.py
+    :type usepyFFTW: bool
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
-    :Example:
+    :Examples:
     
     >>> F = Fresnel(F, 20*cm) # propagates the field 20 cm
+    >>> F = Fresnel(F, 20*cm, usepyFFTW = True) # propagates the field 20 cm using the pyFFTW package
+    >>> F = Fresnel(F, 20*cm, usepyFFTW = False) # propagates the field 20 cm using numpy fft
     
     .. seealso::
         
@@ -77,12 +44,12 @@ def Fresnel(Fin, z):
         return Fout #return copy to avoid hidden reference/link
     Fout = Field.shallowcopy(Fin) #no need to copy .field as it will be
     # re-created anyway inside _field_Fresnel()
-    Fout.field = _field_Fresnel(z, Fout.field, Fout.dx, Fout.lam, Fout._dtype)
+    Fout.field = _field_Fresnel(z, Fout.field, Fout.dx, Fout.lam, Fout._dtype, usepyFFTW)
     Fout._IsGauss=False
     return Fout
 
 
-def _field_Fresnel(z, field, dx, lam, dtype):
+def _field_Fresnel(z, field, dx, lam, dtype, usepyFFTW):
     """
     Separated the "math" logic out so that only standard and numpy types
     are used.
@@ -99,6 +66,9 @@ def _field_Fresnel(z, field, dx, lam, dtype):
         Wavelength lambda in sim units (usually [m]).
     dtype : dtype
         complex dtype of the array.
+    usepyFFTW : bool
+        Use the pyFFTW package if True
+        Use numpy FFT if False
 
     Returns
     -------
@@ -117,6 +87,34 @@ def _field_Fresnel(z, field, dx, lam, dtype):
             more row/col to fill entire field. No errors noticed with the new
             method so far
     ************************************************************* """
+    _using_pyfftw = False # determined if loading is successful  
+    if usepyFFTW or _USE_PYFFTW:
+        try:
+            import pyfftw as _pyfftw
+            from pyfftw.interfaces.numpy_fft import fft2 as _fft2
+            from pyfftw.interfaces.numpy_fft import ifft2 as _ifft2
+            _fftargs = {'planner_effort': 'FFTW_ESTIMATE',
+                        'overwrite_input': True,
+                        'threads': -1} #<0 means use multiprocessing.cpu_count()
+            _using_pyfftw = True 
+        except ImportError:
+            #import warnings
+            #warnings.warn(_WARNING)
+            _WARNING =  '\n**************************** WARNING ***********************\n'\
+            +'In the Fresnel command you required FFT with the pyFFTW package.\n'\
+            +'or  _USE_PYFFTW = True in your config.py file.\n'\
+            +'However LightPipes cannot import pyFFTW because it is not installed.\n'\
+            +'Falling back to numpy.fft.\n'\
+            +'(Try to) install pyFFTW on your computer for faster performance.\n'\
+            +'Enter at a terminal prompt: python -m pip install pyfftw.\n'\
+            +'Or reinstall LightPipes with the option pyfftw\n'\
+            +'Enter: python -m pip install lightpipes[pyfftw]\n\n'\
+            +'*************************************************************'
+            print(_WARNING)
+    if not _using_pyfftw:
+        from numpy.fft import fft2 as _fft2
+        from numpy.fft import ifft2 as _ifft2
+        _fftargs = {}
     tictoc.tic()
     N = field.shape[0] #assert square
     
@@ -350,7 +348,7 @@ def Forward(Fin, z, sizenew, Nnew ):
     return Fout
 
 @backward_compatible
-def Forvard(Fin, z):
+def Forvard(Fin, z, usepyFFTW = False):
     """
     *Propagates the field using a FFT algorithm.*
 
@@ -358,11 +356,16 @@ def Forvard(Fin, z):
     :type Fin: Field
     :param z: propagation distance
     :type z: int, float
+    :param usepyFFTW: use the pyFFTW Fast Fourier package (default = False)
+                       Has no effect if _USEPYFFTW = True in config.py
+    :type usepyFFTW: bool
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
-    :Example:
+    :Examples:
     
     >>> F = Forvard(F, 20*cm) # propagates the field 20 cm
+    >>> F = Forvard(F, 20*cm, usepyFFTW = True) # propagates the field 20 cm using the pyFFTW package
+    >>> F = Forvard(F, 20*cm, usepyFFTW = False) # propagates the field 20 cm using numpy FFT
     
     .. seealso::
         
@@ -370,6 +373,35 @@ def Forvard(Fin, z):
         
         * :ref:`Examples: Diffraction from a circular aperture.<Diffraction from a circular aperture.>`
     """
+    _using_pyfftw = False # determined if loading is successful
+    if usepyFFTW or _USE_PYFFTW:
+        try:
+            import pyfftw as _pyfftw
+            from pyfftw.interfaces.numpy_fft import fft2 as _fft2
+            from pyfftw.interfaces.numpy_fft import ifft2 as _ifft2
+            _fftargs = {'planner_effort': 'FFTW_ESTIMATE',
+                        'overwrite_input': True,
+                        'threads': -1} #<0 means use multiprocessing.cpu_count()
+            _using_pyfftw = True 
+        except ImportError:
+            #import warnings
+            #warnings.warn(_WARNING)
+            _WARNING =  '\n**************************** WARNING ***********************\n'\
+            +'In the Forvard command you required FFT with the pyFFTW package, \n'\
+            +'or  _USE_PYFFTW = True in your config.py file.\n'\
+            +'However LightPipes cannot import pyFFTW because it is not installed.\n'\
+            +'Falling back to numpy.fft.\n'\
+            +'(Try to) install pyFFTW on your computer for faster performance.\n'\
+            +'Enter at a terminal prompt: python -m pip install pyfftw.\n'\
+            +'Or reinstall LightPipes with the option pyfftw\n'\
+            +'Enter: python -m pip install lightpipes[pyfftw]\n\n'\
+            +'*************************************************************'
+            print(_WARNING)
+    if not _using_pyfftw:
+        from numpy.fft import fft2 as _fft2
+        from numpy.fft import ifft2 as _ifft2
+        _fftargs = {}
+
     if z==0:
         Fout = Field.copy(Fin)
         return Fout #return copy to avoid hidden reference
@@ -433,6 +465,32 @@ def Forvard(Fin, z):
     return Fout
 
 def GForvard(Fin,z):
+    """
+    *Propagates a pure Gaussian field using ABCD matrix theory.*
+
+    :param Fin: input field, must be pare Gaussian.
+    :type Fin: Field
+    :param z: propagation distance
+    :type z: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        
+        wavelength = 500*nm
+        size = 7*mm
+        N = 1000
+        
+        w0 = 1*mm
+        z = 1*m
+
+        F = Begin(size,wavelength,N)
+        F = GaussBeam(F, w0,n=0,m=0)
+        F = GForvard(F,z)      
+    """
     A=1.0
     B=z
     C=0.0
