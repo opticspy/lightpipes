@@ -71,7 +71,7 @@ def TheExample():
     F=RectScreen(0.2*mm,size,xwire,0.0,0.0,F)
     Iw=Intensity(0,F)
     F=Lens(f2,0,0,F);
-    F=Forvard(L,F); F=Gain(Isat,alpha,Lgain,F);
+    F=Forvard(F,L); F=Gain(Isat,alpha,Lgain,F);
     F=Lens(f1,0,0,F);
     F=Tilt(tx,ty,F)
     F=Forvard(L,F); F=Gain(Isat,alpha,Lgain,F);

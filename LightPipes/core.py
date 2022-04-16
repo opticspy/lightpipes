@@ -1086,7 +1086,7 @@ def SubPhase( Fin, Phi):
     if not _np.isscalar(Phi):
         Phi = _np.asarray(Phi)
         if Phi.shape != Fin.field.shape:
-            raise ValueError('Phase mapppp has wrong shape')
+            raise ValueError('Phase map has wrong shape')
     oldabs = _np.abs(Fout.field)
     Fout.field = oldabs * _np.exp(1j * Phi)
     Fout._IsGauss=False

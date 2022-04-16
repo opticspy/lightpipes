@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. Diaprojector (In Dutch). &mdash; LightPipes for Python 2.1.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="8.3.6. Fresnel diffraction." href="FresnelDiffraction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> LightPipes for Python
+            <img src="_static/front.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.1.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+    
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command-reference.html">4. Command Reference.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UserDefinedFunctions.html">5. User defined functions.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">7. Examples.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Diaprojector (In Dutch).</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#twee-optica-wetten">9.1. Twee optica wetten.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#het-maken-van-een-afbeelding-op-een-scherm">9.2. Het maken van een afbeelding op een scherm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uitvoering-van-het-afbeeldingsexperiment-niveau-1-basisonderwijs">9.3. Uitvoering van het afbeeldingsexperiment (Niveau 1, basisonderwijs).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#meting-van-de-brandpuntsafstand-van-de-lens">9.4. Meting van de brandpuntsafstand van de lens.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bepaling-van-de-plaats-van-het-scherm">9.5. Bepaling van de plaats van het scherm.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uitvoering-van-het-afbeeldingsexperiment-niveau-2-voortgezet-onderwijs-hbo-1e-jaars-universiteit">9.6. Uitvoering van het afbeeldingsexperiment (Niveau 2, voortgezet onderwijs, HBO, 1e jaars universiteit).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stap-voor-stap-uitvoering-van-het-experiment">9.7. Stap voor stap uitvoering van het experiment.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#meetfouten">9.8. Meetfouten.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix-1">9.9. Appendix 1.</a></li>
+</ul>
+</li>
+</ul>
+
+    <a href="genindex.html">Index</a>
+  
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">LightPipes for Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">9. </span>Diaprojector (In Dutch).</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Diaprojector.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="diaprojector"></span><section id="diaprojector-in-dutch">
+<span id="index-0"></span><h1><span class="section-number">9. </span>Diaprojector (In Dutch).<a class="headerlink" href="#diaprojector-in-dutch" title="Permalink to this headline"></a></h1>
+<p>Voor <a class="reference external" href="https://www.demuseumfabriek.nl/">De Museumfabriek te Enschede</a> is er een workshop ontwikkeld waarbij een projector voor dia’s gemaakt kan worden.
+Hier worden experimenten beschreven die met deze dia projector kunnen worden uitgevoerd.
+We projecteren onder andere een dia met de tekst, de “Magie van licht” op een scherm.
+Verder onderzoeken we de afbeeldingswet van de geometrische optica en bepalen de brandpuntsafstand van de afbeeldingslens.</p>
+<figure class="align-default">
+<img alt="_images/opstelling.jpeg" src="_images/opstelling.jpeg" />
+</figure>
+<p>In de natuurkunde maken we gebruik van natuurkunde wetten om een “theorie” te maken waarmee we voorspellingen kunnen doen. De theorie wordt daarna met een experiment getoetst om te kijken of de wetten goed zijn. Dit heet “wetenschap”. Hier gaan we dus een wetenschappelijk onderzoek doen!</p>
+<section id="twee-optica-wetten">
+<h2><span class="section-number">9.1. </span>Twee optica wetten.<a class="headerlink" href="#twee-optica-wetten" title="Permalink to this headline"></a></h2>
+<p>Om te voorspellen waar het scherm moet worden geplaatst om een scherp beeld te krijgen maken we gebruik van twee “optica wetten”:</p>
+<figure class="align-default" id="id1">
+<img alt="_images/wet1.png" src="_images/wet1.png" />
+<figcaption>
+<p><span class="caption-text"><em>Wet 1: Een lichtstraal die loodrecht op een lens valt zal gebogen worden naar het brandpunt achter die lens.</em></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<img alt="_images/wet2.png" src="_images/wet2.png" />
+<figcaption>
+<p><span class="caption-text"><em>Wet 2: Een lichtstraal die door het midden van een lens gaat wordt niet gebogen door de lens en gaat dus ongestoord verder.</em></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Een lichtstraal, afkomstig van een willekeurig punt op het voorwerp, die loodrecht op de lens valt, zal zodanig gebroken worden dat hij door het brandpunt van de lens gaat.
+Het woord “brandpunt” zegt eigenlijk al genoeg.
+Zonnestralen vallen loodrecht op een lens omdat de zon heel ver weg staat en de lichtstralen vrijwel evenwijdig lopen.
+Daardoor gaan al de zonnestralen door het brandpunt van de lens. De lichtsterkte in dat punt wordt daardoor zo hoog dat je je lelijk kunt branden.
+Ook is het mogelijk om papier in brand te steken als je het in het brandpunt houdt.
+Probeer dat maar eens met een vergrootglas wat natuurlijk ook een lens is.
+Doe wel voorzichtig en kijk nooit met een lens of ieder ander optisch instrument (verrekijker) naar de zon!
+Je kunt daarmee gemakkelijk je oog beschadigen.</p>
+<p>Een lichtstraal die door het midden van een lens gaat ziet eigenlijk twee evenwijdige glasvlakken zoals bij gewoon vensterglas.
+Net zoals dat bij vensters het geval is wordt de straal daarom niet gebroken.</p>
+</section>
+<section id="het-maken-van-een-afbeelding-op-een-scherm">
+<h2><span class="section-number">9.2. </span>Het maken van een afbeelding op een scherm.<a class="headerlink" href="#het-maken-van-een-afbeelding-op-een-scherm" title="Permalink to this headline"></a></h2>
+<p>We gaan nu de twee optica wetten gebruiken om te voorspellen waar de afbeelding van het voorwerp terechtkomt. In dat punt zetten we dan het scherm en kunnen we de afbeelding bekijken. Vanuit een willekeurig punt op het voorwerp vertrekken natuurlijk een heleboel stralen. Sommige daarvan zullen op de lens vallen. We bekijken nu twee speciale stralen die voldoen aan de twee optica-wetten: een loodrecht invallende straal en een straal die door het midden van de lens gaat.</p>
+<figure class="align-default" id="id3">
+<img alt="_images/afbeelden_punt.png" src="_images/afbeelden_punt.png" />
+<figcaption>
+<p><span class="caption-text"><em>Toepassing van wet 1 en 2 om de plaats van het scherm te voorspellen.</em></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Deze twee stralen gaan door de lens en kruisen elkaar in het beeldpunt.
+In dat punt zetten we het scherm.
+Nu is het zo dat ook alle andere stralen die uit het punt op het voorwerp vertrekken en door de lens gaan in hetzelfde beeldpunt terechtkomen!
+Omdat we het punt op het voorwerp willekeurig hebben gekozen zal elk punt op het voorwerp een overeenkomstig punt op het scherm hebben.
+Zo kunnen we dus het beeld beschouwen als een verzameling beeldpunten die afkomstig zijn van overeenkomstige punten op het lichtgevende voorwerp.</p>
+</section>
+<section id="uitvoering-van-het-afbeeldingsexperiment-niveau-1-basisonderwijs">
+<h2><span class="section-number">9.3. </span>Uitvoering van het afbeeldingsexperiment (Niveau 1, basisonderwijs).<a class="headerlink" href="#uitvoering-van-het-afbeeldingsexperiment-niveau-1-basisonderwijs" title="Permalink to this headline"></a></h2>
+<p>We gaan nu het afbeeldingsexperiment stap voor stap uitvoeren. Als voorwerp gebruiken we de dia met de afbeelding van een mm-verdeling. Behalve de positie van het scherm gaan we ook de vergroting meten en vergelijken met de theorie. Voor het maken van de tekening om de positie van het scherm te kunnen voorspellen hebben we de waarde van de brandpuntsafstand van de lens nodig. Die gaan we dus eerst meten.</p>
+</section>
+<section id="meting-van-de-brandpuntsafstand-van-de-lens">
+<h2><span class="section-number">9.4. </span>Meting van de brandpuntsafstand van de lens.<a class="headerlink" href="#meting-van-de-brandpuntsafstand-van-de-lens" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Zet de lamp op het uiteinde van de rail en schakel hem aan.</p></li>
+<li><p>Zet de diahouder vlak achter de lamp en plaats de dia met de mm-verdeling in de houder.</p></li>
+<li><p>Plaats de lens ergens op de rail en plaats het spiegeltje achter de lens zodat het licht teruggekaatst wordt in de richting van de lamp.</p></li>
+<li><p>Schuif met de lens (en de spiegel) zodanig dat je op het witte schermpje onder de mm-verdeling een scherp beeld ziet. Het beeld van de mm-verdeling staat op zijn kop.</p></li>
+<li><p>Meet met een liniaal de afstand van de dia tot de lens. Deze afstand is gelijk aan de brandpuntsafstand van de lens.</p></li>
+</ol>
+</section>
+<section id="bepaling-van-de-plaats-van-het-scherm">
+<h2><span class="section-number">9.5. </span>Bepaling van de plaats van het scherm.<a class="headerlink" href="#bepaling-van-de-plaats-van-het-scherm" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Leg een lang vel papier voor de rail. Het papier moet minstens 60 cm lang en 10 cm breed zijn. Plak hiertoe twee of drie vellen A4 (bijvoorbeeld printer papier) aan elkaar met plakband.</p></li>
+<li><p>Trek een horizontale lijn van 60 cm of langer in het midden van het papier. Deze lijn stelt de “optische” as voor. De optische as is de lijn die de straal aangeeft die door het midden van alle optische componenten gaat, dus ook door het midden van de lens. Bovendien staat deze straal loodrecht op de lens. Hij gaat dus volgens de twee eerder genoemde wetten zowel door het brandpunt van de lens en wordt niet door de lens gebroken.</p></li>
+<li><p>Zet de rail met daarop de lamp, de diahouder met daarin de dia met de mm-verdeling en de lens naast het papier.</p></li>
+<li><p>Plaats de lens op een afstand van ongeveer 15 cm vanaf de dia.</p></li>
+<li><p>Teken twee lijnen loodrecht op de optische as die de plaatsen van de dia en de lens aangeven.</p></li>
+<li><p>Teken een punt op de lijn van de dia 1 cm boven de optische as.</p></li>
+<li><p>Teken een punt op de optische as op een afstand gelijk aan de brandpuntsafstand achter de lens. Dit punt is het brandpunt van de lens.</p></li>
+<li><p>Trek een horizontale lijn naar de lens op 1 cm hoogte boven de optische as. Omdat deze lijn (straal) loodrecht op de lens valt zal hij gebroken worden naar het brandpunt van de lens. Trek de lijn door zodanig dat hij door het brandpunt gaat. Probeer het tekenen van de lijn en punten zo nauwkeurig mogelijk te doen.</p></li>
+<li><p>Trek een rechte lijn vanuit het punt op het voorwerp 1 cm boven de optische as door het midden van de lens. Volgens de tweede wet zal deze lijn (straal) ongebroken verder gaan. Trek hem door net zo ver als nodig is om de ander lijn te kruisen.</p></li>
+<li><p>Teken een lijn loodrecht op de optische as die door het kruispunt gaat. Deze lijn geeft de plaats aan waar je het scherm moet zetten om een scherp beeld van de dia te krijgen.</p></li>
+<li><p>Het beeld dat je ziet is een vergroting van de dia. Je kunt nu ook de vergroting meten en vergelijken met het resultaat van je tekening. Meet met een lineaal de afstand tussen twee lange streepjes op het beeld en vergelijk deze afstand met de afstand van het beeldpunt onder de optische as tot de optische as.</p></li>
+</ol>
+<p>Je tekening (en meetopstelling) zou er nu ongeveer als volgt uit moeten zien:</p>
+<figure class="align-default" id="id4">
+<img alt="_images/grafische_methode_afbeelding.jpg" src="_images/grafische_methode_afbeelding.jpg" />
+<figcaption>
+<p><span class="caption-text"><em>Meetopstelling met tekening van de lichtstralen.</em></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Is alles gelukt en kloppen de metingen met de voorspelling? Zo niet probeer het nogmaals en probeer zo nauwkeurig mogelijk te tekenen. Probeer hetzelfde te doen voor andere posities van de lens op de rail.
+Als je al goed in wiskunde bent zou je ook de metingen kunnen uitvoeren voor niveau 2. Voor de metingen bij niveau 2 maken we gebruik van wiskundige formules voor de afbeeldingswetten en zetten we de meetresultaten uit in grafieken, zodanig dat er rechte lijnen in de grafiek verschijnen. Je kunt dan veel nauwkeuriger meten en bovendien in één oogopslag zien of de metingen overeenkomen met de theorie en of je alle meetpunten goed gemeten hebt.
+Niveau 2 is bedoeld voor leerlingen van het voortgezet onderwijs.</p>
+</section>
+<section id="uitvoering-van-het-afbeeldingsexperiment-niveau-2-voortgezet-onderwijs-hbo-1e-jaars-universiteit">
+<h2><span class="section-number">9.6. </span>Uitvoering van het afbeeldingsexperiment (Niveau 2, voortgezet onderwijs, HBO, 1e jaars universiteit).<a class="headerlink" href="#uitvoering-van-het-afbeeldingsexperiment-niveau-2-voortgezet-onderwijs-hbo-1e-jaars-universiteit" title="Permalink to this headline"></a></h2>
+<p>We gaan nu het afbeeldingsexperiment opnieuw uitvoeren maar nu met behulp van de afbeeldingsformules:</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{ v } + \frac{1}{b} = \frac{1}{f}\)</span>   (1)</p>
+<p><span class="math notranslate nohighlight">\(V=-\frac{b}{v}\)</span>  (2)</p>
+<p>Hierin zijn:</p>
+<p><cite>v</cite>:  voorwerpsafstand = afstand voorwerp (dia) tot de lens.</p>
+<p><cite>b</cite>:  Beeldafstand = afstand lens tot het beeld (scherm)</p>
+<p><cite>f</cite>:  brandpuntsafstand van de lens</p>
+<p><cite>V</cite>:  vergroting = afmeting van het beeld gedeeld door de afmeting van het voorwerp</p>
+<p>Het min-teken in formule (2) is daar omdat het beeld op zijn kop staat.
+We kunnen formule (1) ook schrijven als: <span class="math notranslate nohighlight">\(\frac{1}{b}=-\frac{1}{v}+\frac{1}{f}\)</span>.
+We zien hieruit dat deze formule van de vorm <span class="math notranslate nohighlight">\(y=ax+b\)</span> is.
+Dus een rechte lijn met richtingscoëfficiënt, <span class="math notranslate nohighlight">\(a=-1\)</span>, en afsnede met de y-as, <span class="math notranslate nohighlight">\(b=\frac{1}{f}\)</span>. We gaan daarom de meetresultaten zodanig in een grafiek tekenen dat er een rechte lijn ontstaat. We kunnen dan in één oogopslag zien of de afbeeldingswet geldig is en of we alle meetpunten correct gemeten hebben.</p>
+<p>Iets dergelijks gaan we ook doen voor de vergroting, <cite>V</cite> . Uit formule (1) volgt: <span class="math notranslate nohighlight">\(b=\frac{fv}{v-f}\)</span>, zodat we met formule (2) vinden: <span class="math notranslate nohighlight">\(V=-\frac{f}{v-f}\)</span>.
+Ook nu kunnen we een rechte lijn in een grafiek krijgen als we <span class="math notranslate nohighlight">\(\frac{1}{V}\)</span> uitzetten tegen <cite>v</cite>. Immers <span class="math notranslate nohighlight">\(\frac{1}{V}=-\frac{1}{f}v+1\)</span>.</p>
+</section>
+<section id="stap-voor-stap-uitvoering-van-het-experiment">
+<h2><span class="section-number">9.7. </span>Stap voor stap uitvoering van het experiment.<a class="headerlink" href="#stap-voor-stap-uitvoering-van-het-experiment" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>Maak een tabel met de kolommen <cite>v[m]</cite>, <cite>b[m]</cite>, <cite>1/v[1/m</cite>], <cite>1/b[1/m]</cite>, <cite>V[-]</cite> en <cite>1/V[-]</cite>.</p></li>
+<li><p>Zet de lamp en daar vlak achter de diahouder met de mm verdeling op de rail en schakel de lamp aan.</p></li>
+<li><p>Zet de lens op 12 cm afstand van de dia.</p></li>
+<li><p>Zet het scherm op zodanige afstand dat er een scherp beeld ontstaat.</p></li>
+<li><p>Meet de afstand van de lens tot het scherm en de afstand tussen twee lange streepjes van het beeld. Dit is gelijk aan de vergroting omdat de afstand tussen de overeenkomstige streepjes van het voorwerp precies 1 cm is. Natuurlijk moet je in dit geval de grootte van het beeld daarom ook in cm’s uitdrukken!</p></li>
+<li><p>Herhaal de bovenstaande meting voor v = 13 cm, 14 cm , … tot en met 22 cm.</p></li>
+<li><p>Converteer cm’s naar m’s, bereken 1/v, 1/b en 1/V en zet alles in de tabel.</p></li>
+<li><p>De tabel ziet er nu als volgt uit. Maak hem verder af met jouw meetresultaten. NB de metingen gegeven in de eerste rij kunnen afwijken van jouw waarden. Ze dienen ter illustratie, vervang ze zo nodig:</p></li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>v[m]</p></th>
+<th class="head"><p>b[m]</p></th>
+<th class="head"><p>1/v[1/m]</p></th>
+<th class="head"><p>1/b[1/m]</p></th>
+<th class="head"><p>V[-]</p></th>
+<th class="head"><p>1/V[-]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.12</p></td>
+<td><p>0.825</p></td>
+<td><p>8.33</p></td>
+<td><p>1.21</p></td>
+<td><p>6.6</p></td>
+<td><p>0.15</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.13</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0.14</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0.15</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0.16</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0.17</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0.18</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0.19</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0.20</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>0.21</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>0.22</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>We drukken de meetwaarden uit in meters omdat er op die manier ‘mooie getallen’ op de assen van de grafiek komen te staan.
+Maak een grafiek met gelijke horizontale en verticale assen van 0 tot 10.  Maak ook een grafiek waarin je de inverse van de vergroting uitzet tegen de voorwerpafstand. Als je alles correct hebt uitgevoerd moeten deze grafieken er ongeveer als volgt uitzien:</p>
+<figure class="align-default" id="id5">
+<img alt="_images/meting1.png" src="_images/meting1.png" />
+<figcaption>
+<p><span class="caption-text"><em>Inverse van de beeldafstand als functie van de inverse voorwerpafstand. De rode lijn is volgens de theorie met de gemeten brandpuntsafstand.</em></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<img alt="_images/meting2.png" src="_images/meting2.png" />
+<figcaption>
+<p><span class="caption-text"><em>Inverse vergroting als functie van de voorwerpafstand. De rode lijn is volgens de theorie met de gemeten brandpuntsafstand.</em></span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="meetfouten">
+<h2><span class="section-number">9.8. </span>Meetfouten.<a class="headerlink" href="#meetfouten" title="Permalink to this headline"></a></h2>
+<p>In de bovenstaande tabel staan de gemeten waarden voor de voorwerpafstand, v, de beeldafstand, b, en de vergroting, V. Let op dat er geen kolommen met de waardes van de meetfouten zijn. Dat zou eigenlijk wel moeten, elke meting in de natuurkunde hoort vergezeld te zijn van een opgave van de fout in de meting. Deze meetfouten werken door in het resultaat van het experiment. Dat hoort bij een hoger niveau 3: Hogeschool en Universiteit.</p>
+</section>
+<section id="appendix-1">
+<h2><span class="section-number">9.9. </span>Appendix 1.<a class="headerlink" href="#appendix-1" title="Permalink to this headline"></a></h2>
+<p>Een Python programma kun je eventueel gebruiken voor het presenteren van de meetresultaten.</p>
+<p>(<a class="reference external" href="./_static/diaprojector.py">Source code</a>, <a class="reference external" href="./_static/diaprojector.png">png</a>, <a class="reference external" href="./_static/diaprojector.hires.png">hires.png</a>, <a class="reference external" href="./_static/diaprojector.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/diaprojector.png" class="plot-directive" src="_images/diaprojector.png" />
+</figure>
+<p>Echter, met pen, papier en een lineaal kom je ook heel ver…</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="FresnelDiffraction.html" class="btn btn-neutral float-left" title="8.3.6. Fresnel diffraction." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017, Fred van Goor.
+      <span class="lastupdated">Last updated on Apr 16, 2022.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

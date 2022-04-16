@@ -37,4 +37,5 @@ contents:
    manual
    examples
    computerprac
+   Diaprojector
 
