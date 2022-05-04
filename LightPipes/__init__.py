@@ -1,5 +1,7 @@
 __all__ = [
     'ABCD',
+    'AiryBeam1D',
+    'AiryBeam2D',
     'Axicon',
     'BeamMix',
     'Begin',
@@ -104,7 +106,7 @@ from .core import Normal, Power
 from .core import IntAttenuator
 from .misc import Tilt, Gain, PipFFT
 from .core import Interpol
-from .sources import PointSource, GaussBeam, PlaneWave
+from .sources import AiryBeam1D, AiryBeam2D, PointSource, GaussBeam, PlaneWave
 from .userfunc import ZonePlate, CylindricalLens, RowOfFields, FieldArray2D
 
 def Begin(size,labda,N,dtype=None):

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7. Examples. &mdash; LightPipes for Python 2.1.2 documentation</title>
+  <title>7. Examples. &mdash; LightPipes for Python 2.1.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -32,7 +32,7 @@
             <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.2
+                2.1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -65,46 +65,50 @@
 <li class="toctree-l3"><a class="reference internal" href="FresnelZonePlate.html">7.2.3. Fresnel zone plate.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#non-diffractive-bessel-beam">7.3. Non-diffractive Bessel beam.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="PoissonSpottoBesselBeam.html">7.3.1. From Poisson spot to a non-diffractive Bessel beam.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="BesselBeamWithAxicon.html">7.3.2. Generation of a Bessel beam with an axicon.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#non-diffracting-airy-beams">7.3. Non-diffracting Airy beams.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2DAiryBeam.html">7.3.1. Generation of a 2-dimensional Airy beam from a Gaussian laser beam.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#laser-examples">7.4. Laser examples.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="HermiteGaussModes.html">7.4.1. Hermite Gauss modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LaguerreGaussModes.html">7.4.2. Laguerre Gauss modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DoughnutModes.html">7.4.3. Laguerre doughnut modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="StableLaserResonator.html">7.4.4. Laser simulation, stable laser resonator.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="UnstableLaserResonator.html">7.4.5. Unstable laser resonator.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="TransformationtoDoughnutMode.html">7.4.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="LaserModeTransformer.html">7.4.7. Transformation of high order Gauss modes.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="resonator_geometric_optics.html">7.4.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#non-diffractive-bessel-beam">7.4. Non-diffractive Bessel beam.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PoissonSpottoBesselBeam.html">7.4.1. From Poisson spot to a non-diffractive Bessel beam.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BesselBeamWithAxicon.html">7.4.2. Generation of a Bessel beam with an axicon.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#phase-recovery">7.5. Phase recovery.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="PhaseRecoveryGerchbergSaxton.html">7.5.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#laser-examples">7.5. Laser examples.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HermiteGaussModes.html">7.5.1. Hermite Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LaguerreGaussModes.html">7.5.2. Laguerre Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DoughnutModes.html">7.5.3. Laguerre doughnut modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StableLaserResonator.html">7.5.4. Laser simulation, stable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UnstableLaserResonator.html">7.5.5. Unstable laser resonator.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransformationtoDoughnutMode.html">7.5.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="LaserModeTransformer.html">7.5.7. Transformation of high order Gauss modes.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resonator_geometric_optics.html">7.5.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#zernike-aberration">7.6. Zernike aberration.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ZernikeAberrations.html">7.6.1. Zernike aberrations.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RadialShearInterferometer.html">7.6.2. Radial shear interferometer.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ShackHartmannSensor.html">7.6.3. Shack Hartmann sensor.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#phase-recovery">7.6. Phase recovery.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PhaseRecoveryGerchbergSaxton.html">7.6.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#graded-index-media-grin">7.7. Graded index media GRIN.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="GRINDemo.html">7.7.1. Demonstration of a GRIN lens.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GRINYoung.html">7.7.2. Young’s experiment with GRIN lens.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PropagationLensLikeMedium.html">7.7.3. Propagation in a lens-like, absorptive medium.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zernike-aberration">7.7. Zernike aberration.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ZernikeAberrations.html">7.7.1. Zernike aberrations.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RadialShearInterferometer.html">7.7.2. Radial shear interferometer.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ShackHartmannSensor.html">7.7.3. Shack Hartmann sensor.</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#fourier-optics">7.8. Fourier optics.</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="PatternRecognition.html">7.8.1. Pattern recognition.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graded-index-media-grin">7.8. Graded index media GRIN.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GRINDemo.html">7.8.1. Demonstration of a GRIN lens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GRINYoung.html">7.8.2. Young’s experiment with GRIN lens.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PropagationLensLikeMedium.html">7.8.3. Propagation in a lens-like, absorptive medium.</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fourier-optics">7.9. Fourier optics.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="PatternRecognition.html">7.9.1. Pattern recognition.</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="computerprac.html">8. Computer practical.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Diaprojector.html">9. Diaprojector.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Diaprojector.html">9. Diaprojector (In Dutch).</a></li>
 </ul>
 
     <a href="genindex.html">Index</a>
@@ -159,65 +163,99 @@ In this chapter we will demonstrate a number of interference examples.</p>
 </ul>
 </div>
 </section>
+<section id="non-diffracting-airy-beams">
+<span id="index-0"></span><h2><span class="section-number">7.3. </span>Non-diffracting Airy beams.<a class="headerlink" href="#non-diffracting-airy-beams" title="Permalink to this headline"></a></h2>
+<p>An Airy beam will propagate without diffraction and keeps its shape
+during long propagation distances. That makes it interesting for a
+large number of applications.
+A special feature of the Airy beam is that it accellerates in the
+transverse direction by its self, although the center of
+gravity propagates as a straight line as it should be.
+From LightPipes for Python version 2.1.4. there are two new commands which
+substitude an Airy beam into the field. A one- and a two-dimensional
+Airy beam: <a class="reference internal" href="command-reference.html#LightPipes.AiryBeam1D" title="LightPipes.AiryBeam1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">AiryBeam1D</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.AiryBeam2D" title="LightPipes.AiryBeam2D"><code class="xref py py-func docutils literal notranslate"><span class="pre">AiryBeam2D</span></code></a>
+For further reading we recommend the
+<a class="reference external" href="https://www.mdpi.com/2076-3417/7/4/341/htm">open access review article</a> by Yiqi Zhang et al. <a class="footnote-reference brackets" href="#a1" id="id1">1</a></p>
+<p>Below we demonstrate how an Airy beam can be generated using a Gaussian
+laser beam, a spatial light modulator (SLM) and a Fourier transform
+with a postive lens. The SLM substitutes a cubic phase into the field.
+A non-diffracting 2D Airy beam will exist along a long distance from
+the focus of the lens.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2DAiryBeam.html">7.3.1. Generation of a 2-dimensional Airy beam from a Gaussian laser beam.</a></li>
+</ul>
+</div>
+<p class="rubric">References:</p>
+<dl class="footnote brackets">
+<dt class="label" id="a1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Yiqi Zhang, Hua Zhong, Milivoj R., Belić and Yanpeng Zhang, Appl. Sci. 2017, 7(4), 341; <a class="reference external" href="https://doi.org/10.3390/app7040341">https://doi.org/10.3390/app7040341</a></p>
+</dd>
+</dl>
+</section>
 <section id="non-diffractive-bessel-beam">
-<span id="index-0"></span><h2><span class="section-number">7.3. </span>Non-diffractive Bessel beam.<a class="headerlink" href="#non-diffractive-bessel-beam" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">7.4. </span>Non-diffractive Bessel beam.<a class="headerlink" href="#non-diffractive-bessel-beam" title="Permalink to this headline"></a></h2>
 <p>A Bessel beam has the interesting property that it does not diffract and that it keeps its shape
 over large distances. Several meters, depending on parameters, can be realized. Applications of Bessel beams
 take advantage of the very large size of the focus, which cannot be obtained using lenses or mirrors.
 For example generation of a long narrow plasma channel can be realized using a high-power
 laser beam converted into a Bessel beam by an axicon lens.</p>
-<p>Besides an axicon, a combination of an annular slit and a positive lens or concave mirror can be used in staed.
+<p>Besides an axicon, a combination of an annular slit and a positive lens or concave mirror can be used in stead <a class="footnote-reference brackets" href="#b1" id="id2">2</a>.
 In the following example a Poisson spot is generated by illuminating a circular disk by a plane mono-chromatic beam.
 The disk is positioned in the primary focus of a positive lens so that the waves originating from the edge of teh disk will be collimated.
 By blocking the rest of the incoming beam only the edge waves remain which results in a
 non-diffracting Bessel beam.</p>
-<p>reference: J.Durnin, “Exact solutions for nondiffracting beams. I. The scalar theory.”
-JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)</p>
+<p class="rubric">Reference:</p>
+<dl class="footnote brackets">
+<dt class="label" id="b1"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>J.Durnin, “Exact solutions for nondiffracting beams. I. The scalar theory.”, JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="PoissonSpottoBesselBeam.html">7.3.1. From Poisson spot to a non-diffractive Bessel beam.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BesselBeamWithAxicon.html">7.3.2. Generation of a Bessel beam with an axicon.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PoissonSpottoBesselBeam.html">7.4.1. From Poisson spot to a non-diffractive Bessel beam.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BesselBeamWithAxicon.html">7.4.2. Generation of a Bessel beam with an axicon.</a></li>
 </ul>
 </div>
 </section>
 <section id="laser-examples">
-<span id="index-1"></span><h2><span class="section-number">7.4. </span>Laser examples.<a class="headerlink" href="#laser-examples" title="Permalink to this headline"></a></h2>
+<span id="index-1"></span><h2><span class="section-number">7.5. </span>Laser examples.<a class="headerlink" href="#laser-examples" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="HermiteGaussModes.html">7.4.1. Hermite Gauss modes.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LaguerreGaussModes.html">7.4.2. Laguerre Gauss modes.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DoughnutModes.html">7.4.3. Laguerre doughnut modes.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StableLaserResonator.html">7.4.4. Laser simulation, stable laser resonator.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="UnstableLaserResonator.html">7.4.5. Unstable laser resonator.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TransformationtoDoughnutMode.html">7.4.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LaserModeTransformer.html">7.4.7. Transformation of high order Gauss modes.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="LaserModeTransformer.html#from-hermite-to-laguerre">7.4.7.1. From Hermite to Laguerre.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="LaserModeTransformer.html#from-laguerre-to-hermite">7.4.7.2. From Laguerre to Hermite.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HermiteGaussModes.html">7.5.1. Hermite Gauss modes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LaguerreGaussModes.html">7.5.2. Laguerre Gauss modes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoughnutModes.html">7.5.3. Laguerre doughnut modes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StableLaserResonator.html">7.5.4. Laser simulation, stable laser resonator.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UnstableLaserResonator.html">7.5.5. Unstable laser resonator.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TransformationtoDoughnutMode.html">7.5.6. Transformation of a fundamental Gauss mode into a doughnut mode with a spiral phase plate.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LaserModeTransformer.html">7.5.7. Transformation of high order Gauss modes.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LaserModeTransformer.html#from-hermite-to-laguerre">7.5.7.1. From Hermite to Laguerre.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LaserModeTransformer.html#from-laguerre-to-hermite">7.5.7.2. From Laguerre to Hermite.</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="resonator_geometric_optics.html">7.4.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#abcd-matrix-formulation-to-describe-the-propagation-of-rays">7.4.8.1. ABCD matrix formulation to describe the propagation of rays.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#eigen-values-and-eigen-vectors-eigen-rays">7.4.8.2. Eigen values and eigen vectors (eigen rays)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#collection-of-rays-that-can-be-confined-to-the-resonator">7.4.8.3. Collection of rays that can be confined to the resonator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#second-moments">7.4.8.4. Second moments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#wavefront-radius">7.4.8.5. Wavefront radius</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#brightness">7.4.8.6. Brightness</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#get-the-constant-c">7.4.8.7. Get the constant <span class="math notranslate nohighlight">\(c\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="resonator_geometric_optics.html">7.5.8. Gauss TEM<sub>00</sub> mode described with geometric optics.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#abcd-matrix-formulation-to-describe-the-propagation-of-rays">7.5.8.1. ABCD matrix formulation to describe the propagation of rays.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#eigen-values-and-eigen-vectors-eigen-rays">7.5.8.2. Eigen values and eigen vectors (eigen rays)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#collection-of-rays-that-can-be-confined-to-the-resonator">7.5.8.3. Collection of rays that can be confined to the resonator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#second-moments">7.5.8.4. Second moments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#wavefront-radius">7.5.8.5. Wavefront radius</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#brightness">7.5.8.6. Brightness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resonator_geometric_optics.html#get-the-constant-c">7.5.8.7. Get the constant <span class="math notranslate nohighlight">\(c\)</span></a></li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="phase-recovery">
-<span id="index-2"></span><h2><span class="section-number">7.5. </span>Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this headline"></a></h2>
+<span id="index-2"></span><h2><span class="section-number">7.6. </span>Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="PhaseRecoveryGerchbergSaxton.html">7.5.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PhaseRecoveryGerchbergSaxton.html">7.6.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
 </ul>
 </div>
 </section>
 <section id="zernike-aberration">
-<span id="index-3"></span><h2><span class="section-number">7.6. </span>Zernike aberration.<a class="headerlink" href="#zernike-aberration" title="Permalink to this headline"></a></h2>
+<span id="index-3"></span><h2><span class="section-number">7.7. </span>Zernike aberration.<a class="headerlink" href="#zernike-aberration" title="Permalink to this headline"></a></h2>
 <p>Any aberration in a circle can be decomposed over a sum of Zernike
 polynomials. The Zernike command accepts four arguments:
 1. The radial order n  2. The
@@ -225,27 +263,27 @@ azimuthal order m. 3. The radius, R 4. The
 amplitude of the aberration.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ZernikeAberrations.html">7.6.1. Zernike aberrations.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RadialShearInterferometer.html">7.6.2. Radial shear interferometer.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ShackHartmannSensor.html">7.6.3. Shack Hartmann sensor.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ZernikeAberrations.html">7.7.1. Zernike aberrations.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RadialShearInterferometer.html">7.7.2. Radial shear interferometer.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ShackHartmannSensor.html">7.7.3. Shack Hartmann sensor.</a></li>
 </ul>
 </div>
 </section>
 <section id="graded-index-media-grin">
-<span id="index-4"></span><h2><span class="section-number">7.7. </span>Graded index media GRIN.<a class="headerlink" href="#graded-index-media-grin" title="Permalink to this headline"></a></h2>
+<span id="index-4"></span><h2><span class="section-number">7.8. </span>Graded index media GRIN.<a class="headerlink" href="#graded-index-media-grin" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="GRINDemo.html">7.7.1. Demonstration of a GRIN lens.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="GRINYoung.html">7.7.2. Young’s experiment with GRIN lens.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PropagationLensLikeMedium.html">7.7.3. Propagation in a lens-like, absorptive medium.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GRINDemo.html">7.8.1. Demonstration of a GRIN lens.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GRINYoung.html">7.8.2. Young’s experiment with GRIN lens.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PropagationLensLikeMedium.html">7.8.3. Propagation in a lens-like, absorptive medium.</a></li>
 </ul>
 </div>
 </section>
 <section id="fourier-optics">
-<span id="index-5"></span><h2><span class="section-number">7.8. </span>Fourier optics.<a class="headerlink" href="#fourier-optics" title="Permalink to this headline"></a></h2>
+<span id="index-5"></span><h2><span class="section-number">7.9. </span>Fourier optics.<a class="headerlink" href="#fourier-optics" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="PatternRecognition.html">7.8.1. Pattern recognition.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PatternRecognition.html">7.9.1. Pattern recognition.</a></li>
 </ul>
 </div>
 </section>
@@ -263,7 +301,7 @@ amplitude of the aberration.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Apr 16, 2022.
+      <span class="lastupdated">Last updated on May 04, 2022.
       </span></p>
   </div>
 

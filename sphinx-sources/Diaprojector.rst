@@ -1,7 +1,6 @@
 .. _Diaprojector:
 
 .. Index::
-    Computer practical
     Diaprojector
 
 Diaprojector (In Dutch).

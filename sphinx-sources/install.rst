@@ -62,7 +62,23 @@ LightPipes  release notes.
 **Version:** |release| on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 New commands:
-    * none
+    * :func:`~LightPipes.AiryBeam1D`: substitudes a 1D Airy beam in the field.
+    * :func:`~LightPipes.AiryBeam2D`: substitudes a 2D Airy beam in the field.
+
+Bug fixes:
+    * None
+    
+Command changes:
+    *  None
+
+Fred van Goor, May, 4, 2022.
+
+----
+
+**Version:** 2.1.2 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+
+New commands:
+    * None
 
 Bug fixes:
     * fixed float to integer conversion errors. IndexErrors were raised in zernikemath.py

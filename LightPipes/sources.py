@@ -1,7 +1,148 @@
 from .field import Field
+from scipy import special
 from .core import BeamMix, Phase, MultPhase, IntAttenuator, CircAperture, GaussHermite, GaussLaguerre, Interpol
 from .misc import PI,Tilt, backward_compatible
 import numpy as _np
+
+def AiryBeam1D(Fin, x0 = 0.001, a = 100):
+    """
+    *Creates a 1D nonspreading Airy beam.*
+
+        :math:`F(x,y,z=0) = Ai\\left(\\dfrac{x}{x_0}\\right)e^{ax}`
+
+    :param Fin: input field
+    :type Fin: Field
+    :param x0: scale x (default = 1*mm)
+    :type x0: int, float
+    :param a: degree of apodization x (default = 0.1/mm)
+    :type a: int, float
+
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        import matplotlib.pyplot as plt
+        import numpy as np
+        
+        wavelength = 2.3*um
+        size = 30*mm
+        N = 500
+        N2=N//2
+        x0=0.3*mm
+        a=0.1/mm
+        dz=1.25*cm
+        NZ=200
+        
+        F0=Begin(size,wavelength,N)
+        F0=AiryBeam1D(F0,x0=x0, a=a)
+        Ix=np.zeros(N)
+        for k in range(0,NZ):
+            F=Forvard(F0,dz*k)
+            I=Intensity(F)
+            Ix=np.vstack([Ix,I[N2]])
+        plt.figure(figsize = (12,5))
+        plt.imshow(Ix,
+                   extent=[-size/2/mm, size/2/mm, 0, NZ*dz/cm],
+                   aspect=0.08,
+                   origin='lower',
+                   cmap='jet',
+                   )
+        plt.xlabel('x [mm]')
+        plt.ylabel('z [cm]')
+        s = r'LightPipes for Python' + '\\n'+ '1D Airy beam' + '\\n\\n'\\
+            r'$\\lambda = {:4.2f}$'.format(wavelength/um) + r' ${\\mu}m$' + '\\n'\\
+            r'$size = {:4.2f}$'.format(size/mm) + r' $mm$' + '\\n'\\
+            r'$N = {:4d}$'.format(N) + '\\n'\\
+            r'$x_0 = {:4.2f}$'.format(x0/mm) + r' $mm$' + '\\n'\\
+            r'$a = $' + '{:4.2f}'.format(a*mm) + r' $/mm$' + '\\n'\\
+            r'${\\copyright}$ Fred van Goor, May 2022'
+        plt.text(16, 50, s, bbox={'facecolor': 'white', 'pad': 5})
+        plt.show()
+    
+    .. plot:: ./Examples/Commands/AiryBeam1D.py
+    
+    ref: M. V. Berry and N. L. Balazs, “Nonspreading wave packets,” Am. J. Phys. 47, 264–267 (1979).
+    """
+    Fout = Field.copy(Fin)
+    Y, X = Fout.mgrid_cartesian
+    Fout.field = special.airy(X/x0)[0]*_np.exp(X*a)
+    Fout._IsGauss=False
+    return Fout
+
+def AiryBeam2D(Fin, x0 = 0.001, y0 = 0.001, a1 = 100, a2 = 100):
+    """
+    *Creates a 2D nonspreading Airy beam.*
+
+        :math:`F(x,y,z=0) = Ai\\left(\\dfrac{x}{x_0}\\right)Ai\\left(\\dfrac{y}{y_0}\\right)e^{a_1x+a_2y}`
+
+    :param Fin: input field
+    :type Fin: Field
+    :param x0: scale x (default = 1*mm)
+    :type x0: int, float
+    :param y0: scale y (default = 1*mm)
+    :type y0: int, float
+    :param a1: degree of apodization x (default = 0.1/mm)
+    :type a1: int, float
+    :param a2: degree of apodization y (default = 0.1/mm)
+    :type a2: int, float
+
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
+    :Example:
+    
+    .. code-block::
+    
+        from LightPipes import *
+        import matplotlib.pyplot as plt
+        import numpy as np
+        
+        wavelength = 2.3*um
+        size = 30*mm
+        N = 500
+        x0=y0=1*mm
+        a1=a2=0.1/mm
+        z=900*cm
+        
+        F0=Begin(size,wavelength,N)
+        F0=AiryBeam2D(F0,x0=x0, y0=y0, a1=a1, a2=a2)
+        F=Fresnel(F0,z)
+        I=Intensity(F)
+        plt.figure(figsize = (9,5))
+        plt.imshow(I,
+                   extent=[-size/2/mm, size/2/mm, -size/2/mm, size/2/mm],
+                   origin='lower',
+                   cmap='jet',
+                   )
+        plt.title('2D Airy beam')
+        plt.xlabel('x [mm]')
+        plt.ylabel('y [mm]')
+        s = r'LightPipes for Python' + '\\n'+ '2D Airy beam' + '\\n\\n'\\
+            r'$\\lambda = {:4.2f}$'.format(wavelength/um) + r' ${\\mu}m$' + '\\n'\\
+            r'$size = {:4.2f}$'.format(size/mm) + r' $mm$' + '\\n'\\
+            r'$N = {:4d}$'.format(N) + '\\n'\\
+            r'$x_0 = y_0 = {:4.2f}$'.format(x0/mm) + r' $mm$' + '\\n'\\
+            r'$a1 = a2 =  $' + '{:4.2f}'.format(a1*mm) + r' $/mm$' + '\\n'\\
+            r'$z = $' + '{:4.2f}'.format(z/cm) + r' $cm$' + '\\n'\\
+            r'${\\copyright}$ Fred van Goor, May 2022'
+        plt.text(16, -10, s, bbox={'facecolor': 'white', 'pad': 5})
+        plt.show()
+    
+    .. plot:: ./Examples/Commands/AiryBeam2D.py
+    
+    ref: M. V. Berry and N. L. Balazs, “Nonspreading wave packets,” Am. J. Phys. 47, 264–267 (1979).
+    
+    .. seealso::
+        
+        * :ref:`Examples: Non-diffracting Airy beams<Generation of a 2-dimensional Airy beam from a Gaussian laser beam.>`
+    """
+    Fout = Field.copy(Fin)
+    Y, X = Fout.mgrid_cartesian
+    Fout.field = special.airy(X/x0)[0]*special.airy(Y/y0)[0]*_np.exp(X*a1)*_np.exp(Y*a2)
+    Fout._IsGauss=False
+    return Fout
 
 @backward_compatible
 def PointSource(Fin, x=0.0, y=0.0):
