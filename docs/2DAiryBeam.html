@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="examples.html#diffraction-examples">7.2. Diffraction examples.</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="examples.html#non-diffracting-airy-beams">7.3. Non-diffracting Airy beams.</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">7.3.1. Generation of a 2-dimensional Airy beam from a Gaussian laser beam.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#self-healing-airy-beam">7.3.2. Self-healing Airy beam.</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="examples.html#non-diffractive-bessel-beam">7.4. Non-diffractive Bessel beam.</a></li>
@@ -124,6 +125,99 @@ Latychevskaia et al. <a class="footnote-reference brackets" href="#a1" id="id1">
 </figcaption>
 </figure>
 </section>
+<section id="self-healing-airy-beam">
+<span id="index-0"></span><h1><span class="section-number">7.3.2. </span>Self-healing Airy beam.<a class="headerlink" href="#self-healing-airy-beam" title="Permalink to this headline"></a></h1>
+<p>In the video below we demonstrate the self-healing feature of Airy beams.
+A 2 mm diameter disk is placed in the path of the main lobe at z = 40 cm. After disturbing the beam, the beam’s shape recovers.</p>
+<html>
+<head>
+<script>
+window.onload = function () {
+
+  var v = document.getElementById("myVideo");
+  var p = document.getElementById("pbr");
+  var c = document.getElementById("currentPbr");
+
+  p.addEventListener('input',function(){
+    c.innerHTML = p.value;
+    v.playbackRate = p.value;
+  },false);
+
+};
+</script>
+
+<style>
+.holder {
+   width:500px;
+   height:500;
+   margin: 0 auto;
+   margin-bottom:14em;
+}
+
+#pbr {
+   width:100%;
+}
+</style>
+
+</head>
+<body>
+
+<div class="holder">
+  <video width="500" height="500" id="myVideo" controls autoplay loop muted>
+    <source src="_static/movie.mp4"
+          type='video/mp4' />
+  </video>
+
+  <form>
+    <input id="pbr" type="range" value="1"
+                    min="0.1" max="4" step="0.1" >
+
+    <p>Playback Rate <span id="currentPbr">1</span></p>
+  </form>
+</div>
+
+</body>
+</html><p>The video was made with the following python script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Self healing Airy beam. A disk is placed at some distance from the origin.</span>
+<span class="s2">This obstacle disturbs the beam, but it heals itself.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+from LightPipes import *
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+
+<span class="nv">wavelength</span> <span class="o">=</span> <span class="m">2</span>.3*um
+<span class="nv">size</span> <span class="o">=</span> <span class="m">30</span>*mm
+<span class="nv">N</span> <span class="o">=</span> <span class="m">500</span>
+<span class="nv">x0</span><span class="o">=</span><span class="nv">y0</span><span class="o">=</span><span class="m">1</span>*mm
+<span class="nv">a1</span><span class="o">=</span><span class="nv">a2</span><span class="o">=</span><span class="m">0</span>.1/mm
+<span class="nv">w</span><span class="o">=</span><span class="m">1</span>*mm
+<span class="nv">z</span><span class="o">=</span> <span class="m">0</span> *cm
+<span class="nv">dz</span> <span class="o">=</span> <span class="m">2</span> *cm
+fig, <span class="nv">ax</span> <span class="o">=</span> plt.subplots<span class="o">()</span><span class="p">;</span> ax.axis<span class="o">(</span><span class="s1">&#39;off&#39;</span><span class="o">)</span>
+<span class="nv">ims</span> <span class="o">=[]</span>
+
+<span class="nv">F0</span><span class="o">=</span>Begin<span class="o">(</span>size,wavelength,N<span class="o">)</span>
+<span class="nv">F0</span><span class="o">=</span>AiryBeam2D<span class="o">(</span>F0,x0<span class="o">=</span>x0, <span class="nv">y0</span><span class="o">=</span>y0, <span class="nv">a1</span><span class="o">=</span>a1, <span class="nv">a2</span><span class="o">=</span>a2<span class="o">)</span>
+
+<span class="k">for</span> i <span class="k">in</span> range<span class="o">(</span><span class="m">1000</span><span class="o">)</span>:
+    <span class="k">if</span> <span class="nv">i</span> <span class="o">==</span> <span class="m">20</span>: <span class="c1"># at z = 40 cm an obstacle is placed</span>
+        <span class="nv">F0</span><span class="o">=</span>CircScreen<span class="o">(</span>F0,w<span class="o">)</span>
+    <span class="nv">F</span><span class="o">=</span>Fresnel<span class="o">(</span>F0,z<span class="o">)</span>
+    <span class="nv">I</span><span class="o">=</span>Intensity<span class="o">(</span>F<span class="o">)</span>
+    <span class="nv">im</span> <span class="o">=</span> ax.imshow<span class="o">(</span>I, <span class="nv">animated</span> <span class="o">=</span> True, <span class="nv">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="o">)</span>
+    <span class="nv">s</span> <span class="o">=</span> r<span class="s1">&#39;$z = {:4.0f}$ cm&#39;</span>.format<span class="o">(</span>z/cm<span class="o">)</span>
+    <span class="nv">t</span> <span class="o">=</span> ax.annotate<span class="o">(</span>s,<span class="o">(</span><span class="m">100</span>,100<span class="o">)</span>, <span class="nv">color</span> <span class="o">=</span> <span class="s1">&#39;w&#39;</span><span class="o">)</span> <span class="c1"># add text</span>
+    ims.append<span class="o">([</span>im,t<span class="o">])</span>
+    <span class="nv">z</span> <span class="o">+=</span> dz
+
+<span class="nv">ani</span> <span class="o">=</span> animation.ArtistAnimation<span class="o">(</span>fig, ims, <span class="nv">interval</span><span class="o">=</span><span class="m">5</span>, <span class="nv">blit</span><span class="o">=</span>True,
+                                <span class="nv">repeat_delay</span><span class="o">=</span><span class="m">1000</span><span class="o">)</span>
+ani.save<span class="o">(</span><span class="s2">&quot;movie.mp4&quot;</span><span class="o">)</span>
+plt.show<span class="o">()</span>
+</pre></div>
+</div>
+</section>
 
 
            </div>
@@ -137,7 +231,7 @@ Latychevskaia et al. <a class="footnote-reference brackets" href="#a1" id="id1">
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 04, 2022.
+      <span class="lastupdated">Last updated on May 21, 2022.
       </span></p>
   </div>
 

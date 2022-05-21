@@ -14,11 +14,14 @@ x0=0.3*mm
 a=0.1/mm
 dz=1.25*cm
 NZ=200
+w=0.5*mm
 
 F0=Begin(size,wavelength,N)
 F0=AiryBeam1D(F0,x0=x0, a=a)
 Ix=np.zeros(N)
 for k in range(0,NZ):
+    if k==10:
+        F0=CircScreen(F0,w,x_shift=-1*mm)
     F=Forvard(F0,dz*k)
     I=Intensity(F)
     Ix=np.vstack([Ix,I[N2]])

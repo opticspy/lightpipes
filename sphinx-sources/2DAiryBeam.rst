@@ -12,5 +12,107 @@ Latychevskaia et al. [#a1]_ and we compare the LightPipes simulation with their 
 
 .. plot:: ./Examples/AiryBeam/2DAiryBeam.py
 
+.. index::
+     Self-healing Airy beam
+    
+Self-healing Airy beam.
+-----------------------
 
- 
+In the video below we demonstrate the self-healing feature of Airy beams. 
+A 2 mm diameter disk is placed in the path of the main lobe at z = 40 cm. After disturbing the beam, the beam's shape recovers.
+
+.. raw:: html
+
+    <html>
+    <head>
+    <script>
+    window.onload = function () {
+     
+      var v = document.getElementById("myVideo");
+      var p = document.getElementById("pbr");
+      var c = document.getElementById("currentPbr");
+     
+      p.addEventListener('input',function(){
+        c.innerHTML = p.value;
+        v.playbackRate = p.value;
+      },false);
+     
+    };
+    </script>
+     
+    <style>
+    .holder {
+       width:500px;
+       height:500;
+       margin: 0 auto;
+       margin-bottom:14em;
+    }
+     
+    #pbr {
+       width:100%;
+    }
+    </style>
+     
+    </head>
+    <body>
+     
+    <div class="holder">
+      <video width="500" height="500" id="myVideo" controls autoplay loop muted>
+        <source src="_static/movie.mp4" 
+              type='video/mp4' />
+      </video>
+     
+      <form>
+        <input id="pbr" type="range" value="1" 
+                        min="0.1" max="4" step="0.1" >
+     
+        <p>Playback Rate <span id="currentPbr">1</span></p>
+      </form>
+    </div>
+     
+    </body>
+    </html>
+
+The video was made with the following python script:
+
+.. code-block:: bash
+
+    """
+    Self healing Airy beam. A disk is placed at some distance from the origin.
+    This obstacle disturbs the beam, but it heals itself.
+    """
+    from LightPipes import *
+    import matplotlib.pyplot as plt
+    import matplotlib.animation as animation
+    
+    wavelength = 2.3*um
+    size = 30*mm
+    N = 500
+    x0=y0=1*mm
+    a1=a2=0.1/mm
+    w=1*mm
+    z= 0 *cm
+    dz = 2 *cm
+    fig, ax = plt.subplots(); ax.axis('off')
+    ims =[]
+    
+    F0=Begin(size,wavelength,N)
+    F0=AiryBeam2D(F0,x0=x0, y0=y0, a1=a1, a2=a2)
+    
+    for i in range(1000):
+        if i == 20: # at z = 40 cm an obstacle is placed
+            F0=CircScreen(F0,w)
+        F=Fresnel(F0,z)
+        I=Intensity(F)
+        im = ax.imshow(I, animated = True, cmap='jet')
+        s = r'$z = {:4.0f}$ cm'.format(z/cm)
+        t = ax.annotate(s,(100,100), color = 'w') # add text
+        ims.append([im,t])
+        z += dz
+        
+    ani = animation.ArtistAnimation(fig, ims, interval=5, blit=True,
+                                    repeat_delay=1000)
+    ani.save("movie.mp4")
+    plt.show()
+
+    
