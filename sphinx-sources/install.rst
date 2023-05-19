@@ -59,7 +59,23 @@ Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.
 LightPipes  release notes.
 ==========================
 
-**Version:** |release| on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+**Version:** 2.1.4 soon on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+
+New commands:
+    * None
+
+Bug fixes:
+    * In __init__.py: line 212 changed: fig.canvas.set_window_title to: fig.canvas.manager.set_window_title
+    * In user_func.py: line 115: changed: dtype=_np.object to: dtype=object
+    
+Command changes:
+    *  None
+
+Fred van Goor, May, 19, 2023.
+
+----
+
+**Version:** 2.1.3 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 New commands:
     * :func:`~LightPipes.AiryBeam1D`: substitudes a 1D Airy beam in the field.
