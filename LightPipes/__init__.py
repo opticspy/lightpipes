@@ -209,7 +209,7 @@ def LPdemo():
     I=Intensity(0,F)
     #plt.contourf(I,50); plt.axis('equal')
     fig=plt.figure()
-    fig.canvas.set_window_title('Interference pattern of a two holes interferometer') 
+    fig.canvas.manager.set_window_title('Interference pattern of a two holes interferometer') 
     plt.imshow(I,cmap='rainbow');plt.axis('off')
     print(
         '\n\nLightPipes for Python demo\n\n'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>7.8.3. Propagation in a lens-like, absorptive medium. &mdash; LightPipes for Python 2.1.3 documentation</title>
@@ -13,9 +13,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -29,15 +28,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> LightPipes for Python
-            <img src="_static/front.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            LightPipes for Python
+              <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 2.1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -87,9 +90,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="examples.html"><span class="section-number">7. </span>Examples.</a> &raquo;</li>
-      <li><span class="section-number">7.8.3. </span>Propagation in a lens-like, absorptive medium.</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="examples.html"><span class="section-number">7. </span>Examples.</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7.8.3. </span>Propagation in a lens-like, absorptive medium.</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/PropagationLensLikeMedium.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -100,21 +103,22 @@
            <div itemprop="articleBody">
              
   <section id="propagation-in-a-lens-like-absorptive-medium">
-<span id="index-0"></span><h1><span class="section-number">7.8.3. </span>Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this headline"></a></h1>
+<span id="index-0"></span><h1><span class="section-number">7.8.3. </span>Propagation in a lens-like, absorptive medium.<a class="headerlink" href="#propagation-in-a-lens-like-absorptive-medium" title="Permalink to this heading"></a></h1>
 <p>In this example we model the propagation of a Gaussian beam in a lens-like waveguide. The profile of the refractive index is chosen such, that the beam preserves approximately its diameter in the waveguide (we use the fundamental mode). We’ll consider the propagation of an axial mode, tilted with respect to the waveguide axis and a non-axial mode.</p>
-<p>we use the approximation for the profile of the refractive coefficient, <span class="math notranslate nohighlight">\(n'=n-i\kappa\)</span> in the form: <span class="math notranslate nohighlight">\(n(r)^2=n_0^2-n_0n_1r^2\)</span>. It is a well-known fact <a class="footnote-reference brackets" href="#f9" id="id1">1</a> that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: <span class="math notranslate nohighlight">\(w_0^2=\frac{2}{k(n_0n_1)^{1/2}}\)</span> , with <span class="math notranslate nohighlight">\(k=\frac{2 \pi}{\lambda}\)</span>. For a waveguide of <span class="math notranslate nohighlight">\(1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0\)</span> and <span class="math notranslate nohighlight">\(\lambda = 1 \mu m\)</span>, the Gaussian mode has a diameter of <span class="math notranslate nohighlight">\(226 \mu m\)</span> . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.</p>
-<p>(<a class="reference external" href="./Examples/Waveguide/LensLikeMedium.py">Source code</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.png">png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Waveguide/LensLikeMedium.pdf">pdf</a>)</p>
+<p>we use the approximation for the profile of the refractive coefficient, <span class="math notranslate nohighlight">\(n'=n-i\kappa\)</span> in the form: <span class="math notranslate nohighlight">\(n(r)^2=n_0^2-n_0n_1r^2\)</span>. It is a well-known fact <a class="footnote-reference brackets" href="#f9" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> that the half-width of the fundamental Gaussian mode of a lens-like waveguide is defined as: <span class="math notranslate nohighlight">\(w_0^2=\frac{2}{k(n_0n_1)^{1/2}}\)</span> , with <span class="math notranslate nohighlight">\(k=\frac{2 \pi}{\lambda}\)</span>. For a waveguide of <span class="math notranslate nohighlight">\(1 \times 1 mm,  n_0=1.5,  n_1=400 m^{-2}, \kappa = 1.0\)</span> and <span class="math notranslate nohighlight">\(\lambda = 1 \mu m\)</span>, the Gaussian mode has a diameter of <span class="math notranslate nohighlight">\(226 \mu m\)</span> . A tilt in the x-direction causes reflections in the waveguide as  demonstrated in the next example of the propagation of a tilted Gaussian beam through the waveguide.</p>
+<p>(<a class="reference download internal" download="" href="_downloads/596d4bd7b8f93e13064ba711c7ed4006/LensLikeMedium.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/3c965a171c8301c7a5ce216931791864/LensLikeMedium.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/3630088ab11680959250d773f15b17b8/LensLikeMedium.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/1929af0d8e65afe4be017a384ef9eb3e/LensLikeMedium.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/LensLikeMedium.png" class="plot-directive" src="_images/LensLikeMedium.png" />
 </figure>
 <p><em>Propagation of a tilted Gaussian beam in a lens-like, absorptive medium.</em></p>
-<dl class="footnote brackets">
-<dt class="label" id="f9"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><ol class="upperalpha simple" start="4">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f9" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<ol class="upperalpha simple" start="4">
 <li><p>Marcuse, Light Transmission Optics, Van Nostrand Reinhold, 267-280, (1972).</p></li>
 </ol>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 
 
@@ -129,7 +133,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 21, 2022.
+      <span class="lastupdated">Last updated on May 19, 2023.
       </span></p>
   </div>
 

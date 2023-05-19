@@ -13,12 +13,16 @@ LightPipes for Python |release|
     
 .. image:: https://badge.fury.io/py/LightPipes.svg
     :target: https://badge.fury.io/py/LightPipes
-
-.. image:: https://githubbadges.com/star.svg?user=opticspy&repo=lightpipes&style=default'}
-    :target: https://github.com/opticspy/lightpipes/
     
-.. image:: https://githubbadges.com/fork.svg?user=opticspy&repo=lightpipes&style=default'}
-    :target: https://github.com/opticspy/lightpipes/
+   
+..
+   does not work anymore, so commented out.
+.. .. image:: https://githubbadges.com/star.svg?user=opticspy&repo=lightpipes&style=default
+..     :target: https://github.com/opticspy/lightpipes/stargazers
+
+    
+.. .. image:: https://githubbadges.com/fork.svg?user=opticspy&repo=lightpipes&style=default'}
+..     :target: https://github.com/opticspy/lightpipes/
     
 
 contents:

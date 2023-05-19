@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2. Installation. &mdash; LightPipes for Python 2.1.3 documentation</title>
@@ -13,9 +13,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -29,15 +28,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> LightPipes for Python
-            <img src="_static/front.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            LightPipes for Python
+              <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 2.1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,8 +79,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">2. </span>Installation.</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Installation.</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,7 +91,7 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<h1><span class="section-number">2. </span>Installation.<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<h1><span class="section-number">2. </span>Installation.<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
 <p>Current version = 2.1.3</p>
 <p>Up to version 1.2.0 the LightPipes for Python package, called LightPipes,
 consists of a collection of C++ routines which can be called from a Python script.
@@ -105,11 +108,11 @@ and can be installed if you have <a class="reference external" href="https://pip
 installed on your computer.
 In a terminal window simply type the following commands:
 (If you have both Python versions 2.7 and 3.+ installed on your computer use pip3 in stead of pip.)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install LightPipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>LightPipes
 </pre></div>
 </div>
 <p>or:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install --upgrade LightPipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>LightPipes
 </pre></div>
 </div>
 <p>to upgrade the package.</p>
@@ -117,20 +120,20 @@ In a terminal window simply type the following commands:
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">LPtest</span><span class="p">()</span>
 <span class="go">LightPipes for Python: test passed.</span>
-<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 <p>The response should be: “LightPipes for Python: test passed.”</p>
 <p>Most output from LightPipes python scripts should use the <a class="reference external" href="https://matplotlib.org/">MatPlotLib</a> plotting library.
 MatplotLib can be installed by typing in a terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install matplotlib
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>matplotlib
 </pre></div>
 </div>
 <p>Another useful package is <a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> to make graphical user interfaces (GUI). It is installed already with most Python installations.
 See <a class="reference external" href="http://www.tkdocs.com/tutorial/install.html">http://www.tkdocs.com/tutorial/install.html</a> how to install it on your platform.</p>
 <p>Finally, a convenient editor to make Python scripts is <a class="reference external" href="http://www.geany.org/">Geany</a>.</p>
 <section id="lightpipes-release-notes">
-<h2><span class="section-number">2.1. </span>LightPipes  release notes.<a class="headerlink" href="#lightpipes-release-notes" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">2.1. </span>LightPipes  release notes.<a class="headerlink" href="#lightpipes-release-notes" title="Permalink to this heading"></a></h2>
 <p><strong>Version:</strong> 2.1.3 on <a class="reference external" href="https://pypi.python.org/pypi/LightPipes/">PyPi</a></p>
 <dl class="simple">
 <dt>New commands:</dt><dd><ul class="simple">
@@ -251,27 +254,27 @@ pyFFTW is not pure python and cannot be installed by a user on his iPad.</p></li
 </section>
 <hr class="docutils" />
 <section id="known-installation-problems">
-<h2><span class="section-number">2.2. </span>Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">2.2. </span>Known installation problems.<a class="headerlink" href="#known-installation-problems" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><dl>
 <dt>Too old version of numpy:</dt><dd><p>After installation of LightPipes, using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip install LightPipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>LightPipes
 </pre></div>
 </div>
 <p>for a brandnew MacBook Air computer the following error popped-up after an import-test in python:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import LightPipes
-Traceback (most recent call last):
-File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
-File &quot;/Library/Python/2.7/site-packages/LightPipes/__init__.py&quot;, line 52, in &lt;module&gt;
-from ._LightPipes import * # noqa
-File &quot;__init__.pxd&quot;, line 155, in init LightPipes._LightPipes (LightPipes/_LightPipes.cpp:10911)
-ValueError: numpy.dtype has the wrong size, try recompiling. Expected 88, got 96
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">LightPipes</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="x">File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span>
+<span class="x">File &quot;/Library/Python/2.7/site-packages/LightPipes/__init__.py&quot;, line 52, in &lt;module&gt;</span>
+<span class="x">from ._LightPipes import * # noqa</span>
+<span class="x">File &quot;__init__.pxd&quot;, line 155, in init LightPipes._LightPipes (LightPipes/_LightPipes.cpp:10911)</span>
+<span class="x">ValueError: numpy.dtype has the wrong size, try recompiling. Expected 88, got 96</span>
 </pre></div>
 </div>
 <p>Solution:</p>
 <p>The version (1.8.0rc1) of the numpy package (installed as part of the macOS Sierra 10.12.6 update) is too old.
 You have to update numpy to the newest version. Use easy_install, not pip for this.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo easy_install -U numpy
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>easy_install<span class="w"> </span>-U<span class="w"> </span>numpy
 </pre></div>
 </div>
 <p>(If the cpp-compiler is not installed a window pops up to ask you to install it and the numpy installation is interrupted. Say yes to install the compiler and repeat the numpy installation)</p>
@@ -285,30 +288,30 @@ Maybe this will be solved in the future.</p>
 <p>Step1, download FFTW:</p>
 <p>Download from the <a class="reference external" href="http://www.fftw.org/download.html">FFTW Download page</a> the file fftw-3.3.9.tar.gz or newer.
 At a terminal prompt goto your Downloads directory and type:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Downloads
-tar xzf fftw-3.3.9.tar.gz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Downloads
+tar<span class="w"> </span>xzf<span class="w"> </span>fftw-3.3.9.tar.gz
 </pre></div>
 </div>
 <p>Step 2, install FFTW:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> fftw-3.3.9
-./configure --enable-threads --enable-shared
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>fftw-3.3.9
+./configure<span class="w"> </span>--enable-threads<span class="w"> </span>--enable-shared
 make
-sudo make install
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>Step 3, install the cython compiler and ATLAS:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip3 install cython
-sudo apt-get install libatlas-base-dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>cython
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libatlas-base-dev
 </pre></div>
 </div>
 <p>If an error pops up that says something like: “E: Encountered a section with no package header” and/or:
 “E: The package lists or status file could not be parsed or opened”, try:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rm -vf /var/lib/apt/lists/*
-sudo apt-get update
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rm<span class="w"> </span>-vf<span class="w"> </span>/var/lib/apt/lists/*
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </pre></div>
 </div>
 <p>Step 4, install LightPipes for Python:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install lightpipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>lightpipes
 </pre></div>
 </div>
 <p>The installation of LightPipes for Python described above has been tested on a Raspberry Pi 4 model B with 8Gbyte memory and with NOOBS 3.5.0 operating system.</p>
@@ -316,12 +319,12 @@ sudo apt-get update
 <p>With some examples (i.e. LaserModeTransformer.py) an error message popped-up:</p>
 <p>“Type Error: Couldn’t find foreign struct converter for ‘cairo.Context’</p>
 <p>This could be solved by typing:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-gi-cairo
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-gi-cairo
 </pre></div>
 </div>
 <p>As an alternative you can install the C++ version 1.2.0 of LightPipes when Python 3.7 is installed on the Raspberry Pi.
 Type at a terminal prompt:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install <span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span><span class="nv">LightPipes</span><span class="o">==</span><span class="m">1</span>.2.0
 </pre></div>
 </div>
 </dd>
@@ -330,7 +333,7 @@ Type at a terminal prompt:</p>
 </ol>
 </section>
 <section id="using-lightpipes-with-the-pyfftw-package">
-<span id="using-pyfftw"></span><h2><span class="section-number">2.3. </span>Using LightPipes with the pyFFTW package.<a class="headerlink" href="#using-lightpipes-with-the-pyfftw-package" title="Permalink to this headline"></a></h2>
+<span id="using-pyfftw"></span><h2><span class="section-number">2.3. </span>Using LightPipes with the pyFFTW package.<a class="headerlink" href="#using-lightpipes-with-the-pyfftw-package" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><p>Using the pyFFTW package we found that LightPipes propagation routines are faster.
 However, we experienced that with a new Python version it takes a while before new binaries of pyFFTW are available.
@@ -340,15 +343,15 @@ For reasonable small grid sizes (less than 1000 x 1000 gridpoints) you will not 
 When pyFFTW becomes available you can install pyFFTW and from that moment pyFFTW can be used and the propagation will be faster.
 See the <a class="reference internal" href="command-reference.html#LightPipes.Fresnel" title="LightPipes.Fresnel"><code class="xref py py-func docutils literal notranslate"><span class="pre">Fresnel</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a> commands how to use pyFFTW.
 So for normal installation do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install LightPipes
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>LightPipes
 </pre></div>
 </div>
 <p>To install pyFFTW do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install pyFFTW
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>pyFFTW
 </pre></div>
 </div>
 <p>To install LightPipes with pyFFTW do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo pip<span class="o">(</span><span class="m">3</span><span class="o">)</span> install LightPipes<span class="o">[</span>pyfftw<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pip<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>install<span class="w"> </span>LightPipes<span class="o">[</span>pyfftw<span class="o">]</span>
 </pre></div>
 </div>
 <p>If pyFFTW is not installed, LightPipes will fall back to numpy FFT which is slightly slower than pyFFTW.
@@ -359,32 +362,32 @@ The warning can be suppressed by editing the file config.py in your local python
 <li><p>Find your python installation directory:
 For windows:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>where python
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>where<span class="w"> </span>python
 </pre></div>
 </div>
 <p>For Mac or Linux:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which python
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>python
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>You will find config.py in:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.....<span class="se">\P</span>ython3x<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\L</span>ightPipes <span class="o">(</span>windows<span class="o">)</span>
-...../Python3x/Lib/site-packages/LightPipes <span class="o">(</span>Linux, Mac<span class="o">)</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.....<span class="se">\P</span>ython3x<span class="se">\L</span>ib<span class="se">\s</span>ite-packages<span class="se">\L</span>ightPipes<span class="w"> </span><span class="o">(</span>windows<span class="o">)</span>
+...../Python3x/Lib/site-packages/LightPipes<span class="w"> </span><span class="o">(</span>Linux,<span class="w"> </span>Mac<span class="o">)</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Open config.py in an editor and change:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">_USE_PYFFTW</span> <span class="o">=</span> False
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">_USE_PYFFTW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>False
 </pre></div>
 </div>
 </div></blockquote>
 <p>to:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">_USE_PYFFTW</span> <span class="o">=</span> True
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">_USE_PYFFTW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
 </pre></div>
 </div>
 </div></blockquote>
@@ -408,7 +411,7 @@ even if you ommit the usepyFFTW = True option in the <a class="reference interna
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 21, 2022.
+      <span class="lastupdated">Last updated on May 19, 2023.
       </span></p>
   </div>
 

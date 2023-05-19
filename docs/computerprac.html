@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>8. Computer practical. &mdash; LightPipes for Python 2.1.3 documentation</title>
@@ -13,9 +13,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,15 +27,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> LightPipes for Python
-            <img src="_static/front.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            LightPipes for Python
+              <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 2.1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -83,8 +86,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">8. </span>Computer practical.</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">8. </span>Computer practical.</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/computerprac.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,9 +98,9 @@
            <div itemprop="articleBody">
              
   <section id="computer-practical">
-<span id="computerprac"></span><h1><span class="section-number">8. </span>Computer practical.<a class="headerlink" href="#computer-practical" title="Permalink to this headline"></a></h1>
+<span id="computerprac"></span><h1><span class="section-number">8. </span>Computer practical.<a class="headerlink" href="#computer-practical" title="Permalink to this heading"></a></h1>
 <span class="target" id="computerpracintro"></span><section id="introduction-to-computer-practical">
-<span id="index-0"></span><h2><span class="section-number">8.1. </span>Introduction to computer practical.<a class="headerlink" href="#introduction-to-computer-practical" title="Permalink to this headline"></a></h2>
+<span id="index-0"></span><h2><span class="section-number">8.1. </span>Introduction to computer practical.<a class="headerlink" href="#introduction-to-computer-practical" title="Permalink to this heading"></a></h2>
 <p>The computer optics laboratory offers a number of experiments that can be done on the computer using simulations of real optical problems. The computer lab is part of the <a class="reference external" href="https://www.utwente.nl/onderwijs/bachelor/opleidingen/technische-natuurkunde/studieprogramma/tweede-jaar/#module-6-golven-interferentie-en-waarschijnlijkheid">introduction to optics</a> (in Dutch!) course given during the second year <a class="reference external" href="https://www.utwente.nl/en/education/bachelor/programmes/applied-physics/">Applied Physics</a> (TN) Bachelor study of the faculty of Science and Technology (TNW) of the <a class="reference external" href="http://www.utwente.nl/en/">University of Twente</a>.</p>
 <a class="reference external image-reference" href="http://www.utwente.nl/en/"><img alt="_images/UT_Logo_0072_Black_EN.png" class="align-center" src="_images/UT_Logo_0072_Black_EN.png" /></a>
 <p>Optics can be learned traditionally through theory by following lectures and in practice by performing experiments in the laboratory. With these simulations a third method is added: experiments on the student’s computer. Although the simulations are very realistic, computer experiments can never take the place of real experiments in the optics laboratory. Doing physics as opposed to thinking about doing physics should be done in the real laboratory where the student experiences real experimental problems that cannot be simulated even by the most advanced programs. The advantages of simulations are, however, that the student can do the experiment any time he wants in his own place. Also no costly laboratory equipment and stringent time schedules are needed.
@@ -105,10 +108,6 @@ With these simulations the student will learn many things about the topic’s th
 <p>Each experiment has a number of exercises to be done and questions to be answered. The experiments are done by changing one or more parameters and by measuring characteristic data usually with the mouse. The student is asked to derive an expression for the parameter (wavelength, some radius, thickness, etc.) to be determined from the measurements. Each simulation will generate a random number, which will give the parameter to be measured. The formula relating this number to the parameter is very complicated and only known to the lecturer. The student must write this number on his report so he/she can easily check the answers.</p>
 <p>The simulations make use of an optical toolbox (<a class="reference external" href="http://www.okotech.com/">LightPipes</a>) with several commands for propagation, apertures, lenses, etc. The toolbox is written by Gleb Vdovin and is modified for this purpose by me. The toolbox is linked to each simulation program. It makes use of advanced propagation routines for solving the Fresnel-Kirchoff integral in two dimensions. The result is a very realistic optical simulation program for studying physical optics.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 47%" />
-<col style="width: 53%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default">
 <img alt="_images/FresnelSphericalSetup.png" src="_images/FresnelSphericalSetup.png" />
@@ -123,10 +122,6 @@ With these simulations the student will learn many things about the topic’s th
 </table>
 <p><em>Screenshot of one of the simulation programs (Fresnel diffraction with spherical wavefront as input).</em></p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 49%" />
-<col style="width: 51%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default">
 <img alt="_images/FresnelLab1.jpg" src="_images/FresnelLab1.jpg" />
@@ -146,7 +141,7 @@ The experiments should be done in the order given by the <a class="reference int
 <p>Fred van Goor</p>
 </section>
 <section id="prepare-your-computer">
-<span id="preparepc"></span><h2><span class="section-number">8.2. </span>Prepare your computer.<a class="headerlink" href="#prepare-your-computer" title="Permalink to this headline"></a></h2>
+<span id="preparepc"></span><h2><span class="section-number">8.2. </span>Prepare your computer.<a class="headerlink" href="#prepare-your-computer" title="Permalink to this heading"></a></h2>
 <p>To do the computer practical you have to prepare your computer. You must
 install Python and some other stuff before you can run the programs.</p>
 <ol class="arabic">
@@ -166,7 +161,7 @@ your Python installation, but you need to upgrade it.
 </ol>
 </section>
 <section id="assignments">
-<span id="id1"></span><h2><span class="section-number">8.3. </span>Assignments.<a class="headerlink" href="#assignments" title="Permalink to this headline"></a></h2>
+<span id="id1"></span><h2><span class="section-number">8.3. </span>Assignments.<a class="headerlink" href="#assignments" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="SphericalWavefront.html">8.3.1. Spherical wavefront.</a></li>
@@ -192,7 +187,7 @@ your Python installation, but you need to upgrade it.
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 21, 2022.
+      <span class="lastupdated">Last updated on May 19, 2023.
       </span></p>
   </div>
 

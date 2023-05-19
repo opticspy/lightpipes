@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5. User defined functions. &mdash; LightPipes for Python 2.1.3 documentation</title>
@@ -13,9 +13,8 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -28,15 +27,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> LightPipes for Python
-            <img src="_static/front.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            LightPipes for Python
+              <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
                 2.1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -75,8 +78,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><span class="section-number">5. </span>User defined functions.</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>User defined functions.</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/UserDefinedFunctions.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -87,10 +90,10 @@
            <div itemprop="articleBody">
              
   <section id="user-defined-functions">
-<span id="index-0"></span><h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline"></a></h1>
+<span id="index-0"></span><h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Permalink to this heading"></a></h1>
 <p>It is possible to make your own commands and use them in your simulations in the same way as the LightPipes commands. In this chapter we describe a step by step procedure to write a user defined command. It is also possible to make your commands <a class="reference internal" href="#make-your-functions-part-of-your-lightpipes-for-python-installation"><span class="std std-ref">part of your LightPipes installation</span></a>.</p>
 <section id="user-defined-functions-in-a-subdirectory-of-your-python-scripts">
-<h2><span class="section-number">5.1. </span>User defined functions in a subdirectory of your Python scripts.<a class="headerlink" href="#user-defined-functions-in-a-subdirectory-of-your-python-scripts" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">5.1. </span>User defined functions in a subdirectory of your Python scripts.<a class="headerlink" href="#user-defined-functions-in-a-subdirectory-of-your-python-scripts" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><dl class="simple">
 <dt>Create a new subdirectory in the directory of your Python script.</dt><dd><p>Create a new subdirectory, for example: <em>MyFunctions</em></p>
@@ -99,21 +102,21 @@
 </li>
 <li><dl>
 <dt>Put your code in a python file.</dt><dd><p>Create a Python file with your code, for example: <em>MyLightPipesFunctions.py</em>,  and save it in your new directory. You have to import <em>LightPipes</em> in that code for calling LightPipes attributes and methods:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import numpy as _np
-import LightPipes
-def CylindricalLens<span class="o">(</span>Fin,f,x_shift<span class="o">=</span><span class="m">0</span>.0,y_shift<span class="o">=</span><span class="m">0</span>.0,angle<span class="o">=</span><span class="m">0</span>.0<span class="o">)</span>:
-    <span class="nv">Fout</span> <span class="o">=</span> LightPipes.Field.copy<span class="o">(</span>Fin<span class="o">)</span>
-    <span class="nv">k</span> <span class="o">=</span> <span class="m">2</span>*_np.pi/Fout.lam
-    yy, <span class="nv">xx</span> <span class="o">=</span> Fout.mgrid_cartesian
-    xx -<span class="o">=</span> x_shift
-    yy -<span class="o">=</span> y_shift
-    <span class="k">if</span> angle!<span class="o">=</span><span class="m">0</span>.0:
-        <span class="nv">cc</span> <span class="o">=</span> _np.cos<span class="o">(</span>angle<span class="o">)</span>
-        <span class="nv">ss</span> <span class="o">=</span> _np.sin<span class="o">(</span>angle<span class="o">)</span>
-        <span class="nv">xx</span> <span class="o">=</span> cc * xx + ss * yy
-    <span class="k">fi</span> <span class="o">=</span> -k*<span class="o">(</span>xx**2<span class="o">)</span>/<span class="o">(</span><span class="m">2</span>*f<span class="o">)</span>
-    Fout.field *<span class="o">=</span> _np.exp<span class="o">(</span>1j * <span class="k">fi</span><span class="o">)</span>
-    <span class="k">return</span> Fout
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import<span class="w"> </span>numpy<span class="w"> </span>as<span class="w"> </span>_np
+import<span class="w"> </span>LightPipes
+def<span class="w"> </span>CylindricalLens<span class="o">(</span>Fin,f,x_shift<span class="o">=</span><span class="m">0</span>.0,y_shift<span class="o">=</span><span class="m">0</span>.0,angle<span class="o">=</span><span class="m">0</span>.0<span class="o">)</span>:
+<span class="w">    </span><span class="nv">Fout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>LightPipes.Field.copy<span class="o">(</span>Fin<span class="o">)</span>
+<span class="w">    </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>*_np.pi/Fout.lam
+<span class="w">    </span>yy,<span class="w"> </span><span class="nv">xx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Fout.mgrid_cartesian
+<span class="w">    </span>xx<span class="w"> </span>-<span class="o">=</span><span class="w"> </span>x_shift
+<span class="w">    </span>yy<span class="w"> </span>-<span class="o">=</span><span class="w"> </span>y_shift
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>angle!<span class="o">=</span><span class="m">0</span>.0:
+<span class="w">        </span><span class="nv">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_np.cos<span class="o">(</span>angle<span class="o">)</span>
+<span class="w">        </span><span class="nv">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_np.sin<span class="o">(</span>angle<span class="o">)</span>
+<span class="w">        </span><span class="nv">xx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cc<span class="w"> </span>*<span class="w"> </span>xx<span class="w"> </span>+<span class="w"> </span>ss<span class="w"> </span>*<span class="w"> </span>yy
+<span class="w">    </span><span class="k">fi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-k*<span class="o">(</span>xx**2<span class="o">)</span>/<span class="o">(</span><span class="m">2</span>*f<span class="o">)</span>
+<span class="w">    </span>Fout.field<span class="w"> </span>*<span class="o">=</span><span class="w"> </span>_np.exp<span class="o">(</span>1j<span class="w"> </span>*<span class="w"> </span><span class="k">fi</span><span class="o">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span>Fout
 </pre></div>
 </div>
 </dd>
@@ -121,17 +124,17 @@ def CylindricalLens<span class="o">(</span>Fin,f,x_shift<span class="o">=</span>
 </li>
 <li><dl>
 <dt>Import your function in your script.</dt><dd><p>Import your function in your script and call it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from LightPipes import *
-from MyFunctions.MyLightPipesFunctions import CylindricalLens
-<span class="nv">F</span> <span class="o">=</span> Begin<span class="o">(</span>size, wavelength, N<span class="o">)</span>
-<span class="nv">f</span> <span class="o">=</span> <span class="m">50</span>*cm    .
-<span class="nv">angle</span> <span class="o">=</span> <span class="m">45</span>*deg
-    .
-    .
-<span class="nv">F</span> <span class="o">=</span> CylindricalLens<span class="o">(</span>F,f,angle <span class="o">=</span> angle<span class="o">)</span>
-    .
-    .
-    .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from<span class="w"> </span>LightPipes<span class="w"> </span>import<span class="w"> </span>*
+from<span class="w"> </span>MyFunctions.MyLightPipesFunctions<span class="w"> </span>import<span class="w"> </span>CylindricalLens
+<span class="nv">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Begin<span class="o">(</span>size,<span class="w"> </span>wavelength,<span class="w"> </span>N<span class="o">)</span>
+<span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span>*cm<span class="w">    </span>.
+<span class="nv">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">45</span>*deg
+<span class="w">    </span>.
+<span class="w">    </span>.
+<span class="nv">F</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CylindricalLens<span class="o">(</span>F,f,angle<span class="w"> </span><span class="o">=</span><span class="w"> </span>angle<span class="o">)</span>
+<span class="w">    </span>.
+<span class="w">    </span>.
+<span class="w">    </span>.
 </pre></div>
 </div>
 </dd>
@@ -139,37 +142,37 @@ from MyFunctions.MyLightPipesFunctions import CylindricalLens
 </li>
 </ol>
 <p>Below is the complete Python script to test the <em>CylindricalLens</em> command:</p>
-<p>(<a class="reference external" href=".//MyLightPipesFunctions.py">Source code</a>, <a class="reference external" href=".//MyLightPipesFunctions.png">png</a>, <a class="reference external" href=".//MyLightPipesFunctions.hires.png">hires.png</a>, <a class="reference external" href=".//MyLightPipesFunctions.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/c06c377bc21a310e4fb4adbdbb539858/MyLightPipesFunctions.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/2879d923e901959ab0e5a672eba2509b/MyLightPipesFunctions.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/cba8c619a896d3d4e5b89fb746e16445/MyLightPipesFunctions.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/1972a0e5d8847de240fc59c43a578998/MyLightPipesFunctions.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/MyLightPipesFunctions.png" class="plot-directive" src="_images/MyLightPipesFunctions.png" />
 </figure>
 </section>
 <section id="make-your-functions-part-of-your-lightpipes-for-python-installation">
-<h2><span class="section-number">5.2. </span>Make your functions part of your LightPipes for Python installation.<a class="headerlink" href="#make-your-functions-part-of-your-lightpipes-for-python-installation" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">5.2. </span>Make your functions part of your LightPipes for Python installation.<a class="headerlink" href="#make-your-functions-part-of-your-lightpipes-for-python-installation" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><dl>
 <dt>Find userfunc.py.</dt><dd><p>The code of a user defined command must be put in the file: <em>userfunc.py</em>. This file can be found in the directory in which the LightPipes package was installed on your computer. This directory, called “site-packages” can be found at the place where Python was installed. Use the following Python commands to locate this directory. Depending on your Python-installation the response could be:</p>
 <p><strong>Windows:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import site
-&gt;&gt;&gt; site.getsitepackages<span class="o">()</span>
-<span class="o">[</span><span class="s1">&#39;C:\\Users\\Fred\\AppData\\Local\\Programs\\Python\\Python37&#39;</span>, <span class="s1">&#39;C:\\Users\\Fred\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages&#39;</span><span class="o">]</span>
-&gt;&gt;&gt; print<span class="o">(</span>site.getsitepackages<span class="o">()[</span><span class="m">1</span><span class="o">])</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>site
+&gt;&gt;&gt;<span class="w"> </span>site.getsitepackages<span class="o">()</span>
+<span class="o">[</span><span class="s1">&#39;C:\\Users\\Fred\\AppData\\Local\\Programs\\Python\\Python37&#39;</span>,<span class="w"> </span><span class="s1">&#39;C:\\Users\\Fred\\AppData\\Local\\Programs\\Python\\Python37\\lib\\site-packages&#39;</span><span class="o">]</span>
+&gt;&gt;&gt;<span class="w"> </span>print<span class="o">(</span>site.getsitepackages<span class="o">()[</span><span class="m">1</span><span class="o">])</span>
 C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A</span>ppData<span class="se">\L</span>ocal<span class="se">\P</span>rograms<span class="se">\P</span>ython<span class="se">\P</span>ython37<span class="se">\l</span>ib<span class="se">\s</span>ite-packages
 &gt;&gt;&gt;
 </pre></div>
 </div>
 <p><strong>Mac:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import site
-&gt;&gt;&gt; site.getsitepackages<span class="o">()</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>site
+&gt;&gt;&gt;<span class="w"> </span>site.getsitepackages<span class="o">()</span>
 <span class="o">[</span><span class="s1">&#39;/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages&#39;</span><span class="o">]</span>
 &gt;&gt;&gt;
 </pre></div>
 </div>
 <p><strong>Linux (ubuntu):</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import site
-&gt;&gt;&gt; site.getsitepackages<span class="o">()</span>
-<span class="o">[</span><span class="s1">&#39;/usr/local/lib/python3.6/dist-packages&#39;</span>, <span class="s1">&#39;/usr/lib/python3/dist-packages&#39;</span>, <span class="s1">&#39;/usr/lib/python3.6/dist-packages&#39;</span><span class="o">]</span>
-&gt;&gt;&gt; print<span class="o">(</span>site.getsitepackages<span class="o">()[</span><span class="m">1</span><span class="o">])</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>site
+&gt;&gt;&gt;<span class="w"> </span>site.getsitepackages<span class="o">()</span>
+<span class="o">[</span><span class="s1">&#39;/usr/local/lib/python3.6/dist-packages&#39;</span>,<span class="w"> </span><span class="s1">&#39;/usr/lib/python3/dist-packages&#39;</span>,<span class="w"> </span><span class="s1">&#39;/usr/lib/python3.6/dist-packages&#39;</span><span class="o">]</span>
+&gt;&gt;&gt;<span class="w"> </span>print<span class="o">(</span>site.getsitepackages<span class="o">()[</span><span class="m">1</span><span class="o">])</span>
 /usr/lib/python3/dist-packages
 &gt;&gt;&gt;
 </pre></div>
@@ -179,8 +182,8 @@ C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A
 </li>
 <li><dl>
 <dt>Write the code.</dt><dd><p>For example write the code for a <em>cylindrical lens</em> and put it in the <em>userfunc.py</em> file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>def CylindricalLens<span class="o">(</span>Fin,f,x_shift<span class="o">=</span><span class="m">0</span>.0,y_shift<span class="o">=</span><span class="m">0</span>.0,angle<span class="o">=</span><span class="m">0</span>.0<span class="o">)</span>:
-    <span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>def<span class="w"> </span>CylindricalLens<span class="o">(</span>Fin,f,x_shift<span class="o">=</span><span class="m">0</span>.0,y_shift<span class="o">=</span><span class="m">0</span>.0,angle<span class="o">=</span><span class="m">0</span>.0<span class="o">)</span>:
+<span class="w">    </span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    *Inserts a cylindrical lens in the field*</span>
 
 <span class="s2">    :param Fin: input field</span>
@@ -206,20 +209,20 @@ C:<span class="se">\U</span>sers<span class="se">\F</span>red<span class="se">\A
 
 <span class="s2">        * :ref:`Examples: Transformation of high order Gauss modes &lt;Transformation of high order Gauss modes.&gt;`</span>
 <span class="s2">    &quot;&quot;&quot;</span>
-    <span class="nv">Fout</span> <span class="o">=</span> Field.copy<span class="o">(</span>Fin<span class="o">)</span>
-    <span class="nv">k</span> <span class="o">=</span> <span class="m">2</span>*_np.pi/Fout.lam
-    yy, <span class="nv">xx</span> <span class="o">=</span> Fout.mgrid_cartesian
-    xx -<span class="o">=</span> x_shift
-    yy -<span class="o">=</span> y_shift
-    <span class="k">if</span> angle!<span class="o">=</span><span class="m">0</span>.0:
-        <span class="nv">cc</span> <span class="o">=</span> _np.cos<span class="o">(</span>angle<span class="o">)</span>
-        <span class="nv">ss</span> <span class="o">=</span> _np.sin<span class="o">(</span>angle<span class="o">)</span>
-        <span class="nv">xxr</span> <span class="o">=</span> cc * xx + ss * yy
-        <span class="nv">yyr</span> <span class="o">=</span> -ss * xx + cc * yy
-        yy, <span class="nv">xx</span> <span class="o">=</span> yyr, xxr
-    <span class="k">fi</span> <span class="o">=</span> -k*<span class="o">(</span>xx**2<span class="o">)</span>/<span class="o">(</span><span class="m">2</span>*f<span class="o">)</span>
-    Fout.field *<span class="o">=</span> _np.exp<span class="o">(</span>1j * <span class="k">fi</span><span class="o">)</span>
-    <span class="k">return</span> Fout
+<span class="w">    </span><span class="nv">Fout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Field.copy<span class="o">(</span>Fin<span class="o">)</span>
+<span class="w">    </span><span class="nv">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>*_np.pi/Fout.lam
+<span class="w">    </span>yy,<span class="w"> </span><span class="nv">xx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Fout.mgrid_cartesian
+<span class="w">    </span>xx<span class="w"> </span>-<span class="o">=</span><span class="w"> </span>x_shift
+<span class="w">    </span>yy<span class="w"> </span>-<span class="o">=</span><span class="w"> </span>y_shift
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>angle!<span class="o">=</span><span class="m">0</span>.0:
+<span class="w">        </span><span class="nv">cc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_np.cos<span class="o">(</span>angle<span class="o">)</span>
+<span class="w">        </span><span class="nv">ss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_np.sin<span class="o">(</span>angle<span class="o">)</span>
+<span class="w">        </span><span class="nv">xxr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cc<span class="w"> </span>*<span class="w"> </span>xx<span class="w"> </span>+<span class="w"> </span>ss<span class="w"> </span>*<span class="w"> </span>yy
+<span class="w">        </span><span class="nv">yyr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-ss<span class="w"> </span>*<span class="w"> </span>xx<span class="w"> </span>+<span class="w"> </span>cc<span class="w"> </span>*<span class="w"> </span>yy
+<span class="w">        </span>yy,<span class="w"> </span><span class="nv">xx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yyr,<span class="w"> </span>xxr
+<span class="w">    </span><span class="k">fi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-k*<span class="o">(</span>xx**2<span class="o">)</span>/<span class="o">(</span><span class="m">2</span>*f<span class="o">)</span>
+<span class="w">    </span>Fout.field<span class="w"> </span>*<span class="o">=</span><span class="w"> </span>_np.exp<span class="o">(</span>1j<span class="w"> </span>*<span class="w"> </span><span class="k">fi</span><span class="o">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span>Fout
 </pre></div>
 </div>
 <p>Before the code begins it is recommended to insert a socalled “docstring” just after the function definition. In this docstring the working of the command and the parameters are explained and become visible in the help and eventually in the html pages of a sphinx web.
@@ -231,16 +234,16 @@ It is recommended to put the parameters in the order as shown: the input field, 
 <li><dl>
 <dt>Modify the __init__.py file.</dt><dd><p>The final step is the modification of the <em>__init__.py</em> script. This file is also in the <em>…/site-packages/LightPipes</em> directory.
 Find the Python list and add your function to the list:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>    .
-    .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>.
+<span class="w">    </span>.
 <span class="c1">#User defined functions from userfunc.py:</span>
 __all__.extend<span class="o">([</span>
-    <span class="s1">&#39;FieldArray2D&#39;</span>,
-    <span class="s1">&#39;RowOfFields&#39;</span>,
-    <span class="s1">&#39;CylindricalLens&#39;</span>, <span class="c1"># user defined function added at June 9, 2020 by Fred.</span>
-    <span class="o">])</span>
-    .
-    .
+<span class="w">    </span><span class="s1">&#39;FieldArray2D&#39;</span>,
+<span class="w">    </span><span class="s1">&#39;RowOfFields&#39;</span>,
+<span class="w">    </span><span class="s1">&#39;CylindricalLens&#39;</span>,<span class="w"> </span><span class="c1"># user defined function added at June 9, 2020 by Fred.</span>
+<span class="w">    </span><span class="o">])</span>
+<span class="w">    </span>.
+<span class="w">    </span>.
 </pre></div>
 </div>
 </dd>
@@ -248,7 +251,7 @@ __all__.extend<span class="o">([</span>
 </li>
 <li><dl>
 <dt>Test your command.</dt><dd><p>Write a test program to test your command.</p>
-<p>(<a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.py">Source code</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.png">png</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.hires.png">hires.png</a>, <a class="reference external" href="./Examples/Commands/UserDefinedCylindricalLens.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/00e31f0ecaf4bd9ef1bd2af110726f2b/UserDefinedCylindricalLens.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/da2767a004f80aa1f229ac04d62881dc/UserDefinedCylindricalLens.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/079aad763bc3068dff5a29b773903128/UserDefinedCylindricalLens.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/c3fa18278922c7453a03a019d0d4eeff/UserDefinedCylindricalLens.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/UserDefinedCylindricalLens.png" class="plot-directive" src="_images/UserDefinedCylindricalLens.png" />
 </figure>
@@ -258,7 +261,7 @@ __all__.extend<span class="o">([</span>
 </ol>
 </section>
 <section id="your-command-should-be-an-extension-of-lightpipes">
-<h2><span class="section-number">5.3. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">5.3. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Permalink to this heading"></a></h2>
 <p>If you are convinced that your new command is an important, useful extension of the LightPipes for Python package, please open an issue on our <a class="reference external" href="https://github.com/opticspy/lightpipes">GitHub</a> site with the source code and the authors will consider to put it in a new version of LightPipes for Python.</p>
 </section>
 </section>
@@ -275,7 +278,7 @@ __all__.extend<span class="o">([</span>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 21, 2022.
+      <span class="lastupdated">Last updated on May 19, 2023.
       </span></p>
   </div>
 

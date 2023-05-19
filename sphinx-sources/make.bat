@@ -85,6 +85,19 @@ if "%1" == "html" (
 	goto end
 )
 
+if "%1" == "cleanAndHtml" (
+
+        for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
+	del /q /s %BUILDDIR%\*
+        echo.%BUILDDIR%\html deleted
+	%SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+	if errorlevel 1 exit /b 1
+	echo.
+        start %BUILDDIR%\html\index.html
+        pause
+	goto end
+)
+
 if "%1" == "dirhtml" (
 	%SPHINXBUILD% -b dirhtml %ALLSPHINXOPTS% %BUILDDIR%/dirhtml
 	if errorlevel 1 exit /b 1

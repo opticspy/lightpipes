@@ -112,7 +112,7 @@ def FieldArray2D(Fin,Ffield,Nfieldsx,Nfieldsy,x_sep,y_sep):
     """
 
     Fout = Field.copy(Fin)
-    F = _np.ndarray((Nfieldsy,),dtype=_np.object)
+    F = _np.ndarray((Nfieldsy,),dtype=object)
     F[0]=Ffield
     if (Nfieldsy %2) == 0:
         Nfieldsy2=int(Nfieldsy/2)
