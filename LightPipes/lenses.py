@@ -5,6 +5,7 @@ import numpy as _np
 from .field import Field
 from .propagators import ABCD, Forvard, Fresnel, backward_compatible
 from .core import D4sigma
+from .misc import PipFFT
 
 @backward_compatible
 def Axicon(Fin, phi, n1 = 1.5, x_shift = 0.0, y_shift = 0.0 ):
@@ -170,6 +171,8 @@ def LensFarfield(Fin, f ):
     Use a direct FFT approach to calculate the far field of the input field.
     Given the focal length f, the correct scaling is applied and the
     output field will have it's values for size and dx correctly set.
+    Also applies correct prefactors to field as calculated from Fresnel
+    approximation and lens as square phase.
 
     Parameters
     ----------
@@ -197,9 +200,10 @@ def LensFarfield(Fin, f ):
         L'      [m] = size of FOV in focal plane
         dx'     [m] = grid spacing in focal plane
         
-        lam * f_L = dx' * L
-                  = dx * L'
+        lam * f_L = dx' * L = L' / N * L
+                  = dx * L' = L / N * L'
                   = dx * dx' * N
+        lam * f_L * N = L * L'
         
         given: N, dx', lam, f_L
         lemma: L' = N * dx'
@@ -208,13 +212,15 @@ def LensFarfield(Fin, f ):
         --> dx = L / N = lam * f_L / (N * dx') = lam * f_L / L' 
 
     """
-    Fout = Field.copy(Fin)
-    dx = Fout.dx
-    lam = Fout.lam
+    dx = Fin.dx
+    lam = Fin.lam
+    k = 2*_np.pi/lam
     L_prime = lam * f / dx
-    focusfield = _np.fft.fftshift(_np.fft.fft2(Fout.field))
-    Fout.field = focusfield
+    Fout = PipFFT(Fin, index=1)
     Fout.siz = L_prime
+    Fout.field *= Fin.dx**2 # hope this is correct, should be as long as numpy normalization = backward (none for forward)
+    Fout.field *= 1/(1j*lam*f) * _np.exp(1j*k*f)
+    Fout.field *= _np.exp(1j*k/(2*f)*(Fout.mgrid_Rsquared))
     Fout._IsGauss=False
     return Fout
 
