@@ -854,9 +854,8 @@ def Power(Fin):
     >>> P = Power(F) # returns the power of the field F
       
     """
-    #TODO why does Normal() also sum dx**2 (==integral) while this does not??
     I = _np.abs(Fin.field)**2
-    return I.sum()
+    return I.sum() * Fin.dx**2
 
 @backward_compatible
 def RandomIntensity(Fin, seed = 123, noise = 1.0, ):
