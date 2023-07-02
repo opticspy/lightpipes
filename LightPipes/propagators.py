@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 import numpy as _np
 from scipy.special import fresnel as _fresnel, hermite
-from scipy.optimize import least_squares #TODO hide from public
-from scipy.sparse import coo_matrix
 
 from .field import Field
 from . import tictoc
@@ -653,7 +651,7 @@ def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
     :type refr: numpy.ndarray
     :param save_ram: saves ram but slower! (default = False)
     :type save_ram: bool
-    :param use_scipy: should not be used; for development only! (default = False)
+    :param use_scipy: deprecated, must be False (default = False)
     :type use_scipy: bool    
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
@@ -666,8 +664,7 @@ def Steps(Fin, z, nstep = 1, refr = 1.0, save_ram=False, use_scipy=False):
         * :ref:`Examples: Propagation in a lens-like, absorptive medium.<Propagation in a lens-like, absorptive medium.>`
     """
     if use_scipy:
-        print('Warning! Non-functional develop version for testing')
-        return _TODOStepsScipy(z, nstep, refr, Fin)
+        raise NotImplementedError('Removed experimental feature, `use_scipy` kwarg will be removed in future version.')
     else:
         if save_ram:
             """Loops version goes line by line and therefore only needs
@@ -1087,107 +1084,6 @@ def _StepsLoopElim(z, nstep, _refr, Fin):
     Fout.field *= expfi4 #*=_np.exp(1j*(0.25*K*dz*(refr.real-1.0)))
     Fout._IsGauss=False
     return Fout
-
-
-def _TODOStepsScipy(z, nstep, refr, Fin):
-    """Right now this is just a test and collection of code from
-    https://scipy-cookbook.readthedocs.io/items/discrete_bvp.html
-    which is not functional for Lightpipes!
-    Also, its really really slow, so possibly not useful at all.
-    """
-
-    if Fin._curvature != 0.0:
-        raise ValueError('Cannot operate on spherical coords.'
-                         + 'Use Convert() first')
-    Fout = Field.copy(Fin)
-    N = Fout.N
-    lam = Fout.lam
-    size = Fout.siz
-    dtype = Fout._dtype
-    
-    legacy = True
-    if legacy:
-        Pi = 3.141592654 #to compare Cpp results accurately
-    else:
-        Pi = _np.pi
-    K = 2.*Pi/lam
-    z = z/2.
-    Pi4lz = 4.*Pi/lam/z
-    imPi4lz = 1j * Pi4lz
-    
-    delta = size/(N-1.) #dx
-    delta2 = delta*delta
-    
-    n = 100
-    c = 1
-    # n = N
-    # c = delta**2
-    def f(u, ):
-        return u**3
-    
-    def f_prime(u):
-        return 3 * u**2
-    
-    def fun(u, n, f, f_prime, c, **kwargs):
-        v = _np.zeros((n + 2, n + 2))
-        u = u.reshape((n, n))
-        v[1:-1, 1:-1] = u
-        y = v[:-2, 1:-1] + v[2:, 1:-1] + v[1:-1, :-2] + v[1:-1, 2:] - 4 * u + c * f(u)
-        return y.ravel()
-
-    def compute_jac_indices(n):
-        i = _np.arange(n)
-        jj, ii = _np.meshgrid(i, i)
-    
-        ii = ii.ravel()
-        jj = jj.ravel()
-    
-        ij = _np.arange(n**2)
-    
-        jac_rows = [ij]
-        jac_cols = [ij]
-    
-        mask = ii > 0
-        ij_mask = ij[mask]
-        jac_rows.append(ij_mask)
-        jac_cols.append(ij_mask - n)
-    
-        mask = ii < n - 1
-        ij_mask = ij[mask]
-        jac_rows.append(ij_mask)
-        jac_cols.append(ij_mask + n)
-    
-        mask = jj > 0
-        ij_mask = ij[mask]
-        jac_rows.append(ij_mask)
-        jac_cols.append(ij_mask - 1)
-    
-        mask = jj < n - 1
-        ij_mask = ij[mask]
-        jac_rows.append(ij_mask)
-        jac_cols.append(ij_mask + 1)
-    
-        return _np.hstack(jac_rows), _np.hstack(jac_cols)
-    jac_rows, jac_cols = compute_jac_indices(N)
-    # u0 = np.ones(n**2) * 0.5
-    u0 = Fin.field.ravel() #initial guess is old field
-    
-    def jac(u, n, f, f_prime, c, jac_rows=None, jac_cols=None):
-        jac_values = _np.ones_like(jac_cols, dtype=float)
-        jac_values[:n**2] = -4 + c * f_prime(u)
-        return coo_matrix((jac_values, (jac_rows, jac_cols)),
-                          shape=(n**2, n**2))
-    
-    res_1 = least_squares(fun, u0.real, jac=jac, gtol=1e-3,
-                          args=(N, f, f_prime, c),
-                          kwargs={'jac_rows': jac_rows,
-                                  'jac_cols': jac_cols},
-                          verbose=0)
-    # print(res_1)
-    Fout.field = res_1.x.reshape((N, N))
-    Fout._IsGauss=False
-    return Fout
-
 
 
 
