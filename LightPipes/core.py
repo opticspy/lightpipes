@@ -218,8 +218,6 @@ def CircScreen(Fin, R, x_shift=0.0, y_shift=0.0):
     Fout._IsGauss=False
     return Fout
 
-
-
 @backward_compatible
 def GaussAperture(Fin, w, x_shift = 0.0, y_shift = 0.0, T = 1.0, ):
     """
@@ -473,12 +471,20 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
                              + 'last parameter (backward compatibility check)'
                              + ', please check syntax/usage.')
     # ************* end of Backward compatibility section *********
-    Fout = Field.copy(Fin)
-    R, Phi = Fout.mgrid_polar
-    w02=w0*w0
-    la=abs(l)
-    rho = 2*R*R/w02
-    Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
+    Fout    =   Field.copy(Fin)
+    #################################
+    """
+    I changed only that part, not calculating the R and PHI with the function,
+    because in the part of the phase of the .mgrid_polar function there is a "+ _np.pi",
+    which shouldn't be here.
+    In order not to change that function, it is simpler to just change it here.
+    changed from cos( ..) to exponential(..)
+    """
+    Y, X    =   Fout.mgrid_cartesian
+    R       =   _np.sqrt(X**2+Y**2)
+    la      =   abs(l)
+    rho     =   2*R**2/w0**2
+    Fout.field = A*rho**(la/2)*genlaguerre(p,la)(rho)*_np.exp(-rho/2)*_np.exp(-1j*l*_np.arctan2(Y, X))
     Fout._IsGauss=False
     return Fout
 
