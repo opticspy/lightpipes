@@ -59,19 +59,22 @@ Finally, a convenient editor to make Python scripts is `Geany <http://www.geany.
 LightPipes  release notes.
 ==========================
 
-**Version:** 2.1.4 soon on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
+**Version:** 2.1.4 on `PyPi <https://pypi.python.org/pypi/LightPipes/>`_
 
 New commands:
-    * None
+    * LensFarfield
 
 Bug fixes:
     * In __init__.py: line 212 changed: fig.canvas.set_window_title to: fig.canvas.manager.set_window_title
     * In user_func.py: line 115: changed: dtype=_np.object to: dtype=object
+    * In Power command: core.py, line 892: added "\*Fin.dx\*\*2" to the result
+    * In core.py: line 115: replaced 'Centroid' by 'D4Sigma'
+    
     
 Command changes:
-    *  None
+    *  GaussLaguerre: added possibillity of sine, cosine or exponetial phase factor.
 
-Fred van Goor, May, 19, 2023.
+Fred van Goor, September, 4, 2023.
 
 ----
 

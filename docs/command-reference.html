@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. Command Reference. &mdash; LightPipes for Python 2.1.3 documentation</title>
+  <title>4. Command Reference. &mdash; LightPipes for Python 2.1.4 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -37,7 +37,7 @@
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.3
+                2.1.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -1017,7 +1017,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="LightPipes.GaussLaguerre">
-<span class="sig-name descname"><span class="pre">GaussLaguerre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sincos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GaussLaguerre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition"></a></dt>
 <dd><p><em>Substitutes a Laguerre-Gauss mode (beam waist) in the field.</em></p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(F_{p,l}(x,y,z=0) = A \left(\rho\right)^{\frac{|l|}{2} }L^p_l(\rho)e^{-\frac{\rho}{2}}\cos(l\theta)\)</span>,</p>
@@ -1034,7 +1034,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>p</strong> (<em>int</em><em>, </em><em>float</em>) – mode index (default = 0.0)</p></li>
 <li><p><strong>l</strong> (<em>int</em><em>, </em><em>float</em>) – mode index (default = 0.0)</p></li>
 <li><p><strong>A</strong> (<em>int</em><em>, </em><em>float</em>) – amplitude (default = 1.0)</p></li>
-<li><p><strong>sincos</strong> (<em>int</em><em>, </em><em>float</em>) – 0 = exp, 1 = cos, 2 = sin (default = 1)</p></li>
+<li><p><strong>ecs</strong> (<em>int</em><em>, </em><em>float</em>) – 0 = exp, 1 = cos, 2 = sin (default = 1)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1047,9 +1047,11 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># Fundamental Gauss mode, LG0,0 with a beam radius of 3 mm</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Idem, LG3,0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> <span class="c1"># Idem, LG3,1, amplitude 2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Idem, LG3,0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span> <span class="c1"># Idem, LG3,1, amplitude 2.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="c1"># Idem</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ecs</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="n">LG3</span><span class="p">,</span><span class="mi">1</span> <span class="k">with</span> <span class="n">exponential</span> <span class="n">phase</span> <span class="n">factor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ecs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="n">LG3</span><span class="p">,</span><span class="mi">1</span> <span class="k">with</span> <span class="n">sine</span> <span class="n">phase</span> <span class="n">factor</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -2294,7 +2296,7 @@ meaningless in the result.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Aug 26, 2023.
+      <span class="lastupdated">Last updated on Sep 04, 2023.
       </span></p>
   </div>
 
