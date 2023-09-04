@@ -25,6 +25,7 @@ __all__ = [
     'Intensity',
     'Interpol',
     'Lens',
+    'LensFarfield',
     'LensForvard',
     'LensFresnel',
     'MultIntensity',

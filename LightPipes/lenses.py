@@ -167,23 +167,18 @@ def Lens(Fin, f, x_shift = 0.0, y_shift = 0.0):
 
 def LensFarfield(Fin, f ):
     """
-    Use a direct FFT approach to calculate the far field of the input field.
-    Given the focal length f, the correct scaling is applied and the
-    output field will have it's values for size and dx correctly set.
+    *Use a direct FFT approach to calculate the far field of the input field.*
+    *Given the focal length f, the correct scaling is applied and the*
+    *output field will have it's values for size and dx correctly set.*
 
-    Parameters
-    ----------
-    f : double
-        Focal length in meters/ global units
-    Fin : lp.Field
-        The input field.
+    :param Fin: input field
+    :type Fin: Field
+    :param f: focal length of the lens
+    :type f: int, float
+    :return: output field (N x N square array of complex numbers).
+    :rtype: `LightPipes.field.Field`
 
-    Returns
-    -------
-    The output field.
 
-    """
-    """
         The focus(="far field") is related to the nearfield phase and intensity
         via the Fourier transform. Applying the correct scalings we can immediately
         calculate the focus of a measured wavefront.

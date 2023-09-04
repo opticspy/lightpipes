@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. Command Reference. &mdash; LightPipes for Python 2.1.3 documentation</title>
@@ -13,8 +13,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -51,70 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">2. Installation.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="support.html">3. Support.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Command Reference.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.ABCD"><code class="docutils literal notranslate"><span class="pre">ABCD</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.AiryBeam1D"><code class="docutils literal notranslate"><span class="pre">AiryBeam1D</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.AiryBeam2D"><code class="docutils literal notranslate"><span class="pre">AiryBeam2D</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Axicon"><code class="docutils literal notranslate"><span class="pre">Axicon</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.BeamMix"><code class="docutils literal notranslate"><span class="pre">BeamMix</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Begin"><code class="docutils literal notranslate"><span class="pre">Begin</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Centroid"><code class="docutils literal notranslate"><span class="pre">Centroid</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.CircAperture"><code class="docutils literal notranslate"><span class="pre">CircAperture</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.CircScreen"><code class="docutils literal notranslate"><span class="pre">CircScreen</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Convert"><code class="docutils literal notranslate"><span class="pre">Convert</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.CylindricalLens"><code class="docutils literal notranslate"><span class="pre">CylindricalLens</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.D4sigma"><code class="docutils literal notranslate"><span class="pre">D4sigma</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.FieldArray2D"><code class="docutils literal notranslate"><span class="pre">FieldArray2D</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Forvard"><code class="docutils literal notranslate"><span class="pre">Forvard</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Forward"><code class="docutils literal notranslate"><span class="pre">Forward</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Fresnel"><code class="docutils literal notranslate"><span class="pre">Fresnel</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GForvard"><code class="docutils literal notranslate"><span class="pre">GForvard</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GLens"><code class="docutils literal notranslate"><span class="pre">GLens</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Gain"><code class="docutils literal notranslate"><span class="pre">Gain</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GaussAperture"><code class="docutils literal notranslate"><span class="pre">GaussAperture</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GaussBeam"><code class="docutils literal notranslate"><span class="pre">GaussBeam</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GaussHermite"><code class="docutils literal notranslate"><span class="pre">GaussHermite</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GaussLaguerre"><code class="docutils literal notranslate"><span class="pre">GaussLaguerre</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.GaussScreen"><code class="docutils literal notranslate"><span class="pre">GaussScreen</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.IntAttenuator"><code class="docutils literal notranslate"><span class="pre">IntAttenuator</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Intensity"><code class="docutils literal notranslate"><span class="pre">Intensity</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Interpol"><code class="docutils literal notranslate"><span class="pre">Interpol</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.LPdemo"><code class="docutils literal notranslate"><span class="pre">LPdemo</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.LPhelp"><code class="docutils literal notranslate"><span class="pre">LPhelp</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.LPtest"><code class="docutils literal notranslate"><span class="pre">LPtest</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Lens"><code class="docutils literal notranslate"><span class="pre">Lens</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.LensForvard"><code class="docutils literal notranslate"><span class="pre">LensForvard</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.LensFresnel"><code class="docutils literal notranslate"><span class="pre">LensFresnel</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.MultIntensity"><code class="docutils literal notranslate"><span class="pre">MultIntensity</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.MultPhase"><code class="docutils literal notranslate"><span class="pre">MultPhase</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Normal"><code class="docutils literal notranslate"><span class="pre">Normal</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Phase"><code class="docutils literal notranslate"><span class="pre">Phase</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.PhaseSpiral"><code class="docutils literal notranslate"><span class="pre">PhaseSpiral</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.PhaseUnwrap"><code class="docutils literal notranslate"><span class="pre">PhaseUnwrap</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.PipFFT"><code class="docutils literal notranslate"><span class="pre">PipFFT</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.PlaneWave"><code class="docutils literal notranslate"><span class="pre">PlaneWave</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.PointSource"><code class="docutils literal notranslate"><span class="pre">PointSource</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Power"><code class="docutils literal notranslate"><span class="pre">Power</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Propagate"><code class="docutils literal notranslate"><span class="pre">Propagate</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.RandomIntensity"><code class="docutils literal notranslate"><span class="pre">RandomIntensity</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.RandomPhase"><code class="docutils literal notranslate"><span class="pre">RandomPhase</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.RectAperture"><code class="docutils literal notranslate"><span class="pre">RectAperture</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.RectScreen"><code class="docutils literal notranslate"><span class="pre">RectScreen</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.RowOfFields"><code class="docutils literal notranslate"><span class="pre">RowOfFields</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Steps"><code class="docutils literal notranslate"><span class="pre">Steps</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Strehl"><code class="docutils literal notranslate"><span class="pre">Strehl</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.SubIntensity"><code class="docutils literal notranslate"><span class="pre">SubIntensity</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.SubPhase"><code class="docutils literal notranslate"><span class="pre">SubPhase</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.SuperGaussAperture"><code class="docutils literal notranslate"><span class="pre">SuperGaussAperture</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Tilt"><code class="docutils literal notranslate"><span class="pre">Tilt</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.Zernike"><code class="docutils literal notranslate"><span class="pre">Zernike</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.ZernikeFilter"><code class="docutils literal notranslate"><span class="pre">ZernikeFilter</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.ZernikeFit"><code class="docutils literal notranslate"><span class="pre">ZernikeFit</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.ZernikeName"><code class="docutils literal notranslate"><span class="pre">ZernikeName</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.ZonePlate"><code class="docutils literal notranslate"><span class="pre">ZonePlate</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#LightPipes.noll_to_zern"><code class="docutils literal notranslate"><span class="pre">noll_to_zern</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Command Reference.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UserDefinedFunctions.html">5. User defined functions.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">7. Examples.</a></li>
@@ -149,25 +87,25 @@
            <div itemprop="articleBody">
              
   <section id="module-LightPipes">
-<span id="command-reference"></span><span id="commandref"></span><h1><span class="section-number">4. </span>Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this heading"></a></h1>
+<span id="command-reference"></span><span id="commandref"></span><h1><span class="section-number">4. </span>Command Reference.<a class="headerlink" href="#module-LightPipes" title="Permalink to this headline"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="LightPipes.ABCD">
 <span class="sig-name descname"><span class="pre">ABCD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ABCD" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates a pure Gaussian field using ABCD matrix theory.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field, must be pare Gaussian.</p></li>
 <li><p><strong>M</strong> (<em>List</em>) – 2 x 2 ABCD matrix</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -206,20 +144,20 @@
 <div><p><span class="math notranslate nohighlight">\(F(x,y,z=0) = Ai\left(\dfrac{x}{x_0}\right)e^{ax}\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>x0</strong> (<em>int</em><em>, </em><em>float</em>) – scale x (default = 1*mm)</p></li>
 <li><p><strong>a</strong> (<em>int</em><em>, </em><em>float</em>) – degree of apodization x (default = 0.1/mm)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -277,7 +215,7 @@
 <div><p><span class="math notranslate nohighlight">\(F(x,y,z=0) = Ai\left(\dfrac{x}{x_0}\right)Ai\left(\dfrac{y}{y_0}\right)e^{a_1x+a_2y}\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>x0</strong> (<em>int</em><em>, </em><em>float</em>) – scale x (default = 1*mm)</p></li>
@@ -286,13 +224,13 @@
 <li><p><strong>a2</strong> (<em>int</em><em>, </em><em>float</em>) – degree of apodization y (default = 0.1/mm)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -349,7 +287,7 @@
 <span class="sig-name descname"><span class="pre">Axicon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Axicon" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field through an axicon.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>phi</strong> (<em>int</em><em>, </em><em>float</em>) – top angle of the axicon in radiants</p></li>
@@ -358,13 +296,13 @@
 <li><p><strong>y_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in y direction (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">phi</span><span class="o">=</span><span class="mf">179.7</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="mf">3.1415</span>
@@ -386,20 +324,20 @@
 <span class="sig-name descname"><span class="pre">BeamMix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Fin2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.BeamMix" title="Permalink to this definition"></a></dt>
 <dd><p><em>Addition of the fields Fin1 and Fin2.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin1</strong> (<em>Field</em>) – First field.</p></li>
 <li><p><strong>Fin2</strong> – Second field</p></li>
 <li><p><strong>Fin2</strong> – Field</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span> <span class="p">,</span> <span class="n">F2</span><span class="p">)</span>
@@ -421,7 +359,7 @@
 By setting dtype to numpy.complex64 memory can be saved.
 If dtype is not set (default = None), complex (equivalent to numpy.complex128) will be used for the field array.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>size</strong> (<em>int</em><em>, </em><em>float</em>) – size of the square grid</p></li>
 <li><p><strong>labda</strong> (<em>int</em><em>, </em><em>float</em>) – the wavelength of the output field</p></li>
@@ -429,13 +367,13 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <li><p><strong>dtype</strong> (<em>complex</em><em>, </em><em>numpy.complex64</em><em>, </em><em>numpy.complex128</em><em> (</em><em>default = None</em><em>)</em>) – type of the field array</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -473,16 +411,16 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">Centroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Centroid" title="Permalink to this definition"></a></dt>
 <dd><p><em>Returns the centroid of the intensity distribution.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the coordinates and the closests array indices of the centroid: Xc, Yc, NXc, NYc</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Tuple[float, float, int, int]</p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -497,7 +435,7 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Answer<span class="colon">:</span></dt>
+<dt class="field-odd">Answer</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span> <span class="o">=</span> <span class="mf">4.96</span> <span class="n">mm</span><span class="p">,</span> <span class="n">Yc</span> <span class="o">=</span> <span class="mf">2.97</span> <span class="n">mm</span>
@@ -517,7 +455,7 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">CircAperture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircAperture" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts a circular aperture in the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>R</strong> (<em>int</em><em>, </em><em>float</em>) – radius of the aperture</p></li>
 <li><p><strong>x_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in x direction (default = 0.0)</p></li>
@@ -525,13 +463,13 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># A 3 mm radius circular aperture in the center of the grid.</span>
@@ -555,7 +493,7 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">CircScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CircScreen" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts a circular screen in the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>R</strong> (<em>int</em><em>, </em><em>float</em>) – radius of the screen</p></li>
@@ -563,13 +501,13 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <li><p><strong>y_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in y direction (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">CircScreen</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># A 3 mm radius circular screen in the center of the grid.</span>
@@ -593,16 +531,16 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">Convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Convert" title="Permalink to this definition"></a></dt>
 <dd><p><em>Converts the field from a spherical variable coordinate to a normal coordinate system.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Convert</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># convert to normal coordinates</span>
@@ -621,7 +559,7 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">CylindricalLens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.CylindricalLens" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts a cylindrical lens in the field</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length</p></li>
@@ -630,13 +568,13 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <li><p><strong>angle</strong> (<em>int</em><em>, </em><em>float</em>) – rotation angle (default = 0.0, horizontal)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
@@ -658,16 +596,16 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">D4sigma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.D4sigma" title="Permalink to this definition"></a></dt>
 <dd><p><em>Returns the width (</em> <span class="math notranslate nohighlight">\(D4\sigma\)</span> <em>) of the intensity distribution.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>widths in X and Y direction.</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Tuple[float, float]</p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -677,12 +615,12 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 <span class="n">F</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">x_shift</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">y_shift</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span>
 <span class="n">F</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
-<span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">Centroid</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">D4sigma</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sx = </span><span class="si">{:4.2f}</span><span class="s2"> mm, sy = </span><span class="si">{:4.2f}</span><span class="s2"> mm&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sx</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span> <span class="n">sy</span><span class="o">/</span><span class="n">mm</span><span class="p">))</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Answer<span class="colon">:</span></dt>
+<dt class="field-odd">Answer</dt>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sx</span> <span class="o">=</span> <span class="mf">6.19</span> <span class="n">mm</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="mf">6.30</span> <span class="n">mm</span>
@@ -701,7 +639,7 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">FieldArray2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ffield</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nfieldsx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nfieldsy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_sep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_sep</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.FieldArray2D" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts an array of fields in the field</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>Ffield</strong> (<em>Field</em>) – field to be inserted</p></li>
@@ -711,13 +649,13 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <li><p><strong>y_sep</strong> (<em>int</em><em>, </em><em>float</em>) – separation of the inserted fields in the y-direction</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert an array of lenses in the field    </span>
@@ -745,7 +683,7 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 <span class="sig-name descname"><span class="pre">Forvard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usepyFFTW</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forvard" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field using a FFT algorithm.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance</p></li>
@@ -753,13 +691,13 @@ If dtype is not set (default = None), complex (equivalent to numpy.complex128) w
 Has no effect if _USEPYFFTW = True in config.py</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Examples<span class="colon">:</span></dt>
+<dt class="field-even">Examples</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Forvard</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span> <span class="c1"># propagates the field 20 cm</span>
@@ -781,19 +719,19 @@ Has no effect if _USEPYFFTW = True in config.py</p></li>
 <span class="sig-name descname"><span class="pre">Forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sizenew</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nnew</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Forward" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field using direct integration.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Forward</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mi">10</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># propagates the field 20 cm, for a new grid size of 10 mm and a new grid dimension 20</span>
@@ -813,7 +751,7 @@ Has no effect if _USEPYFFTW = True in config.py</p></li>
 <span class="sig-name descname"><span class="pre">Fresnel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usepyFFTW</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Fresnel" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field using a convolution method.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance</p></li>
@@ -821,13 +759,13 @@ Has no effect if _USEPYFFTW = True in config.py</p></li>
 Has no effect if _USEPYFFTW = True in config.py</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Examples<span class="colon">:</span></dt>
+<dt class="field-even">Examples</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span> <span class="c1"># propagates the field 20 cm</span>
@@ -849,19 +787,19 @@ Has no effect if _USEPYFFTW = True in config.py</p></li>
 <span class="sig-name descname"><span class="pre">GForvard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GForvard" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates a pure Gaussian field using ABCD matrix theory.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field, must be pare Gaussian.</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
@@ -885,19 +823,19 @@ Has no effect if _USEPYFFTW = True in config.py</p></li>
 <span class="sig-name descname"><span class="pre">GLens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GLens" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field through an ideal thin lens using ABCD matrix theory. Only works for a pure Gaussian input field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field (must be pure Gaussian)</p></li>
 <li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length of the lens</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers, pure Gauss).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>LightPipes.field.Field</p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GLens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
@@ -929,7 +867,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <p>See: Rensch and Chester (1973).</p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>Isat</strong> (<em>int</em><em>, </em><em>float</em>) – saturation intensity</p></li>
@@ -937,13 +875,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>Lgain</strong> (<em>int</em><em>, </em><em>float</em>) – length of the gain medium</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Isat</span><span class="o">=</span><span class="mi">131</span><span class="o">*</span><span class="n">W</span><span class="o">/</span><span class="n">cm</span><span class="o">/</span><span class="n">cm</span><span class="p">;</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0067</span><span class="o">/</span><span class="n">cm</span><span class="p">;</span> <span class="n">Lgain</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="n">cm</span><span class="p">;</span>
@@ -966,7 +904,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{T}e^{ -\frac{ x^{2}+y^{2} }{2w^{2}} } F_{in}(x,y)\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w</strong> (<em>int</em><em>, </em><em>float</em>) – 1/e intensity width</p></li>
@@ -975,13 +913,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>T</strong> (<em>int</em><em>, </em><em>float</em>) – center intensity transmission (default = 1.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussAperture</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="c1"># centered, T=1.0, width = w</span>
@@ -1003,7 +941,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">GaussBeam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doughnut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LG</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussBeam" title="Permalink to this definition"></a></dt>
 <dd><p><em>Creates a Gaussian beam in its waist.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w0</strong> – size of the Gauss waist</p></li>
@@ -1015,13 +953,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>LG</strong> (<em>bool</em>) – if True a (n,m) Laguerre-Gauss mode is generated, if False a Hermite Gauss mode (default = False)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w0</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span>
@@ -1041,7 +979,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <div><p><span class="math notranslate nohighlight">\(F_{m,n}(x,y,z=0) = A H_m\left(\dfrac{\sqrt{2}x}{w_0}\right)H_n\left(\dfrac{\sqrt{2}y}{w_0}\right)e^{-\frac{x^2+y^2}{w_0^2}}\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w0</strong> (<em>int</em><em>, </em><em>float</em>) – Gaussian spot size parameter in the beam waist (1/e amplitude point)</p></li>
@@ -1050,13 +988,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>A</strong> (<em>int</em><em>, </em><em>float</em>) – amplitude (default = 1.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussHermite</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># Fundamental Gauss mode, HG0,0 with a beam radius of 3 mm</span>
@@ -1079,29 +1017,33 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 
 <dl class="py function">
 <dt class="sig sig-object py" id="LightPipes.GaussLaguerre">
-<span class="sig-name descname"><span class="pre">GaussLaguerre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GaussLaguerre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sincos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.GaussLaguerre" title="Permalink to this definition"></a></dt>
 <dd><p><em>Substitutes a Laguerre-Gauss mode (beam waist) in the field.</em></p>
 <blockquote>
-<div><p><span class="math notranslate nohighlight">\(F_{p,l}(x,y,z=0) = A \left(\frac{\rho}{2}\right)^{\frac{|l|}{2} }L^p_l\left(\rho\right)e^{-\frac{\rho}{2}}\cos(l\theta)\)</span>,</p>
+<div><p><span class="math notranslate nohighlight">\(F_{p,l}(x,y,z=0) = A \left(\rho\right)^{\frac{|l|}{2} }L^p_l(\rho)e^{-\frac{\rho}{2}}\cos(l\theta)\)</span>,</p>
 <p>with: <span class="math notranslate nohighlight">\(\rho=\frac{2(x^2+y^2)}{w_0^2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\theta=atan(y/x)\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(sincos = 0\)</span> replace <span class="math notranslate nohighlight">\(cos(l\theta)\)</span> by <span class="math notranslate nohighlight">\(exp(-il\theta)\)</span></p>
+<p>if <span class="math notranslate nohighlight">\(sincos = 2\)</span> replace <span class="math notranslate nohighlight">\(cos(l\theta)\)</span> by <span class="math notranslate nohighlight">\(sin(l\theta)\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w0</strong> (<em>int</em><em>, </em><em>float</em>) – Gaussian spot size parameter in the beam waist (1/e amplitude point)</p></li>
 <li><p><strong>p</strong> (<em>int</em><em>, </em><em>float</em>) – mode index (default = 0.0)</p></li>
 <li><p><strong>l</strong> (<em>int</em><em>, </em><em>float</em>) – mode index (default = 0.0)</p></li>
 <li><p><strong>A</strong> (<em>int</em><em>, </em><em>float</em>) – amplitude (default = 1.0)</p></li>
+<li><p><strong>sincos</strong> (<em>int</em><em>, </em><em>float</em>) – 0 = exp, 1 = cos, 2 = sin (default = 1)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussLaguerre</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># Fundamental Gauss mode, LG0,0 with a beam radius of 3 mm</span>
@@ -1130,7 +1072,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{1-(1-T)e^{ -\frac{ x^{2}+y^{2} }{w^{2}} }} F_{in}(x,y)\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w</strong> (<em>int</em><em>, </em><em>float</em>) – 1/e intensity width</p></li>
@@ -1139,13 +1081,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>T</strong> (<em>int</em><em>, </em><em>float</em>) – center intensity transmission (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">GaussAperture</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="c1"># centered, T=1.0, width = w</span>
@@ -1170,19 +1112,19 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)=\sqrt{att}F_{in}(x,y)\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>att</strong> (<em>int</em><em>, </em><em>float</em>) – intensity attenuation factor (default = 0.5)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">IntAttenuator</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># attenuates the intensity of the field with a factor 0.5</span>
@@ -1207,19 +1149,19 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <div><p><span class="math notranslate nohighlight">\(I(x,y)=F_{in}(x,y).F_{in}(x,y)^*\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>flag</strong> (<em>int</em><em>, </em><em>float</em>) – 0: no normalisation, 1: normalisation to 1, 2: normalized to 255 (for bitmaps) (default = 0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output intensity distribution (N x N square array of real numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>numpy.ndarray</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># intensity of the field, no normalisation</span>
@@ -1240,7 +1182,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">Interpol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnif</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Interpol" title="Permalink to this definition"></a></dt>
 <dd><p><em>Interpolates the field to a new grid size, grid dimension.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>new_size</strong> (<em>int</em><em>, </em><em>float</em>) – new grid size</p></li>
@@ -1251,13 +1193,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>magnif</strong> – magnification of the field amplitude (default = 1.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Interpol</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">50</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span> <span class="c1"># interpolates the field to a grid size of 50 mm and a grid dimension of 200</span>
@@ -1279,10 +1221,10 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">LPdemo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPdemo" title="Permalink to this definition"></a></dt>
 <dd><p><em>Demonstrates the simulation of a two-holes interferometer.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>A plot of the interference pattern and a listing of the Python script.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dt class="field-even">Return type</dt>
 <dd class="field-even"><p><cite>matplotlib.image.AxesImage</cite></p>
 </dd>
 </dl>
@@ -1299,10 +1241,10 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">LPtest</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LPtest" title="Permalink to this definition"></a></dt>
 <dd><p><em>Performs a test to check if the installation of the LightPipes package was successful.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>“LightPipes for Python: test passed.” if successful, “Test failed” if not.</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dt class="field-even">Return type</dt>
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
@@ -1315,7 +1257,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <p>The field is multiplied by a phase given by:
 <span class="math notranslate nohighlight">\(F_{out}(x,y)=e^{-j\frac{2\pi}{\lambda}\left(\frac{(x-x_{shift})^2+(y-y_{shift})^2}{2f}\right)}F_{in}(x,y)\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length of the lens</p></li>
@@ -1323,13 +1265,13 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <li><p><strong>y_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in y direction (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Lens</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">50</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># propagate through lens with focal length of 50 mm</span>
@@ -1346,24 +1288,68 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="LightPipes.LensFarfield">
+<span class="sig-name descname"><span class="pre">LensFarfield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensFarfield" title="Permalink to this definition"></a></dt>
+<dd><p><em>Use a direct FFT approach to calculate the far field of the input field.</em>
+<em>Given the focal length f, the correct scaling is applied and the</em>
+<em>output field will have it’s values for size and dx correctly set.</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
+<li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length of the lens</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><p><cite>LightPipes.field.Field</cite></p>
+<p>The focus(=”far field”) is related to the nearfield phase and intensity
+via the Fourier transform. Applying the correct scalings we can immediately
+calculate the focus of a measured wavefront.
+Maths relations: [e.g. Tyson Fourier Optics]</p>
+<p>lam     [m] = wavelength lambda
+f_L     [m] = focal length of lens/focusing optic
+N       [1] = grid size NxN, assume square for now
+L       [m] = size of FOV in the near field
+dx      [m] = L/N grid spacing in near field
+L’      [m] = size of FOV in focal plane
+dx’     [m] = grid spacing in focal plane</p>
+<dl class="simple">
+<dt>lam * f_L = dx’ * L</dt><dd><p>= dx * L’
+= dx * dx’ * N</p>
+</dd>
+</dl>
+<p>given: N, dx’, lam, f_L
+lemma: L’ = N * dx’
+required: L, dx
+–&gt; L = lam * f_L / dx’
+–&gt; dx = L / N = lam * f_L / (N * dx’) = lam * f_L / L’</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="LightPipes.LensForvard">
 <span class="sig-name descname"><span class="pre">LensForvard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensForvard" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field in a variable spherical coordinate system using Forvard propagator.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">LensForvard</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span> <span class="c1"># propagate 20 cm with spherical coordinates given by the focal length of 100 mm</span>
@@ -1383,20 +1369,20 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">LensFresnel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.LensFresnel" title="Permalink to this definition"></a></dt>
 <dd><p><em>Propagates the field in a variable spherical coordinate system using Fresnel propagator.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>f</strong> (<em>int</em><em>, </em><em>float</em>) – focal length</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">LensFresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">20</span><span class="o">*</span><span class="n">cm</span><span class="p">)</span> <span class="c1"># propagate 20 cm with spherical coordinates given by the focal length of 100 mm</span>
@@ -1416,19 +1402,19 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">MultIntensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Intens</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultIntensity" title="Permalink to this definition"></a></dt>
 <dd><p><em>Multiplies the field with a given intensity distribution.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>Intens</strong> (<em>numpy.ndarray</em><em>, </em><em>float</em><em>, </em><em>int</em>) – N x N square array of real numbers or scalar</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1452,19 +1438,19 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">MultPhase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.MultPhase" title="Permalink to this definition"></a></dt>
 <dd><p><em>Multiplies the field with a given phase distribution.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>Phi</strong> (<em>numpy.ndarray</em><em>, </em><em>int</em><em>, </em><em>float</em>) – N x N square array of real numbers or scalar</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># multiply with a phase distribution:</span>
@@ -1497,16 +1483,16 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <p>with: <span class="math notranslate nohighlight">\(P=\int \int F_{in}(x,y)^2 dx dy\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
@@ -1525,7 +1511,7 @@ laser) you should double <span class="math notranslate nohighlight">\(I_{sat}\)<
 <span class="sig-name descname"><span class="pre">Phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rad'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blank_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Phase" title="Permalink to this definition"></a></dt>
 <dd><p><em>Calculates the phase of the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>unwrap</strong> (<em>bool</em>) – Call PhaseUnwrap on the extracted Phase (default = False)</p></li>
@@ -1537,13 +1523,13 @@ and replace the value with numpy.nan (e.g. 1e-3==0.1%)
 Set to 0 or None to disable</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output phase distribution (N x N square array of real numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>numpy.ndarray</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Phi</span> <span class="o">=</span> <span class="n">Phase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># returns phase distribution</span>
@@ -1564,19 +1550,19 @@ Set to 0 or None to disable</p></li>
 <span class="sig-name descname"><span class="pre">PhaseSpiral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseSpiral" title="Permalink to this definition"></a></dt>
 <dd><p><em>Multiplies Fin with a spiral phase distribution.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>m</strong> (<em>int</em><em>, </em><em>float</em>) – Order of the spiral (default = 1)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">order</span> <span class="o">=</span> <span class="mi">2</span>
@@ -1590,19 +1576,19 @@ Set to 0 or None to disable</p></li>
 <span class="sig-name descname"><span class="pre">PhaseUnwrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PhaseUnwrap" title="Permalink to this definition"></a></dt>
 <dd><p><em>Unwraps (removes jumps of pi radians) the phase.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Phi</strong> (<em>numpy</em>) – input phase distribution</p></li>
 <li><p><strong>Phi</strong> – Order of the spiral (default = 1)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output phase distribution (N x N square array of real numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>numpy.ndarray</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Phi</span> <span class="o">=</span> <span class="n">PhaseUnwrap</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span> <span class="c1"># unwraps the phase distribution Phi</span>
@@ -1615,19 +1601,19 @@ Set to 0 or None to disable</p></li>
 <span class="sig-name descname"><span class="pre">PipFFT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PipFFT" title="Permalink to this definition"></a></dt>
 <dd><p><em>Performs a 2D Fourier transform of the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>index</strong> (<em>int</em><em>, </em><em>float</em>) – 1 = forward transform, -1 = back transform (default = 1)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">PipFFT</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># forward transform</span>
@@ -1647,7 +1633,7 @@ Set to 0 or None to disable</p></li>
 <span class="sig-name descname"><span class="pre">PlaneWave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PlaneWave" title="Permalink to this definition"></a></dt>
 <dd><p><em>Creates a (circular) plane wavefront.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w</strong> – diameter of the plane wave</p></li>
@@ -1657,13 +1643,13 @@ Set to 0 or None to disable</p></li>
 <li><p><strong>y_shift</strong> (<em>int</em><em>, </em><em>float</em>) – shift in y direction (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">PlaneWave</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># plane wave with diameter of 2 mm at center of the grid</span>
@@ -1679,20 +1665,20 @@ Set to 0 or None to disable</p></li>
 <span class="sig-name descname"><span class="pre">PointSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.PointSource" title="Permalink to this definition"></a></dt>
 <dd><p><em>Creates a point source.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>x</strong> (<em>int</em><em>, </em><em>float</em>) – x-position of the point source (default = 0.0)</p></li>
 <li><p><strong>y</strong> (<em>int</em><em>, </em><em>float</em>) – y-position of the point source (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">PointSource</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># point source at center of the grid</span>
@@ -1709,16 +1695,16 @@ Set to 0 or None to disable</p></li>
 <div class="math notranslate nohighlight">
 \[P=\int \int(|F_{in}(x,y)|)^2dxdy\]</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output power</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>float</p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">P</span> <span class="o">=</span> <span class="n">Power</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># returns the power of the field F</span>
@@ -1765,20 +1751,20 @@ Please provide us with tips to improve this command by starting an issue on our 
 <span class="sig-name descname"><span class="pre">RandomIntensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">123</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomIntensity" title="Permalink to this definition"></a></dt>
 <dd><p><em>Adds random intensity to the field</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>seed</strong> (<em>int</em><em>, </em><em>float</em>) – seed number for the random noise generator (default = 123)</p></li>
 <li><p><strong>noise</strong> (<em>int</em><em>, </em><em>float</em>) – level of the noise (default = 1.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">RandomIntensity</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># adds noise to the field</span>
@@ -1799,20 +1785,20 @@ Please provide us with tips to improve this command by starting an issue on our 
 <span class="sig-name descname"><span class="pre">RandomPhase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">456</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxPhase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.141592653589793</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RandomPhase" title="Permalink to this definition"></a></dt>
 <dd><p><em>Adds random phase to the field</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>seed</strong> (<em>int</em><em>, </em><em>float</em>) – seed number for the random noise generator (default = 456)</p></li>
 <li><p><strong>maxPhase</strong> (<em>int</em><em>, </em><em>float</em>) – max value of the phase (default = 3.1415 (pi))</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">RandomPhase</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># adds noise to the phase of the field</span>
@@ -1833,7 +1819,7 @@ Please provide us with tips to improve this command by starting an issue on our 
 <span class="sig-name descname"><span class="pre">RectAperture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectAperture" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts a rectangular aperture in the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>sx</strong> (<em>int</em><em>, </em><em>float</em>) – width of the aperture</p></li>
@@ -1843,13 +1829,13 @@ Please provide us with tips to improve this command by starting an issue on our 
 <li><p><strong>angle</strong> (<em>int</em><em>, </em><em>float</em>) – rotation angle in degrees (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># A 3 x 4 mm rectangular aperture in the center of the grid.</span>
@@ -1870,7 +1856,7 @@ Please provide us with tips to improve this command by starting an issue on our 
 <span class="sig-name descname"><span class="pre">RectScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_shift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RectScreen" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts a rectangular screen in the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>sx</strong> (<em>int</em><em>, </em><em>float</em>) – width of the screen</p></li>
@@ -1880,13 +1866,13 @@ Please provide us with tips to improve this command by starting an issue on our 
 <li><p><strong>angle</strong> (<em>int</em><em>, </em><em>float</em>) – rotation angle in degrees (default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">RectScreen</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">mm</span><span class="p">)</span> <span class="c1"># A 3 x 4 mm rectangular screen in the center of the grid.</span>
@@ -1907,7 +1893,7 @@ Please provide us with tips to improve this command by starting an issue on our 
 <span class="sig-name descname"><span class="pre">RowOfFields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ffield</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Nfields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.RowOfFields" title="Permalink to this definition"></a></dt>
 <dd><p><em>Inserts an row of fields in the field</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>Ffield</strong> (<em>Field</em><em>, </em><em>numpy.ndarray</em>) – field to be inserted</p></li>
@@ -1916,13 +1902,13 @@ Please provide us with tips to improve this command by starting an issue on our 
 <li><p><strong>y</strong> (<em>int</em><em>, </em><em>float</em>) – position of the row in the y-direction (Default = 0.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1">#Insert a row of fields or numpy arrays in the input field at y (Default=0.0):    </span>
@@ -1952,7 +1938,7 @@ Please provide us with tips to improve this command by starting an issue on our 
 medium with a complex refractive index stored in the
 square array refr.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>z</strong> (<em>int</em><em>, </em><em>float</em>) – propagation distance per step</p></li>
@@ -1962,13 +1948,13 @@ square array refr.</em></p>
 <li><p><strong>use_scipy</strong> (<em>bool</em>) – should not be used; for development only! (default = False)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="admonition seealso">
@@ -1985,16 +1971,16 @@ square array refr.</em></p>
 <span class="sig-name descname"><span class="pre">Strehl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Strehl" title="Permalink to this definition"></a></dt>
 <dd><p><em>Calculates the Strehl value of the field</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Fin</strong> (<em>Field</em>) – input field</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Strehl value of the field</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>float</p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">Strehl</span><span class="p">(</span><span class="n">F</span><span class="p">)</span> <span class="c1"># returns the Strehl value of the field</span>
@@ -2013,19 +1999,19 @@ square array refr.</em></p>
 <span class="sig-name descname"><span class="pre">SubIntensity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Intens</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubIntensity" title="Permalink to this definition"></a></dt>
 <dd><p><em>Substitutes  a given intensity distribution in the field with.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>Intens</strong> (<em>numpy.ndarray</em><em>, </em><em>int</em><em>, </em><em>float</em>) – N x N square array of real numbers or scalar</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="admonition seealso">
@@ -2041,16 +2027,16 @@ square array refr.</em></p>
 <span class="sig-name descname"><span class="pre">SubPhase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.SubPhase" title="Permalink to this definition"></a></dt>
 <dd><p><em>Substitutes  a given phase distribution in the field with.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Phi</strong> (<em>numpy.ndarray</em><em>, </em><em>int</em><em>, </em><em>float</em>) – N x N square array of real numbers or scalar</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="admonition seealso">
@@ -2069,7 +2055,7 @@ square array refr.</em></p>
 <div><p><span class="math notranslate nohighlight">\(F_{out}(x,y)= \sqrt{T}e^{ -\left [ \frac{ x^{2}+y^{2} }{2w^{2}} \right ]^n } F_{in}(x,y)\)</span></p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>w</strong> (<em>int</em><em>, </em><em>float</em>) – 1/e intensity width</p></li>
@@ -2079,13 +2065,13 @@ square array refr.</em></p>
 <li><p><strong>T</strong> (<em>int</em><em>, </em><em>float</em>) – center intensity transmission (default = 1.0)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">SuperGaussAperture</span><span class="p">(</span><span class="n">Fin</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="c1"># centered, T=1.0, width = w, power = 2.0</span>
@@ -2107,20 +2093,20 @@ square array refr.</em></p>
 <span class="sig-name descname"><span class="pre">Tilt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Fin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ty</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.Tilt" title="Permalink to this definition"></a></dt>
 <dd><p><em>Tilts the field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>tx</strong> (<em>int</em><em>, </em><em>float</em>) – tilt in radians</p></li>
 <li><p><strong>ty</strong> (<em>int</em><em>, </em><em>float</em>) – tilt in radians</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p></p></dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">F</span> <span class="o">=</span> <span class="n">Tilt</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">tx</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">mrad</span><span class="p">,</span> <span class="n">ty</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">mrad</span><span class="p">)</span> <span class="c1"># wavefront tilt of 2 mrad in x and 1 mrad in y direction</span>
@@ -2151,7 +2137,7 @@ square array refr.</em></p>
 <p><span class="math notranslate nohighlight">\(V^m_n(\rho)= \sum_{s=0}^{ \frac{n-m}{2} }  \frac{(-1)^s(n-s)!}{s!( \frac{n+m}{2}-s)!( \frac{n-m}{2}-s )! } \rho^{n-2s}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\delta_{m0}= \begin{cases}1 &amp; m = 0\\0 &amp; m  \neq  0\end{cases}\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Fin</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>n</strong> (<em>int</em><em>, </em><em>float</em>) – radial order</p></li>
@@ -2165,13 +2151,13 @@ Z(rho=1)=1 on edge (-&gt; True=rms const, False=PtV const) (default = True)</p><
 ‘rad’: A given in multiples of 2pi</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
+<dt class="field-even">Example</dt>
 <dd class="field-even"><p>if norm=True and Aunit=’lambda’ and A=1.0, the wavefront
 will have an rms error of 1lambda, but PtV depending on n/m.
 If norm=False and Aunit=’lambda’ and A=1.0, the wavefront will
@@ -2195,17 +2181,17 @@ depending on n/m.</p>
 <dd><p><em>Compute the input field’s wavefront, filter out the specified
 Zernike orders and return the field with filtered wavefront.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>F</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>j_terms</strong> (<em>float</em><em>, </em><em>int</em>) – iterable of int which terms to filter. Given in Noll notation.</p></li>
 <li><p><strong>R</strong> – radius of Zernike definition</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>output field (N x N square array of complex numbers).</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>LightPipes.field.Field</cite></p>
 </dd>
 </dl>
@@ -2216,7 +2202,7 @@ Zernike orders and return the field with filtered wavefront.</em></p>
 <span class="sig-name descname"><span class="pre">ZernikeFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j_terms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lam'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeFit" title="Permalink to this definition"></a></dt>
 <dd><p><em>Fit the first N terms (Noll indexing) to the given Field.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>F</strong> (<em>Field</em>) – input field</p></li>
 <li><p><strong>j_terms</strong> (<em>int</em><em>, </em><em>float</em><em>, </em><em>list array</em>) – if j_terms is a number, first j_terms terms will be fitted if j_terms is a collection (list, array), each number should represent one noll index to fit.</p></li>
@@ -2227,10 +2213,10 @@ Zernike orders and return the field with filtered wavefront.</em></p>
 ‘rad’: A given in multiples of 2pi</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>(j_terms, A_fits)</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>tuple of int, float</p>
 </dd>
 </dl>
@@ -2245,13 +2231,13 @@ meaningless in the result.</p>
 <span class="sig-name descname"><span class="pre">ZernikeName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Noll</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.ZernikeName" title="Permalink to this definition"></a></dt>
 <dd><p><em>Returns the name of Zernike Noll term</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>Noll</strong> (<em>int</em><em>, </em><em>float</em>) – Noll term (1 .. 21)</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>name of Noll Zernike term</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>string</p>
 </dd>
 </dl>
@@ -2273,13 +2259,13 @@ meaningless in the result.</p>
 <span class="sig-name descname"><span class="pre">noll_to_zern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LightPipes.noll_to_zern" title="Permalink to this definition"></a></dt>
 <dd><p><em>Convert linear Noll index to tuple of Zernike indices.</em></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>j</strong> (<em>int</em><em>, </em><em>float</em>) – the linear Noll coordinate, n is the radial Zernike index and m is the azimuthal Zernike index.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dt class="field-even">Returns</dt>
 <dd class="field-even"><p>name of Noll Zernike term</p>
 </dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>string (n, m) tuple of Zernike indices</p>
 </dd>
 </dl>
@@ -2308,7 +2294,7 @@ meaningless in the result.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 19, 2023.
+      <span class="lastupdated">Last updated on Aug 26, 2023.
       </span></p>
   </div>
 

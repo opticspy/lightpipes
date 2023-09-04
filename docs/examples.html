@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>7. Examples. &mdash; LightPipes for Python 2.1.3 documentation</title>
@@ -13,8 +13,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -142,9 +143,9 @@
            <div itemprop="articleBody">
              
   <section id="examples">
-<h1><span class="section-number">7. </span>Examples.<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h1>
+<h1><span class="section-number">7. </span>Examples.<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h1>
 <section id="interference-examples">
-<h2><span class="section-number">7.1. </span>Interference examples.<a class="headerlink" href="#interference-examples" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.1. </span>Interference examples.<a class="headerlink" href="#interference-examples" title="Permalink to this headline"></a></h2>
 <p>When two or more waves overlap each other in space a more or less complicated pattern of fringes can be observed on a screen placed in the overlap area. These fringes are the result of superposition of the fields, which cause local enhancement or decrement of the intensity depending on the phase and amplitude distribution of the waves in the observation regio.
 In this chapter we will demonstrate a number of interference examples.</p>
 <div class="toctree-wrapper compound">
@@ -158,7 +159,7 @@ In this chapter we will demonstrate a number of interference examples.</p>
 </div>
 </section>
 <section id="diffraction-examples">
-<h2><span class="section-number">7.2. </span>Diffraction examples.<a class="headerlink" href="#diffraction-examples" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.2. </span>Diffraction examples.<a class="headerlink" href="#diffraction-examples" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="DiffractionRoundHole.html">7.2.1. Diffraction from a circular aperture.</a></li>
@@ -168,7 +169,7 @@ In this chapter we will demonstrate a number of interference examples.</p>
 </div>
 </section>
 <section id="non-diffracting-airy-beams">
-<span id="index-0"></span><h2><span class="section-number">7.3. </span>Non-diffracting Airy beams.<a class="headerlink" href="#non-diffracting-airy-beams" title="Permalink to this heading"></a></h2>
+<span id="index-0"></span><h2><span class="section-number">7.3. </span>Non-diffracting Airy beams.<a class="headerlink" href="#non-diffracting-airy-beams" title="Permalink to this headline"></a></h2>
 <p>An Airy beam will propagate without diffraction and keeps its shape
 during long propagation distances. That makes it interesting for a
 large number of applications.
@@ -179,7 +180,7 @@ From LightPipes for Python version 2.1.4. there are two new commands which
 substitude an Airy beam into the field. A one- and a two-dimensional
 Airy beam: <a class="reference internal" href="command-reference.html#LightPipes.AiryBeam1D" title="LightPipes.AiryBeam1D"><code class="xref py py-func docutils literal notranslate"><span class="pre">AiryBeam1D</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.AiryBeam2D" title="LightPipes.AiryBeam2D"><code class="xref py py-func docutils literal notranslate"><span class="pre">AiryBeam2D</span></code></a>
 For further reading we recommend the
-<a class="reference external" href="https://www.mdpi.com/2076-3417/7/4/341/htm">open access review article</a> by Yiqi Zhang et al. <a class="footnote-reference brackets" href="#a1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<a class="reference external" href="https://www.mdpi.com/2076-3417/7/4/341/htm">open access review article</a> by Yiqi Zhang et al. <a class="footnote-reference brackets" href="#a1" id="id1">1</a></p>
 <p>Below we demonstrate how an Airy beam can be generated using a Gaussian
 laser beam, a spatial light modulator (SLM) and a Fourier transform
 with a postive lens. The SLM substitutes a cubic phase into the field.
@@ -192,32 +193,30 @@ the focus of the lens.</p>
 </ul>
 </div>
 <p class="rubric">References:</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="a1" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>Yiqi Zhang, Hua Zhong, Milivoj R., Belić and Yanpeng Zhang, Appl. Sci. 2017, 7(4), 341; <a class="reference external" href="https://doi.org/10.3390/app7040341">https://doi.org/10.3390/app7040341</a></p>
-</aside>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="a1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Yiqi Zhang, Hua Zhong, Milivoj R., Belić and Yanpeng Zhang, Appl. Sci. 2017, 7(4), 341; <a class="reference external" href="https://doi.org/10.3390/app7040341">https://doi.org/10.3390/app7040341</a></p>
+</dd>
+</dl>
 </section>
 <section id="non-diffractive-bessel-beam">
-<h2><span class="section-number">7.4. </span>Non-diffractive Bessel beam.<a class="headerlink" href="#non-diffractive-bessel-beam" title="Permalink to this heading"></a></h2>
+<h2><span class="section-number">7.4. </span>Non-diffractive Bessel beam.<a class="headerlink" href="#non-diffractive-bessel-beam" title="Permalink to this headline"></a></h2>
 <p>A Bessel beam has the interesting property that it does not diffract and that it keeps its shape
 over large distances. Several meters, depending on parameters, can be realized. Applications of Bessel beams
 take advantage of the very large size of the focus, which cannot be obtained using lenses or mirrors.
 For example generation of a long narrow plasma channel can be realized using a high-power
 laser beam converted into a Bessel beam by an axicon lens.</p>
-<p>Besides an axicon, a combination of an annular slit and a positive lens or concave mirror can be used in stead <a class="footnote-reference brackets" href="#b1" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.
+<p>Besides an axicon, a combination of an annular slit and a positive lens or concave mirror can be used in stead <a class="footnote-reference brackets" href="#b1" id="id2">2</a>.
 In the following example a Poisson spot is generated by illuminating a circular disk by a plane mono-chromatic beam.
 The disk is positioned in the primary focus of a positive lens so that the waves originating from the edge of teh disk will be collimated.
 By blocking the rest of the incoming beam only the edge waves remain which results in a
 non-diffracting Bessel beam.</p>
 <p class="rubric">Reference:</p>
-<aside class="footnote-list brackets">
-<aside class="footnote brackets" id="b1" role="note">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>J.Durnin, “Exact solutions for nondiffracting beams. I. The scalar theory.”, JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)</p>
-</aside>
-</aside>
+<dl class="footnote brackets">
+<dt class="label" id="b1"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>J.Durnin, “Exact solutions for nondiffracting beams. I. The scalar theory.”, JOSA A, Vol. 4, Issue 4, pp. 651-654 (1987)</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="PoissonSpottoBesselBeam.html">7.4.1. From Poisson spot to a non-diffractive Bessel beam.</a></li>
@@ -226,7 +225,7 @@ non-diffracting Bessel beam.</p>
 </div>
 </section>
 <section id="laser-examples">
-<span id="index-1"></span><h2><span class="section-number">7.5. </span>Laser examples.<a class="headerlink" href="#laser-examples" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2><span class="section-number">7.5. </span>Laser examples.<a class="headerlink" href="#laser-examples" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="HermiteGaussModes.html">7.5.1. Hermite Gauss modes.</a></li>
@@ -254,7 +253,7 @@ non-diffracting Bessel beam.</p>
 </div>
 </section>
 <section id="phase-recovery">
-<span id="index-2"></span><h2><span class="section-number">7.6. </span>Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2><span class="section-number">7.6. </span>Phase recovery.<a class="headerlink" href="#phase-recovery" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="PhaseRecoveryGerchbergSaxton.html">7.6.1. Phase recovery using Gerchberg Saxton iteration.</a></li>
@@ -262,7 +261,7 @@ non-diffracting Bessel beam.</p>
 </div>
 </section>
 <section id="zernike-aberration">
-<span id="index-3"></span><h2><span class="section-number">7.7. </span>Zernike aberration.<a class="headerlink" href="#zernike-aberration" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2><span class="section-number">7.7. </span>Zernike aberration.<a class="headerlink" href="#zernike-aberration" title="Permalink to this headline"></a></h2>
 <p>Any aberration in a circle can be decomposed over a sum of Zernike
 polynomials. The Zernike command accepts four arguments:
 1. The radial order n  2. The
@@ -277,7 +276,7 @@ amplitude of the aberration.</p>
 </div>
 </section>
 <section id="graded-index-media-grin">
-<span id="index-4"></span><h2><span class="section-number">7.8. </span>Graded index media GRIN.<a class="headerlink" href="#graded-index-media-grin" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2><span class="section-number">7.8. </span>Graded index media GRIN.<a class="headerlink" href="#graded-index-media-grin" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="GRINDemo.html">7.8.1. Demonstration of a GRIN lens.</a></li>
@@ -287,7 +286,7 @@ amplitude of the aberration.</p>
 </div>
 </section>
 <section id="fourier-optics">
-<span id="index-5"></span><h2><span class="section-number">7.9. </span>Fourier optics.<a class="headerlink" href="#fourier-optics" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2><span class="section-number">7.9. </span>Fourier optics.<a class="headerlink" href="#fourier-optics" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="PatternRecognition.html">7.9.1. Pattern recognition.</a></li>
@@ -308,7 +307,7 @@ amplitude of the aberration.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on May 19, 2023.
+      <span class="lastupdated">Last updated on Aug 26, 2023.
       </span></p>
   </div>
 

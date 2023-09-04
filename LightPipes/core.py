@@ -112,7 +112,7 @@ def D4sigma(Fin):
         F = Begin(size, wavelength, N)
         F = CircAperture(F, 2*mm, x_shift = 5*mm, y_shift = 3*mm)
         F = Fresnel(F, 10*m)
-        sx, sy = Centroid(F)
+        sx, sy = D4sigma(F)
         print("sx = {:4.2f} mm, sy = {:4.2f} mm".format(sx/mm, sy/mm))
     
     :Answer:
@@ -415,13 +415,19 @@ def GaussHermite(Fin, w0, m = 0, n = 0, A = 1.0):
     Fout._IsGauss=True
     return Fout
 
-def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
+def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0, ecs = 1 ):
     """
     *Substitutes a Laguerre-Gauss mode (beam waist) in the field.*
 
-        :math:`F_{p,l}(x,y,z=0) = A \\left(\\frac{\\rho}{2}\\right)^{\\frac{|l|}{2} }L^p_l\\left(\\rho\\right)e^{-\\frac{\\rho}{2}}\\cos(l\\theta)`,
+        :math:`F_{p,l}(x,y,z=0) = A \\left(\\rho\\right)^{\\frac{|l|}{2} }L^p_l(\\rho)e^{-\\frac{\\rho}{2}}\\cos(l\\theta)`,
         
         with: :math:`\\rho=\\frac{2(x^2+y^2)}{w_0^2}`
+        
+        :math:`\\theta=atan(y/x)`
+    
+        if :math:`sincos = 0` replace :math:`cos(l\\theta)` by :math:`exp(-il\\theta)`
+        
+        if :math:`sincos = 2` replace :math:`cos(l\\theta)` by :math:`sin(l\\theta)`
 
     :param Fin: input field
     :type Fin: Field
@@ -433,14 +439,19 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
     :type l: int, float
     :param A: amplitude (default = 1.0)
     :type A: int, float
+    :param ecs: 0 = exp, 1 = cos, 2 = sin (default = 1)
+    :type ecs: int, float
     :return: output field (N x N square array of complex numbers).
     :rtype: `LightPipes.field.Field`
     :Example:
 
     >>> F = GaussLaguerre(F, 3*mm) # Fundamental Gauss mode, LG0,0 with a beam radius of 3 mm
-    >>> F = GaussLaguerre(F, 3*mm, m=3) # Idem, LG3,0
-    >>> F = GaussLaguerre(F, 3*mm, m=3, n=1, A=2.0) # Idem, LG3,1, amplitude 2.0
+    >>> F = GaussLaguerre(F, 3*mm, p=3) # Idem, LG3,0
+    >>> F = GaussLaguerre(F, 3*mm, p=3, l=1, A=2.0) # Idem, LG3,1, amplitude 2.0
     >>> F = GaussLaguerre(F, 3*mm, 3, 1, 2.0) # Idem
+    >>> F = GaussLaguerre(F, 3*mm, p=3, l=2, ecs=0) LG3,1 with exponential phase factor
+    >>> F = GaussLaguerre(F, 3*mm, p=3, l=2, ecs=2) LG3,1 with sine phase factor
+    
     
     .. seealso::
     
@@ -473,12 +484,35 @@ def GaussLaguerre(Fin, w0, p = 0, l = 0, A = 1.0 ):
                              + 'last parameter (backward compatibility check)'
                              + ', please check syntax/usage.')
     # ************* end of Backward compatibility section *********
+    if  ecs not in [0, 1, 2]:
+        raise ValueError('GaussLaguerre: invalid value for ecs. ecs must be: 0, 1 or 2')
     Fout = Field.copy(Fin)
     R, Phi = Fout.mgrid_polar
     w02=w0*w0
     la=abs(l)
     rho = 2*R*R/w02
-    Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
+    if ecs == 1:
+        Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.cos(l*Phi)
+    if ecs == 2 and l == 0:
+        Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2)
+    if ecs == 2 and l != 0:
+        Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.sin(l*Phi)  
+        #################################
+    # """
+    # Corrections by: GubioGL 23-8-2023:
+    # I changed only that part, not calculating the R and PHI with the function,
+    # because in the part of the phase of the .mgrid_polar function there is a "+ _np.pi",
+    # which shouldn't be here.
+    # In order not to change that function, it is simpler to just change it here.
+    # optional exponential(..), cos( ..)  or sin( .. ) (esc = 0,1,2)
+    # Thank you GubioGL!
+    # Fred van Goor, 26-8-2023
+    # """
+    if ecs == 0:
+        Y, X    =   Fout.mgrid_cartesian
+        R       =   _np.sqrt(X**2+Y**2)
+        rho     =   2*R**2/w0**2
+        Fout.field = A * rho**(la/2) * genlaguerre(p,la)(rho) * _np.exp(-rho/2) * _np.exp(-1j*l*_np.arctan2(Y, X))
     Fout._IsGauss=False
     return Fout
 
@@ -856,7 +890,7 @@ def Power(Fin):
     """
     #TODO why does Normal() also sum dx**2 (==integral) while this does not??
     I = _np.abs(Fin.field)**2
-    return I.sum()
+    return I.sum() * Fin.dx**2
 
 @backward_compatible
 def RandomIntensity(Fin, seed = 123, noise = 1.0, ):

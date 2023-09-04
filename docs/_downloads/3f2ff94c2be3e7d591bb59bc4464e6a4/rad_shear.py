@@ -17,8 +17,8 @@ wavelength=500*nm
 size=40.0*mm
 N=200
 R=10*mm
-nz=10
-mz=4
+nz=3
+mz=-1
 Rz=10*mm
 
 Az=wavelength/(2*pi)
