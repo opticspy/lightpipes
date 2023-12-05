@@ -181,7 +181,7 @@ def ZernikeFilter(F, j_terms, R):
     :rtype: `LightPipes.field.Field`
     
     """
-    j_terms, A_fits = ZernikeFit(j_terms, R, F, norm=True, units='rad')
+    j_terms, A_fits = ZernikeFit(F, j_terms, R, norm=True, units='rad')
     # print(A_fits.round(4))
     # Ph = Phase(F, unwrap=True)
     Ph = _np.zeros_like(F.field)
