@@ -67,7 +67,6 @@ New commands:
 Bug fixes:
     * In zernikemath.py: line 41 -- 44 changed: _np.math.factorial(..) to: math.factorial(..)
     * In example PhaseRecovery.py: added lines: dta=list(np.float64(data)) and changed np.asfarray(data) to: np.asarray(data)
-    * changed np.asfarray to np.asarray 
 
 Fred van Goor, August 5, 2024.
 
