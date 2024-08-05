@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. User defined functions. &mdash; LightPipes for Python 2.1.4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <title>5. User defined functions. &mdash; LightPipes for Python 2.1.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=786ba454"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -36,7 +39,7 @@
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.4
+                2.1.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -91,10 +94,10 @@
            <div itemprop="articleBody">
              
   <section id="user-defined-functions">
-<span id="index-0"></span><h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Permalink to this headline"></a></h1>
+<span id="index-0"></span><h1><span class="section-number">5. </span>User defined functions.<a class="headerlink" href="#user-defined-functions" title="Link to this heading"></a></h1>
 <p>It is possible to make your own commands and use them in your simulations in the same way as the LightPipes commands. In this chapter we describe a step by step procedure to write a user defined command. It is also possible to make your commands <a class="reference internal" href="#make-your-functions-part-of-your-lightpipes-for-python-installation"><span class="std std-ref">part of your LightPipes installation</span></a>.</p>
 <section id="user-defined-functions-in-a-subdirectory-of-your-python-scripts">
-<h2><span class="section-number">5.1. </span>User defined functions in a subdirectory of your Python scripts.<a class="headerlink" href="#user-defined-functions-in-a-subdirectory-of-your-python-scripts" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">5.1. </span>User defined functions in a subdirectory of your Python scripts.<a class="headerlink" href="#user-defined-functions-in-a-subdirectory-of-your-python-scripts" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><dl class="simple">
 <dt>Create a new subdirectory in the directory of your Python script.</dt><dd><p>Create a new subdirectory, for example: <em>MyFunctions</em></p>
@@ -149,7 +152,7 @@ from<span class="w"> </span>MyFunctions.MyLightPipesFunctions<span class="w"> </
 </figure>
 </section>
 <section id="make-your-functions-part-of-your-lightpipes-for-python-installation">
-<h2><span class="section-number">5.2. </span>Make your functions part of your LightPipes for Python installation.<a class="headerlink" href="#make-your-functions-part-of-your-lightpipes-for-python-installation" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">5.2. </span>Make your functions part of your LightPipes for Python installation.<a class="headerlink" href="#make-your-functions-part-of-your-lightpipes-for-python-installation" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><dl>
 <dt>Find userfunc.py.</dt><dd><p>The code of a user defined command must be put in the file: <em>userfunc.py</em>. This file can be found in the directory in which the LightPipes package was installed on your computer. This directory, called “site-packages” can be found at the place where Python was installed. Use the following Python commands to locate this directory. Depending on your Python-installation the response could be:</p>
@@ -262,7 +265,7 @@ __all__.extend<span class="o">([</span>
 </ol>
 </section>
 <section id="your-command-should-be-an-extension-of-lightpipes">
-<h2><span class="section-number">5.3. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">5.3. </span>Your command should be an extension of LightPipes.<a class="headerlink" href="#your-command-should-be-an-extension-of-lightpipes" title="Link to this heading"></a></h2>
 <p>If you are convinced that your new command is an important, useful extension of the LightPipes for Python package, please open an issue on our <a class="reference external" href="https://github.com/opticspy/lightpipes">GitHub</a> site with the source code and the authors will consider to put it in a new version of LightPipes for Python.</p>
 </section>
 </section>
@@ -279,7 +282,7 @@ __all__.extend<span class="o">([</span>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Sep 04, 2023.
+      <span class="lastupdated">Last updated on Aug 05, 2024.
       </span></p>
   </div>
 

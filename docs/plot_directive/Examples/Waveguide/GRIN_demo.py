@@ -86,7 +86,7 @@ axs = _axs.flatten()
 
 axs[0].contourf(X/um, Z/z_pitch, Icross,10,cmap='rainbow')
 axs[0].grid(color='white', ls='solid')
-axs[0].set_xlabel('x [$\mu{m}$]')
+axs[0].set_xlabel(r'x [$\mu{m}$]')
 axs[0].set_ylabel('z/$z_{pitch}$')
 axs[0].set_title('cross section of intensity')
 
@@ -116,7 +116,7 @@ axs[2].tick_params(axis='y', colors=(0,0,0,0))
 
 axs[3].plot(X/um,Iout[N2],label='Output')
 axs[3].plot(X/um,Iin[N2],label='Input')
-axs[3].set_xlabel('x [$\mu{m}$]')
+axs[3].set_xlabel(r'x [$\mu{m}$]')
 axs[3].set_ylabel('intensity [a.u.]')
 axs[3].legend(bbox_to_anchor=(1.05, 1.05))
 axs[3].grid()

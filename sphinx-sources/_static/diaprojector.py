@@ -22,7 +22,7 @@ fig, ax = plt.subplots(nrows=1,ncols=2,constrained_layout=True)
 ax[0].scatter(1/v, 1/b, marker='o') #plot meetresultaten (rechte lijn)
 ax[0].plot(1/vt,1/bt,color='red') #plot theoretische waarden
 ax[0].set(
-        xlabel='1/v (1/m)', ylabel='1/b (1/m)',
+        xlabel='1/v (1//m)', ylabel='1/b (1/m)',
         title='dia projector, f = '+ str(f) + ' m' ,
         xlim=(0,10), ylim=(0,10),
         )

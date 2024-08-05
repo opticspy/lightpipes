@@ -41,13 +41,13 @@ I1=Intensity(F,1)
 s1 =    r'LightPipes for Python' + '\n'
 s2 =    r'Test-ZonePlate.py'+ '\n\n'\
         f'size = {size/mm:4.2f} mm' + '\n'\
-        f'$\lambda$ = {wavelength/um:4.2f} $\mu$m' + '\n'\
+        f'$\\lambda$ = {wavelength/um:4.2f} $\\mu$m' + '\n'\
         f'N = {N:d}' + '\n' +\
         f'f = {f/mm:4.2f} mm focal length of the zone plate' + '\n'\
         f'p = {p/mm:4.2f} mm distance from object' + '\n'\
         f'q = {q/mm:4.2f} mm distance to screen' + '\n'\
         f'dx = {dx/mm:4.2f} mm distance between the point sources' + '\n'\
-        f'w = {w/um:4.2f} $\mu$m size of the outermost ring' + '\n'\
+        f'w = {w/um:4.2f} $\\mu$m size of the outermost ring' + '\n'\
         f'number of zones = {N_zones:d}' + '\n'\
         f'Transmission = {T:4.2f}' + '\n'\
         f'Pass even zones: {PassEvenZones}' + '\n\n'\

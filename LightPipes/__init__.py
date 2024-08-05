@@ -52,6 +52,7 @@ __all__ = [
     'Zernike',
     'noll_to_zern',
     'ZernikeName',
+    'ZernikeName2Noll',
     'ZernikeFit',
     'ZernikeFilter',
     'LPtest',
@@ -93,7 +94,7 @@ from .field import Field
 from .propagators import ABCD, Fresnel, Forward, Forvard, GForvard, Propagate, Steps
 from .lenses import Axicon, Lens, GLens, LensFarfield, LensForvard, LensFresnel, \
     Convert
-from .zernike import ZernikeName, ZernikeNolltoMN, noll_to_zern, \
+from .zernike import ZernikeName, ZernikeName2Noll, ZernikeNolltoMN, noll_to_zern, \
     ZernikeFilter, ZernikeFit, Zernike
 from .core import CircAperture, CircScreen, RectAperture, RectScreen
 from .core import GaussAperture, GaussScreen, GaussHermite, GaussLaguerre, SuperGaussAperture

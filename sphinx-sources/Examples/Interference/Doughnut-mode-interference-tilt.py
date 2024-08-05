@@ -23,9 +23,9 @@ z2=8*cm # length of arm 2
 tx=1.0*mrad # tilt of mirror 1
 
 F=Begin(size,wavelength,N)
-F1=GaussBeam(w0,F,doughnut=True,xshift=-0.2*mm)
+F1=GaussBeam(F,w0,doughnut=True,x_shift=-0.2*mm)
 Phi=Phase(F1)
-F2=GaussBeam(w0,F,tx=tx)
+F2=GaussBeam(F,w0,tx=tx)
 F1=Forvard(z1,F1)
 F2=Forvard(z2,F2)
 F=BeamMix(F1,F2)

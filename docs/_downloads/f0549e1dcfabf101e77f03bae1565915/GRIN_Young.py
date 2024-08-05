@@ -83,9 +83,9 @@ axs = _axs.flatten()
 
 axs[0].contourf(X/um, Z/mm, Icross,cmap='rainbow')
 axs[0].grid(color='white', ls='solid')
-axs[0].set_xlabel('x [$\mu{m}$]')
-axs[0].set_ylabel('z [mm]')
-axs[0].set_title('cross section of intensity')
+axs[0].set_xlabel(r'x [$\mu{m}$]')
+axs[0].set_ylabel(r'z [mm]')
+axs[0].set_title(r'cross section of intensity')
 
 s = r'LightPipes for Python,' + '\n'+ 'GRIN_Young.py' + '\n\n'\
     r'SELFOC GRIN lens(https://www.gofoton.com/)' + '\n'\
@@ -112,8 +112,8 @@ axs[2].tick_params(axis='y', colors=(0,0,0,0))
 
 axs[3].plot(X/um,Iout[N2],label='Output')
 axs[3].plot(X/um,Iin[N2],label='Input')
-axs[3].set_xlabel('x [$\mu{m}$]')
-axs[3].set_ylabel('intensity [a.u.]')
+axs[3].set_xlabel(r'x [$\mu{m}$]')
+axs[3].set_ylabel(r'intensity [a.u.]')
 axs[3].legend(bbox_to_anchor=(1.05, 1.05))
 
 axs[4].axis('off')

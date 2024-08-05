@@ -60,7 +60,7 @@ ax1.plot_surface(X, Z, Ix,
                 linewidth=0.0,
                 )
 ax1.set_title('Radial energy distribution in the x-direction')
-ax1.set_xlabel('x [$\\mu m$]')
+ax1.set_xlabel(r'x [$\mu m$]')
 ax1.set_ylabel('z [cm]')
 ax1.set_zlabel('Intensity [.a.u.]')
 
@@ -73,7 +73,7 @@ ax2.plot_surface(X, Z, Iy,
                 linewidth=0.0,
                 )
 ax2.set_title('Radial energy distribution in the y-direction')
-ax2.set_xlabel('x [$\\mu m$]')
+ax2.set_xlabel(r'x [$\mu m$]')
 ax2.set_ylabel('z [cm]')
 ax2.set_zlabel('Intensity [.a.u.]')
 ax2.azim=-45

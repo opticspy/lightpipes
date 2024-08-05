@@ -63,6 +63,6 @@ axs[3].axis('off')
 divider = make_axes_locatable(axs[2])
 cax = divider.append_axes("right", size="5%", pad=0.05)
 cbar=plt.colorbar(img1, cax=cax, ticks=[0, PI, 2*PI], orientation='vertical')
-cbar.ax.set_yticklabels(['0', '$\pi$', '$2\pi$'])
+cbar.ax.set_yticklabels(['0', r'$\pi$', r'$2\pi$'])
 
 plt.show()

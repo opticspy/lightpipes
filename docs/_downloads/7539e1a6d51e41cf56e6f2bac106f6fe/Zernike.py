@@ -9,11 +9,13 @@ from LightPipes import *
 import matplotlib.pyplot as plt
 import math
 
+
+
+           
 wavelength=500*nm
 size=2.0*mm
 N=200
 A=wavelength/(2*math.pi)
-
 plt.figure(figsize=(15,8)) 
 for Noll in range (1,8):
     (nz,mz)=noll_to_zern(Noll)

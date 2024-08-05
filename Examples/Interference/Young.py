@@ -15,10 +15,10 @@ z=50*cm
 R=0.3*mm
 d=1.2*mm
 
-#img=mpimg.imread('Young.png')
-#plt.imshow(img); plt.axis('off')
+# img=mpimg.imread('Young.png')
+# plt.imshow(img); plt.axis('off')
 
-#plt.show()
+# plt.show()
 
 F=Begin(size,wavelength,N)
 F1=CircAperture(R/2.0,-d/2.0, 0, F)

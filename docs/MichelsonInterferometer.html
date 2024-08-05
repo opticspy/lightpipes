@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7.1.2. Michelson interferometer. &mdash; LightPipes for Python 2.1.4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <title>7.1.2. Michelson interferometer. &mdash; LightPipes for Python 2.1.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=786ba454"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -36,7 +39,7 @@
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.4
+                2.1.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -105,9 +108,10 @@
            <div itemprop="articleBody">
              
   <section id="michelson-interferometer">
-<h1><span class="section-number">7.1.2. </span>Michelson interferometer.<a class="headerlink" href="#michelson-interferometer" title="Permalink to this headline"></a></h1>
-<p>In a Michelson interferometer an incoming wave is split in two by a beamsplitter. The two beams are reflected by mirrors and united at the same beamsplitter, which generally results in interference. The interference pattern observed depends on the incoming beam, whether or not the mirrors are tilted and on the difference of the distances of the mirrors to the beamsplitter.
-In this experiment we demonstrate a Michelson interferometer with unequal mirror distances and one of the mirrors tilted.</p>
+<h1><span class="section-number">7.1.2. </span>Michelson interferometer.<a class="headerlink" href="#michelson-interferometer" title="Link to this heading"></a></h1>
+<p>In a Michelson interferometer an incoming wave is split in two by a beamsplitter. The two beams are reflected by mirrors and united at the same beamsplitter, which generally results in interference. The interference pattern observed depends on the incoming beam, whether or not the mirrors are tilted and on the difference of the distances of the mirrors to the beamsplitter.</p>
+<img alt="_images/Michelson_setup.png" src="_images/Michelson_setup.png" />
+<p>In this experiment we demonstrate a Michelson interferometer with unequal mirror distances and one of the mirrors tilted.</p>
 <p id="index-0">(<a class="reference download internal" download="" href="_downloads/8e82c777750716932345579b66e0387e/Michelson.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/78d27bb8d8b76fd583592635a89fd6ad/Michelson.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/a8b2af57577934761a3fb3ddd235f7b2/Michelson.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/e46430effb6072d7fdcab4d42ba81da4/Michelson.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/Michelson.png" class="plot-directive" src="_images/Michelson.png" />
@@ -116,14 +120,14 @@ In this experiment we demonstrate a Michelson interferometer with unequal mirror
 <figure class="align-center" id="id1">
 <img alt="_images/MichelsonWithLens.png" src="_images/MichelsonWithLens.png" />
 <figcaption>
-<p><span class="caption-text"><em>Interference pattern when a f=100cm lens is inserted in one of the arms and with the mirror tilt removed.</em></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Interference pattern when a f=100cm lens is inserted in one of the arms and with the mirror tilt removed.</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Also the Michelson interferometer can be used to study the effect of phase aberrations. Place a phase aberrator, for example a Zernike aberration, in one of the arms.</p>
 <figure class="align-center" id="id2">
 <img alt="_images/MichelsonWithAberration.png" src="_images/MichelsonWithAberration.png" />
 <figcaption>
-<p><span class="caption-text"><em>Interference pattern when aberration is inserted in one of the arms.</em></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Interference pattern when aberration is inserted in one of the arms.</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>
@@ -140,7 +144,7 @@ In this experiment we demonstrate a Michelson interferometer with unequal mirror
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Sep 04, 2023.
+      <span class="lastupdated">Last updated on Aug 05, 2024.
       </span></p>
   </div>
 

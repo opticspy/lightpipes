@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as _np
-
+import math
 
 def zernike(n,m,rho,phi):
     """
@@ -38,10 +38,10 @@ def zernike(n,m,rho,phi):
             prod = _np.power(rho, n-2*s)
         else:
             prod = 1.0
-        prod *= _np.math.factorial(n-s)*sign
-        prod /= (_np.math.factorial(s)
-                * _np.math.factorial(int(((n+mabs)/2))-s)
-                * _np.math.factorial(int(((n-mabs)/2))-s))
+        prod *= math.factorial(n-s)*sign
+        prod /= (math.factorial(s)
+                * math.factorial(int(((n+mabs)/2))-s)
+                * math.factorial(int(((n-mabs)/2))-s))
         summ += prod
         sign = -sign
     if m>=0:

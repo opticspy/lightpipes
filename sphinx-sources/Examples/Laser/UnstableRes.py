@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
 from LightPipes import *
 
@@ -39,7 +39,7 @@ def TheExample():
     I=Intensity(0,F2)
     plt = f.add_subplot(111,navigate=False )
     plt.imshow(I); plt.axis('off')
-    canvas.show()
+    canvas.draw()
     
 def _quit():
     root.quit()     # stops mainloop

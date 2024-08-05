@@ -13,7 +13,7 @@ x0=y0=1*mm
 a1=a2=0.100/mm
 
 F=Begin(size,wavelength,N)
-F=AiryBeam(F)
+F=AiryBeam1D(F)
 I=Intensity(F)
 plt.imshow(I,cmap='jet')
 plt.show()

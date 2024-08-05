@@ -41,7 +41,7 @@ F2=IntAttenuator(1-Rbs,F)
 
 F1=Interpol(size,N,0,0,0,M,F1)
 F=BeamMix(F1,F2)
-I=Intensity(2,F)
+I=Intensity(0,F)
 plt.subplot(2,1,2)
 plt.imshow(I,cmap='jet')
 plt.axis('off');plt.axis('equal')

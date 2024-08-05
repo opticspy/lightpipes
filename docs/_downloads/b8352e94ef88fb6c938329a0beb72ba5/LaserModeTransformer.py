@@ -67,7 +67,7 @@ I1=Intensity(F) #intensity output beam
 s1 =    r'LightPipes for Python,' + '\n'\
         r'LaserModeTransformer.py'+ '\n\n'\
         f'size = {size/mm:4.2f} mm' + '\n'\
-        f'$\lambda$ = {labda/nm:4.2f} nm' + '\n'\
+        f'$\\lambda$ = {labda/nm:4.2f} nm' + '\n'\
         f'N = {N:d}' + '\n' +\
         f'm = {m_:d}, n = {n_}' + '\n'\
         f'w0 = {w0/mm:4.3f} mm' + '\n'\

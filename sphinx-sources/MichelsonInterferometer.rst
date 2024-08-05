@@ -2,6 +2,9 @@ Michelson interferometer.
 -------------------------
 
 In a Michelson interferometer an incoming wave is split in two by a beamsplitter. The two beams are reflected by mirrors and united at the same beamsplitter, which generally results in interference. The interference pattern observed depends on the incoming beam, whether or not the mirrors are tilted and on the difference of the distances of the mirrors to the beamsplitter.
+
+.. image:: ./_static/Michelson_setup.png
+
 In this experiment we demonstrate a Michelson interferometer with unequal mirror distances and one of the mirrors tilted.
 
 .. Index::

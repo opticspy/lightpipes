@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>8.3.6. Fresnel diffraction. &mdash; LightPipes for Python 2.1.4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <title>8.3.6. Fresnel diffraction. &mdash; LightPipes for Python 2.1.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=786ba454"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -37,7 +40,7 @@
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.4
+                2.1.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -105,13 +108,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <span class="target" id="fresneldiffraction"></span><section id="fresnel-diffraction">
-<span id="index-0"></span><h1><span class="section-number">8.3.6. </span>Fresnel diffraction.<a class="headerlink" href="#fresnel-diffraction" title="Permalink to this headline"></a></h1>
+  <section id="fresnel-diffraction">
+<span id="index-0"></span><span id="fresneldiffraction"></span><h1><span class="section-number">8.3.6. </span>Fresnel diffraction.<a class="headerlink" href="#fresnel-diffraction" title="Link to this heading"></a></h1>
 <p>Download Python script: <a class="reference download internal" download="" href="_downloads/6503ca6affb6d07fb0d09cbbf94bcdbd/FresnelPlane.py"><code class="xref download docutils literal notranslate"><span class="pre">FresnelPlane.py</span></code></a></p>
 <figure class="align-default" id="id1">
 <img alt="_images/Augustin_Fresnel.jpg" src="_images/Augustin_Fresnel.jpg" />
 <figcaption>
-<p><span class="caption-text"><em>Auguste Fresnel, (Broglie, 1788 – Ville-d’Avray, 1827)</em></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Auguste Fresnel, (Broglie, 1788 – Ville-d’Avray, 1827)</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Suppose that a monochromatic beam of light falls on a screen with a round
@@ -141,10 +144,6 @@ The number of Fresnel zones is indicated by the Fresnel number, <span class="mat
 on the optical axis appear are measured. From these measurements the
 wavelength of the light can be determined if the hole diameter is known.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><figure class="align-default">
 <img alt="_images/FresnelLab1.jpg" src="_images/FresnelLab1.jpg" />
@@ -167,17 +166,17 @@ rail to adjust and measure distances easily.</em></p>
 <p>In this exercise two incoming wavefronts are considered: a plane wave
 and a spherical wave.</p>
 <section id="fresnel-diffraction-plane-wavefront">
-<h2><span class="section-number">8.3.6.1. </span>Fresnel diffraction, plane wavefront.<a class="headerlink" href="#fresnel-diffraction-plane-wavefront" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">8.3.6.1. </span>Fresnel diffraction, plane wavefront.<a class="headerlink" href="#fresnel-diffraction-plane-wavefront" title="Link to this heading"></a></h2>
 <figure class="align-default" id="id2">
 <img alt="_images/FresnelPlaneSetup.png" src="_images/FresnelPlaneSetup.png" />
 <figcaption>
-<p><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A plane wave enters a round hole in a screen.</em></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A plane wave enters a round hole in a screen.</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id3">
 <img alt="_images/FresnelPlaneScreenShot.png" src="_images/FresnelPlaneScreenShot.png" />
 <figcaption>
-<p><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a plane input wave.</em></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a plane input wave.</em></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Download Python script: <a class="reference download internal" download="" href="_downloads/0ae71997c4199f02bc126d79e2c9060d/FresnelPlane.py"><code class="xref download docutils literal notranslate"><span class="pre">FresnelPlane.py</span></code></a></p>
@@ -197,17 +196,17 @@ and a spherical wave.</p>
 </div></blockquote>
 </section>
 <section id="fresnel-diffraction-spherical-wavefront">
-<span id="fresnelspherical"></span><h2><span class="section-number">8.3.6.2. </span>Fresnel diffraction, spherical wavefront.<a class="headerlink" href="#fresnel-diffraction-spherical-wavefront" title="Permalink to this headline"></a></h2>
+<span id="fresnelspherical"></span><h2><span class="section-number">8.3.6.2. </span>Fresnel diffraction, spherical wavefront.<a class="headerlink" href="#fresnel-diffraction-spherical-wavefront" title="Link to this heading"></a></h2>
 <figure class="align-default" id="id4">
 <img alt="_images/FresnelSphericalSetup.png" src="_images/FresnelSphericalSetup.png" />
 <figcaption>
-<p><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A spherical wave from a point source enters a round hole in a screen.</em></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Setup of the Fresnel diffraction experiment. A spherical wave from a point source enters a round hole in a screen.</em></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id5">
 <img alt="_images/FresnelSphericalScreenShot.png" src="_images/FresnelSphericalScreenShot.png" />
 <figcaption>
-<p><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a spherical input wave.</em></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Screenshot of the Fresnel diffraction experiment with a spherical input wave.</em></span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Download source code: <a class="reference download internal" download="" href="_downloads/946e4a6b8b289dcf0505c1cb25871631/FresnelSpherical.py"><code class="xref download docutils literal notranslate"><span class="pre">FresnelSpherical.py</span></code></a></p>
@@ -230,7 +229,7 @@ are given by:</p>
 </div></blockquote>
 </section>
 <section id="questions-about-fresnel-diffraction">
-<h2><span class="section-number">8.3.6.3. </span>Questions about Fresnel diffraction.<a class="headerlink" href="#questions-about-fresnel-diffraction" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">8.3.6.3. </span>Questions about Fresnel diffraction.<a class="headerlink" href="#questions-about-fresnel-diffraction" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>What happens if the beam of light is not monochromatic but contains
@@ -259,7 +258,7 @@ What is the irradiance on the optical axis when this number is odd and when it i
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Sep 04, 2023.
+      <span class="lastupdated">Last updated on Aug 05, 2024.
       </span></p>
   </div>
 

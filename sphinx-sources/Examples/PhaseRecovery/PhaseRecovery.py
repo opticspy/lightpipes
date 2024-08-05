@@ -21,13 +21,15 @@ f=open('Inear.prn','r')
 lines=f.readlines()
 f.close()
 data = [line.split() for line in lines]
-Inear = np.asfarray(data)
+data=list(np.float64(data))
+Inear = np.asarray(data)
 
 f=open('Ifar.prn','r')
 lines=f.readlines()
 f.close()
 data = [line.split() for line in lines]
-Ifar = np.asfarray(data)
+data=list(np.float64(data))
+Ifar = np.asarray(data)
 
 N=len(Inear)
 N_new=256;size_new=40*mm;

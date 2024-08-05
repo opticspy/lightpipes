@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>8.3.1. Spherical wavefront. &mdash; LightPipes for Python 2.1.4 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
+  <title>8.3.1. Spherical wavefront. &mdash; LightPipes for Python 2.1.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=786ba454"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -37,7 +40,7 @@
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.4
+                2.1.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -104,13 +107,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <span class="target" id="sphericalwavefront"></span><section id="spherical-wavefront">
-<span id="index-0"></span><h1><span class="section-number">8.3.1. </span>Spherical wavefront.<a class="headerlink" href="#spherical-wavefront" title="Permalink to this headline"></a></h1>
+  <section id="spherical-wavefront">
+<span id="index-0"></span><span id="sphericalwavefront"></span><h1><span class="section-number">8.3.1. </span>Spherical wavefront.<a class="headerlink" href="#spherical-wavefront" title="Link to this heading"></a></h1>
 <p>Download Python script: <a class="reference download internal" download="" href="_downloads/c34d5124a99ca1e708404b964912b06d/SphericalWavefront.py"><code class="xref download docutils literal notranslate"><span class="pre">SphericalWavefront.py</span></code></a></p>
 <figure class="align-default" id="id1">
 <img alt="_images/Christiaans_huigens_by_Caspar_Netscher.jpg" src="_images/Christiaans_huigens_by_Caspar_Netscher.jpg" />
 <figcaption>
-<p><span class="caption-text"><em>Christiaan Huygens (Den Haag, 1629 – 1695)</em></span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Christiaan Huygens (Den Haag, 1629 – 1695)</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>In this experiment a spherical wavefront is made with a screen containing a small hole. If the diameter, <span class="math notranslate nohighlight">\(d\)</span>, of the hole is small enough there will be a spherical wave at some distance behind the screen.</p>
@@ -126,27 +129,27 @@
 <figure class="align-default" id="id2">
 <img alt="_images/SphericalWavefront2.jpg" src="_images/SphericalWavefront2.jpg" />
 <figcaption>
-<p><span class="caption-text"><em>Fresnel or near-field diffraction</em></span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Fresnel or near-field diffraction</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id3">
 <img alt="_images/SphericalWavefront1.jpg" src="_images/SphericalWavefront1.jpg" />
 <figcaption>
-<p><span class="caption-text"><em>Fraunhofer or far-field diffraction</em></span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Fraunhofer or far-field diffraction</em></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <section id="irradiance-dependency-of-a-spherical-wavefront">
-<h2><span class="section-number">8.3.1.1. </span>Irradiance dependency of a spherical wavefront.<a class="headerlink" href="#irradiance-dependency-of-a-spherical-wavefront" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">8.3.1.1. </span>Irradiance dependency of a spherical wavefront.<a class="headerlink" href="#irradiance-dependency-of-a-spherical-wavefront" title="Link to this heading"></a></h2>
 <figure class="align-default" id="id4">
 <img alt="_images/SphericalWavefrontSetup.gif" src="_images/SphericalWavefrontSetup.gif" />
 <figcaption>
-<p><span class="caption-text"><em>Setup of the experiment. A spherical wave is made by illuminating a small hole in a screen.</em></span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Setup of the experiment. A spherical wave is made by illuminating a small hole in a screen.</em></span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id5">
 <img alt="_images/SphericalWavefrontScreenShot.png" src="_images/SphericalWavefrontScreenShot.png" />
 <figcaption>
-<p><span class="caption-text"><em>Screenshot of the spherical wavefront experiment.</em></span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+<p><span class="caption-text"><em>Screenshot of the spherical wavefront experiment.</em></span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Download Python script: <a class="reference download internal" download="" href="_downloads/c34d5124a99ca1e708404b964912b06d/SphericalWavefront.py"><code class="xref download docutils literal notranslate"><span class="pre">SphericalWavefront.py</span></code></a></p>
@@ -167,7 +170,7 @@ as spherical. Compare this range with the Rayleigh length.</p></li>
 </div></blockquote>
 </section>
 <section id="questions-about-the-spherical-wavefront">
-<h2><span class="section-number">8.3.1.2. </span>Questions about the spherical wavefront.<a class="headerlink" href="#questions-about-the-spherical-wavefront" title="Permalink to this headline"></a></h2>
+<h2><span class="section-number">8.3.1.2. </span>Questions about the spherical wavefront.<a class="headerlink" href="#questions-about-the-spherical-wavefront" title="Link to this heading"></a></h2>
 <p>You should be able to answer the following questions:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -202,7 +205,7 @@ as spherical. Compare this range with the Rayleigh length.</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Sep 04, 2023.
+      <span class="lastupdated">Last updated on Aug 05, 2024.
       </span></p>
   </div>
 

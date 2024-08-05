@@ -255,6 +255,48 @@ def ZernikeName(Noll):
     else:
         return ""
 
+def ZernikeName2Noll(zname):
+    """
+    *Returns the Noll index of the Zernike term*
+    
+    :param zname: Zernike term
+    :type zname: string
+    :return: Noll index
+    :rtype: int
+    
+    .. seealso::
+    
+        * :ref:`Examples: Zernike aberration.<Zernike aberration.>`
+    """    
+    name = [
+            "piston",
+            "horizontal tilt",
+            "vertical tilt",
+            "defocus",
+            "oblique primary astigmatism",
+            "vertical primary astigmatism",
+            "vertical coma",
+            "horizontal coma",
+            "vertical trefoil",
+            "oblique trefoil",
+            "primary spherical",
+            "vertical secondary astigmatism",
+            "oblique secondary astigmatism",
+            "vertical quadrafoil",
+            "oblique quadrafoil",
+            "horizontal secondary coma",
+            "vertical secondary coma",
+            "oblique secondary trefoil",
+            "vertical secondary trefoil",
+            "oblique pentafoil",
+            "vertical pentafoil",
+        ]
+    if zname in name:
+        return name.index(zname) + 1
+    else:
+        raise ValueError(f"Unknown name for Zernike aberration, must be one of {name}")
+        return -1
+
 
 def noll_to_zern(j):
     """

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
 import math
 import time
@@ -83,7 +83,7 @@ def TheExample():
     plt.text(150,35,"g=%5.3f"% g)
     plt.imshow(Iw); plt.axis('off')
     plt2.plot(x,y)
-    canvas.show()
+    canvas.draw()
 
 def _quit():
     root.quit()     # stops mainloop
