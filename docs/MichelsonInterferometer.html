@@ -7,7 +7,7 @@
   <title>7.1.2. Michelson interferometer. &mdash; LightPipes for Python 2.1.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
 
   
   <!--[if lt IE 9]>
@@ -112,23 +112,230 @@
 <p>In a Michelson interferometer an incoming wave is split in two by a beamsplitter. The two beams are reflected by mirrors and united at the same beamsplitter, which generally results in interference. The interference pattern observed depends on the incoming beam, whether or not the mirrors are tilted and on the difference of the distances of the mirrors to the beamsplitter.</p>
 <img alt="_images/Michelson_setup.png" src="_images/Michelson_setup.png" />
 <p>In this experiment we demonstrate a Michelson interferometer with unequal mirror distances and one of the mirrors tilted.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span> <span class="c1">#wavelength of HeNe laser</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># size of the grid</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span> <span class="c1"># number (NxN) of grid pixels</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># laser beam radius</span>
+<span class="n">z1</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 1</span>
+<span class="n">z2</span><span class="o">=</span><span class="mi">7</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 2</span>
+<span class="n">z3</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance laser to beamsplitter</span>
+<span class="n">z4</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance beamsplitter to screen</span>
+<span class="n">Rbs</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># reflection beam splitter</span>
+<span class="n">tx</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">mrad</span><span class="p">;</span> <span class="n">ty</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span> <span class="c1"># tilt of mirror 1</span>
+
+<span class="c1">#Generate a laser beam:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+<span class="c1">#Propagate to the beamsplitter:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">z3</span><span class="p">)</span>
+
+<span class="c1">#Split the beam and propagate to mirror #2:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span><span class="n">z2</span><span class="p">)</span>
+
+<span class="c1">#Introduce aberration and propagate back to the beamsplitter:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Tilt</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span><span class="n">z2</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span><span class="n">Rbs</span><span class="p">)</span>
+
+<span class="c1">#Split off the second beam and propagate to- and back from the mirror #1:</span>
+<span class="n">F10</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">Rbs</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">F10</span><span class="p">,</span><span class="n">z1</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">)</span>
+
+<span class="c1">#Recombine the two beams and propagate to the screen:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">z4</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+
+<span class="c1">#Present the results:</span>
+<span class="n">s1</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;LightPipes for Python &#39;</span> <span class="o">+</span> <span class="n">LPversion</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;Michelson interferometer with mirror tilt in one arm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">s2</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;Michelson.py&#39;</span><span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;size = </span><span class="si">{</span><span class="n">size</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">lambda$ = </span><span class="si">{</span><span class="n">wavelength</span><span class="o">/</span><span class="n">um</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> $</span><span class="se">\\</span><span class="s1">mu$m&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;N = </span><span class="si">{</span><span class="n">N</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;R = </span><span class="si">{</span><span class="n">R</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm beam radius of the laser&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z1 = </span><span class="si">{</span><span class="n">z1</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm length of arm 1&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z2 = </span><span class="si">{</span><span class="n">z2</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm length of arm 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z3 = </span><span class="si">{</span><span class="n">z3</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm distance from the laser to the beam splitter&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z4 = </span><span class="si">{</span><span class="n">z4</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm distance from the beam splitter to the screen&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;tx, ty = </span><span class="si">{</span><span class="n">tx</span><span class="o">/</span><span class="n">mrad</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ty</span><span class="o">/</span><span class="n">mrad</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mrad tilt of mirror 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;${\copyright}$ Fred van Goor, June 2020&#39;</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
 <p id="index-0">(<a class="reference download internal" download="" href="_downloads/8e82c777750716932345579b66e0387e/Michelson.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/78d27bb8d8b76fd583592635a89fd6ad/Michelson.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/a8b2af57577934761a3fb3ddd235f7b2/Michelson.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/e46430effb6072d7fdcab4d42ba81da4/Michelson.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/Michelson.png" class="plot-directive" src="_images/Michelson.png" />
 </figure>
+<hr class="docutils" />
 <p>You can modify the source Python script by, for example, insertion of a lens in one of the arms and remove the mirror tilt. The resulting interference pattern will be a set of concentric circles.</p>
-<figure class="align-center" id="id1">
-<img alt="_images/MichelsonWithLens.png" src="_images/MichelsonWithLens.png" />
-<figcaption>
-<p><span class="caption-text"><em>Interference pattern when a f=100cm lens is inserted in one of the arms and with the mirror tilt removed.</em></span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span> <span class="c1">#wavelength of HeNe laser</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># size of the grid</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span> <span class="c1"># number (NxN) of grid pixels</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># laser beam radius</span>
+<span class="n">z1</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 1</span>
+<span class="n">z2</span><span class="o">=</span><span class="mi">7</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 2</span>
+<span class="n">z3</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance laser to beamsplitter</span>
+<span class="n">z4</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance beamsplitter to screen</span>
+<span class="n">Rbs</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># reflection beam splitter</span>
+<span class="n">tx</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span><span class="p">;</span> <span class="n">ty</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span> <span class="c1"># tilt of mirror 1</span>
+<span class="n">f_lens</span> <span class="o">=</span> <span class="mi">500</span><span class="o">*</span><span class="n">cm</span>
+
+<span class="c1">#Generate a laser beam:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+<span class="c1">#Propagate to the beamsplitter:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z3</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="c1">#Split the beam and propagate to mirror #2:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="c1">#Introduce aberration and propagate back to the beamsplitter:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Tilt</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F2</span> <span class="o">=</span> <span class="n">Lens</span><span class="p">(</span><span class="n">f_lens</span><span class="p">,</span> <span class="n">F2</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="c1">#Split off the second beam and propagate to- and back from the mirror #1:</span>
+<span class="n">F10</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z1</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">F10</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
+
+<span class="c1">#Recombine the two beams and propagate to the screen:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z4</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;LightPipes for Python &#39;</span> <span class="o">+</span> <span class="n">LPversion</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;Michelson interferometer with a lens in one arm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="n">s2</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;Michelson.py&#39;</span><span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;size = </span><span class="si">{</span><span class="n">size</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">lambda$ = </span><span class="si">{</span><span class="n">wavelength</span><span class="o">/</span><span class="n">um</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> $</span><span class="se">\\</span><span class="s1">mu$m&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;N = </span><span class="si">{</span><span class="n">N</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;R = </span><span class="si">{</span><span class="n">R</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm beam radius of the laser&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z1 = </span><span class="si">{</span><span class="n">z1</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm length of arm 1&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z2 = </span><span class="si">{</span><span class="n">z2</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm length of arm 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z3 = </span><span class="si">{</span><span class="n">z3</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm distance from the laser to the beam splitter&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z4 = </span><span class="si">{</span><span class="n">z4</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm distance from the beam splitter to the screen&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;tx, ty = </span><span class="si">{</span><span class="n">tx</span><span class="o">/</span><span class="n">mrad</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ty</span><span class="o">/</span><span class="n">mrad</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mrad tilt of mirror 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;$f_</span><span class="si">{lens}</span><span class="s1">$ = &#39;</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">f_lens</span><span class="o">/</span><span class="n">cm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> cm focal length of the lens in arm 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;${\copyright}$ Fred van Goor, June 2020&#39;</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference download internal" download="" href="_downloads/722a8375241f5baec2512e3d683cd39b/Michelson-with-lens.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/5f2a3d571bcf1df70693d20ce287aac8/Michelson-with-lens.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/0152ed12e42a1963f72f9660fe9c37a1/Michelson-with-lens.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/c0ee4f3fa4ab94f536ad18292bfc96fe/Michelson-with-lens.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="_images/Michelson-with-lens.png" class="plot-directive" src="_images/Michelson-with-lens.png" />
 </figure>
+<hr class="docutils" />
 <p>Also the Michelson interferometer can be used to study the effect of phase aberrations. Place a phase aberrator, for example a Zernike aberration, in one of the arms.</p>
-<figure class="align-center" id="id2">
-<img alt="_images/MichelsonWithAberration.png" src="_images/MichelsonWithAberration.png" />
-<figcaption>
-<p><span class="caption-text"><em>Interference pattern when aberration is inserted in one of the arms.</em></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
-</figcaption>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/env python</span>
+<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span> <span class="c1">#wavelength of HeNe laser</span>
+<span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># size of the grid</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">500</span> <span class="c1"># number (NxN) of grid pixels</span>
+<span class="n">R</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">mm</span> <span class="c1"># laser beam radius</span>
+<span class="n">z1</span><span class="o">=</span><span class="mi">8</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 1</span>
+<span class="n">z2</span><span class="o">=</span><span class="mi">7</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># length of arm 2</span>
+<span class="n">z3</span><span class="o">=</span><span class="mi">3</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance laser to beamsplitter</span>
+<span class="n">z4</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">cm</span> <span class="c1"># distance beamsplitter to screen</span>
+<span class="n">Rbs</span><span class="o">=</span><span class="mf">0.5</span> <span class="c1"># reflection beam splitter</span>
+<span class="n">tx</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span><span class="p">;</span> <span class="n">ty</span><span class="o">=</span><span class="mf">0.0</span><span class="o">*</span><span class="n">mrad</span> <span class="c1"># tilt of mirror 1</span>
+<span class="n">zernabb</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># Zernike aberration (7 = vertical coma)</span>
+
+
+
+<span class="c1">#Generate a laser beam:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">wavelength</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+
+<span class="c1">#Propagate to the beamsplitter:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z3</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="c1">#Split the beam and propagate to mirror #2:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="c1">#Introduce aberration and propagate back to the beamsplitter:</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Tilt</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="p">(</span><span class="n">mz</span><span class="p">,</span> <span class="n">nz</span><span class="p">)</span> <span class="o">=</span> <span class="n">noll_to_zern</span><span class="p">(</span><span class="n">zernabb</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Zernike</span><span class="p">(</span><span class="n">F2</span><span class="p">,</span> <span class="n">mz</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">1.03</span><span class="o">*</span><span class="n">wavelength</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z2</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F2</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+
+<span class="c1">#Split off the second beam and propagate to- and back from the mirror #1:</span>
+<span class="n">F10</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z1</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">F10</span><span class="p">)</span>
+<span class="n">F1</span><span class="o">=</span><span class="n">IntAttenuator</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Rbs</span><span class="p">,</span><span class="n">F1</span><span class="p">)</span>
+
+<span class="c1">#Recombine the two beams and propagate to the screen:</span>
+<span class="n">F</span><span class="o">=</span><span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span><span class="n">F2</span><span class="p">)</span>
+<span class="n">F</span><span class="o">=</span><span class="n">Forvard</span><span class="p">(</span><span class="n">z4</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+<span class="n">I</span><span class="o">=</span><span class="n">Intensity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">s1</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;LightPipes for Python &#39;</span> <span class="o">+</span> <span class="n">LPversion</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;Michelson interferometer with Zernike&#39;</span><span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;aberration in one arm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+<span class="n">s2</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;Michelson-with-aberration.py&#39;</span><span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;size = </span><span class="si">{</span><span class="n">size</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">lambda$ = </span><span class="si">{</span><span class="n">wavelength</span><span class="o">/</span><span class="n">um</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> $</span><span class="se">\\</span><span class="s1">mu$m&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;N = </span><span class="si">{</span><span class="n">N</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;R = </span><span class="si">{</span><span class="n">R</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm beam radius of the laser&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z1 = </span><span class="si">{</span><span class="n">z1</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm length of arm 1&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z2 = </span><span class="si">{</span><span class="n">z2</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm length of arm 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z3 = </span><span class="si">{</span><span class="n">z3</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm distance from the laser to the beam splitter&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;z4 = </span><span class="si">{</span><span class="n">z4</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm distance from the beam splitter to the screen&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;tx, ty = </span><span class="si">{</span><span class="n">tx</span><span class="o">/</span><span class="n">mrad</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ty</span><span class="o">/</span><span class="n">mrad</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mrad tilt of mirror 2&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+        <span class="sa">f</span><span class="s1">&#39;Zernike aberration = </span><span class="si">{</span><span class="n">noll_to_zern</span><span class="p">(</span><span class="n">zernabb</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">ZernikeName</span><span class="p">(</span><span class="n">zernabb</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+        <span class="sa">r</span><span class="s1">&#39;${\copyright}$ Fred van Goor, June 2020&#39;</span>
+
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">312</span><span class="p">);</span><span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">313</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;intensity pattern&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.50</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference download internal" download="" href="_downloads/ae71177a83317cd5339787a1561145ad/Michelson-with-aberration.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/b1ae9dda9a2650455678ac3db20ef5a9/Michelson-with-aberration.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/bdbbc1ba119afa261bd4a160f31477f4/Michelson-with-aberration.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/8ce4713b2ac09a79f41dd90c24282c98/Michelson-with-aberration.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="_images/Michelson-with-aberration.png" class="plot-directive" src="_images/Michelson-with-aberration.png" />
 </figure>
 </section>
 
@@ -144,7 +351,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Aug 05, 2024.
+      <span class="lastupdated">Last updated on Aug 06, 2024.
       </span></p>
   </div>
 
