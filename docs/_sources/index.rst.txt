@@ -13,7 +13,11 @@ LightPipes for Python |release|
     
 .. image:: https://badge.fury.io/py/LightPipes.svg
     :target: https://badge.fury.io/py/LightPipes
-    
+
+|Star History Chart|
+
+.. |Star History Chart| image:: https://api.star-history.com/svg?repos=Opticspy/lightpipes&type=Date
+   :target: https://star-history.com/#Opticspy/lightpipes&Date
    
 ..
    does not work anymore, so commented out.
