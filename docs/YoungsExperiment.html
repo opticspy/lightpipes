@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7.1.1. Young’s experiment. &mdash; LightPipes for Python 2.1.5 documentation</title>
+  <title>7.1.1. Young’s Experiment &mdash; LightPipes for Python 2.1.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
@@ -17,6 +17,7 @@
       <script src="_static/documentation_options.js?v=786ba454"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -54,7 +55,14 @@
 <li class="toctree-l1"><a class="reference internal" href="manual.html">6. Manual.</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="examples.html">7. Examples.</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="examples.html#interference-examples">7.1. Interference examples.</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">7.1.1. Young’s experiment.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.1.1. Young’s Experiment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-this-example-illustrates">7.1.1.1. What this example illustrates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#physical-background">7.1.1.2. Physical background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-example">7.1.1.3. Code example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-result">7.1.1.4. Expected result</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#two-holes-in-stead-of-two-slits">7.1.1.5. Two holes in stead of two slits</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="MichelsonInterferometer.html">7.1.2. Michelson interferometer.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="MultiHoleAndSlit.html">7.1.3. Multi- holes and slits.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="InterferenceDoughnutCollinear.html">7.1.4. Interference of a doughnut laser beam: collinear beams.</a></li>
@@ -92,7 +100,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="examples.html"><span class="section-number">7. </span>Examples.</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">7.1.1. </span>Young’s experiment.</li>
+      <li class="breadcrumb-item active"><span class="section-number">7.1.1. </span>Young’s Experiment</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/YoungsExperiment.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,12 +110,110 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="young-s-experiment">
-<span id="index-0"></span><h1><span class="section-number">7.1.1. </span>Young’s experiment.<a class="headerlink" href="#young-s-experiment" title="Link to this heading"></a></h1>
-<p>When a screen with two small holes is illuminated by a monochromatic, plane wave an interference pattern can be observed
-on a screen at a sufficient large distance from the screen with the holes.</p>
+  <section id="youngs-experiment">
+<span id="index-0"></span><h1><span class="section-number">7.1.1. </span>Young’s Experiment<a class="headerlink" href="#youngs-experiment" title="Link to this heading"></a></h1>
 <img alt="_images/twoholessetup.png" src="_images/twoholessetup.png" />
-<p>The following python script simulates Young’s experiment:</p>
+<p>Young’s double–slit experiment is one of the most iconic demonstrations of the
+wave nature of light. When a coherent beam illuminates two narrow, closely
+spaced slits, the diffracted wavefronts emerging from the slits interfere and
+produce a characteristic fringe pattern on a distant screen. The bright and dark
+fringes arise from constructive and destructive interference of the two coherent
+fields.</p>
+<p>This example shows how to simulate Young’s experiment using LightPipes. It
+demonstrates how diffraction from each slit combines to form the interference
+pattern observed on the screen.</p>
+<section id="what-this-example-illustrates">
+<h2><span class="section-number">7.1.1.1. </span>What this example illustrates<a class="headerlink" href="#what-this-example-illustrates" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Creation of a uniform plane wave.</p></li>
+<li><p>Definition of two rectangular slits with finite width and height.</p></li>
+<li><p>Coherent addition of the two slit fields using <span class="math notranslate nohighlight">\(\mathrm{BeamMix}\)</span>.</p></li>
+<li><p>Fresnel propagation to the observation screen.</p></li>
+<li><p>Formation of interference fringes modulated by the single–slit diffraction envelope.</p></li>
+</ul>
+</section>
+<section id="physical-background">
+<h2><span class="section-number">7.1.1.2. </span>Physical background<a class="headerlink" href="#physical-background" title="Link to this heading"></a></h2>
+<p>Each slit acts as a secondary source of a diffracted wavefront. At any point on
+the screen, the total field is the coherent sum of the contributions from both
+slits. The relative phase between these contributions determines whether the
+resulting intensity is bright (constructive interference) or dark (destructive
+interference).</p>
+<p>The approximate fringe spacing is given by:</p>
+<div class="math notranslate nohighlight">
+\[\Delta x \approx \frac{\lambda z}{d}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the wavelength, <span class="math notranslate nohighlight">\(z\)</span> the propagation distance, and
+<span class="math notranslate nohighlight">\(d\)</span> the center–to–center separation between the slits. Increasing the slit
+separation produces more closely spaced fringes, while increasing the
+propagation distance enlarges the pattern.</p>
+</section>
+<section id="code-example">
+<h2><span class="section-number">7.1.1.3. </span>Code example<a class="headerlink" href="#code-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 3</span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Parameters</span>
+<span class="linenos"> 6</span><span class="n">wavelength</span> <span class="o">=</span> <span class="mi">633</span> <span class="o">*</span> <span class="n">nm</span>
+<span class="linenos"> 7</span><span class="n">size</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">*</span> <span class="n">mm</span>
+<span class="linenos"> 8</span><span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="linenos"> 9</span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">m</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Slit parameters</span>
+<span class="linenos">12</span><span class="n">slit_width</span> <span class="o">=</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="n">mm</span>
+<span class="linenos">13</span><span class="n">slit_height</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="n">mm</span>
+<span class="linenos">14</span><span class="n">slit_distance</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">mm</span>   <span class="c1"># center-to-center separation</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Begin with a plane wave</span>
+<span class="linenos">17</span><span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Two rectangular slits (offset in y-direction)</span>
+<span class="linenos">20</span><span class="n">F1</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">slit_width</span><span class="p">,</span> <span class="n">slit_height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">+</span><span class="n">slit_distance</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">21</span><span class="n">F2</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">slit_width</span><span class="p">,</span> <span class="n">slit_height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">slit_distance</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c1"># Coherent addition of the two slit fields</span>
+<span class="linenos">24</span><span class="n">F</span> <span class="o">=</span> <span class="n">BeamMix</span><span class="p">(</span><span class="n">F1</span><span class="p">,</span> <span class="n">F2</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1"># Fresnel propagation to the screen</span>
+<span class="linenos">27</span><span class="n">F</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="c1"># Intensity at the screen</span>
+<span class="linenos">30</span><span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="c1"># Coordinates for plotting</span>
+<span class="linenos">33</span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">mm</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="linenos">36</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+<span class="linenos">37</span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x (mm)&#39;</span><span class="p">)</span>
+<span class="linenos">38</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (mm)&#39;</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Young&#39;s Double-Slit Interference at z = 1 m&quot;</span><span class="p">)</span>
+<span class="linenos">40</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normalized intensity&#39;</span><span class="p">)</span>
+<span class="linenos">41</span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="expected-result">
+<h2><span class="section-number">7.1.1.4. </span>Expected result<a class="headerlink" href="#expected-result" title="Link to this heading"></a></h2>
+<p>The intensity distribution on the screen shows:</p>
+<ul class="simple">
+<li><p>A series of bright and dark vertical fringes due to interference between the
+two coherent slit fields.</p></li>
+<li><p>A slowly varying envelope caused by single–slit diffraction.</p></li>
+<li><p>Fringe spacing that increases with propagation distance and decreases with
+slit separation.</p></li>
+</ul>
+<p>At shorter propagation distances, the pattern exhibits a mixture of diffraction
+and interference. At larger distances, the classical double–slit interference
+fringes become more clearly defined.</p>
+<p>(<a class="reference download internal" download="" href="_downloads/4f0f69d7a5b06f67db911ecf1d4bacaa/TwoSlits.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/16b1c2dad99334b5346b99c0c1e45304/TwoSlits.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/d9fa9c38f2718f50c81cda3c1642ddb7/TwoSlits.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/7603d318c1db5d099682e024c20d188b/TwoSlits.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default">
+<img alt="_images/TwoSlits.png" class="plot-directive" src="_images/TwoSlits.png" />
+</figure>
+</section>
+<section id="two-holes-in-stead-of-two-slits">
+<h2><span class="section-number">7.1.1.5. </span>Two holes in stead of two slits<a class="headerlink" href="#two-holes-in-stead-of-two-slits" title="Link to this heading"></a></h2>
+<p>The following python script simulates the interference from two small holes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -152,11 +258,12 @@ on a screen at a sufficient large distance from the screen with the holes.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Results:</p>
+<p>Result:</p>
 <p>(<a class="reference download internal" download="" href="_downloads/258b30836117aa2d3fa2f1ebff54ee5c/Young.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/bdb2315586da2ca355b3ecb6ec54b6c6/Young.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/65bbcf6178be028ad2532f663f244dbb/Young.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/4a71de1ab14450463ea4a7d2e8dec87b/Young.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/Young.png" class="plot-directive" src="_images/Young.png" />
 </figure>
+</section>
 </section>
 
 
