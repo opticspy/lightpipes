@@ -1,24 +1,22 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>7.2.2. Spot of Poisson. &mdash; LightPipes for Python 2.1.5 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+  <title>7.2.2. Poisson’s Spot &mdash; LightPipes for Python 2.1.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=786ba454"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=786ba454"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,9 +36,6 @@
             LightPipes for Python
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.1.5
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -61,7 +56,13 @@
 <li class="toctree-l2"><a class="reference internal" href="examples.html#interference-examples">7.1. Interference examples.</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="examples.html#diffraction-examples">7.2. Diffraction examples.</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="DiffractionRoundHole.html">7.2.1. Diffraction from a circular aperture.</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">7.2.2. Spot of Poisson.</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">7.2.2. Poisson’s Spot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-this-example-illustrates">7.2.2.1. What this example illustrates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#physical-background">7.2.2.2. Physical background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-example">7.2.2.3. Code example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expected-result">7.2.2.4. Expected result</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="FresnelZonePlate.html">7.2.3. Fresnel zone plate.</a></li>
 </ul>
 </li>
@@ -95,7 +96,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="examples.html"><span class="section-number">7. </span>Examples.</a></li>
-      <li class="breadcrumb-item active"><span class="section-number">7.2.2. </span>Spot of Poisson.</li>
+      <li class="breadcrumb-item active"><span class="section-number">7.2.2. </span>Poisson’s Spot</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/PoissonSpot.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,18 +106,118 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="spot-of-poisson">
-<span id="index-0"></span><h1><span class="section-number">7.2.2. </span>Spot of Poisson.<a class="headerlink" href="#spot-of-poisson" title="Link to this heading"></a></h1>
-<p>A laser beam illuminates a round disk.
-Behind the disk, in its shadow, a bright spot is visible which is produced by constructive interference of the waves originating from the edge of the disk.
-This spot is called ‘the spot of Poisson’. It was predicted by Poisson by applying the Maxwell equations.
-Poisson concluded that the spot proved that Maxwell’s theory was not valid and that light is not a wave phenomenon.
-However, Arago performed the experiment and saw the spot. The spot of Poisson is therefore one of the first indications that light is a wave-phenomenon.
-It is also called the spot of Arago or the spot of Poisson/Arago.</p>
+  <section id="poissons-spot">
+<span id="index-0"></span><h1><span class="section-number">7.2.2. </span>Poisson’s Spot<a class="headerlink" href="#poissons-spot" title="Link to this heading"></a></h1>
+<p>Poisson’s spot, also known as the Arago spot, is a classical demonstration of the
+wave nature of light. When a coherent beam illuminates an opaque circular disk,
+a bright point appears at the center of the geometric shadow. This phenomenon
+results from constructive interference of the secondary wavelets originating
+from the edge of the disk.</p>
+<p>Historically, Poisson predicted the existence of this bright spot while
+evaluating Fresnel’s wave theory of light. He believed the prediction was absurd
+and used it as an argument <em>against</em> the wave theory. However, Arago performed
+the experiment and observed the spot exactly as predicted. The Poisson/Arago
+spot therefore became one of the earliest and strongest confirmations that light
+behaves as a wave.</p>
+<p>This example demonstrates how to simulate Poisson’s spot using LightPipes.</p>
+<section id="what-this-example-illustrates">
+<h2><span class="section-number">7.2.2.1. </span>What this example illustrates<a class="headerlink" href="#what-this-example-illustrates" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Creation of a uniform plane wave.</p></li>
+<li><p>Introduction of an opaque circular obstacle.</p></li>
+<li><p>Fresnel propagation over a finite distance.</p></li>
+<li><p>Calculation and visualization of the resulting intensity pattern.</p></li>
+<li><p>Observation of the central bright spot characteristic of Poisson’s phenomenon.</p></li>
+</ul>
+</section>
+<section id="physical-background">
+<h2><span class="section-number">7.2.2.2. </span>Physical background<a class="headerlink" href="#physical-background" title="Link to this heading"></a></h2>
+<p>According to geometrical optics, the center of the shadow behind an opaque disk
+should be completely dark. Fresnel’s wave theory, however, predicts that every
+point on the edge of the disk acts as a secondary source. The contributions from
+these sources interfere constructively at the center of the shadow, producing a
+bright spot. The surrounding ring structure is caused by additional constructive
+and destructive interference of the diffracted wavefronts.</p>
+</section>
+<section id="code-example">
+<h2><span class="section-number">7.2.2.3. </span>Code example<a class="headerlink" href="#code-example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span> <span class="c1"># Parameters</span>
+<span class="linenos"> 6</span> <span class="n">wavelength</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">um</span>
+<span class="linenos"> 7</span> <span class="n">size</span><span class="o">=</span><span class="mf">25.0</span><span class="o">*</span><span class="n">mm</span>
+<span class="linenos"> 8</span> <span class="n">N</span><span class="o">=</span><span class="mi">2000</span>
+<span class="linenos"> 9</span> <span class="n">N2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">10</span> <span class="n">z</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="n">cm</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span> <span class="c1"># Begin with a plane wave</span>
+<span class="linenos">13</span> <span class="n">F</span> <span class="o">=</span> <span class="n">Begin</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span> <span class="c1"># Gaussian laser beam</span>
+<span class="linenos">16</span> <span class="n">w0</span><span class="o">=</span><span class="n">size</span><span class="o">/</span><span class="mi">3</span>
+<span class="linenos">17</span> <span class="n">F</span><span class="o">=</span><span class="n">GaussBeam</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span> <span class="c1"># Circular opaque disk (obstacle)</span>
+<span class="linenos">20</span> <span class="n">disk_diameter</span> <span class="o">=</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">mm</span>
+<span class="linenos">21</span> <span class="n">F</span> <span class="o">=</span> <span class="n">CircScreen</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">disk_diameter</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span> <span class="c1"># Fresnel propagation</span>
+<span class="linenos">24</span> <span class="n">F</span> <span class="o">=</span> <span class="n">Fresnel</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span> <span class="c1"># Intensity at the screen</span>
+<span class="linenos">27</span> <span class="n">I</span> <span class="o">=</span> <span class="n">Intensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span> <span class="c1"># Coordinates for plotting</span>
+<span class="linenos">30</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">mm</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span> <span class="n">s1</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;LightPipes for Python&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">33</span> <span class="n">s2</span> <span class="o">=</span>    <span class="sa">r</span><span class="s1">&#39;Poisson.py&#39;</span><span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span>\
+<span class="linenos">34</span>         <span class="sa">f</span><span class="s1">&#39;size = </span><span class="si">{</span><span class="n">size</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="linenos">35</span>         <span class="sa">f</span><span class="s1">&#39;$</span><span class="se">\\</span><span class="s1">lambda$ = </span><span class="si">{</span><span class="n">wavelength</span><span class="o">/</span><span class="n">um</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> $</span><span class="se">\\</span><span class="s1">mu$m&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="linenos">36</span>         <span class="sa">f</span><span class="s1">&#39;N = </span><span class="si">{</span><span class="n">N</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span>\
+<span class="linenos">37</span>         <span class="sa">f</span><span class="s1">&#39;d = </span><span class="si">{</span><span class="n">disk_diameter</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm disk diameter&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="linenos">38</span>         <span class="sa">f</span><span class="s1">&#39;w0 = </span><span class="si">{</span><span class="n">w0</span><span class="o">/</span><span class="n">mm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> mm radius Gauss beam&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="linenos">39</span>         <span class="sa">f</span><span class="s1">&#39;z = </span><span class="si">{</span><span class="n">z</span><span class="o">/</span><span class="n">cm</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> cm distance from disk&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
+<span class="linenos">40</span>         <span class="sa">r</span><span class="s1">&#39;${\copyright}$ Fred van Goor, February 2026&#39;</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span> <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="linenos">44</span> <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;The spot of Poisson&quot;</span><span class="p">)</span>
+<span class="linenos">45</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">);</span><span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="linenos">46</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="linenos">47</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">);</span><span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="linenos">48</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">N2</span><span class="o">-</span><span class="mi">300</span><span class="p">,</span><span class="n">N2</span><span class="o">+</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">49</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">N2</span><span class="o">-</span><span class="mi">300</span><span class="p">,</span><span class="n">N2</span><span class="o">+</span><span class="mi">300</span><span class="p">)</span>
+<span class="linenos">50</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="linenos">51</span>
+<span class="linenos">52</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Intensity pattern after </span><span class="si">{</span><span class="n">z</span><span class="o">/</span><span class="n">cm</span><span class="si">:</span><span class="s1">4.1f</span><span class="si">}</span><span class="s1"> cm propagation&#39;</span><span class="p">)</span>
+<span class="linenos">53</span> <span class="n">X</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos">54</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="o">/</span><span class="n">mm</span><span class="p">,</span><span class="n">I</span><span class="p">[</span><span class="n">N2</span><span class="p">]);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x[mm]&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity [a.u.]&#39;</span><span class="p">)</span>
+<span class="linenos">55</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;The intensity cross-section of the spot&#39;</span><span class="p">)</span>
+<span class="linenos">56</span> <span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="linenos">57</span> <span class="n">ax3</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="n">s2</span><span class="p">)</span>
+<span class="linenos">58</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="expected-result">
+<h2><span class="section-number">7.2.2.4. </span>Expected result<a class="headerlink" href="#expected-result" title="Link to this heading"></a></h2>
+<p>At a propagation distance of approximately one meter, the intensity pattern shows:</p>
+<ul class="simple">
+<li><p>A bright central spot located exactly at the center of the shadow.</p></li>
+<li><p>Concentric diffraction rings surrounding the spot.</p></li>
+<li><p>A shadow region whose structure depends on the disk radius, wavelength, and
+propagation distance.</p></li>
+</ul>
+<p>At shorter distances the shadow is more pronounced, while at longer distances
+the Poisson spot becomes sharper and more clearly visible.</p>
 <p>(<a class="reference download internal" download="" href="_downloads/074da5cfb8644845cf318a293277736e/Poisson.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="_downloads/2d260283e0cc25e585b4f7329a7bbfc5/Poisson.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/dbeaa4dfed413758c5576b8dac981148/Poisson.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="_downloads/1ad6c474227b82b1f25696f31ab7cf4e/Poisson.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/Poisson.png" class="plot-directive" src="_images/Poisson.png" />
 </figure>
+</section>
 </section>
 
 
@@ -131,7 +232,7 @@ It is also called the spot of Arago or the spot of Poisson/Arago.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Aug 15, 2024.
+      <span class="lastupdated">Last updated on Feb 26, 2026.
       </span></p>
   </div>
 

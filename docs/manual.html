@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -5,21 +7,17 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>6. Manual. &mdash; LightPipes for Python 2.1.5 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=786ba454"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=786ba454"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -39,9 +37,6 @@
             LightPipes for Python
               <img src="_static/front.png" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.1.5
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -177,8 +172,8 @@ In addition, there are three commands describing screens:
 <a class="reference internal" href="command-reference.html#LightPipes.CircScreen" title="LightPipes.CircScreen"><code class="xref py py-func docutils literal notranslate"><span class="pre">CircScreen</span></code></a> (inversion of the circular aperture),
 <a class="reference internal" href="command-reference.html#LightPipes.RectScreen" title="LightPipes.RectScreen"><code class="xref py py-func docutils literal notranslate"><span class="pre">RectScreen</span></code></a>, (inversion of the rectangular aperture)
 and <a class="reference internal" href="command-reference.html#LightPipes.GaussScreen" title="LightPipes.GaussScreen"><code class="xref py py-func docutils literal notranslate"><span class="pre">GaussScreen</span></code></a> (inversion of the gauss aperture).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">GridSize</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">GridDimension</span> <span class="o">=</span> <span class="mi">128</span>
@@ -202,8 +197,8 @@ and <a class="reference internal" href="command-reference.html#LightPipes.GaussS
 <p><em>Fig. 1. Example of the application of a circular aperture.</em></p>
 <p>All kinds of combinations of circular, rectangular and Gaussian apertures
 and screens can be made:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">GridSize</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">GridDimension</span> <span class="o">=</span> <span class="mi">256</span>
@@ -252,10 +247,10 @@ package which can be installed by typing at the python prompt:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">GridSize</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">GridDimension</span> <span class="o">=</span> <span class="mi">128</span>
@@ -356,8 +351,8 @@ LightPipes command for propagation is <a class="reference internal" href="comman
 It implements the spectral method described by <a class="footnote-reference brackets" href="#f1" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#f2" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#f3" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> . The syntax is simple,
 for example if you want to filter your field through a 1cm aperture and then
 propagate the beam 1m forward, you type the following commands:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
 <span class="n">Field</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
@@ -401,8 +396,8 @@ in other words we define the field in a grid filled mainly with zeros.
 The grid must be even larger when the beam is aberrated because the divergent
 beams reach the region border sooner.</p>
 <p>Due to these two reasons the commands:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
 <span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
@@ -430,8 +425,8 @@ beams reach the region border sooner.</p>
 (argument of <a class="reference internal" href="command-reference.html#LightPipes.RectAperture" title="LightPipes.RectAperture"><code class="xref py py-func docutils literal notranslate"><span class="pre">RectAperture</span></code></a>)
 equals to the section of the grid (the first argument of <a class="reference internal" href="command-reference.html#LightPipes.Begin" title="LightPipes.Begin"><code class="xref py py-func docutils literal notranslate"><span class="pre">Begin</span></code></a>), so we have
 a model of light propagation in a wave guide but not in a free space. One has to put:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
 <span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
@@ -456,8 +451,8 @@ a model of light propagation in a wave guide but not in a free space. One has to
 <img alt="_images/Forvard3.png" class="plot-directive" src="_images/Forvard3.png" />
 </figure>
 <p>for propagation in the near field, and may be:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">400</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
 <span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
@@ -483,8 +478,8 @@ a model of light propagation in a wave guide but not in a free space. One has to
 </figure>
 <p>for far field propagation.
 If we compare the result of the previous example with the result of:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">60</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
 <span class="n">Field</span> <span class="o">=</span> <span class="n">RectAperture</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">20</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
@@ -515,8 +510,8 @@ and does not require the allocation of extra memory. In LightPipes a negative ar
 may be supplied to <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a>. It means that the program will
 perform “propagation back”
 or in other words it will reconstruct the initial field from the one diffracted. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">Field</span><span class="o">=</span><span class="n">Begin</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="mi">1</span><span class="o">*</span><span class="n">um</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
 <span class="n">Field</span> <span class="o">=</span> <span class="n">CircAperture</span><span class="p">(</span><span class="mi">25</span><span class="o">*</span><span class="n">mm</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Field</span><span class="p">)</span>
@@ -654,10 +649,10 @@ formulas. It does not take into account the change of the wavelength in the medi
 model backscattering and reflections back on interfaces between different media. Perhaps there
 are other details to be mentioned. The described algorithm is implemented in the <a class="reference internal" href="command-reference.html#LightPipes.Steps" title="LightPipes.Steps"><code class="xref py py-func docutils literal notranslate"><span class="pre">Steps</span></code></a> command.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Focus of a lens.</span>
-<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span><span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span><span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mf">632.8</span><span class="o">*</span><span class="n">nm</span><span class="p">;</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="o">*</span><span class="n">mm</span><span class="p">;</span>
@@ -715,8 +710,8 @@ field should be taken into account.</p>
 <section id="splitting-and-mixing-beams">
 <h2><span class="section-number">6.3. </span>Splitting and mixing beams.<a class="headerlink" href="#splitting-and-mixing-beams" title="Link to this heading"></a></h2>
 <p>There are two commands in LightPipes which are useful for modelling of interferometers. With <a class="reference internal" href="command-reference.html#LightPipes.IntAttenuator" title="LightPipes.IntAttenuator"><code class="xref py py-func docutils literal notranslate"><span class="pre">IntAttenuator</span></code></a> we can split the field structure (amplitude division) - The two obtained fields could be processed separately and then mixed again with the routine <a class="reference internal" href="command-reference.html#LightPipes.BeamMix" title="LightPipes.BeamMix"><code class="xref py py-func docutils literal notranslate"><span class="pre">BeamMix</span></code></a>. In this script we have formed two beams each containing one “shifted” hole. After mixing these two beams we have a screen with two holes: a Young’s interferometer.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Young&#39;s experiment.</span>
 <span class="sd">    Two holes with radii, R, separated by, d, in a screen are illuminated by a plane wave. The interference pattern</span>
@@ -765,8 +760,8 @@ field should be taken into account.</p>
 </figure>
 <p><em>Fig. 7. Young’s interferometer.</em></p>
 <p>Having the model of the interferometer we can “play” with it, moving the pinholes and changing their sizes. The following models the result of the interference of a plane wave diffracted at three round apertures:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">550</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
@@ -805,8 +800,8 @@ field should be taken into account.</p>
 <p>The next interferometer is more interesting:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! python3</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">550</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">mm</span>
@@ -843,8 +838,8 @@ field should be taken into account.</p>
 <p>In the last example the intensity distribution is modulated by the wave, reflected from the grid edge, nevertheless it gives a good impression about the general character of the interference pattern. To obtain a better result, the calculations should be conducted in a larger grid or other numerical method should be used. The following example uses a direct integration algorithm (the input and output are in different scales and have different samplings):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! python3</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">550</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span><span class="o">=</span><span class="mf">2.6</span><span class="o">*</span><span class="n">mm</span>
@@ -886,10 +881,10 @@ field should be taken into account.</p>
 <p>The command <a class="reference internal" href="command-reference.html#LightPipes.Interpol" title="LightPipes.Interpol"><code class="xref py py-func docutils literal notranslate"><span class="pre">Interpol</span></code></a> is the tool for manipulating the size and the dimension of the grid and for changing the shift, rotation and the scale of the field distribution. It accepts six command line arguments, the first is the new size of the grid. The second argument gives the new number of points, the third gives the value of transverse shift in the X direction, the fourth gives the shift in the Y direction, the fifth gives the field rotation (first shift and then rotation). The last sixth argument determines the magnification, its action is equivalent to passing the beam through a focal system with magnification M (without diffraction, but preserving the integral intensity). For example if the field was propagated with the FFT algorithm <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a>, then the grid contains empty borders, which is not necessary if we want to propagate the field further with <a class="reference internal" href="command-reference.html#LightPipes.Forward" title="LightPipes.Forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forward</span></code></a>. Other way around, after <em>Forward</em> we have to add some empty borders to continue with <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a>. <a class="reference internal" href="command-reference.html#LightPipes.Interpol" title="LightPipes.Interpol"><code class="xref py py-func docutils literal notranslate"><span class="pre">Interpol</span></code></a> is useful for interpolating into a grid with different size and number of points. Of course it is not too wise to interpolate from a grid of 512x512 points into a grid of 8x8, and then back because all information about the field will be lost. The same is true for interpolating the  grid of 1mx1m to 1mmx1mm and back. When interpolating into a grid with larger size, for example from 1x1 to 2x2, the program puts zeros into the new added regions. Figure 11 illustrates the usage of <em>Interpol</em> for the transition from a fine grid used by <a class="reference internal" href="command-reference.html#LightPipes.Forvard" title="LightPipes.Forvard"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forvard</span></code></a> (near field) to a coarse grid used by <a class="reference internal" href="command-reference.html#LightPipes.Forward" title="LightPipes.Forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">Forward</span></code></a> (far field).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#! python3</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">LPversion</span><span class="p">)</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1000</span><span class="o">*</span><span class="n">nm</span>
@@ -943,8 +938,8 @@ field should be taken into account.</p>
 <section id="phase-and-intensity-filters">
 <h2><span class="section-number">6.5. </span>Phase and intensity filters.<a class="headerlink" href="#phase-and-intensity-filters" title="Link to this heading"></a></h2>
 <p>There are four kinds of phase filters available in LightPipes -wave front tilt, the quadratic phase corrector called lens, a general aberration in the form of a Zernike polynomial, and a user defined filter. To illustrate the usage of these filters let’s consider the following examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
@@ -986,8 +981,8 @@ field should be taken into account.</p>
 <p>We have to be very careful propagating the field to the distance which is close to the focal distance of a positive lens- the near—focal intensity and phase distributions are localised in the central region of the grid occupying only a few grid points. This leads to the major loss of information about the field distribution. The problem is solved by applying the co-ordinate system which is tied to the divergent or convergent light beam, the tools to do this will be described later.</p>
 <p>The lens may be decentered, <em>Lens(8, 0.01, 0.01, Field)</em> produces the lens with a focal length of <span class="math notranslate nohighlight">\(1/0.125\)</span>  shifted by 0.01 in X and Y directions. Note, when the lens is shifted, the aperture of the lens is not shifted, the light beam is not shifted also, only the phase mask correspondents to the lens is shifted.</p>
 <p>The wave front tilt is illustrated by following example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
@@ -1045,10 +1040,10 @@ This index corresponds to the <span class="math notranslate nohighlight">\(n-2m\
 </div></blockquote>
 <p>We can uniformly introduce <a class="reference internal" href="command-reference.html#LightPipes.Lens" title="LightPipes.Lens"><code class="xref py py-func docutils literal notranslate"><span class="pre">Lens</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Tilt" title="LightPipes.Tilt"><code class="xref py py-func docutils literal notranslate"><span class="pre">Tilt</span></code></a> with <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a>, the difference is that we pass the amplitude of the aberration to  <a class="reference internal" href="command-reference.html#LightPipes.Lens" title="LightPipes.Lens"><code class="xref py py-func docutils literal notranslate"><span class="pre">Lens</span></code></a>, <a class="reference internal" href="command-reference.html#LightPipes.Tilt" title="LightPipes.Tilt"><code class="xref py py-func docutils literal notranslate"><span class="pre">Tilt</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a> accept conventional meters and radians, which are widely in use for the description of optical setups, while <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a> uses the amplitude of the aberration, which frequently has to be derived from the technical description.</p>
 <p>A cylindrical lens can be modelled as a combination of two <a class="reference internal" href="command-reference.html#LightPipes.Zernike" title="LightPipes.Zernike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Zernike</span></code></a> commands:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
 <span class="n">N</span><span class="o">=</span><span class="mi">500</span>
@@ -1132,10 +1127,10 @@ This index corresponds to the <span class="math notranslate nohighlight">\(n-2m\
 The results for <span class="math notranslate nohighlight">\(f=100 cm\)</span> and <span class="math notranslate nohighlight">\(f=10 cm\)</span> are shown in figures 16a+b where the two methods are compared.
 As can been seen the straight-forward method requires much larger grid dimensions and hence
 longer execution time. This is especially the case for stronger lenses (shorter focal lengths).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">TheExample</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">TheExample</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">9.5</span><span class="p">))</span>
     <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
     <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
@@ -1218,10 +1213,10 @@ longer execution time. This is especially the case for stronger lenses (shorter 
 </figure>
 <p><em>Fig. 16a. Diffraction to the focus of a f=100 cm lens. The use of a spherical coordinate system (LensFresnel + Convert)
 is compared with the straight-forward method (Lens + Fresnel).</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">TheExample</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">TheExample</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mf">9.5</span><span class="p">))</span>
     <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
     <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
@@ -1309,10 +1304,10 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <section id="user-defined-phase-and-intensity-filters">
 <h2><span class="section-number">6.8. </span>User defined phase and intensity filters.<a class="headerlink" href="#user-defined-phase-and-intensity-filters" title="Link to this heading"></a></h2>
 <p>The phase and intensity of the light beam can be manipulated in several ways. The phase and intensity distributions may be produced as shown in the next examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
@@ -1350,14 +1345,14 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 </figure>
 <p><em>Fig. 17. An arbitrary intensity- and phase distribution.</em></p>
 <p>You can also create your own mask with a program like Microsoft Paint. In the next example we made an arrow using Paint and stored it as a 200 pixels width x 200 pixels height, black-and-white, monochrome bitmap file (for example: arrow.png). This file can be read from disk. Next the arrow can be used as a filter:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpimg</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1">#Convert rgb to gray with weighted average of rgb pixels:</span>
-<span class="k">def</span> <span class="nf">rgb2gray</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rgb2gray</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rgb</span><span class="p">[</span><span class="o">...</span><span class="p">,:</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.299</span><span class="p">,</span> <span class="mf">0.587</span><span class="p">,</span> <span class="mf">0.114</span><span class="p">])</span>
 
 <span class="c1">#read image from disk and check if it is square:</span>
@@ -1404,8 +1399,8 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <h2><span class="section-number">6.10. </span>FFT and spatial filters.<a class="headerlink" href="#fft-and-spatial-filters" title="Link to this heading"></a></h2>
 <p>LightPipes provide a possibility to perform arbitrary filtering in the Fourier space. There is an operator, performing the Fourier transform of the whole data structure: <a class="reference internal" href="command-reference.html#LightPipes.PipFFT" title="LightPipes.PipFFT"><code class="xref py py-func docutils literal notranslate"><span class="pre">PipFFT</span></code></a>.</p>
 <p>To spatial filter a beam with an aperture the following code could be used:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="o">*</span><span class="n">mm</span>
 <span class="n">wavelength</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">um</span>
@@ -1457,11 +1452,11 @@ is compared with the straight-forward method (Lens + Fresnel).</em></p>
 <div class="math notranslate nohighlight">
 \[S= \frac{(\int  \int Re(F_{in}(x,y)dxdy)^2  + (\int  \int Im(F_{in}(x,y)dxdy)^2}{(\int \int |(F_{in}(x,y)|dxdy)^2}\]</div>
 <p>The next example calculates the Strehl ratio of a field with increasing random phase fluctuations:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.mplot3d</span><span class="w"> </span><span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="n">wavelength</span><span class="o">=</span><span class="mf">1.0</span><span class="o">*</span><span class="n">um</span>
 <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="o">*</span><span class="n">mm</span>
@@ -1525,11 +1520,11 @@ Mathematically, the <span class="math notranslate nohighlight">\(D4\sigma\)</spa
 \[D4\sigma _y=4\sigma=4\sqrt{\frac{\int \int (y-Y_c)^2I(x,y)dxdy}{\int \int I(x,y)dxdy}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(X_c\)</span> and <span class="math notranslate nohighlight">\(Y_c\)</span> are the coordinates of the <a class="reference internal" href="command-reference.html#LightPipes.Centroid" title="LightPipes.Centroid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Centroid</span></code></a>.</p>
 <p>The next example demonstrates the usage of <a class="reference internal" href="command-reference.html#LightPipes.D4sigma" title="LightPipes.D4sigma"><code class="xref py py-func docutils literal notranslate"><span class="pre">D4sigma</span></code></a> and <a class="reference internal" href="command-reference.html#LightPipes.Centroid" title="LightPipes.Centroid"><code class="xref py py-func docutils literal notranslate"><span class="pre">Centroid</span></code></a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">LightPipes</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">LightPipes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mpl_toolkits.axes_grid1</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_axes_locatable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">patches</span>
 
 <span class="n">wavelength</span> <span class="o">=</span> <span class="mi">1500</span><span class="o">*</span><span class="n">nm</span>
 <span class="n">size</span> <span class="o">=</span> <span class="mi">25</span><span class="o">*</span><span class="n">mm</span>
@@ -1638,7 +1633,7 @@ Mathematically, the <span class="math notranslate nohighlight">\(D4\sigma\)</spa
 
   <div role="contentinfo">
     <p>&#169; Copyright 2017, Fred van Goor.
-      <span class="lastupdated">Last updated on Aug 15, 2024.
+      <span class="lastupdated">Last updated on Feb 26, 2026.
       </span></p>
   </div>
 
