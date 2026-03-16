@@ -204,10 +204,9 @@ def ZernikeFilter(F, j_terms, R):
         # Ph -= Ph_i
         Ph += Ph_i
     
-    Fout = F
+    Fout = Field.copy(F)
     Fout.field *= _np.exp(-1j * Ph)
-    # Fout = Field.copy(F)
-    # Fout = SubPhase(Ph, Fout)
+
     return Fout
     
 
